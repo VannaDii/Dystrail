@@ -1,0 +1,38 @@
+import {chromium} from '/Users/vanna/Source/Dystrail/dystrail-web/node_modules/playwright/index.mjs';
+import {readFileSync,writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const root='/Users/vanna/Source/Dystrail/docs/ux/enhancement-review-2026-09-13/implementation/hearing';
+const out=root+'/before-hearing-verification';
+const saved=JSON.parse(readFileSync(root+'/skill-client/checkpoint.json','utf8'));
+const browser=await chromium.launch({headless:true,executablePath:'/Users/vanna/Source/Dystrail/dystrail-web/tests-e2e/chrome-launcher.py'});
+try {
+ const page=await browser.newPage({viewport:{width:1280,height:1000}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(saved=>{if(!localStorage.getItem('dystrail.autosave.v1'))localStorage.setItem('dystrail.autosave.v1',JSON.stringify(saved));},saved);
+ const ready=async()=>{await page.waitForFunction(()=>typeof window.dystrailLaunch?.then==='function');await page.evaluate(()=>window.dystrailLaunch);};
+ await page.goto('http://127.0.0.1:62523/play/');await ready();
+ await page.locator('#game-menu-button').click();await page.locator('#save-open-btn').click();
+ await page.locator('#save-file').setInputFiles(root+'/before-hearing-save.json');
+ await page.waitForFunction(()=>document.querySelector('#main')?.getAttribute('data-screen')==='travel'&&!document.querySelector('.drawer'));
+ const snapshot=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')));
+ const before=await snapshot();assert.equal(before.state.boss.ready,false);assert.equal(before.state.boss.attempted,false);assert.equal(before.state.boss.hearing,null);
+ await page.reload();await ready();assert.equal(await page.locator('#main').getAttribute('data-screen'),'travel');
+ await page.screenshot({path:out+'/before-travel.png',fullPage:true});
+ await page.evaluate(()=>{window.__roadSaves=[];const write=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='dystrail.autosave.v1')window.__roadSaves.push(value);return write.call(this,key,value);};});
+ await page.getByRole('button',{name:'Travel',exact:true}).click();
+ await page.waitForFunction(()=>document.querySelector('#main')?.getAttribute('data-screen')==='boss',{},{timeout:15000});
+ const after=await snapshot();
+ const roadSave=await page.evaluate(()=>window.__roadSaves.filter(raw=>{const s=JSON.parse(raw).state;return s&&!s.boss.ready&&!s.boss.attempted;}).at(-1));
+ if(roadSave)writeFileSync(out+'/last-road-checkpoint.json',roadSave);
+ assert.equal(after.state.boss.ready,true);assert.equal(after.state.boss.attempted,false);assert.equal(after.state.boss.hearing,null);
+ assert.equal(after.state.miles_traveled_actual,after.state.trail_distance);
+ assert.equal(after.state.journal.length,before.state.journal.length+1);
+ assert.equal(after.state.driving_minutes_total-before.state.driving_minutes_total,1);
+ assert.equal(after.state.current_encounter,null);
+ await page.screenshot({path:out+'/hearing-arrival.png',fullPage:true});
+ assert.deepEqual(errors,[]);
+ const result={file_restore:'pass',reload_on_road:'pass',travel_clicks_to_hearing:1,travel_turns_to_hearing:after.state.journal.length-before.state.journal.length,hearing_unattempted:true,hearing_result_committed:false,crew:before.state.party.name,seed:before.state.seed,sanity_before:before.state.stats.sanity,sanity_at_hearing:after.state.stats.sanity,clock_before:before.state.clock_minutes,clock_at_hearing:after.state.clock_minutes,arrival_phase:after.state.boss.presentation,runtime_errors:errors};
+ writeFileSync(out+'/validation.json',JSON.stringify(result,null,2)+'\n');
+ writeFileSync(out+'/restored-checkpoint.json',JSON.stringify(before,null,2)+'\n');
+ console.log(JSON.stringify(result,null,2));
+} finally {await browser.close();}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "flock",
+    "family_id": "ENC-D10",
+    "hook": "Police misuse of Flock to monitor former partners",
+    "verified_fact_and_limits": "Alpharetta internal records documented an officer using Flock to track a former female partner; he resigned in August 2026 while a criminal investigation remained open. This establishes officer misuse, not a conviction or Flock employees personally stalking her.",
+    "url": "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/",
+    "content_topics": [
+      "surveillance",
+      "stalking",
+      "privacy"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Ordinary security sales encounters challenged by voluntarily shared, redacted officer-misuse findings."
+  },
+  {
+    "id": "abortion_alpr",
+    "family_id": "ENC-D11",
+    "hook": "ALPR searches in an abortion investigation",
+    "verified_fact_and_limits": "Records obtained by EFF connected Texas deputies’ May 2025 nationwide Flock searches to an abortion-related death investigation and consultation about possible charges, contradicting the public welfare-check explanation. Prosecutors told investigators they could not charge the woman for the abortion; do not invent an abortion conviction.",
+    "url": "https://www.eff.org/deeplinks/2025/10/flock-safety-and-texas-sheriff-claimed-license-plate-search-was-missing-person-it",
+    "content_topics": [
+      "surveillance",
+      "reproductive_health",
+      "privacy"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Rest-stop staff offer normal public-road directions while a camera promoter misrepresents the documented investigation as protection."
+  },
+  {
+    "id": "period_data",
+    "family_id": "ENC-D12",
+    "hook": "Premom reproductive-health data disclosures",
+    "verified_fact_and_limits": "The FTC’s 2023 Premom settlement addressed allegations that the fertility app deceptively shared identifiable reproductive-health information with advertising/analytics companies and failed to notify users. These are historical allegations resolved through settlement, not evidence that every period app currently does this or that these disclosures produced prosecutions.",
+    "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/202-3186-easy-healthcare-corporation-us-v",
+    "content_topics": [
+      "health_data",
+      "reproductive_health",
+      "privacy"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Pharmacy, restroom and phone-repair encounters contrast private-health marketing with documented data disclosures."
+  },
+  {
+    "id": "clinic_location",
+    "family_id": "ENC-D13",
+    "hook": "Broker sale of sensitive clinic-location data",
+    "verified_fact_and_limits": "The FTC finalized a 2024 order banning X-Mode/Outlogic from selling or sharing sensitive-location data after allegations involving data capable of revealing medical and reproductive-clinic visits. That establishes a documented commercial privacy risk, not a proven prosecution of a particular patient.",
+    "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/X-ModeSocialDecisionandOrder.pdf",
+    "content_topics": [
+      "health_data",
+      "location_data",
+      "privacy"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Café, motel and travel-kiosk encounters expose the gap between anonymous-map sales language and sensitive destinations."
+  },
+  {
+    "id": "passport",
+    "family_id": "ENC-W-PC-D01",
+    "hook": "Passport sex-marker restrictions",
+    "verified_fact_and_limits": "State currently issues only M/F passport markers matching its sex-at-birth policy and warns that conflicting requests may delay issuance. Existing passports are not automatically invalid: State lists expiration, replacement or regulatory invalidation as the relevant conditions.",
+    "url": "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html",
+    "content_topics": [
+      "trans_rights",
+      "identity_documents",
+      "travel_access"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Photo, parcel and luggage shops reveal how federal passport rules can conflict with a trans customer’s current identity documents."
+  },
+  {
+    "id": "va_care",
+    "family_id": "ENC-W-PC-D02",
+    "hook": "VA gender-affirming care cutoff",
+    "verified_fact_and_limits": "VA’s March 2025 policy restricts starting gender-affirming hormone therapy, with exceptions for people already receiving it through VA or qualifying military-care continuation. It does not mean all trans veterans lost all healthcare.",
+    "url": "https://news.va.gov/press-room/va-to-phase-out-treatment-for-gender-dysphoria/",
+    "content_topics": [
+      "trans_rights",
+      "healthcare_access",
+      "veterans"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Ordinary veterans’ shops and cafés sell universal-gratitude messaging beside public rules limiting new hormone treatment."
+  },
+  {
+    "id": "ssi",
+    "family_id": "ENC-W-MW-D01",
+    "hook": "SSI countable-resource limits",
+    "verified_fact_and_limits": "SSA’s 2026 SSI rules retain countable-resource limits of $2,000 individually and $3,000 for a couple. This is SSI, not all disability benefits; exclusions include a transportation vehicle and qualifying ABLE funds.",
+    "url": "https://www.ssa.gov/ssi/text-resources-ussi.htm",
+    "content_topics": [
+      "disability",
+      "benefits",
+      "poverty"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Repair, grocery and book-sale stops show the tension between encouraged savings and SSI countable-resource limits."
+  },
+  {
+    "id": "medical_debt",
+    "family_id": "ENC-W-MW-D02",
+    "hook": "Federal medical-debt reporting rule vacated",
+    "verified_fact_and_limits": "On July 11, 2025, a court vacated the federal medical-debt reporting rule at the joint request of CFPB and industry plaintiffs. Do not imply every medical bill must appear on a credit report or that all other protections vanished.",
+    "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-finalizes-rule-to-remove-medical-bills-from-credit-reports/",
+    "content_topics": [
+      "medical_debt",
+      "credit_access",
+      "healthcare_costs"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Vehicle and appliance financing encounters contrast repaired goods with customers still judged by hospital debt."
+  },
+  {
+    "id": "ma_denials",
+    "family_id": "ENC-W-SW-D01",
+    "hook": "Medicare Advantage denial of qualifying care",
+    "verified_fact_and_limits": "HHS OIG found that 13% of sampled Medicare Advantage prior-authorization denials met Medicare coverage rules. This was a 2022 report examining June 2019 denials, not a current rejection rate for all claims; subsequent recommendations were implemented.",
+    "url": "https://www.oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/",
+    "content_topics": [
+      "health_insurance",
+      "care_denial",
+      "disability"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Clinic cafés and mobility shops advertise smooth access while visitors voluntarily discuss a public federal denial audit."
+  },
+  {
+    "id": "detention_care",
+    "family_id": "ENC-W-SW-D02",
+    "hook": "Missing chronic-care plans in immigration detention",
+    "verified_fact_and_limits": "GAO’s June 2026 report described a December 2025 Camp East Montana review finding missing comprehensive assessments and no treatment plans for detained people with diabetes or HIV. These are facility- and period-specific findings, not proof that every ICE facility has identical conditions.",
+    "url": "https://files.gao.gov/reports/GAO-26-108886/index.html",
+    "content_topics": [
+      "immigration_detention",
+      "healthcare_access",
+      "medical_neglect"
+    ],
+    "checked": "2026-09-14",
+    "fiction_premise": "Copy, diner and linen-depot work contrasts contractor medical promises with public oversight findings; no private detainee records are exposed."
+  }
+]

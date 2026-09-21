@@ -9,7 +9,9 @@ pub fn render(party: Option<&Party>) -> Html {
     html! {<div class="parked-crew">
         <svg class="crew-color-key" aria-hidden="true" width="0" height="0"><defs>
             <filter id="standing-crew-key" color-interpolation-filters="sRGB">
-                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -3 6 -3 0 5" result="keyed"/>
+                // Leave enough chroma-key margin for accelerated, fractional-size rendering.
+                // The weaker key left translucent magenta rectangles in the in-app browser.
+                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -4 8 -4 0 5" result="keyed"/>
                 <feMorphology in="keyed" operator="erode" radius="2" result="silhouette"/>
                 <feComposite in="keyed" in2="silhouette" operator="in"/>
             </filter>

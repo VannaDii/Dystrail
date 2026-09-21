@@ -1,0 +1,278 @@
+[
+  {
+    "source_id": "repair",
+    "record_ids": [
+      "ENC-C01-B"
+    ],
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+    "title": "Oregon Revised Statutes: Right to Repair Consumer Equipment",
+    "date": "2025 codification",
+    "checked": "2026-09-14",
+    "fact": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025.",
+    "qualification": "Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction."
+  },
+  {
+    "source_id": "font",
+    "record_ids": [
+      "ENC-C01-C"
+    ],
+    "url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+    "title": "AP: Rubio orders return to Times New Roman",
+    "date": "2025-12-10",
+    "checked": "2026-09-14",
+    "fact": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change.",
+    "qualification": "The instruction concerned State Department correspondence; it did not require private printers to change fonts."
+  },
+  {
+    "source_id": "ballroom",
+    "record_ids": [
+      "ENC-C03-B"
+    ],
+    "url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+    "title": "White House announces ballroom construction",
+    "date": "2025-07-31",
+    "checked": "2026-09-14",
+    "fact": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure.",
+    "qualification": "Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded."
+  },
+  {
+    "source_id": "cancel",
+    "record_ids": [
+      "ENC-C03-C"
+    ],
+    "url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+    "title": "AP: Appeals court vacates FTC click-to-cancel rule",
+    "date": "2025-07-09",
+    "checked": "2026-09-14",
+    "fact": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up.",
+    "qualification": "The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply."
+  },
+  {
+    "source_id": "postal",
+    "record_ids": [
+      "ENC-C09-A"
+    ],
+    "url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+    "title": "USPS announces refined service standards and cost reductions",
+    "date": "2025-02-26",
+    "checked": "2026-09-14",
+    "fact": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same.",
+    "qualification": "USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late."
+  },
+  {
+    "source_id": "checks",
+    "record_ids": [
+      "ENC-C11-C"
+    ],
+    "url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+    "title": "IRS: Modernizing payments to and from America’s bank account",
+    "date": "Current guidance checked 2026-09-14",
+    "checked": "2026-09-14",
+    "fact": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments.",
+    "qualification": "Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred."
+  },
+  {
+    "source_id": "fees",
+    "record_ids": [
+      "ENC-C12-C"
+    ],
+    "url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+    "title": "FTC: Rule on Unfair or Deceptive Fees FAQ",
+    "date": "Effective 2025-05-12",
+    "checked": "2026-09-14",
+    "fact": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price.",
+    "qualification": "The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business."
+  },
+  {
+    "source_id": "shoes",
+    "record_ids": [
+      "ENC-C13-A"
+    ],
+    "url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+    "title": "AP: TSA ends routine shoes-off airport screening",
+    "date": "2025-07-08",
+    "checked": "2026-09-14",
+    "fact": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints.",
+    "qualification": "Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change."
+  },
+  {
+    "source_id": "penny",
+    "record_ids": [
+      "ENC-S13-B"
+    ],
+    "url": "https://www.usmint.gov/news/media-kit/penny",
+    "title": "United States Mint: Penny information",
+    "date": "Current guidance checked 2026-09-14",
+    "checked": "2026-09-14",
+    "fact": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender.",
+    "qualification": "The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice."
+  },
+  {
+    "source_id": "stadium",
+    "record_ids": [
+      "ENC-S13-C"
+    ],
+    "url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+    "title": "AP: Ohio budget allocates unclaimed funds toward Browns stadium",
+    "date": "2025-07-01",
+    "checked": "2026-09-14",
+    "fact": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium.",
+    "qualification": "This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund."
+  },
+  {
+    "source_id": "refund",
+    "record_ids": [
+      "ENC-S16-B"
+    ],
+    "url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+    "title": "DOT: What passengers need to know about the automatic refund rule",
+    "date": "2024-11-18",
+    "checked": "2026-09-14",
+    "fact": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method.",
+    "qualification": "Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline."
+  },
+  {
+    "source_id": "directfile",
+    "record_ids": [
+      "ENC-S29-B"
+    ],
+    "url": "https://www.gao.gov/products/b-337954",
+    "title": "GAO B-337954: Suspension of IRS Direct File",
+    "date": "2026-05-12",
+    "checked": "2026-09-14",
+    "fact": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain.",
+    "qualification": "The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks."
+  },
+  {
+    "source_id": "king",
+    "record_ids": [
+      "ENC-C08-C"
+    ],
+    "url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+    "title": "New York governor’s transcript on the federal congestion-pricing reversal attempt",
+    "date": "2025-02-19",
+    "checked": "2026-09-14",
+    "fact": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal.",
+    "qualification": "The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll."
+  },
+  {
+    "source_id": "kingcourt",
+    "record_ids": [
+      "ENC-C08-C"
+    ],
+    "url": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf",
+    "title": "Southern District of New York: Congestion-pricing opinion",
+    "date": "2026-03-03",
+    "checked": "2026-09-14",
+    "fact": "A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds.",
+    "qualification": "Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented."
+  },
+  {
+    "source_id": "coke",
+    "record_ids": [
+      "ENC-C12-A"
+    ],
+    "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+    "title": "Coca-Cola reports second-quarter 2025 results",
+    "date": "2025-07-22",
+    "checked": "2026-09-14",
+    "fact": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup.",
+    "qualification": "The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier."
+  },
+  {
+    "source_id": "cokeclaim",
+    "record_ids": [
+      "ENC-C12-A"
+    ],
+    "url": "https://apnews.com/article/a95e4c1f25eaab05de7da5df30ff66ed",
+    "title": "AP: Coca-Cola confirms a cane-sugar option after Trump’s claim",
+    "date": "2025-07-22",
+    "checked": "2026-09-14",
+    "fact": "Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option.",
+    "qualification": "The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration."
+  },
+  {
+    "source_id": "snapsoda",
+    "record_ids": [
+      "ENC-S12-A"
+    ],
+    "url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+    "title": "USDA approves Nebraska SNAP food-restriction waiver",
+    "date": "2025-05-19",
+    "checked": "2026-09-14",
+    "fact": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits.",
+    "qualification": "This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP."
+  },
+  {
+    "source_id": "snapdate",
+    "record_ids": [
+      "ENC-S12-A"
+    ],
+    "url": "https://dhhs.ne.gov/Documents/SNAP-Signage-New-Restrictions.pdf",
+    "title": "Nebraska DHHS: New SNAP purchase restrictions",
+    "date": "Effective 2026-01-01",
+    "checked": "2026-09-14",
+    "fact": "Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026.",
+    "qualification": "The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes."
+  },
+  {
+    "source_id": "milk",
+    "record_ids": [
+      "ENC-S20-C"
+    ],
+    "url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+    "title": "Public Law 119-69: Whole Milk for Healthy Kids Act of 2025",
+    "date": "2026-01-14",
+    "checked": "2026-09-14",
+    "fact": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program.",
+    "qualification": "The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made."
+  },
+  {
+    "source_id": "tenrules",
+    "record_ids": [
+      "ENC-S34-B"
+    ],
+    "url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+    "title": "Executive order: Unleashing Prosperity Through Deregulation",
+    "date": "2025-01-31",
+    "checked": "2026-09-14",
+    "fact": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions.",
+    "qualification": "The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke."
+  },
+  {
+    "source_id": "deere",
+    "record_ids": [
+      "ENC-W-PC-C01-C"
+    ],
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+    "title": "FTC and states announce Deere right-to-repair settlement",
+    "date": "2026-07-08",
+    "checked": "2026-09-14",
+    "fact": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers.",
+    "qualification": "The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here."
+  },
+  {
+    "source_id": "texasproperty",
+    "record_ids": [
+      "ENC-W-SW-C02-C"
+    ],
+    "url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+    "title": "Texas Comptroller: Valuing property and business personal property exemption",
+    "date": "Current 2026 guidance checked 2026-09-14",
+    "checked": "2026-09-14",
+    "fact": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit.",
+    "qualification": "This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption."
+  },
+  {
+    "source_id": "architecture",
+    "record_ids": [
+      "ORDER-GAG-B"
+    ],
+    "url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+    "title": "Executive Order 14344: Making Federal Architecture Beautiful Again",
+    "date": "2025-08-28",
+    "checked": "2026-09-14",
+    "fact": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia.",
+    "qualification": "Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration."
+  }
+]

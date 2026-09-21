@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-14",
+  "mode": "built-in image generation, reference image edits",
+  "notes": "Six original portraits preserved. Two expression cells per new atlas. Opaque navy portrait background; no manual bitmap modifications.",
+  "assets": [
+    {
+      "character": "journalist",
+      "source": "dystrail-web/static/img/journey/occupant-journalist.png",
+      "asset": "dystrail-web/static/img/journey/occupant-journalist-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-a95ac2f7-f179-4364-a591-9bf9b412d9dd.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, gentle genuine smile, relieved shoulders. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. In both cells preserve the exact character identity, brown messy hair, round black glasses, warm light skin, subtle facial stubble, cream collared shirt, pixel-art scale, line weight, palette, and bust crop of the reference. Each complete bust centered at identical scale with generous empty padding; nothing crosses the center cell boundary or touches an edge. Transparent background, no labels, no text, no borders, no props, no new accessories. This is an emotion variant, not a redesign. Keep precise crisp retro pixel art, never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    },
+    {
+      "character": "organizer",
+      "source": "dystrail-web/static/img/journey/occupant-organizer.png",
+      "asset": "dystrail-web/static/img/journey/occupant-organizer-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-c67b06b4-4a45-4bde-aaac-b539e2fc7d24.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, relieved posture and warm smile. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. Preserve this exact identity in both cells: dark brown skin, textured dark locs gathered with a pink headband, gold hoop earrings, olive jacket over cream shirt. Preserve the original pixel-art style, crisp chunky pixels, palette, line weight and bust crop. Each complete bust centered at identical scale and baseline with generous empty padding, nothing crossing the center cell boundary or touching an edge. Transparent background, no labels, no text, no borders, no props, no added accessories. This is an emotion variant of the supplied character, not a redesign. Express feelings through the visible face and posture, keep any glasses exactly as in the reference. Never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    },
+    {
+      "character": "whistleblower",
+      "source": "dystrail-web/static/img/journey/occupant-whistleblower.png",
+      "asset": "dystrail-web/static/img/journey/occupant-whistleblower-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-5c680ae8-c050-45f8-97fe-1d7617110d84.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, relieved posture and warm smile. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. Preserve this exact identity in both cells: warm tan skin, long dark hair beneath a navy hood, black sunglasses, navy hoodie. Preserve the original pixel-art style, crisp chunky pixels, palette, line weight and bust crop. Each complete bust centered at identical scale and baseline with generous empty padding, nothing crossing the center cell boundary or touching an edge. Transparent background, no labels, no text, no borders, no props, no added accessories. This is an emotion variant of the supplied character, not a redesign. Express feelings through the visible face and posture, keep any glasses exactly as in the reference. Never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    },
+    {
+      "character": "lobbyist",
+      "source": "dystrail-web/static/img/journey/occupant-lobbyist.png",
+      "asset": "dystrail-web/static/img/journey/occupant-lobbyist-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-e4bcc739-9058-4726-9a87-bc90b53ff621.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, relieved posture and warm smile. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. Preserve this exact identity in both cells: warm light skin, swept grey and dark hair, black sunglasses, navy suit, white shirt and red tie. Preserve the original pixel-art style, crisp chunky pixels, palette, line weight and bust crop. Each complete bust centered at identical scale and baseline with generous empty padding, nothing crossing the center cell boundary or touching an edge. Transparent background, no labels, no text, no borders, no props, no added accessories. This is an emotion variant of the supplied character, not a redesign. Express feelings through the visible face and posture, keep any glasses exactly as in the reference. Never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    },
+    {
+      "character": "staffer",
+      "source": "dystrail-web/static/img/journey/occupant-staffer.png",
+      "asset": "dystrail-web/static/img/journey/occupant-staffer-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-426e3b04-c47c-43e3-a60d-31a81727690f.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, relieved posture and warm smile. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. Preserve this exact identity in both cells: warm light skin, messy brown hair bun, no glasses, white collared shirt and navy lanyard. Preserve the original pixel-art style, crisp chunky pixels, palette, line weight and bust crop. Each complete bust centered at identical scale and baseline with generous empty padding, nothing crossing the center cell boundary or touching an edge. Transparent background, no labels, no text, no borders, no props, no added accessories. This is an emotion variant of the supplied character, not a redesign. Express feelings through the visible face and posture, keep any glasses exactly as in the reference. Never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    },
+    {
+      "character": "satirist",
+      "source": "dystrail-web/static/img/journey/occupant-satirist.png",
+      "asset": "dystrail-web/static/img/journey/occupant-satirist-expressions-v1.png",
+      "generated": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-b2db8a27-aff0-4508-9ac8-b977b8923845.png",
+      "layout": {
+        "columns": 2,
+        "rows": 1,
+        "left": "happy",
+        "right": "defeated"
+      },
+      "prompts": [
+        "Edit the supplied pixel-art character reference into one production game sprite atlas, exactly two equal square cells side by side in a wide 2:1 image. Left cell: this same character visibly relaxed and happy after a successful public hearing, relieved posture and warm smile. Right cell: this same character visibly exhausted and defeated after an unsuccessful public hearing, slumped shoulders, weary downturned mouth and brows. Preserve this exact identity in both cells: warm light skin, red knitted beanie, black round glasses, brown beard, olive hoodie over mustard shirt. Preserve the original pixel-art style, crisp chunky pixels, palette, line weight and bust crop. Each complete bust centered at identical scale and baseline with generous empty padding, nothing crossing the center cell boundary or touching an edge. Transparent background, no labels, no text, no borders, no props, no added accessories. This is an emotion variant of the supplied character, not a redesign. Express feelings through the visible face and posture, keep any glasses exactly as in the reference. Never smooth vector or painterly rendering.",
+        "Make one exact surgical edit to this two-cell pixel-art character emotion atlas: replace ALL of the background, including every grey/white checkerboard square or black background area, with a completely solid, flat dark navy color #0b202d. This is an OPAQUE game portrait background: do not depict transparency, checkerboards, gradients, texture, lighting or shadows on the background. Preserve both characters, expressions, pixel outlines, original framing, color palette and positions exactly. Keep the wide 2:1 canvas and two equal square cells, left happy and right defeated, no labels or borders. The flat color must continue into all gaps outside the character silhouettes. Do not change the character artwork."
+      ]
+    }
+  ]
+}

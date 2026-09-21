@@ -12,6 +12,17 @@ pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Prop
     if props.game_state.ending.is_some() {
         return summary.headline_key.clone();
     }
+    if let Some(report) = &props.game_state.boss.hearing {
+        return format!(
+            "hearing.{}",
+            match report.outcome {
+                crate::game::boss::HearingOutcome::Passed => "passed",
+                crate::game::boss::HearingOutcome::Failed => "failed",
+                crate::game::boss::HearingOutcome::Secured => "secured",
+                crate::game::boss::HearingOutcome::Exhausted => "exhausted",
+            }
+        );
+    }
     if props.game_state.boss.outcome.attempted && !props.boss_won {
         "result.headline.boss_loss".to_string()
     } else if props.boss_won {
@@ -27,6 +38,17 @@ pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Prop
     }
     if props.game_state.ending.is_some() {
         return summary.epilogue_key.clone();
+    }
+    if let Some(report) = &props.game_state.boss.hearing {
+        return format!(
+            "hearing.{}_body",
+            match report.outcome {
+                crate::game::boss::HearingOutcome::Passed => "passed",
+                crate::game::boss::HearingOutcome::Failed => "failed",
+                crate::game::boss::HearingOutcome::Secured => "secured",
+                crate::game::boss::HearingOutcome::Exhausted => "exhausted",
+            }
+        );
     }
     if props.game_state.boss.outcome.attempted && !props.boss_won {
         "result.epilogue.boss_loss".to_string()

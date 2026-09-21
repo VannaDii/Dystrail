@@ -1447,7 +1447,7 @@ impl<R: rand::RngCore> rand::RngCore for CountingRng<R> {
     }
 }
 
-fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
+pub(crate) fn derive_stream_seed(user_seed: u64, domain_tag: &[u8]) -> u64 {
     let mut mac =
         Hmac::<Sha256>::new_from_slice(&user_seed.to_le_bytes()).expect("64-bit seed is valid key");
     mac.update(domain_tag);

@@ -1,0 +1,115 @@
+/* Portrait identities and frames are shared by the hearing and its endings. */
+.character-portrait { margin:0; min-width:0; border:1px solid var(--accent-border); background:var(--panel-raised); }
+.character-art { display:block; width:100%; aspect-ratio:1; overflow:hidden; }
+.character-art>img,.character-art>svg { display:block; width:100%; height:100%; object-fit:contain; image-rendering:pixelated; }
+.character-portrait>figcaption { padding:5px 8px; border-top:1px solid var(--accent-border); background:var(--panel); color:var(--text-bright); font:700 13px/1.4 var(--body-font); text-align:center; overflow-wrap:anywhere; }
+.result-profile>.character-portrait { width:100px; flex:0 0 100px; }
+.ending-portrait { display:block; width:70px; flex:0 0 70px; border:1px solid var(--accent-border); background:var(--panel-raised); }
+.ending-crew [data-fate="crew.dead"] .ending-portrait,.ending-crew [data-fate="crew.departed"] .ending-portrait { filter:grayscale(1); opacity:.65; }
+
+.hearing { background:var(--panel); color:var(--text-bright); }
+.hearing-hud { display:flex; align-items:center; gap:2rem; padding:1rem 1.5rem; border-bottom:2px solid var(--accent); background:var(--panel-inset); flex-wrap:wrap; }
+.hearing-hud>div:first-child,.hearing-hud>div:nth-child(2) { display:grid; gap:.15rem; min-width:6rem; }
+.hearing-hud span { font-size:.85rem; color:var(--text-dim); }
+.hearing-hud strong { font:700 1.7rem/1.1 var(--title-font); color:var(--text-bright); font-variant-numeric:tabular-nums; }
+.hearing-hud .hearing-round-label { margin-inline-start:auto; color:var(--accent); font-weight:700; }
+.hearing .fast-mode-toggle { display:inline-flex; align-items:center; gap:.5rem; min-width:auto; padding:.45rem .7rem; }
+.hearing-hud .hearing-low-sanity strong { color:var(--danger,#ff9c94); }
+
+.hearing-stage { position:relative; overflow:hidden; isolation:isolate; }
+.hearing-stage .journey-scene { height:clamp(280px,31vw,380px); min-height:0; margin:0; aspect-ratio:auto; border:0; }
+.hearing-stage .journey-scene:not(.scene-road) .scene-art { inset:0; filter:brightness(.73); }
+.hearing-stage .journey-scene .scene-background { object-fit:cover; object-position:center; }
+.hearing-arrival .journey-scene:not(.scene-road) .scene-art { filter:none; }
+.hearing-stage .scene-light { z-index:1; }
+.hearing-arrival .parked-crew { position:absolute; inset:20% 5% 15%; z-index:2; }
+.hearing-arrival .crew-van { max-width:38%; }
+.hearing-stage .scene-atlas { width:100%; height:100%; }
+.hearing-chair { position:absolute; inset-block-start:6%; inset-inline-end:12%; width:clamp(115px,15%,165px); z-index:2; transition:transform .6s ease; }
+.hearing-chair .character-portrait { box-shadow:0 6px 0 #090f14; }
+.hearing-committee .hearing-chair { transform:scale(1.08); }
+.hearing-speaker { position:absolute; inset-inline-start:10%; inset-block-end:15%; width:clamp(145px,18%,190px); z-index:3; transform-origin:50% 100%; }
+.hearing-crew { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; padding:16px; background:var(--panel-inset); border-bottom:1px solid var(--panel-border); }
+.hearing-crew:empty { display:none; }
+.hearing-crew .character-portrait { width:96px; }
+.hearing-preparation .hearing-chair,.hearing-preparation .hearing-paper { visibility:hidden; }
+.hearing-scene-caption { position:absolute; inset-inline:0; bottom:0; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.5rem 1rem; background:var(--panel-overlay); z-index:4; color:var(--text-bright); font-size:.82rem; }
+.hearing-scene-caption>span { color:var(--accent); font-weight:700; }
+.hearing-ending-passed .scene-art,.hearing-ending-secured .scene-art { filter:brightness(.95) sepia(.12); }
+.hearing-paper { position:absolute; top:22%; left:44%; width:58px; height:72px; border:2px solid #b89b62; background:#fff0c9; z-index:3; padding:16px 9px; animation:hearing-document 2.6s ease-in-out infinite; transform:rotate(8deg); box-shadow:4px 5px 0 #070e1670; }
+.hearing-paper span { display:block; height:3px; background:#746244; margin-bottom:7px; }
+.hearing-paper span:last-child { width:60%; }
+@keyframes hearing-document { 0%,100% { transform:translateY(4px) rotate(-7deg); opacity:.7; } 50% { transform:translateY(-12px) rotate(7deg); opacity:1; } }
+
+.hearing-content { display:flex; flex-direction:column; padding:1.4rem 1.8rem 0; max-width:1000px; margin:auto; }
+.hearing-narrative { max-width:78ch; margin-bottom:1.2rem; }
+.hearing-narrative .eyebrow { margin:0 0 .4rem; font-size:.78rem; letter-spacing:.09em; color:var(--accent); }
+.hearing-narrative h1 { color:var(--text-bright); font-size:clamp(1.55rem,3vw,2.1rem); line-height:1.2; margin:.2rem 0 .65rem; }
+.hearing-dialogue { font-size:1.13rem; line-height:1.5; margin:0; }
+.hearing-brief { border-inline-start:3px solid var(--accent); padding:.1rem 1rem; margin:0 0 1.2rem; }
+.hearing-brief p { line-height:1.6; margin:.6rem 0; }
+.hearing-warning { color:var(--danger,#ffb3a2); }
+.hearing-rounds { order:2; list-style:none; padding:0; margin:1.2rem 0; display:grid; gap:1rem; }
+.hearing-rounds>li { padding:1rem; border:1px solid var(--panel-border); background:var(--panel-inset); border-radius:5px; animation:hearing-result .35s ease-out; }
+.hearing-round-heading { display:flex; gap:.8rem; align-items:center; margin-bottom:.8rem; }
+.hearing-round-number { display:grid; place-items:center; border:1px solid var(--panel-border); width:2rem; height:2rem; border-radius:50%; flex:none; }
+.hearing-round-stats.resource-changes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:0; margin:0; justify-content:start; max-width:570px; }
+.hearing-round-stats>.stat-card { display:flex; flex-direction:column; width:auto; max-width:none; min-width:0; margin:0; background:var(--panel-raised); border:1px solid var(--panel-border); border-radius:5px; }
+.hearing-questioning-closed strong { color:var(--accent); }
+.hearing-questioning-closed p { margin:.5rem 0 0; line-height:1.5; }
+.hearing-resolution { order:3; background:var(--panel-inset); border:1px solid var(--panel-border); border-radius:5px; padding:1rem 1.3rem; margin:1rem 0; }
+.hearing-equation { display:flex; justify-content:space-evenly; align-items:center; gap:.75rem; margin:.3rem 0; direction:ltr; }
+.hearing-equation>span { font:700 clamp(1.5rem,3vw,2rem)/1.2 var(--title-font); color:var(--accent); text-align:center; }
+.hearing-equation small { display:block; font:400 .85rem/1.4 var(--body-font); color:var(--text-dim); margin-top:.5rem; max-width:12rem; }
+.hearing-equation>.hearing-operator { flex:none; font:900 clamp(2.25rem,4vw,3rem)/1 var(--body-font); color:var(--text-bright); padding:0 .15rem .6rem; }
+.hearing-resolution p { line-height:1.6; }
+.hearing-controls { position:static; order:4; display:flex; justify-content:flex-end; align-items:center; gap:.75rem; flex-wrap:wrap; padding:1rem 0; background:var(--panel); border-top:1px solid var(--panel-border); margin-top:1rem; }
+.hearing-controls button { min-height:48px; }
+.hearing-controls .hearing-skip { font-size:.9rem; border-color:var(--panel-border); background:transparent; color:var(--text-dim); }
+.hearing-wait { margin:0 auto 0 0; color:var(--text-dim); font-size:.85rem; }
+.hearing-dots { letter-spacing:.25rem; display:inline-block; animation:hearing-pulse 1.2s ease-in-out infinite; margin-inline-end:.7rem; }
+.hearing-scorecard { margin:1.5rem 1.5rem 2rem; padding:1.4rem; background:var(--panel); border:1px solid var(--panel-border); border-top:3px solid var(--accent); }
+.hearing-scorecard>h2 { margin-top:0; }
+.hearing-scorecard .hearing-rounds { max-width:100%; }
+@keyframes hearing-result { from { opacity:.4; transform:translateY(8px); } to { opacity:1; transform:none; } }
+@keyframes hearing-pulse { 50% { opacity:.3; } }
+.hearing-fast .hearing-paper { animation-duration:.6s; }
+@media(max-width:600px) {
+ .hearing-hud { padding:.8rem 1rem; gap:.6rem 1rem; }
+ .hearing-hud>div:first-child,.hearing-hud>div:nth-child(2) { min-width:5rem; }
+ .hearing-hud .hearing-round-label { margin-inline-start:0; font-size:.85rem; order:5; flex-basis:100%; }
+ .hearing-hud .fast-mode-toggle { margin-inline-start:auto; }
+ .hearing-stage .journey-scene { height:280px; }
+ .hearing-chair { inset-inline-end:5%; width:110px; }
+ .hearing-speaker { inset-inline-start:5%; width:132px; }
+ .hearing-crew { gap:8px; padding:12px; }
+ .hearing-crew .character-portrait { width:calc((100% - 16px)/3); max-width:100px; }
+ .hearing-content { padding:1.15rem 1rem 0; }
+ .hearing-dialogue { font-size:1rem; }
+ .hearing-controls { gap:.5rem; }
+ .hearing-controls button { flex:1; padding:.65rem .7rem; }
+ .hearing-rounds>li { padding:.7rem; }
+ .hearing-round-stats.resource-changes { gap:6px; }
+ .hearing-round-stats>.stat-card { padding:10px 5px; gap:6px; }
+ .hearing-round-stats>.stat-card>span { font-size:12px; }
+ .hearing-round-stats>.stat-card>strong { font-size:23px; }
+ .hearing-round-stats>.stat-card>small { font-size:12px; }
+ .hearing-equation { gap:.2rem; }
+ .hearing-equation small { font-size:.75rem; }
+ .hearing-equation>.hearing-operator { font-size:2.25rem; padding-inline:0; }
+ .hearing-resolution { padding:.7rem; }
+ .hearing-scorecard { margin:1rem .7rem; padding:.7rem; }
+ .hearing-wait { flex-basis:50%; font-size:.8rem; }
+ .ending-portrait { width:52px; flex-basis:52px; }
+}
+@media(prefers-reduced-motion:reduce) { .hearing * { animation:none!important; transition:none!important; } }
+
+/* Read the round receipt and the closing announcement before advancing. */
+@media(min-width:760px) {
+ .hearing-rounds>li[data-round] { display:grid; grid-template-columns:minmax(140px,1fr) minmax(360px,570px); gap:16px; align-items:center; }
+ .hearing-round-heading { margin-bottom:0; }
+}
+@media(max-width:360px) {
+ .hearing-round-stats.resource-changes { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .hearing-round-stats>.stat-card:last-child { grid-column:1/-1; }
+}

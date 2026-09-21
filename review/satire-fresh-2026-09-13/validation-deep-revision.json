@@ -1,0 +1,207 @@
+{
+  "status": "verified editorial pack; not a production deployment",
+  "changed_narrative_packages": 97,
+  "changed_functional_records": [
+    "MODE-D"
+  ],
+  "counts": {
+    "narrative": 567,
+    "functional": 77,
+    "deep_only_narrative": 63
+  },
+  "changed_ids": [
+    "CROSS-02D-A",
+    "CROSS-02D-B",
+    "CROSS-02D-C",
+    "ENC-C01-B",
+    "ENC-C01-C",
+    "ENC-C03-B",
+    "ENC-C03-C",
+    "ENC-C08-C",
+    "ENC-C09-A",
+    "ENC-C11-C",
+    "ENC-C12-A",
+    "ENC-C12-C",
+    "ENC-C13-A",
+    "ENC-D01-A",
+    "ENC-D01-B",
+    "ENC-D01-C",
+    "ENC-D02-A",
+    "ENC-D02-B",
+    "ENC-D02-C",
+    "ENC-D03-A",
+    "ENC-D03-B",
+    "ENC-D03-C",
+    "ENC-D04-A",
+    "ENC-D04-B",
+    "ENC-D04-C",
+    "ENC-D05-A",
+    "ENC-D05-B",
+    "ENC-D05-C",
+    "ENC-D06-A",
+    "ENC-D06-B",
+    "ENC-D06-C",
+    "ENC-D07-A",
+    "ENC-D07-B",
+    "ENC-D07-C",
+    "ENC-D08-A",
+    "ENC-D08-B",
+    "ENC-D08-C",
+    "ENC-D09-A",
+    "ENC-D09-B",
+    "ENC-D09-C",
+    "ENC-D10-A",
+    "ENC-D10-B",
+    "ENC-D10-C",
+    "ENC-D11-A",
+    "ENC-D11-B",
+    "ENC-D11-C",
+    "ENC-D12-A",
+    "ENC-D12-B",
+    "ENC-D12-C",
+    "ENC-D13-A",
+    "ENC-D13-B",
+    "ENC-D13-C",
+    "ENC-S12-A",
+    "ENC-S13-B",
+    "ENC-S13-C",
+    "ENC-S16-B",
+    "ENC-S20-C",
+    "ENC-S29-B",
+    "ENC-S34-B",
+    "ENC-W-MW-D01-A",
+    "ENC-W-MW-D01-B",
+    "ENC-W-MW-D01-C",
+    "ENC-W-MW-D02-A",
+    "ENC-W-MW-D02-B",
+    "ENC-W-MW-D02-C",
+    "ENC-W-PC-C01-C",
+    "ENC-W-PC-D01-A",
+    "ENC-W-PC-D01-B",
+    "ENC-W-PC-D01-C",
+    "ENC-W-PC-D02-A",
+    "ENC-W-PC-D02-B",
+    "ENC-W-PC-D02-C",
+    "ENC-W-SW-C02-C",
+    "ENC-W-SW-D01-A",
+    "ENC-W-SW-D01-B",
+    "ENC-W-SW-D01-C",
+    "ENC-W-SW-D02-A",
+    "ENC-W-SW-D02-B",
+    "ENC-W-SW-D02-C",
+    "HEARING-D-A",
+    "HEARING-D-B",
+    "HEARING-D-C",
+    "MODE-D",
+    "ORDER-GAG-B",
+    "TOWN-03-C",
+    "TOWN-13-B",
+    "TOWN-14-A",
+    "TOWN-14-B",
+    "TOWN-17-C",
+    "TOWN-18-C",
+    "TOWN-19-A",
+    "TOWN-21-B",
+    "TOWN-25-C",
+    "TOWN-31-B",
+    "TOWN-34-C",
+    "TOWN-35-B",
+    "TOWN-40-C",
+    "TOWN-43-B"
+  ],
+  "ordered_mechanics_preserved": true,
+  "locked_approved_samples_preserved": true,
+  "shared_heavy_theme_flags": [],
+  "leading_topics_before": [
+    [
+      "Unlimited independent political money",
+      48
+    ],
+    [
+      "Trump tariffs passed to Americans",
+      47
+    ],
+    [
+      "DOGE and national park staffing",
+      34
+    ],
+    [
+      "White House history intervention",
+      25
+    ],
+    [
+      "Signal airstrike chat",
+      25
+    ],
+    [
+      "Department of War naming",
+      25
+    ],
+    [
+      "Gulf renaming",
+      22
+    ],
+    [
+      "Food assistance cuts",
+      18
+    ],
+    [
+      "Medicaid and SNAP work requirements",
+      16
+    ],
+    [
+      "Trump energy and climate rollback",
+      16
+    ]
+  ],
+  "leading_topics_after": [
+    [
+      "Unlimited independent political money",
+      44
+    ],
+    [
+      "Trump tariffs passed to Americans",
+      37
+    ],
+    [
+      "DOGE and national park staffing",
+      29
+    ],
+    [
+      "Department of War naming",
+      21
+    ],
+    [
+      "Signal airstrike chat",
+      18
+    ],
+    [
+      "Food assistance cuts",
+      17
+    ],
+    [
+      "Gulf renaming",
+      16
+    ],
+    [
+      "White House history intervention",
+      16
+    ],
+    [
+      "Trump energy and climate rollback",
+      16
+    ],
+    [
+      "Medicaid and SNAP work requirements",
+      14
+    ]
+  ],
+  "runtime_note": "The existing road mode selector treats an empty mode list as shared. Integration must retain Deep End eligibility, must not use heavy material as a Classic/shared fallback, and must apply the six support gates. This editorial pass does not deploy those changes.",
+  "hashes": {
+    "roads-a": "00faf3b1510d29bab0fdc2835717611f55d2d91d718a805392c39483cd996347",
+    "roads-b": "28a4d9894b4ad9d3e28b5d8b04a675b8ca33aa1e4fd0c4be82633752f13961a6",
+    "towns": "570f156fa54f0b14fb6610858a1f49a17dd527589c42a3717856c87bb50d2c88",
+    "support": "bfb97c90fb5db25d018cb7271dd20dbfd77177873638e5ec37715f28418a813b",
+    "functional": "3d55b570e79c693e2aec0441c1cad63ac32e4c95609fce1671caa44ef71ab479"
+  }
+}

@@ -1,4 +1,5 @@
 //! Share content is derived from the actual ending and physical route progress.
+use super::super::character_portrait::{self, Expression, PortraitAsset};
 use super::{Props, share};
 use crate::{game::ResultSummary, i18n};
 
@@ -15,7 +16,7 @@ pub struct Post {
     pub seed: String,
     pub text: String,
     pub image_alt: String,
-    pub avatar: String,
+    pub avatar: PortraitAsset,
     pub arrived: bool,
     pub rtl: bool,
     pub stats: Vec<(String, String)>,
@@ -94,7 +95,7 @@ pub fn create(props: &Props, summary: &ResultSummary) -> Post {
         stats,
         seed: summary.seed.clone(),
         mode: summary.mode.clone(),
-        avatar: format!("static/img/journey/occupant-{persona_id}.png"),
+        avatar: character_portrait::asset(persona_id, Expression::ending(gs)),
         arrived: gs.miles_traveled_actual >= gs.trail_distance || gs.boss.outcome.attempted,
         rtl: i18n::is_rtl(),
     }

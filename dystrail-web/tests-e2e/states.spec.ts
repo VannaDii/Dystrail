@@ -30,7 +30,7 @@ test('regions, weather details, final vote and terminal reload',async({page})=>{
  await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene','enc-service-counter');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-atlas','encounter-settings-v3');await expect(page.locator('.scene-atlas')).toHaveAttribute('data-cell','5');
  await page.locator('.encounter-choice button').first().click();await expect(page.locator('#main')).toHaveAttribute('data-screen','aftermath');
  await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','boss');await snap(page,'boss-deep');
- await page.getByRole('button',{name:'Resolve the final vote',exact:true}).dblclick();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+ await page.getByRole('button',{name:'Enter the hearing room',exact:true}).click();await page.getByRole('button',{name:'Begin hearing',exact:true}).dblclick();await page.getByRole('button',{name:'Skip to verdict',exact:true}).click();await page.getByRole('button',{name:'View scorecard',exact:true}).click();await expect(page.locator('#main')).toHaveAttribute('data-screen','result');await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
 });
 test('route store, one exchange and cooldown recovery',async({page})=>{
  const state=await baseline(page);atTown(state,'La Crosse');state.prev_miles_traveled=state.miles_traveled_actual;state.clock_minutes=660;state.stats.supplies=10;state.camp.rest_cooldown=1;

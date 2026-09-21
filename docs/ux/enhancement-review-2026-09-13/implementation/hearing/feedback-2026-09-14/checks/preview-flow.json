@@ -1,0 +1,16 @@
+{
+  "before": {
+    "day": 2,
+    "minute": 602,
+    "attempted": false
+  },
+  "arrivalHeld": true,
+  "phases": [
+    "Arrival",
+    "Preparation",
+    "RoundResult(0)",
+    "Verdict",
+    "Complete"
+  ],
+  "errors": []
+}

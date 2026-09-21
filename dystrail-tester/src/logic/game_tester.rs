@@ -1446,6 +1446,7 @@ mod tests {
                     attempted: true,
                     ..BossResolution::default()
                 },
+                ..BossProgress::default()
             },
             miles_traveled_actual: 1500.0,
             ..GameState::default()

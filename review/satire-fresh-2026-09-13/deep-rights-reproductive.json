@@ -1,0 +1,2753 @@
+[
+  {
+    "id": "ENC-D01-A",
+    "family_id": "ENC-D01",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "beltway_briefing",
+    "title": "The life of the meeting",
+    "setup": "At a hospital's public briefing, a nurse asks your crew to check Texas's clarified emergency-abortion exception: qualifying danger needn't be imminent. The hospital lawyer has approved a longer waiting-room bench. It seats two more people waiting for him.",
+    "choices": [
+      {
+        "label": "Use your paper; check the exception",
+        "outcome": "You save the exception using some supplies, head throbbing. The nurse puts the lawyer's coat on the bench. It receives immediate attention.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "supplies": -1,
+          "add_receipt": "beltway_briefing"
+        }
+      },
+      {
+        "label": "Accept his claim it's all settled",
+        "outcome": "You relax until the nurse explains the remaining limits. The lawyer pats the new upholstery. At least something here has clearance.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2
+        }
+      },
+      {
+        "label": "Repeat that doctors must wait",
+        "outcome": "The nurse corrects you: qualifying danger needn't be imminent. The lawyer inspects the bench. He can confirm it's safe to sit.",
+        "effects": {
+          "sanity": 0,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Emergency abortion exceptions and federal guidance withdrawal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+        "claim": "June 2025 CMS withdrawal of abortion-specific guidance; emergency screening and stabilization duties remain.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM",
+        "claim": "Texas SB31 clarifies qualifying physical danger need not be imminent and does not require harmful delay.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/billlookup/History.aspx?Bill=SB31&LegSess=89R&Sort=A",
+        "claim": "SB31 became effective immediately June 20, 2025.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional nurse leading a public briefing",
+        "Fictional hospital lawyer"
+      ]
+    },
+    "scene_id": "enc-d01-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Beltway hospital public information area during an announced public briefing, away from treatment rooms",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional nurse leading a public briefing",
+          "Fictional hospital lawyer"
+        ]
+      },
+      "action": "The nurse offers a source booklet toward the observing travelers while the lawyer proudly presents a newly extended empty waiting-room bench.",
+      "visual_gag": "A small section of new upholstery extends a long empty bench; the lawyer's coat is still over his arm before the outcome.",
+      "composition": "Extended empty bench central, nurse and lawyer beside it, travelers at the public noticeboard; no patients or active emergency.",
+      "overlays": [
+        {
+          "text": "PUBLIC BRIEFING: EMERGENCY ABORTION EXCEPTIONS",
+          "placement": "Blank classroom board",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+      "real_hook": "CMS announced on June 3, 2025 that it had rescinded its 2022 abortion-specific EMTALA guidance effective May 29, while affirming that EMTALA remains enforceable. Texas SB31 took effect June 20, 2025 and clarifies that qualifying physical danger need not be imminent; it did not remove the underlying abortion prohibitions.",
+      "source_url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+      "fictionalization": "Do not claim EMTALA was repealed, that Texas requires waiting until death is imminent, or that exceptions authorize every abortion. Fictional hospital lawyers, hotlines, delays and statements are not reported incidents or legally required procedures. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_emergency_exceptions",
+      "institutional_delay"
+    ]
+  },
+  {
+    "id": "ENC-D01-B",
+    "family_id": "ENC-D01",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "beltway_briefing",
+    "title": "Some reassembly required",
+    "setup": "A hospital volunteer offers your crew space on the lobby noticeboard for the D.C. trip. CMS withdrew its abortion-specific emergency guidance. The administrator shreds the old poster, then tapes its strips back up: the emergency-care law still applies.",
+    "choices": [
+      {
+        "label": "Use your paper; check what changed",
+        "outcome": "You use some supplies to save the distinction, head aching. The volunteer hands over scissors. The law is tangled in the administrator's tie.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "supplies": -1,
+          "add_receipt": "beltway_briefing"
+        }
+      },
+      {
+        "label": "Accept the reassuring no-change summary",
+        "outcome": "You relax at his summary until the volunteer identifies the withdrawn guidance. He presses more tape over the part that disagrees.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2
+        }
+      },
+      {
+        "label": "Announce emergency care was repealed",
+        "outcome": "The volunteer corrects you: EMTALA remains law. The administrator retrieves the emergency-care heading from the shredder with his sandwich tongs.",
+        "effects": {
+          "sanity": 0,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Emergency abortion exceptions and federal guidance withdrawal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+        "claim": "June 2025 CMS withdrawal of abortion-specific guidance; emergency screening and stabilization duties remain.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM",
+        "claim": "Texas SB31 clarifies qualifying physical danger need not be imminent and does not require harmful delay.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/billlookup/History.aspx?Bill=SB31&LegSess=89R&Sort=A",
+        "claim": "SB31 became effective immediately June 20, 2025.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional hospital volunteer",
+        "Fictional hospital administrator"
+      ]
+    },
+    "scene_id": "enc-d01-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Beltway hospital public lobby with a noticeboard and small office shredder, away from treatment areas",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional hospital volunteer",
+          "Fictional hospital administrator"
+        ]
+      },
+      "action": "An administrator tries to align blank shredded strips on a board while the volunteer shows travelers its available display space.",
+      "visual_gag": "A long shredded paper strip catches around the administrator's necktie while an intact roll of tape hangs from his wrist.",
+      "composition": "Noticeboard and administrator foreground; travelers and volunteer to one side; no patients or chosen crew action.",
+      "overlays": [
+        {
+          "text": "EMERGENCY CARE",
+          "placement": "Blank reconstructed poster heading",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+      "real_hook": "CMS announced on June 3, 2025 that it had rescinded its 2022 abortion-specific EMTALA guidance effective May 29, while affirming that EMTALA remains enforceable. Texas SB31 took effect June 20, 2025 and clarifies that qualifying physical danger need not be imminent; it did not remove the underlying abortion prohibitions.",
+      "source_url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+      "fictionalization": "Do not claim EMTALA was repealed, that Texas requires waiting until death is imminent, or that exceptions authorize every abortion. Fictional hospital lawyers, hotlines, delays and statements are not reported incidents or legally required procedures. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_emergency_exceptions",
+      "institutional_delay"
+    ]
+  },
+  {
+    "id": "ENC-D01-C",
+    "family_id": "ENC-D01",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "beltway_briefing",
+    "title": "Your call is medically important",
+    "setup": "At a diner, an off-duty nurse asks your crew to document her hospital's response to CMS withdrawing emergency-abortion guidance: a legal hotline. She's testing it over breakfast. The waitress brings the phone its own menu. It's been here longer than anyone.",
+    "choices": [
+      {
+        "label": "Use your paper; document the delay",
+        "outcome": "You use some supplies to save the timed account, head aching. The waitress clears breakfast around the phone. It has qualified for lunch.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 2,
+          "supplies": -1,
+          "add_receipt": "beltway_briefing"
+        }
+      },
+      {
+        "label": "Accept the hotline's reassuring greeting",
+        "outcome": "The recorded reassurance settles your head until the nurse explains it approves nothing. The waitress asks whether the recording wants its usual.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2
+        }
+      },
+      {
+        "label": "Say federal law requires this hotline",
+        "outcome": "The nurse corrects you: the hospital invented the hotline. The waitress takes back its menu. House guests aren't federal officials.",
+        "effects": {
+          "sanity": 0,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Emergency abortion exceptions and federal guidance withdrawal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+        "claim": "June 2025 CMS withdrawal of abortion-specific guidance; emergency screening and stabilization duties remain.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM",
+        "claim": "Texas SB31 clarifies qualifying physical danger need not be imminent and does not require harmful delay.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/billlookup/History.aspx?Bill=SB31&LegSess=89R&Sort=A",
+        "claim": "SB31 became effective immediately June 20, 2025.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional off-duty nurse, with no live patient call",
+        "Fictional diner waitress"
+      ]
+    },
+    "scene_id": "enc-d01-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Beltway roadside diner during an off-duty test of a hospital's fictional legal hotline",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional off-duty nurse, with no live patient call",
+          "Fictional diner waitress"
+        ]
+      },
+      "action": "The nurse shows the observing travelers a phone on speaker beside untouched toast while the waitress sets a blank menu upright beside it.",
+      "visual_gag": "A phone occupies a complete place setting with its own menu while a cold breakfast crowds the nurse's side of the table.",
+      "composition": "Phone place setting centered, nurse and waitress beside it, travelers standing at the booth end before joining or documenting.",
+      "overlays": [
+        {
+          "text": "PLEASE HOLD",
+          "placement": "Separate caption beside the phone, not part of its screen",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+      "real_hook": "CMS announced on June 3, 2025 that it had rescinded its 2022 abortion-specific EMTALA guidance effective May 29, while affirming that EMTALA remains enforceable. Texas SB31 took effect June 20, 2025 and clarifies that qualifying physical danger need not be imminent; it did not remove the underlying abortion prohibitions.",
+      "source_url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+      "fictionalization": "Do not claim EMTALA was repealed, that Texas requires waiting until death is imminent, or that exceptions authorize every abortion. Fictional hospital lawyers, hotlines, delays and statements are not reported incidents or legally required procedures. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_emergency_exceptions",
+      "institutional_delay"
+    ]
+  },
+  {
+    "id": "ENC-D02-A",
+    "family_id": "ENC-D02",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_circuit_breaker",
+    "title": "The house is still at large",
+    "setup": "Outside a courthouse, a volunteer asks your crew to help carry returned belongings. Her client was arrested after a miscarriage; the charges were dropped. Police kept the woman's house keys as evidence. Apparently her front door was an accessory.",
+    "choices": [
+      {
+        "label": "Use some water; rest in shade",
+        "outcome": "You drink some water and recover in the shade. The volunteer checks the returned keys. The house is still at large.",
+        "effects": {
+          "supplies": -1,
+          "hp": 1
+        }
+      },
+      {
+        "label": "Help carry the returned-property box",
+        "outcome": "You scrape your arms carrying the box. The volunteer checks its contents twice. An apology wasn't among the items police returned.",
+        "effects": {
+          "hp": -1
+        }
+      },
+      {
+        "label": "Share water; record the property delay",
+        "outcome": "You share some water and record the arrest, dismissal and property delay. The volunteer turns the key. The door declines to resist release.",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Georgia miscarriage arrest followed by dismissal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+        "claim": "Reporting updated April 4, 2025 describes use of general criminal statutes after pregnancy loss and the Georgia dismissal.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.walb.com/2025/04/04/georgia-lawmakers-respond-charges-dropped-tifton-fetal-remains-case/",
+        "claim": "April 4, 2025 local reporting confirms charges were dropped after medical and legal review.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional legal-aid volunteer acting with her adult client's permission; the client is not depicted"
+      ]
+    },
+    "scene_id": "enc-d02-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Courthouse property-return entrance in the Rust Belt; an entirely fictional arrest aftermath inspired by, not depicting, the reported Georgia case",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional legal-aid volunteer acting with her adult client's permission; the client is not depicted"
+        ]
+      },
+      "action": "The volunteer indicates a sealed returned-property box on a trolley while holding a key ring; travelers consider helping beside an empty shaded bench.",
+      "visual_gag": "An oversized blank evidence tag still dangles from an ordinary house key after the case has ended.",
+      "composition": "Key ring and returned box foreground, volunteer and observing travelers beside them, courthouse door behind; nobody has lifted the box or rested yet.",
+      "overlays": [
+        {
+          "text": "RETURNED PROPERTY",
+          "placement": "Blank tag on the sealed box",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Georgia miscarriage arrest followed by dismissal",
+      "real_hook": "In 2025 Georgia authorities used concealment-of-death and body-disposal charges after a miscarriage; prosecutors dropped the charges on April 4 after medical and legal review concluded they did not apply.",
+      "source_url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+      "fictionalization": "This was not a miscarriage conviction or a general statute criminalizing miscarriage. No victim identity or recognizable likeness appears. All local events, staff, props and dialogue are fictional; outcomes do not imply that dismissal erases the arrest's consequences. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_criminalization",
+      "police_accountability"
+    ]
+  },
+  {
+    "id": "ENC-D02-B",
+    "family_id": "ENC-D02",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_circuit_breaker",
+    "title": "A fresh start for the mop",
+    "setup": "A café worker asks your crew to help empty her locker. She was arrested after a miscarriage; charges were dropped. Her boss kept the replacement. He calls the firing a fresh start. She hands him the mop. 'Yours.'",
+    "choices": [
+      {
+        "label": "Drink some water; rest outside",
+        "outcome": "You drink some water and recover outside. Through the window, the owner tries to operate the mop by pointing at it.",
+        "effects": {
+          "supplies": -1,
+          "hp": 1
+        }
+      },
+      {
+        "label": "Help carry her belongings outside",
+        "outcome": "You scrape your arms carrying the box. Her boss asks about a mark on his doorframe. His concern for damage has finally arrived.",
+        "effects": {
+          "hp": -1
+        }
+      },
+      {
+        "label": "Share food; record the lost work",
+        "outcome": "You share some food and record her lost shifts. She includes the owner's fresh-start message. The official all-clear still hasn't restored her wages.",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Georgia miscarriage arrest followed by dismissal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+        "claim": "Reporting updated April 4, 2025 describes use of general criminal statutes after pregnancy loss and the Georgia dismissal.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.walb.com/2025/04/04/georgia-lawmakers-respond-charges-dropped-tifton-fetal-remains-case/",
+        "claim": "April 4, 2025 local reporting confirms charges were dropped after medical and legal review.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult former café worker choosing to share her own account",
+        "Fictional café owner"
+      ]
+    },
+    "scene_id": "enc-d02-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Roadside Rust Belt café side entrance; a fictional worker clears her own belongings after an arrest and dismissal",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult former café worker choosing to share her own account",
+          "Fictional café owner"
+        ]
+      },
+      "action": "The former worker holds a box of personal belongings and offers a mop handle toward the owner; travelers consider helping from the open doorway.",
+      "visual_gag": "The owner stands beside a spotless motivational display while reluctantly facing the mop his former employee has returned.",
+      "composition": "Worker and owner central with the personal-property box on a low bench; travelers have not lifted it, shared food or rested.",
+      "overlays": [
+        {
+          "text": "A FRESH START",
+          "placement": "Blank motivational plaque behind the owner",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Georgia miscarriage arrest followed by dismissal",
+      "real_hook": "In 2025 Georgia authorities used concealment-of-death and body-disposal charges after a miscarriage; prosecutors dropped the charges on April 4 after medical and legal review concluded they did not apply.",
+      "source_url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+      "fictionalization": "This was not a miscarriage conviction or a general statute criminalizing miscarriage. No victim identity or recognizable likeness appears. All local events, staff, props and dialogue are fictional; outcomes do not imply that dismissal erases the arrest's consequences. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_criminalization",
+      "police_accountability"
+    ]
+  },
+  {
+    "id": "ENC-D02-C",
+    "family_id": "ENC-D02",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_circuit_breaker",
+    "title": "The system's reserved seat",
+    "setup": "At a public town-hall reception, a legal-aid volunteer asks your crew to help stack chairs. A woman was arrested after a miscarriage; charges were dropped. Police call it proof the system worked. She declined the invitation. They've reserved her seat for the police photographer's equipment.",
+    "choices": [
+      {
+        "label": "Eat some food; rest by the door",
+        "outcome": "You eat some food and recover by the door. The photographer puts another lens on the reserved chair. It receives excellent treatment.",
+        "effects": {
+          "supplies": -1,
+          "hp": 1
+        }
+      },
+      {
+        "label": "Help stack the heavy chairs",
+        "outcome": "You strain an arm stacking chairs. The photographer captures the moment. The department now has evidence of someone else doing the work.",
+        "effects": {
+          "hp": -1
+        }
+      },
+      {
+        "label": "Share water; record the official account",
+        "outcome": "You share some water and record the arrest, dismissal and official speech. The photographer asks whether you'd move the timeline out of frame.",
+        "effects": {
+          "supplies": -2,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Georgia miscarriage arrest followed by dismissal",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+        "claim": "Reporting updated April 4, 2025 describes use of general criminal statutes after pregnancy loss and the Georgia dismissal.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.walb.com/2025/04/04/georgia-lawmakers-respond-charges-dropped-tifton-fetal-remains-case/",
+        "claim": "April 4, 2025 local reporting confirms charges were dropped after medical and legal review.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional legal-aid volunteer",
+        "Fictional police spokesperson",
+        "Fictional departmental photographer; no arrested person's likeness or identity appears"
+      ]
+    },
+    "scene_id": "enc-d02-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Beltway town hall during a fictional public reception about a dismissed prosecution, not the real Georgia proceeding",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional legal-aid volunteer",
+          "Fictional police spokesperson",
+          "Fictional departmental photographer; no arrested person's likeness or identity appears"
+        ]
+      },
+      "action": "The volunteer points toward unstacked chairs while the spokesperson addresses a small public gathering; the photographer's equipment occupies a reserved seat.",
+      "visual_gag": "A carefully reserved guest chair holds a camera bag and lenses instead of the person whose treatment is supposedly being celebrated.",
+      "composition": "Reserved chair and camera bag foreground, volunteer and travelers by the doorway, spokesperson in the rear; no crew lifting or rest yet.",
+      "overlays": [
+        {
+          "text": "THE SYSTEM WORKED",
+          "placement": "Blank lectern panel",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "RESERVED",
+          "placement": "Blank chair card",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Georgia miscarriage arrest followed by dismissal",
+      "real_hook": "In 2025 Georgia authorities used concealment-of-death and body-disposal charges after a miscarriage; prosecutors dropped the charges on April 4 after medical and legal review concluded they did not apply.",
+      "source_url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+      "fictionalization": "This was not a miscarriage conviction or a general statute criminalizing miscarriage. No victim identity or recognizable likeness appears. All local events, staff, props and dialogue are fictional; outcomes do not imply that dismissal erases the arrest's consequences. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_criminalization",
+      "police_accountability"
+    ]
+  },
+  {
+    "id": "ENC-D03-A",
+    "family_id": "ENC-D03",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "runtime_key": "deep_field_intel",
+    "title": "The occupied passenger seat",
+    "setup": "At a truck stop, care-travel volunteers ask your crew to check Idaho's restrictions on helping minors obtain abortions. Their retired bus driver fits the road atlas in his glove box. The legal binder gets its own seat belt. He hasn't even started the engine.",
+    "choices": [
+      {
+        "label": "Use your paper; record the limits",
+        "outcome": "You use some supplies to save the minor-specific restrictions accurately. The driver loosens the binder's belt. It's expanded since the last court ruling.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "add_receipt": "deep_field_intel"
+        }
+      },
+      {
+        "label": "Share food with the volunteers",
+        "outcome": "You share some food and enjoy lunch together. The driver eats standing up. The legal binder has taken the last chair.",
+        "effects": {
+          "supplies": -2,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Sit at the quiet picnic table",
+        "outcome": "You clear your head at the picnic table. The driver removes the binder from the seat. It leaves a deeper dent than he does.",
+        "effects": {
+          "sanity": 1
+        }
+      }
+    ],
+    "source_hook": "Idaho restrictions on abortion assistance to minors",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+        "claim": "Ninth Circuit opinion distinguishes recruiting speech from harboring and transporting conduct under the minor-specific statute.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://litigationtracker.law.georgetown.edu/litigation/matsumoto-et-al-v-labrador/",
+        "claim": "Litigation tracker updated September 7, 2026 lists ongoing briefing rather than a final merits judgment.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult care-travel volunteers",
+        "Fictional retired bus driver"
+      ]
+    },
+    "scene_id": "enc-d03-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Heartland truck stop picnic area beside a volunteer's parked, unoccupied car; no minor or passenger transport is involved",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult care-travel volunteers",
+          "Fictional retired bus driver"
+        ]
+      },
+      "action": "A retired driver shows a thick seat-belted binder through the open car door while travelers consider the volunteers' public-information request.",
+      "visual_gag": "A small road atlas fits in the glove compartment while a bulky legal binder occupies the entire passenger seat.",
+      "composition": "Open parked-car door foreground with binder visible; adult volunteers and current travelers outside by the picnic table.",
+      "overlays": [
+        {
+          "text": "IDAHO: MINOR-ASSISTANCE LAW",
+          "placement": "Blank binder cover",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Idaho restrictions on abortion assistance to minors",
+      "real_hook": "Idaho Code 18-623 addresses specified assistance obtaining an abortion for an unemancipated minor with intent to conceal it from a parent or guardian. The Ninth Circuit's December 2, 2024 ruling left harboring and transporting provisions enforceable while enjoining recruiting; litigation was still in briefing as of September 7, 2026.",
+      "source_url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+      "fictionalization": "Do not present this as a blanket adult interstate travel ban or a ban on all speech, ordinary rides or all assistance. These scenes involve adults discussing public sources, not concealing or arranging a minor's travel; no operational evasion instructions. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_assistance",
+      "minor_travel_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D03-B",
+    "family_id": "ENC-D03",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "runtime_key": "deep_field_intel",
+    "title": "Counsel carries the casserole",
+    "setup": "Your crew stops at a church potluck for volunteers discussing Idaho's restrictions on helping minors obtain abortions. Their coordinator brought a lawyer. The cook hands him oven mitts: if every journey needs an opinion, he can supervise the casserole getting to the table.",
+    "choices": [
+      {
+        "label": "Use your paper; record the limits",
+        "outcome": "You use some supplies to save which provisions remain enforceable. The cook asks the lawyer to finish before the casserole reaches voting age.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "add_receipt": "deep_field_intel"
+        }
+      },
+      {
+        "label": "Share some food; join the potluck",
+        "outcome": "You share some food and enjoy the potluck. The lawyer finally passes the dish. His first useful opinion is that it needs salt.",
+        "effects": {
+          "supplies": -2,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Sit in the quiet church garden",
+        "outcome": "You clear your head in the garden. Through the window, the lawyer is still holding the casserole. The oven mitts have tenure.",
+        "effects": {
+          "sanity": 1
+        }
+      }
+    ],
+    "source_hook": "Idaho restrictions on abortion assistance to minors",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+        "claim": "Ninth Circuit opinion distinguishes recruiting speech from harboring and transporting conduct under the minor-specific statute.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://litigationtracker.law.georgetown.edu/litigation/matsumoto-et-al-v-labrador/",
+        "claim": "Litigation tracker updated September 7, 2026 lists ongoing briefing rather than a final merits judgment.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult volunteer coordinator",
+        "Fictional lawyer attending a public potluck",
+        "Fictional church cook"
+      ]
+    },
+    "scene_id": "enc-d03-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt church kitchen and garden during an adults-only public volunteer potluck",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult volunteer coordinator",
+          "Fictional lawyer attending a public potluck",
+          "Fictional church cook"
+        ]
+      },
+      "action": "The cook offers unused oven mitts to a suited lawyer beside an untouched casserole while the travelers watch from the doorway.",
+      "visual_gag": "A lawyer's formal case folder occupies the space needed for a very ordinary casserole dish.",
+      "composition": "Cook, lawyer and intact casserole central; travelers at the kitchen entrance; garden seating visible behind.",
+      "overlays": [
+        {
+          "text": "DISCUSSION: IDAHO MINOR-ASSISTANCE RESTRICTIONS",
+          "placement": "Blank event notice by the doorway",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Idaho restrictions on abortion assistance to minors",
+      "real_hook": "Idaho Code 18-623 addresses specified assistance obtaining an abortion for an unemancipated minor with intent to conceal it from a parent or guardian. The Ninth Circuit's December 2, 2024 ruling left harboring and transporting provisions enforceable while enjoining recruiting; litigation was still in briefing as of September 7, 2026.",
+      "source_url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+      "fictionalization": "Do not present this as a blanket adult interstate travel ban or a ban on all speech, ordinary rides or all assistance. These scenes involve adults discussing public sources, not concealing or arranging a minor's travel; no operational evasion instructions. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_assistance",
+      "minor_travel_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D03-C",
+    "family_id": "ENC-D03",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "runtime_key": "deep_field_intel",
+    "title": "Roadworthy, pending counsel",
+    "setup": "At a motel breakfast, adult volunteers review Idaho's restrictions on concealed abortion assistance to unemancipated minors. They ask your crew to record the public facts for D.C. Their car passed its inspection. The route needs a lawyer. The lawyer doesn't do roadside assistance.",
+    "choices": [
+      {
+        "label": "Use your paper; record the limits",
+        "outcome": "You use some supplies to save the minor-specific limits. The driver files the car's clean inspection beside the questions keeping it parked.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2,
+          "add_receipt": "deep_field_intel"
+        }
+      },
+      {
+        "label": "Share food with the planning volunteers",
+        "outcome": "You share some food and enjoy lunch together. The lawyer unrolls the route papers. The driver puts the bread basket on them. Lunch proceeds.",
+        "effects": {
+          "supplies": -2,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Read quietly on the motel porch",
+        "outcome": "You clear your head on the porch. The car wears a cheerful roadworthy sticker. Its driver is still inside, qualifying the journey.",
+        "effects": {
+          "sanity": 1
+        }
+      }
+    ],
+    "source_hook": "Idaho restrictions on abortion assistance to minors",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+        "claim": "Ninth Circuit opinion distinguishes recruiting speech from harboring and transporting conduct under the minor-specific statute.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://litigationtracker.law.georgetown.edu/litigation/matsumoto-et-al-v-labrador/",
+        "claim": "Litigation tracker updated September 7, 2026 lists ongoing briefing rather than a final merits judgment.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult care-travel volunteers reviewing public legal information",
+        "Fictional lawyer; no minor or passenger is present and no concealed trip is arranged"
+      ]
+    },
+    "scene_id": "enc-d03-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt motel breakfast room during adult volunteers' public discussion of unresolved care-travel planning constraints",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult care-travel volunteers reviewing public legal information",
+          "Fictional lawyer; no minor or passenger is present and no concealed trip is arranged"
+        ]
+      },
+      "action": "A volunteer shows an inspection sheet and broad, unmarked route map to the observing travelers; the lawyer waits beside an untouched bread basket.",
+      "visual_gag": "A small vehicle inspection sheet lies beside a much larger set of legal questions while the inspected car remains visibly parked outside.",
+      "composition": "Table with blank sheets and broad unlabeled map foreground, adults standing around it, parked empty car framed by the window.",
+      "overlays": [
+        {
+          "text": "VEHICLE INSPECTION: PASSED",
+          "placement": "Blank inspection-sheet heading",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "IDAHO MINOR-ASSISTANCE LAW",
+          "placement": "Blank legal folder heading",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Idaho restrictions on abortion assistance to minors",
+      "real_hook": "Idaho Code 18-623 addresses specified assistance obtaining an abortion for an unemancipated minor with intent to conceal it from a parent or guardian. The Ninth Circuit's December 2, 2024 ruling left harboring and transporting provisions enforceable while enjoining recruiting; litigation was still in briefing as of September 7, 2026.",
+      "source_url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+      "fictionalization": "Do not present this as a blanket adult interstate travel ban or a ban on all speech, ordinary rides or all assistance. These scenes involve adults discussing public sources, not concealing or arranging a minor's travel; no operational evasion instructions. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_assistance",
+      "minor_travel_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D04-A",
+    "family_id": "ENC-D04",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_grassroots_signal",
+    "title": "The wrong departure",
+    "setup": "At a coach stop, a Texas volunteer shows your crew how SB33 restricted public money for abortion-travel help. Her city's tourism desk still offers welcome baskets. She puts an empty basket beside her care-travel leaflets. Same wicker. Wrong reason for leaving.",
+    "choices": [
+      {
+        "label": "Check which assistance the law restricts",
+        "outcome": "You verify the public-funding limits. She turns the basket toward the tourism display. Suddenly the city remembers how a welcome works.",
+        "effects": {
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Save the dated program documents",
+        "outcome": "You save the program documents, head aching. The volunteer puts them in the empty basket. It finally has something for officials to chew over.",
+        "effects": {
+          "sanity": -1,
+          "add_receipt": "deep_grassroots_signal"
+        }
+      },
+      {
+        "label": "Post that leaving Texas is illegal",
+        "outcome": "She corrects you: this law restricts public assistance. You withdraw the claim as a sightseeing coach pulls out, conspicuously unarrested.",
+        "effects": {
+          "credibility": -2
+        }
+      }
+    ],
+    "source_hook": "Texas restrictions on public abortion-travel assistance",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+        "claim": "Enacted spending restrictions, covered logistical assistance, effective date, enforcement and federal-law exception.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-victory-against-san-antonio-after-city-illegally-tried-fund-out",
+        "claim": "January 9, 2026 attorney-general announcement describes San Antonio ending an abortion-travel support program; the release's condemnatory framing is the agency's position.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional Texas community travel volunteer"
+      ]
+    },
+    "scene_id": "enc-d04-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Interstate coach rest stop with a Texas volunteer's portable public-information display",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional Texas community travel volunteer"
+        ]
+      },
+      "action": "The volunteer places an empty basket beside care-travel leaflets while travelers observe; a sightseeing coach waits in a separate bay.",
+      "visual_gag": "An abundant tourism basket in a display photograph faces an identically shaped but entirely empty real basket.",
+      "composition": "Baskets and blank leaflets foreground, volunteer and travelers behind the table, coach safely parked in the background.",
+      "overlays": [
+        {
+          "text": "TEXAS SB33: PUBLIC TRAVEL ASSISTANCE",
+          "placement": "Blank care-information panel",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "WELCOME",
+          "placement": "Blank tourism photograph caption",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility",
+    "town": null,
+    "political_basis": {
+      "subject": "Texas restrictions on public abortion-travel assistance",
+      "real_hook": "Texas SB33 took effect September 1, 2025 and restricts governmental spending and taxpayer-resource transactions for abortion assistance, including transport, lodging, food and childcare, regardless of the abortion's location.",
+      "source_url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+      "fictionalization": "This is not a blanket ban on adults traveling or on all private assistance. The enacted law includes a federal-law-conflict exception with specified state confirmation. Do not attribute draft private-enforcement provisions to the enacted law; the cited final text authorizes attorney-general enforcement. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_travel",
+      "public_funding_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D04-B",
+    "family_id": "ENC-D04",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_grassroots_signal",
+    "title": "The approved mattress",
+    "setup": "At a motel breakfast, a Texas outreach worker asks your crew to check SB33's restrictions on publicly funded abortion-travel lodging. Her city still promotes convention hotel offers. She lays both brochures beside an identical room photograph. The pillows have passed the budget committee twice.",
+    "choices": [
+      {
+        "label": "Check the lodging-assistance restriction",
+        "outcome": "You verify the spending rule. The worker turns the identical photographs face down. The budget's moral distinction is now two pieces of cardboard.",
+        "effects": {
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Save the program comparison",
+        "outcome": "You save the comparison, head aching. The motel owner studies the pictures. He hadn't realized the same mattress needed separate references.",
+        "effects": {
+          "sanity": -1,
+          "add_receipt": "deep_grassroots_signal"
+        }
+      },
+      {
+        "label": "Claim the law bans all hotel bookings",
+        "outcome": "She corrects you: the restriction concerns public assistance. The owner holds up an ordinary room key. It has survived your announcement.",
+        "effects": {
+          "credibility": -2
+        }
+      }
+    ],
+    "source_hook": "Texas restrictions on public abortion-travel assistance",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+        "claim": "Enacted spending restrictions, covered logistical assistance, effective date, enforcement and federal-law exception.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-victory-against-san-antonio-after-city-illegally-tried-fund-out",
+        "claim": "January 9, 2026 attorney-general announcement describes San Antonio ending an abortion-travel support program; the release's condemnatory framing is the agency's position.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional Texas outreach worker traveling independently",
+        "Fictional motel owner"
+      ]
+    },
+    "scene_id": "enc-d04-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Roadside motel breakfast room where a visiting outreach worker compares public examples from Texas",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional Texas outreach worker traveling independently",
+          "Fictional motel owner"
+        ]
+      },
+      "action": "The worker lays two blank brochures beside duplicate generic hotel-room photographs while travelers stand at the breakfast-room entrance.",
+      "visual_gag": "Both travel brochures show precisely the same ordinary bed and pillows despite being sorted into opposing policy categories.",
+      "composition": "Comparison on an otherwise clear breakfast table, worker and owner nearby, travelers considering joining; no crew purchase or meal consumed.",
+      "overlays": [
+        {
+          "text": "CONVENTION OFFER",
+          "placement": "Blank first brochure header",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "CARE-TRAVEL ASSISTANCE",
+          "placement": "Blank second brochure header",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility",
+    "town": null,
+    "political_basis": {
+      "subject": "Texas restrictions on public abortion-travel assistance",
+      "real_hook": "Texas SB33 took effect September 1, 2025 and restricts governmental spending and taxpayer-resource transactions for abortion assistance, including transport, lodging, food and childcare, regardless of the abortion's location.",
+      "source_url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+      "fictionalization": "This is not a blanket ban on adults traveling or on all private assistance. The enacted law includes a federal-law-conflict exception with specified state confirmation. Do not attribute draft private-enforcement provisions to the enacted law; the cited final text authorizes attorney-general enforcement. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_travel",
+      "public_funding_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D04-C",
+    "family_id": "ENC-D04",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "RustBelt",
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_grassroots_signal",
+    "title": "The purpose of a sandwich",
+    "setup": "A Texas volunteer at a roadside café asks your crew to check SB33: public abortion-travel assistance includes food. The café owner is preparing a city-convention catering bid. He holds up one sandwich. Apparently he needs to know where it plans to go after lunch.",
+    "choices": [
+      {
+        "label": "Check the public-spending limits",
+        "outcome": "You verify the limits. The owner puts the sandwich beside his catering forms. It qualifies for public money by staying vague about its itinerary.",
+        "effects": {
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Save the food-assistance provision",
+        "outcome": "You save the provision, head aching. The owner cuts the sandwich diagonally. It has changed direction without resolving its funding status.",
+        "effects": {
+          "sanity": -1,
+          "add_receipt": "deep_grassroots_signal"
+        }
+      },
+      {
+        "label": "Post that private food donations are banned",
+        "outcome": "The volunteer corrects you: SB33 targets public assistance. The owner removes your claim from the table before it frightens the bread.",
+        "effects": {
+          "credibility": -2
+        }
+      }
+    ],
+    "source_hook": "Texas restrictions on public abortion-travel assistance",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+        "claim": "Enacted spending restrictions, covered logistical assistance, effective date, enforcement and federal-law exception.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-victory-against-san-antonio-after-city-illegally-tried-fund-out",
+        "claim": "January 9, 2026 attorney-general announcement describes San Antonio ending an abortion-travel support program; the release's condemnatory framing is the agency's position.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult Texas community volunteer",
+        "Fictional café owner preparing a Texas convention bid"
+      ]
+    },
+    "scene_id": "enc-d04-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Interstate roadside café counter during an ordinary conversation about a Texas public catering bid",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult Texas community volunteer",
+          "Fictional café owner preparing a Texas convention bid"
+        ]
+      },
+      "action": "The owner holds a whole sandwich over a blank catering form while the volunteer offers a public source to the observing travelers.",
+      "visual_gag": "An ordinary sandwich sits where a formal applicant's headshot would go on an oversized blank catering application.",
+      "composition": "Sandwich and bid folder central, owner behind the counter, volunteer and current travelers in front; no sandwich has been given to crew.",
+      "overlays": [
+        {
+          "text": "PUBLIC CATERING BID",
+          "placement": "Blank folder header",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility",
+    "town": null,
+    "political_basis": {
+      "subject": "Texas restrictions on public abortion-travel assistance",
+      "real_hook": "Texas SB33 took effect September 1, 2025 and restricts governmental spending and taxpayer-resource transactions for abortion assistance, including transport, lodging, food and childcare, regardless of the abortion's location.",
+      "source_url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+      "fictionalization": "This is not a blanket ban on adults traveling or on all private assistance. The enacted law includes a federal-law-conflict exception with specified state confirmation. Do not attribute draft private-enforcement provisions to the enacted law; the cited final text authorizes attorney-general enforcement. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "abortion_travel",
+      "public_funding_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D05-A",
+    "family_id": "ENC-D05",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_media_ambush",
+    "title": "A lifetime warranty",
+    "setup": "A visiting Louisiana nurse asks your crew to time a cabinet lock at a hardware store. State controls now secure misoprostol, also used to stop bleeding. The salesman offers a lifetime warranty. She would settle for getting it open before closing.",
+    "choices": [
+      {
+        "label": "Check the rule and reported delays",
+        "outcome": "You verify the rule and reported delays, head aching. The salesman offers another key. The nurse asks whether it comes with another afternoon.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Browse the quiet garden aisle",
+        "outcome": "You clear your head by the garden supplies. The salesman demonstrates a watering can. Its contents escape without finding a supervisor.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Say the medicine is completely banned",
+        "outcome": "The simple story settles your head until she corrects it: valid prescribing remains lawful. The salesman resumes wrestling with the lawful cabinet.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Louisiana controls on mifepristone and misoprostol",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+        "claim": "Legislative digest establishes scheduling, effective date and pregnant patient's own-consumption possession exemption.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://nola.gov/getattachment/NEXT/Health-Department/Topics/Data-and-Publications/Act-246-Report-Final-9-30-25.pdf",
+        "claim": "September 2025 city report describes reported care delays, locked-storage guidance and the nonrepresentative voluntary evidence limitations.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://lawyeringproject.org/our-work/birthmark-v-louisiana/",
+        "claim": "Litigating organization's case page records June 10, 2025 denial of the state's procedural exceptions; this is not a final merits victory.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional visiting Louisiana nurse",
+        "Fictional hardware-store salesman"
+      ]
+    },
+    "scene_id": "enc-d05-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Hardware-store cabinet aisle with empty display furniture; no medicine or patient is present",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional visiting Louisiana nurse",
+          "Fictional hardware-store salesman"
+        ]
+      },
+      "action": "The salesman tries a key in an empty demonstration cabinet while the nurse holds a timing device and travelers watch without assisting.",
+      "visual_gag": "A giant warranty ribbon hangs from a small cabinet whose demonstration door will not open.",
+      "composition": "Cabinet and salesman central, nurse and observing travelers to the side; open garden aisle behind.",
+      "overlays": [
+        {
+          "text": "LIFETIME WARRANTY",
+          "placement": "Blank sales ribbon",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Louisiana controls on mifepristone and misoprostol",
+      "real_hook": "Louisiana Act246 placed mifepristone and misoprostol in Schedule IV effective October 1, 2024. New Orleans Health Department's September 2025 report documented reported dispensing and retrieval delays under new storage practices and legal confusion.",
+      "source_url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+      "fictionalization": "Valid prescribing remains lawful; pregnant people possessing either drug for their own consumption are exempt from the possession offense. The report's voluntary testimony is not representative statewide data. Misoprostol has other medical uses. A challenge was permitted to proceed in June 2025; no later final merits resolution was verified in this bounded research. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_care",
+      "medication_storage_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D05-B",
+    "family_id": "ENC-D05",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_media_ambush",
+    "title": "First in your own queue",
+    "setup": "At a charging stop, a Louisiana pharmacist asks your crew to check her public explanation of the state's misoprostol controls. Her pharmacy's phone system keeps forwarding questions back to her. She has crossed three states. The explanation hasn't crossed the counter.",
+    "choices": [
+      {
+        "label": "Check the lawful uses and delays",
+        "outcome": "You verify the lawful uses and reported problems, head aching. Her phone announces she's first in the queue. She's also staffing it.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Sit at the quiet picnic table",
+        "outcome": "You clear your head at the picnic table. Her phone requests feedback on the service. She puts it face down under a napkin.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Say every pregnant possessor faces charges",
+        "outcome": "The simple headline reassures you until she explains the own-use pregnancy exemption. Her phone interrupts to explain how simple the system is.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Louisiana controls on mifepristone and misoprostol",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+        "claim": "Legislative digest establishes scheduling, effective date and pregnant patient's own-consumption possession exemption.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://nola.gov/getattachment/NEXT/Health-Department/Topics/Data-and-Publications/Act-246-Report-Final-9-30-25.pdf",
+        "claim": "September 2025 city report describes reported care delays, locked-storage guidance and the nonrepresentative voluntary evidence limitations.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://lawyeringproject.org/our-work/birthmark-v-louisiana/",
+        "claim": "Litigating organization's case page records June 10, 2025 denial of the state's procedural exceptions; this is not a final merits victory.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional Louisiana pharmacist traveling off duty"
+      ]
+    },
+    "scene_id": "enc-d05-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Interstate charging and rest stop with picnic seating; a pharmacist discusses public information, not a live patient's care",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional Louisiana pharmacist traveling off duty"
+        ]
+      },
+      "action": "The pharmacist shows travelers a blank public-information sheet while her phone rests on a charging cable beside an unused bench.",
+      "visual_gag": "The phone's cable loops back over a stack of identical forwarding slips, visually returning to its starting point.",
+      "composition": "Pharmacist and travelers standing by the charging shelf, empty picnic table beyond, no medical records or identifiers visible.",
+      "overlays": [
+        {
+          "text": "YOU ARE FIRST IN THE QUEUE",
+          "placement": "Separate phone-audio caption, not embedded in a screen",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Louisiana controls on mifepristone and misoprostol",
+      "real_hook": "Louisiana Act246 placed mifepristone and misoprostol in Schedule IV effective October 1, 2024. New Orleans Health Department's September 2025 report documented reported dispensing and retrieval delays under new storage practices and legal confusion.",
+      "source_url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+      "fictionalization": "Valid prescribing remains lawful; pregnant people possessing either drug for their own consumption are exempt from the possession offense. The report's voluntary testimony is not representative statewide data. Misoprostol has other medical uses. A challenge was permitted to proceed in June 2025; no later final merits resolution was verified in this bounded research. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_care",
+      "medication_storage_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D05-C",
+    "family_id": "ENC-D05",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Beltway",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_media_ambush",
+    "title": "The hospital fitness plan",
+    "setup": "At a diner, visiting Louisiana nurses compare retrieval drills after misoprostol became a controlled drug. They ask your crew to check their public account for D.C. One has worn through a shoe fetching keys. The hospital thanked her for improving staff fitness.",
+    "choices": [
+      {
+        "label": "Check the controls and reported delays",
+        "outcome": "You verify the reported delays, head aching. The nurse turns over the worn shoe. The hospital's fitness plan has excellent ventilation.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Step outside for a quiet minute",
+        "outcome": "You clear your head outside. Inside, the nurse props the worn shoe on a spare chair. It's getting the break her hospital prescribed.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Say the rule only affects abortions",
+        "outcome": "Your tidy explanation is comforting until she lists other medical uses. The nurse opens her replacement-shoe catalogue. The hospital sent congratulations instead.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Louisiana controls on mifepristone and misoprostol",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+        "claim": "Legislative digest establishes scheduling, effective date and pregnant patient's own-consumption possession exemption.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://nola.gov/getattachment/NEXT/Health-Department/Topics/Data-and-Publications/Act-246-Report-Final-9-30-25.pdf",
+        "claim": "September 2025 city report describes reported care delays, locked-storage guidance and the nonrepresentative voluntary evidence limitations.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://lawyeringproject.org/our-work/birthmark-v-louisiana/",
+        "claim": "Litigating organization's case page records June 10, 2025 denial of the state's procedural exceptions; this is not a final merits victory.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional off-duty Louisiana nurses traveling to a public event"
+      ]
+    },
+    "scene_id": "enc-d05-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Roadside diner booth during off-duty discussion of training drills; no live emergency or medicine",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional off-duty Louisiana nurses traveling to a public event"
+        ]
+      },
+      "action": "A nurse points to the worn sole of her shoe while another holds a public source booklet; the travelers stand beside the booth.",
+      "visual_gag": "A cheerful blank staff-wellness card peeks out of a bag containing a badly worn shoe and an unopened replacement-shoe catalogue.",
+      "composition": "Worn shoe visible but not grotesque in foreground, nurses and observing travelers around the booth; no meal or resource transfer to crew.",
+      "overlays": [
+        {
+          "text": "STAFF WELLNESS: KEEP MOVING",
+          "placement": "Blank wellness card",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Louisiana controls on mifepristone and misoprostol",
+      "real_hook": "Louisiana Act246 placed mifepristone and misoprostol in Schedule IV effective October 1, 2024. New Orleans Health Department's September 2025 report documented reported dispensing and retrieval delays under new storage practices and legal confusion.",
+      "source_url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+      "fictionalization": "Valid prescribing remains lawful; pregnant people possessing either drug for their own consumption are exempt from the possession offense. The report's voluntary testimony is not representative statewide data. Misoprostol has other medical uses. A challenge was permitted to proceed in June 2025; no later final merits resolution was verified in this bounded research. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_care",
+      "medication_storage_restrictions"
+    ]
+  },
+  {
+    "id": "ENC-D06-A",
+    "family_id": "ENC-D06",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "deep_memorandum_dump",
+    "title": "Protective custody for the remote",
+    "setup": "At a library's public IVF-information evening, an Alabama patient asks your crew to check the embryo ruling and clinic-immunity law. The clinic's lawyer opens a heavily padded case for his presentation remote. She asks whether the embryos can get whatever he's bought for that.",
+    "choices": [
+      {
+        "label": "Check and save the legal changes",
+        "outcome": "You save the ruling and immunity limits, head aching. She asks for the remote's warranty. It's clearer than the protection he just described.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "add_receipt": "deep_memorandum_dump"
+        }
+      },
+      {
+        "label": "Use your paper; copy the protections",
+        "outcome": "You use some supplies to copy the limits accurately. The lawyer locks his remote away. It receives individual protection without an appointment.",
+        "effects": {
+          "credibility": 1,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Step outside for some quiet",
+        "outcome": "You clear your head outside. Through the window, the lawyer checks the foam around his remote. That storage question has been settled.",
+        "effects": {
+          "sanity": 2
+        }
+      }
+    ],
+    "source_hook": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+        "claim": "February 16, 2024 Alabama Supreme Court application of the wrongful-death statute to extrauterine embryos.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://apnews.com/article/cab8171e80c88a088778dc7a187b7b5a",
+        "claim": "March 6, 2024 enactment of specified IVF immunity, resumption of services and unresolved embryo-status question.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult IVF patient from Alabama choosing to question the policy",
+        "Fictional clinic lawyer at a public library event"
+      ]
+    },
+    "scene_id": "enc-d06-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt public library meeting room during an announced IVF-law information evening",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult IVF patient from Alabama choosing to question the policy",
+          "Fictional clinic lawyer at a public library event"
+        ]
+      },
+      "action": "The lawyer opens a small padded equipment case while the patient indicates it to the observing travelers beside a source booklet.",
+      "visual_gag": "A modest presentation remote rests inside disproportionately careful layers of custom protective foam.",
+      "composition": "Equipment case and remote foreground, lawyer behind it, patient and current travelers to the side; no embryo or clinical equipment is present.",
+      "overlays": [
+        {
+          "text": "PUBLIC INFORMATION: ALABAMA IVF LAW",
+          "placement": "Blank event panel",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+      "real_hook": "Alabama's February 16, 2024 ruling applied its wrongful-death statute to frozen extrauterine embryos. The March 6, 2024 IVF law provided specified immunity for embryo damage or death, allowing interrupted services to resume without resolving the underlying embryo-status question.",
+      "source_url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+      "fictionalization": "Do not claim IVF is currently banned, all embryo-related liability vanished, or embryos received every legal right. This is a dated ruling-and-legislation hook; fictional clerks, clinics and patients are not parties to the real litigation. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "ivf",
+      "embryo_legal_status"
+    ]
+  },
+  {
+    "id": "ENC-D06-B",
+    "family_id": "ENC-D06",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "deep_memorandum_dump",
+    "title": "One working latch",
+    "setup": "At a roadside flea market, a couple sells furniture to pay for IVF. They ask your crew to check Alabama's ruling treating embryos as children, followed by clinic immunity. One tests their old cot's latch. It manages protection without issuing itself an exemption.",
+    "choices": [
+      {
+        "label": "Check and save both legal changes",
+        "outcome": "You save the ruling and immunity limits, head aching. The seller works the cot latch again. No second bill is needed to close it.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "add_receipt": "deep_memorandum_dump"
+        }
+      },
+      {
+        "label": "Use your paper; record the limits",
+        "outcome": "You use some supplies to record the limits. The cot folds into a different position. At least it was designed to do that.",
+        "effects": {
+          "credibility": 1,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Browse the used books in peace",
+        "outcome": "You clear your head by the used books. The seller catches the latch with one hand. Its guarantees are unusually easy to demonstrate.",
+        "effects": {
+          "sanity": 2
+        }
+      }
+    ],
+    "source_hook": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+        "claim": "February 16, 2024 Alabama Supreme Court application of the wrongful-death statute to extrauterine embryos.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://apnews.com/article/cab8171e80c88a088778dc7a187b7b5a",
+        "claim": "March 6, 2024 enactment of specified IVF immunity, resumption of services and unresolved embryo-status question.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult couple selling their own furniture to fund IVF; they choose to discuss their plans"
+      ]
+    },
+    "scene_id": "enc-d06-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt roadside flea-market furniture stall with an empty cot and ordinary household items",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult couple selling their own furniture to fund IVF; they choose to discuss their plans"
+        ]
+      },
+      "action": "One seller demonstrates the cot's intact latch while the other offers a public legal source toward the watching travelers.",
+      "visual_gag": "A simple working latch is displayed beside two thick legal summaries, with the physical protection easier to understand at a glance.",
+      "composition": "Empty cot central, sellers behind the stall, travelers outside its edge; no sale, money exchange or crew copying has occurred.",
+      "overlays": [
+        {
+          "text": "IVF FUND",
+          "placement": "Blank modest stall card",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+      "real_hook": "Alabama's February 16, 2024 ruling applied its wrongful-death statute to frozen extrauterine embryos. The March 6, 2024 IVF law provided specified immunity for embryo damage or death, allowing interrupted services to resume without resolving the underlying embryo-status question.",
+      "source_url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+      "fictionalization": "Do not claim IVF is currently banned, all embryo-related liability vanished, or embryos received every legal right. This is a dated ruling-and-legislation hook; fictional clerks, clinics and patients are not parties to the real litigation. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "ivf",
+      "embryo_legal_status"
+    ]
+  },
+  {
+    "id": "ENC-D06-C",
+    "family_id": "ENC-D06",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "deep_memorandum_dump",
+    "title": "The complimentary lullaby",
+    "setup": "At a rest stop, an Alabama couple asks your crew to check the embryo ruling and later IVF-clinic immunity law. Their own insurance excludes IVF. The agent on speaker calls children priceless. He has priced everything required to have one.",
+    "choices": [
+      {
+        "label": "Check and save the legal distinction",
+        "outcome": "You save the ruling and immunity limits, head aching. The agent congratulates them on the embryos' status. They ask where to redeem it.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "add_receipt": "deep_memorandum_dump"
+        }
+      },
+      {
+        "label": "Use your paper; copy the limits",
+        "outcome": "You use some supplies to copy the limits. They fold the agent's smiling-baby brochure over the exclusions. The baby is sitting on the bill.",
+        "effects": {
+          "credibility": 1,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Leave the call for some quiet",
+        "outcome": "You clear your head away from the call. The hold music plays a lullaby. The couple has been receiving it for free.",
+        "effects": {
+          "sanity": 2
+        }
+      }
+    ],
+    "source_hook": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+        "claim": "February 16, 2024 Alabama Supreme Court application of the wrongful-death statute to extrauterine embryos.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://apnews.com/article/cab8171e80c88a088778dc7a187b7b5a",
+        "claim": "March 6, 2024 enactment of specified IVF immunity, resumption of services and unresolved embryo-status question.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult Alabama couple discussing their own IVF plans and private insurance contract",
+        "Fictional insurance agent heard only on their speakerphone"
+      ]
+    },
+    "scene_id": "enc-d06-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt rest-stop picnic table during a couple's voluntary discussion of their own coverage and dated Alabama laws",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult Alabama couple discussing their own IVF plans and private insurance contract",
+          "Fictional insurance agent heard only on their speakerphone"
+        ]
+      },
+      "action": "The couple indicates a blank insurance booklet beside a phone on speaker while travelers consider checking the public legal sources.",
+      "visual_gag": "An idyllic generic baby image on an insurance brochure covers a visibly dense block of blank exclusion lines.",
+      "composition": "Brochure and phone on the table, adult couple and observing travelers beside it; no identifiable medical information or actual patient image.",
+      "overlays": [
+        {
+          "text": "IVF EXCLUDED",
+          "placement": "Editable label on the blank policy-summary area",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+      "real_hook": "Alabama's February 16, 2024 ruling applied its wrongful-death statute to frozen extrauterine embryos. The March 6, 2024 IVF law provided specified immunity for embryo damage or death, allowing interrupted services to resume without resolving the underlying embryo-status question.",
+      "source_url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+      "fictionalization": "Do not claim IVF is currently banned, all embryo-related liability vanished, or embryos received every legal right. This is a dated ruling-and-legislation hook; fictional clerks, clinics and patients are not parties to the real litigation. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "ivf",
+      "embryo_legal_status"
+    ]
+  },
+  {
+    "id": "ENC-D07-A",
+    "family_id": "ENC-D07",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_secure_line",
+    "title": "Rewards for coming back empty",
+    "setup": "A traveler at a rest stop asks your crew to check Arizona's emergency-contraception refusal rule. The pharmacy returned her prescription, as required. It also offered a loyalty card. She holds them side by side. They are building a lasting relationship with the paper.",
+    "choices": [
+      {
+        "label": "Check and save the actual rule",
+        "outcome": "You save the refusal-and-return rule, clearing the confusion. She folds the loyalty card around the prescription. It finally supports contraception.",
+        "effects": {
+          "sanity": 1,
+          "add_receipt": "deep_secure_line"
+        }
+      },
+      {
+        "label": "Say Arizona banned emergency contraception",
+        "outcome": "She corrects you: the law permits specified refusals. She hasn't come this far to collect another person saying no.",
+        "effects": {
+          "credibility": -1
+        }
+      },
+      {
+        "label": "Use your paper; copy the limits",
+        "outcome": "You use some supplies to copy the limits. She tucks them into the loyalty-card sleeve. The free gift finally contains useful information.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Arizona conscience refusal for emergency contraception",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.azleg.gov/ars/36/02154.htm",
+        "claim": "Current statute checked September 14, 2026: written objection, covered institutions and personnel, emergency contraception and prescription-return requirement.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult traveler sharing her own Arizona pharmacy experience; no pregnancy or medical history beyond this chosen account is asserted"
+      ]
+    },
+    "scene_id": "enc-d07-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Interstate rest stop where an adult traveler compares blank prescription and loyalty-card papers",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult traveler sharing her own Arizona pharmacy experience; no pregnancy or medical history beyond this chosen account is asserted"
+        ]
+      },
+      "action": "The traveler holds an unmarked prescription sheet and a blank loyalty card side by side while current crew members listen.",
+      "visual_gag": "The polished promotional sleeve is much larger than the small piece of care information returned with it.",
+      "composition": "Hands and blank documents foreground, adult traveler and crew behind, parked vehicles out of focus; no medication or additional passenger.",
+      "overlays": [
+        {
+          "text": "LOYALTY REWARDS",
+          "placement": "Blank promotional card heading",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Arizona conscience refusal for emergency contraception",
+      "real_hook": "Arizona Revised Statutes 36-2154 permits listed institutions and personnel with written moral or religious objections to refuse emergency contraception and specified other services; a patient's written prescription must be returned.",
+      "source_url": "https://www.azleg.gov/ars/36/02154.htm",
+      "fictionalization": "Permission to refuse is not a statewide contraception ban or a command that every pharmacy refuse. Emergency contraception is not abortion. These are fictional demonstrations or discussions of Arizona's rule outside Arizona unless the region supports that setting. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "emergency_contraception",
+      "conscience_refusal"
+    ]
+  },
+  {
+    "id": "ENC-D07-B",
+    "family_id": "ENC-D07",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_secure_line",
+    "title": "The machine's personal beliefs",
+    "setup": "At a motel, an Arizona pharmacy worker explains to your crew that written objections can excuse refusing emergency contraception. The snack machine has just kept her sandwich. She reads it her employer's refusal script. It returns the receipt. She's beginning to recognize the training.",
+    "choices": [
+      {
+        "label": "Check and save the refusal limits",
+        "outcome": "You save the actual limits, clearing the confusion. She asks the machine for its written objection. Management appears to be inside a coil.",
+        "effects": {
+          "sanity": 1,
+          "add_receipt": "deep_secure_line"
+        }
+      },
+      {
+        "label": "Say every Arizona pharmacy must refuse",
+        "outcome": "She corrects you: permission isn't an obligation. The sandwich finally falls. Even this machine can stop refusing without a legislative session.",
+        "effects": {
+          "credibility": -1
+        }
+      },
+      {
+        "label": "Use your paper; copy the rule",
+        "outcome": "You use some supplies to copy the rule. She leaves it beside the machine. The sandwich still won't put its objection in writing.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Arizona conscience refusal for emergency contraception",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.azleg.gov/ars/36/02154.htm",
+        "claim": "Current statute checked September 14, 2026: written objection, covered institutions and personnel, emergency contraception and prescription-return requirement.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional off-duty Arizona pharmacy worker traveling independently"
+      ]
+    },
+    "scene_id": "enc-d07-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Roadside motel vending alcove with a visibly stuck wrapped sandwich and an empty receipt-return slot",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional off-duty Arizona pharmacy worker traveling independently"
+        ]
+      },
+      "action": "The worker reads from a blank staff-policy card beside the jammed machine while travelers watch; she has not received the sandwich.",
+      "visual_gag": "A promotional receipt protrudes neatly from the dispenser while the wrapped sandwich remains caught behind glass.",
+      "composition": "Machine central, worker and travelers beside it, no readable machine lettering or payment amounts embedded.",
+      "overlays": [
+        {
+          "text": "THANK YOU FOR YOUR CUSTOM",
+          "placement": "Blank receipt caption area",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Arizona conscience refusal for emergency contraception",
+      "real_hook": "Arizona Revised Statutes 36-2154 permits listed institutions and personnel with written moral or religious objections to refuse emergency contraception and specified other services; a patient's written prescription must be returned.",
+      "source_url": "https://www.azleg.gov/ars/36/02154.htm",
+      "fictionalization": "Permission to refuse is not a statewide contraception ban or a command that every pharmacy refuse. Emergency contraception is not abortion. These are fictional demonstrations or discussions of Arizona's rule outside Arizona unless the region supports that setting. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "emergency_contraception",
+      "conscience_refusal"
+    ]
+  },
+  {
+    "id": "ENC-D07-C",
+    "family_id": "ENC-D07",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "PacificCoast",
+      "MountainWest",
+      "Southwest"
+    ],
+    "runtime_key": "deep_secure_line",
+    "title": "Please rate the refusal",
+    "setup": "At a pharmacy's public Q&A, an Arizona pharmacist asks your crew to check her state's emergency-contraception refusal rule. The manager demonstrates a customer survey. It asks about parking, lighting and smiles. The customer looking for 'received medicine' has reached the thank-you screen.",
+    "choices": [
+      {
+        "label": "Check and save what the law permits",
+        "outcome": "You save the written-objection rule and settle the confusion. The customer selects 'other.' The manager has finally located the medical department.",
+        "effects": {
+          "sanity": 1,
+          "add_receipt": "deep_secure_line"
+        }
+      },
+      {
+        "label": "Call emergency contraception an abortion",
+        "outcome": "The pharmacist corrects you: emergency contraception is not abortion. The manager adds 'misinformation' to the survey, under customer error.",
+        "effects": {
+          "credibility": -1
+        }
+      },
+      {
+        "label": "Use your paper; copy the limits",
+        "outcome": "You use some supplies to copy the limits. The customer keeps your copy and returns the survey. The manager receives one very clear answer.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 1
+        }
+      }
+    ],
+    "source_hook": "Arizona conscience refusal for emergency contraception",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.azleg.gov/ars/36/02154.htm",
+        "claim": "Current statute checked September 14, 2026: written objection, covered institutions and personnel, emergency contraception and prescription-return requirement.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional visiting Arizona pharmacist at a public pharmacy event",
+        "Fictional pharmacy manager",
+        "Fictional adult customer who chooses to discuss the survey"
+      ]
+    },
+    "scene_id": "enc-d07-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Pharmacy community-information corner during an advertised public Q&A, away from prescription handling",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional visiting Arizona pharmacist at a public pharmacy event",
+          "Fictional pharmacy manager",
+          "Fictional adult customer who chooses to discuss the survey"
+        ]
+      },
+      "action": "The manager presents a blank survey tablet while the customer indicates the omitted service question and the pharmacist offers sources to observing travelers.",
+      "visual_gag": "The survey's physical promotional frame celebrates smiles and parking with simple pictures, leaving no place for the medicine being sought.",
+      "composition": "Tablet kept unreadable or blank for overlays, people standing around the community-information counter, no medical records or drug handover.",
+      "overlays": [
+        {
+          "text": "THANK YOU FOR YOUR FEEDBACK",
+          "placement": "Separate editable tablet overlay",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "OTHER",
+          "placement": "Editable survey-option overlay, displayed simultaneously only as a small navigation option",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Arizona conscience refusal for emergency contraception",
+      "real_hook": "Arizona Revised Statutes 36-2154 permits listed institutions and personnel with written moral or religious objections to refuse emergency contraception and specified other services; a patient's written prescription must be returned.",
+      "source_url": "https://www.azleg.gov/ars/36/02154.htm",
+      "fictionalization": "Permission to refuse is not a statewide contraception ban or a command that every pharmacy refuse. Emergency contraception is not abortion. These are fictional demonstrations or discussions of Arizona's rule outside Arizona unless the region supports that setting. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "emergency_contraception",
+      "conscience_refusal"
+    ]
+  },
+  {
+    "id": "ENC-D08-A",
+    "family_id": "ENC-D08",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_state_dirge",
+    "title": "Two functioning arms",
+    "setup": "At a pregnancy center's open house, a nurse asks your crew to check its ads against Massachusetts's warnings about misleading centers. The manager offers a 'medical volunteer' badge for carrying a sandwich board. The qualifications are two functioning arms. The center offers no abortion referrals.",
+    "choices": [
+      {
+        "label": "Use your paper; check the services",
+        "outcome": "You use some supplies to check the missing services, head pounding. The manager offers a lab coat. Apparently it covers the gaps.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 3,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Carry the sign; endorse the center",
+        "outcome": "You scrape your shin and relax into the pitch. The nurse corrects your endorsement: no abortion referrals. Your badge doesn't cover that either.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "hp": -1
+        }
+      },
+      {
+        "label": "Leave without checking the claims",
+        "outcome": "You leave with a quieter head and no checked account. The manager hangs your unused badge on the sandwich board. Staffing restored.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Pregnancy-center advertising and service mismatch",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+        "claim": "Massachusetts DPH warnings concerning misleading advertising, omitted services and licensing distinctions.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.mass.gov/doc/fact-sheet-avoid-anti-abortion-centers-pdf/download",
+        "claim": "Massachusetts public-information fact sheet identifies service and referral limitations of anti-abortion centers.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional pregnancy-center manager",
+        "Fictional adult nurse visiting the public open house"
+      ]
+    },
+    "scene_id": "enc-d08-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Fictional anti-abortion pregnancy center's public open-house entrance in the Rust Belt; not a named or depicted real facility",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional pregnancy-center manager",
+          "Fictional adult nurse visiting the public open house"
+        ]
+      },
+      "action": "The manager offers an unworn blank badge toward the observing travelers beside a leaning sandwich board while the nurse holds a public agency fact sheet.",
+      "visual_gag": "The large badge and spare white coat are ready before any qualifications have been discussed; the board's metal feet protrude visibly.",
+      "composition": "Badge and board foreground, manager behind them, nurse and current travelers outside the entrance; nobody wears the badge or lifts the sign yet.",
+      "overlays": [
+        {
+          "text": "MEDICAL VOLUNTEER",
+          "placement": "Blank offered badge",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "OPEN HOUSE",
+          "placement": "Blank sandwich-board header",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Pregnancy-center advertising and service mismatch",
+      "real_hook": "Massachusetts DPH warns that some anti-abortion centers advertise abortion-related care without providing abortion, full options counseling or referrals; many are not licensed medical clinics.",
+      "source_url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+      "fictionalization": "These are attributed agency warnings, not a judicial finding that every pregnancy center is fraudulent. Every center, offer, manager and advertisement in these encounters is fictional. No genuine clinic branding, victim likeness or unverified individualized allegation appears. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "pregnancy_center_deception",
+      "medical_advertising"
+    ]
+  },
+  {
+    "id": "ENC-D08-B",
+    "family_id": "ENC-D08",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_state_dirge",
+    "title": "All, enlarged to fit",
+    "setup": "A print-shop owner asks your crew to check a pregnancy center's flyer against Massachusetts's warnings about misleading advertising. The flyer promises 'all your options.' The center offers no abortion referrals. Its manager wants 'all' enlarged until it reaches the trim line. The printer fetches sharper scissors.",
+    "choices": [
+      {
+        "label": "Use your paper; document the omissions",
+        "outcome": "You use some supplies to document the missing services, head pounding. The printer trims the oversized word. The manager asks for it back.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 3,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Mount the frame; repeat the promise",
+        "outcome": "You scrape your knuckles mounting the frame and enjoy the simple pitch. The printer corrects you. Bigger type hasn't added the missing referrals.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "hp": -1
+        }
+      },
+      {
+        "label": "Leave the comparison unfinished",
+        "outcome": "You leave with a clearer head and no checked account. The manager approves the oversized word. It now covers most of the telephone number.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Pregnancy-center advertising and service mismatch",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+        "claim": "Massachusetts DPH warnings concerning misleading advertising, omitted services and licensing distinctions.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.mass.gov/doc/fact-sheet-avoid-anti-abortion-centers-pdf/download",
+        "claim": "Massachusetts public-information fact sheet identifies service and referral limitations of anti-abortion centers.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional print-shop owner",
+        "Fictional anti-abortion pregnancy-center manager"
+      ]
+    },
+    "scene_id": "enc-d08-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Rust Belt print shop preparing a fictional center's enlarged promotional flyer and display frame",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional print-shop owner",
+          "Fictional anti-abortion pregnancy-center manager"
+        ]
+      },
+      "action": "The manager indicates a large blank word area on an unmounted poster while the printer holds closed scissors; travelers consider the fact-checking request.",
+      "visual_gag": "An oversized empty headline block physically crowds the small contact-information area below, and an unused metal frame rests beside the counter.",
+      "composition": "Untrimmed poster central, printer and manager behind it, observing travelers at the counter; frame remains unmounted and scissors closed.",
+      "overlays": [
+        {
+          "text": "ALL YOUR OPTIONS",
+          "placement": "Large editable headline on blank poster",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "NO ABORTION REFERRALS",
+          "placement": "Small editorial comparison overlay beside the agency sheet, outside the advertisement",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Pregnancy-center advertising and service mismatch",
+      "real_hook": "Massachusetts DPH warns that some anti-abortion centers advertise abortion-related care without providing abortion, full options counseling or referrals; many are not licensed medical clinics.",
+      "source_url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+      "fictionalization": "These are attributed agency warnings, not a judicial finding that every pregnancy center is fraudulent. Every center, offer, manager and advertisement in these encounters is fictional. No genuine clinic branding, victim likeness or unverified individualized allegation appears. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "pregnancy_center_deception",
+      "medical_advertising"
+    ]
+  },
+  {
+    "id": "ENC-D08-C",
+    "family_id": "ENC-D08",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "deep_state_dirge",
+    "title": "The welcome mat has limits",
+    "setup": "At a bus stop, a nurse asks your crew to compare pregnancy-center flyers after Massachusetts's warnings about misleading advertising. The closer center promises 'all options' but offers no abortion referrals. Its promoter unrolls a welcome mat over a raised curb. Even the entrance needs a qualification.",
+    "choices": [
+      {
+        "label": "Use your paper; check the advertised options",
+        "outcome": "You use some supplies to check the omissions, head pounding. The nurse lifts the mat's edge. The curb is still underneath the welcome.",
+        "effects": {
+          "sanity": -2,
+          "credibility": 3,
+          "supplies": -1
+        }
+      },
+      {
+        "label": "Trust the pitch; take the shortcut",
+        "outcome": "You trip on the covered curb and enjoy having an easy answer. The nurse corrects the service claim. The welcome has acquired witnesses.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -2,
+          "hp": -1
+        }
+      },
+      {
+        "label": "Walk away without checking the flyers",
+        "outcome": "You leave with a quieter head and no checked account. The promoter smooths the mat. The bump is now officially part of the welcome.",
+        "effects": {
+          "sanity": 2,
+          "credibility": -1
+        }
+      }
+    ],
+    "source_hook": "Pregnancy-center advertising and service mismatch",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+        "claim": "Massachusetts DPH warnings concerning misleading advertising, omitted services and licensing distinctions.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.mass.gov/doc/fact-sheet-avoid-anti-abortion-centers-pdf/download",
+        "claim": "Massachusetts public-information fact sheet identifies service and referral limitations of anti-abortion centers.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult nurse discussing public information",
+        "Fictional promoter for an unnamed anti-abortion pregnancy center"
+      ]
+    },
+    "scene_id": "enc-d08-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Beltway bus-stop pavement near a fictional pregnancy center's public promotional stand",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult nurse discussing public information",
+          "Fictional promoter for an unnamed anti-abortion pregnancy center"
+        ]
+      },
+      "action": "The promoter begins laying a blank welcome mat over a visible raised curb while the nurse shows contrasting blank flyers to the observing travelers.",
+      "visual_gag": "A thin welcoming mat is being used to disguise a solid change in pavement height rather than remove it.",
+      "composition": "Curb and unfinished mat foreground, promoter to one side, nurse and current travelers safely on level pavement; nobody has crossed or tripped.",
+      "overlays": [
+        {
+          "text": "ALL OPTIONS",
+          "placement": "Blank promotional flyer heading",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "WELCOME",
+          "placement": "Editable lettering on the otherwise blank mat",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Pregnancy-center advertising and service mismatch",
+      "real_hook": "Massachusetts DPH warns that some anti-abortion centers advertise abortion-related care without providing abortion, full options counseling or referrals; many are not licensed medical clinics.",
+      "source_url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+      "fictionalization": "These are attributed agency warnings, not a judicial finding that every pregnancy center is fraudulent. Every center, offer, manager and advertisement in these encounters is fictional. No genuine clinic branding, victim likeness or unverified individualized allegation appears. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "pregnancy_center_deception",
+      "medical_advertising"
+    ]
+  },
+  {
+    "id": "ENC-D09-A",
+    "family_id": "ENC-D09",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "runtime_key": "deep_watch_party",
+    "title": "Reserved for the return trip",
+    "setup": "Your crew stops at a hospital's public meeting about losing maternity services. A volunteer shows the national maternity-care desert report. The county commissioner unveils reserved parking for new mothers. From those spaces, it's a long drive to somewhere they can become one.",
+    "choices": [
+      {
+        "label": "Check the closure and remaining services",
+        "outcome": "You check the closure and remaining services, head aching. The commissioner measures the parking bay. The route to a delivery ward won't fit.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Take a quiet look at the garden",
+        "outcome": "You clear your head in the garden. The commissioner tests the parking ribbon again. It is the only local delivery he has scheduled.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Rest in the van instead",
+        "outcome": "You nap and miss the community account. The commissioner posts his parking photograph, cropped just above the shuttered maternity windows.",
+        "effects": {
+          "credibility": -1,
+          "rest": true
+        }
+      }
+    ],
+    "source_hook": "Maternity-care deserts and loss of local birth services",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+        "claim": "August 11, 2026 report announcement describes persistent gaps in local maternity access.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www2.marchofdimes.org/maternity-care-deserts-report",
+        "claim": "2026 report provides maternity-care desert definition and national extent.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional community health volunteer",
+        "Fictional county commissioner"
+      ]
+    },
+    "scene_id": "enc-d09-a-reproductive-prechoice",
+    "scene": {
+      "setting": "Heartland hospital visitor car park during an advertised public meeting on a fictional maternity-service closure",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional community health volunteer",
+          "Fictional county commissioner"
+        ]
+      },
+      "action": "The commissioner holds a ribbon across an empty reserved bay while the volunteer offers a broad service map to the observing travelers.",
+      "visual_gag": "A carefully decorated new-mother parking space faces a closed former maternity entrance.",
+      "composition": "Empty reserved bay central, closed entrance behind, commissioner and volunteer at opposite sides, crew beside their parked van before acting.",
+      "overlays": [
+        {
+          "text": "NEW MOTHERS",
+          "placement": "Blank reserved-parking sign",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "MATERNITY SERVICES RELOCATED",
+          "placement": "Blank former-entrance notice",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery, movement/rest",
+    "town": null,
+    "political_basis": {
+      "subject": "Maternity-care deserts and loss of local birth services",
+      "real_hook": "March of Dimes's August 2026 report identifies roughly one-third of US counties as maternity-care deserts, lacking obstetric clinicians and birthing facilities.",
+      "source_url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+      "fictionalization": "A closed delivery ward alone does not establish a maternity-care desert. The report does not support attributing every closure to abortion restrictions; workforce, finance and other causes differ. Fictional officials' family-policy slogans do not establish a real causal claim about a named closure. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "maternity_care_deserts",
+      "rural_health_access"
+    ]
+  },
+  {
+    "id": "ENC-D09-B",
+    "family_id": "ENC-D09",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "runtime_key": "deep_watch_party",
+    "title": "A seat without a destination",
+    "setup": "At a bus depot, a mechanic asks your crew to check a maternity-access map for a public meeting. Officials promote a family-friendly county; delivery care now means a longer journey. The bus has a new child seat. The timetable hasn't acquired a hospital.",
+    "choices": [
+      {
+        "label": "Check the service map and report",
+        "outcome": "You verify the remaining services, head aching. The mechanic unfolds the route across the table. The final stretch lands in the vending machine.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Step off the platform for quiet",
+        "outcome": "You clear your head outside. A driver drapes his jacket over the new child seat. It has found someone local to look after.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Rest in the van instead",
+        "outcome": "You nap and miss the service account. The commissioner calls the new seat an arrival. The driver calls it upholstery.",
+        "effects": {
+          "credibility": -1,
+          "rest": true
+        }
+      }
+    ],
+    "source_hook": "Maternity-care deserts and loss of local birth services",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+        "claim": "August 11, 2026 report announcement describes persistent gaps in local maternity access.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www2.marchofdimes.org/maternity-care-deserts-report",
+        "claim": "2026 report provides maternity-care desert definition and national extent.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional rural transit mechanic",
+        "Fictional bus driver",
+        "Fictional county commissioner"
+      ]
+    },
+    "scene_id": "enc-d09-b-reproductive-prechoice",
+    "scene": {
+      "setting": "Heartland public bus-depot information area beside a parked coach with an empty child restraint; no passenger journey is underway",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional rural transit mechanic",
+          "Fictional bus driver",
+          "Fictional county commissioner"
+        ]
+      },
+      "action": "The mechanic offers a folded broad service map while the commissioner presents an installed empty child seat to the observing travelers.",
+      "visual_gag": "The child seat receives a decorative ribbon while the adjacent route display has a conspicuous gap where local delivery care would be.",
+      "composition": "Parked coach entrance and empty seat to the left, folded map on a table to the right, current travelers at the public information area.",
+      "overlays": [
+        {
+          "text": "FAMILY-FRIENDLY TRAVEL",
+          "placement": "Blank coach presentation panel",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "MATERNITY ACCESS",
+          "placement": "Blank map title area",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery, movement/rest",
+    "town": null,
+    "political_basis": {
+      "subject": "Maternity-care deserts and loss of local birth services",
+      "real_hook": "March of Dimes's August 2026 report identifies roughly one-third of US counties as maternity-care deserts, lacking obstetric clinicians and birthing facilities.",
+      "source_url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+      "fictionalization": "A closed delivery ward alone does not establish a maternity-care desert. The report does not support attributing every closure to abortion restrictions; workforce, finance and other causes differ. Fictional officials' family-policy slogans do not establish a real causal claim about a named closure. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "maternity_care_deserts",
+      "rural_health_access"
+    ]
+  },
+  {
+    "id": "ENC-D09-C",
+    "family_id": "ENC-D09",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Deep End",
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "runtime_key": "deep_watch_party",
+    "title": "Transport provided for the balloons",
+    "setup": "At a county fair, a midwife asks your crew to compare the maternity-care desert report with local services. The nearest delivery ward is outside the county. The commissioner distributes baby-themed balloons. He ties their strings to a sign promising to keep families close.",
+    "choices": [
+      {
+        "label": "Check the report against local services",
+        "outcome": "You verify the services, head aching. A gust pulls the balloons toward the highway. The midwife says they're following the maternity route.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Take a quiet break behind the stall",
+        "outcome": "You clear your head behind the stall. The commissioner knots another ribbon. His family policy now has a carrying handle.",
+        "effects": {
+          "sanity": 1
+        }
+      },
+      {
+        "label": "Sleep through the presentation",
+        "outcome": "You nap and miss the midwife's account. Staff load the balloons into a separate van. Every one gets a ride home.",
+        "effects": {
+          "credibility": -1,
+          "rest": true
+        }
+      }
+    ],
+    "source_hook": "Maternity-care deserts and loss of local birth services",
+    "evidence_status": "Verified dated source hook; fictional encounter, characters, institutional practices and dialogue. Limits retained in political_basis.",
+    "sources": [
+      {
+        "url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+        "claim": "August 11, 2026 report announcement describes persistent gaps in local maternity access.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www2.marchofdimes.org/maternity-care-deserts-report",
+        "claim": "2026 report provides maternity-care desert definition and national extent.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "cast_requirements": {
+      "crew": "Only currently present travelers from the existing crew, with established appearances. No pregnancy, reproductive history, identity, extra passenger or official/medical role is assigned to a crewmate.",
+      "locals": [
+        "Fictional adult midwife discussing public service information",
+        "Fictional county commissioner",
+        "Fictional fair staff; no patients or children are depicted"
+      ]
+    },
+    "scene_id": "enc-d09-c-reproductive-prechoice",
+    "scene": {
+      "setting": "Heartland county fair public-services stall with baby-themed balloons and a maternity-access information table",
+      "characters": {
+        "crew": "Up to two currently present travelers, with established appearances; other current travelers remain offscreen. Do not show absent or dead crewmates.",
+        "locals": [
+          "Fictional adult midwife discussing public service information",
+          "Fictional county commissioner",
+          "Fictional fair staff; no patients or children are depicted"
+        ]
+      },
+      "action": "The commissioner ties generic balloon strings to a blank family-policy sign while the midwife offers an unmarked service map toward the observing travelers.",
+      "visual_gag": "Balloon strings strain toward the highway beyond the fair while being tied to a promise that families will stay close.",
+      "composition": "Balloon cluster and commissioner center, midwife and travelers beside a source table, highway visible distantly; crew van remains parked and no rest has occurred.",
+      "overlays": [
+        {
+          "text": "KEEPING FAMILIES CLOSE",
+          "placement": "Blank commissioner sign",
+          "display_condition": "Encounter setup before choice selection."
+        },
+        {
+          "text": "MATERNITY ACCESS",
+          "placement": "Blank information-table header",
+          "display_condition": "Encounter setup before choice selection."
+        }
+      ],
+      "asset_notes": "No readable text, logos, numbers, UI screenshots or lettering embedded; any needed words use overlays.",
+      "display_phase": "Before choice selection. Crew observe or consider; no chosen action, exchange, reward, donation, care or rest has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery, movement/rest",
+    "town": null,
+    "political_basis": {
+      "subject": "Maternity-care deserts and loss of local birth services",
+      "real_hook": "March of Dimes's August 2026 report identifies roughly one-third of US counties as maternity-care deserts, lacking obstetric clinicians and birthing facilities.",
+      "source_url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+      "fictionalization": "A closed delivery ward alone does not establish a maternity-care desert. The report does not support attributing every closure to abortion restrictions; workforce, finance and other causes differ. Fictional officials' family-policy slogans do not establish a real causal claim about a named closure. All encounter scenes, offers, prices, actions, outcomes and dialogue are invented, not reported incidents."
+    },
+    "content_gate": "deep_only",
+    "content_topics": [
+      "reproductive_health",
+      "maternity_care_deserts",
+      "rural_health_access"
+    ]
+  }
+]

@@ -1,0 +1,89 @@
+   Compiling tokio v1.48.0
+   Compiling dystrail-game v0.1.0 (/Users/vanna/Source/Dystrail/dystrail-game)
+   Compiling hyper v1.8.1
+   Compiling tokio-rustls v0.26.4
+   Compiling tower v0.5.2
+   Compiling tokio-util v0.7.19
+   Compiling tokio-stream v0.1.19
+   Compiling tower-http v0.6.11
+   Compiling hyper-util v0.1.19
+   Compiling hyper-rustls v0.27.7
+   Compiling reqwest v0.13.5
+   Compiling thirtyfour v0.37.5
+   Compiling dystrail-tester v0.10.0 (/Users/vanna/Source/Dystrail/dystrail-tester)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.66s
+     Running `target/debug/dystrail-tester --mode logic --scenarios real-game --iterations 1000 --report console`
+🎮 Dystrail Automated Tester
+================================
+🧠 Running Logic Tests
+------------------------------
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep - Balanced seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Deep Aggressive seed DP-ORANGE02 failed to reach the boss
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 90.9% < 92.0%
+WARN: Deep - Aggressive seed DP-ORANGE02 travel ratio 90.9% < 92.0%
+WARN: Deep Aggressive seed DP-BARRON03 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE03 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE03 failed to reach the boss
+WARN: Deep Aggressive seed DP-ORANGE03 failed to reach the boss
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.7% < 92.0%
+WARN: Deep - Resource Manager seed DP-ORANGE02 travel ratio 91.3% < 92.0%
+WARN: Classic - Aggressive average endgame cooldown 0.02 days remaining
+WARN: Classic - Balanced average endgame cooldown 0.02 days remaining
+WARN: Classic - Conservative average endgame cooldown 0.02 days remaining
+WARN: Classic - Resource Manager average endgame cooldown 0.01 days remaining
+WARN: Deep - Aggressive field repair only triggered 0.0% of runs
+WARN: Deep - Aggressive average endgame cooldown 0.01 days remaining
+WARN: Deep - Balanced average endgame cooldown 0.01 days remaining
+WARN: Deep - Conservative average endgame cooldown 0.01 days remaining
+WARN: Deep - Resource Manager average endgame cooldown 0.01 days remaining
+
+📊 Logic Test Results Summary
+==============================
+Total scenarios: 1
+Passed: 1
+Failed: 0
+Success rate: 100.0%
+Total time: 127.847761417s
+
+✅ PASS Real Game Test
+   Iterations: 1000/1000 successful
+   Average time: 12.52443ms
+
+⚡ Performance Summary
+=====================
+Fastest: Real Game Test (12.52443ms)
+Slowest: Real Game Test (12.52443ms)
+
+📈 Playability Summary
+======================
+• Classic - Aggressive (Classic/Aggressive) | n=1000 | days 22.2±1.3 | miles 2090.4±82.6 | travel 98.4% (min 90.9%) | unique/20 6.54 (min 4.00) | ≥2k@150 98.1% | rotations 5.7 | boss reach 98.1% | boss win 32.9%
+   crossings: events 3.0 | permit 0.0% | bribes 2.88 (succ 84.0%) | detours 0.48 | fail 0.6%
+• Classic - Balanced (Classic/Balanced) | n=1000 | days 19.3±5.3 | miles 2087.2±432.0 | travel 98.1% (min 90.0%) | unique/20 6.04 (min 3.00) | ≥2k@150 67.9% | rotations 5.2 | boss reach 34.6% | boss win 19.7%
+   crossings: events 2.8 | permit 0.0% | bribes 2.81 (succ 75.3%) | detours 0.38 | fail 11.4%
+• Classic - Conservative (Classic/Conservative) | n=1000 | days 25.4±0.7 | miles 2097.8±20.9 | travel 98.7% (min 92.3%) | unique/20 6.48 (min 5.38) | ≥2k@150 98.9% | rotations 6.7 | boss reach 98.9% | boss win 31.1%
+   crossings: events 3.0 | permit 0.0% | bribes 3.00 (succ 84.0%) | detours 0.47 | fail 0.4%
+• Classic - Resource Manager (Classic/ResourceManager) | n=1000 | days 22.5±0.5 | miles 2100.0±0.0 | travel 98.4% (min 91.3%) | unique/20 6.39 (min 5.00) | ≥2k@150 100.0% | rotations 5.7 | boss reach 100.0% | boss win 27.1%
+   crossings: events 3.0 | permit 0.0% | bribes 3.00 (succ 82.3%) | detours 0.53 | fail 0.0%
+• Deep - Aggressive (Deep/Aggressive) | n=1000 | days 21.3±1.1 | miles 2060.0±72.9 | travel 98.4% (min 90.9%) | unique/20 6.74 (min 4.00) | ≥2k@150 99.2% | rotations 5.7 | boss reach 99.2% | boss win 99.2%
+   crossings: events 3.0 | permit 0.0% | bribes 2.89 (succ 88.0%) | detours 0.36 | fail 0.3%
+• Deep - Balanced (Deep/Balanced) | n=1000 | days 19.4±5.3 | miles 2083.0±429.2 | travel 97.5% (min 90.0%) | unique/20 5.98 (min 3.00) | ≥2k@150 67.9% | rotations 5.2 | boss reach 9.8% | boss win 3.3%
+   crossings: events 2.8 | permit 0.0% | bribes 2.81 (succ 75.3%) | detours 0.38 | fail 11.4%
+• Deep - Conservative (Deep/Conservative) | n=1000 | days 25.4±0.5 | miles 2100.0±0.0 | travel 98.8% (min 92.3%) | unique/20 6.51 (min 5.38) | ≥2k@150 100.0% | rotations 7.3 | boss reach 100.0% | boss win 30.4%
+   crossings: events 3.0 | permit 0.0% | bribes 3.00 (succ 87.9%) | detours 0.36 | fail 0.0%
+• Deep - Resource Manager (Deep/ResourceManager) | n=1000 | days 22.5±0.6 | miles 2100.0±0.0 | travel 98.4% (min 91.3%) | unique/20 6.34 (min 5.00) | ≥2k@150 100.0% | rotations 5.7 | boss reach 100.0% | boss win 27.1%
+   crossings: events 3.0 | permit 0.0% | bribes 3.00 (succ 82.3%) | detours 0.53 | fail 0.0%
+
+🏁 Total time: 127.847819584s
+WARN: Classic Aggressive survival 99.1% exceeds Balanced upper band
+WARN: Deep - Balanced boss reach 9.8% below 15% deep lower bound
+WARN: Deep - Balanced boss win 3.3% below 10% deep lower bound
+WARN: Deep - Conservative boss reach 100.0% exceeds 75% deep upper bound
+WARN: Deep - Aggressive boss reach 99.2% exceeds 75% deep upper bound
+WARN: Deep - Aggressive boss win 99.2% exceeds 52% deep upper bound
+WARN: Deep - Aggressive terminal crossing rate 0.3% below 8% deep lower band
+WARN: Deep - Conservative terminal crossing rate 0.0% below 8% deep lower band
+WARN: Deep - Resource Manager terminal crossing rate 0.0% below 8% deep lower band

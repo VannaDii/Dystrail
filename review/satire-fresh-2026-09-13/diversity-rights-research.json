@@ -1,0 +1,367 @@
+[
+  {
+    "id": "DRR-01",
+    "hook": "Workplace abortion accommodations removed from the PWFA regulation",
+    "event_date": "2025-05-21",
+    "verified_fact": "A federal district court vacated the EEOC provision treating abortion as a pregnancy-related condition for workplace accommodations, and guidance requiring accommodation for elective abortions unrelated to treating a pregnancy-related medical condition.",
+    "status_and_limits": "The order expressly preserves accommodations for pregnancy terminations arising from treatment of pregnancy-related medical conditions. The PWFA itself and other employment protections remain; September 9, 2026 reporting still described the abortion provision as struck down and EEOC revision as planned.",
+    "sources": [
+      {
+        "url": "https://cases.justia.com/federal/district-courts/louisiana/lawdce/2:2024cv00629/205802/107/0.pdf",
+        "type": "court_order",
+        "supports": "May 21 order, operative remedy and footnote 24 medical-treatment exception."
+      },
+      {
+        "url": "https://apnews.com/article/afcb9a2cc49d563d5fd5f6cc85b0bf3a",
+        "type": "reporting",
+        "supports": "September 9, 2026 status of the provision and continuing PWFA enforcement."
+      }
+    ],
+    "ordinary_life_angle": "An hourly worker at a roadside temp shift has a real appointment but encounters an employer's leave categories; target political sorting of medical time, without portraying every abortion-related absence as unprotected.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-02",
+    "hook": "Women's Health Initiative funding cancellation reversed",
+    "event_date": "2025-04-21 / 2025-05-06",
+    "verified_fact": "Women's Health Initiative investigators were told on April 21 that regional-center contracts would end in September 2025. On May 6, the study announced official confirmation that the nonrenewal was rescinded and the study would continue uninterrupted.",
+    "status_and_limits": "This is a documented threat and reversal involving long-term women's health research, not a permanently shuttered study. April 25 restoration reports preceded the May 6 official confirmation; the source does not establish a later cancellation.",
+    "sources": [
+      {
+        "url": "https://www.whi.org/md/news/whi-funding-announcement",
+        "type": "research_program_notice",
+        "supports": "Dated April 21, April 25 and May 6 updates from the study itself."
+      }
+    ],
+    "ordinary_life_angle": "At a senior-center stop, a long-term participant keeps an impeccable appointment calendar while the agency funding the decades-long study changes its commitment within weeks.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-03",
+    "hook": "Cancelled USAID contraception distribution produces storage bills and unusable stock",
+    "event_date": "2025-03-14 / 2026-06-10",
+    "verified_fact": "USAID's June 10, 2026 inspector-general advisory traced the March 2025 family-planning contract cancellation and repeated destruction reversals. About $8 million in commodities became largely unusable after removal from temperature-controlled storage; storage and freight cost $360,667 through March 2026.",
+    "status_and_limits": "The advisory still identified $1.7 million of usable commodities as of April 2026, with expiration dates in 2028–2031. Final disposition was unresolved in the agency information obtained for the advisory. Do not claim all stock was burned or that its September location is confirmed.",
+    "sources": [
+      {
+        "url": "https://oig.usaid.gov/sites/default/files/2026-06/Management%20Advisory_Family%20Planning%20Commodities%20in%20Belgium%20Need%20Final%20Disposition%20Instructions.pdf",
+        "type": "inspector_general_advisory",
+        "supports": "Contract termination, handling timeline, condition, remaining usable stock and storage costs."
+      }
+    ],
+    "ordinary_life_angle": "At a US aid-contractor's public meeting, a warehouse worker compares cancelled delivery work with the government's continuing bill for storing contraceptives it refused to distribute; the actual warehouse is in Belgium.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-04",
+    "hook": "Proposed insurance coverage for over-the-counter contraception withdrawn",
+    "event_date": "2025-01-15",
+    "verified_fact": "Treasury, Labor and HHS withdrew an October 2024 proposal that would have required covered plans to provide certain recommended over-the-counter contraceptives without a prescription or cost sharing.",
+    "status_and_limits": "The withdrawal occurred during the Biden administration, before Trump's January 20 inauguration. The proposed expansion never became final; existing ACA preventive-coverage requirements remained. Plans and state rules can provide broader coverage.",
+    "sources": [
+      {
+        "url": "https://public-inspection.federalregister.gov/2025-00774.pdf",
+        "type": "federal_register_withdrawal",
+        "supports": "January 15 withdrawal, proposed coverage expansion and agency explanation."
+      }
+    ],
+    "ordinary_life_angle": "At a pharmacy stop, a product is available directly from the shelf while reimbursement still runs through a plan's prescription or claims process; the gate is who pays, not whether contraception is legal.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-05",
+    "hook": "Disabled retirees' employment-discrimination claim meets the job-holding requirement",
+    "event_date": "2025-06-20",
+    "verified_fact": "In Stanley v. City of Sanford, the Supreme Court held that a Title I ADA claimant must hold or seek a job and be able to perform its essential functions at the time of the alleged discrimination. The dispute concerned health-coverage terms for disability retirees.",
+    "status_and_limits": "The decision does not eliminate every retiree's ADA rights or every possible benefits claim. Claims concerning discrimination while employed and claims under other laws require separate analysis; the Court reviewed pleaded facts, not a trial finding of discriminatory intent.",
+    "sources": [
+      {
+        "url": "https://www.supremecourt.gov/opinions/24pdf/23-997_6579.pdf",
+        "type": "supreme_court_opinion",
+        "supports": "Title I holding, timing requirement and disability-retirement benefit dispute."
+      }
+    ],
+    "ordinary_life_angle": "A retired public worker at a community breakfast receives ceremonial thanks for service while contesting retirement coverage through a legal doorway defined by still holding or seeking a job.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-06",
+    "hook": "Federal phaseout of disabled-worker subminimum-wage certificates abandoned",
+    "event_date": "2025-07-07",
+    "verified_fact": "The Labor Department withdrew its December 2024 proposal to phase out FLSA section 14(c) certificates, which permit certain employers to pay less than the federal minimum wage to workers whose disabilities affect their productive capacity.",
+    "status_and_limits": "The withdrawal leaves the federal certificate system in place; it does not authorize every employer to underpay every disabled worker. Certification and wage rules still apply, and some states prohibit or further restrict the practice.",
+    "sources": [
+      {
+        "url": "https://regulations.justia.com/regulations/fedreg/2025/07/07/2025-12534.html",
+        "type": "federal_register_withdrawal",
+        "supports": "Formal withdrawal and scope of the proposed section 14(c) phaseout."
+      },
+      {
+        "url": "https://www.dol.gov/agencies/whd/workers-with-disabilities?lang=ht",
+        "type": "agency_guidance",
+        "supports": "Continuing federal certificate framework."
+      }
+    ],
+    "ordinary_life_angle": "At a contract-packaging stop, a disabled worker points out the ordinary retail prices on goods produced under discounted wage certificates; the target is government-authorized pay valuation, not the worker's ability.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-07",
+    "hook": "Government website accessibility deadlines extended",
+    "event_date": "2026-04-20",
+    "verified_fact": "DOJ extended the Title II ADA web-accessibility technical compliance dates: larger public entities moved from April 2026 to April 26, 2027, and smaller entities and special districts from April 2027 to April 26, 2028.",
+    "status_and_limits": "This interim final rule delays the specified WCAG 2.1 AA deadlines. Existing ADA duties concerning effective communication, reasonable modifications and equal access continue; it is not a blanket license for inaccessible public services.",
+    "sources": [
+      {
+        "url": "https://www.ada.gov/assets/pdfs/2026-ifr.pdf",
+        "type": "agency_rule",
+        "supports": "New deadlines and preserved preexisting ADA obligations."
+      },
+      {
+        "url": "https://www.ada.gov/resources/web-rule-first-steps/",
+        "type": "current_agency_guidance",
+        "supports": "Agency implementation guidance reflecting the revised deadlines."
+      }
+    ],
+    "ordinary_life_angle": "At a public library, a resident faces a fixed benefits deadline on a portal the government has given itself another year to make accessible.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-08",
+    "hook": "New nursing-home staffing minimums repealed",
+    "event_date": "2025-12-03; effective 2026-02-02",
+    "verified_fact": "CMS repealed the 2024 nursing-home minimum staffing provisions, including the new round-the-clock registered-nurse requirement and specified nursing hours per resident. Congress had barred implementation, administration or enforcement of those provisions until September 30, 2034.",
+    "status_and_limits": "The repeal took effect February 2, 2026. Older sufficient-staffing and nursing requirements remain, as may stronger state rules; do not imply homes may legally operate without nurses or that staffing fell everywhere because of this action.",
+    "sources": [
+      {
+        "url": "https://regulations.justia.com/regulations/fedreg/2025/12/03/2025-21792.html",
+        "type": "federal_register_rule",
+        "supports": "Repealed provisions, congressional restriction, effective date and retained requirements."
+      }
+    ],
+    "ordinary_life_angle": "While helping with an ordinary delivery to a nursing home, the crew encounters residents comparing a newly simplified staffing notice with the unchanged number of call bells.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-09",
+    "hook": "Protected-area immigration enforcement guidance rescinded; some churches regain protection",
+    "event_date": "2025-01-20 / 2026-08-18",
+    "verified_fact": "DHS rescinded its protected-area enforcement guidance on January 20, 2025. On August 18, 2026, the Fourth Circuit upheld a preliminary injunction restoring the earlier policy at the plaintiff religious organizations' identified places of worship.",
+    "status_and_limits": "The injunction is limited to those plaintiffs' locations, not every church, school or hospital. Even the restored policy permits specified enforcement circumstances; underlying warrant and constitutional rules also remain.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/federal/appellate-courts/ca4/25-1512/25-1512-2026-08-18.html",
+        "type": "appellate_opinion",
+        "supports": "Rescission date, current appellate ruling, injunction coverage and exceptions."
+      }
+    ],
+    "ordinary_life_angle": "A church pantry's public meal preparations collide with attendance fears and a court order protecting only named congregations; target the geography of official reassurance, not families deciding whether to attend.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-10",
+    "hook": "Appearing at immigration court becomes an arrest opportunity",
+    "event_date": "2025 policies; vacated 2026-06-23",
+    "verified_fact": "A federal court vacated ICE and EOIR policies expanding civil immigration arrests at courthouses, finding the agencies failed to justify their reversal and consider effects on hearing attendance.",
+    "status_and_limits": "Final judgment followed June 30, 2026; the district court denied a stay pending appeal on July 10. The latest verified orders concern specified policies, not an absolute immunity from every courthouse arrest; appellate proceedings make present-tense use time-sensitive.",
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/content/pkg/USCOURTS-cand-5_25-cv-06487/pdf/USCOURTS-cand-5_25-cv-06487-8.pdf",
+        "type": "court_order",
+        "supports": "June 23 policy vacatur and documented conflict between hearing attendance and arrest risk."
+      },
+      {
+        "url": "https://caselaw.findlaw.com/court/us-dis-crt-n-d-cal/245936.html",
+        "type": "court_order_republication",
+        "supports": "July 10 denial of a stay pending appeal and scope of vacated policies."
+      }
+    ],
+    "ordinary_life_angle": "A courthouse volunteer outside a scheduled hearing compares the government's demand that people appear with the enforcement operation meeting them at the exit; fiction should be anchored to the challenged-policy period.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-11",
+    "hook": "Rapid detention transfers obstruct access to lawyers",
+    "event_date": "2026-03-26",
+    "verified_fact": "A Minnesota federal judge ordered DHS to provide people detained at the Whipple holding facility free, private telephone access within an hour, access to legal visitors, and a 72-hour hold on out-of-state transfers after finding serious barriers to counsel.",
+    "status_and_limits": "This is a preliminary injunction for the specified facility and covered detainees, not a final nationwide merits judgment. It protects an opportunity to contact counsel; it does not guarantee government-appointed immigration counsel.",
+    "sources": [
+      {
+        "url": "https://clearinghouse-umich-production.s3.amazonaws.com/media/doc/169796.pdf",
+        "type": "court_order",
+        "supports": "March 26 findings and precise telephone, legal-access and transfer requirements."
+      }
+    ],
+    "ordinary_life_angle": "At a volunteer legal office, families can reach the receptionist but lawyers struggle to reach clients moved through the detention system; target an official right rendered difficult to exercise through logistics.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-12",
+    "hook": "Third-country deportations without a meaningful chance to contest the destination",
+    "event_date": "2026-02-25 / 2026-03-16",
+    "verified_fact": "A federal district court set aside DHS's third-country removal policy and required meaningful procedures to raise destination-specific fears. The First Circuit stayed that judgment on March 16, 2026 while the government appealed.",
+    "status_and_limits": "The accessible appellate docket, retrieved through August 3, records argument on May 13 and no merits decision; a targeted September 14 check found none later. Do not describe the district-court protection as currently operative or the stay as a final ruling that every such removal is lawful.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/148cee2906dc7286b074116d3eec6fd4",
+        "type": "reporting",
+        "supports": "February 25 judgment and policy dispute."
+      },
+      {
+        "url": "https://dockets.justia.com/docket/circuit-courts/ca1/26-1212",
+        "type": "appellate_docket_republication",
+        "supports": "March 16 stay pending appeal, May 13 argument and limits of accessible docket currency."
+      }
+    ],
+    "ordinary_life_angle": "At a community travel-aid table, volunteers compare an ordinary passenger's ability to review an itinerary with a deportee's disputed opportunity to learn and challenge an unfamiliar destination.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-13",
+    "hook": "HUD proposes ending indefinite prorated assistance for mixed-status households",
+    "event_date": "2026-02-20",
+    "verified_fact": "HUD proposed requiring verification of citizenship or eligible immigration status for covered housing recipients regardless of age and making prorated assistance temporary rather than potentially indefinite for mixed-status families.",
+    "status_and_limits": "This is a proposal, not a current blanket eviction order. HUD's August 14 regulatory plan targets a final rule for November 2026; that timetable is not finalization. Existing eligible-member assistance, statutory exceptions and covered-program limits must not be erased.",
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-20/pdf/2026-03405.pdf",
+        "type": "proposed_rule",
+        "supports": "Proposed household verification and assistance changes."
+      },
+      {
+        "url": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16603.pdf",
+        "type": "regulatory_plan",
+        "supports": "Housing section 87 describes the proposal and November 2026 final-rule target."
+      }
+    ],
+    "ordinary_life_angle": "A tenants' association preparing public comments has to explain how an eligible child's housing can become entangled with another household member's status; target bureaucratic treatment of a shared home as separable eligibility slots.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-14",
+    "hook": "Head Start recast as an immigration-restricted federal benefit",
+    "event_date": "2025-07-14 / 2025-09-11",
+    "verified_fact": "HHS's July 2025 reinterpretation of federal-benefit law expanded immigration restrictions to programs including Head Start. A September 11, 2025 injunction blocked implementation against Head Start agencies, providers, students and families nationwide.",
+    "status_and_limits": "HHS's current notice expressly says the Head Start restriction is not being enforced nationwide. A separate injunction covers the broader reinterpretation in plaintiff jurisdictions. Do not present exclusion as an operating national Head Start rule or describe eligibility as citizens-only.",
+    "sources": [
+      {
+        "url": "https://www.hhs.gov/press-room/prwora-hhs-bans-illegal-aliens-accessing-taxpayer-funded-programs.html",
+        "type": "agency_notice_with_litigation_update",
+        "supports": "Original July action and current nationwide Head Start injunction notice."
+      }
+    ],
+    "ordinary_life_angle": "At a preschool supply drive, administrators retain the court notice that stopped their attempted conversion into immigration screeners; target federal enrollment whiplash, with families actively preserving access.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-15",
+    "hook": "Lowndes County sewage agreement terminated as environmental-justice policy",
+    "event_date": "2025-04-11",
+    "verified_fact": "DOJ terminated its environmental-justice settlement concerning inadequate wastewater disposal in Lowndes County, Alabama, citing Trump's directive against DEI and environmental-justice initiatives.",
+    "status_and_limits": "Termination of the federal agreement does not establish that sewage problems were fixed, that every infrastructure project lost funding, or that previously suspended household penalties automatically resumed. DOJ's ideological characterization is its stated rationale, not a court finding that the agreement was illegal.",
+    "sources": [
+      {
+        "url": "https://www.justice.gov/opa/pr/department-justice-terminates-environmental-justice-settlement-agreement-advancing-president",
+        "type": "agency_announcement",
+        "supports": "Termination date and administration's stated rationale."
+      },
+      {
+        "url": "https://www.justice.gov/archives/opa/press-release/file/1582566/dl",
+        "type": "original_settlement",
+        "supports": "Original wastewater, public-health and enforcement commitments."
+      }
+    ],
+    "ordinary_life_angle": "At a local plumbing fundraiser, residents still need physical sewage infrastructure after Washington removes the agreement overseeing it; target the substitution of ideological cleanup for actual sanitation.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-16",
+    "hook": "EPA proposes removing some PFAS drinking-water limits and delaying others",
+    "event_date": "2026-05-18",
+    "verified_fact": "EPA proposed rescinding the PFHxS, PFNA, GenX and PFAS-mixture standards, while separately retaining PFOA/PFOS limits and proposing an application-based extension from 2029 to 2031 for qualifying water systems.",
+    "status_and_limits": "These remain proposals in the reviewed EPA materials; the rescission comment period closed July 20. The extension would not be automatic. Do not claim all PFAS regulation has ended, every tap is contaminated, or a changed legal limit removes chemicals.",
+    "sources": [
+      {
+        "url": "https://www.epa.gov/sdwa/proposed-pfas-rescission-rule",
+        "type": "agency_proposal_status",
+        "supports": "Chemicals covered, proposed status and comment-period closure."
+      },
+      {
+        "url": "https://www.epa.gov/newsreleases/epa-advances-comprehensive-pfas-strategy-legally-defensible-practical-scientifically",
+        "type": "agency_announcement",
+        "supports": "Retained PFOA/PFOS limits and proposed opt-in extension."
+      }
+    ],
+    "ordinary_life_angle": "At a water-board public meeting, residents compare an unchanged treatment problem with a proposed compliance chart containing fewer regulated columns and more time.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-17",
+    "hook": "Stronger coal-plant mercury and toxic-metal standards repealed",
+    "event_date": "2026-02-24; effective 2026-04-27",
+    "verified_fact": "EPA published a final repeal of 2024 requirements tightening coal-plant particulate limits used to control toxic metals, lignite-plant mercury limits, and particulate continuous-monitoring requirements.",
+    "status_and_limits": "The repeal took effect April 27, 2026 and restores the older standards; it does not abolish the 2012 Mercury and Air Toxics Standards. EPA's claims about cost savings and adequate protection are its rationale, not proof that every neighbor's health is unaffected.",
+    "sources": [
+      {
+        "url": "https://www.federalregister.gov/documents/2026/02/24/2026-03638/national-emission-standards-for-hazardous-air-pollutants-coal--and-oil-fired-electric-utility-steam",
+        "type": "final_rule",
+        "supports": "Repealed requirements, retained framework and April 27 effective date."
+      }
+    ],
+    "ordinary_life_angle": "At a neighborhood meeting near a fictional coal plant, the operator can celebrate meeting a less demanding standard without residents seeing any corresponding change in the equipment.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-18",
+    "hook": "Public-camping penalties survive an Eighth Amendment challenge",
+    "event_date": "2024-06-28",
+    "verified_fact": "The Supreme Court held in City of Grants Pass v. Johnson that enforcing generally applicable public-camping ordinances does not violate the Eighth Amendment's cruel-and-unusual-punishment clause, rejecting the shelter-availability rule used by the Ninth Circuit.",
+    "status_and_limits": "The ruling permits rather than commands such enforcement. It does not override every other constitutional, statutory or state-law constraint, and does not make homelessness itself a nationwide offense.",
+    "sources": [
+      {
+        "url": "https://www.supremecourt.gov/opinions/23pdf/23-175_19m2.pdf",
+        "type": "supreme_court_opinion",
+        "supports": "Eighth Amendment holding and distinction between status and regulated conduct."
+      }
+    ],
+    "ordinary_life_angle": "While seeking a lawful place to stop the van, the crew meets a resident contesting a sleeping-related citation in a town with too few beds; target a government response that produces penalties more readily than shelter.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-19",
+    "hook": "Homelessness order promotes expanded civil commitment",
+    "event_date": "2025-07-24",
+    "verified_fact": "Trump directed federal agencies to support broader civil-commitment practices, seek reversal of impeding precedents or consent decrees, and consider grant priorities favoring jurisdictions using commitment and encampment enforcement.",
+    "status_and_limits": "The executive order directs agency work and litigation; it does not itself authorize automatic institutionalization of every unhoused person. Its relevant language concerns specified mental-illness, danger or inability-to-care-for-oneself criteria, subject to legal authority and due process.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-crime-and-disorder-on-americas-streets/",
+        "type": "executive_order",
+        "supports": "Sections 2 and 3 civil-commitment directions and legal qualifications."
+      }
+    ],
+    "ordinary_life_angle": "At a public shelter-planning session, people seeking housing challenge officials' preference for institutional beds and compulsory treatment; target the conversion of an offer of help into a struggle over who controls the decision.",
+    "checked": "2026-09-14"
+  },
+  {
+    "id": "DRR-20",
+    "hook": "Public-charge rule broadens benefit scrutiny for immigration decisions",
+    "event_date": "2026-07-20; scheduled effective 2026-09-18",
+    "verified_fact": "DHS finalized rescission of the narrower 2022 public-charge framework, restoring broader discretion to consider means-tested benefits when assessing certain admission or adjustment-of-status applications. The new rule is scheduled to apply from September 18, 2026.",
+    "status_and_limits": "As of September 14 it is not yet effective. Earlier benefit receipt is assessed under the 2022 rule; exemptions and individual assessment remain. This is not an automatic denial for every benefit user or a general benefits-eligibility ban. September 14 reporting describes a new local-government lawsuit, not a court order blocking the rule.",
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/content/pkg/FR-2026-07-20/pdf/2026-14539.pdf",
+        "type": "final_rule",
+        "supports": "Policy change, covered applications, September 18 date and treatment of earlier benefit receipt."
+      },
+      {
+        "url": "https://www.axios.com/2026/09/14/trump-immigration-benefits-lawsuit-mamdani-nyc",
+        "type": "current_reporting",
+        "supports": "September 14 filing challenging the rule; allegations of chilling effects remain allegations."
+      }
+    ],
+    "ordinary_life_angle": "At a community benefits-information event, eligible residents confront assistance offered by one government office and possible future immigration scrutiny from another; target conflicting official incentives, not a family's decision to use care.",
+    "checked": "2026-09-14"
+  }
+]

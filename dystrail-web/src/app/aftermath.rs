@@ -48,6 +48,13 @@ pub const fn next_phase(gs: &GameState) -> Phase {
         Phase::Result
     } else if gs.continuity.ally_notice.is_some() {
         Phase::AllyLoss
+    } else if gs.boss.hearing.is_some()
+        && !matches!(
+            gs.boss.presentation,
+            crate::game::boss::HearingPhase::Complete
+        )
+    {
+        Phase::Boss
     } else if gs.ending.is_some() || gs.boss.outcome.attempted {
         Phase::Result
     } else if gs.continuity.crew_care.pending.is_some() {

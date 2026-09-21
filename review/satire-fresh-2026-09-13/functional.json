@@ -1,0 +1,3489 @@
+[
+  {
+    "id": "CONTEXT-D-C",
+    "category": "Endpoint-context records",
+    "title": "D.C.",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "D.C.",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Hamilton canceled its planned spring 2026 Kennedy Center run after Trump took control of the center’s board in 2025.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://abcnews.com/Politics/artists-cancel-performances-trump-kennedy-center-citing-takeover/story?id=128780162",
+        "title": "D.C. context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-d-c-scene",
+      "description": "A restrained origin or destination establishing shot for D.C., using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-LOS-ANGELES",
+    "category": "Endpoint-context records",
+    "title": "Los Angeles",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "Los Angeles",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "On June 7, 2025, Trump authorized federalizing at least 2,000 National Guard personnel. California challenged their deployment to Los Angeles in court.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://www.gov.ca.gov/wp-content/uploads/2025/06/FILE_6924.pdf",
+        "title": "Los Angeles context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-los-angeles-scene",
+      "description": "A restrained origin or destination establishing shot for Los Angeles, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-PORTLAND",
+    "category": "Endpoint-context records",
+    "title": "Portland",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "Portland",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Trump announced a Portland troop deployment in September 2025. The city reports that court orders blocked it and the Guard was never lawfully deployed there.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://www.portland.gov/federal/federal-troops",
+        "title": "Portland context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-portland-scene",
+      "description": "A restrained origin or destination establishing shot for Portland, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-SACRAMENTO",
+    "category": "Endpoint-context records",
+    "title": "Sacramento",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "Sacramento",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "California’s 2026 high-speed rail plan records $4.1 billion in federal awards rescinded by the Trump–Vance administration. State funding kept the project moving.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://hsr.ca.gov/wp-content/uploads/2026/02/2026-HSR-Draft-Business-Plan-02282026.pdf",
+        "title": "Sacramento context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-sacramento-scene",
+      "description": "A restrained origin or destination establishing shot for Sacramento, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-SAN-DIEGO",
+    "category": "Endpoint-context records",
+    "title": "San Diego",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "San Diego",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "San Diego’s FY2025 grants report describes a translation guide for changing grant-application language in response to Trump administration policy changes.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://www.sandiego.gov/sites/default/files/2025-10/fy2025-citywide-annual-grants-evaluation-final.pdf",
+        "title": "San Diego context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-san-diego-scene",
+      "description": "A restrained origin or destination establishing shot for San Diego, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-SAN-FRANCISCO",
+    "category": "Endpoint-context records",
+    "title": "San Francisco",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "San Francisco",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "San Francisco led a February 2025 lawsuit challenging Trump administration threats to withhold federal funding from jurisdictions with sanctuary policies.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://www.sfcityattorney.org/2025/02/07/san-francisco-leads-lawsuit-protecting-sanctuary-jurisdictions-from-illegal-federal-overreach/",
+        "title": "San Francisco context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-san-francisco-scene",
+      "description": "A restrained origin or destination establishing shot for San Francisco, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "CONTEXT-SEATTLE",
+    "category": "Endpoint-context records",
+    "title": "Seattle",
+    "mode": "Shared",
+    "use": "sourced origin/destination context; not a current town conversation",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "runtime_key": "Seattle",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "UW researchers reported in June 2025 that the Trump administration had frozen or terminated active research grants, including work on cancer and infectious diseases.",
+    "evidence_status": "Existing dated endpoint context retained from the source pack; not counted as a playable intermediate-town conversation.",
+    "source_checked": "2026-09-11",
+    "sources": [
+      {
+        "url": "https://magazine.washington.edu/feature/federal-funding-cuts-to-the-uw-will-shut-down-life-saving-research-facilities/",
+        "title": "Seattle context source",
+        "date": "2026-09-11",
+        "qualification": "documented"
+      }
+    ],
+    "scene": {
+      "scene_id": "context-seattle-scene",
+      "description": "A restrained origin or destination establishing shot for Seattle, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-01",
+    "category": "Town profiles",
+    "title": "Albuquerque",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Albuquerque",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Albuquerque, New Mexico. Population: 556,588 (2025). Albuquerque Museum — art and history near Old Town.",
+    "profile": {
+      "town": "Albuquerque",
+      "state": "New Mexico",
+      "population": 556588,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico/PST045225",
+      "attraction": {
+        "en": "Albuquerque Museum — art and history near Old Town.",
+        "es": "Museo de Albuquerque: arte e historia junto al casco antiguo.",
+        "it": "Museo di Albuquerque: arte e storia accanto alla città vecchia.",
+        "ar": "متحف ألبوكيركي: الفن والتاريخ قرب البلدة القديمة."
+      },
+      "attraction_source": "https://www.cabq.gov/artsculture/albuquerque-museum",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3502000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/albuquerquecitynewmexico/PST045225",
+        "title": "Albuquerque population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.cabq.gov/artsculture/albuquerque-museum",
+        "title": "Albuquerque attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-01-scene",
+      "description": "A compact Albuquerque place vignette based on the profile’s sourced attraction: Albuquerque Museum — art and history near Old Town. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-02",
+    "category": "Town profiles",
+    "title": "Amarillo",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Amarillo",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Amarillo, Texas. Population: 205,130 (2025). Nearby Palo Duro Canyon State Park — red-rock canyon trails.",
+    "profile": {
+      "town": "Amarillo",
+      "state": "Texas",
+      "population": 205130,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/amarillocitytexas/PST045225",
+      "attraction": {
+        "en": "Nearby Palo Duro Canyon State Park — red-rock canyon trails.",
+        "es": "Cerca: parque estatal del cañón Palo Duro, con senderos entre rocas rojizas.",
+        "it": "Nelle vicinanze: il parco statale del canyon Palo Duro, con sentieri tra rocce rosse.",
+        "ar": "بالقرب: حديقة وادي بالو دورو ومسارات الصخور الحمراء."
+      },
+      "attraction_source": "https://tpwd.texas.gov/state-parks/palo-duro-canyon",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4803000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/amarillocitytexas/PST045225",
+        "title": "Amarillo population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://tpwd.texas.gov/state-parks/palo-duro-canyon",
+        "title": "Amarillo attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-02-scene",
+      "description": "A compact Amarillo place vignette based on the profile’s sourced attraction: Nearby Palo Duro Canyon State Park — red-rock canyon trails. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-03",
+    "category": "Town profiles",
+    "title": "Austin",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Austin",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Austin, Texas. Population: 1,002,632 (2025). The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies.",
+    "profile": {
+      "town": "Austin",
+      "state": "Texas",
+      "population": 1002632,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/austincitytexas/PST045225",
+      "attraction": {
+        "en": "The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies.",
+        "it": "Il ponte Congress Avenue ospita una delle più grandi colonie urbane di pipistrelli del Nord America.",
+        "es": "El puente Congress Avenue alberga una de las mayores colonias urbanas de murciélagos de Norteamérica.",
+        "ar": "يؤوي جسر كونغرس أفينيو إحدى أكبر مستعمرات الخفافيش الحضرية في أمريكا الشمالية."
+      },
+      "attraction_source": "https://www.austintexas.gov/page/bats",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4805000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/austincitytexas/PST045225",
+        "title": "Austin population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.austintexas.gov/page/bats",
+        "title": "Austin attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-03-scene",
+      "description": "A compact Austin place vignette based on the profile’s sourced attraction: The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-04",
+    "category": "Town profiles",
+    "title": "Billings",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Billings",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Billings, Montana. Population: 121,239 (2025). Moss Mansion — a historic house museum.",
+    "profile": {
+      "town": "Billings",
+      "state": "Montana",
+      "population": 121239,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/billingscitymontana/PST045225",
+      "attraction": {
+        "en": "Moss Mansion — a historic house museum.",
+        "es": "Moss Mansion: una casa histórica convertida en museo.",
+        "it": "Moss Mansion: una dimora storica trasformata in museo.",
+        "ar": "قصر موس: منزل تاريخي تحول إلى متحف."
+      },
+      "attraction_source": "https://mossmansion.com/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3006550"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/billingscitymontana/PST045225",
+        "title": "Billings population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://mossmansion.com/",
+        "title": "Billings attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-04-scene",
+      "description": "A compact Billings place vignette based on the profile’s sourced attraction: Moss Mansion — a historic house museum. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-05",
+    "category": "Town profiles",
+    "title": "Boise",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Boise",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Boise, Idaho. Population: 238,429 (2025). Idaho State Capitol — the state’s historic seat of government.",
+    "profile": {
+      "town": "Boise",
+      "state": "Idaho",
+      "population": 238429,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/boisecitycityidaho/PST045225",
+      "attraction": {
+        "en": "Idaho State Capitol — the state’s historic seat of government.",
+        "es": "Capitolio de Idaho: la sede histórica del gobierno estatal.",
+        "it": "Campidoglio dell’Idaho: la sede storica del governo statale.",
+        "ar": "كابيتول أيداهو: المقر التاريخي لحكومة الولاية."
+      },
+      "attraction_source": "https://capitolcommission.idaho.gov/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1608830"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/boisecitycityidaho/PST045225",
+        "title": "Boise population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://capitolcommission.idaho.gov/",
+        "title": "Boise attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-05-scene",
+      "description": "A compact Boise place vignette based on the profile’s sourced attraction: Idaho State Capitol — the state’s historic seat of government. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-06",
+    "category": "Town profiles",
+    "title": "Cheyenne",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Cheyenne",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Cheyenne, Wyoming. Population: 66,507 (2025). Cheyenne Depot Museum — railroad history in the restored Union Pacific depot.",
+    "profile": {
+      "town": "Cheyenne",
+      "state": "Wyoming",
+      "population": 66507,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/cheyennecitywyoming/PST045225",
+      "attraction": {
+        "en": "Cheyenne Depot Museum — railroad history in the restored Union Pacific depot.",
+        "es": "Museo del Depósito de Cheyenne: historia ferroviaria en la estación restaurada de Union Pacific.",
+        "it": "Cheyenne Depot Museum: storia ferroviaria nell’ex stazione Union Pacific restaurata.",
+        "ar": "متحف محطة شايان: تاريخ السكك الحديدية في محطة يونيون باسيفيك المرممة."
+      },
+      "attraction_source": "https://www.cheyennedepotmuseum.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "5613900"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/cheyennecitywyoming/PST045225",
+        "title": "Cheyenne population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.cheyennedepotmuseum.org/",
+        "title": "Cheyenne attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-06-scene",
+      "description": "A compact Cheyenne place vignette based on the profile’s sourced attraction: Cheyenne Depot Museum — railroad history in the restored Union Pacific depot. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-07",
+    "category": "Town profiles",
+    "title": "Chicago",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Chicago",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Chicago, Illinois. Population: 2,731,585 (2025). Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture.",
+    "profile": {
+      "town": "Chicago",
+      "state": "Illinois",
+      "population": 2731585,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/chicagocityillinois/PST045225",
+      "attraction": {
+        "en": "Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture.",
+        "es": "Cloud Gate, en Millennium Park, refleja Chicago en una escultura de acero pulido.",
+        "it": "Cloud Gate, nel Millennium Park, riflette Chicago in una scultura d’acciaio lucidato.",
+        "ar": "تعكس منحوتة كلاود غيت الفولاذية المصقولة في ميلينيوم بارك أفق شيكاغو."
+      },
+      "attraction_source": "https://www.millenniumparkfoundation.org/art-architecture",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1714000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/chicagocityillinois/PST045225",
+        "title": "Chicago population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.millenniumparkfoundation.org/art-architecture",
+        "title": "Chicago attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-07-scene",
+      "description": "A compact Chicago place vignette based on the profile’s sourced attraction: Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-08",
+    "category": "Town profiles",
+    "title": "Cleveland",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Cleveland",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Cleveland, Ohio. Population: 363,608 (2025). The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response.",
+    "profile": {
+      "town": "Cleveland",
+      "state": "Ohio",
+      "population": 363608,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/clevelandcityohio/PST045225",
+      "attraction": {
+        "en": "The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response.",
+        "it": "Il Cuyahoga sfocia nel lago Erie a Cleveland. L’incendio del 1969 contribuì alla risposta nazionale all’inquinamento idrico.",
+        "es": "El Cuyahoga desemboca en el lago Erie en Cleveland. Su incendio de 1969 impulsó la respuesta nacional a la contaminación del agua.",
+        "ar": "يصب كوياهوغا في بحيرة إيري عند كليفلاند. ساهم حريقه عام 1969 في تحفيز الاستجابة الوطنية لتلوث المياه."
+      },
+      "attraction_source": "https://www.nps.gov/articles/000/cuyahoga-national-heritage-river.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3916000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/clevelandcityohio/PST045225",
+        "title": "Cleveland population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/articles/000/cuyahoga-national-heritage-river.htm",
+        "title": "Cleveland attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-08-scene",
+      "description": "A compact Cleveland place vignette based on the profile’s sourced attraction: The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-09",
+    "category": "Town profiles",
+    "title": "Columbia",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Columbia",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Columbia, Missouri. Population: 130,851 (2025). The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine.",
+    "profile": {
+      "town": "Columbia",
+      "state": "Missouri",
+      "population": 130851,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/columbiacitymissouri/PST045225",
+      "attraction": {
+        "en": "The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine.",
+        "it": "Il sentiero MKT segue un’ex ferrovia dal centro di Columbia al Katy Trail vicino a McBaine.",
+        "es": "El sendero MKT sigue una antigua vía desde el centro de Columbia hasta Katy Trail, cerca de McBaine.",
+        "ar": "يتبع مسار إم كيه تي خطاً حديدياً قديماً من وسط كولومبيا إلى مسار كاتي قرب ماكبين."
+      },
+      "attraction_source": "https://www.como.gov/trails/mkt-nature-and-fitness-trail/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2915670"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/columbiacitymissouri/PST045225",
+        "title": "Columbia population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.como.gov/trails/mkt-nature-and-fitness-trail/",
+        "title": "Columbia attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-09-scene",
+      "description": "A compact Columbia place vignette based on the profile’s sourced attraction: The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-10",
+    "category": "Town profiles",
+    "title": "Cumberland",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Cumberland",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Cumberland, Maryland. Population: 18,799 (2025). The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here.",
+    "profile": {
+      "town": "Cumberland",
+      "state": "Maryland",
+      "population": 18799,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/cumberlandcitymaryland/PST045225",
+      "attraction": {
+        "en": "The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here.",
+        "it": "Il canale C&O raggiunse Cumberland nel 1850. Qui l’alzaia incontra il Great Allegheny Passage.",
+        "es": "El canal C&O llegó a Cumberland en 1850. Aquí su camino de sirga se une a Great Allegheny Passage.",
+        "ar": "وصلت قناة سي أند أو إلى كمبرلاند عام 1850. يلتقي مسارها هنا بمسار غريت أليغيني."
+      },
+      "attraction_source": "https://pubs.nps.gov/eTIC/OLYM-POPO/POHE_866_124321_0001_of_0046.pdf",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2421325"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/cumberlandcitymaryland/PST045225",
+        "title": "Cumberland population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://pubs.nps.gov/eTIC/OLYM-POPO/POHE_866_124321_0001_of_0046.pdf",
+        "title": "Cumberland attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-10-scene",
+      "description": "A compact Cumberland place vignette based on the profile’s sourced attraction: The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-11",
+    "category": "Town profiles",
+    "title": "D.C.",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "D.C.",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "D.C., D.C.. Population: 693,645 (2025). The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products.",
+    "profile": {
+      "town": "D.C.",
+      "state": "D.C.",
+      "population": 693645,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/districtofcolumbiadistrictofcolumbia/PST045225",
+      "attraction": {
+        "en": "The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products.",
+        "it": "Il canale C&O collegava comunità del Potomac ai mercati di D.C. e trasportava carbone, legname e prodotti agricoli.",
+        "es": "El canal C&O conectaba comunidades del Potomac con mercados de D.C.; transportaba carbón, madera y productos agrícolas.",
+        "ar": "ربطت قناة سي أند أو مجتمعات بوتوماك بأسواق D.C. ونقلت الفحم والأخشاب والمنتجات الزراعية."
+      },
+      "attraction_source": "https://www.nps.gov/choh/index.htm?vm=r",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1150000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/districtofcolumbiadistrictofcolumbia/PST045225",
+        "title": "D.C. population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/choh/index.htm?vm=r",
+        "title": "D.C. attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-11-scene",
+      "description": "A compact D.C. place vignette based on the profile’s sourced attraction: The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-12",
+    "category": "Town profiles",
+    "title": "Dallas",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Dallas",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Dallas, Texas. Population: 1,329,491 (2025). Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art.",
+    "profile": {
+      "town": "Dallas",
+      "state": "Texas",
+      "population": 1329491,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/dallascitytexas/PST045225",
+      "attraction": {
+        "en": "Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art.",
+        "es": "Fair Park conserva una gran colección de arquitectura art déco de los años treinta, museos y arte público.",
+        "it": "Fair Park conserva una grande raccolta di architettura Art Déco degli anni Trenta, musei e arte pubblica.",
+        "ar": "يضم فير بارك مجموعة كبيرة من عمارة آرت ديكو من الثلاثينيات، ومتاحف وفنون عامة."
+      },
+      "attraction_source": "https://www.fairparkdallas.com/sites-and-attractions",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4819000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/dallascitytexas/PST045225",
+        "title": "Dallas population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.fairparkdallas.com/sites-and-attractions",
+        "title": "Dallas attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-12-scene",
+      "description": "A compact Dallas place vignette based on the profile’s sourced attraction: Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-13",
+    "category": "Town profiles",
+    "title": "Denver",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Denver",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Denver, Colorado. Population: 740,613 (2025). Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol.",
+    "profile": {
+      "town": "Denver",
+      "state": "Colorado",
+      "population": 740613,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/denvercitycolorado/PST045225",
+      "attraction": {
+        "en": "Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol.",
+        "it": "L’altitudine di un miglio di Denver è commemorata sui gradini ovest del Campidoglio del Colorado.",
+        "es": "La altitud de una milla de Denver está conmemorada en los escalones occidentales del Capitolio de Colorado.",
+        "ar": "تُخلد درجات الجهة الغربية من كابيتول كولورادو ارتفاع دنفر البالغ ميلاً."
+      },
+      "attraction_source": "https://content.leg.colorado.gov/sites/default/files/images/visitor_brochure_for_web_accessible.pdf",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0820000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/denvercitycolorado/PST045225",
+        "title": "Denver population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://content.leg.colorado.gov/sites/default/files/images/visitor_brochure_for_web_accessible.pdf",
+        "title": "Denver attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-13-scene",
+      "description": "A compact Denver place vignette based on the profile’s sourced attraction: Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-14",
+    "category": "Town profiles",
+    "title": "Des Moines",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Des Moines",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Des Moines, Iowa. Population: 212,086 (2025). The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres.",
+    "profile": {
+      "town": "Des Moines",
+      "state": "Iowa",
+      "population": 212086,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/desmoinescityiowa/PST045225",
+      "attraction": {
+        "en": "The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres.",
+        "it": "Il Pappajohn Sculpture Park aprì nel centro di Des Moines nel 2009 su 4,4 acri.",
+        "es": "Pappajohn Sculpture Park abrió en el centro de Des Moines en 2009, en 4,4 acres.",
+        "ar": "افتتحت حديقة باباجون للنحت في وسط دي موين عام 2009 على مساحة 4.4 أفدنة."
+      },
+      "attraction_source": "https://desmoinesartcenter.org/visit/pappajohn-sculpture-park/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1921000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/desmoinescityiowa/PST045225",
+        "title": "Des Moines population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://desmoinesartcenter.org/visit/pappajohn-sculpture-park/",
+        "title": "Des Moines attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-14-scene",
+      "description": "A compact Des Moines place vignette based on the profile’s sourced attraction: The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-15",
+    "category": "Town profiles",
+    "title": "El Paso",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "El Paso",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "El Paso, Texas. Population: 683,012 (2025). Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute.",
+    "profile": {
+      "town": "El Paso",
+      "state": "Texas",
+      "population": 683012,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/elpasocitytexas/PST045225",
+      "attraction": {
+        "en": "Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute.",
+        "es": "Monumento Nacional Chamizal: un acuerdo pacífico sobre la frontera entre México y Estados Unidos.",
+        "it": "Memoriale nazionale Chamizal: la soluzione pacifica di una disputa di confine tra Stati Uniti e Messico.",
+        "ar": "نصب شاميزال الوطني: تسوية سلمية لنزاع حدودي بين الولايات المتحدة والمكسيك."
+      },
+      "attraction_source": "https://www.nps.gov/cham/index.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4824000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/elpasocitytexas/PST045225",
+        "title": "El Paso population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/cham/index.htm",
+        "title": "El Paso attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-15-scene",
+      "description": "A compact El Paso place vignette based on the profile’s sourced attraction: Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-16",
+    "category": "Town profiles",
+    "title": "Flagstaff",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Flagstaff",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Flagstaff, Arizona. Population: 77,260 (2025). Lowell Observatory — the observatory where Pluto was discovered.",
+    "profile": {
+      "town": "Flagstaff",
+      "state": "Arizona",
+      "population": 77260,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/flagstaffcityarizona/PST045225",
+      "attraction": {
+        "en": "Lowell Observatory — the observatory where Pluto was discovered.",
+        "es": "Observatorio Lowell: donde se descubrió Plutón.",
+        "it": "Osservatorio Lowell: il luogo della scoperta di Plutone.",
+        "ar": "مرصد لويل: حيث اكتُشف بلوتو."
+      },
+      "attraction_source": "https://lowell.edu/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0423620"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/flagstaffcityarizona/PST045225",
+        "title": "Flagstaff population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://lowell.edu/",
+        "title": "Flagstaff attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-16-scene",
+      "description": "A compact Flagstaff place vignette based on the profile’s sourced attraction: Lowell Observatory — the observatory where Pluto was discovered. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-17",
+    "category": "Town profiles",
+    "title": "Frederick",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Frederick",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Frederick, Maryland. Population: 92,059 (2025). Downtown Frederick is known for its clustered church spires.",
+    "profile": {
+      "town": "Frederick",
+      "state": "Maryland",
+      "population": 92059,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/frederickcitymaryland/PST045225",
+      "attraction": {
+        "en": "Downtown Frederick is known for its clustered church spires.",
+        "it": "Il centro di Frederick è noto per le guglie delle sue chiese.",
+        "es": "El centro de Frederick es conocido por las agujas de sus iglesias.",
+        "ar": "يشتهر وسط فريدريك بأبراج كنائسه المتجاورة."
+      },
+      "attraction_source": "https://www.visitfrederick.org/plugins/maps/map/downtown-frederick/5be4a7fea62e703dcef330bd/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2430325"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/frederickcitymaryland/PST045225",
+        "title": "Frederick population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.visitfrederick.org/plugins/maps/map/downtown-frederick/5be4a7fea62e703dcef330bd/",
+        "title": "Frederick attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-17-scene",
+      "description": "A compact Frederick place vignette based on the profile’s sourced attraction: Downtown Frederick is known for its clustered church spires. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-18",
+    "category": "Town profiles",
+    "title": "Hagerstown",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Hagerstown",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Hagerstown, Maryland. Population: 44,228 (2025). Jonathan Hager founded the settlement in 1762. His house survives as a city museum.",
+    "profile": {
+      "town": "Hagerstown",
+      "state": "Maryland",
+      "population": 44228,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/hagerstowncitymaryland/PST045225",
+      "attraction": {
+        "en": "Jonathan Hager founded the settlement in 1762. His house survives as a city museum.",
+        "it": "Jonathan Hager fondò l’insediamento nel 1762. La sua casa è oggi un museo cittadino.",
+        "es": "Jonathan Hager fundó el asentamiento en 1762. Su casa se conserva como museo municipal.",
+        "ar": "أسس جوناثان هاغر البلدة عام 1762. ما زال منزله قائماً كمتحف للمدينة."
+      },
+      "attraction_source": "https://www.hagerstownmd.org/309/Jonathan-Hager-House-Museum",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2436075"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/hagerstowncitymaryland/PST045225",
+        "title": "Hagerstown population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.hagerstownmd.org/309/Jonathan-Hager-House-Museum",
+        "title": "Hagerstown attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-18-scene",
+      "description": "A compact Hagerstown place vignette based on the profile’s sourced attraction: Jonathan Hager founded the settlement in 1762. His house survives as a city museum. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-19",
+    "category": "Town profiles",
+    "title": "Iowa City",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Iowa City",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Iowa City, Iowa. Population: 76,229 (2025). Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States.",
+    "profile": {
+      "town": "Iowa City",
+      "state": "Iowa",
+      "population": 76229,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/iowacitycityiowa/PST045225",
+      "attraction": {
+        "en": "Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States.",
+        "it": "Iowa City divenne Città della letteratura UNESCO nel novembre 2008, la prima negli Stati Uniti.",
+        "es": "Iowa City fue designada Ciudad de Literatura UNESCO en noviembre de 2008, la primera de Estados Unidos.",
+        "ar": "أصبحت آيوا سيتي مدينة أدب لليونسكو في نوفمبر 2008، وهي الأولى في الولايات المتحدة."
+      },
+      "attraction_source": "https://www.iowacityofliterature.org/wp-content/uploads/2023/09/2022-2023-Annual-Report.pdf",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1938595"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/iowacitycityiowa/PST045225",
+        "title": "Iowa City population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.iowacityofliterature.org/wp-content/uploads/2023/09/2022-2023-Annual-Report.pdf",
+        "title": "Iowa City attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-19-scene",
+      "description": "A compact Iowa City place vignette based on the profile’s sourced attraction: Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-20",
+    "category": "Town profiles",
+    "title": "Joplin",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Joplin",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Joplin, Missouri. Population: 53,930 (2025). Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage.",
+    "profile": {
+      "town": "Joplin",
+      "state": "Missouri",
+      "population": 53930,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/joplincitymissouri/PST045225",
+      "attraction": {
+        "en": "Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage.",
+        "it": "Joplin crebbe come città mineraria di piombo e zinco. Il museo storico ne conserva la memoria.",
+        "es": "Joplin creció como ciudad minera de plomo y zinc. Su museo histórico conserva ese patrimonio.",
+        "ar": "نمت جوبلين كبلدة لتعدين الرصاص والزنك ويحفظ متحفها التاريخي هذا التراث."
+      },
+      "attraction_source": "https://www.joplin-museum.org/faq",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2937592"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/joplincitymissouri/PST045225",
+        "title": "Joplin population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.joplin-museum.org/faq",
+        "title": "Joplin attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-20-scene",
+      "description": "A compact Joplin place vignette based on the profile’s sourced attraction: Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-21",
+    "category": "Town profiles",
+    "title": "Kansas City",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Kansas City",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Kansas City, Missouri. Population: 521,220 (2025). Kansas City’s many public fountains gave it the nickname City of Fountains.",
+    "profile": {
+      "town": "Kansas City",
+      "state": "Missouri",
+      "population": 521220,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/kansascitycitymissouri/PST045225",
+      "attraction": {
+        "en": "Kansas City’s many public fountains gave it the nickname City of Fountains.",
+        "it": "Le numerose fontane pubbliche hanno dato a Kansas City il nome di Città delle fontane.",
+        "es": "Las numerosas fuentes públicas dieron a Kansas City el apodo Ciudad de las Fuentes.",
+        "ar": "منحت النوافير العامة الكثيرة كانساس سيتي لقب مدينة النوافير."
+      },
+      "attraction_source": "https://www.visitkc.com/articles/first-timers-guide-kansas-city/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2938000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/kansascitycitymissouri/PST045225",
+        "title": "Kansas City population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.visitkc.com/articles/first-timers-guide-kansas-city/",
+        "title": "Kansas City attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-21-scene",
+      "description": "A compact Kansas City place vignette based on the profile’s sourced attraction: Kansas City’s many public fountains gave it the nickname City of Fountains. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-22",
+    "category": "Town profiles",
+    "title": "La Crosse",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "La Crosse",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "La Crosse, Wisconsin. Population: 50,784 (2025). Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world.",
+    "profile": {
+      "town": "La Crosse",
+      "state": "Wisconsin",
+      "population": 50784,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/lacrossecitywisconsin/PST045225",
+      "attraction": {
+        "en": "Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world.",
+        "it": "Riverside Park si affaccia sul Mississippi; i giardini dell’amicizia ospitano piante di tutto il mondo.",
+        "es": "Riverside Park mira al Mississippi; sus jardines de amistad tienen plantas de todo el mundo.",
+        "ar": "يطل ريفرسايد بارك على المسيسيبي وتضم حدائق الصداقة نباتات من أنحاء العالم."
+      },
+      "attraction_source": "https://explorelacrosse.com/things-to-do/sights-attractions/riverside-park/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "5540775"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/lacrossecitywisconsin/PST045225",
+        "title": "La Crosse population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://explorelacrosse.com/things-to-do/sights-attractions/riverside-park/",
+        "title": "La Crosse attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-22-scene",
+      "description": "A compact La Crosse place vignette based on the profile’s sourced attraction: Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-23",
+    "category": "Town profiles",
+    "title": "Las Vegas",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Las Vegas",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Las Vegas, Nevada. Population: 679,817 (2025). The Neon Museum — rescued signs from Las Vegas history.",
+    "profile": {
+      "town": "Las Vegas",
+      "state": "Nevada",
+      "population": 679817,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/lasvegascitynevada/PST045225",
+      "attraction": {
+        "en": "The Neon Museum — rescued signs from Las Vegas history.",
+        "es": "Museo del Neón: rótulos rescatados de la historia de Las Vegas.",
+        "it": "Museo del neon: insegne salvate dalla storia di Las Vegas.",
+        "ar": "متحف النيون: لافتات محفوظة من تاريخ لاس فيغاس."
+      },
+      "attraction_source": "https://neonmuseum.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3240000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/lasvegascitynevada/PST045225",
+        "title": "Las Vegas population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://neonmuseum.org/",
+        "title": "Las Vegas attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-23-scene",
+      "description": "A compact Las Vegas place vignette based on the profile’s sourced attraction: The Neon Museum — rescued signs from Las Vegas history. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-24",
+    "category": "Town profiles",
+    "title": "Los Angeles",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Los Angeles",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Los Angeles, California. Population: 3,869,089 (2025). Griffith Observatory — astronomy and views across the city.",
+    "profile": {
+      "town": "Los Angeles",
+      "state": "California",
+      "population": 3869089,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/PST045225",
+      "attraction": {
+        "en": "Griffith Observatory — astronomy and views across the city.",
+        "es": "Observatorio Griffith: astronomía y vistas de la ciudad.",
+        "it": "Osservatorio Griffith: astronomia e panorami sulla città.",
+        "ar": "مرصد غريفيث: علم الفلك وإطلالات على المدينة."
+      },
+      "attraction_source": "https://griffithobservatory.lacity.gov/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0644000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/PST045225",
+        "title": "Los Angeles population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://griffithobservatory.lacity.gov/",
+        "title": "Los Angeles attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-24-scene",
+      "description": "A compact Los Angeles place vignette based on the profile’s sourced attraction: Griffith Observatory — astronomy and views across the city. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-25",
+    "category": "Town profiles",
+    "title": "Madison",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Madison",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Madison, Wisconsin. Population: 286,233 (2025). Downtown Madison occupies an isthmus between Lakes Mendota and Monona.",
+    "profile": {
+      "town": "Madison",
+      "state": "Wisconsin",
+      "population": 286233,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/madisoncitywisconsin/PST045225",
+      "attraction": {
+        "en": "Downtown Madison occupies an isthmus between Lakes Mendota and Monona.",
+        "it": "Il centro di Madison occupa un istmo tra i laghi Mendota e Monona.",
+        "es": "El centro de Madison ocupa un istmo entre los lagos Mendota y Monona.",
+        "ar": "يقع وسط ماديسون على برزخ بين بحيرتي ميندوتا ومونونا."
+      },
+      "attraction_source": "https://em.danecounty.gov/documents/pdf/2022-Hazard-Mitigation-Plan/DCNHMP22---3---Muni-Section---Cities-.pdf",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "5548000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/madisoncitywisconsin/PST045225",
+        "title": "Madison population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://em.danecounty.gov/documents/pdf/2022-Hazard-Mitigation-Plan/DCNHMP22---3---Muni-Section---Cities-.pdf",
+        "title": "Madison attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-25-scene",
+      "description": "A compact Madison place vignette based on the profile’s sourced attraction: Downtown Madison occupies an isthmus between Lakes Mendota and Monona. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-26",
+    "category": "Town profiles",
+    "title": "Minneapolis",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Minneapolis",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Minneapolis, Minnesota. Population: 430,324 (2025). The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing.",
+    "profile": {
+      "town": "Minneapolis",
+      "state": "Minnesota",
+      "population": 430324,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/PST045225",
+      "attraction": {
+        "en": "The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing.",
+        "it": "Il ponte Stone Arch aprì nel 1883 per i treni e poi divenne un passaggio pedonale e ciclabile.",
+        "es": "El puente Stone Arch abrió en 1883 para trenes y después pasó a peatones y ciclistas.",
+        "ar": "افتتح جسر ستون آرتش عام 1883 للقطارات ثم أصبح معبراً للمشاة والدراجات."
+      },
+      "attraction_source": "https://www.minneapolisparks.org/parks-destinations/historical_sites/stone_arch_bridge/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2743000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/PST045225",
+        "title": "Minneapolis population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.minneapolisparks.org/parks-destinations/historical_sites/stone_arch_bridge/",
+        "title": "Minneapolis attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-26-scene",
+      "description": "A compact Minneapolis place vignette based on the profile’s sourced attraction: The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-27",
+    "category": "Town profiles",
+    "title": "Missoula",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Missoula",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Missoula, Montana. Population: 78,903 (2025). A Carousel for Missoula — a community-built, hand-carved carousel.",
+    "profile": {
+      "town": "Missoula",
+      "state": "Montana",
+      "population": 78903,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/missoulacitymontana/PST045225",
+      "attraction": {
+        "en": "A Carousel for Missoula — a community-built, hand-carved carousel.",
+        "es": "A Carousel for Missoula: un carrusel de madera tallado y construido por la comunidad.",
+        "it": "A Carousel for Missoula: una giostra intagliata a mano, costruita dalla comunità.",
+        "ar": "دوامة ميسولا: خيول منحوتة يدوياً ومشروع أنجزه المجتمع المحلي."
+      },
+      "attraction_source": "https://missoulacarousel.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3050200"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/missoulacitymontana/PST045225",
+        "title": "Missoula population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://missoulacarousel.org/",
+        "title": "Missoula attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-27-scene",
+      "description": "A compact Missoula place vignette based on the profile’s sourced attraction: A Carousel for Missoula — a community-built, hand-carved carousel. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-28",
+    "category": "Town profiles",
+    "title": "North Platte",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "North Platte",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "North Platte, Nebraska. Population: 22,524 (2025). Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track.",
+    "profile": {
+      "town": "North Platte",
+      "state": "Nebraska",
+      "population": 22524,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/northplattecitynebraska/PST045225",
+      "attraction": {
+        "en": "Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track.",
+        "it": "Bailey Yard di Union Pacific a North Platte è un grande scalo ferroviario con 315 miglia di binari.",
+        "es": "Bailey Yard de Union Pacific en North Platte es un gran centro ferroviario con 315 millas de vías.",
+        "ar": "بيلي يارد التابع ليونيون باسيفيك في نورث بلات مركز فرز قطارات يضم 315 ميلاً من السكك."
+      },
+      "attraction_source": "https://www.visitnorthplatte.com/things-to-do/attractions/trains-railroads/bailey-yard/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3135000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/northplattecitynebraska/PST045225",
+        "title": "North Platte population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.visitnorthplatte.com/things-to-do/attractions/trains-railroads/bailey-yard/",
+        "title": "North Platte attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-28-scene",
+      "description": "A compact North Platte place vignette based on the profile’s sourced attraction: Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-29",
+    "category": "Town profiles",
+    "title": "Oklahoma City",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Oklahoma City",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Oklahoma City, Oklahoma. Population: 719,849 (2025). The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993.",
+    "profile": {
+      "town": "Oklahoma City",
+      "state": "Oklahoma",
+      "population": 719849,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/oklahomacitycityoklahoma/PST045225",
+      "attraction": {
+        "en": "The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993.",
+        "it": "Il canale Bricktown era uno dei nove progetti MAPS approvati dagli elettori nel 1993.",
+        "es": "El canal Bricktown fue uno de nueve proyectos MAPS aprobados por votantes en 1993.",
+        "ar": "كانت قناة بريكتاون أحد تسعة مشاريع في مبادرة مابس التي أقرها الناخبون عام 1993."
+      },
+      "attraction_source": "https://www.okc.gov/News-articles/Bricktown-Canal-celebrates-25-year-milestone",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4055000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/oklahomacitycityoklahoma/PST045225",
+        "title": "Oklahoma City population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.okc.gov/News-articles/Bricktown-Canal-celebrates-25-year-milestone",
+        "title": "Oklahoma City attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-29-scene",
+      "description": "A compact Oklahoma City place vignette based on the profile’s sourced attraction: The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-30",
+    "category": "Town profiles",
+    "title": "Omaha",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Omaha",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Omaha, Nebraska. Population: 488,797 (2025). The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa.",
+    "profile": {
+      "town": "Omaha",
+      "state": "Nebraska",
+      "population": 488797,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/omahacitynebraska/PST045225",
+      "attraction": {
+        "en": "The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa.",
+        "it": "Il ponte pedonale Bob Kerrey attraversa il Missouri tra Nebraska e Iowa.",
+        "es": "El puente peatonal Bob Kerrey cruza el Missouri entre Nebraska e Iowa.",
+        "ar": "يعبر جسر بوب كيري للمشاة نهر ميزوري بين نبراسكا وآيوا."
+      },
+      "attraction_source": "https://www.visitomaha.com/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3137000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/omahacitynebraska/PST045225",
+        "title": "Omaha population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.visitomaha.com/",
+        "title": "Omaha attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-30-scene",
+      "description": "A compact Omaha place vignette based on the profile’s sourced attraction: The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-31",
+    "category": "Town profiles",
+    "title": "Phoenix",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Phoenix",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Phoenix, Arizona. Population: 1,665,481 (2025). Heard Museum — American Indian art and culture.",
+    "profile": {
+      "town": "Phoenix",
+      "state": "Arizona",
+      "population": 1665481,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/phoenixcityarizona/PST045225",
+      "attraction": {
+        "en": "Heard Museum — American Indian art and culture.",
+        "es": "Museo Heard: arte y cultura de los pueblos indígenas de Estados Unidos.",
+        "it": "Museo Heard: arte e cultura dei popoli nativi americani.",
+        "ar": "متحف هيرد: فن وثقافة الشعوب الأصلية الأمريكية."
+      },
+      "attraction_source": "https://heard.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0455000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/phoenixcityarizona/PST045225",
+        "title": "Phoenix population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://heard.org/",
+        "title": "Phoenix attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-31-scene",
+      "description": "A compact Phoenix place vignette based on the profile’s sourced attraction: Heard Museum — American Indian art and culture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-32",
+    "category": "Town profiles",
+    "title": "Pittsburgh",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Pittsburgh",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Pittsburgh, Pennsylvania. Population: 307,632 (2025). Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers.",
+    "profile": {
+      "town": "Pittsburgh",
+      "state": "Pennsylvania",
+      "population": 307632,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/pittsburghcitypennsylvania/PST045225",
+      "attraction": {
+        "en": "Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers.",
+        "it": "Il Three Rivers Water Trail di Pittsburgh dà accesso ai fiumi Allegheny, Monongahela e Ohio.",
+        "es": "Three Rivers Water Trail de Pittsburgh da acceso a los ríos Allegheny, Monongahela y Ohio.",
+        "ar": "يوفر مسار الأنهار الثلاثة في بيتسبرغ الوصول إلى أنهار أليغيني ومونونغاهيلا وأوهايو."
+      },
+      "attraction_source": "https://www.nps.gov/places/three-rivers-water-trail.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4261000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/pittsburghcitypennsylvania/PST045225",
+        "title": "Pittsburgh population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/places/three-rivers-water-trail.htm",
+        "title": "Pittsburgh attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-32-scene",
+      "description": "A compact Pittsburgh place vignette based on the profile’s sourced attraction: Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-33",
+    "category": "Town profiles",
+    "title": "Portland",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Portland",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Portland, Oregon. Population: 635,109 (2025). Washington Park — gardens, museums and wooded trails.",
+    "profile": {
+      "town": "Portland",
+      "state": "Oregon",
+      "population": 635109,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/portlandcityoregon/PST045225",
+      "attraction": {
+        "en": "Washington Park — gardens, museums and wooded trails.",
+        "es": "Washington Park: jardines, museos y senderos arbolados.",
+        "it": "Washington Park: giardini, musei e sentieri nel bosco.",
+        "ar": "حديقة واشنطن: حدائق ومتاحف ومسارات بين الأشجار."
+      },
+      "attraction_source": "https://www.explorewashingtonpark.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4159000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/portlandcityoregon/PST045225",
+        "title": "Portland population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.explorewashingtonpark.org/",
+        "title": "Portland attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-33-scene",
+      "description": "A compact Portland place vignette based on the profile’s sourced attraction: Washington Park — gardens, museums and wooded trails. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-34",
+    "category": "Town profiles",
+    "title": "Rapid City",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Rapid City",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Rapid City, South Dakota. Population: 80,589 (2025). Nearby Mount Rushmore — the carved granite memorial in the Black Hills.",
+    "profile": {
+      "town": "Rapid City",
+      "state": "South Dakota",
+      "population": 80589,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/rapidcitycitysouthdakota/PST045225",
+      "attraction": {
+        "en": "Nearby Mount Rushmore — the carved granite memorial in the Black Hills.",
+        "es": "Cerca: monte Rushmore, el monumento tallado en granito de las Black Hills.",
+        "it": "Nelle vicinanze: il Monte Rushmore, monumento scolpito nel granito delle Black Hills.",
+        "ar": "بالقرب: جبل راشمور، النصب المنحوت في غرانيت بلاك هيلز."
+      },
+      "attraction_source": "https://www.nps.gov/moru/index.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4652980"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/rapidcitycitysouthdakota/PST045225",
+        "title": "Rapid City population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/moru/index.htm",
+        "title": "Rapid City attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-34-scene",
+      "description": "A compact Rapid City place vignette based on the profile’s sourced attraction: Nearby Mount Rushmore — the carved granite memorial in the Black Hills. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-35",
+    "category": "Town profiles",
+    "title": "Reno",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Reno",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Reno, Nevada. Population: 283,621 (2025). National Automobile Museum — historic cars and recreated street scenes.",
+    "profile": {
+      "town": "Reno",
+      "state": "Nevada",
+      "population": 283621,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/renocitynevada/PST045225",
+      "attraction": {
+        "en": "National Automobile Museum — historic cars and recreated street scenes.",
+        "es": "Museo Nacional del Automóvil: coches históricos y calles de época recreadas.",
+        "it": "Museo nazionale dell’automobile: auto storiche e strade d’epoca ricostruite.",
+        "ar": "المتحف الوطني للسيارات: سيارات تاريخية وشوارع قديمة معاد إنشاؤها."
+      },
+      "attraction_source": "https://automuseum.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3260600"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/renocitynevada/PST045225",
+        "title": "Reno population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://automuseum.org/",
+        "title": "Reno attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-35-scene",
+      "description": "A compact Reno place vignette based on the profile’s sourced attraction: National Automobile Museum — historic cars and recreated street scenes. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-36",
+    "category": "Town profiles",
+    "title": "Sacramento",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Sacramento",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Sacramento, California. Population: 536,449 (2025). California State Railroad Museum — locomotives and the story of western rail.",
+    "profile": {
+      "town": "Sacramento",
+      "state": "California",
+      "population": 536449,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/sacramentocitycalifornia/PST045225",
+      "attraction": {
+        "en": "California State Railroad Museum — locomotives and the story of western rail.",
+        "es": "Museo Estatal del Ferrocarril: locomotoras e historia ferroviaria del oeste.",
+        "it": "Museo ferroviario statale della California: locomotive e storia delle ferrovie dell’Ovest.",
+        "ar": "متحف سكك حديد كاليفورنيا: قاطرات وتاريخ السكك في الغرب."
+      },
+      "attraction_source": "https://www.californiarailroad.museum/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0664000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/sacramentocitycalifornia/PST045225",
+        "title": "Sacramento population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.californiarailroad.museum/",
+        "title": "Sacramento attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-36-scene",
+      "description": "A compact Sacramento place vignette based on the profile’s sourced attraction: California State Railroad Museum — locomotives and the story of western rail. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-37",
+    "category": "Town profiles",
+    "title": "Salt Lake City",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Salt Lake City",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Salt Lake City, Utah. Population: 218,428 (2025). Natural History Museum of Utah — fossils and the landscapes of the Intermountain West.",
+    "profile": {
+      "town": "Salt Lake City",
+      "state": "Utah",
+      "population": 218428,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/saltlakecitycityutah/PST045225",
+      "attraction": {
+        "en": "Natural History Museum of Utah — fossils and the landscapes of the Intermountain West.",
+        "es": "Museo de Historia Natural de Utah: fósiles y paisajes del oeste intermontano.",
+        "it": "Museo di storia naturale dello Utah: fossili e paesaggi dell’Ovest intermontano.",
+        "ar": "متحف يوتا للتاريخ الطبيعي: أحافير ومناظر الغرب بين الجبال."
+      },
+      "attraction_source": "https://nhmu.utah.edu/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4967000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/saltlakecitycityutah/PST045225",
+        "title": "Salt Lake City population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://nhmu.utah.edu/",
+        "title": "Salt Lake City attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-37-scene",
+      "description": "A compact Salt Lake City place vignette based on the profile’s sourced attraction: Natural History Museum of Utah — fossils and the landscapes of the Intermountain West. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-38",
+    "category": "Town profiles",
+    "title": "San Antonio",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "San Antonio",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "San Antonio, Texas. Population: 1,548,422 (2025). San Antonio Missions — historic mission sites along the river.",
+    "profile": {
+      "town": "San Antonio",
+      "state": "Texas",
+      "population": 1548422,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/sanantoniocitytexas/PST045225",
+      "attraction": {
+        "en": "San Antonio Missions — historic mission sites along the river.",
+        "es": "Misiones de San Antonio: conjuntos históricos junto al río.",
+        "it": "Missioni di San Antonio: complessi storici lungo il fiume.",
+        "ar": "بعثات سان أنطونيو: مواقع تاريخية على امتداد النهر."
+      },
+      "attraction_source": "https://www.nps.gov/saan/index.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4865000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/sanantoniocitytexas/PST045225",
+        "title": "San Antonio population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/saan/index.htm",
+        "title": "San Antonio attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-38-scene",
+      "description": "A compact San Antonio place vignette based on the profile’s sourced attraction: San Antonio Missions — historic mission sites along the river. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-39",
+    "category": "Town profiles",
+    "title": "San Diego",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "San Diego",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "San Diego, California. Population: 1,406,106 (2025). Balboa Park — museums, gardens and Spanish Colonial Revival architecture.",
+    "profile": {
+      "town": "San Diego",
+      "state": "California",
+      "population": 1406106,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/sandiegocitycalifornia/PST045225",
+      "attraction": {
+        "en": "Balboa Park — museums, gardens and Spanish Colonial Revival architecture.",
+        "es": "Parque Balboa: museos, jardines y arquitectura neocolonial española.",
+        "it": "Balboa Park: musei, giardini e architettura neocoloniale spagnola.",
+        "ar": "حديقة بالبوا: متاحف وحدائق وعمارة مستوحاة من الطراز الاستعماري الإسباني."
+      },
+      "attraction_source": "https://balboapark.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0666000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/sandiegocitycalifornia/PST045225",
+        "title": "San Diego population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://balboapark.org/",
+        "title": "San Diego attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-39-scene",
+      "description": "A compact San Diego place vignette based on the profile’s sourced attraction: Balboa Park — museums, gardens and Spanish Colonial Revival architecture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-40",
+    "category": "Town profiles",
+    "title": "San Francisco",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "San Francisco",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "San Francisco, California. Population: 826,079 (2025). The Presidio — a former military post turned national park site.",
+    "profile": {
+      "town": "San Francisco",
+      "state": "California",
+      "population": 826079,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/sanfranciscocitycalifornia/PST045225",
+      "attraction": {
+        "en": "The Presidio — a former military post turned national park site.",
+        "es": "El Presidio: un antiguo puesto militar convertido en parque nacional.",
+        "it": "Il Presidio: un ex presidio militare diventato area di parco nazionale.",
+        "ar": "بريسيديو: موقع عسكري سابق أصبح جزءاً من الحدائق الوطنية."
+      },
+      "attraction_source": "https://www.nps.gov/prsf/index.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0667000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/sanfranciscocitycalifornia/PST045225",
+        "title": "San Francisco population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/prsf/index.htm",
+        "title": "San Francisco attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-40-scene",
+      "description": "A compact San Francisco place vignette based on the profile’s sourced attraction: The Presidio — a former military post turned national park site. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-41",
+    "category": "Town profiles",
+    "title": "Seattle",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Seattle",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Seattle, Washington. Population: 784,777 (2025). Pike Place Market — the waterfront public market.",
+    "profile": {
+      "town": "Seattle",
+      "state": "Washington",
+      "population": 784777,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/seattlecitywashington/PST045225",
+      "attraction": {
+        "en": "Pike Place Market — the waterfront public market.",
+        "es": "Pike Place Market: el mercado público junto al litoral.",
+        "it": "Pike Place Market: il mercato pubblico sul lungomare.",
+        "ar": "سوق بايك بليس العام قرب الواجهة البحرية."
+      },
+      "attraction_source": "https://www.pikeplacemarket.org/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "5363000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/seattlecitywashington/PST045225",
+        "title": "Seattle population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.pikeplacemarket.org/",
+        "title": "Seattle attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-41-scene",
+      "description": "A compact Seattle place vignette based on the profile’s sourced attraction: Pike Place Market — the waterfront public market. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-42",
+    "category": "Town profiles",
+    "title": "Sioux Falls",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Sioux Falls",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Sioux Falls, South Dakota. Population: 213,748 (2025). Falls Park — the waterfalls of the Big Sioux River.",
+    "profile": {
+      "town": "Sioux Falls",
+      "state": "South Dakota",
+      "population": 213748,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/siouxfallscitysouthdakota/PST045225",
+      "attraction": {
+        "en": "Falls Park — the waterfalls of the Big Sioux River.",
+        "es": "Falls Park: las cascadas del río Big Sioux.",
+        "it": "Falls Park: le cascate del fiume Big Sioux.",
+        "ar": "حديقة فولز: شلالات نهر بيغ سيو."
+      },
+      "attraction_source": "https://www.experiencesiouxfalls.com/falls-park",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4659020"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/siouxfallscitysouthdakota/PST045225",
+        "title": "Sioux Falls population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.experiencesiouxfalls.com/falls-park",
+        "title": "Sioux Falls attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-42-scene",
+      "description": "A compact Sioux Falls place vignette based on the profile’s sourced attraction: Falls Park — the waterfalls of the Big Sioux River. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-43",
+    "category": "Town profiles",
+    "title": "South Bend",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "South Bend",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "South Bend, Indiana. Population: 103,201 (2025). South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season.",
+    "profile": {
+      "town": "South Bend",
+      "state": "Indiana",
+      "population": 103201,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/southbendcityindiana/PST045225",
+      "attraction": {
+        "en": "South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season.",
+        "it": "L’East Race Waterway è un percorso urbano per rafting. La città ne ha annunciato la chiusura per lavori nella stagione 2026.",
+        "es": "East Race Waterway es un canal urbano de aguas bravas. La ciudad anunció su cierre por mejoras durante la temporada 2026.",
+        "ar": "إيست ريس ووترواي مجرى حضري للمياه السريعة. أعلنت المدينة إغلاقه للتحديث في موسم 2026."
+      },
+      "attraction_source": "https://311.southbendin.gov/knowledgecenter/article/?id=KA-04513",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1871000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/southbendcityindiana/PST045225",
+        "title": "South Bend population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://311.southbendin.gov/knowledgecenter/article/?id=KA-04513",
+        "title": "South Bend attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-43-scene",
+      "description": "A compact South Bend place vignette based on the profile’s sourced attraction: South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-44",
+    "category": "Town profiles",
+    "title": "Spokane",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Spokane",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Spokane, Washington. Population: 230,783 (2025). Riverfront Park — Spokane Falls and the former world’s fair grounds.",
+    "profile": {
+      "town": "Spokane",
+      "state": "Washington",
+      "population": 230783,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/spokanecitywashington/PST045225",
+      "attraction": {
+        "en": "Riverfront Park — Spokane Falls and the former world’s fair grounds.",
+        "es": "Riverfront Park: las cataratas de Spokane y la antigua exposición universal.",
+        "it": "Riverfront Park: le cascate di Spokane e l’ex area dell’esposizione universale.",
+        "ar": "حديقة ريفرفرونت: شلالات سبوكان وموقع المعرض العالمي السابق."
+      },
+      "attraction_source": "https://my.spokanecity.org/riverfrontspokane/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "5367000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/spokanecitywashington/PST045225",
+        "title": "Spokane population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://my.spokanecity.org/riverfrontspokane/",
+        "title": "Spokane attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-44-scene",
+      "description": "A compact Spokane place vignette based on the profile’s sourced attraction: Riverfront Park — Spokane Falls and the former world’s fair grounds. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-45",
+    "category": "Town profiles",
+    "title": "Springfield, IL",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Springfield, IL",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Springfield, IL, Illinois. Population: 112,989 (2025). Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861.",
+    "profile": {
+      "town": "Springfield, IL",
+      "state": "Illinois",
+      "population": 112989,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/springfieldcityillinois/PST045225",
+      "attraction": {
+        "en": "Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861.",
+        "it": "Abraham Lincoln comprò la casa tra Eighth e Jackson Streets nel 1844 e partì per D.C. nel 1861.",
+        "es": "Abraham Lincoln compró la casa de Eighth y Jackson Streets en 1844 y partió hacia D.C. en 1861.",
+        "ar": "اشترى أبراهام لينكولن منزل شارعَي إيث وجاكسون عام 1844 وغادر إلى D.C. عام 1861."
+      },
+      "attraction_source": "https://home.nps.gov/liho/learn/historyculture/alincolnbio.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "1772000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/springfieldcityillinois/PST045225",
+        "title": "Springfield, IL population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://home.nps.gov/liho/learn/historyculture/alincolnbio.htm",
+        "title": "Springfield, IL attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-45-scene",
+      "description": "A compact Springfield, IL place vignette based on the profile’s sourced attraction: Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-46",
+    "category": "Town profiles",
+    "title": "Springfield, MO",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Springfield, MO",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Springfield, MO, Missouri. Population: 169,847 (2025). The name Route 66 was proposed from Springfield on April 30, 1926.",
+    "profile": {
+      "town": "Springfield, MO",
+      "state": "Missouri",
+      "population": 169847,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/springfieldcitymissouri/PST045225",
+      "attraction": {
+        "en": "The name Route 66 was proposed from Springfield on April 30, 1926.",
+        "it": "Il nome Route 66 fu proposto da Springfield il 30 aprile 1926.",
+        "es": "El nombre Route 66 se propuso desde Springfield el 30 de abril de 1926.",
+        "ar": "اقتُرح اسم طريق 66 من سبرينغفيلد في 30 أبريل 1926."
+      },
+      "attraction_source": "https://www.springfieldmo.org/about-springfield/history/",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2970000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/springfieldcitymissouri/PST045225",
+        "title": "Springfield, MO population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.springfieldmo.org/about-springfield/history/",
+        "title": "Springfield, MO attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-46-scene",
+      "description": "A compact Springfield, MO place vignette based on the profile’s sourced attraction: The name Route 66 was proposed from Springfield on April 30, 1926. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-47",
+    "category": "Town profiles",
+    "title": "St. Louis",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "St. Louis",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "St. Louis, Missouri. Population: 278,144 (2025). The Gateway Arch is 630 feet tall and equally wide at ground level.",
+    "profile": {
+      "town": "St. Louis",
+      "state": "Missouri",
+      "population": 278144,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/stlouiscitymissouri/PST045225",
+      "attraction": {
+        "en": "The Gateway Arch is 630 feet tall and equally wide at ground level.",
+        "it": "Il Gateway Arch è alto 630 piedi e altrettanto largo al suolo.",
+        "es": "Gateway Arch mide 630 pies de alto y lo mismo de ancho en su base.",
+        "ar": "يبلغ ارتفاع غيتواي آرتش 630 قدماً ويساوي عرضه عند الأرض."
+      },
+      "attraction_source": "https://www.nps.gov/jeff/faqs.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "2965000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/stlouiscitymissouri/PST045225",
+        "title": "St. Louis population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/jeff/faqs.htm",
+        "title": "St. Louis attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-47-scene",
+      "description": "A compact St. Louis place vignette based on the profile’s sourced attraction: The Gateway Arch is 630 feet tall and equally wide at ground level. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-48",
+    "category": "Town profiles",
+    "title": "Toledo",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Toledo",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Toledo, Ohio. Population: 263,423 (2025). Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie.",
+    "profile": {
+      "town": "Toledo",
+      "state": "Ohio",
+      "population": 263423,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/toledocityohio/PST045225",
+      "attraction": {
+        "en": "Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie.",
+        "it": "Glass City Center si trova nel centro di Toledo, vicino al Maumee e a circa sei miglia dal lago Erie.",
+        "es": "Glass City Center está en el centro de Toledo, cerca del Maumee y a unas seis millas del lago Erie.",
+        "ar": "يقع غلاس سيتي سنتر في وسط توليدو قرب نهر ماومي وعلى نحو ستة أميال من بحيرة إيري."
+      },
+      "attraction_source": "https://www.glasscitycenter.com/p/events/location",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "3977000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/toledocityohio/PST045225",
+        "title": "Toledo population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.glasscitycenter.com/p/events/location",
+        "title": "Toledo attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-48-scene",
+      "description": "A compact Toledo place vignette based on the profile’s sourced attraction: Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-49",
+    "category": "Town profiles",
+    "title": "Tucson",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Tucson",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Tucson, Arizona. Population: 548,371 (2025). Saguaro National Park — giant cacti on both sides of Tucson.",
+    "profile": {
+      "town": "Tucson",
+      "state": "Arizona",
+      "population": 548371,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/tucsoncityarizona/PST045225",
+      "attraction": {
+        "en": "Saguaro National Park — giant cacti on both sides of Tucson.",
+        "es": "Parque Nacional Saguaro: cactus gigantes a ambos lados de Tucson.",
+        "it": "Parco nazionale dei Saguaro: cactus giganti sui due lati di Tucson.",
+        "ar": "حديقة ساغوارو الوطنية: صبّار عملاق على جانبي توسان."
+      },
+      "attraction_source": "https://www.nps.gov/sagu/index.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "0477000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/tucsoncityarizona/PST045225",
+        "title": "Tucson population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/sagu/index.htm",
+        "title": "Tucson attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-49-scene",
+      "description": "A compact Tucson place vignette based on the profile’s sourced attraction: Saguaro National Park — giant cacti on both sides of Tucson. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-50",
+    "category": "Town profiles",
+    "title": "Tulsa",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Tulsa",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Tulsa, Oklahoma. Population: 416,209 (2025). Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004.",
+    "profile": {
+      "town": "Tulsa",
+      "state": "Oklahoma",
+      "population": 416209,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/tulsacityoklahoma/PST045225",
+      "attraction": {
+        "en": "Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004.",
+        "it": "Il ponte 11th Street attraversava l’Arkansas nel 1917; nel 2004 fu intitolato a Cyrus Avery, sostenitore della Route 66.",
+        "es": "El puente de 11th Street cruzaba el Arkansas en 1917; en 2004 recibió el nombre de Cyrus Avery, impulsor de Route 66.",
+        "ar": "عبر جسر الشارع الحادي عشر نهر أركنساس عام 1917 وسُمي باسم سايروس أفيري الداعم لطريق 66 عام 2004."
+      },
+      "attraction_source": "https://www.nps.gov/places/11th-street-arkansas-river-bridge.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4075000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/tulsacityoklahoma/PST045225",
+        "title": "Tulsa population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/places/11th-street-arkansas-river-bridge.htm",
+        "title": "Tulsa attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-50-scene",
+      "description": "A compact Tulsa place vignette based on the profile’s sourced attraction: Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PROFILE-51",
+    "category": "Town profiles",
+    "title": "Waco",
+    "mode": "Shared",
+    "use": "place/state, population/year/source, attraction/source",
+    "source_path": "dystrail-web/static/assets/data/town-profiles.json",
+    "runtime_key": "Waco",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Waco, Texas. Population: 147,788 (2025). Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young.",
+    "profile": {
+      "town": "Waco",
+      "state": "Texas",
+      "population": 147788,
+      "population_year": 2025,
+      "population_source": "https://www.census.gov/quickfacts/fact/table/wacocitytexas/PST045225",
+      "attraction": {
+        "en": "Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young.",
+        "it": "Il monumento Waco Mammoth conserva una mandria di mammut colombiani con femmine e piccoli.",
+        "es": "Waco Mammoth conserva una manada de mamuts colombinos con hembras y crías.",
+        "ar": "يحفظ نصب واكو ماموث قطيع حضانة من الماموث الكولومبي يضم إناثاً وصغاراً."
+      },
+      "attraction_source": "https://www.nps.gov/places/waco-mammoth-herd.htm",
+      "population_as_of": "2025-07-01",
+      "population_checked": "2026-09-12",
+      "population_dataset": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+      "population_fips": "4876000"
+    },
+    "evidence_status": "Existing dated reference retained; population/source fields checked for completeness against the repository. No new live population claim.",
+    "source_checked": "2026-09-12",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/wacocitytexas/PST045225",
+        "title": "Waco population (2025)",
+        "date": "2025-07-01",
+        "qualification": "Dated population reference, not a claim about today’s population."
+      },
+      {
+        "url": "https://www.nps.gov/places/waco-mammoth-herd.htm",
+        "title": "Waco attraction reference",
+        "qualification": "Attraction description retained from the sourced project profile."
+      }
+    ],
+    "scene": {
+      "scene_id": "profile-51-scene",
+      "description": "A compact Waco place vignette based on the profile’s sourced attraction: Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-RATIONS",
+    "category": "Shop-item descriptions",
+    "title": "Rations Pack",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "rations",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Adds three supplies per pack. A practical contribution to the argument that people need to eat.",
+    "base_price_cents": 500,
+    "grants": {
+      "supplies": 3
+    },
+    "tags": [],
+    "max_qty": 99,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-rations-scene",
+      "description": "Clean inventory cutout of Rations Pack on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-WATER",
+    "category": "Shop-item descriptions",
+    "title": "Water Jugs",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "water",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Adds two supplies and carries the water-jug protection tag. Water prevents the extra sanity and health costs of prolonged heat.",
+    "base_price_cents": 400,
+    "grants": {
+      "supplies": 2
+    },
+    "tags": [
+      "water_jugs"
+    ],
+    "max_qty": 99,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-water-scene",
+      "description": "Clean inventory cutout of Water Jugs on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-SPARE_TIRE",
+    "category": "Shop-item descriptions",
+    "title": "Spare Tire",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "spare_tire",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "One spare tire. Can be fitted for a tire breakdown; fitting consumes the spare.",
+    "base_price_cents": 1500,
+    "grants": {
+      "spare_tire": 1
+    },
+    "tags": [],
+    "max_qty": 3,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-spare_tire-scene",
+      "description": "Clean inventory cutout of Spare Tire on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-BATTERY",
+    "category": "Shop-item descriptions",
+    "title": "Battery",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "battery",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "One spare battery. Can be fitted when the battery fails; it is not an alternator.",
+    "base_price_cents": 2200,
+    "grants": {
+      "spare_battery": 1
+    },
+    "tags": [],
+    "max_qty": 2,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-battery-scene",
+      "description": "Clean inventory cutout of Battery on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-ALTERNATOR",
+    "category": "Shop-item descriptions",
+    "title": "Alternator",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "alternator",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "One spare alternator. Restores the failed charging component when fitted during its matching breakdown.",
+    "base_price_cents": 2100,
+    "grants": {
+      "spare_alt": 1
+    },
+    "tags": [],
+    "max_qty": 1,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-alternator-scene",
+      "description": "Clean inventory cutout of Alternator on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-FUEL_PUMP",
+    "category": "Shop-item descriptions",
+    "title": "Fuel Pump",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "fuel_pump",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "One spare fuel pump. Fits a fuel-pump breakdown; it does not add fuel or repair unrelated faults.",
+    "base_price_cents": 1700,
+    "grants": {
+      "spare_pump": 1
+    },
+    "tags": [],
+    "max_qty": 1,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-fuel_pump-scene",
+      "description": "Clean inventory cutout of Fuel Pump on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-MASKS",
+    "category": "Shop-item descriptions",
+    "title": "Masks",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "masks",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Carried masks protect against the smoke sanity cost and provide the game’s illness-resistance tag. Other smoke costs still apply.",
+    "base_price_cents": 600,
+    "grants": {},
+    "tags": [
+      "plague_resist"
+    ],
+    "max_qty": 3,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-masks-scene",
+      "description": "Clean inventory cutout of Masks on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-COATS",
+    "category": "Shop-item descriptions",
+    "title": "Warm Coats",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "coats",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Warm coats protect against cold’s sanity cost and health damage from prolonged cold exposure.",
+    "base_price_cents": 1000,
+    "grants": {},
+    "tags": [
+      "cold_resist",
+      "warm_coat"
+    ],
+    "max_qty": 2,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-coats-scene",
+      "description": "Clean inventory cutout of Warm Coats on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-PONCHOS",
+    "category": "Shop-item descriptions",
+    "title": "Ponchos",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "ponchos",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Ponchos protect against storm sanity loss. Other storm costs still apply.",
+    "base_price_cents": 800,
+    "grants": {},
+    "tags": [
+      "rain_resist"
+    ],
+    "max_qty": 2,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-ponchos-scene",
+      "description": "Clean inventory cutout of Ponchos on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-PRESS_PASS",
+    "category": "Shop-item descriptions",
+    "title": "Press Pass",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "press_pass",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "A unique permit item. Where the crossing accepts its tag, it can authorize passage without consuming a Receipt.",
+    "base_price_cents": 1800,
+    "grants": {},
+    "tags": [
+      "permit"
+    ],
+    "max_qty": 1,
+    "unique": true,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-press_pass-scene",
+      "description": "Clean inventory cutout of Press Pass on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "SHOP-LEGAL_FUND",
+    "category": "Shop-item descriptions",
+    "title": "Legal Fund",
+    "mode": "Shared",
+    "use": "accurate item benefit and cost; optional brief flavor",
+    "source_path": "dystrail-web/static/assets/data/store.json",
+    "runtime_key": "legal_fund",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Adds one credibility. Protection from a tariff bulletin depends on the game actually carrying its legal-fund protection tag.",
+    "base_price_cents": 1500,
+    "grants": {
+      "credibility": 1
+    },
+    "tags": [],
+    "max_qty": 3,
+    "unique": false,
+    "evidence_status": "Item data and effect prose checked against local configuration and current simulation; effective price remains data-driven.",
+    "integration_note": "store.json grants credibility but its tags array is empty. The tariff rule checks inventory.has_tag(\"legal_fund\"). Do not promise purchase-based protection unless integration confirms the tag is carried.",
+    "sources": [],
+    "scene": {
+      "scene_id": "shop-legal_fund-scene",
+      "description": "Clean inventory cutout of Legal Fund on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-JOURNALIST",
+    "category": "Persona descriptions",
+    "title": "Journalist",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "journalist",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Resourceful and credible, with a better chance of finding Receipts. Starts in Seattle.",
+    "start": {
+      "supplies": 18,
+      "credibility": 7,
+      "sanity": 10,
+      "morale": 5,
+      "allies": 1,
+      "budget": 120
+    },
+    "mods": {
+      "receipt_find_pct": 10,
+      "store_discount_pct": 0,
+      "eo_heat_pct": 0,
+      "bribe_discount_pct": 0
+    },
+    "score_mult": 0.8,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-journalist-scene",
+      "description": "An ordinary road traveler with a notebook and practical shoulder bag; blank press credential optional.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-ORGANIZER",
+    "category": "Persona descriptions",
+    "title": "Organizer",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "organizer",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Starts with stronger morale and more outside allies; also receives a small bribe discount. Starts in Portland.",
+    "start": {
+      "supplies": 18,
+      "credibility": 5,
+      "sanity": 10,
+      "morale": 6,
+      "allies": 2,
+      "budget": 110
+    },
+    "mods": {
+      "bribe_discount_pct": 5
+    },
+    "score_mult": 1.0,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-organizer-scene",
+      "description": "An ordinary traveler arranging a small stack of unlettered contact cards beside communal supplies.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-WHISTLEBLOWER",
+    "category": "Persona descriptions",
+    "title": "Whistleblower",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "whistleblower",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Finds more Receipts but draws extra executive-order pressure. Starts in San Francisco.",
+    "start": {
+      "supplies": 14,
+      "credibility": 6,
+      "sanity": 9,
+      "morale": 5,
+      "allies": 0,
+      "budget": 90
+    },
+    "mods": {
+      "receipt_find_pct": 15,
+      "eo_heat_pct": 10
+    },
+    "score_mult": 1.2,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-whistleblower-scene",
+      "description": "An ordinary traveler holding a plain evidence folder close, with backup folders in a practical bag.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-LOBBYIST",
+    "category": "Persona descriptions",
+    "title": "Lobbyist",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "lobbyist",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Receives shop and bribe discounts through contacts. Starts in Los Angeles; this does not grant staff or official authority.",
+    "start": {
+      "supplies": 16,
+      "credibility": 6,
+      "sanity": 10,
+      "morale": 5,
+      "allies": 1,
+      "budget": 130
+    },
+    "mods": {
+      "store_discount_pct": 10,
+      "bribe_discount_pct": 10
+    },
+    "score_mult": 0.9,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-lobbyist-scene",
+      "description": "An ordinary traveler with a battered portfolio and a plain contacts notebook; no bodyguard, aide, private car or luxury office.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-STAFFER",
+    "category": "Persona descriptions",
+    "title": "Staffer",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "staffer",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "A balanced start without special bonuses or penalties. Starts in Sacramento.",
+    "start": {
+      "supplies": 18,
+      "credibility": 6,
+      "sanity": 10,
+      "morale": 5,
+      "allies": 1,
+      "budget": 110
+    },
+    "mods": {},
+    "score_mult": 1.0,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-staffer-scene",
+      "description": "An ordinary traveler with a blank checklist and tangled charger, ready to do practical work.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "PERSONA-SATIRIST",
+    "category": "Persona descriptions",
+    "title": "Satirist",
+    "mode": "Shared",
+    "use": "accurate strengths and origin; separate from opening variants",
+    "source_path": "dystrail-web/static/assets/data/personas.json",
+    "runtime_key": "satirist",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Humor helps sustain sanity. Starts in San Diego.",
+    "start": {
+      "supplies": 18,
+      "credibility": 5,
+      "sanity": 11,
+      "morale": 5,
+      "allies": 1,
+      "budget": 110
+    },
+    "mods": {
+      "satire_sustain": true
+    },
+    "score_mult": 1.1,
+    "evidence_status": "Checked against current persona configuration; actual user-supplied name and appearance remain authoritative.",
+    "sources": [],
+    "scene": {
+      "scene_id": "persona-satirist-scene",
+      "description": "An ordinary traveler with a blank notebook and amused expression beside the modest van.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "MODE-C",
+    "category": "Mode descriptions",
+    "title": "Classic",
+    "mode": "Shared",
+    "use": "clear, accurate expectations for the selected mode",
+    "source_path": "dystrail-web/i18n/en.json",
+    "runtime_key": "mode.classic",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity.",
+    "evidence_status": "Mode distinction retained from the user’s supplied game screen; detailed numeric effects stay with live game data.",
+    "sources": [],
+    "scene": {
+      "scene_id": "mode-c-scene",
+      "description": "The familiar ordinary van on a readable road with a modest supply stop and open horizon; political absurdity suggested through an oversized empty official sign.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  },
+  {
+    "id": "MODE-D",
+    "category": "Mode descriptions",
+    "title": "Deep End",
+    "mode": "Shared",
+    "use": "clear, accurate expectations for the selected mode",
+    "source_path": "dystrail-web/i18n/en.json",
+    "runtime_key": "mode.deep",
+    "group": "factual or functional record",
+    "status": "draft for user review",
+    "accepted": false,
+    "notes": "",
+    "text": "The same road, a worse reality. Darker satire about attacks on trans rights, abortion restrictions, surveillance abuse, detention, and denied care. Choose this trail to opt in to those themes.",
+    "evidence_status": "Explicit theme disclosure requested by the user; numeric game effects remain in live game data.",
+    "sources": [],
+    "scene": {
+      "scene_id": "mode-d-scene",
+      "description": "The familiar van and road in the Deep End palette, with a recognizably stranger accumulation of official barriers and distorted civic scenery; no promise of a specific event.",
+      "overlays": [],
+      "asset_notes": "No embedded text, lettering, logos, numbers or UI words. Any label, town name, quantity or caption is a separate localized overlay."
+    }
+  }
+]

@@ -1,0 +1,46 @@
+**Hearing storyboard: image-generation provenance**
+
+Created with the built-in image-generation tool. These are concept storyboards, not production sprite assets. The final main sheet uses the character correction below. The original images are preserved in the generated-images directory; selected results are copied beside this record.
+
+Style references were the user-supplied hearing and paused-travel screenshots in the review's evidence folder. The first sheet was visually inspected, then corrected to align the provisional cast with the feminine/androgynous and racial-diversity direction. The ending sheet applies that direction from its initial prompt.
+
+**Main storyboard prompt**
+
+```text
+Use case: illustration-story.
+Create a polished eight-panel game-experience storyboard for DYSTOPIAN TRAIL, as a large portrait sheet with exactly two columns and four rows, read left to right then downward. This is a storyboard of one coherent proposed hearing experience, not alternate UI designs.
+Input references: first screenshot supplies the existing cream/gold type on deep teal game interface; second supplies the crisp detailed pixel-art style, familiar blue luggage-topped van and crew scale. Do not reproduce the browser chrome or the screenshots themselves. Create original illustrated scenes in this game's established art style.
+Art direction: detailed expressive pixel-art environments and adults; six consistent travelers with feminine or androgynous presentation and varied racial backgrounds. Preserve their clothing and faces across panels. A blue van, a civic building in Washington DC, an anteroom, a public hearing chamber with a committee dais, microphones and paper evidence. Midday-to-early-afternoon lighting, coherent indoor illumination. Satirical institutional atmosphere; attentive tired crew, officious committee. No casino imagery, dice, slot machines, invented individual vote counts, or real politician likenesses. The characters are provisional concepts, not final production sprites.
+Layout: dark teal outer background, fine warm gold frame separators, eight equal landscape picture panels; each panel has a clearly readable cream title strip at top and a small readable caption strip below. Use only the specified titles and captions. Main focus is visual storytelling, not tiny dashboard text. Ensure all eight panels fit with generous gutters, clean typography and no cropped labels. Overall heading: "THE HEARING". Small subheading: "Arrival to verdict · illustrative three-round journey".
+Panel 01, top left. Title "01  ARRIVAL". Show van parked outside the civic hearing building, crew emerging with folders, sunlight, a sense of having completed a long road journey. Caption "You made it. Now make them listen."
+Panel 02, top right. Title "02  PREPARE". Inside the anteroom, crew at a bench sorting receipts and taking a breath; hearing-room doors nearby. Caption "Starting odds 55% · Sanity 7". Two small readable button labels "Rest" and "Begin hearing".
+Panel 03, second row left. Title "03  OPENING ARGUMENT". Crew presents organized paper evidence at the microphone; a clerk accepts the folder; the first round goes well. Caption "Round influence 120% · Sanity 5".
+Panel 04, second row right. Title "04  ANOTHER ROUND?". Close view of the committee chair consulting colleagues and raising a finger for another question; travelers waiting tensely. Caption "The committee calls a follow-up."
+Panel 05, third row left. Title "05  FOLLOW-UP". A committee member raises an objection; a traveler searches a folder while another steadies them. A setback, not a terminal defeat. Caption "Round influence 90% · Sanity 3".
+Panel 06, third row right. Title "06  FINAL CHALLENGE". The chair has called a third round; exhausted crew produces a crucial receipt and the clerk enters it into the record. Caption "Round influence 150% · Sanity 1".
+Panel 07, fourth row left. Title "07  HEARING CLOSED". The chair sets the gavel down, papers settle, crew visibly exhales; no verdict yet. Caption "Average influence 120% · Final odds 66%". One gold button label "Reveal verdict".
+Panel 08, fourth row right. Title "08  VERDICT". The clerk presents the recorded favorable decision, crew share a relieved, exhausted celebration. A clearly legible gold-green document stamp "MOTION PASSES". Caption "The result lands before the scorecard." One small button "View scorecard".
+Keep this exactly an eight-frame continuous storyboard. Do not add a ninth panel. All captions above must be legible and correct. Do not display a successful outcome in panels 1-7. Do not draw fake tally numbers.
+```
+
+**Final main-sheet correction**
+
+```text
+Edit the attached eight-panel Dystopian Trail hearing storyboard. Keep every panel, scene, composition, framing, border, title, caption, button, number, lighting, and the entire sequence EXACTLY unchanged. Make only a coordinated character-art correction across ALL eight panels. The intended cast is entirely feminine or androgynous/gender-neutral adults, with greater racial diversity. Use these consistent six provisional designs wherever that person appears: Black organizer with red headband, long dark locs and olive jacket (retain current design); fair-skinned androgynous staffer with tied-up messy brown hair, white shirt and lanyard (retain current design); East Asian androgynous journalist with glasses, short tousled dark-brown hair, blue backpack and yellow shirt; brown-skinned androgynous whistleblower in a dark hood and sunglasses; brown-skinned androgynous satirist with a red beanie, glasses and green clothing, clean-shaven with NO beard or moustache; feminine lobbyist with a gray chin-length bob, sunglasses, navy suit and red tie. In particular remove the red-beanie character's beard everywhere and update the gray-suited lobbyist consistently in all scenes. Committee members and background people should also present feminine or androgynous: remove moustaches/beards and strongly masculine styling, retain the Black woman chair and clerk. Keep the pixel-art style and consistent clothing/role silhouettes. Do not add or remove crew members. Do not change any text or numeric value. No new layout or camera shots.
+```
+
+**Ending-sheet prompt**
+
+```text
+Use case: illustration-story.
+Create one polished four-panel companion storyboard titled "HOW THE HEARING ENDS", a two-column, two-row sheet in the same detailed pixel-art game style, deep teal and warm cream/gold framing as the attached eight-panel storyboard. This is a set of four ALTERNATIVE ending states, not four consecutive events.
+Use the reference for the hearing chamber, microphones, folders, blue/teal/gold color language, composition and UI type style. Important character correction: EVERY visible adult should be feminine or androgynous/gender-neutral, with racial diversity. The six crew must be consistent in every panel: Black organizer with red headband, long locs, olive jacket; fair-skinned androgynous staffer with messy brown updo, white shirt and lanyard; East Asian androgynous journalist with glasses, dark tousled hair, yellow shirt and blue backpack; brown-skinned androgynous whistleblower with dark hood and sunglasses; brown-skinned androgynous satirist with red beanie, glasses, green jacket, NO facial hair; feminine gray-bob-haired lobbyist with sunglasses, navy suit and red tie. Use a Black woman committee chair and feminine clerk, varied background people. No beards or moustaches. Concept characters, not final production sprites.
+Four equal landscape panels, large artwork with readable heading and caption strips, ample gutters. No browser chrome, no fake vote tallies, no dice or casino imagery, no red/green-only meaning.
+Top left A: title "A  THE VOTE PASSES". A clerk reads the recorded favorable decision, the tired crew has a relieved celebration. Document stamp "MOTION PASSES". Caption exactly "Final odds 66% · Vote passed". Small button "View scorecard".
+Top right B: title "B  THE VOTE FAILS". Same chamber and crew, shoulders lower, papers gathered in quiet disappointment. The committee remains distant and officious. Document stamp "MOTION FAILS". Caption exactly "Final odds 66% · Vote failed". Small button "View scorecard". This is a lost vote, NOT death or exhaustion.
+Bottom left C: title "C  VICTORY SECURED". Hearing is closed; crew is relieved and confident as the clerk immediately announces their victory. Show a clear cream inset with EXACT text "80% × 1.30 = 104%" and beneath it "No final draw". Document stamp "VICTORY SECURED". Caption exactly "The hearing closes above 100%". Small button "View scorecard". This branch must feel resolved, not still waiting on a random vote.
+Bottom right D: title "D  EXHAUSTED". The staffer is too drained to continue at the microphone; the organizer and satirist support them gently. The committee closes the hearing. No humor at the crew's expense, no death, no psychosis imagery, no triumphant verdict. Status label "SANITY 0". Caption exactly "The hearing ends before a vote". Small button "View scorecard".
+Small footer: "Four distinct endings. Each gets a moment before the scorecard."
+Keep all exact numerical labels correct, and all four states clearly distinct.
+```
+

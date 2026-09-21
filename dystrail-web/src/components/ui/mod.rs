@@ -31,6 +31,7 @@ pub mod satire_context;
 
 pub mod action_button;
 
+pub mod character_portrait;
 pub mod stat_card;
 
 pub mod journey_icon;

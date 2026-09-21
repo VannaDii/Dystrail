@@ -1,0 +1,665 @@
+[
+  {
+    "id": "ENC-C08-C",
+    "family_id": "ENC-C08",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Heartland",
+      "Beltway"
+    ],
+    "runtime_key": "classic_mutual_aid_dispatch",
+    "title": "Royal toll exemption",
+    "setup": "Trump tried to end New York’s congestion toll and posted “Long Live the King.” A judge blocked the attempt. At a carpool picnic, a visiting New York courier shows his bill. Hosts invite supplies for recording drivers’ accounts, or some food to share. His bill accepts money, not royal proclamations.",
+    "choices": [
+      {
+        "label": "Donate supplies to record drivers’ accounts",
+        "outcome": "You donate supplies and preserve the accounts. The courier attaches the presidential post to his toll bill. They disagree about who is running the kingdom.",
+        "effects": {
+          "supplies": -2,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Share some food; hear the courier’s story",
+        "outcome": "You share some food and hear his story. “I tried saying Long Live the King at the toll bill,” he says. “Turns out it wanted Long Live My Debit Card.”",
+        "effects": {
+          "supplies": -1,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Compare and save the toll maps",
+        "outcome": "You save the old and current toll maps and make sense of the ruling. The courier puts away his toy crown. The border of Manhattan remains unmoved by headwear.",
+        "effects": {
+          "sanity": 1,
+          "add_receipt": "classic_mutual_aid_dispatch"
+        }
+      }
+    ],
+    "source_hook": "Trump’s attempted reversal of New York congestion pricing and royal celebration",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+        "title": "New York governor’s transcript on the federal congestion-pricing reversal attempt",
+        "date": "2025-02-19",
+        "checked": "2026-09-14",
+        "qualification": "The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll.",
+        "claim": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal."
+      },
+      {
+        "url": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf",
+        "title": "Southern District of New York: Congestion-pricing opinion",
+        "date": "2026-03-03",
+        "checked": "2026-09-14",
+        "qualification": "Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented.",
+        "claim": "A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A visiting New York courier and a picnic host collecting supplies for an oral-history recording.",
+    "scene_id": "enc-c08-c-display",
+    "scene": {
+      "scene_id": "enc-c08-c-display",
+      "setting": "Roadside carpool picnic at a highway turnout",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A visiting New York courier and a picnic host collecting supplies for an oral-history recording.",
+      "action": "The courier displays a toll bill beside two maps while the host indicates the donation table; travelers stand listening.",
+      "visual_gag": "A toy crown sits beside a toll bill that continues to look completely ordinary and payable.",
+      "composition": "Maps and crown foreground, courier behind, travelers and parked van at the turnout edge.",
+      "overlays": [
+        {
+          "text": "LONG LIVE THE KING",
+          "placement": "Editable caption on a blank printout of the documented post",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Trump’s attempted reversal of New York congestion pricing and royal celebration",
+      "real_hook": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal. The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll. A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds. Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented.",
+      "source_url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C12-A",
+    "family_id": "ENC-C12",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "classic_press_pool_qna",
+    "title": "Additional greatness",
+    "setup": "Trump said he got Coca-Cola to use cane sugar. The company announced an additional option, keeping its existing lineup. At a roadside cafe, the owner declares the whole soda shelf presidentially reformulated. His clerk points to the old bottles. They appear to have missed the inauguration.",
+    "choices": [
+      {
+        "label": "Challenge the claim with the announcement",
+        "outcome": "You read “additional” from the company announcement until your head aches. The owner moves a new bottle in front of an old one. Reform complete.",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1
+        }
+      },
+      {
+        "label": "Repeat the owner’s reassuring version",
+        "outcome": "You repeat the claim and stop arguing. The clerk reads the old bottle’s corn-syrup ingredient. Apparently the original recipe didn’t receive the presidential memo.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -1
+        }
+      },
+      {
+        "label": "Rest outside during the debate",
+        "outcome": "You rest outside and enjoy the quiet. Through the window, the owner poses with one new bottle blocking the shelf. National reform has a very precise camera angle.",
+        "effects": {
+          "credibility": 0,
+          "morale": 1,
+          "rest": true
+        }
+      }
+    ],
+    "source_hook": "Trump claims credit for Coca-Cola’s additional cane-sugar product",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+        "title": "Coca-Cola reports second-quarter 2025 results",
+        "date": "2025-07-22",
+        "checked": "2026-09-14",
+        "qualification": "The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier.",
+        "claim": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup."
+      },
+      {
+        "url": "https://apnews.com/article/a95e4c1f25eaab05de7da5df30ff66ed",
+        "title": "AP: Coca-Cola confirms a cane-sugar option after Trump’s claim",
+        "date": "2025-07-22",
+        "checked": "2026-09-14",
+        "qualification": "The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration.",
+        "claim": "Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cafe owner and a clerk holding the company announcement.",
+    "scene_id": "enc-c12-a-display",
+    "scene": {
+      "scene_id": "enc-c12-a-display",
+      "setting": "Roadside cafe beside a refrigerated soda shelf",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cafe owner and a clerk holding the company announcement.",
+      "action": "The owner raises one new bottle in front of older stock while the clerk points at the shelf; travelers watch from the entrance.",
+      "visual_gag": "One proudly displayed bottle attempts to stand in for an entire unchanged shelf behind it.",
+      "composition": "Bottle close to camera, visibly varied existing stock behind, clerk’s pointing hand and travelers at the side.",
+      "overlays": [
+        {
+          "text": "ADDITIONAL CANE-SUGAR OPTION",
+          "placement": "Editable caption on the blank announcement",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery, movement/rest",
+    "town": null,
+    "political_basis": {
+      "subject": "Trump claims credit for Coca-Cola’s additional cane-sugar product",
+      "real_hook": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup. The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier. Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option. The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration.",
+      "source_url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S12-A",
+    "family_id": "ENC-S12",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "Heartland"
+    ],
+    "runtime_key": "sat_tariff_forklift",
+    "title": "The ingredients in your wallet",
+    "setup": "USDA approved Nebraska’s ban on buying soda and energy drinks with SNAP benefits, effective January 2026. At a Nebraska grocer, you can move crates for $14 or sort shelf labels for some food. Cash still buys the identical bottles. The government’s taste test happens inside the card reader.",
+    "choices": [
+      {
+        "label": "Move the crates for $14",
+        "outcome": "You haul crates, earn $14 and stretch your sore back. The clerk pays cash. Suddenly every bottle you just moved is an acceptable purchase.",
+        "effects": {
+          "cash_cents": 1400,
+          "hp": -1,
+          "log": "You haul crates, earn $14 and stretch your sore back. The clerk pays cash. Suddenly every bottle you just moved is an acceptable purchase."
+        }
+      },
+      {
+        "label": "Sort labels for food",
+        "outcome": "You earn some food and a headache giving identical bottles different payment labels. The clerk checks the ingredients again. Still no mention of household income.",
+        "effects": {
+          "supplies": 2,
+          "sanity": -1,
+          "log": "You earn some food and a headache giving identical bottles different payment labels. The clerk checks the ingredients again. Still no mention of household income."
+        }
+      },
+      {
+        "label": "Pass on the work",
+        "outcome": "You leave frustrated without earnings. The clerk turns a bottle over, looking for the part of the drink that changes when somebody pays cash.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave frustrated without earnings. The clerk turns a bottle over, looking for the part of the drink that changes when somebody pays cash."
+        }
+      }
+    ],
+    "source_hook": "USDA approves Nebraska’s SNAP soda and energy-drink exclusion",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+        "title": "USDA approves Nebraska SNAP food-restriction waiver",
+        "date": "2025-05-19",
+        "checked": "2026-09-14",
+        "qualification": "This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP.",
+        "claim": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits."
+      },
+      {
+        "url": "https://dhhs.ne.gov/Documents/SNAP-Signage-New-Restrictions.pdf",
+        "title": "Nebraska DHHS: New SNAP purchase restrictions",
+        "date": "Effective 2026-01-01",
+        "checked": "2026-09-14",
+        "qualification": "The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes.",
+        "claim": "Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A grocery clerk offering short loading or label-sorting work.",
+    "status": "draft for user review",
+    "scene_id": "road-s12-a",
+    "scene": {
+      "scene_id": "road-s12-a",
+      "setting": "Nebraska grocery receiving doorway beside the checkout",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A grocery clerk offering short loading or label-sorting work.",
+      "action": "The clerk holds two identical soda bottles beside blank payment-category tags and a card reader; travelers consider the unopened crates.",
+      "visual_gag": "Identical drinks flank a card reader that alone determines their different purchase status.",
+      "composition": "Bottles and reader foreground, untouched crates and label tray visible behind the clerk.",
+      "overlays": [
+        {
+          "text": "CASH: ALLOWED",
+          "placement": "Editable card beside the first bottle",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "SNAP: NOT ALLOWED",
+          "placement": "Editable card beside the second identical bottle",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$14: MOVE CRATES",
+          "placement": "Blank job card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "USDA approves Nebraska’s SNAP soda and energy-drink exclusion",
+      "real_hook": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits. This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP. Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026. The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes.",
+      "source_url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S20-C",
+    "family_id": "ENC-S20",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "sat_food_shelf",
+    "title": "A carton returns to public life",
+    "setup": "Congress and Trump let schools serve whole milk again in 2026. A dairy co-op is throwing a tiny welcome-back party for a carton. You can pack produce for some food or sort pickup slips for $10. The milk was always for sale. It just needed federal clearance for lunch.",
+    "choices": [
+      {
+        "label": "Pack produce for food",
+        "outcome": "You earn some food and sore muscles boxing apples. Nobody in Congress has needed to take a position on their percentage of apple.",
+        "effects": {
+          "supplies": 3,
+          "hp": -1,
+          "log": "You earn some food and sore muscles boxing apples. Nobody in Congress has needed to take a position on their percentage of apple."
+        }
+      },
+      {
+        "label": "Sort pickup slips for $10",
+        "outcome": "You earn $10 and a headache. SCHOOL is now an allowed destination for the carton. Its contents haven’t changed; its congressional representation has improved.",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "log": "You earn $10 and a headache. SCHOOL is now an allowed destination for the carton. Its contents haven’t changed; its congressional representation has improved."
+        }
+      },
+      {
+        "label": "Pass on the shift",
+        "outcome": "You leave frustrated, without wages or supplies. A member asks if you’ll stay for the carton’s victory speech. You’ve already heard enough from its elected representatives.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave frustrated, without wages or supplies. A member asks if you’ll stay for the carton’s victory speech. You’ve already heard enough from its elected representatives."
+        }
+      }
+    ],
+    "source_hook": "Congress permits whole milk in the National School Lunch Program",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+        "title": "Public Law 119-69: Whole Milk for Healthy Kids Act of 2025",
+        "date": "2026-01-14",
+        "checked": "2026-09-14",
+        "qualification": "The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made.",
+        "claim": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A co-op worker and a member arranging a small milk-carton celebration.",
+    "status": "draft for user review",
+    "scene_id": "road-s20-c",
+    "scene": {
+      "scene_id": "road-s20-c",
+      "setting": "Dairy co-op loading dock with separate milk and produce pallets",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A co-op worker and a member arranging a small milk-carton celebration.",
+      "action": "A worker presents empty produce boxes and unsorted pickup slips while a member places a tiny rosette beside a milk carton; travelers consider the jobs.",
+      "visual_gag": "An ordinary carton has a ceremonial welcome-back arrangement larger than itself while the apples beside it receive no ceremony.",
+      "composition": "Celebrated carton foreground; unopened produce and untouched work supplies form the middle ground.",
+      "overlays": [
+        {
+          "text": "WELCOME BACK TO SCHOOL LUNCH",
+          "placement": "Blank celebratory card",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$10: SORT PICKUP SLIPS",
+          "placement": "Blank job offer",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Congress permits whole milk in the National School Lunch Program",
+      "real_hook": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program. The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made.",
+      "source_url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S34-B",
+    "family_id": "ENC-S34",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "Southwest"
+    ],
+    "runtime_key": "west_beef_passports",
+    "title": "Ten fewer ways to fold",
+    "setup": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost him ten folding instructions. He offers $16 to sort linen labels. His fitted sheet has captured one arm. Deregulation is reaching for the other.",
+    "choices": [
+      {
+        "label": "Sort linen labels for $16",
+        "outcome": "You earn $16 and rest your aching eyes. The sorted tags say FITTED. The owner asks whether you could repeal that part too.",
+        "effects": {
+          "cash_cents": 1600,
+          "sanity": -1,
+          "log": "You earn $16 and rest your aching eyes. The sorted tags say FITTED. The owner asks whether you could repeal that part too."
+        }
+      },
+      {
+        "label": "Compare his claim with the old instructions",
+        "outcome": "You save his boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
+        "effects": {
+          "credibility": 3,
+          "sanity": -1,
+          "log": "You save his boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
+          "add_receipt": "west_beef_passports"
+        }
+      },
+      {
+        "label": "Keep moving",
+        "outcome": "You leave the offer behind. He announces that he has eliminated red tape. The elastic captures his other arm.",
+        "effects": {
+          "log": "You leave the offer behind. He announces that he has eliminated red tape. The elastic captures his other arm."
+        }
+      }
+    ],
+    "source_hook": "Trump’s ten-for-one federal deregulation instruction",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+        "title": "Executive order: Unleashing Prosperity Through Deregulation",
+        "date": "2025-01-31",
+        "checked": "2026-09-14",
+        "qualification": "The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke.",
+        "claim": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A hotel owner caught in a fitted sheet and a laundry worker.",
+    "status": "draft for user review",
+    "scene_id": "road-s34-b",
+    "scene": {
+      "scene_id": "road-s34-b",
+      "setting": "Hotel laundry depot with an unused linen-tag tray",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A hotel owner caught in a fitted sheet and a laundry worker.",
+      "action": "The worker indicates the unsorted labels while the owner holds up an altered folding chart with his free hand; travelers consider the job.",
+      "visual_gag": "The man celebrating fewer instructions is trapped inside the object those instructions explained.",
+      "composition": "Owner and sheet clearly silhouetted center, untouched label tray foreground, discarded instruction sheets nearby.",
+      "overlays": [
+        {
+          "text": "ONE NEW RULE: TEN OUT",
+          "placement": "Blank management notice",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$16: SORT LINEN LABELS",
+          "placement": "Blank offer card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Trump’s ten-for-one federal deregulation instruction",
+      "real_hook": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions. The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-W-PC-C01-C",
+    "family_id": "ENC-W-PC-C01",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "PacificCoast"
+    ],
+    "runtime_key": null,
+    "title": "Ownership, subject to approval",
+    "setup": "At a coastal fruit stand, a farmer reads the FTC’s July 2026 settlement proposal to open Deere repair tools, subject to court approval. He offers $14 to unload the harvest; some food and water cost $8. “Bought a tractor. Waiting for a judge to confirm I bought a tractor.”",
+    "choices": [
+      {
+        "label": "Unload the harvest for $14",
+        "outcome": "You earn $14 and aching muscles. He underlines the promised reset function. “A button,” he says. “That’s what the federal case had to get me.”",
+        "effects": {
+          "cash_cents": 1400,
+          "hp": -1,
+          "log": "You earn $14 and aching muscles. He underlines the promised reset function. “A button,” he says. “That’s what the federal case had to get me.”"
+        }
+      },
+      {
+        "label": "Buy some food and water for $8",
+        "outcome": "You buy some food and water for $8. He offers the apples without a software license. “Don’t tell the tractor people. They’ll put a password on the seeds.”",
+        "effects": {
+          "cash_cents": -800,
+          "supplies": 2,
+          "log": "You buy some food and water for $8. He offers the apples without a software license. “Don’t tell the tractor people. They’ll put a password on the seeds.”"
+        }
+      },
+      {
+        "label": "Pass on the stop",
+        "outcome": "You leave annoyed. He compares his purchase invoice with the settlement proposal. Ownership appears to arrive in two installments. The expensive one came first.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave annoyed. He compares his purchase invoice with the settlement proposal. Ownership appears to arrive in two installments. The expensive one came first."
+        }
+      }
+    ],
+    "source_hook": "FTC and states negotiate access to Deere farm-equipment repair resources",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+        "title": "FTC and states announce Deere right-to-repair settlement",
+        "date": "2026-07-08",
+        "checked": "2026-09-14",
+        "qualification": "The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here.",
+        "claim": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A farmer holding a purchase invoice and the settlement announcement.",
+    "status": "draft for user review",
+    "scene_id": "road-w-pc-c01-c",
+    "scene": {
+      "scene_id": "road-w-pc-c01-c",
+      "setting": "Coastal fruit stand beside a loaded truck and parked tractor",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A farmer holding a purchase invoice and the settlement announcement.",
+      "action": "The farmer points toward unopened harvest crates while holding the two documents; travelers consider the unloading job or supplies.",
+      "visual_gag": "The enormous owned tractor sits beside two tiny documents that disagree over how complete its ownership feels.",
+      "composition": "Tractor fills the background; invoice, proposal and unopened crates near the farmer; van and travelers at the edge.",
+      "overlays": [
+        {
+          "text": "$14: UNLOAD HARVEST",
+          "placement": "Blank offer card",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$8: FOOD AND WATER",
+          "placement": "Blank counter card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "FTC and states negotiate access to Deere farm-equipment repair resources",
+      "real_hook": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers. The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here.",
+      "source_url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-W-SW-C02-C",
+    "family_id": "ENC-W-SW-C02",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Southwest"
+    ],
+    "runtime_key": null,
+    "title": "Equipment appreciation day",
+    "setup": "Texas exempts qualifying business property worth up to $125,000 per taxing unit. At an independent produce depot, the owner frames the notice beside his labeling machine. He offers some food for boxing produce or $10 to sort dispatch labels. “Hard work finally recognized,” he says, polishing the machine.",
+    "choices": [
+      {
+        "label": "Box produce for food",
+        "outcome": "You earn some food and an aching back. He poses the machine for a thank-you picture. You move the boxes out of its light.",
+        "effects": {
+          "supplies": 3,
+          "hp": -1,
+          "log": "You earn some food and an aching back. He poses the machine for a thank-you picture. You move the boxes out of its light."
+        }
+      },
+      {
+        "label": "Sort dispatch labels for $10",
+        "outcome": "You earn $10, save the exemption notice and rest your aching eyes. Your payment gets a receipt. The machine’s tax break gets a frame.",
+        "effects": {
+          "cash_cents": 1000,
+          "sanity": -1,
+          "credibility": 1,
+          "log": "You earn $10, save the exemption notice and rest your aching eyes. Your payment gets a receipt. The machine’s tax break gets a frame."
+        }
+      },
+      {
+        "label": "Decline the shift",
+        "outcome": "You leave frustrated. He studies an empty crate to see whether it counts as exempt business property. It’s the first box he’s handled all afternoon.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave frustrated. He studies an empty crate to see whether it counts as exempt business property. It’s the first box he’s handled all afternoon."
+        }
+      }
+    ],
+    "source_hook": "Texas business-personal-property tax exemption",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+        "title": "Texas Comptroller: Valuing property and business personal property exemption",
+        "date": "Current 2026 guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption.",
+        "claim": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A produce distributor and a depot worker; this is a commercial distributor, not a farm.",
+    "status": "draft for user review",
+    "scene_id": "road-w-sw-c02-c",
+    "scene": {
+      "scene_id": "road-w-sw-c02-c",
+      "setting": "Independent wholesale produce depot in Texas",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A produce distributor and a depot worker; this is a commercial distributor, not a farm.",
+      "action": "The owner polishes a labeling machine beneath a blank framed notice while a worker indicates empty boxes and unsorted dispatch labels; travelers consider the offers.",
+      "visual_gag": "An idle machine receives a framed tribute while the human work waits beside it without ceremony.",
+      "composition": "Framed notice and machine center, untouched produce boxes and label tray foreground, waiting travelers to one side.",
+      "overlays": [
+        {
+          "text": "BUSINESS PROPERTY EXEMPTION",
+          "placement": "Editable heading on the blank framed notice",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$10: SORT DISPATCH LABELS",
+          "placement": "Blank work offer",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Texas business-personal-property tax exemption",
+      "real_hook": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit. This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption.",
+      "source_url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ORDER-GAG-B",
+    "family_id": "ORDER-GAG",
+    "variant": "B",
+    "category": "Executive-order bulletins",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "book_panic",
+    "title": "The classical refund",
+    "status": "draft for user review",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+        "title": "Executive Order 14344: Making Federal Architecture Beautiful Again",
+        "date": "2025-08-28",
+        "checked": "2026-09-14",
+        "qualification": "Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+        "claim": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A rest-stop owner showing off a homemade classical facade.",
+    "illustration": "Rest-stop snack alcove beside the parked van. A grand cardboard column stands directly in front of the machine’s small coin-return opening. The owner points at cardboard columns around the snack machine while currently present travelers look on; no purchase or attempt to retrieve change is shown.",
+    "activation": "Trump’s architecture order prefers classical designs for covered federal buildings. A rest-stop owner copies it with cardboard columns around the snack machine. One blocks the coin return. It now serves the grandeur of Western civilization. It no longer serves coins.",
+    "effect": "While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.",
+    "expiration": "The bulletin ends. The owner moves a column and gets his test coin back. The machine manages this without consulting an architect.",
+    "integration_note": "Editorial slot retained from the proposed brief; target is current ExecOrder::book_panic. Effects render from game data, not joke text.",
+    "scene": {
+      "scene_id": "order-gag-b-light-scene",
+      "setting": "Rest-stop snack alcove beside the parked van",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A rest-stop owner showing off a homemade classical facade.",
+      "action": "The owner points at cardboard columns around the snack machine while currently present travelers look on; no purchase or attempt to retrieve change is shown.",
+      "visual_gag": "A grand cardboard column stands directly in front of the machine’s small coin-return opening.",
+      "composition": "Low frontal view makes the flimsy columns look pompous while leaving the obstructed return visible; travelers at one side.",
+      "overlays": [
+        {
+          "text": "CLASSICAL GRANDEUR",
+          "placement": "Blank homemade pediment",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Trump’s preference for classical federal architecture",
+      "real_hook": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia. Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+      "fictionalization": "The rest-stop owner, cardboard columns and blocked snack-machine return are original fiction inspired by the documented order. The simulated bulletin’s gameplay duration and sanity effect are not claims about real federal architecture law. The crew has no official role."
+    },
+    "scene_id": "order-gag-b-light-scene"
+  }
+]

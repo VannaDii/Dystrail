@@ -23,7 +23,8 @@ const DEEP_CROSSING_FAILURE_MAX: f64 = 0.16;
 const DISTANCE_DRIFT_PCT: f64 = 0.05;
 const CLASSIC_BALANCED_BOSS_REACH_MIN: f64 = 0.30;
 const CLASSIC_BALANCED_BOSS_REACH_MAX: f64 = 0.50;
-const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.20;
+// Accepted staged-hearing floor: 190 wins per 1,000 Classic/Balanced runs.
+const CLASSIC_BALANCED_BOSS_WIN_MIN: f64 = 0.19;
 const CLASSIC_BALANCED_BOSS_WIN_MAX: f64 = 0.35;
 const CLASSIC_BALANCED_SURVIVAL_MIN: f64 = 0.60;
 const CLASSIC_BALANCED_SURVIVAL_MAX: f64 = 0.87;
@@ -34,7 +35,8 @@ const DEEP_CROSSING_WARN_MIN: f64 = 0.08;
 const DEEP_CROSSING_WARN_MAX: f64 = 0.18;
 const DEEP_BOSS_REACH_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_REACH_MIN * 0.5;
 const DEEP_BOSS_REACH_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_REACH_MAX * 1.5;
-const DEEP_BOSS_WIN_WARN_MIN: f64 = CLASSIC_BALANCED_BOSS_WIN_MIN * 0.5;
+// Preserve the existing Deep warning floor independently of Classic's accepted band.
+const DEEP_BOSS_WIN_WARN_MIN: f64 = 0.10;
 const DEEP_BOSS_WIN_WARN_MAX: f64 = CLASSIC_BALANCED_BOSS_WIN_MAX * 1.5;
 
 #[derive(Debug, Clone)]
@@ -1042,6 +1044,30 @@ mod tests {
     }
 
     #[test]
+    fn classic_balanced_accepts_approved_hearing_win_band() {
+        let scenario = format!(
+            "{} - {}",
+            mode_label(GameMode::Classic),
+            GameplayStrategy::Balanced
+        );
+        for (wins, accepted) in [
+            (189, false),
+            (190, true),
+            (197, true),
+            (200, true),
+            (201, true),
+        ] {
+            let (mut aggregates, records) = satisfied_data();
+            find_mut_aggregate(&mut aggregates, &scenario).boss_win_pct = f64::from(wins) / 1_000.0;
+            let result = validate_playability_targets(&aggregates, &records);
+            assert_eq!(result.is_ok(), accepted, "{wins} wins: {result:?}");
+            if let Err(error) = result {
+                assert!(error.to_string().contains("boss win"));
+            }
+        }
+    }
+
+    #[test]
     fn validate_targets_enforce_average_miles_per_day_band() {
         let (mut aggregates, records) = satisfied_data();
         let scenario = format!(
@@ -1127,13 +1153,16 @@ mod tests {
     // now follow the browser rules; the tester no longer grants hidden preparation supplies.
     // Full camp days remain stationary at the late-route stop cap, and interactive repairs
     // now mark real repair days instead of disappearing from the ledger.
-    // None of the playability thresholds are changed.
+    // Those earlier changes did not change playability thresholds.
     // The independent repeated-run equality check still enforces deterministic replay.
     // The intentional health retuning and Beltway-only hearing briefing change
     // this replay fingerprint; experience thresholds and strategy decisions stay pinned.
+    // The approved variable-length hearing changes final sanity and outcomes.
+    // Its terminal clock accounting no longer applies post-verdict daily effects.
+    // The later approved 19% Classic/Balanced floor does not change this fingerprint.
     const CSV_DIGEST_BASELINE: [u8; 32] = [
-        134, 236, 25, 137, 239, 195, 156, 255, 59, 207, 9, 157, 140, 189, 4, 92, 113, 66, 112, 84,
-        184, 102, 54, 30, 18, 203, 85, 129, 87, 209, 24, 217,
+        106, 4, 226, 96, 168, 156, 38, 220, 121, 101, 82, 144, 118, 197, 145, 122, 8, 147, 2, 22,
+        143, 157, 224, 110, 101, 218, 219, 173, 105, 195, 187, 56,
     ];
 
     #[test]

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "TRANS-RESEARCH-01",
+    "topic": "Counterterrorism framing of trans advocacy",
+    "existing_hook": false,
+    "status": "Issued federal strategy and enforcement guidance; distinguish from blanket legal designation.",
+    "verified_fact": "The May 2026 U.S. Counterterrorism Strategy prioritizes violent secular groups it describes as “radically pro-transgender.” DOJ’s December 4, 2025 NSPM-7 guidance likewise links its terrorism priorities to “radical gender ideology” and violence or threats.",
+    "limits": "The DOJ text is now publicly available in congressional materials, not merely an unverified leak. Neither document designates all trans people or peaceful advocacy as terrorist organizations. Trump’s separate September 22 Antifa designation is an issued presidential order, not a designation of trans people or placement on the foreign-terrorist list; individual charges require separate conduct and case evidence.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/wp-content/uploads/2026/05/2026-USCT-Strategy-1.pdf",
+        "kind": "primary federal strategy",
+        "locator": "May 2026, printed page 7"
+      },
+      {
+        "url": "https://docs.house.gov/meetings/JU/JU00/20260211/118951/HHRG-119-JU00-20260211-SD032.pdf",
+        "kind": "primary DOJ memorandum reproduced in congressional materials",
+        "locator": "December 4, 2025, pages 1–2"
+      },
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/09/designating-antifa-as-a-domestic-terrorist-organization/",
+        "kind": "primary presidential order",
+        "locator": "September 22, 2025"
+      },
+      {
+        "url": "https://apnews.com/article/6ea07143e10bb811aa88b9da5aa26765",
+        "kind": "reported legal context",
+        "locator": "September 23, 2025"
+      }
+    ],
+    "ordinary_life_satire_angle": "Diner: a trans delivery worker compares the official threat language with the work group chat arranging Saturday shift coverage; the joke targets the government's inflated enemy portrait.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-02",
+    "topic": "Gun-rights promises and ATF identity paperwork",
+    "existing_hook": false,
+    "status": "Published proposal, not a verified blanket firearm prohibition.",
+    "verified_fact": "ATF’s May 6, 2026 proposed rule would define the sex field on its forms by the agency’s biological-sex definition, excluding gender identity. Separately, AP reported preliminary DOJ discussions of trans-specific gun restrictions in September 2025.",
+    "limits": "The current ATF page still labels the sex-field measure a proposed rule. The 2025 discussions were not a finalized proposal; do not claim every trans person is prohibited from owning guns, automatically adjudicated mentally incompetent, or guilty of a form offense.",
+    "sources": [
+      {
+        "url": "https://www.atf.gov/rules-and-regulations/rulemaking-notices/selecting-biological-sex-atf-forms-rin-1140-aa64",
+        "kind": "primary proposed-rule notice",
+        "locator": "May 6, 2026; comment deadline August 4, 2026"
+      },
+      {
+        "url": "https://www.govinfo.gov/content/pkg/FR-2026-05-06/pdf/2026-08932.pdf",
+        "kind": "primary Federal Register proposal",
+        "locator": "91 FR 24463"
+      },
+      {
+        "url": "https://apnews.com/article/e05b489ad64b80af31e376d6d3ef7dfd",
+        "kind": "reported deliberations",
+        "locator": "September 5, 2025"
+      }
+    ],
+    "ordinary_life_satire_angle": "Outdoor shop: a trans hunting-club bookkeeper reads an absolute gun-rights campaign promise beside the proposed identity rule; the supposed small-government guarantee keeps acquiring administrative conditions.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-03",
+    "topic": "Military discharge and loss of transition-to-work assistance",
+    "existing_hook": false,
+    "status": "Issued separation guidance; individual outcomes remain subject to waivers and litigation.",
+    "verified_fact": "The Navy’s April 24, 2026 NAVADMIN 098/26 implements involuntary-separation procedures under the gender-dysphoria policy and says covered personnel cannot participate in SkillBridge.",
+    "limits": "The guidance contains waiver procedures and different pay rules by service status; it does not establish that every trans member has already been discharged or lost all pay. A June 1 appeals opinion challenged the policy, so do not turn an issued directive into a final ruling on an invented person's case.",
+    "sources": [
+      {
+        "url": "https://www.mynavyhr.navy.mil/Portals/55/Messages/NAVADMIN/NAV2026/NAV26098.pdf",
+        "kind": "primary Navy guidance",
+        "locator": "April 24, 2026; paragraphs on retention waivers and administrative absence"
+      },
+      {
+        "url": "https://law.justia.com/cases/federal/appellate-courts/cadc/25-5087/25-5087-2026-06-01.html",
+        "kind": "primary appellate opinion, mirrored",
+        "locator": "Talbott v. USA, June 1, 2026"
+      }
+    ],
+    "ordinary_life_satire_angle": "Workwear store: a Navy technician facing separation looks for civilian boots while the service that ordered the career change also withholds its civilian-job program.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-04",
+    "topic": "Passport sex-marker restrictions",
+    "existing_hook": true,
+    "status": "Current State Department issuance policy; existing hook refreshed.",
+    "verified_fact": "State’s March 16, 2026 guidance says it issues passports with sex-at-birth markers after the Supreme Court stayed the earlier injunction, and warns that conflicting requests can delay processing.",
+    "limits": "Existing passports are not automatically void: State lists expiration, replacement or invalidation under regulations. A stay is not a final merits judgment, and the policy does not establish that every destination rejects a particular passport.",
+    "sources": [
+      {
+        "url": "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html",
+        "kind": "primary agency guidance",
+        "locator": "Updated March 16, 2026"
+      }
+    ],
+    "ordinary_life_satire_angle": "Passport-photo counter: a trans customer needs a current photograph for a document whose marker Washington insists must describe the past.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-05",
+    "topic": "VA's cutoff for starting gender-affirming hormone care",
+    "existing_hook": true,
+    "status": "Published VA policy with explicit continuation exceptions; existing hook.",
+    "verified_fact": "VA’s March 17, 2025 policy bars starting gender-affirming hormone therapy except for veterans already receiving it from VA or eligible veterans continuing care received through the military at separation.",
+    "limits": "The policy does not eliminate all healthcare for trans veterans. Preserve the existing-treatment and military-continuation exceptions; do not claim all prescriptions stopped or private care became illegal.",
+    "sources": [
+      {
+        "url": "https://news.va.gov/press-room/va-to-phase-out-treatment-for-gender-dysphoria/",
+        "kind": "primary VA policy announcement",
+        "locator": "March 17, 2025, eligibility exceptions"
+      }
+    ],
+    "ordinary_life_satire_angle": "Café near a VA clinic: veterans with the same service history compare a universal gratitude display with a care rule that turns on when treatment began.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-06",
+    "topic": "Upcoming Medicaid and CHIP treatment-payment exclusion",
+    "existing_hook": false,
+    "status": "Final rule published August 13, 2026; scheduled effective date October 13, 2026.",
+    "verified_fact": "CMS’s final rule excludes specified gender-transition procedures from federally matched Medicaid payments for under-18s and separate CHIP payments for under-19s. It permits up to six months of continued federal matching for existing hormone treatment after effectiveness.",
+    "limits": "As of this check, the effective date is still future. This is not the separate proposed hospital participation ban; it does not prohibit all treatment or state-only and private funding, and court orders can constrain enforcement.",
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/content/pkg/FR-2026-08-13/pdf/2026-16508.pdf",
+        "kind": "primary final rule",
+        "locator": "91 FR 52406–52407; summary, effective date and scope"
+      }
+    ],
+    "ordinary_life_satire_angle": "Clinic waiting room: a guardian compares an appointment calendar with the government's upcoming funding cutoff; the family is asked to schedule a child's needs around a federal expiration date.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-07",
+    "topic": "Federal employee insurance removes mid-treatment exceptions",
+    "existing_hook": false,
+    "status": "Issued carrier instruction for the 2027 plan year.",
+    "verified_fact": "OPM’s March 31, 2026 carrier letter directs FEHB and postal-plan insurers to remove the mid-treatment exceptions process for excluded gender-transition services in 2027. The 2026 exclusion had required case-by-case exceptions.",
+    "limits": "The 2027 change is future as of this check. Counseling remains covered; the restriction is not a ban on every medication also used in transition or all healthcare for trans federal employees.",
+    "sources": [
+      {
+        "url": "https://www.opm.gov/healthcare-insurance/carriers/fehb/2026/2026-07.pdf",
+        "kind": "primary OPM carrier instruction",
+        "locator": "March 31, 2026, printed page 14"
+      },
+      {
+        "url": "https://www.opm.gov/healthcare-insurance/carriers/fehb/2025/2025-01b.pdf",
+        "kind": "primary prior OPM carrier instruction",
+        "locator": "August 15, 2025, pages 1–2"
+      }
+    ],
+    "ordinary_life_satire_angle": "Post-office counter: a trans postal worker reads next year's benefit notice while selling dependable delivery; the government promises continuity for parcels and withdraws it from treatment.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-08",
+    "topic": "NIH terminates research over gender-identity priorities",
+    "existing_hook": false,
+    "status": "Documented 2025 grant terminations; remedies and later grant status vary.",
+    "verified_fact": "The Supreme Court’s August 21, 2025 NIH opinion records internal guidance rejecting gender-identity research priorities and resulting grant terminations. Its order treated challenges to grant terminations separately from challenges to the guidance.",
+    "limits": "Do not say all trans research was outlawed or every grant remains cancelled today. The litigation concerned funding and judicial remedies, not a scientific finding that trans people or their health needs are unreal.",
+    "sources": [
+      {
+        "url": "https://www.supremecourt.gov/opinions/24pdf/25a103_kh7p.pdf",
+        "kind": "primary Supreme Court order and opinions",
+        "locator": "August 21, 2025; order and Barrett concurrence, pages 2–4"
+      }
+    ],
+    "ordinary_life_satire_angle": "Secondhand furniture stall: a lab technician sells surplus desks after a study is interrupted; officials demand better evidence while withdrawing the money needed to finish collecting it.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-09",
+    "topic": "School disclosure orders override student confidentiality policies",
+    "existing_hook": false,
+    "status": "March 2, 2026 emergency Supreme Court order, limited to covered parent classes.",
+    "verified_fact": "In Mirabelli v. Bonta, the Supreme Court lifted the appellate stay as to parents challenging California school gender-notification policies, restoring the relevant injunction while the appeal proceeded.",
+    "limits": "Relief covered objecting parents and those seeking religious exemptions, not an unlimited nationwide rule requiring every disclosure. The Court did not grant the teachers' application and did not erase child-abuse protections; avoid any scene requiring the crew to out a student.",
+    "sources": [
+      {
+        "url": "https://www.supremecourt.gov/opinions/25pdf/25a810_b97d.pdf",
+        "kind": "primary Supreme Court order and opinions",
+        "locator": "March 2, 2026, pages 4–7"
+      }
+    ],
+    "ordinary_life_satire_angle": "School-supply store: a teacher compares tightly controlled pickup permissions with newly contested rules over who controls a student's name and pronouns; adults claim every available decision.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-10",
+    "topic": "Kansas links bathroom enforcement to invalidated identity documents",
+    "existing_hook": false,
+    "status": "Enacted 2026 law; agency implementation guidance current; constitutional challenge pending.",
+    "verified_fact": "Kansas SB 244 requires sex-designated multi-occupancy facilities in public buildings, creates civil and criminal enforcement, and invalidates specified licenses and birth certificates with conflicting markers. Revenue Department guidance later set March 25, 2026 as the final license-change grace deadline.",
+    "limits": "This is not every business restroom or every trans person's license. Civil suits have statutory conditions; do not repeat 'anyone can sue anyone' or imply no implementation grace period ever existed. A temporary-injunction hearing was scheduled for September 29, 2026.",
+    "sources": [
+      {
+        "url": "https://www.kslegislature.gov/li/b2025_26/measures/documents/sb244_enrolled.pdf",
+        "kind": "primary enacted bill text",
+        "locator": "House Substitute for SB 244"
+      },
+      {
+        "url": "https://www.ksrevenue.gov/dovgender.html",
+        "kind": "primary implementation guidance",
+        "locator": "Gender Reclassification FAQ"
+      },
+      {
+        "url": "https://www.aclu.org/cases/doe-v-state-of-kansas?document=Motion-for-Temporary-Restraining-Order",
+        "kind": "litigant's current case record",
+        "locator": "September 29 hearing update"
+      }
+    ],
+    "ordinary_life_satire_angle": "Licensing-office coffee cart: a trans motorist pauses while replacing proof the state itself issued, in a building where the same new law also regulates the bathroom.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-11",
+    "topic": "Federal prison care and personal-item restrictions",
+    "existing_hook": false,
+    "status": "February 19, 2026 policy; June 17 court order blocked enforcement for the covered class.",
+    "verified_fact": "BOP Program Statement 5260.01 restricted gender-affirming care and social accommodations. On June 17, a federal court stayed it and ordered medication and accommodations for class members under the prior policy.",
+    "limits": "Do not present the blocked policy as an uninterrupted nationwide cutoff or claim a fictional prisoner was transferred or assaulted. This case concerns care and accommodations in federal custody, not every state prison or a release order.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/federal/district-courts/district-of-columbia/dcdce/1:2025cv00691/278186/216/",
+        "kind": "primary district-court opinion, mirrored",
+        "locator": "Kingdom v. Trump, June 17, 2026, Document 216"
+      },
+      {
+        "url": "https://www.markey.senate.gov/imo/media/doc/letter_to_bop_on_anti-trans_policies.pdf",
+        "kind": "primary congressional oversight letter",
+        "locator": "May 11, 2026, description and link to Program Statement 5260.01"
+      }
+    ],
+    "ordinary_life_satire_angle": "Post-office queue: a prisoner's relative describes the government's attempt to turn ordinary clothing and treatment into prohibited items; a court order now has to accompany the promise of basic administration.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-12",
+    "topic": "Social Security's invisible sex field is frozen to birth records",
+    "existing_hook": false,
+    "status": "Current agency manual, revised June 5, 2026.",
+    "verified_fact": "SSA's manual permits sex-field corrections or changes only to reflect sex at birth, with specified evidence rules. The sex field is not printed on the face of the Social Security card.",
+    "limits": "Do not infer automatic benefit termination, universal employer access, or that any visit necessarily reverts an existing record. This is a records policy, not proof that every trans applicant has lost an SSN.",
+    "sources": [
+      {
+        "url": "https://secure.ssa.gov/poms.nsf/lnx/0110212200",
+        "kind": "primary SSA operating manual",
+        "locator": "RM 10212.200 B.2 and B.4; revised June 5, 2026"
+      }
+    ],
+    "ordinary_life_satire_angle": "Copy shop: a trans worker organizes identity documents for an SSA visit; the government insists its most immovable field belongs on a card where nobody can see it.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-13",
+    "topic": "Women's sports restrictions enforced through federal funding",
+    "existing_hook": false,
+    "status": "Issued February 5, 2025 executive order and enforcement direction.",
+    "verified_fact": "Executive Order 14201 directs Title IX enforcement and grant reviews against educational programs allowing participation inconsistent with the administration's sex-based definition of women's sports.",
+    "limits": "An executive enforcement order is not a new universal criminal prohibition on trans people playing sports. Do not extend it automatically to every private recreational league or claim an invented athlete's individual eligibility has been adjudicated.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/02/keeping-men-out-of-womens-sports/",
+        "kind": "primary executive order",
+        "locator": "February 5, 2025, sections 2–4"
+      }
+    ],
+    "ordinary_life_satire_angle": "School gym equipment sale: a coach sorting worn jerseys contrasts Washington's meticulous attention to who may wear one with the ordinary work of keeping a team equipped.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-14",
+    "topic": "EEOC rescinds workplace harassment guidance",
+    "existing_hook": false,
+    "status": "Commission voted January 22, 2026 to rescind the 2024 guidance.",
+    "verified_fact": "The EEOC rescinded its workplace-harassment guidance after disputes over its transgender-related provisions. Its announcement explicitly says federal discrimination, harassment and retaliation law and Supreme Court precedent remain.",
+    "limits": "Do not write that Bostock was overturned or employers now have blanket permission to fire or harass trans workers. Rescinding enforcement guidance is different from repealing Title VII.",
+    "sources": [
+      {
+        "url": "https://www.eeoc.gov/newsroom/eeoc-commission-votes-rescind-2024-harassment-guidance",
+        "kind": "primary EEOC announcement",
+        "locator": "January 23, 2026, reporting the previous day's vote"
+      },
+      {
+        "url": "https://www.eeoc.gov/newsroom/federal-court-vacates-portions-eeoc-harassment-guidance",
+        "kind": "primary agency statement of preceding litigation",
+        "locator": "May 2025 vacatur of gender-identity provisions"
+      }
+    ],
+    "ordinary_life_satire_angle": "Workplace-poster print counter: a trans warehouse worker sees the harassment manual disappear faster than the law changes; management's shredder is promoted to legal adviser.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  },
+  {
+    "id": "TRANS-RESEARCH-15",
+    "topic": "Closure of specialized LGBTQ+ youth crisis-line service",
+    "existing_hook": false,
+    "status": "Specialized subnetwork ended July 17, 2025; general 988 continued.",
+    "verified_fact": "SAMHSA ended the specialized LGBTQ+ youth option within 988 on July 17, 2025, presenting the change as ending separate services. The Lifeline operator confirms the subnetwork closed.",
+    "limits": "The entire 988 service did not close, and no particular caller's outcome is established. Target the administrative claim of broader service through removal, never a young person's crisis or willingness to seek help.",
+    "sources": [
+      {
+        "url": "https://www.samhsa.gov/about/news-announcements/statements/2025/samhsa-statement-988-press-3-option",
+        "kind": "primary agency announcement",
+        "locator": "Statement announcing closure effective July 17, 2025"
+      },
+      {
+        "url": "https://988lifeline.org/faq/calling-the-988-lifeline/faq-are-there-specialized-services-for-lgbtq-youth-who-reach-out-to-988/",
+        "kind": "primary service-operator confirmation",
+        "locator": "Closure effective July 17, 2025"
+      }
+    ],
+    "ordinary_life_satire_angle": "Phone-repair counter: a youth-services worker replaces an old referral card while the agency describes deleting a specialist option as serving everyone better; no distressed caller is depicted.",
+    "checked": "2026-09-14",
+    "use": "Research only; proposed fiction angle, not an implemented encounter."
+  }
+]

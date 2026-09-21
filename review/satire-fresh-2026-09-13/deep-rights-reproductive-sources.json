@@ -1,0 +1,223 @@
+[
+  {
+    "key": "emergency_exceptions",
+    "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+    "real_hook": "CMS announced on June 3, 2025 that it had rescinded its 2022 abortion-specific EMTALA guidance effective May 29, while affirming that EMTALA remains enforceable. Texas SB31 took effect June 20, 2025 and clarifies that qualifying physical danger need not be imminent; it did not remove the underlying abortion prohibitions.",
+    "limits": "Do not claim EMTALA was repealed, that Texas requires waiting until death is imminent, or that exceptions authorize every abortion. Fictional hospital lawyers, hotlines, delays and statements are not reported incidents or legally required procedures.",
+    "sources": [
+      {
+        "url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+        "claim": "June 2025 CMS withdrawal of abortion-specific guidance; emergency screening and stabilization duties remain.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM",
+        "claim": "Texas SB31 clarifies qualifying physical danger need not be imminent and does not require harmful delay.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://capitol.texas.gov/billlookup/History.aspx?Bill=SB31&LegSess=89R&Sort=A",
+        "claim": "SB31 became effective immediately June 20, 2025.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "abortion_emergency_exceptions",
+      "institutional_delay"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "miscarriage_arrest",
+    "subject": "Georgia miscarriage arrest followed by dismissal",
+    "real_hook": "In 2025 Georgia authorities used concealment-of-death and body-disposal charges after a miscarriage; prosecutors dropped the charges on April 4 after medical and legal review concluded they did not apply.",
+    "limits": "This was not a miscarriage conviction or a general statute criminalizing miscarriage. No victim identity or recognizable likeness appears. All local events, staff, props and dialogue are fictional; outcomes do not imply that dismissal erases the arrest's consequences.",
+    "sources": [
+      {
+        "url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+        "claim": "Reporting updated April 4, 2025 describes use of general criminal statutes after pregnancy loss and the Georgia dismissal.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.walb.com/2025/04/04/georgia-lawmakers-respond-charges-dropped-tifton-fetal-remains-case/",
+        "claim": "April 4, 2025 local reporting confirms charges were dropped after medical and legal review.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_criminalization",
+      "police_accountability"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "idaho_minor_assistance",
+    "subject": "Idaho restrictions on abortion assistance to minors",
+    "real_hook": "Idaho Code 18-623 addresses specified assistance obtaining an abortion for an unemancipated minor with intent to conceal it from a parent or guardian. The Ninth Circuit's December 2, 2024 ruling left harboring and transporting provisions enforceable while enjoining recruiting; litigation was still in briefing as of September 7, 2026.",
+    "limits": "Do not present this as a blanket adult interstate travel ban or a ban on all speech, ordinary rides or all assistance. These scenes involve adults discussing public sources, not concealing or arranging a minor's travel; no operational evasion instructions.",
+    "sources": [
+      {
+        "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+        "claim": "Ninth Circuit opinion distinguishes recruiting speech from harboring and transporting conduct under the minor-specific statute.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://litigationtracker.law.georgetown.edu/litigation/matsumoto-et-al-v-labrador/",
+        "claim": "Litigation tracker updated September 7, 2026 lists ongoing briefing rather than a final merits judgment.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "abortion_assistance",
+      "minor_travel_restrictions"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "texas_public_assistance",
+    "subject": "Texas restrictions on public abortion-travel assistance",
+    "real_hook": "Texas SB33 took effect September 1, 2025 and restricts governmental spending and taxpayer-resource transactions for abortion assistance, including transport, lodging, food and childcare, regardless of the abortion's location.",
+    "limits": "This is not a blanket ban on adults traveling or on all private assistance. The enacted law includes a federal-law-conflict exception with specified state confirmation. Do not attribute draft private-enforcement provisions to the enacted law; the cited final text authorizes attorney-general enforcement.",
+    "sources": [
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+        "claim": "Enacted spending restrictions, covered logistical assistance, effective date, enforcement and federal-law exception.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-victory-against-san-antonio-after-city-illegally-tried-fund-out",
+        "claim": "January 9, 2026 attorney-general announcement describes San Antonio ending an abortion-travel support program; the release's condemnatory framing is the agency's position.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "abortion_travel",
+      "public_funding_restrictions"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "louisiana_drug_controls",
+    "subject": "Louisiana controls on mifepristone and misoprostol",
+    "real_hook": "Louisiana Act246 placed mifepristone and misoprostol in Schedule IV effective October 1, 2024. New Orleans Health Department's September 2025 report documented reported dispensing and retrieval delays under new storage practices and legal confusion.",
+    "limits": "Valid prescribing remains lawful; pregnant people possessing either drug for their own consumption are exempt from the possession offense. The report's voluntary testimony is not representative statewide data. Misoprostol has other medical uses. A challenge was permitted to proceed in June 2025; no later final merits resolution was verified in this bounded research.",
+    "sources": [
+      {
+        "url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+        "claim": "Legislative digest establishes scheduling, effective date and pregnant patient's own-consumption possession exemption.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://nola.gov/getattachment/NEXT/Health-Department/Topics/Data-and-Publications/Act-246-Report-Final-9-30-25.pdf",
+        "claim": "September 2025 city report describes reported care delays, locked-storage guidance and the nonrepresentative voluntary evidence limitations.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://lawyeringproject.org/our-work/birthmark-v-louisiana/",
+        "claim": "Litigating organization's case page records June 10, 2025 denial of the state's procedural exceptions; this is not a final merits victory.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "miscarriage_care",
+      "medication_storage_restrictions"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "alabama_ivf",
+    "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+    "real_hook": "Alabama's February 16, 2024 ruling applied its wrongful-death statute to frozen extrauterine embryos. The March 6, 2024 IVF law provided specified immunity for embryo damage or death, allowing interrupted services to resume without resolving the underlying embryo-status question.",
+    "limits": "Do not claim IVF is currently banned, all embryo-related liability vanished, or embryos received every legal right. This is a dated ruling-and-legislation hook; fictional clerks, clinics and patients are not parties to the real litigation.",
+    "sources": [
+      {
+        "url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+        "claim": "February 16, 2024 Alabama Supreme Court application of the wrongful-death statute to extrauterine embryos.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://apnews.com/article/cab8171e80c88a088778dc7a187b7b5a",
+        "claim": "March 6, 2024 enactment of specified IVF immunity, resumption of services and unresolved embryo-status question.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "ivf",
+      "embryo_legal_status"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "arizona_conscience",
+    "subject": "Arizona conscience refusal for emergency contraception",
+    "real_hook": "Arizona Revised Statutes 36-2154 permits listed institutions and personnel with written moral or religious objections to refuse emergency contraception and specified other services; a patient's written prescription must be returned.",
+    "limits": "Permission to refuse is not a statewide contraception ban or a command that every pharmacy refuse. Emergency contraception is not abortion. These are fictional demonstrations or discussions of Arizona's rule outside Arizona unless the region supports that setting.",
+    "sources": [
+      {
+        "url": "https://www.azleg.gov/ars/36/02154.htm",
+        "claim": "Current statute checked September 14, 2026: written objection, covered institutions and personnel, emergency contraception and prescription-return requirement.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "emergency_contraception",
+      "conscience_refusal"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "pregnancy_center_advertising",
+    "subject": "Pregnancy-center advertising and service mismatch",
+    "real_hook": "Massachusetts DPH warns that some anti-abortion centers advertise abortion-related care without providing abortion, full options counseling or referrals; many are not licensed medical clinics.",
+    "limits": "These are attributed agency warnings, not a judicial finding that every pregnancy center is fraudulent. Every center, offer, manager and advertisement in these encounters is fictional. No genuine clinic branding, victim likeness or unverified individualized allegation appears.",
+    "sources": [
+      {
+        "url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+        "claim": "Massachusetts DPH warnings concerning misleading advertising, omitted services and licensing distinctions.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www.mass.gov/doc/fact-sheet-avoid-anti-abortion-centers-pdf/download",
+        "claim": "Massachusetts public-information fact sheet identifies service and referral limitations of anti-abortion centers.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "pregnancy_center_deception",
+      "medical_advertising"
+    ],
+    "checked": "2026-09-14"
+  },
+  {
+    "key": "maternity_deserts",
+    "subject": "Maternity-care deserts and loss of local birth services",
+    "real_hook": "March of Dimes's August 2026 report identifies roughly one-third of US counties as maternity-care deserts, lacking obstetric clinicians and birthing facilities.",
+    "limits": "A closed delivery ward alone does not establish a maternity-care desert. The report does not support attributing every closure to abortion restrictions; workforce, finance and other causes differ. Fictional officials' family-policy slogans do not establish a real causal claim about a named closure.",
+    "sources": [
+      {
+        "url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+        "claim": "August 11, 2026 report announcement describes persistent gaps in local maternity access.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      },
+      {
+        "url": "https://www2.marchofdimes.org/maternity-care-deserts-report",
+        "claim": "2026 report provides maternity-care desert definition and national extent.",
+        "checked": "2026-09-14; bounded reproductive-rights research"
+      }
+    ],
+    "content_topics": [
+      "reproductive_health",
+      "maternity_care_deserts",
+      "rural_health_access"
+    ],
+    "checked": "2026-09-14"
+  }
+]

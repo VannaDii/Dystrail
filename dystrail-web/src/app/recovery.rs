@@ -28,7 +28,13 @@ struct Checkpoint {
     journey_detail: crate::components::ui::travel_panel::tabs::Selection,
 }
 fn restore(app: &AppState, saved: Checkpoint) {
-    let phase = if saved.phase == Phase::Camp
+    let phase = if saved
+        .state
+        .as_ref()
+        .is_some_and(|gs| gs.boss.outcome.attempted)
+    {
+        super::aftermath::next_phase(saved.state.as_ref().expect("state checked"))
+    } else if saved.phase == Phase::Camp
         && saved
             .state
             .as_ref()

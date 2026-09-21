@@ -1,0 +1,246 @@
+{
+  "status": "complete structural verification",
+  "editorial_status": "Political satire revision for user review; humor is not automatically certified",
+  "narrative_count": 567,
+  "functional_count": 77,
+  "politically_rewritten": 567,
+  "mechanical_differences": [],
+  "errors": [],
+  "unrevised": [],
+  "political_review_flags": [
+    {
+      "id": "ENC-C04-C",
+      "lead": "At a travelling workers’ fair, Florida roofers show your crew the law blocking local heat protections. Their protest canopy covers the water cooler. A sponsor praising deregulation has put his chair underneath it. The roofers need help moving the display."
+    },
+    {
+      "id": "ENC-C05-B",
+      "lead": "A community volunteer flags down your van with letters about the Pentagon accepting Qatar’s luxury jet. Her workplace made her declare a gifted muffin. She offers some food for a recorded reply. Her copy of the form asks whether the muffin has foreign owners."
+    },
+    {
+      "id": "ENC-C10-C",
+      "lead": "Workers protesting their employer’s no-tip rule have built a cardboard jet after the Pentagon accepted Qatar’s plane. They flag your crew down for testimony or a hand pushing it. The wings are made from rejected gift declarations. One used to be about a biscuit."
+    },
+    {
+      "id": "ENC-C18-B",
+      "lead": "Hotel workers invite your stopped crew to an upstairs meeting about their employer’s ban on guest gifts. They’re comparing a confiscated biscuit with the Pentagon’s Qatari jet. The lift is reserved for management. The biscuit has been allowed to use it as evidence."
+    },
+    {
+      "id": "ENC-C18-C",
+      "lead": "At a roadside hall, residents invite your crew to a standing-room meeting about officials sharing Yemen strike details in Signal. Public questions must be handwritten, checked, and submitted upstairs. A volunteer has already lost the pencil. It has better access than the audience."
+    },
+    {
+      "id": "ENC-D02-A",
+      "lead": "A travelling trade fair celebrates Florida’s ban on local heat mandates with a “voluntary break” treadmill. Your hot crew stops beside it. The water cooler moves farther away whenever the belt turns. A roofer offers shade and asks for water donations."
+    },
+    {
+      "id": "ENC-D03-A",
+      "lead": "After the Pentagon accepted Qatar’s luxury jet, a roadside workers’ fair built a gift-inspection tunnel. Your crew is invited to compare it with their employer’s strict gift rule. A muffin cannot pass. The aircraft-shaped hole behind it is generously proportioned."
+    },
+    {
+      "id": "ENC-D10-A",
+      "lead": "Your crew stops at a temp-work desk. The recruiter’s no-gifts briefing runs beneath a report about the Pentagon accepting Qatar’s jet. She seals a complimentary mint in an evidence bag. “Vendor influence.” The mint has achieved a level of scrutiny unavailable to most aircraft."
+    },
+    {
+      "id": "ENC-S03-C",
+      "lead": "Your aching crew stops at a temp-work briefing. The recruiter’s gift policy requires workers to document a free coffee while a news display covers the Pentagon’s Qatari jet. The coffee has its own folder. Applicants are still standing. A volunteer welcomes supply donations."
+    },
+    {
+      "id": "ENC-S05-B",
+      "lead": "A temp-work centre sells some food for $6 and offers your crew $10 to inventory gifts surrendered under its employer’s rule. Above the mint collection, a news screen reports the Pentagon’s Qatari jet. The recruiter has ordered a bigger evidence bag. For the mints."
+    },
+    {
+      "id": "ENC-S09-A",
+      "lead": "Florida barred local heat-break rules. At a roadside trade fair, a contractor wants the same freedom here. He praises toughness from inside a refrigerated sales trailer. A worker points you toward shade; the trailer’s exhaust is blowing directly onto her."
+    },
+    {
+      "id": "ENC-S17-B",
+      "lead": "Florida blocked local heat-break mandates. At a gym open house, a contractor promotes copying the law while workers assemble his enormous cooling fan. Nine dollars pays for moving its bases. Showers are free with your own soap; apparently water works better without a speech."
+    },
+    {
+      "id": "ENC-S32-C",
+      "lead": "Florida barred local heat-break mandates. At a mountain-region contractors’ fair, a speaker urges copying the law. A technician offers $10 to sort parts beside the speaker’s personal cooling unit. The technician would like workers classified as equipment worth preventing from overheating."
+    },
+    {
+      "id": "ENC-S33-C",
+      "lead": "Florida banned local heat-break mandates. At a desert trade stall promoting that approach, the water cooler has been placed inside a locked display cage. An installer offers water for clearing access or $12 for moving heavy barriers. The speaker calls this freedom from interference."
+    },
+    {
+      "id": "ENC-W-SW-C01-C",
+      "lead": "Florida barred local heat-break mandates; a desert contractor wants that model here. At his hiring table, he offers $12 to carry refill crates while mist cools his chair. He calls compulsory water breaks government overreach. His misting nozzle has three settings."
+    },
+    {
+      "id": "ENC-W-SW-D01-A",
+      "lead": "Florida barred local heat-break mandates; a desert yard supervisor promotes copying it. He offers $10 to shift the heavy temperature display into shade before his press photo. A worker has the earlier readings and room beneath a shade cloth. The workers remain in the sun."
+    },
+    {
+      "id": "TOWN-04-C",
+      "lead": "Near a Billings public building, a seamstress waits beside the travelers with some mending."
+    },
+    {
+      "id": "TOWN-05-B",
+      "lead": "Outside Boise City Hall, a delivery rider tells the travelers about the 2025 flag dispute."
+    },
+    {
+      "id": "TOWN-06-C",
+      "lead": "Near Wyoming’s Capitol, a roofer shares a lunch bench with the travelers."
+    },
+    {
+      "id": "TOWN-10-C",
+      "lead": "At a Cumberland supermarket, a home-care aide discusses Maryland’s leave timetable with the travelers."
+    },
+    {
+      "id": "TOWN-11-B",
+      "lead": "At a Dallas laundromat, a renter compares housing costs while the van blankets dry."
+    },
+    {
+      "id": "TOWN-15-C",
+      "lead": "On a Flagstaff evening walk, a night cleaner stops where the stars show above the shops."
+    },
+    {
+      "id": "TOWN-16-B",
+      "lead": "At a Frederick laundromat, a cleaner compares rental applications while your clothes tumble."
+    },
+    {
+      "id": "TOWN-19-C",
+      "lead": "At a Joplin diner booth, a cleaner sorts pay slips beside a property-sale advertisement."
+    },
+    {
+      "id": "TOWN-22-B",
+      "lead": "At a Las Vegas shaded water stop, a groundskeeper sets down a dusty rake."
+    },
+    {
+      "id": "TOWN-29-C",
+      "lead": "At a Phoenix bus stop, a delivery worker shifts with the narrow shadow of a pole."
+    },
+    {
+      "id": "TOWN-30-B",
+      "lead": "At a Pittsburgh diner exit, an off-duty server pockets a work schedule."
+    },
+    {
+      "id": "TOWN-30-C",
+      "lead": "At a Pittsburgh overlook, a window cleaner rests beside your food bag."
+    },
+    {
+      "id": "TOWN-31-B",
+      "lead": "At a Rapid City roadside overlook, a carpenter talks about the Black Hills treaty."
+    },
+    {
+      "id": "TOWN-33-C",
+      "lead": "Near Salt Lake City Hall, a seamstress pauses while you rest on the steps."
+    },
+    {
+      "id": "TOWN-34-C",
+      "lead": "At a San Antonio park bench, a construction worker explains what stood before HemisFair."
+    },
+    {
+      "id": "TOWN-41-C",
+      "lead": "At Toledo’s Glass City Metropark, a groundskeeper rests while you share some food."
+    },
+    {
+      "id": "TOWN-42-B",
+      "lead": "At a Tucson park drinking fountain, a groundskeeper explains the separate irrigation system."
+    },
+    {
+      "id": "TOWN-43-C",
+      "lead": "At a Tulsa bus-stop bench, a school bus driver compares the state’s video order with your route."
+    },
+    {
+      "id": "TOWN-44-B",
+      "lead": "By Waco’s suspension bridge, a delivery driver pauses while you eat some food."
+    },
+    {
+      "id": "CARE-02-B",
+      "lead": "During an unloading shift, {name} becomes dehydrated. The boss praises Florida’s ban on local heat-break rules. “Government shouldn’t tell us what to do,” he says, blocking the water."
+    },
+    {
+      "id": "ALLY-05-A",
+      "lead": "Your contact {name} sends a video claiming journalists invented the Signal scandal, then blocks the crew. The explanation is now more secure than the bombing chat."
+    },
+    {
+      "id": "ACT-FORAGE-C",
+      "lead": "At a foraging walk, the guide says lobbyists get dinner for discussing food policy. You’ll be getting dinner from a bush. The bush has fewer sponsors."
+    },
+    {
+      "id": "COND-STORM-B",
+      "lead": "Heavy rain hits as the radio celebrates climate-policy rollbacks. The announcement is waterproof. The passenger-side window isn’t."
+    },
+    {
+      "id": "COND-HEAT-B",
+      "lead": "The radio plays “Drill, baby, drill” over another heat warning. The dashboard has begun producing its own plastic reserves."
+    },
+    {
+      "id": "COND-HEAT-C",
+      "lead": "A heat wave arrives. On the radio, an official opposes worker heat rules from a room you can hear being air-conditioned."
+    },
+    {
+      "id": "COND-COLD-A",
+      "lead": "Cold grips the route. The fossil-fuel lobby calls its dinner an energy-security event. You’d like to attend the room-temperature portion."
+    },
+    {
+      "id": "COND-SMOKE-A",
+      "lead": "Smoke hangs over the road. The radio celebrates rolling back environmental rules. You close the windows on the celebration."
+    },
+    {
+      "id": "OPEN-LOBBYIST-A",
+      "lead": "You know how Washington sells access. Unfortunately, your five companions know how much gas costs. You leave Los Angeles for D.C. with lobbying experience and a donor network consisting of the glove box."
+    },
+    {
+      "id": "END-VICTORY-B",
+      "lead": "You win the hearing. The chair calls it a triumph of American greatness. He is already editing out the part where you had to argue with him."
+    },
+    {
+      "id": "END-VOTEFAIL-A",
+      "lead": "The final vote goes against you. You brought evidence, testimony and an actual journey. The donor envelope brought none of these and gets invited to dinner."
+    },
+    {
+      "id": "END-DESTROYED-B",
+      "lead": "The van is destroyed and the expedition ends. Calling it a tank did no more than calling defense “war.” At least the scrap yard uses names that describe the contents."
+    },
+    {
+      "id": "END-COLLAPSE-WEATHER-C",
+      "lead": "Weather ends the expedition. The fossil-fuel speech promises an economy without environmental obstacles. Outside the van, an obstacle has become the entire view."
+    },
+    {
+      "id": "END-COLLAPSE-BREAKDOWN-B",
+      "lead": "The breakdown ends the journey. Washington can rename defense “war” and call the job done. Your van’s newly impressive title still needs a functioning part beneath it."
+    },
+    {
+      "id": "END-COLLAPSE-DISEASE-B",
+      "lead": "Disease ends the journey. Washington can describe projected health-spending cuts as savings. The budget looks much healthier when none of the sick people are drawn on the chart."
+    },
+    {
+      "id": "END-COLLAPSE-PANIC-B",
+      "lead": "Panic ends the journey. The government has renamed defense “war” to make everyone feel safer. The word “relax” could probably use a less heavily armed communications team."
+    },
+    {
+      "id": "END-INCOMPLETE-A",
+      "lead": "This journey is unfinished. In Washington, the donor dinner is still on the calendar. The chicken has secured an appointment; your case is still on the road."
+    }
+  ],
+  "mode_counts": {
+    "Classic": 72,
+    "Deep End": 57,
+    "Shared": 102
+  },
+  "category_counts": {
+    "Road encounters": 231,
+    "Town conversations": 132,
+    "Crew-care scenarios": 24,
+    "Ally-departure vignettes": 18,
+    "Crossing packages": 12,
+    "Executive-order bulletins": 18,
+    "Breakdown and repair packages": 12,
+    "Gathering, work, barter, and rest": 24,
+    "Weather, illness, hunger, and exposure": 27,
+    "Character departure introductions": 18,
+    "Hearing introductions and transitions": 6,
+    "Ending packages": 45
+  },
+  "source_hashes": {
+    "roads-a": "2f8d99397cd3030249a4515acabc3d8d444c370c6ddfd0c6674a3ac15951fe32",
+    "roads-b": "f4b7d6542293121b1d179f4629169c34a5bbc94e4ffc4a53b5fe8f17e1e060c2",
+    "towns": "020fcc24dfa13b83867b28c761a6a695a41585f9b74a7ae19b6ef0b25a72c73d",
+    "support": "094353f2eea31d36816acf9e0ca6481211b5542d3bee982953be9e440c0577f9",
+    "functional": "74bb4f16edc71054c15b989bf4c2a0d56ec73d70c31811f56fcb9a66e749d9ee"
+  }
+}

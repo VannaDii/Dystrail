@@ -1,0 +1,81 @@
+(node:31548) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 54 tests using 2 workers
+
+(node:31567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31566) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31567) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:31566) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:31566) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests-e2e/hearing.spec.ts:56:5 › three staged rounds reveal past costs and recover at every hold (10.0s)
+  ✓   1 [chromium] › tests-e2e/hearing.spec.ts:23:5 › arrival, once-only resolution and skipped verdict recover unchanged (15.0s)
+  ✓   4 [chromium] › tests-e2e/hearing.spec.ts:101:5 › reduced motion, guaranteed approval and legacy results preserve outcomes (2.7s)
+  ✓   3 [chromium] › tests-e2e/hearing.spec.ts:81:5 › short hearings, failed vote, secured victory and exhaustion have distinct endings (11.2s)
+  ✓   6 [chromium] › tests-e2e/hearing.spec.ts:138:6 › hearing it remains legible and resumes offline (2.4s)
+  ✓   7 [chromium] › tests-e2e/hearing.spec.ts:138:6 › hearing es remains legible and resumes offline (2.4s)
+  ✓   8 [chromium] › tests-e2e/hearing.spec.ts:138:6 › hearing ar remains legible and resumes offline (2.4s)
+  ✓   5 [chromium] › tests-e2e/hearing.spec.ts:113:5 › rest returns to preparation; manual saves and modal pauses preserve committed questioning (11.1s)
+  ✓   9 [chromium] › tests-e2e/hearing.spec.ts:152:5 › preparation speaks in narrative while preserving costs and the vote cutoff (3.5s)
+  ✓  11 [chromium] › tests-e2e/hearing.spec.ts:204:5 › narrow hearing portraits and result cards stay readable before the next action (4.8s)
+  ✓  10 [chromium] › tests-e2e/hearing.spec.ts:170:5 › all six characters carry their ending expression into the downloaded PNG offline (8.8s)
+  ✓  12 [chromium] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (1.4s)
+  ✓  14 [chromium] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (1.9s)
+  ✓  13 [chromium] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, selection announces without duplicate footer text, and compact crew busts have no added frame or background (2.5s)
+  ✓  16 [chromium] › tests-e2e/onboarding-results.spec.ts:53:5 › a fatal player care decision reports the death and ends the run here (1.7s)
+  ✓  15 [chromium] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (1.9s)
+  ✓  18 [chromium] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (1.9s)
+  ✓  17 [chromium] › tests-e2e/onboarding-results.spec.ts:60:5 › town names omit universal service icons while town actions remain accessible (2.0s)
+  ✓  19 [chromium] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (1.8s)
+  ✓  20 [chromium] › tests-e2e/sharing.spec.ts:87:5 › unsupported sharing and denied clipboard keep the image and editable post available (1.8s)
+  ✓  21 [chromium] › tests-e2e/sharing.spec.ts:104:5 › failed PNG encoding can retry without losing the edited post (1.8s)
+  ✓  22 [chromium] › tests-e2e/sharing.spec.ts:120:5 › closing during image preparation releases the completed image without reopening the dialog (1.8s)
+  ✓  24 [chromium] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.1s)
+  ✓  23 [chromium] › tests-e2e/sharing.spec.ts:142:5 › long player names and Arabic share content stay readable on desktop and phone (3.4s)
+  ✓  25 [chromium] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (1.9s)
+  ✓  26 [chromium] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.8s)
+(node:32620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32620) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:32620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  27 [chromium] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (4.6s)
+(node:32664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32664) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:32664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  29 [mobile] › tests-e2e/hearing.spec.ts:56:5 › three staged rounds reveal past costs and recover at every hold (10.4s)
+  ✓  28 [mobile] › tests-e2e/hearing.spec.ts:23:5 › arrival, once-only resolution and skipped verdict recover unchanged (14.6s)
+  ✓  31 [mobile] › tests-e2e/hearing.spec.ts:101:5 › reduced motion, guaranteed approval and legacy results preserve outcomes (2.7s)
+  ✓  30 [mobile] › tests-e2e/hearing.spec.ts:81:5 › short hearings, failed vote, secured victory and exhaustion have distinct endings (9.9s)
+  ✓  33 [mobile] › tests-e2e/hearing.spec.ts:138:6 › hearing it remains legible and resumes offline (2.4s)
+  ✓  34 [mobile] › tests-e2e/hearing.spec.ts:138:6 › hearing es remains legible and resumes offline (2.4s)
+  ✓  32 [mobile] › tests-e2e/hearing.spec.ts:113:5 › rest returns to preparation; manual saves and modal pauses preserve committed questioning (11.1s)
+  ✓  35 [mobile] › tests-e2e/hearing.spec.ts:138:6 › hearing ar remains legible and resumes offline (2.5s)
+  ✓  36 [mobile] › tests-e2e/hearing.spec.ts:152:5 › preparation speaks in narrative while preserving costs and the vote cutoff (3.5s)
+  ✓  38 [mobile] › tests-e2e/hearing.spec.ts:204:5 › narrow hearing portraits and result cards stay readable before the next action (4.9s)
+  ✓  39 [mobile] › tests-e2e/onboarding-results.spec.ts:7:5 › start action shares the Deep End column and stacks on mobile (1.4s)
+  ✓  40 [mobile] › tests-e2e/onboarding-results.spec.ts:13:5 › random character persists, selection announces without duplicate footer text, and compact crew busts have no added frame or background (5.4s)
+  ✓  41 [mobile] › tests-e2e/onboarding-results.spec.ts:29:5 › early illness ending matches location and primary player, shows the full scorecard and updates in place (1.9s)
+  ✓  42 [mobile] › tests-e2e/onboarding-results.spec.ts:44:5 › bottom result actions give visible feedback without a page jump (1.9s)
+  ✓  37 [mobile] › tests-e2e/hearing.spec.ts:170:5 › all six characters carry their ending expression into the downloaded PNG offline (19.3s)
+  ✓  43 [mobile] › tests-e2e/onboarding-results.spec.ts:53:5 › a fatal player care decision reports the death and ends the run here (1.6s)
+  ✓  44 [mobile] › tests-e2e/onboarding-results.spec.ts:60:5 › town names omit universal service icons while town actions remain accessible (2.3s)
+  ✓  45 [mobile] › tests-e2e/sharing.spec.ts:12:5 › share dialog restores focus after mouse and keyboard close and releases each image (1.9s)
+  ✓  46 [mobile] › tests-e2e/sharing.spec.ts:37:5 › copy and native sharing use the edited post and handle cancellation, failure and handoff (1.8s)
+  ✓  47 [mobile] › tests-e2e/sharing.spec.ts:87:5 › unsupported sharing and denied clipboard keep the image and editable post available (1.7s)
+  ✓  48 [mobile] › tests-e2e/sharing.spec.ts:104:5 › failed PNG encoding can retry without losing the edited post (1.8s)
+  ✓  49 [mobile] › tests-e2e/sharing.spec.ts:120:5 › closing during image preparation releases the completed image without reopening the dialog (1.7s)
+  ✓  50 [mobile] › tests-e2e/sharing.spec.ts:142:5 › long player names and Arabic share content stay readable on desktop and phone (3.6s)
+  ✓  51 [mobile] › tests-e2e/states.spec.ts:6:5 › numbered encounter, persistent aftermath, low sanity and visual results (3.5s)
+  ✓  52 [mobile] › tests-e2e/states.spec.ts:16:5 › repair consumes a pump and shows the cost (1.9s)
+  ✓  53 [mobile] › tests-e2e/states.spec.ts:23:5 › regions, weather details, final vote and terminal reload (4.6s)
+  ✓  54 [mobile] › tests-e2e/states.spec.ts:35:5 › route store, one exchange and cooldown recovery (4.6s)
+
+  54 passed (2.0m)

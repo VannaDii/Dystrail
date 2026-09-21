@@ -1,0 +1,5444 @@
+[
+  {
+    "id": "ENC-S09-A",
+    "category": "Road encounters",
+    "title": "Optimism Will Not Dry Your Socks",
+    "mode": "Shared",
+    "use": "recovery",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_forecast_corrected",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S09",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_forecast_corrected",
+      "name": "Optimism Will Not Dry Your Socks",
+      "desc": "A festival promoter covers a rain warning with a sun sticker. A worker points out the shelter. Trump needed a marker; this guy has outsourced meteorology to the craft aisle.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Shelter and eat — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "log": "You recover over a snack. Outside, the sun sticker makes its first contact with weather."
+          }
+        },
+        {
+          "label": "Trust the sign; reassure the crew",
+          "effects": {
+            "sanity": 1,
+            "credibility": -2,
+            "log": "You relax and announce clear skies. Then the first raindrop performs a hostile fact-check."
+          }
+        },
+        {
+          "label": "Skip the festival",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the fry stall. Nobody says ‘at least we saved money’ without a death stare."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S09-B",
+    "category": "Road encounters",
+    "title": "Optimism Will Not Dry Your Socks",
+    "mode": "Shared",
+    "use": "recovery",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_forecast_corrected",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S09",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_forecast_corrected",
+      "name": "Optimism Will Not Dry Your Socks",
+      "desc": "A festival promoter covers a rain warning with a sun sticker. A worker points out the shelter. Trump needed a marker; this guy has outsourced meteorology to the craft aisle.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Shelter and eat — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "log": "You recover over a snack. Outside, the sun sticker makes its first contact with weather."
+          }
+        },
+        {
+          "label": "Trust the sign; reassure the crew",
+          "effects": {
+            "sanity": 1,
+            "credibility": -2,
+            "log": "You relax and announce clear skies. Then the first raindrop performs a hostile fact-check."
+          }
+        },
+        {
+          "label": "Skip the festival",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the fry stall. Nobody says ‘at least we saved money’ without a death stare."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S09-C",
+    "category": "Road encounters",
+    "title": "Optimism Will Not Dry Your Socks",
+    "mode": "Shared",
+    "use": "recovery",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_forecast_corrected",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S09",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_forecast_corrected",
+      "name": "Optimism Will Not Dry Your Socks",
+      "desc": "A festival promoter covers a rain warning with a sun sticker. A worker points out the shelter. Trump needed a marker; this guy has outsourced meteorology to the craft aisle.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Shelter and eat — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "log": "You recover over a snack. Outside, the sun sticker makes its first contact with weather."
+          }
+        },
+        {
+          "label": "Trust the sign; reassure the crew",
+          "effects": {
+            "sanity": 1,
+            "credibility": -2,
+            "log": "You relax and announce clear skies. Then the first raindrop performs a hostile fact-check."
+          }
+        },
+        {
+          "label": "Skip the festival",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the fry stall. Nobody says ‘at least we saved money’ without a death stare."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S10-A",
+    "category": "Road encounters",
+    "title": "Gulf of Parking Lot",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_parking_gulf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S10",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_parking_gulf",
+      "name": "Gulf of Parking Lot",
+      "desc": "The owner renamed his puddle the Gulf of Premium Parking. He offers you $7 to repaint the sign. The attendant wanted a drain and received an ocean.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Repaint the sign for $7",
+          "effects": {
+            "cash_cents": 700,
+            "sanity": -1,
+            "log": "Seven dollars earned. The owner announces a waterfront upgrade. The attendant resumes asking for a drain."
+          }
+        },
+        {
+          "label": "Check and mark the dry exit",
+          "effects": {
+            "credibility": 2,
+            "log": "You mark the dry exit. The owner's maritime empire ends at a correctly drawn arrow."
+          }
+        },
+        {
+          "label": "Leave before the parking pitch",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the puddle undefeated. The van's cup holder remains your entire waterfront portfolio."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S10-B",
+    "category": "Road encounters",
+    "title": "Gulf of Parking Lot",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_parking_gulf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S10",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_parking_gulf",
+      "name": "Gulf of Parking Lot",
+      "desc": "The owner renamed his puddle the Gulf of Premium Parking. He offers you $7 to repaint the sign. The attendant wanted a drain and received an ocean.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Repaint the sign for $7",
+          "effects": {
+            "cash_cents": 700,
+            "sanity": -1,
+            "log": "Seven dollars earned. The owner announces a waterfront upgrade. The attendant resumes asking for a drain."
+          }
+        },
+        {
+          "label": "Check and mark the dry exit",
+          "effects": {
+            "credibility": 2,
+            "log": "You mark the dry exit. The owner's maritime empire ends at a correctly drawn arrow."
+          }
+        },
+        {
+          "label": "Leave before the parking pitch",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the puddle undefeated. The van's cup holder remains your entire waterfront portfolio."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S10-C",
+    "category": "Road encounters",
+    "title": "Gulf of Parking Lot",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_parking_gulf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S10",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_parking_gulf",
+      "name": "Gulf of Parking Lot",
+      "desc": "The owner renamed his puddle the Gulf of Premium Parking. He offers you $7 to repaint the sign. The attendant wanted a drain and received an ocean.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Repaint the sign for $7",
+          "effects": {
+            "cash_cents": 700,
+            "sanity": -1,
+            "log": "Seven dollars earned. The owner announces a waterfront upgrade. The attendant resumes asking for a drain."
+          }
+        },
+        {
+          "label": "Check and mark the dry exit",
+          "effects": {
+            "credibility": 2,
+            "log": "You mark the dry exit. The owner's maritime empire ends at a correctly drawn arrow."
+          }
+        },
+        {
+          "label": "Leave before the parking pitch",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the puddle undefeated. The van's cup holder remains your entire waterfront portfolio."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S11-A",
+    "category": "Road encounters",
+    "title": "The Minimum Viable Library",
+    "mode": "Shared",
+    "use": "cash/work, credibility, recovery, contacts",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_library_minimum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S11",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_library_minimum",
+      "name": "The Minimum Viable Library",
+      "desc": "A librarian offers $9 for catalog checks while a federal form demands reading’s dollar value. She writes ‘more than this form.’ Invalid currency.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one reading-table snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "sanity": 1,
+            "log": "The librarian gives you her contact card. Your crackers now qualify as a suspiciously effective public-private partnership."
+          }
+        },
+        {
+          "label": "Check catalog entries for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars earned and a librarian's endorsement. Your eyes would like books to come in fewer letters."
+          }
+        },
+        {
+          "label": "Get back on the road",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the free-computer sign. Dangerous stuff. Somebody could look up what a union does."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S11-B",
+    "category": "Road encounters",
+    "title": "The Minimum Viable Library",
+    "mode": "Shared",
+    "use": "cash/work, credibility, recovery, contacts",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_library_minimum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S11",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_library_minimum",
+      "name": "The Minimum Viable Library",
+      "desc": "A librarian offers $9 for catalog checks while a federal form demands reading’s dollar value. She writes ‘more than this form.’ Invalid currency.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one reading-table snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "sanity": 1,
+            "log": "The librarian gives you her contact card. Your crackers now qualify as a suspiciously effective public-private partnership."
+          }
+        },
+        {
+          "label": "Check catalog entries for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars earned and a librarian's endorsement. Your eyes would like books to come in fewer letters."
+          }
+        },
+        {
+          "label": "Get back on the road",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the free-computer sign. Dangerous stuff. Somebody could look up what a union does."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S11-C",
+    "category": "Road encounters",
+    "title": "The Minimum Viable Library",
+    "mode": "Shared",
+    "use": "cash/work, credibility, recovery, contacts",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_library_minimum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S11",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_library_minimum",
+      "name": "The Minimum Viable Library",
+      "desc": "A librarian offers $9 for catalog checks while a federal form demands reading’s dollar value. She writes ‘more than this form.’ Invalid currency.",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one reading-table snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "sanity": 1,
+            "log": "The librarian gives you her contact card. Your crackers now qualify as a suspiciously effective public-private partnership."
+          }
+        },
+        {
+          "label": "Check catalog entries for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars earned and a librarian's endorsement. Your eyes would like books to come in fewer letters."
+          }
+        },
+        {
+          "label": "Get back on the road",
+          "effects": {
+            "morale": -1,
+            "log": "You pass the free-computer sign. Dangerous stuff. Somebody could look up what a union does."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S12-A",
+    "category": "Road encounters",
+    "title": "The Tariff Relabeling Shift",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_tariff_forklift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S12",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_tariff_forklift",
+      "name": "The Tariff Relabeling Shift",
+      "desc": "Another tariff update. The dispatcher offers fourteen dollars to move boxes, two supply packs to match labels. “We're bringing jobs back. From that pallet to this pallet.”",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Move the boxes for $14",
+          "effects": {
+            "cash_cents": 1400,
+            "hp": -1,
+            "log": "Fourteen dollars earned. Your shoulders would like to offshore the next box."
+          }
+        },
+        {
+          "label": "Match labels for two supply packs",
+          "effects": {
+            "supplies": 2,
+            "sanity": -1,
+            "log": "Cross-eyed, you collect two road packs. You check whether lunch has also been amended."
+          }
+        },
+        {
+          "label": "Pass on the work",
+          "effects": {
+            "morale": -1,
+            "log": "The boxes stay. So does the gas-money problem."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-convoy"
+    }
+  },
+  {
+    "id": "ENC-S12-B",
+    "category": "Road encounters",
+    "title": "The Tariff Relabeling Shift",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_tariff_forklift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S12",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_tariff_forklift",
+      "name": "The Tariff Relabeling Shift",
+      "desc": "Another tariff update. The dispatcher offers fourteen dollars to move boxes, two supply packs to match labels. “We're bringing jobs back. From that pallet to this pallet.”",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Move the boxes for $14",
+          "effects": {
+            "cash_cents": 1400,
+            "hp": -1,
+            "log": "Fourteen dollars earned. Your shoulders would like to offshore the next box."
+          }
+        },
+        {
+          "label": "Match labels for two supply packs",
+          "effects": {
+            "supplies": 2,
+            "sanity": -1,
+            "log": "Cross-eyed, you collect two road packs. You check whether lunch has also been amended."
+          }
+        },
+        {
+          "label": "Pass on the work",
+          "effects": {
+            "morale": -1,
+            "log": "The boxes stay. So does the gas-money problem."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-convoy"
+    }
+  },
+  {
+    "id": "ENC-S12-C",
+    "category": "Road encounters",
+    "title": "The Tariff Relabeling Shift",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "Heartland"
+    ],
+    "town": null,
+    "runtime_key": "sat_tariff_forklift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S12",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_tariff_forklift",
+      "name": "The Tariff Relabeling Shift",
+      "desc": "Another tariff update. The dispatcher offers fourteen dollars to move boxes, two supply packs to match labels. “We're bringing jobs back. From that pallet to this pallet.”",
+      "weight": 6,
+      "regions": [
+        "Heartland"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Move the boxes for $14",
+          "effects": {
+            "cash_cents": 1400,
+            "hp": -1,
+            "log": "Fourteen dollars earned. Your shoulders would like to offshore the next box."
+          }
+        },
+        {
+          "label": "Match labels for two supply packs",
+          "effects": {
+            "supplies": 2,
+            "sanity": -1,
+            "log": "Cross-eyed, you collect two road packs. You check whether lunch has also been amended."
+          }
+        },
+        {
+          "label": "Pass on the work",
+          "effects": {
+            "morale": -1,
+            "log": "The boxes stay. So does the gas-money problem."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-convoy"
+    }
+  },
+  {
+    "id": "ENC-S13-A",
+    "category": "Road encounters",
+    "title": "The Patriotic Parts Counter",
+    "mode": "Shared",
+    "use": "supplies/aid, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_alternator_tariff",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S13",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_alternator_tariff",
+      "name": "The Patriotic Parts Counter",
+      "desc": "The TV says China pays the tariffs. The cashier turns the $12 card reader toward you.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the kit — $12",
+          "effects": {
+            "cash_cents": -1200,
+            "supplies": 3,
+            "log": "You buy the kit. China owes you a beer."
+          }
+        },
+        {
+          "label": "Get a written quote",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "She prints it. “For your reimbursement from China.”",
+            "add_receipt": "sat_alternator_tariff"
+          }
+        },
+        {
+          "label": "Leave with the $12",
+          "effects": {
+            "morale": -1,
+            "log": "The kit stays on the shelf, awaiting payment from Beijing."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S13-B",
+    "category": "Road encounters",
+    "title": "The Patriotic Parts Counter",
+    "mode": "Shared",
+    "use": "supplies/aid, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_alternator_tariff",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S13",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_alternator_tariff",
+      "name": "The Patriotic Parts Counter",
+      "desc": "The TV says China pays the tariffs. The cashier turns the $12 card reader toward you.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the kit — $12",
+          "effects": {
+            "cash_cents": -1200,
+            "supplies": 3,
+            "log": "You buy the kit. China owes you a beer."
+          }
+        },
+        {
+          "label": "Get a written quote",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "She prints it. “For your reimbursement from China.”",
+            "add_receipt": "sat_alternator_tariff"
+          }
+        },
+        {
+          "label": "Leave with the $12",
+          "effects": {
+            "morale": -1,
+            "log": "The kit stays on the shelf, awaiting payment from Beijing."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S13-C",
+    "category": "Road encounters",
+    "title": "The Patriotic Parts Counter",
+    "mode": "Shared",
+    "use": "supplies/aid, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_alternator_tariff",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: tariffs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S13",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_alternator_tariff",
+      "name": "The Patriotic Parts Counter",
+      "desc": "The TV says China pays the tariffs. The cashier turns the $12 card reader toward you.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the kit — $12",
+          "effects": {
+            "cash_cents": -1200,
+            "supplies": 3,
+            "log": "You buy the kit. China owes you a beer."
+          }
+        },
+        {
+          "label": "Get a written quote",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "She prints it. “For your reimbursement from China.”",
+            "add_receipt": "sat_alternator_tariff"
+          }
+        },
+        {
+          "label": "Leave with the $12",
+          "effects": {
+            "morale": -1,
+            "log": "The kit stays on the shelf, awaiting payment from Beijing."
+          }
+        }
+      ],
+      "satire_hook": "tariffs",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S14-A",
+    "category": "Road encounters",
+    "title": "The Eight-Billion-Dollar Pothole",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_billion_pothole",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S14",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_billion_pothole",
+      "name": "The Eight-Billion-Dollar Pothole",
+      "desc": "DOGE listed an $8 million contract as $8 billion. A diner owner offers $10 to haul pothole patch. “I checked my math.”",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the claim and correction",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You save both. A cashier has to explain a missing quarter. DOGE gets three spare zeroes.",
+            "add_receipt": "sat_billion_pothole"
+          }
+        },
+        {
+          "label": "Haul the bags — earn $10",
+          "effects": {
+            "cash_cents": 1000,
+            "hp": -1,
+            "log": "You haul the bags and pocket $10. Your back would prefer DOGE’s math."
+          }
+        },
+        {
+          "label": "Drive around the damn hole",
+          "effects": {
+            "morale": -1,
+            "log": "Finally, a problem you can solve by moving further left."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S14-B",
+    "category": "Road encounters",
+    "title": "The Eight-Billion-Dollar Pothole",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_billion_pothole",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S14",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_billion_pothole",
+      "name": "The Eight-Billion-Dollar Pothole",
+      "desc": "DOGE listed an $8 million contract as $8 billion. A diner owner offers $10 to haul pothole patch. “I checked my math.”",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the claim and correction",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You save both. A cashier has to explain a missing quarter. DOGE gets three spare zeroes.",
+            "add_receipt": "sat_billion_pothole"
+          }
+        },
+        {
+          "label": "Haul the bags — earn $10",
+          "effects": {
+            "cash_cents": 1000,
+            "hp": -1,
+            "log": "You haul the bags and pocket $10. Your back would prefer DOGE’s math."
+          }
+        },
+        {
+          "label": "Drive around the damn hole",
+          "effects": {
+            "morale": -1,
+            "log": "Finally, a problem you can solve by moving further left."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S14-C",
+    "category": "Road encounters",
+    "title": "The Eight-Billion-Dollar Pothole",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_billion_pothole",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S14",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_billion_pothole",
+      "name": "The Eight-Billion-Dollar Pothole",
+      "desc": "DOGE listed an $8 million contract as $8 billion. A diner owner offers $10 to haul pothole patch. “I checked my math.”",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the claim and correction",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You save both. A cashier has to explain a missing quarter. DOGE gets three spare zeroes.",
+            "add_receipt": "sat_billion_pothole"
+          }
+        },
+        {
+          "label": "Haul the bags — earn $10",
+          "effects": {
+            "cash_cents": 1000,
+            "hp": -1,
+            "log": "You haul the bags and pocket $10. Your back would prefer DOGE’s math."
+          }
+        },
+        {
+          "label": "Drive around the damn hole",
+          "effects": {
+            "morale": -1,
+            "log": "Finally, a problem you can solve by moving further left."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S15-A",
+    "category": "Road encounters",
+    "title": "Please Account for the Bridge",
+    "mode": "Shared",
+    "use": "evidence, credibility, contacts",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_bridge_bullets",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: bullets. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S15",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bridge_bullets",
+      "name": "Please Account for the Bridge",
+      "desc": "The bridge supervisor demands five accomplishments. The workers have listed every repair. Their report comes back: “More impact.” One points down at the river.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Type, check and save their report",
+          "effects": {
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Report saved, eyes aching. “Kept the cars out of the river” is somehow the difficult part to explain.",
+            "add_receipt": "sat_bridge_bullets"
+          }
+        },
+        {
+          "label": "Share one lunch pack",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Your new ally submits “chewed” five times on the wrapper. Lunch now qualifies as more productive than bridge repair."
+          }
+        },
+        {
+          "label": "Take the reopened lane",
+          "effects": {
+            "morale": -1,
+            "log": "You cross the bridge. Its workers are still explaining why that should count."
+          }
+        }
+      ],
+      "satire_hook": "bullets",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S15-B",
+    "category": "Road encounters",
+    "title": "Please Account for the Bridge",
+    "mode": "Shared",
+    "use": "evidence, credibility, contacts",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_bridge_bullets",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: bullets. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S15",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bridge_bullets",
+      "name": "Please Account for the Bridge",
+      "desc": "The bridge supervisor demands five accomplishments. The workers have listed every repair. Their report comes back: “More impact.” One points down at the river.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Type, check and save their report",
+          "effects": {
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Report saved, eyes aching. “Kept the cars out of the river” is somehow the difficult part to explain.",
+            "add_receipt": "sat_bridge_bullets"
+          }
+        },
+        {
+          "label": "Share one lunch pack",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Your new ally submits “chewed” five times on the wrapper. Lunch now qualifies as more productive than bridge repair."
+          }
+        },
+        {
+          "label": "Take the reopened lane",
+          "effects": {
+            "morale": -1,
+            "log": "You cross the bridge. Its workers are still explaining why that should count."
+          }
+        }
+      ],
+      "satire_hook": "bullets",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S15-C",
+    "category": "Road encounters",
+    "title": "Please Account for the Bridge",
+    "mode": "Shared",
+    "use": "evidence, credibility, contacts",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_bridge_bullets",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: bullets. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S15",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bridge_bullets",
+      "name": "Please Account for the Bridge",
+      "desc": "The bridge supervisor demands five accomplishments. The workers have listed every repair. Their report comes back: “More impact.” One points down at the river.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Type, check and save their report",
+          "effects": {
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Report saved, eyes aching. “Kept the cars out of the river” is somehow the difficult part to explain.",
+            "add_receipt": "sat_bridge_bullets"
+          }
+        },
+        {
+          "label": "Share one lunch pack",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Your new ally submits “chewed” five times on the wrapper. Lunch now qualifies as more productive than bridge repair."
+          }
+        },
+        {
+          "label": "Take the reopened lane",
+          "effects": {
+            "morale": -1,
+            "log": "You cross the bridge. Its workers are still explaining why that should count."
+          }
+        }
+      ],
+      "satire_hook": "bullets",
+      "scene": "enc-bridge"
+    }
+  },
+  {
+    "id": "ENC-S16-A",
+    "category": "Road encounters",
+    "title": "Reply All, Clock Out",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_press_pool_radio",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S16",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_press_pool_radio",
+      "name": "Reply All, Clock Out",
+      "desc": "A café chat mixes lunch orders with staff messages. A customer asks whether ‘unpaid close’ comes with fries. The cashier offers eight dollars to sort the customer contacts from the staff.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Document the mix-up with permission",
+          "effects": {
+            "credibility": 2,
+            "log": "You show the owner. He creates separate chats and calls it a restructuring."
+          }
+        },
+        {
+          "label": "Sort the contacts for $8",
+          "effects": {
+            "cash_cents": 800,
+            "sanity": -1,
+            "log": "Eight dollars. Forty-seven messages. The owner describes identifying three customers as ‘digital transformation.’"
+          }
+        },
+        {
+          "label": "Skip the job",
+          "effects": {
+            "morale": -1,
+            "log": "You leave without eight dollars. The gas pump has no interest in your work-life balance."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S16-B",
+    "category": "Road encounters",
+    "title": "Reply All, Clock Out",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_press_pool_radio",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S16",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_press_pool_radio",
+      "name": "Reply All, Clock Out",
+      "desc": "A café chat mixes lunch orders with staff messages. A customer asks whether ‘unpaid close’ comes with fries. The cashier offers eight dollars to sort the customer contacts from the staff.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Document the mix-up with permission",
+          "effects": {
+            "credibility": 2,
+            "log": "You show the owner. He creates separate chats and calls it a restructuring."
+          }
+        },
+        {
+          "label": "Sort the contacts for $8",
+          "effects": {
+            "cash_cents": 800,
+            "sanity": -1,
+            "log": "Eight dollars. Forty-seven messages. The owner describes identifying three customers as ‘digital transformation.’"
+          }
+        },
+        {
+          "label": "Skip the job",
+          "effects": {
+            "morale": -1,
+            "log": "You leave without eight dollars. The gas pump has no interest in your work-life balance."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S16-C",
+    "category": "Road encounters",
+    "title": "Reply All, Clock Out",
+    "mode": "Shared",
+    "use": "cash/work, credibility",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_press_pool_radio",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S16",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_press_pool_radio",
+      "name": "Reply All, Clock Out",
+      "desc": "A café chat mixes lunch orders with staff messages. A customer asks whether ‘unpaid close’ comes with fries. The cashier offers eight dollars to sort the customer contacts from the staff.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Document the mix-up with permission",
+          "effects": {
+            "credibility": 2,
+            "log": "You show the owner. He creates separate chats and calls it a restructuring."
+          }
+        },
+        {
+          "label": "Sort the contacts for $8",
+          "effects": {
+            "cash_cents": 800,
+            "sanity": -1,
+            "log": "Eight dollars. Forty-seven messages. The owner describes identifying three customers as ‘digital transformation.’"
+          }
+        },
+        {
+          "label": "Skip the job",
+          "effects": {
+            "morale": -1,
+            "log": "You leave without eight dollars. The gas pump has no interest in your work-life balance."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S17-A",
+    "category": "Road encounters",
+    "title": "Hydration Sovereignty",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_hydration_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S17",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_hydration_pressure",
+      "name": "Hydration Sovereignty",
+      "desc": "The truck stop’s Trump showerhead promotion has soaked its LIMITED GOVERNMENT banner. The clerk offers $9 to hold the stand steady. Free showers require your own soap and considerably less patriotism.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Use one wash-kit bundle; shower",
+          "effects": {
+            "supplies": -1,
+            "sanity": 2,
+            "log": "You emerge clean. The crew declines your suggestion of a ribbon-cutting for the armpits."
+          }
+        },
+        {
+          "label": "Brace the display for $9",
+          "effects": {
+            "cash_cents": 900,
+            "hp": -1,
+            "log": "Nine dollars and aching arms for holding the display upright. The clerk admires the design: 'Saved a fortune on the base.'"
+          }
+        },
+        {
+          "label": "Stay dry; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "You leave unwashed. The van's air freshener submits a resignation letter."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S17-B",
+    "category": "Road encounters",
+    "title": "Hydration Sovereignty",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_hydration_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S17",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_hydration_pressure",
+      "name": "Hydration Sovereignty",
+      "desc": "The truck stop’s Trump showerhead promotion has soaked its LIMITED GOVERNMENT banner. The clerk offers $9 to hold the stand steady. Free showers require your own soap and considerably less patriotism.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Use one wash-kit bundle; shower",
+          "effects": {
+            "supplies": -1,
+            "sanity": 2,
+            "log": "You emerge clean. The crew declines your suggestion of a ribbon-cutting for the armpits."
+          }
+        },
+        {
+          "label": "Brace the display for $9",
+          "effects": {
+            "cash_cents": 900,
+            "hp": -1,
+            "log": "Nine dollars and aching arms for holding the display upright. The clerk admires the design: 'Saved a fortune on the base.'"
+          }
+        },
+        {
+          "label": "Stay dry; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "You leave unwashed. The van's air freshener submits a resignation letter."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S17-C",
+    "category": "Road encounters",
+    "title": "Hydration Sovereignty",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_hydration_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S17",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_hydration_pressure",
+      "name": "Hydration Sovereignty",
+      "desc": "The truck stop’s Trump showerhead promotion has soaked its LIMITED GOVERNMENT banner. The clerk offers $9 to hold the stand steady. Free showers require your own soap and considerably less patriotism.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Use one wash-kit bundle; shower",
+          "effects": {
+            "supplies": -1,
+            "sanity": 2,
+            "log": "You emerge clean. The crew declines your suggestion of a ribbon-cutting for the armpits."
+          }
+        },
+        {
+          "label": "Brace the display for $9",
+          "effects": {
+            "cash_cents": 900,
+            "hp": -1,
+            "log": "Nine dollars and aching arms for holding the display upright. The clerk admires the design: 'Saved a fortune on the base.'"
+          }
+        },
+        {
+          "label": "Stay dry; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "You leave unwashed. The van's air freshener submits a resignation letter."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S18-A",
+    "category": "Road encounters",
+    "title": "The Exhibit of Pending Funds",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_museum_grant",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S18",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_museum_grant",
+      "name": "The Exhibit of Pending Funds",
+      "desc": "The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Scan exhibit photos for $11",
+          "effects": {
+            "cash_cents": 1100,
+            "sanity": -1,
+            "log": "You finish the scans and collect eleven dollars. The historical payroll is starting to look competitive."
+          }
+        },
+        {
+          "label": "Share one snack bundle; take tour",
+          "effects": {
+            "supplies": -1,
+            "morale": 2,
+            "log": "The guide shares your snacks beside the company-store exhibit. Your employer's discount scheme suddenly looks less original."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The exhibit ends at the eight-hour day. Your phone asks whether you'd like to work tonight."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S18-B",
+    "category": "Road encounters",
+    "title": "The Exhibit of Pending Funds",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_museum_grant",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S18",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_museum_grant",
+      "name": "The Exhibit of Pending Funds",
+      "desc": "The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Scan exhibit photos for $11",
+          "effects": {
+            "cash_cents": 1100,
+            "sanity": -1,
+            "log": "You finish the scans and collect eleven dollars. The historical payroll is starting to look competitive."
+          }
+        },
+        {
+          "label": "Share one snack bundle; take tour",
+          "effects": {
+            "supplies": -1,
+            "morale": 2,
+            "log": "The guide shares your snacks beside the company-store exhibit. Your employer's discount scheme suddenly looks less original."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The exhibit ends at the eight-hour day. Your phone asks whether you'd like to work tonight."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S18-C",
+    "category": "Road encounters",
+    "title": "The Exhibit of Pending Funds",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_museum_grant",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: libraries. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S18",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_museum_grant",
+      "name": "The Exhibit of Pending Funds",
+      "desc": "The museum offers $11 to scan photos while it waits for federal funding. 'We exhibit starvation wages,' says the guide. 'We’re not supposed to demonstrate them.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Scan exhibit photos for $11",
+          "effects": {
+            "cash_cents": 1100,
+            "sanity": -1,
+            "log": "You finish the scans and collect eleven dollars. The historical payroll is starting to look competitive."
+          }
+        },
+        {
+          "label": "Share one snack bundle; take tour",
+          "effects": {
+            "supplies": -1,
+            "morale": 2,
+            "log": "The guide shares your snacks beside the company-store exhibit. Your employer's discount scheme suddenly looks less original."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The exhibit ends at the eight-hour day. Your phone asks whether you'd like to work tonight."
+          }
+        }
+      ],
+      "satire_hook": "libraries",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S19-A",
+    "category": "Road encounters",
+    "title": "Click Here for Fifteen Dollars",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_factcheck_shift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S19",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_factcheck_shift",
+      "name": "Click Here for Fifteen Dollars",
+      "desc": "An editor offers fifteen dollars to check MAHA’s citations. ‘Can you open a link?’ she asks. You finally encounter a job requirement the report’s authors could not meet.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and log links for $15",
+          "effects": {
+            "cash_cents": 1500,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Fifteen dollars earned. Mismatches logged. Your eyes have put in for hazard pay.",
+            "add_receipt": "sat_factcheck_shift"
+          }
+        },
+        {
+          "label": "Vouch for the studies by title",
+          "effects": {
+            "morale": 1,
+            "credibility": -1,
+            "log": "Your cabinet impression gets a laugh. The editor opens a link: wrong paper. ‘Oh. You’re still doing the impression.’"
+          }
+        },
+        {
+          "label": "Pass on the assignment",
+          "effects": {
+            "morale": -1,
+            "log": "You decline. The fuel gauge immediately requests a meeting about your career choices."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S19-B",
+    "category": "Road encounters",
+    "title": "Click Here for Fifteen Dollars",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_factcheck_shift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S19",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_factcheck_shift",
+      "name": "Click Here for Fifteen Dollars",
+      "desc": "An editor offers fifteen dollars to check MAHA’s citations. ‘Can you open a link?’ she asks. You finally encounter a job requirement the report’s authors could not meet.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and log links for $15",
+          "effects": {
+            "cash_cents": 1500,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Fifteen dollars earned. Mismatches logged. Your eyes have put in for hazard pay.",
+            "add_receipt": "sat_factcheck_shift"
+          }
+        },
+        {
+          "label": "Vouch for the studies by title",
+          "effects": {
+            "morale": 1,
+            "credibility": -1,
+            "log": "Your cabinet impression gets a laugh. The editor opens a link: wrong paper. ‘Oh. You’re still doing the impression.’"
+          }
+        },
+        {
+          "label": "Pass on the assignment",
+          "effects": {
+            "morale": -1,
+            "log": "You decline. The fuel gauge immediately requests a meeting about your career choices."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S19-C",
+    "category": "Road encounters",
+    "title": "Click Here for Fifteen Dollars",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_factcheck_shift",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S19",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_factcheck_shift",
+      "name": "Click Here for Fifteen Dollars",
+      "desc": "An editor offers fifteen dollars to check MAHA’s citations. ‘Can you open a link?’ she asks. You finally encounter a job requirement the report’s authors could not meet.",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and log links for $15",
+          "effects": {
+            "cash_cents": 1500,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Fifteen dollars earned. Mismatches logged. Your eyes have put in for hazard pay.",
+            "add_receipt": "sat_factcheck_shift"
+          }
+        },
+        {
+          "label": "Vouch for the studies by title",
+          "effects": {
+            "morale": 1,
+            "credibility": -1,
+            "log": "Your cabinet impression gets a laugh. The editor opens a link: wrong paper. ‘Oh. You’re still doing the impression.’"
+          }
+        },
+        {
+          "label": "Pass on the assignment",
+          "effects": {
+            "morale": -1,
+            "log": "You decline. The fuel gauge immediately requests a meeting about your career choices."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S20-A",
+    "category": "Road encounters",
+    "title": "The Shelf Is Still Hungry",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_food_shelf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: food. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S20",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_food_shelf",
+      "name": "The Shelf Is Still Hungry",
+      "desc": "The federal food fund vanished. The forms reproduced. A co-op volunteer offers work: 'Backache pays in groceries. Headache pays cash.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Pack bags for three food bundles",
+          "effects": {
+            "supplies": 3,
+            "hp": -1,
+            "log": "Three bundles earned. Your shoulders would like their share delivered directly to a heating pad."
+          }
+        },
+        {
+          "label": "Sort delivery forms for $10",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars for matching groceries to addresses. Add a subscription fee and a tech founder could announce he invented delivery."
+          }
+        },
+        {
+          "label": "Skip the shift",
+          "effects": {
+            "morale": -1,
+            "log": "You keep driving. For dinner, the government recommends imagining how much worse socialism would taste."
+          }
+        }
+      ],
+      "satire_hook": "food",
+      "scene": "enc-community"
+    }
+  },
+  {
+    "id": "ENC-S20-B",
+    "category": "Road encounters",
+    "title": "The Shelf Is Still Hungry",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_food_shelf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: food. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S20",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_food_shelf",
+      "name": "The Shelf Is Still Hungry",
+      "desc": "The federal food fund vanished. The forms reproduced. A co-op volunteer offers work: 'Backache pays in groceries. Headache pays cash.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Pack bags for three food bundles",
+          "effects": {
+            "supplies": 3,
+            "hp": -1,
+            "log": "Three bundles earned. Your shoulders would like their share delivered directly to a heating pad."
+          }
+        },
+        {
+          "label": "Sort delivery forms for $10",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars for matching groceries to addresses. Add a subscription fee and a tech founder could announce he invented delivery."
+          }
+        },
+        {
+          "label": "Skip the shift",
+          "effects": {
+            "morale": -1,
+            "log": "You keep driving. For dinner, the government recommends imagining how much worse socialism would taste."
+          }
+        }
+      ],
+      "satire_hook": "food",
+      "scene": "enc-community"
+    }
+  },
+  {
+    "id": "ENC-S20-C",
+    "category": "Road encounters",
+    "title": "The Shelf Is Still Hungry",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": null,
+    "runtime_key": "sat_food_shelf",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: food. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S20",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_food_shelf",
+      "name": "The Shelf Is Still Hungry",
+      "desc": "The federal food fund vanished. The forms reproduced. A co-op volunteer offers work: 'Backache pays in groceries. Headache pays cash.'",
+      "weight": 6,
+      "regions": [
+        "RustBelt"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Pack bags for three food bundles",
+          "effects": {
+            "supplies": 3,
+            "hp": -1,
+            "log": "Three bundles earned. Your shoulders would like their share delivered directly to a heating pad."
+          }
+        },
+        {
+          "label": "Sort delivery forms for $10",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars for matching groceries to addresses. Add a subscription fee and a tech founder could announce he invented delivery."
+          }
+        },
+        {
+          "label": "Skip the shift",
+          "effects": {
+            "morale": -1,
+            "log": "You keep driving. For dinner, the government recommends imagining how much worse socialism would taste."
+          }
+        }
+      ],
+      "satire_hook": "food",
+      "scene": "enc-community"
+    }
+  },
+  {
+    "id": "ENC-S21-A",
+    "category": "Road encounters",
+    "title": "Manager Approval Required",
+    "mode": "Shared",
+    "use": "evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_cabinet_guest",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S21",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_cabinet_guest",
+      "name": "Manager Approval Required",
+      "desc": "A server on break scrolls through the cabinet’s leaked airstrike chat. “They invited a journalist. I need a manager’s PIN to refund ranch.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Read the actual report",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You save it. Apparently you’re cleared for airstrikes, just not dipping sauce.",
+            "add_receipt": "sat_cabinet_guest"
+          }
+        },
+        {
+          "label": "Retell it from memory—with impressions",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs. You invent a detail, then defend it. Now you’re doing the whole administration."
+          }
+        },
+        {
+          "label": "Give her back her break",
+          "effects": {
+            "morale": -1,
+            "log": "Two minutes for fries, then back to guarding the strategic ranch reserve."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S21-B",
+    "category": "Road encounters",
+    "title": "Manager Approval Required",
+    "mode": "Shared",
+    "use": "evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_cabinet_guest",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S21",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_cabinet_guest",
+      "name": "Manager Approval Required",
+      "desc": "A server on break scrolls through the cabinet’s leaked airstrike chat. “They invited a journalist. I need a manager’s PIN to refund ranch.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Read the actual report",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You save it. Apparently you’re cleared for airstrikes, just not dipping sauce.",
+            "add_receipt": "sat_cabinet_guest"
+          }
+        },
+        {
+          "label": "Retell it from memory—with impressions",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs. You invent a detail, then defend it. Now you’re doing the whole administration."
+          }
+        },
+        {
+          "label": "Give her back her break",
+          "effects": {
+            "morale": -1,
+            "log": "Two minutes for fries, then back to guarding the strategic ranch reserve."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S21-C",
+    "category": "Road encounters",
+    "title": "Manager Approval Required",
+    "mode": "Shared",
+    "use": "evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_cabinet_guest",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: signal. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S21",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_cabinet_guest",
+      "name": "Manager Approval Required",
+      "desc": "A server on break scrolls through the cabinet’s leaked airstrike chat. “They invited a journalist. I need a manager’s PIN to refund ranch.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Read the actual report",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You save it. Apparently you’re cleared for airstrikes, just not dipping sauce.",
+            "add_receipt": "sat_cabinet_guest"
+          }
+        },
+        {
+          "label": "Retell it from memory—with impressions",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs. You invent a detail, then defend it. Now you’re doing the whole administration."
+          }
+        },
+        {
+          "label": "Give her back her break",
+          "effects": {
+            "morale": -1,
+            "log": "Two minutes for fries, then back to guarding the strategic ranch reserve."
+          }
+        }
+      ],
+      "satire_hook": "signal",
+      "scene": "enc-radio"
+    }
+  },
+  {
+    "id": "ENC-S22-A",
+    "category": "Road encounters",
+    "title": "The Name Is the Infrastructure",
+    "mode": "Shared",
+    "use": "credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_name_infrastructure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S22",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_name_infrastructure",
+      "name": "The Name Is the Infrastructure",
+      "desc": "The visitor desk’s $6 map shows a grandly renamed bridge, open to traffic. Outside, it’s closed. A clerk draws the detour by hand. The county has rebuilt the map.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the $6 map as evidence",
+          "effects": {
+            "cash_cents": -600,
+            "credibility": 1,
+            "log": "You keep it beside the closure notice. Six dollars for the county’s collectible alternate reality."
+          }
+        },
+        {
+          "label": "Compare notices with the clerk",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You untangle the notices and save the route. The clerk christens your headache “Progress.” It continues hurting."
+          }
+        },
+        {
+          "label": "Leave and follow the posted detour",
+          "effects": {
+            "morale": -1,
+            "log": "You take the detour. The ribbon-cutting photo remains the shortest route across the river."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S22-B",
+    "category": "Road encounters",
+    "title": "The Name Is the Infrastructure",
+    "mode": "Shared",
+    "use": "credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_name_infrastructure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S22",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_name_infrastructure",
+      "name": "The Name Is the Infrastructure",
+      "desc": "The visitor desk’s $6 map shows a grandly renamed bridge, open to traffic. Outside, it’s closed. A clerk draws the detour by hand. The county has rebuilt the map.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the $6 map as evidence",
+          "effects": {
+            "cash_cents": -600,
+            "credibility": 1,
+            "log": "You keep it beside the closure notice. Six dollars for the county’s collectible alternate reality."
+          }
+        },
+        {
+          "label": "Compare notices with the clerk",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You untangle the notices and save the route. The clerk christens your headache “Progress.” It continues hurting."
+          }
+        },
+        {
+          "label": "Leave and follow the posted detour",
+          "effects": {
+            "morale": -1,
+            "log": "You take the detour. The ribbon-cutting photo remains the shortest route across the river."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S22-C",
+    "category": "Road encounters",
+    "title": "The Name Is the Infrastructure",
+    "mode": "Shared",
+    "use": "credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_name_infrastructure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: names. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S22",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_name_infrastructure",
+      "name": "The Name Is the Infrastructure",
+      "desc": "The visitor desk’s $6 map shows a grandly renamed bridge, open to traffic. Outside, it’s closed. A clerk draws the detour by hand. The county has rebuilt the map.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Buy the $6 map as evidence",
+          "effects": {
+            "cash_cents": -600,
+            "credibility": 1,
+            "log": "You keep it beside the closure notice. Six dollars for the county’s collectible alternate reality."
+          }
+        },
+        {
+          "label": "Compare notices with the clerk",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You untangle the notices and save the route. The clerk christens your headache “Progress.” It continues hurting."
+          }
+        },
+        {
+          "label": "Leave and follow the posted detour",
+          "effects": {
+            "morale": -1,
+            "log": "You take the detour. The ribbon-cutting photo remains the shortest route across the river."
+          }
+        }
+      ],
+      "satire_hook": "names",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S23-A",
+    "category": "Road encounters",
+    "title": "Strategic Straw Inspection",
+    "mode": "Shared",
+    "use": "evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_straw_inspection",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: straws. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S23",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_straw_inspection",
+      "name": "Strategic Straw Inspection",
+      "desc": "A stand owner filming 'straw inspections' waves you into his video. His cashier says Trump's order covers federal purchasing. He requests fewer facts. She's still waiting for her break.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Give cashier one snack; decline video",
+          "effects": {
+            "supplies": -1,
+            "credibility": 1,
+            "log": "She eats your snack on camera. 'I'd like my break now.' His freedom documentary has accidentally acquired a labor demand."
+          }
+        },
+        {
+          "label": "Read and save the actual order",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You save the order and correct him on camera. He asks whether facts come in plastic.",
+            "add_receipt": "sat_straw_inspection"
+          }
+        },
+        {
+          "label": "Decline; wait in the van",
+          "effects": {
+            "morale": -1,
+            "log": "He films another take. Your cup has received more scrutiny than a defense contract."
+          }
+        }
+      ],
+      "satire_hook": "straws",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S23-B",
+    "category": "Road encounters",
+    "title": "Strategic Straw Inspection",
+    "mode": "Shared",
+    "use": "evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_straw_inspection",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: straws. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S23",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_straw_inspection",
+      "name": "Strategic Straw Inspection",
+      "desc": "A stand owner filming 'straw inspections' waves you into his video. His cashier says Trump's order covers federal purchasing. He requests fewer facts. She's still waiting for her break.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Give cashier one snack; decline video",
+          "effects": {
+            "supplies": -1,
+            "credibility": 1,
+            "log": "She eats your snack on camera. 'I'd like my break now.' His freedom documentary has accidentally acquired a labor demand."
+          }
+        },
+        {
+          "label": "Read and save the actual order",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You save the order and correct him on camera. He asks whether facts come in plastic.",
+            "add_receipt": "sat_straw_inspection"
+          }
+        },
+        {
+          "label": "Decline; wait in the van",
+          "effects": {
+            "morale": -1,
+            "log": "He films another take. Your cup has received more scrutiny than a defense contract."
+          }
+        }
+      ],
+      "satire_hook": "straws",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S23-C",
+    "category": "Road encounters",
+    "title": "Strategic Straw Inspection",
+    "mode": "Shared",
+    "use": "evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_straw_inspection",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: straws. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S23",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_straw_inspection",
+      "name": "Strategic Straw Inspection",
+      "desc": "A stand owner filming 'straw inspections' waves you into his video. His cashier says Trump's order covers federal purchasing. He requests fewer facts. She's still waiting for her break.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Give cashier one snack; decline video",
+          "effects": {
+            "supplies": -1,
+            "credibility": 1,
+            "log": "She eats your snack on camera. 'I'd like my break now.' His freedom documentary has accidentally acquired a labor demand."
+          }
+        },
+        {
+          "label": "Read and save the actual order",
+          "effects": {
+            "sanity": -1,
+            "credibility": 2,
+            "log": "You save the order and correct him on camera. He asks whether facts come in plastic.",
+            "add_receipt": "sat_straw_inspection"
+          }
+        },
+        {
+          "label": "Decline; wait in the van",
+          "effects": {
+            "morale": -1,
+            "log": "He films another take. Your cup has received more scrutiny than a defense contract."
+          }
+        }
+      ],
+      "satire_hook": "straws",
+      "scene": "enc-checkpoint"
+    }
+  },
+  {
+    "id": "ENC-S24-A",
+    "category": "Road encounters",
+    "title": "The National Shower Demonstration",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_shower_force",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S24",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_shower_force",
+      "name": "The National Shower Demonstration",
+      "desc": "The Trump showerhead demonstration is flooding the sandwich stand. The manager offers twelve bucks to mop. Five buys a shower that hasn't annexed lunch.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Mop up for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "You mop until your back aches and collect twelve dollars. The manager announces that the system is 'self-draining.'"
+          }
+        },
+        {
+          "label": "Buy a $5 wash token",
+          "effects": {
+            "cash_cents": -500,
+            "sanity": 2,
+            "log": "You get clean for five dollars. The water stays in the shower. The manager calls this 'nothing special.'"
+          }
+        },
+        {
+          "label": "Skip both; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "The manager promises another demonstration. The cleaner begins moving sandwiches to higher ground."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S24-B",
+    "category": "Road encounters",
+    "title": "The National Shower Demonstration",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_shower_force",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S24",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_shower_force",
+      "name": "The National Shower Demonstration",
+      "desc": "The Trump showerhead demonstration is flooding the sandwich stand. The manager offers twelve bucks to mop. Five buys a shower that hasn't annexed lunch.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Mop up for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "You mop until your back aches and collect twelve dollars. The manager announces that the system is 'self-draining.'"
+          }
+        },
+        {
+          "label": "Buy a $5 wash token",
+          "effects": {
+            "cash_cents": -500,
+            "sanity": 2,
+            "log": "You get clean for five dollars. The water stays in the shower. The manager calls this 'nothing special.'"
+          }
+        },
+        {
+          "label": "Skip both; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "The manager promises another demonstration. The cleaner begins moving sandwiches to higher ground."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S24-C",
+    "category": "Road encounters",
+    "title": "The National Shower Demonstration",
+    "mode": "Shared",
+    "use": "cash/work, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_shower_force",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S24",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_shower_force",
+      "name": "The National Shower Demonstration",
+      "desc": "The Trump showerhead demonstration is flooding the sandwich stand. The manager offers twelve bucks to mop. Five buys a shower that hasn't annexed lunch.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Mop up for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "You mop until your back aches and collect twelve dollars. The manager announces that the system is 'self-draining.'"
+          }
+        },
+        {
+          "label": "Buy a $5 wash token",
+          "effects": {
+            "cash_cents": -500,
+            "sanity": 2,
+            "log": "You get clean for five dollars. The water stays in the shower. The manager calls this 'nothing special.'"
+          }
+        },
+        {
+          "label": "Skip both; keep driving",
+          "effects": {
+            "morale": -1,
+            "log": "The manager promises another demonstration. The cleaner begins moving sandwiches to higher ground."
+          }
+        }
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service"
+    }
+  },
+  {
+    "id": "ENC-S25-A",
+    "category": "Road encounters",
+    "title": "The Museum of Very Large Savings",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_receipt_museum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S25",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_receipt_museum",
+      "name": "The Museum of Very Large Savings",
+      "desc": "A DOGE exhibit offers $13 to check labels against sources. Beside the billion-to-million correction sits a quarter labeled “One Trillion, Pending Review.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and record labels for $13",
+          "effects": {
+            "cash_cents": 1300,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Notes saved, head aching, $13 collected. Counting it twice fails to produce $26. You’re clearly unqualified for DOGE.",
+            "add_receipt": "sat_receipt_museum"
+          }
+        },
+        {
+          "label": "Improvise a tour from memory",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs until you repeat the wrong figure. The curator adds you to the correction."
+          }
+        },
+        {
+          "label": "Skip the exhibit",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the quarter's promotion ceremony. Your own net worth remains offensively well documented."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S25-B",
+    "category": "Road encounters",
+    "title": "The Museum of Very Large Savings",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_receipt_museum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S25",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_receipt_museum",
+      "name": "The Museum of Very Large Savings",
+      "desc": "A DOGE exhibit offers $13 to check labels against sources. Beside the billion-to-million correction sits a quarter labeled “One Trillion, Pending Review.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and record labels for $13",
+          "effects": {
+            "cash_cents": 1300,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Notes saved, head aching, $13 collected. Counting it twice fails to produce $26. You’re clearly unqualified for DOGE.",
+            "add_receipt": "sat_receipt_museum"
+          }
+        },
+        {
+          "label": "Improvise a tour from memory",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs until you repeat the wrong figure. The curator adds you to the correction."
+          }
+        },
+        {
+          "label": "Skip the exhibit",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the quarter's promotion ceremony. Your own net worth remains offensively well documented."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S25-C",
+    "category": "Road encounters",
+    "title": "The Museum of Very Large Savings",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_receipt_museum",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: receipts. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S25",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_receipt_museum",
+      "name": "The Museum of Very Large Savings",
+      "desc": "A DOGE exhibit offers $13 to check labels against sources. Beside the billion-to-million correction sits a quarter labeled “One Trillion, Pending Review.”",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check and record labels for $13",
+          "effects": {
+            "cash_cents": 1300,
+            "sanity": -2,
+            "credibility": 2,
+            "log": "Notes saved, head aching, $13 collected. Counting it twice fails to produce $26. You’re clearly unqualified for DOGE.",
+            "add_receipt": "sat_receipt_museum"
+          }
+        },
+        {
+          "label": "Improvise a tour from memory",
+          "effects": {
+            "morale": 2,
+            "credibility": -2,
+            "log": "The crew laughs until you repeat the wrong figure. The curator adds you to the correction."
+          }
+        },
+        {
+          "label": "Skip the exhibit",
+          "effects": {
+            "morale": -1,
+            "log": "You leave the quarter's promotion ceremony. Your own net worth remains offensively well documented."
+          }
+        }
+      ],
+      "satire_hook": "receipts",
+      "scene": "enc-civic"
+    }
+  },
+  {
+    "id": "ENC-S26-A",
+    "category": "Road encounters",
+    "title": "The Ribbon-Cutting Holding Pattern",
+    "mode": "Shared",
+    "use": "cash/work, credibility, contacts",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_transit_ribbon",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: transit. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S26",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_transit_ribbon",
+      "name": "The Ribbon-Cutting Holding Pattern",
+      "desc": "At a display about Chicago’s paused transit funds, organizers offer $9 to tally surveys. A cleaner eyes the ceremonial ribbon. ‘Try cutting my commute.’",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Volunteers add your number beside the survey hotline. Your contribution is listed under 'edible infrastructure.'"
+          }
+        },
+        {
+          "label": "Tally rider surveys for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars and a headache. One nurse lists 'my manager's imagination' under alternative transportation."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "You drive away. The ribbon remains a zero-emissions vehicle with an exceptionally limited range."
+          }
+        }
+      ],
+      "satire_hook": "transit",
+      "scene": "enc-street"
+    }
+  },
+  {
+    "id": "ENC-S26-B",
+    "category": "Road encounters",
+    "title": "The Ribbon-Cutting Holding Pattern",
+    "mode": "Shared",
+    "use": "cash/work, credibility, contacts",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_transit_ribbon",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: transit. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S26",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_transit_ribbon",
+      "name": "The Ribbon-Cutting Holding Pattern",
+      "desc": "At a display about Chicago’s paused transit funds, organizers offer $9 to tally surveys. A cleaner eyes the ceremonial ribbon. ‘Try cutting my commute.’",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Volunteers add your number beside the survey hotline. Your contribution is listed under 'edible infrastructure.'"
+          }
+        },
+        {
+          "label": "Tally rider surveys for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars and a headache. One nurse lists 'my manager's imagination' under alternative transportation."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "You drive away. The ribbon remains a zero-emissions vehicle with an exceptionally limited range."
+          }
+        }
+      ],
+      "satire_hook": "transit",
+      "scene": "enc-street"
+    }
+  },
+  {
+    "id": "ENC-S26-C",
+    "category": "Road encounters",
+    "title": "The Ribbon-Cutting Holding Pattern",
+    "mode": "Shared",
+    "use": "cash/work, credibility, contacts",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_transit_ribbon",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: transit. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S26",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_transit_ribbon",
+      "name": "The Ribbon-Cutting Holding Pattern",
+      "desc": "At a display about Chicago’s paused transit funds, organizers offer $9 to tally surveys. A cleaner eyes the ceremonial ribbon. ‘Try cutting my commute.’",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Donate one snack bundle",
+          "effects": {
+            "supplies": -1,
+            "allies": 1,
+            "log": "Volunteers add your number beside the survey hotline. Your contribution is listed under 'edible infrastructure.'"
+          }
+        },
+        {
+          "label": "Tally rider surveys for $9",
+          "effects": {
+            "cash_cents": 900,
+            "sanity": -1,
+            "credibility": 1,
+            "log": "Nine dollars and a headache. One nurse lists 'my manager's imagination' under alternative transportation."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "You drive away. The ribbon remains a zero-emissions vehicle with an exceptionally limited range."
+          }
+        }
+      ],
+      "satire_hook": "transit",
+      "scene": "enc-street"
+    }
+  },
+  {
+    "id": "ENC-S27-A",
+    "category": "Road encounters",
+    "title": "Six Dollars for Better Weather",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_weather_desk",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S27",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_weather_desk",
+      "name": "Six Dollars for Better Weather",
+      "desc": "A vendor offers six dollars to replace a rain warning with ‘Clear skies ahead.’ He cites Trump’s hurricane map. No forecasting experience required. Eyesight discouraged.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the sign and official forecast",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You document the mismatch until your eyes ache. The vendor asks whether facts require a permit.",
+            "add_receipt": "sat_weather_desk"
+          }
+        },
+        {
+          "label": "Hang the false sign for $6",
+          "effects": {
+            "cash_cents": 600,
+            "credibility": -2,
+            "log": "You pocket six dollars. A worker checks their forecast app. Your meteorology career ends at orientation."
+          }
+        },
+        {
+          "label": "Turn down the job",
+          "effects": {
+            "morale": -1,
+            "log": "You keep your integrity. The gas pump regrets it does not participate in that rewards program."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S27-B",
+    "category": "Road encounters",
+    "title": "Six Dollars for Better Weather",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_weather_desk",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S27",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_weather_desk",
+      "name": "Six Dollars for Better Weather",
+      "desc": "A vendor offers six dollars to replace a rain warning with ‘Clear skies ahead.’ He cites Trump’s hurricane map. No forecasting experience required. Eyesight discouraged.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the sign and official forecast",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You document the mismatch until your eyes ache. The vendor asks whether facts require a permit.",
+            "add_receipt": "sat_weather_desk"
+          }
+        },
+        {
+          "label": "Hang the false sign for $6",
+          "effects": {
+            "cash_cents": 600,
+            "credibility": -2,
+            "log": "You pocket six dollars. A worker checks their forecast app. Your meteorology career ends at orientation."
+          }
+        },
+        {
+          "label": "Turn down the job",
+          "effects": {
+            "morale": -1,
+            "log": "You keep your integrity. The gas pump regrets it does not participate in that rewards program."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S27-C",
+    "category": "Road encounters",
+    "title": "Six Dollars for Better Weather",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_weather_desk",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: weather. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S27",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_weather_desk",
+      "name": "Six Dollars for Better Weather",
+      "desc": "A vendor offers six dollars to replace a rain warning with ‘Clear skies ahead.’ He cites Trump’s hurricane map. No forecasting experience required. Eyesight discouraged.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Save the sign and official forecast",
+          "effects": {
+            "sanity": -1,
+            "credibility": 3,
+            "log": "You document the mismatch until your eyes ache. The vendor asks whether facts require a permit.",
+            "add_receipt": "sat_weather_desk"
+          }
+        },
+        {
+          "label": "Hang the false sign for $6",
+          "effects": {
+            "cash_cents": 600,
+            "credibility": -2,
+            "log": "You pocket six dollars. A worker checks their forecast app. Your meteorology career ends at orientation."
+          }
+        },
+        {
+          "label": "Turn down the job",
+          "effects": {
+            "morale": -1,
+            "log": "You keep your integrity. The gas pump regrets it does not participate in that rewards program."
+          }
+        }
+      ],
+      "satire_hook": "weather",
+      "scene": "enc-media-workshop"
+    }
+  },
+  {
+    "id": "ENC-S28-A",
+    "category": "Road encounters",
+    "title": "This Reference Needs a Pulse",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_bibliography_emergency",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S28",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bibliography_emergency",
+      "name": "This Reference Needs a Pulse",
+      "desc": "The clinic offers $12 to check corrected MAHA references and treatment from your kit. “Washington makes a typo, I lose lunch,” says the receptionist.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check references for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -2,
+            "log": "Twelve dollars and a saved correction list. Your brain now displays ‘This page is not responding.’",
+            "add_receipt": "sat_bibliography_emergency"
+          }
+        },
+        {
+          "label": "Accept care using your kit — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 2,
+            "log": "The nurse uses your kit and you recover. She opens the bandages without making you choose a subscription tier."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The van’s second opinion is ‘probably fine.’ Opinions three through six have nothing to add."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-clinic"
+    }
+  },
+  {
+    "id": "ENC-S28-B",
+    "category": "Road encounters",
+    "title": "This Reference Needs a Pulse",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_bibliography_emergency",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S28",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bibliography_emergency",
+      "name": "This Reference Needs a Pulse",
+      "desc": "The clinic offers $12 to check corrected MAHA references and treatment from your kit. “Washington makes a typo, I lose lunch,” says the receptionist.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check references for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -2,
+            "log": "Twelve dollars and a saved correction list. Your brain now displays ‘This page is not responding.’",
+            "add_receipt": "sat_bibliography_emergency"
+          }
+        },
+        {
+          "label": "Accept care using your kit — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 2,
+            "log": "The nurse uses your kit and you recover. She opens the bandages without making you choose a subscription tier."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The van’s second opinion is ‘probably fine.’ Opinions three through six have nothing to add."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-clinic"
+    }
+  },
+  {
+    "id": "ENC-S28-C",
+    "category": "Road encounters",
+    "title": "This Reference Needs a Pulse",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery",
+    "regions": [
+      "Beltway"
+    ],
+    "town": null,
+    "runtime_key": "sat_bibliography_emergency",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: maha. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S28",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "sat_bibliography_emergency",
+      "name": "This Reference Needs a Pulse",
+      "desc": "The clinic offers $12 to check corrected MAHA references and treatment from your kit. “Washington makes a typo, I lose lunch,” says the receptionist.",
+      "weight": 6,
+      "regions": [
+        "Beltway"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "choices": [
+        {
+          "label": "Check references for $12",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -2,
+            "log": "Twelve dollars and a saved correction list. Your brain now displays ‘This page is not responding.’",
+            "add_receipt": "sat_bibliography_emergency"
+          }
+        },
+        {
+          "label": "Accept care using your kit — 1 supply",
+          "effects": {
+            "supplies": -1,
+            "hp": 2,
+            "log": "The nurse uses your kit and you recover. She opens the bandages without making you choose a subscription tier."
+          }
+        },
+        {
+          "label": "Head back to the van",
+          "effects": {
+            "morale": -1,
+            "log": "The van’s second opinion is ‘probably fine.’ Opinions three through six have nothing to add."
+          }
+        }
+      ],
+      "satire_hook": "maha",
+      "scene": "enc-clinic"
+    }
+  },
+  {
+    "id": "ENC-S29-A",
+    "category": "Road encounters",
+    "title": "Patriotic Thesaurus",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_grant_translation",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_grants. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S29",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_grant_translation",
+      "name": "Patriotic Thesaurus",
+      "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_grants",
+      "scene": "enc-media-workshop",
+      "choices": [
+        {
+          "label": "Take the translation shift",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -1,
+            "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+          }
+        },
+        {
+          "label": "Publish both versions",
+          "effects": {
+            "credibility": 2,
+            "sanity": -1,
+            "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+            "add_receipt": "west_grant_translation"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S29-B",
+    "category": "Road encounters",
+    "title": "Patriotic Thesaurus",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_grant_translation",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_grants. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S29",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_grant_translation",
+      "name": "Patriotic Thesaurus",
+      "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_grants",
+      "scene": "enc-media-workshop",
+      "choices": [
+        {
+          "label": "Take the translation shift",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -1,
+            "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+          }
+        },
+        {
+          "label": "Publish both versions",
+          "effects": {
+            "credibility": 2,
+            "sanity": -1,
+            "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+            "add_receipt": "west_grant_translation"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S29-C",
+    "category": "Road encounters",
+    "title": "Patriotic Thesaurus",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_grant_translation",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_grants. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S29",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_grant_translation",
+      "name": "Patriotic Thesaurus",
+      "desc": "A coastal grant writer offers paid work translating the same public project into language that will survive Trump’s grant review. The sidewalk is now a freedom corridor. The shade tree is awaiting clearance.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_grants",
+      "scene": "enc-media-workshop",
+      "choices": [
+        {
+          "label": "Take the translation shift",
+          "effects": {
+            "cash_cents": 1200,
+            "sanity": -1,
+            "log": "You earn twelve dollars. The project is unchanged; its adjectives have passed inspection."
+          }
+        },
+        {
+          "label": "Publish both versions",
+          "effects": {
+            "credibility": 2,
+            "sanity": -1,
+            "log": "You preserve the original and the patriotic translation. The receipts need no translation.",
+            "add_receipt": "west_grant_translation"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S30-A",
+    "category": "Road encounters",
+    "title": "High-Speed Replacement Van",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_rail_replacement",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_rail. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S30",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_rail_replacement",
+      "name": "High-Speed Replacement Van",
+      "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_rail",
+      "scene": "enc-street",
+      "choices": [
+        {
+          "label": "Deliver their event supplies",
+          "effects": {
+            "cash_cents": 1500,
+            "supplies": -1,
+            "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+          }
+        },
+        {
+          "label": "Document the missing rail money",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+            "add_receipt": "west_rail_replacement"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S30-B",
+    "category": "Road encounters",
+    "title": "High-Speed Replacement Van",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_rail_replacement",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_rail. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S30",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_rail_replacement",
+      "name": "High-Speed Replacement Van",
+      "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_rail",
+      "scene": "enc-street",
+      "choices": [
+        {
+          "label": "Deliver their event supplies",
+          "effects": {
+            "cash_cents": 1500,
+            "supplies": -1,
+            "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+          }
+        },
+        {
+          "label": "Document the missing rail money",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+            "add_receipt": "west_rail_replacement"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S30-C",
+    "category": "Road encounters",
+    "title": "High-Speed Replacement Van",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": "west_rail_replacement",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_rail. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S30",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_rail_replacement",
+      "name": "High-Speed Replacement Van",
+      "desc": "After another Trump rail-funding fight, a contractor proposes replacing high-speed rail with vans and motivational language. Their ribbon-cutting team has transportation needs of its own.",
+      "weight": 7,
+      "regions": [
+        "PacificCoast"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_rail",
+      "scene": "enc-street",
+      "choices": [
+        {
+          "label": "Deliver their event supplies",
+          "effects": {
+            "cash_cents": 1500,
+            "supplies": -1,
+            "log": "You collect fifteen dollars. Your van is now the most operational part of the announcement."
+          }
+        },
+        {
+          "label": "Document the missing rail money",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "A commuter joins your contacts. The brochure’s dotted line is still not a railway.",
+            "add_receipt": "west_rail_replacement"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S31-A",
+    "category": "Road encounters",
+    "title": "A Building Is Overhead",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_laboratory_overhead",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_labs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S31",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_laboratory_overhead",
+      "name": "A Building Is Overhead",
+      "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_labs",
+      "scene": "enc-clinic",
+      "choices": [
+        {
+          "label": "Take a paid equipment-inventory shift",
+          "effects": {
+            "cash_cents": 1400,
+            "sanity": -1,
+            "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+            "add_receipt": "west_laboratory_overhead"
+          }
+        },
+        {
+          "label": "Share a supply pack",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "allies": 1,
+            "log": "The research crew returns the favor with basic care and a new contact."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S31-B",
+    "category": "Road encounters",
+    "title": "A Building Is Overhead",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_laboratory_overhead",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_labs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S31",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_laboratory_overhead",
+      "name": "A Building Is Overhead",
+      "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_labs",
+      "scene": "enc-clinic",
+      "choices": [
+        {
+          "label": "Take a paid equipment-inventory shift",
+          "effects": {
+            "cash_cents": 1400,
+            "sanity": -1,
+            "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+            "add_receipt": "west_laboratory_overhead"
+          }
+        },
+        {
+          "label": "Share a supply pack",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "allies": 1,
+            "log": "The research crew returns the favor with basic care and a new contact."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S31-C",
+    "category": "Road encounters",
+    "title": "A Building Is Overhead",
+    "mode": "Shared",
+    "use": "cash/work, evidence, recovery, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_laboratory_overhead",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_labs. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S31",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_laboratory_overhead",
+      "name": "A Building Is Overhead",
+      "desc": "A mountain-region laboratory is preparing for Trump’s proposed NIH overhead cap. The budget funds the experiment but objects to walls, power and refrigeration. A researcher offers you a practical choice.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_labs",
+      "scene": "enc-clinic",
+      "choices": [
+        {
+          "label": "Take a paid equipment-inventory shift",
+          "effects": {
+            "cash_cents": 1400,
+            "sanity": -1,
+            "log": "Fourteen dollars earned. You confirm the freezer is an essential scientific instrument, not a lifestyle choice.",
+            "add_receipt": "west_laboratory_overhead"
+          }
+        },
+        {
+          "label": "Share a supply pack",
+          "effects": {
+            "supplies": -1,
+            "hp": 1,
+            "allies": 1,
+            "log": "The research crew returns the favor with basic care and a new contact."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S32-A",
+    "category": "Road encounters",
+    "title": "Wind Loyalty Hearing",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_wind_loyalty",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_wind. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S32",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_wind_loyalty",
+      "name": "Wind Loyalty Hearing",
+      "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_wind",
+      "scene": "enc-community",
+      "choices": [
+        {
+          "label": "Help inventory spare parts",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+          }
+        },
+        {
+          "label": "Record the technician’s testimony",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "You gain a contact and an explanation involving actual electricity.",
+            "add_receipt": "west_wind_loyalty"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S32-B",
+    "category": "Road encounters",
+    "title": "Wind Loyalty Hearing",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_wind_loyalty",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_wind. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S32",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_wind_loyalty",
+      "name": "Wind Loyalty Hearing",
+      "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_wind",
+      "scene": "enc-community",
+      "choices": [
+        {
+          "label": "Help inventory spare parts",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+          }
+        },
+        {
+          "label": "Record the technician’s testimony",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "You gain a contact and an explanation involving actual electricity.",
+            "add_receipt": "west_wind_loyalty"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S32-C",
+    "category": "Road encounters",
+    "title": "Wind Loyalty Hearing",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": "west_wind_loyalty",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_wind. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S32",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_wind_loyalty",
+      "name": "Wind Loyalty Hearing",
+      "desc": "Following Trump’s order against wind and solar subsidies, a roadside energy fair is judging whether the breeze is sufficiently patriotic. A technician needs help that will actually keep equipment working.",
+      "weight": 7,
+      "regions": [
+        "MountainWest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_wind",
+      "scene": "enc-community",
+      "choices": [
+        {
+          "label": "Help inventory spare parts",
+          "effects": {
+            "cash_cents": 1000,
+            "sanity": -1,
+            "log": "Ten dollars earned. The wind keeps generating power without completing its loyalty questionnaire."
+          }
+        },
+        {
+          "label": "Record the technician’s testimony",
+          "effects": {
+            "credibility": 2,
+            "allies": 1,
+            "sanity": -1,
+            "log": "You gain a contact and an explanation involving actual electricity.",
+            "add_receipt": "west_wind_loyalty"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S33-A",
+    "category": "Road encounters",
+    "title": "Desert Shower Freedom",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_desert_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S33",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_desert_pressure",
+      "name": "Desert Shower Freedom",
+      "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service",
+      "choices": [
+        {
+          "label": "Help shut off the demonstration",
+          "effects": {
+            "supplies": 2,
+            "sanity": 1,
+            "log": "You leave with water and a working understanding of the off switch."
+          }
+        },
+        {
+          "label": "Take the paid plumbing shift",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S33-B",
+    "category": "Road encounters",
+    "title": "Desert Shower Freedom",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_desert_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S33",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_desert_pressure",
+      "name": "Desert Shower Freedom",
+      "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service",
+      "choices": [
+        {
+          "label": "Help shut off the demonstration",
+          "effects": {
+            "supplies": 2,
+            "sanity": 1,
+            "log": "You leave with water and a working understanding of the off switch."
+          }
+        },
+        {
+          "label": "Take the paid plumbing shift",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S33-C",
+    "category": "Road encounters",
+    "title": "Desert Shower Freedom",
+    "mode": "Shared",
+    "use": "cash/work, supplies/aid, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_desert_pressure",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: shower. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S33",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_desert_pressure",
+      "name": "Desert Shower Freedom",
+      "desc": "A desert service stop celebrates Trump’s shower-pressure order with a demonstration nobody budgeted water for. The plumber offers to end the ceremony before the tank runs dry.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "shower",
+      "scene": "enc-service",
+      "choices": [
+        {
+          "label": "Help shut off the demonstration",
+          "effects": {
+            "supplies": 2,
+            "sanity": 1,
+            "log": "You leave with water and a working understanding of the off switch."
+          }
+        },
+        {
+          "label": "Take the paid plumbing shift",
+          "effects": {
+            "cash_cents": 1200,
+            "hp": -1,
+            "log": "Twelve dollars earned. Working under the sink is less comfortable than announcing freedom above it."
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S34-A",
+    "category": "Road encounters",
+    "title": "America First, Argentina Next",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_beef_passports",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_beef. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S34",
+    "variant": "A",
+    "status": "Review existing scene and all outcomes",
+    "accepted": false,
+    "runtime": {
+      "id": "west_beef_passports",
+      "name": "America First, Argentina Next",
+      "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_beef",
+      "scene": "enc-convoy",
+      "choices": [
+        {
+          "label": "Take the paid manifest shift",
+          "effects": {
+            "cash_cents": 1600,
+            "sanity": -1,
+            "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+          }
+        },
+        {
+          "label": "Compare the speeches with the receipts",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+            "add_receipt": "west_beef_passports"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S34-B",
+    "category": "Road encounters",
+    "title": "America First, Argentina Next",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_beef_passports",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_beef. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S34",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_beef_passports",
+      "name": "America First, Argentina Next",
+      "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_beef",
+      "scene": "enc-convoy",
+      "choices": [
+        {
+          "label": "Take the paid manifest shift",
+          "effects": {
+            "cash_cents": 1600,
+            "sanity": -1,
+            "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+          }
+        },
+        {
+          "label": "Compare the speeches with the receipts",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+            "add_receipt": "west_beef_passports"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-S34-C",
+    "category": "Road encounters",
+    "title": "America First, Argentina Next",
+    "mode": "Shared",
+    "use": "cash/work, evidence, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": "west_beef_passports",
+    "source_path": "dystrail-web/static/assets/data/game.json",
+    "group": "primary satire",
+    "notes": "Preserve 3 ordered mechanical choices; source hook: west_beef. B/C need distinct situations, not synonyms.",
+    "family_id": "ENC-S34",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": {
+      "id": "west_beef_passports",
+      "name": "America First, Argentina Next",
+      "desc": "Trump’s idea to import more Argentine beef has reached a cattle-country loading yard. The ranchers are comparing the America First speeches with the import paperwork. The manifest needs a second pair of eyes.",
+      "weight": 7,
+      "regions": [
+        "Southwest"
+      ],
+      "modes": [
+        "classic",
+        "deep",
+        "deep_end"
+      ],
+      "satire_hook": "west_beef",
+      "scene": "enc-convoy",
+      "choices": [
+        {
+          "label": "Take the paid manifest shift",
+          "effects": {
+            "cash_cents": 1600,
+            "sanity": -1,
+            "log": "Sixteen dollars earned. The cattle’s country of origin is clearer than the policy’s."
+          }
+        },
+        {
+          "label": "Compare the speeches with the receipts",
+          "effects": {
+            "credibility": 3,
+            "sanity": -1,
+            "log": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
+            "add_receipt": "west_beef_passports"
+          }
+        },
+        {
+          "label": "Keep moving",
+          "effects": {
+            "log": "The crew leaves the offer behind."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "ENC-W-PC-C01-A",
+    "category": "Road encounters",
+    "title": "Freight prices and household purchasing",
+    "mode": "Classic",
+    "use": "money/work, price claims",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-C01-B",
+    "category": "Road encounters",
+    "title": "Freight prices and household purchasing",
+    "mode": "Classic",
+    "use": "money/work, price claims",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-C01-C",
+    "category": "Road encounters",
+    "title": "Freight prices and household purchasing",
+    "mode": "Classic",
+    "use": "money/work, price claims",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-C02-A",
+    "category": "Road encounters",
+    "title": "Community access to services and infrastructure",
+    "mode": "Classic",
+    "use": "aid, access, movement",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-C02-B",
+    "category": "Road encounters",
+    "title": "Community access to services and infrastructure",
+    "mode": "Classic",
+    "use": "aid, access, movement",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-C02-C",
+    "category": "Road encounters",
+    "title": "Community access to services and infrastructure",
+    "mode": "Classic",
+    "use": "aid, access, movement",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-C02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D01-A",
+    "category": "Road encounters",
+    "title": "Contested grants and documentary evidence",
+    "mode": "Deep End",
+    "use": "evidence, administrative pressure",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D01-B",
+    "category": "Road encounters",
+    "title": "Contested grants and documentary evidence",
+    "mode": "Deep End",
+    "use": "evidence, administrative pressure",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D01-C",
+    "category": "Road encounters",
+    "title": "Contested grants and documentary evidence",
+    "mode": "Deep End",
+    "use": "evidence, administrative pressure",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D02-A",
+    "category": "Road encounters",
+    "title": "Information control and public records",
+    "mode": "Deep End",
+    "use": "access, information, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D02-B",
+    "category": "Road encounters",
+    "title": "Information control and public records",
+    "mode": "Deep End",
+    "use": "access, information, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-PC-D02-C",
+    "category": "Road encounters",
+    "title": "Information control and public records",
+    "mode": "Deep End",
+    "use": "access, information, credibility",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-PC-D02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C01-A",
+    "category": "Road encounters",
+    "title": "Essential services over long distances",
+    "mode": "Classic",
+    "use": "supplies, recovery, access",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C01-B",
+    "category": "Road encounters",
+    "title": "Essential services over long distances",
+    "mode": "Classic",
+    "use": "supplies, recovery, access",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C01-C",
+    "category": "Road encounters",
+    "title": "Essential services over long distances",
+    "mode": "Classic",
+    "use": "supplies, recovery, access",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C02-A",
+    "category": "Road encounters",
+    "title": "Energy work and local mutual aid",
+    "mode": "Classic",
+    "use": "work, aid, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C02-B",
+    "category": "Road encounters",
+    "title": "Energy work and local mutual aid",
+    "mode": "Classic",
+    "use": "work, aid, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-C02-C",
+    "category": "Road encounters",
+    "title": "Energy work and local mutual aid",
+    "mode": "Classic",
+    "use": "work, aid, contacts",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-C02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D01-A",
+    "category": "Road encounters",
+    "title": "Research funding and institutional costs",
+    "mode": "Deep End",
+    "use": "evidence, costs, institutional pressure",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D01-B",
+    "category": "Road encounters",
+    "title": "Research funding and institutional costs",
+    "mode": "Deep End",
+    "use": "evidence, costs, institutional pressure",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D01-C",
+    "category": "Road encounters",
+    "title": "Research funding and institutional costs",
+    "mode": "Deep End",
+    "use": "evidence, costs, institutional pressure",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D02-A",
+    "category": "Road encounters",
+    "title": "Land, energy, and permitting claims",
+    "mode": "Deep End",
+    "use": "access, paperwork, movement",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D02-B",
+    "category": "Road encounters",
+    "title": "Land, energy, and permitting claims",
+    "mode": "Deep End",
+    "use": "access, paperwork, movement",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-MW-D02-C",
+    "category": "Road encounters",
+    "title": "Land, energy, and permitting claims",
+    "mode": "Deep End",
+    "use": "access, paperwork, movement",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-MW-D02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C01-A",
+    "category": "Road encounters",
+    "title": "Water access and everyday work",
+    "mode": "Classic",
+    "use": "supplies, work, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C01-B",
+    "category": "Road encounters",
+    "title": "Water access and everyday work",
+    "mode": "Classic",
+    "use": "supplies, work, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C01-C",
+    "category": "Road encounters",
+    "title": "Water access and everyday work",
+    "mode": "Classic",
+    "use": "supplies, work, recovery",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C02-A",
+    "category": "Road encounters",
+    "title": "Food distribution and transport costs",
+    "mode": "Classic",
+    "use": "aid, prices, movement",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C02-B",
+    "category": "Road encounters",
+    "title": "Food distribution and transport costs",
+    "mode": "Classic",
+    "use": "aid, prices, movement",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-C02-C",
+    "category": "Road encounters",
+    "title": "Food distribution and transport costs",
+    "mode": "Classic",
+    "use": "aid, prices, movement",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-C02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D01-A",
+    "category": "Road encounters",
+    "title": "Heat risk and official denial",
+    "mode": "Deep End",
+    "use": "information, health, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D01",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D01-B",
+    "category": "Road encounters",
+    "title": "Heat risk and official denial",
+    "mode": "Deep End",
+    "use": "information, health, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D01-C",
+    "category": "Road encounters",
+    "title": "Heat risk and official denial",
+    "mode": "Deep End",
+    "use": "information, health, credibility",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D02-A",
+    "category": "Road encounters",
+    "title": "Trade promises and local livelihoods",
+    "mode": "Deep End",
+    "use": "work, evidence, costs",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D02",
+    "variant": "A",
+    "status": "Research and write a new family",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D02-B",
+    "category": "Road encounters",
+    "title": "Trade promises and local livelihoods",
+    "mode": "Deep End",
+    "use": "work, evidence, costs",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  },
+  {
+    "id": "ENC-W-SW-D02-C",
+    "category": "Road encounters",
+    "title": "Trade promises and local livelihoods",
+    "mode": "Deep End",
+    "use": "work, evidence, costs",
+    "regions": [
+      "Southwest"
+    ],
+    "town": null,
+    "runtime_key": null,
+    "source_path": null,
+    "group": "primary satire",
+    "notes": "Proposed editorial brief; no verified premise or implemented runtime key. Reserve three choices per variant; mechanics need design review.",
+    "family_id": "ENC-W-SW-D02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false,
+    "runtime": null
+  }
+]

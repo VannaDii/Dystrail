@@ -1,0 +1,16 @@
+{
+  "file_restore": "pass",
+  "reload_on_road": "pass",
+  "travel_clicks_to_hearing": 1,
+  "travel_turns_to_hearing": 1,
+  "hearing_unattempted": true,
+  "hearing_result_committed": false,
+  "crew": "The Receipts",
+  "seed": 4242,
+  "sanity_before": 10,
+  "sanity_at_hearing": 10,
+  "clock_before": 602,
+  "clock_at_hearing": 603,
+  "arrival_phase": "Arrival",
+  "runtime_errors": []
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "key": "start",
+    "title": "Start here",
+    "tabId": "t.0",
+    "target": 1,
+    "count": 0,
+    "ready": true,
+    "path": "doc-sections/start.json"
+  },
+  {
+    "key": "classic",
+    "title": "Road — Classic",
+    "tabId": "t.5bhbm0veor3n",
+    "target": 72,
+    "count": 72,
+    "ready": true,
+    "path": "doc-sections/classic.json"
+  },
+  {
+    "key": "deep",
+    "title": "Road — Deep End",
+    "tabId": "t.hnz3abpdqe3b",
+    "target": 57,
+    "count": 57,
+    "ready": true,
+    "path": "doc-sections/deep.json"
+  },
+  {
+    "key": "shared",
+    "title": "Road — Shared",
+    "tabId": "t.w3pknsnu8gcm",
+    "target": 102,
+    "count": 102,
+    "ready": true,
+    "path": "doc-sections/shared.json"
+  },
+  {
+    "key": "towns",
+    "title": "Town conversations",
+    "tabId": "t.e4vbtrh2qo76",
+    "target": 132,
+    "count": 132,
+    "ready": true,
+    "path": "doc-sections/towns.json"
+  },
+  {
+    "key": "care",
+    "title": "Crew care",
+    "tabId": "t.7s63fsgx99si",
+    "target": 24,
+    "count": 24,
+    "ready": true,
+    "path": "doc-sections/care.json"
+  },
+  {
+    "key": "allies",
+    "title": "Outside allies",
+    "tabId": "t.p06q9hquynli",
+    "target": 18,
+    "count": 18,
+    "ready": true,
+    "path": "doc-sections/allies.json"
+  },
+  {
+    "key": "crossings",
+    "title": "Crossings",
+    "tabId": "t.rgut5mnhec5b",
+    "target": 12,
+    "count": 12,
+    "ready": true,
+    "path": "doc-sections/crossings.json"
+  },
+  {
+    "key": "orders",
+    "title": "Executive orders",
+    "tabId": "t.5duejvu7jz5u",
+    "target": 18,
+    "count": 18,
+    "ready": true,
+    "path": "doc-sections/orders.json"
+  },
+  {
+    "key": "repairs",
+    "title": "Breakdowns & repairs",
+    "tabId": "t.waa4jgl1n7ci",
+    "target": 12,
+    "count": 12,
+    "ready": true,
+    "path": "doc-sections/repairs.json"
+  },
+  {
+    "key": "routines",
+    "title": "Gather, work, barter, rest",
+    "tabId": "t.5rhi5ifc3kte",
+    "target": 24,
+    "count": 24,
+    "ready": true,
+    "path": "doc-sections/routines.json"
+  },
+  {
+    "key": "conditions",
+    "title": "Weather & health",
+    "tabId": "t.xrzbo5po3hds",
+    "target": 27,
+    "count": 27,
+    "ready": true,
+    "path": "doc-sections/conditions.json"
+  },
+  {
+    "key": "departures",
+    "title": "Departure introductions",
+    "tabId": "t.8tsogsxzjsvx",
+    "target": 18,
+    "count": 18,
+    "ready": true,
+    "path": "doc-sections/departures.json"
+  },
+  {
+    "key": "hearing",
+    "title": "The hearing",
+    "tabId": "t.cu1bimlz2nkw",
+    "target": 6,
+    "count": 6,
+    "ready": true,
+    "path": "doc-sections/hearing.json"
+  },
+  {
+    "key": "endings",
+    "title": "Endings",
+    "tabId": "t.5ky1szdljxfq",
+    "target": 45,
+    "count": 45,
+    "ready": true,
+    "path": "doc-sections/endings.json"
+  },
+  {
+    "key": "reference",
+    "title": "Facts & functional copy",
+    "tabId": "t.e7vjkvgg2xca",
+    "target": 77,
+    "count": 77,
+    "ready": true,
+    "path": "doc-sections/reference.json"
+  }
+]

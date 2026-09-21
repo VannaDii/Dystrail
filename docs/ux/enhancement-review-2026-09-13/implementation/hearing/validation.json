@@ -1,0 +1,113 @@
+{
+  "date": "2026-09-13",
+  "status": "complete for local release review; accepted campaign gate passes",
+  "source_head": "f1ed4fe15377e60ad6063b7262aa482aec0767ba",
+  "release_revision": "9f4c685e4e9207ccf7d7",
+  "preview": "http://127.0.0.1:62523/play/hearing-review.html",
+  "preview_scope": "Disposable local release build. Review bootstrap loads a test checkpoint and is excluded from production source and offline manifest.",
+  "native_tests": {
+    "passed": 378,
+    "failed": 0,
+    "all_features": true
+  },
+  "wasm_browser_tests": {
+    "passed": 2,
+    "failed": 0,
+    "chrome": "152.0.7977.84",
+    "driver": "152.0.7977.82"
+  },
+  "release_browser_tests": {
+    "passed": 26,
+    "failed": 0,
+    "projects": [
+      "desktop chromium",
+      "Pixel 7"
+    ],
+    "coverage": [
+      "arrival and rest",
+      "one/two/three rounds",
+      "all four endings",
+      "actual-round averaging",
+      "once-only sanity costs",
+      "double clicks",
+      "save/reload/skip",
+      "manual checkpoint and modal pause",
+      "fast-mode persistence",
+      "reduced motion",
+      "legacy saves",
+      "Italian, Spanish, Arabic and RTL",
+      "offline resume and new art",
+      "existing encounters, repairs, town services, result and terminal reload",
+      "policy preparation cost and forecast disclosure",
+      "exact final draw cutoff despite displayed percentage rounding"
+    ],
+    "rerun_record": {
+      "full_run": "checks/browser-release.log: 24 pass, two currency-format expectation failures",
+      "correction": "Test expected existing whole-dollar format $20 instead of $20.00; no product formatting change.",
+      "targeted_rerun": "checks/browser-policy.log: both affected desktop/phone cases pass",
+      "final_covered_cases": 26
+    }
+  },
+  "lint": {
+    "format": "pass",
+    "native_pedantic_clippy": "pass",
+    "wasm_pedantic_clippy": "pass",
+    "diff_whitespace": "pass"
+  },
+  "offline_assets": {
+    "verified": 122,
+    "bytes": 111779839,
+    "sha256_and_lengths": "all pass"
+  },
+  "supplied_game_skill_client": {
+    "unmodified_client": true,
+    "final_build_iterations": 2,
+    "final_build_captured_phases": [
+      "Preparation",
+      "Verdict (Secured)"
+    ],
+    "final_build_runtime_errors": 0,
+    "earlier_iterations": 2,
+    "earlier_build_captured_phases": [
+      "Closed",
+      "Verdict"
+    ],
+    "earlier_release_revision": "0ed9df91bf638019e320",
+    "bridge": "skill-client/*/playwright-adapter.mjs; test-only DOM state reporting",
+    "visual_inspection": "All current policy preparation, secured outcome and desktop/phone exact draw screenshots inspected; earlier phase/layout captures retained."
+  },
+  "campaign": {
+    "runs_per_version": 8000,
+    "per_mode_strategy": 1000,
+    "same_seed_baseline_comparison": true,
+    "classic_balanced": {
+      "old_win_percent": 20.7,
+      "new_win_percent": 19.7,
+      "required_minimum_percent": 19.0,
+      "old_and_new_reach_percent": 34.6,
+      "previous_minimum_percent": 20.0,
+      "unchanged_maximum_percent": 35.0
+    },
+    "deep_aggressive": {
+      "old_and_new_reach_percent": 99.2,
+      "old_and_new_win_percent": 99.2
+    },
+    "gate": "PASS: all 8,000 campaign runs satisfy accepted scenario gates; existing nonfatal warnings retained",
+    "tuning_applied": false,
+    "thresholds_relaxed": true,
+    "seed_salt_selected_to_pass": false,
+    "threshold_change_authorization": "User: Im willing to accept a range of 190-200 of 1000. Applied only to Classic/Balanced minimum (19%); existing upper and other scenario limits preserved.",
+    "command": "cargo run -p dystrail-tester -- --mode logic --scenarios real-game --iterations 1000 --report console",
+    "accepted_run_exit_code": 0,
+    "conditional_probability_audit": "audit/probability-audit.json"
+  },
+  "publication": "No deployment, commit or pull request was performed for this hearing change.",
+  "preview_verified": {
+    "arrival": "pass",
+    "preparation": "pass",
+    "test_crew": "The Receipts"
+  },
+  "completion_audit": "completion-audit.md",
+  "remaining_required_work": [],
+  "release_scope": "Ready for human release review. No remote CI, commit, PR or deployment is claimed."
+}

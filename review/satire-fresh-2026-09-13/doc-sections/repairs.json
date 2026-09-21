@@ -1,0 +1,760 @@
+{
+  "key": "repairs",
+  "title": "Breakdowns & repairs",
+  "target": 12,
+  "count": 12,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Breakdowns & repairs",
+      "role": "title"
+    },
+    {
+      "text": "12 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "REPAIR-ALTERNATOR-A · Generate Some Electricity",
+      "role": "heading"
+    },
+    {
+      "text": "The alternator fails. GSA’s promotional Grok deal gave agencies eighteen months for forty-two cents. A mechanic on the radio offers no such rate. “Ask it to generate electricity,” she says.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare. It supplies power without first agreeing that you are absolutely right.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The price includes a real object that turns.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement is delivered. You fit it; the answer now arrives through the battery cables.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used alternator and fit it. Electricity remains stubbornly attached to hardware.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the arranged work and fit the used alternator. The workshop accepts labor in place of a beautifully worded prompt.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers examine the failed alternator under the open hood; a dark phone and portable radio sit nearby. Show the actual stopped van, no replacement, payment or completed work.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)",
+      "role": "source",
+      "link": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-xai-partner-to-accelerate-federal-ai-adoption-09252025"
+    },
+    {
+      "text": "REPAIR-ALTERNATOR-B · Not a Very Large Phone",
+      "role": "heading"
+    },
+    {
+      "text": "The alternator fails while you read about Oregon’s electronics-repair law. Motor vehicles are excluded. The van has discovered the one category where it cannot pass as a very large phone.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare. The repair needs bolts, not an argument over what counts as a phone.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The van resumes making calls only when something rattles.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement arrives. You fit it yourself; the bonnet remains a poor touchscreen.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used alternator and fit it. The exchange runs without an app.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You complete the arranged work and fit a used alternator. The crew remains the van’s least downloadable component.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Travelers compare a small phone with the open hood and visible failed alternator of the stopped van; the comic scale contrast is clear, with no screen lettering and no spare assumed present.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Oregon Revised Statutes: Right to Repair Consumer Equipment (2025 codification)",
+      "role": "source",
+      "link": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html"
+    },
+    {
+      "text": "REPAIR-ALTERNATOR-C · Early Retirement",
+      "role": "heading"
+    },
+    {
+      "text": "The alternator quits. A mechanic mentions Illinois raising its adult minimum wage to $15 in 2025. You ask what the part earns. “Apparently enough to retire before either of us.”",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the onboard spare. Retirement is approved for the old part and postponed for everyone holding a wrench.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The new alternator immediately inherits the entire shift.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement is delivered. You fit it; the retired part declines to supervise.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used alternator and fit it. Its previous experience is the useful qualification.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the agreed work and fit the used part. Only the alternator gets to clock out permanently.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers look at a failed alternator through the open hood; one holds a portable radio receiving the mechanic's comment, while an unused wrench rests nearby. No shop location or Illinois wage entitlement is imposed on the crew.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Illinois Department of Labor: Minimum Wage FAQ (2025)",
+      "role": "source",
+      "link": "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html"
+    },
+    {
+      "text": "REPAIR-BATTERY-A · Five Accomplishments, Zero Volts",
+      "role": "heading"
+    },
+    {
+      "text": "The battery dies. Inspired by DOGE, a crewmate asks it to list five accomplishments. It has powered every departure. Management asks what it did today.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → The spare battery is fitted. Its first accomplishment is making the dashboard stop being a mirror.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. You approve electricity without hiring a billionaire to investigate it.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement is delivered and fitted. The driver has accomplished something visible before sending an email.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Barter supplies for repairs → You barter supplies for a used battery and fit it. Experience survives another efficiency initiative.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Radio for work and repairs → You finish the arranged work and fit a used battery. The four-hour productivity review includes actual productivity.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Open hood above the dead battery; a traveler holds a blank notepad like an absurd performance appraisal. Do not show a fitted replacement yet.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE five-accomplishments emails",
+      "role": "source",
+      "link": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/"
+    },
+    {
+      "text": "REPAIR-BATTERY-B · Energy Dominance, Locally Unavailable",
+      "role": "heading"
+    },
+    {
+      "text": "The battery dies halfway through Trump’s “American energy dominance” speech. The slogan finishes on your phone. National abundance has terrible coverage.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → The spare battery is fitted. The van achieves the radical policy objective of starting.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits the replacement. Energy dominance arrives with a bill in your name.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The battery is delivered and fitted. The driver carries more usable energy than the entire speech.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Barter supplies for repairs → You trade supplies for a used battery and fit it. Nobody says “dominance.” The engine starts anyway.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Radio for work and repairs → The agreed work earns a used battery and repair. Your arms supply the energy policy.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Dark dashboard, silent radio and a phone still playing a speech beside an open hood. All displays blank for overlays.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "REPAIR-BATTERY-C · The Qualified Candidate",
+      "role": "heading"
+    },
+    {
+      "text": "Your battery fails. The radio blames another problem on DEI. Under the hood, the positive and negative terminals have worked together for years. Neither will comment.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare. Positive and negative resume their suspiciously inclusive arrangement.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits the replacement. Nobody asks the voltage for its political affiliations.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement arrives and is fitted. The driver connects both terminals despite the radio’s concerns.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Barter supplies for repairs → You barter supplies for a used battery and fit it. The van selects its candidate by starting.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Radio for work and repairs → You finish the arranged work and fit a used battery. Competence turns out to involve connecting things.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Two clearly visible battery terminals beneath the van’s open hood, with a traveler glancing from them toward a blank radio.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump anti-DEI actions",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/"
+    },
+    {
+      "text": "REPAIR-FUELPUMP-A · Seasonal Permission",
+      "role": "heading"
+    },
+    {
+      "text": "The fuel pump fails. You hear about EPA’s temporary summer E15 waivers: the government gave qualifying fuel permission to move through the calendar. Your problem is getting fuel the last few feet.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare pump. Fuel reaches the engine without waiting for a new date.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The obstacle turns out to require a pump, not another extension.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement is delivered. You fit it and restore the route inside the van.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used pump and fit it. The existing fuel finally gets a useful journey.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You complete the arranged work and fit the used pump. Your arms have cleared the part of the route the waiver never governed.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Stopped van with the failed pump indicated by an ordinary mechanic's diagram on blank paper and a small plain calendar nearby; travelers consider their repair options. Do not show refueling or imply E15 compatibility.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Ahead of Summer Driving Season, EPA Allows Nationwide Year-Round E15 (2025-04-28)",
+      "role": "source",
+      "link": "https://www.epa.gov/newsreleases/ahead-summer-driving-season-epa-allows-nationwide-year-round-e15"
+    },
+    {
+      "text": "REPAIR-FUELPUMP-B · Faster Than This Sentence",
+      "role": "heading"
+    },
+    {
+      "text": "Your fuel pump quits as the radio revisits Trump’s push for overland supersonic flight. You would settle for traveling faster than this sentence.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare pump. The engine makes a sound you may now travel behind.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. Ordinary speed has acquired the glamour of a luxury service.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement arrives. You fit it; forward becomes an available direction again.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used pump and fit it. The van rejoins the subsonic majority.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the arranged work and fit the used pump. Four hours of effort purchase the possibility of movement.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers sit or stand by the stopped van with its actual failed-pump state; a small portable radio sits beside an empty road stretching ahead, with no aircraft or completed repair shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive Order 14304: Leading the World in Supersonic Flight (2025-06-06)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/leading-the-world-in-supersonic-flight/"
+    },
+    {
+      "text": "REPAIR-FUELPUMP-C · The Warranty Is Delighted",
+      "role": "heading"
+    },
+    {
+      "text": "The fuel pump fails. An unsolicited synthetic voice calls about a warranty. The FCC says AI sales voices fall under consent rules. It sounds delighted anyway. Somebody is finally enjoying the breakdown.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare pump. The cheerful voice contributes nothing and is disconnected.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The mechanic’s less enthusiastic voice turns out to come with useful hands.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The pump is delivered. You fit it; the warranty caller remains free to discuss an imaginary one.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used pump and fit it. Nobody needs your enthusiastic verbal confirmation.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the agreed work and fit the used pump. The sales voice has promised more and lifted less.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers inspect the stopped van while a phone displays only an unlettered call icon; a portable radio and unused tools sit nearby. No warranty purchase, payment or replacement is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FCC Makes AI-Generated Voices in Robocalls Illegal (2024-02-08)",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-400393A1.pdf"
+    },
+    {
+      "text": "REPAIR-TIRE-A · The Last Few Inches",
+      "role": "heading"
+    },
+    {
+      "text": "Your tire fails. NASA’s lunar drill reached the Moon but couldn’t reach the ground. You study the rim against the road. Your cheaper program has developed the opposite problem.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare. The necessary distance between metal and planet is restored.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits a replacement. The wheel stops trying to drill into Earth.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement tire is delivered. You fit it and end the rim’s field research.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used tire and fit it. A previously visited piece of rubber proves useful.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the arranged work and fit the used tire. Reaching the road now includes a way to roll on it.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers inspect the failed tire and rim close to the road beside the stopped van; a small unlettered lunar-drill news illustration is visible on a dark tablet. No spare or payment appears.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NASA Planetary Data System: CLPS TO PRIME-1 Athena (2025-03-06)",
+      "role": "source",
+      "link": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn:nasa:pds:context:instrument_host:spacecraft.clps_to_prime1_athena&version=1.0"
+    },
+    {
+      "text": "Source: NASA Intuitive Machines CLPS mission press kit",
+      "role": "source",
+      "link": "https://www.nasa.gov/wp-content/uploads/2025/02/np-2025-02-005-jsc-clps-intuitive-machines-press-kit-508-2-25-25.pdf?emrc=67fcdaaf1e7ea"
+    },
+    {
+      "text": "REPAIR-TIRE-B · The Cost of Being Short",
+      "role": "heading"
+    },
+    {
+      "text": "Your tire splits while the radio covers Congress repealing the new large-bank overdraft rule. You check the repair quote. Being short of money can apparently cost extra. The tire is the only thing leaking quietly.",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the spare. The bank misses an exciting potential revenue opportunity.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits the replacement. The price of a working tire is paid before it develops any offspring.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement arrives. You fit it; at least the air comes with the tire.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used tire and fit it. The provisions bag charges no overdraft fee.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You complete the agreed work and fit the used tire. The shortage is paid in hours instead of multiplied on a statement.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Travelers stand beside a split tire, examining a blank repair quote and a dark phone; a portable radio rests on the van step. No money or spare has changed hands.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule (2025-05-09)",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/PLAW-119publ10/pdf/PLAW-119publ10.pdf"
+    },
+    {
+      "text": "Source: CFPB: Closes Overdraft Loophole",
+      "role": "source",
+      "link": "https://www.consumerfinance.gov/archive/newsroom/cfpb-closes-overdraft-loophole-to-save-americans-billions-in-fees/"
+    },
+    {
+      "text": "REPAIR-TIRE-C · Circular Economy, Round Object",
+      "role": "heading"
+    },
+    {
+      "text": "The tire is ruined. A mechanic on the radio mentions the SEC’s Keurig recycling case. “Companies love announcing where things can go,” she says. “Then everyone leaves them behind my shop.”",
+      "role": "body"
+    },
+    {
+      "text": "Fit the onboard spare → You fit the onboard spare. The ruined tire remains an object, despite your excellent intentions.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the matching spare; consumes it; one hour.",
+      "role": "meta"
+    },
+    {
+      "text": "Buy and fit a replacement → The shop fits the replacement. You ask where the old tire actually goes, spoiling a perfectly good green adjective.",
+      "role": "choice"
+    },
+    {
+      "text": "Roadside purchase → The replacement is delivered. You fit it and keep the old tire for proper disposal; no recycling miracle is announced.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires the displayed cash; ninety minutes. Roadside quote includes delivery.",
+      "role": "meta"
+    },
+    {
+      "text": "Trade supplies for a repair → You trade some supplies for a used tire and fit it. Reuse has the advantage of visibly happening.",
+      "role": "choice"
+    },
+    {
+      "text": "Requires and consumes four supplies; two hours.",
+      "role": "meta"
+    },
+    {
+      "text": "Arrange work for a repair → You finish the arranged work and fit a used tire. The secondhand rubber makes a stronger claim than the coffee poster.",
+      "role": "choice"
+    },
+    {
+      "text": "No cash or spare needed; four hours, displayed sanity and morale costs.",
+      "role": "meta"
+    },
+    {
+      "text": "Not completed → The repair is not complete. The van remains broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Cashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers inspect the ruined tire beside the stopped van; a mechanic is heard through a portable radio, and an empty plain coffee pod sits beside a blank recycling leaflet. Nothing has been discarded or fitted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)",
+      "role": "source",
+      "link": "https://www.sec.gov/newsroom/press-releases/2024-122"
+    }
+  ],
+  "text": "Breakdowns & repairs\n12 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nREPAIR-ALTERNATOR-A · Generate Some Electricity\nThe alternator fails. GSA’s promotional Grok deal gave agencies eighteen months for forty-two cents. A mechanic on the radio offers no such rate. “Ask it to generate electricity,” she says.\nFit the onboard spare → You fit the spare. It supplies power without first agreeing that you are absolutely right.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The price includes a real object that turns.\nRoadside purchase → The replacement is delivered. You fit it; the answer now arrives through the battery cables.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used alternator and fit it. Electricity remains stubbornly attached to hardware.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the arranged work and fit the used alternator. The workshop accepts labor in place of a beautifully worded prompt.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers examine the failed alternator under the open hood; a dark phone and portable radio sit nearby. Show the actual stopped van, no replacement, payment or completed work.\nSource: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)\nREPAIR-ALTERNATOR-B · Not a Very Large Phone\nThe alternator fails while you read about Oregon’s electronics-repair law. Motor vehicles are excluded. The van has discovered the one category where it cannot pass as a very large phone.\nFit the onboard spare → You fit the spare. The repair needs bolts, not an argument over what counts as a phone.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The van resumes making calls only when something rattles.\nRoadside purchase → The replacement arrives. You fit it yourself; the bonnet remains a poor touchscreen.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used alternator and fit it. The exchange runs without an app.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You complete the arranged work and fit a used alternator. The crew remains the van’s least downloadable component.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Travelers compare a small phone with the open hood and visible failed alternator of the stopped van; the comic scale contrast is clear, with no screen lettering and no spare assumed present.\nSource: Oregon Revised Statutes: Right to Repair Consumer Equipment (2025 codification)\nREPAIR-ALTERNATOR-C · Early Retirement\nThe alternator quits. A mechanic mentions Illinois raising its adult minimum wage to $15 in 2025. You ask what the part earns. “Apparently enough to retire before either of us.”\nFit the onboard spare → You fit the onboard spare. Retirement is approved for the old part and postponed for everyone holding a wrench.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The new alternator immediately inherits the entire shift.\nRoadside purchase → The replacement is delivered. You fit it; the retired part declines to supervise.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used alternator and fit it. Its previous experience is the useful qualification.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the agreed work and fit the used part. Only the alternator gets to clock out permanently.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers look at a failed alternator through the open hood; one holds a portable radio receiving the mechanic's comment, while an unused wrench rests nearby. No shop location or Illinois wage entitlement is imposed on the crew.\nSource: Illinois Department of Labor: Minimum Wage FAQ (2025)\nREPAIR-BATTERY-A · Five Accomplishments, Zero Volts\nThe battery dies. Inspired by DOGE, a crewmate asks it to list five accomplishments. It has powered every departure. Management asks what it did today.\nFit the onboard spare → The spare battery is fitted. Its first accomplishment is making the dashboard stop being a mirror.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. You approve electricity without hiring a billionaire to investigate it.\nRoadside purchase → The replacement is delivered and fitted. The driver has accomplished something visible before sending an email.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nBarter supplies for repairs → You barter supplies for a used battery and fit it. Experience survives another efficiency initiative.\nRequires and consumes four supplies; two hours.\nRadio for work and repairs → You finish the arranged work and fit a used battery. The four-hour productivity review includes actual productivity.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Open hood above the dead battery; a traveler holds a blank notepad like an absurd performance appraisal. Do not show a fitted replacement yet.\nSource: DOGE five-accomplishments emails\nREPAIR-BATTERY-B · Energy Dominance, Locally Unavailable\nThe battery dies halfway through Trump’s “American energy dominance” speech. The slogan finishes on your phone. National abundance has terrible coverage.\nFit the onboard spare → The spare battery is fitted. The van achieves the radical policy objective of starting.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits the replacement. Energy dominance arrives with a bill in your name.\nRoadside purchase → The battery is delivered and fitted. The driver carries more usable energy than the entire speech.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nBarter supplies for repairs → You trade supplies for a used battery and fit it. Nobody says “dominance.” The engine starts anyway.\nRequires and consumes four supplies; two hours.\nRadio for work and repairs → The agreed work earns a used battery and repair. Your arms supply the energy policy.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Dark dashboard, silent radio and a phone still playing a speech beside an open hood. All displays blank for overlays.\nSource: Trump energy and climate rollback\nREPAIR-BATTERY-C · The Qualified Candidate\nYour battery fails. The radio blames another problem on DEI. Under the hood, the positive and negative terminals have worked together for years. Neither will comment.\nFit the onboard spare → You fit the spare. Positive and negative resume their suspiciously inclusive arrangement.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits the replacement. Nobody asks the voltage for its political affiliations.\nRoadside purchase → The replacement arrives and is fitted. The driver connects both terminals despite the radio’s concerns.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nBarter supplies for repairs → You barter supplies for a used battery and fit it. The van selects its candidate by starting.\nRequires and consumes four supplies; two hours.\nRadio for work and repairs → You finish the arranged work and fit a used battery. Competence turns out to involve connecting things.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Two clearly visible battery terminals beneath the van’s open hood, with a traveler glancing from them toward a blank radio.\nSource: Trump anti-DEI actions\nREPAIR-FUELPUMP-A · Seasonal Permission\nThe fuel pump fails. You hear about EPA’s temporary summer E15 waivers: the government gave qualifying fuel permission to move through the calendar. Your problem is getting fuel the last few feet.\nFit the onboard spare → You fit the spare pump. Fuel reaches the engine without waiting for a new date.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The obstacle turns out to require a pump, not another extension.\nRoadside purchase → The replacement is delivered. You fit it and restore the route inside the van.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used pump and fit it. The existing fuel finally gets a useful journey.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You complete the arranged work and fit the used pump. Your arms have cleared the part of the route the waiver never governed.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Stopped van with the failed pump indicated by an ordinary mechanic's diagram on blank paper and a small plain calendar nearby; travelers consider their repair options. Do not show refueling or imply E15 compatibility.\nSource: Ahead of Summer Driving Season, EPA Allows Nationwide Year-Round E15 (2025-04-28)\nREPAIR-FUELPUMP-B · Faster Than This Sentence\nYour fuel pump quits as the radio revisits Trump’s push for overland supersonic flight. You would settle for traveling faster than this sentence.\nFit the onboard spare → You fit the spare pump. The engine makes a sound you may now travel behind.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. Ordinary speed has acquired the glamour of a luxury service.\nRoadside purchase → The replacement arrives. You fit it; forward becomes an available direction again.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used pump and fit it. The van rejoins the subsonic majority.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the arranged work and fit the used pump. Four hours of effort purchase the possibility of movement.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers sit or stand by the stopped van with its actual failed-pump state; a small portable radio sits beside an empty road stretching ahead, with no aircraft or completed repair shown.\nSource: Executive Order 14304: Leading the World in Supersonic Flight (2025-06-06)\nREPAIR-FUELPUMP-C · The Warranty Is Delighted\nThe fuel pump fails. An unsolicited synthetic voice calls about a warranty. The FCC says AI sales voices fall under consent rules. It sounds delighted anyway. Somebody is finally enjoying the breakdown.\nFit the onboard spare → You fit the spare pump. The cheerful voice contributes nothing and is disconnected.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The mechanic’s less enthusiastic voice turns out to come with useful hands.\nRoadside purchase → The pump is delivered. You fit it; the warranty caller remains free to discuss an imaginary one.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used pump and fit it. Nobody needs your enthusiastic verbal confirmation.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the agreed work and fit the used pump. The sales voice has promised more and lifted less.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers inspect the stopped van while a phone displays only an unlettered call icon; a portable radio and unused tools sit nearby. No warranty purchase, payment or replacement is shown.\nSource: FCC Makes AI-Generated Voices in Robocalls Illegal (2024-02-08)\nREPAIR-TIRE-A · The Last Few Inches\nYour tire fails. NASA’s lunar drill reached the Moon but couldn’t reach the ground. You study the rim against the road. Your cheaper program has developed the opposite problem.\nFit the onboard spare → You fit the spare. The necessary distance between metal and planet is restored.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits a replacement. The wheel stops trying to drill into Earth.\nRoadside purchase → The replacement tire is delivered. You fit it and end the rim’s field research.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used tire and fit it. A previously visited piece of rubber proves useful.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the arranged work and fit the used tire. Reaching the road now includes a way to roll on it.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers inspect the failed tire and rim close to the road beside the stopped van; a small unlettered lunar-drill news illustration is visible on a dark tablet. No spare or payment appears.\nSource: NASA Planetary Data System: CLPS TO PRIME-1 Athena (2025-03-06)\nSource: NASA Intuitive Machines CLPS mission press kit\nREPAIR-TIRE-B · The Cost of Being Short\nYour tire splits while the radio covers Congress repealing the new large-bank overdraft rule. You check the repair quote. Being short of money can apparently cost extra. The tire is the only thing leaking quietly.\nFit the onboard spare → You fit the spare. The bank misses an exciting potential revenue opportunity.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits the replacement. The price of a working tire is paid before it develops any offspring.\nRoadside purchase → The replacement arrives. You fit it; at least the air comes with the tire.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used tire and fit it. The provisions bag charges no overdraft fee.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You complete the agreed work and fit the used tire. The shortage is paid in hours instead of multiplied on a statement.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Travelers stand beside a split tire, examining a blank repair quote and a dark phone; a portable radio rests on the van step. No money or spare has changed hands.\nSource: Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule (2025-05-09)\nSource: CFPB: Closes Overdraft Loophole\nREPAIR-TIRE-C · Circular Economy, Round Object\nThe tire is ruined. A mechanic on the radio mentions the SEC’s Keurig recycling case. “Companies love announcing where things can go,” she says. “Then everyone leaves them behind my shop.”\nFit the onboard spare → You fit the onboard spare. The ruined tire remains an object, despite your excellent intentions.\nRequires the matching spare; consumes it; one hour.\nBuy and fit a replacement → The shop fits the replacement. You ask where the old tire actually goes, spoiling a perfectly good green adjective.\nRoadside purchase → The replacement is delivered. You fit it and keep the old tire for proper disposal; no recycling miracle is announced.\nRequires the displayed cash; ninety minutes. Roadside quote includes delivery.\nTrade supplies for a repair → You trade some supplies for a used tire and fit it. Reuse has the advantage of visibly happening.\nRequires and consumes four supplies; two hours.\nArrange work for a repair → You finish the arranged work and fit a used tire. The secondhand rubber makes a stronger claim than the coffee poster.\nNo cash or spare needed; four hours, displayed sanity and morale costs.\nNot completed → The repair is not complete. The van remains broken.\nCashless → Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed.\nScene: Current travelers inspect the ruined tire beside the stopped van; a mechanic is heard through a portable radio, and an empty plain coffee pod sits beside a blank recycling leaflet. Nothing has been discarded or fitted.\nSource: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)\n"
+}

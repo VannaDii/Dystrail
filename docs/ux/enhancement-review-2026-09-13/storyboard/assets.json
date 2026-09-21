@@ -1,0 +1,20 @@
+{
+  "generation_mode": "built-in image-generation tool",
+  "prompts": "prompts.md",
+  "artifacts": [
+    {
+      "file": "/Users/vanna/Source/Dystrail/docs/ux/enhancement-review-2026-09-13/storyboard/hearing-main-journey.png",
+      "original_generated_file": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-4c4fb064-47cc-4e9d-aa33-17b280c86b2c.png",
+      "width": 1024,
+      "height": 1536,
+      "visual_review": "Inspected generated sheet; panel structure, captions, numeric states, and revised cast presentation accepted as concept staging."
+    },
+    {
+      "file": "/Users/vanna/Source/Dystrail/docs/ux/enhancement-review-2026-09-13/storyboard/hearing-endings.png",
+      "original_generated_file": "/Users/vanna/.codex/generated_images/01a09da1-4acb-7731-8029-d7885aa05c10/exec-99f1d5f8-3b0f-462b-9596-10253b8848af.png",
+      "width": 1536,
+      "height": 1024,
+      "visual_review": "Inspected generated sheet; panel structure, captions, numeric states, and revised cast presentation accepted as concept staging."
+    }
+  ]
+}

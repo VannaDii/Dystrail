@@ -1,6 +1,11 @@
 //! Boss fight system
 use crate::state::{GameState, PolicyKind};
+use rand::{RngCore, SeedableRng};
 use serde::{Deserialize, Serialize};
+mod hearing;
+#[cfg(test)]
+mod hearing_tests;
+pub use hearing::{HearingForecast, HearingOutcome, HearingPhase, HearingReport, HearingRound};
 
 const DEFAULT_BOSS_DATA: &str = include_str!("../../dystrail-web/static/assets/data/boss.json");
 
@@ -98,36 +103,85 @@ impl BossConfig {
 }
 
 pub fn run_boss_minigame(state: &mut GameState, cfg: &BossConfig) -> BossOutcome {
+    // A saved or legacy attempt is terminal. Never reroll it or charge it again.
+    if state.boss.outcome.attempted {
+        return if state.boss.outcome.victory {
+            BossOutcome::PassedCloture
+        } else if state.stats.sanity <= 0 {
+            BossOutcome::Exhausted
+        } else {
+            BossOutcome::SurvivedFlood
+        };
+    }
     state.boss.outcome.attempted = true;
 
     if state.mode.is_deep() && matches!(state.policy, Some(PolicyKind::Aggressive)) {
         let _ = state.apply_deep_aggressive_compose();
     }
 
-    for _ in 0..cfg.rounds {
-        if cfg.sanity_loss_per_round > 0 {
-            state.stats.sanity -= cfg.sanity_loss_per_round;
-        }
-        state.stats.clamp();
-        if state.stats.sanity <= 0 {
-            return BossOutcome::Exhausted;
-        }
-    }
-
-    let win_prob = vote_chance(state, cfg);
-
-    let roll = f64::from(state.next_pct()) / 100.0;
-    if roll < win_prob {
-        state.boss.outcome.victory = true;
-        state.logs.push(String::from("log.boss.victory"));
-        BossOutcome::PassedCloture
+    // New questioning has its own domain. Preserve the established final-vote stream
+    // and consume it only if a surviving hearing actually needs a vote.
+    // The entire report is saved atomically, so this single-use stream needs no cursor.
+    let mut round_rng = rand_chacha::ChaCha8Rng::seed_from_u64(crate::journey::derive_stream_seed(
+        state.seed,
+        b"hearing-v1",
+    ));
+    let report = hearing::resolve(
+        HearingReport {
+            rules_version: hearing::HEARING_RULES_VERSION,
+            starting_stats: state.stats.clone(),
+            day: state.day,
+            minute: state.continuity.clock_minutes,
+            base_chance: vote_chance(state, cfg),
+            policy_guarantee: state.mode.is_deep()
+                && matches!(state.policy, Some(PolicyKind::Aggressive)),
+            rounds: Vec::new(),
+            adjusted_chance: None,
+            vote_roll: None,
+            outcome: HearingOutcome::Exhausted,
+        },
+        cfg.rounds,
+        cfg.sanity_loss_per_round,
+        |kind| {
+            if kind == hearing::Draw::Vote {
+                return u32::from(state.next_pct());
+            }
+            let bound = kind.bound();
+            // Rejection sampling makes all 101 influence values equally likely.
+            let limit = (1_u64 << 32) / u64::from(bound) * u64::from(bound);
+            loop {
+                let value = round_rng.next_u32();
+                if u64::from(value) < limit {
+                    break value % bound;
+                }
+            }
+        },
+    );
+    state.stats.sanity = report
+        .rounds
+        .last()
+        .map_or(report.starting_stats.sanity, |r| r.sanity_after);
+    let outcome = match report.outcome {
+        HearingOutcome::Passed | HearingOutcome::Secured => BossOutcome::PassedCloture,
+        HearingOutcome::Failed => BossOutcome::SurvivedFlood,
+        HearingOutcome::Exhausted => BossOutcome::Exhausted,
+    };
+    state.boss.outcome.victory = matches!(outcome, BossOutcome::PassedCloture);
+    state.logs.push(String::from(match outcome {
+        BossOutcome::PassedCloture => "log.boss.victory",
+        BossOutcome::SurvivedFlood => "log.boss.failure",
+        BossOutcome::Exhausted => "log.boss.exhausted",
+    }));
+    state.boss.presentation = if report.rounds.is_empty() {
+        HearingPhase::Verdict
     } else {
-        state.logs.push(String::from("log.boss.failure"));
-        BossOutcome::SurvivedFlood
-    }
+        HearingPhase::RoundRolling(0)
+    };
+    state.boss.hearing = Some(report);
+    outcome
 }
 
-/// Probability after the hearing's stamina costs have been paid.
+/// Stat-based starting odds. The staged hearing freezes these before the first round.
 #[must_use]
 pub fn vote_chance(state: &GameState, cfg: &BossConfig) -> f64 {
     let distance_required =
@@ -160,22 +214,42 @@ pub fn vote_chance(state: &GameState, cfg: &BossConfig) -> f64 {
     win_prob
 }
 
-/// Read-only forecast using the same probability calculation as the actual vote.
+/// Starting odds, provided the crew can survive the mandatory first round.
 #[must_use]
 pub fn vote_preview(state: &GameState, cfg: &BossConfig) -> Option<f64> {
+    let forecast = hearing_forecast(state, cfg);
+    (forecast.survival_chance > 0.0).then_some(forecast.base_chance)
+}
+
+#[must_use]
+pub fn hearing_forecast(state: &GameState, cfg: &BossConfig) -> HearingForecast {
     let mut preview = state.clone();
     if preview.mode.is_deep() && matches!(preview.policy, Some(PolicyKind::Aggressive)) {
         let _ = preview.apply_deep_aggressive_compose();
     }
-    for _ in 0..cfg.rounds {
-        preview.stats.sanity -= cfg.sanity_loss_per_round.max(0);
-
-        preview.stats.clamp();
-        if preview.stats.sanity <= 0 {
-            return None;
+    let mut survival_chance = 0.0;
+    let max_rounds = cfg.rounds.clamp(1, 3);
+    for round in 1..=max_rounds {
+        let cost = i32::try_from(round)
+            .unwrap_or(3)
+            .saturating_mul(cfg.sanity_loss_per_round.max(0));
+        if preview.stats.sanity > cost {
+            survival_chance += if round == max_rounds {
+                0.5_f64.powi(i32::try_from(round - 1).unwrap_or(2))
+            } else {
+                0.5_f64.powi(i32::try_from(round).unwrap_or(3))
+            };
         }
     }
-    Some(vote_chance(&preview, cfg))
+    HearingForecast {
+        base_chance: vote_chance(&preview, cfg),
+        survival_chance,
+        policy_guarantee: preview.mode.is_deep()
+            && matches!(preview.policy, Some(PolicyKind::Aggressive)),
+        entry_sanity: preview.stats.sanity,
+        preparation_supplies: state.stats.supplies - preview.stats.supplies,
+        preparation_cents: state.budget_cents - preview.budget_cents,
+    }
 }
 
 #[cfg(test)]

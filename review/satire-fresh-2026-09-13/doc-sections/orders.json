@@ -1,0 +1,540 @@
+{
+  "key": "orders",
+  "title": "Executive orders",
+  "target": 18,
+  "count": 18,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Executive orders",
+      "role": "title"
+    },
+    {
+      "text": "18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "ORDER-DEREGULATE-A · Peace, Now With More War",
+      "role": "heading"
+    },
+    {
+      "text": "The government promotes “Department of War” branding. The spokesperson calls it peace through strength. Your van would settle for peace through a working alternator.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The reorganization event ends. The van has retained its original, less threatening name.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Official renaming ceremony on a roadside screen; the van’s hood sits open in the foreground.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it; “Peace through strength” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Department of War naming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "text": "ORDER-DEREGULATE-B · Two Names, One Purchase Order",
+      "role": "heading"
+    },
+    {
+      "text": "Trump’s War Department branding brings another reorganization. Officials order new signs before checking the equipment. Your van has nominated its rattle for a leadership position.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The event expires. The rattle is demoted to a maintenance issue.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A pristine blank sign is delivered beside neglected machinery while a traveler listens to the van.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Reorganization” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Department of War naming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "text": "ORDER-DEREGULATE-C · The Branding Campaign",
+      "role": "heading"
+    },
+    {
+      "text": "Officials explain that calling defense “war” will project strength. The crew tries calling the van “a tank.” The suspension files an immediate objection.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The branding event ends. The van accepts a return to civilian duties.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Travelers glance at their battered van beside a grand military-name unveiling shown on an unlettered display.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Department of War naming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "text": "ORDER-GAG-A · A Very Dangerous Index",
+      "role": "heading"
+    },
+    {
+      "text": "Book-panic bulletin: officials copy Trump’s ban on classroom “indoctrination.” The approved reading list arrives pre-approved, with instructions on how freely to discuss it.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The panic recedes. A librarian quietly moves the books back where people can accidentally learn things.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Librarian stands beside a locked book cart and a large blank approved-reading sheet.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Approved free thinking” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Anti-indoctrination and patriotic education",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-radical-indoctrination-in-k-12-schooling/"
+    },
+    {
+      "text": "ORDER-GAG-B · The classical refund",
+      "role": "heading"
+    },
+    {
+      "text": "Trump’s architecture order prefers classical designs for covered federal buildings. A rest-stop owner copies it with cardboard columns around the snack machine. One blocks the coin return. It now serves the grandeur of Western civilization. It no longer serves coins.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The bulletin ends. The owner moves a column and gets his test coin back. The machine manages this without consulting an architect.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: The owner points at cardboard columns around the snack machine while currently present travelers look on; no purchase or attempt to retrieve change is shown. A grand cardboard column stands directly in front of the machine’s small coin-return opening.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “CLASSICAL GRANDEUR” — Blank homemade pediment",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/"
+    },
+    {
+      "text": "ORDER-GAG-C · The Pronoun Emergency",
+      "role": "heading"
+    },
+    {
+      "text": "Officials announce another emergency about gender in schools. The roof still leaks. Nobody has established the puddle’s biological sex.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The bulletin expires. The puddle has acquired a second bucket and no political affiliation.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A classroom hallway has two buckets beneath roof leaks while a huge blank policy binder sits dry on a shelf.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Emergency guidance” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Anti-indoctrination and patriotic education",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-radical-indoctrination-in-k-12-schooling/"
+    },
+    {
+      "text": "ORDER-MILITARIZE-A · Freedom of Movement, Subject to Movement",
+      "role": "heading"
+    },
+    {
+      "text": "Checkpoint bulletin: officials invoke Trump’s border-security rhetoric to add another road inspection. The officer asks why free citizens are always trying to go somewhere.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The extra inspections end. Your destination is once again a place rather than an explanation.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Van waits behind a new portable barrier while an officer consults a blank checklist.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Security inspection” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 entry restrictions and extreme vetting",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/restricting-the-entry-of-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats/"
+    },
+    {
+      "text": "ORDER-MILITARIZE-B · America, Please Hold",
+      "role": "heading"
+    },
+    {
+      "text": "Trump-style extreme vetting demands proof you belong here. The van’s registration, your accent and your patience are called forward separately.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The restriction expires. Your patience is still waiting to have its documents returned.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Traveler holds blank documents at a checkpoint; the van waits behind them with luggage visible.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Travel restriction” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 entry restrictions and extreme vetting",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/restricting-the-entry-of-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats/"
+    },
+    {
+      "text": "ORDER-MILITARIZE-C · The Domestic Border",
+      "role": "heading"
+    },
+    {
+      "text": "Officials bring “extreme vetting” to another stretch of road. Your crew explains you’re already in America. The guard says that’s what everyone says.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The order ends. The road stops interviewing its users.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An ordinary domestic road is split by a portable inspection booth; a traveler points toward the same landscape on both sides.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Extreme vetting” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 entry restrictions and extreme vetting",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/restricting-the-entry-of-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats/"
+    },
+    {
+      "text": "ORDER-SHUTDOWN-A · Essential, Unpaid",
+      "role": "heading"
+    },
+    {
+      "text": "Shutdown bulletin: Congress has run out of agreement. Federal workers are asked to keep being essential on an optional-salary basis.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The shutdown ends. Paychecks may resume pretending this was a scheduling problem.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Closed public-service windows below a warmly lit political fundraiser; an ordinary worker waits with a lunch bag.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Unlimited independent political money",
+      "role": "source",
+      "link": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "text": "ORDER-SHUTDOWN-B · Open for Contributions",
+      "role": "heading"
+    },
+    {
+      "text": "The government shuts down. Services close; political fundraising emails continue arriving. Apparently the donation button is essential infrastructure.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: Services reopen. Nobody has needed to reboot the donation button.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Dark public-service monitors beside one brightly glowing, blank campaign-donation screen.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Government closed” — Separate editable overlay on the indicated blank prop or beside it; “Donate” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Unlimited independent political money",
+      "role": "source",
+      "link": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "text": "ORDER-SHUTDOWN-C · Hostage Negotiations",
+      "role": "heading"
+    },
+    {
+      "text": "Congress fails to keep the government open. Your next meal has been invited to participate in the negotiations. It wasn’t given a chair.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The shutdown ends. The food budget is released without a thank-you note.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An ordinary empty dinner plate sits below oversized negotiation chairs in an illustrative cutaway; no claim of an actual meeting.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Food assistance cuts",
+      "role": "source",
+      "link": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "text": "ORDER-TARIFFS-A · Foreign Aid, Domestic Wallet",
+      "role": "heading"
+    },
+    {
+      "text": "Trump’s tariff message says foreign countries will pay. Your grocery bill has volunteered to be a foreign country.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The tariff event ends. Your wallet would like its citizenship restored.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Plain grocery bag sits between an empty wallet and a blank customs invoice.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Foreign countries pay” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump tariffs passed to Americans",
+      "role": "source",
+      "link": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/"
+    },
+    {
+      "text": "ORDER-TARIFFS-B · The Importer Is You",
+      "role": "heading"
+    },
+    {
+      "text": "Another tariff bulletin promises to punish overseas producers. At the shop, the punishment is itemized beneath your bread.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The event expires. The bread is released into your custody.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Cashier shows a blank receipt long enough to curl around one modest loaf.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Tariff surcharge” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump tariffs passed to Americans",
+      "role": "source",
+      "link": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/"
+    },
+    {
+      "text": "ORDER-TARIFFS-C · Protected From Purchasing",
+      "role": "heading"
+    },
+    {
+      "text": "Officials announce protection for American consumers through higher import taxes. The food remains safely on the shelf, beyond the reach of American consumers.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The tariff event passes. You and the shelf resume diplomatic relations.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Traveler stretches toward groceries while a tall blank price card visually stands between them.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Protected market” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump tariffs passed to Americans",
+      "role": "source",
+      "link": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/"
+    },
+    {
+      "text": "ORDER-TAXCUTS-A · Education Has Left the Building",
+      "role": "heading"
+    },
+    {
+      "text": "The education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed morale amount at the start of each game day.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The order ends. The exit sign returns to its specialist subject.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Empty education office with a lone illuminated, unlettered exit-sign panel above a tiny lectern.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Department closed” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Education Department dismantling direction",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    },
+    {
+      "text": "ORDER-TAXCUTS-B · School of Hard Cuts",
+      "role": "heading"
+    },
+    {
+      "text": "The education department closes. Students are directed to the school of hard knocks. It is already charging for the door.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed morale amount at the start of each game day.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The order expires. The school of hard knocks keeps your application fee.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An office door is closed while a student-facing service counter has a blank fee jar and no staff.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “School of hard knocks” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Education Department dismantling direction",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    },
+    {
+      "text": "ORDER-TAXCUTS-C · Discover It Yourself",
+      "role": "heading"
+    },
+    {
+      "text": "Officials eliminate the education department. The announcement calls it empowerment. The teacher begins explaining long division with the remaining half of a pencil.",
+      "role": "body"
+    },
+    {
+      "text": "Game effect: While active, lose the displayed morale amount at the start of each game day.",
+      "role": "body"
+    },
+    {
+      "text": "When it expires: The order ends. The pencil requests a colleague.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Teacher holds half a pencil before a large empty board; a blank closure notice is pinned beside the door.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Empowerment” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Education Department dismantling direction",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    }
+  ],
+  "text": "Executive orders\n18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nORDER-DEREGULATE-A · Peace, Now With More War\nThe government promotes “Department of War” branding. The spokesperson calls it peace through strength. Your van would settle for peace through a working alternator.\nGame effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.\nWhen it expires: The reorganization event ends. The van has retained its original, less threatening name.\nScene: Official renaming ceremony on a roadside screen; the van’s hood sits open in the foreground.\nEditable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it; “Peace through strength” — Separate editable overlay on the indicated blank prop or beside it\nSource: Department of War naming\nORDER-DEREGULATE-B · Two Names, One Purchase Order\nTrump’s War Department branding brings another reorganization. Officials order new signs before checking the equipment. Your van has nominated its rattle for a leadership position.\nGame effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.\nWhen it expires: The event expires. The rattle is demoted to a maintenance issue.\nScene: A pristine blank sign is delivered beside neglected machinery while a traveler listens to the van.\nEditable overlays: “Reorganization” — Separate editable overlay on the indicated blank prop or beside it\nSource: Department of War naming\nORDER-DEREGULATE-C · The Branding Campaign\nOfficials explain that calling defense “war” will project strength. The crew tries calling the van “a tank.” The suspension files an immediate objection.\nGame effect: While active, apply the displayed bonus to breakdown risk before the game’s risk limits. This does not itself trigger or repair a breakdown.\nWhen it expires: The branding event ends. The van accepts a return to civilian duties.\nScene: Travelers glance at their battered van beside a grand military-name unveiling shown on an unlettered display.\nEditable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it\nSource: Department of War naming\nORDER-GAG-A · A Very Dangerous Index\nBook-panic bulletin: officials copy Trump’s ban on classroom “indoctrination.” The approved reading list arrives pre-approved, with instructions on how freely to discuss it.\nGame effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.\nWhen it expires: The panic recedes. A librarian quietly moves the books back where people can accidentally learn things.\nScene: Librarian stands beside a locked book cart and a large blank approved-reading sheet.\nEditable overlays: “Approved free thinking” — Separate editable overlay on the indicated blank prop or beside it\nSource: Anti-indoctrination and patriotic education\nORDER-GAG-B · The classical refund\nTrump’s architecture order prefers classical designs for covered federal buildings. A rest-stop owner copies it with cardboard columns around the snack machine. One blocks the coin return. It now serves the grandeur of Western civilization. It no longer serves coins.\nGame effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.\nWhen it expires: The bulletin ends. The owner moves a column and gets his test coin back. The machine manages this without consulting an architect.\nScene: The owner points at cardboard columns around the snack machine while currently present travelers look on; no purchase or attempt to retrieve change is shown. A grand cardboard column stands directly in front of the machine’s small coin-return opening.\nEditable overlays: “CLASSICAL GRANDEUR” — Blank homemade pediment\nSource: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)\nORDER-GAG-C · The Pronoun Emergency\nOfficials announce another emergency about gender in schools. The roof still leaks. Nobody has established the puddle’s biological sex.\nGame effect: While active, the displayed sanity cost applies only below the morale protection threshold shown by the game.\nWhen it expires: The bulletin expires. The puddle has acquired a second bucket and no political affiliation.\nScene: A classroom hallway has two buckets beneath roof leaks while a huge blank policy binder sits dry on a shelf.\nEditable overlays: “Emergency guidance” — Separate editable overlay on the indicated blank prop or beside it\nSource: Anti-indoctrination and patriotic education\nORDER-MILITARIZE-A · Freedom of Movement, Subject to Movement\nCheckpoint bulletin: officials invoke Trump’s border-security rhetoric to add another road inspection. The officer asks why free citizens are always trying to go somewhere.\nGame effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.\nWhen it expires: The extra inspections end. Your destination is once again a place rather than an explanation.\nScene: Van waits behind a new portable barrier while an officer consults a blank checklist.\nEditable overlays: “Security inspection” — Separate editable overlay on the indicated blank prop or beside it\nSource: 2025 entry restrictions and extreme vetting\nORDER-MILITARIZE-B · America, Please Hold\nTrump-style extreme vetting demands proof you belong here. The van’s registration, your accent and your patience are called forward separately.\nGame effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.\nWhen it expires: The restriction expires. Your patience is still waiting to have its documents returned.\nScene: Traveler holds blank documents at a checkpoint; the van waits behind them with luggage visible.\nEditable overlays: “Travel restriction” — Separate editable overlay on the indicated blank prop or beside it\nSource: 2025 entry restrictions and extreme vetting\nORDER-MILITARIZE-C · The Domestic Border\nOfficials bring “extreme vetting” to another stretch of road. Your crew explains you’re already in America. The guard says that’s what everyone says.\nGame effect: While active, lose the displayed sanity amount each day. Travel distance uses the displayed reduced multiplier before daily limits.\nWhen it expires: The order ends. The road stops interviewing its users.\nScene: An ordinary domestic road is split by a portable inspection booth; a traveler points toward the same landscape on both sides.\nEditable overlays: “Extreme vetting” — Separate editable overlay on the indicated blank prop or beside it\nSource: 2025 entry restrictions and extreme vetting\nORDER-SHUTDOWN-A · Essential, Unpaid\nShutdown bulletin: Congress has run out of agreement. Federal workers are asked to keep being essential on an optional-salary basis.\nGame effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.\nWhen it expires: The shutdown ends. Paychecks may resume pretending this was a scheduling problem.\nScene: Closed public-service windows below a warmly lit political fundraiser; an ordinary worker waits with a lunch bag.\nEditable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it\nSource: Unlimited independent political money\nORDER-SHUTDOWN-B · Open for Contributions\nThe government shuts down. Services close; political fundraising emails continue arriving. Apparently the donation button is essential infrastructure.\nGame effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.\nWhen it expires: Services reopen. Nobody has needed to reboot the donation button.\nScene: Dark public-service monitors beside one brightly glowing, blank campaign-donation screen.\nEditable overlays: “Government closed” — Separate editable overlay on the indicated blank prop or beside it; “Donate” — Separate editable overlay on the indicated blank prop or beside it\nSource: Unlimited independent political money\nORDER-SHUTDOWN-C · Hostage Negotiations\nCongress fails to keep the government open. Your next meal has been invited to participate in the negotiations. It wasn’t given a chair.\nGame effect: While active, lose the displayed supply and morale amounts at the start of each game day, including rest days.\nWhen it expires: The shutdown ends. The food budget is released without a thank-you note.\nScene: An ordinary empty dinner plate sits below oversized negotiation chairs in an illustrative cutaway; no claim of an actual meeting.\nEditable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it\nSource: Food assistance cuts\nORDER-TARIFFS-A · Foreign Aid, Domestic Wallet\nTrump’s tariff message says foreign countries will pay. Your grocery bill has volunteered to be a foreign country.\nGame effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.\nWhen it expires: The tariff event ends. Your wallet would like its citizenship restored.\nScene: Plain grocery bag sits between an empty wallet and a blank customs invoice.\nEditable overlays: “Foreign countries pay” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump tariffs passed to Americans\nORDER-TARIFFS-B · The Importer Is You\nAnother tariff bulletin promises to punish overseas producers. At the shop, the punishment is itemized beneath your bread.\nGame effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.\nWhen it expires: The event expires. The bread is released into your custody.\nScene: Cashier shows a blank receipt long enough to curl around one modest loaf.\nEditable overlays: “Tariff surcharge” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump tariffs passed to Americans\nORDER-TARIFFS-C · Protected From Purchasing\nOfficials announce protection for American consumers through higher import taxes. The food remains safely on the shelf, beyond the reach of American consumers.\nGame effect: While active, lose the displayed supplies each day unless your carried legal fund provides protection.\nWhen it expires: The tariff event passes. You and the shelf resume diplomatic relations.\nScene: Traveler stretches toward groceries while a tall blank price card visually stands between them.\nEditable overlays: “Protected market” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump tariffs passed to Americans\nORDER-TAXCUTS-A · Education Has Left the Building\nThe education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.\nGame effect: While active, lose the displayed morale amount at the start of each game day.\nWhen it expires: The order ends. The exit sign returns to its specialist subject.\nScene: Empty education office with a lone illuminated, unlettered exit-sign panel above a tiny lectern.\nEditable overlays: “Department closed” — Separate editable overlay on the indicated blank prop or beside it\nSource: Education Department dismantling direction\nORDER-TAXCUTS-B · School of Hard Cuts\nThe education department closes. Students are directed to the school of hard knocks. It is already charging for the door.\nGame effect: While active, lose the displayed morale amount at the start of each game day.\nWhen it expires: The order expires. The school of hard knocks keeps your application fee.\nScene: An office door is closed while a student-facing service counter has a blank fee jar and no staff.\nEditable overlays: “School of hard knocks” — Separate editable overlay on the indicated blank prop or beside it\nSource: Education Department dismantling direction\nORDER-TAXCUTS-C · Discover It Yourself\nOfficials eliminate the education department. The announcement calls it empowerment. The teacher begins explaining long division with the remaining half of a pencil.\nGame effect: While active, lose the displayed morale amount at the start of each game day.\nWhen it expires: The order ends. The pencil requests a colleague.\nScene: Teacher holds half a pencil before a large empty board; a blank closure notice is pinned beside the door.\nEditable overlays: “Empowerment” — Separate editable overlay on the indicated blank prop or beside it\nSource: Education Department dismantling direction\n"
+}

@@ -1,0 +1,978 @@
+[
+  {
+    "id": "ENC-C01-B",
+    "family_id": "ENC-C01",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "classic_bridge_crews",
+    "title": "Permission to spin",
+    "setup": "At a roadside repair co-op, a mechanic shows you Oregon’s law limiting software locks on spare parts. Volunteers need some food and help salvaging switches. A washing machine rejects a working replacement. It accepts dirty underwear without checking the manufacturer.",
+    "choices": [
+      {
+        "label": "Share some food; salvage switches",
+        "outcome": "You share lunch and wrench out switches until your wrists ache. The drum can spin. The company’s permission is still buffering.",
+        "effects": {
+          "supplies": -1,
+          "hp": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Photograph the lockout and Oregon law",
+        "outcome": "You save the error and Oregon’s rule for D.C. The replacement fits perfectly. Ownership seems to be the incompatible part.",
+        "effects": {
+          "credibility": 1,
+          "add_receipt": "classic_bridge_crews"
+        }
+      }
+    ],
+    "source_hook": "Oregon limits software barriers to independent electronics repair",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+        "title": "Oregon Revised Statutes: Right to Repair Consumer Equipment",
+        "date": "2025 codification",
+        "checked": "2026-09-14",
+        "qualification": "Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction.",
+        "claim": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A mechanic and a local salvage volunteer.",
+    "status": "draft for user review",
+    "scene_id": "enc-c01-b-display",
+    "scene": {
+      "scene_id": "enc-c01-b-display",
+      "setting": "Roadside repair co-op with an open washing machine",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A mechanic and a local salvage volunteer.",
+      "action": "The mechanic holds a replacement switch beside an unlettered machine display while a volunteer indicates the unopened salvage bin; travelers consider helping.",
+      "visual_gag": "A machine full of mismatched socks accepts the laundry while its screen rejects the neatly fitting replacement control.",
+      "composition": "Low view across the open machine toward the mechanic; untouched switches and food table beside the waiting travelers.",
+      "overlays": [
+        {
+          "text": "PART NOT RECOGNIZED",
+          "placement": "Blank washing-machine display",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "gameplay_use": "evidence, credibility",
+    "town": null,
+    "political_basis": {
+      "subject": "Oregon limits software barriers to independent electronics repair",
+      "real_hook": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025. Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction.",
+      "source_url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C01-C",
+    "family_id": "ENC-C01",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "classic_bridge_crews",
+    "title": "Dignity, by the pound",
+    "setup": "Rubio ordered State Department letters back to Times New Roman. A roadside printer is copying him, binning Calibri leaflets before the community lunch. Volunteers need some food and help shifting the bins. The shredder has agreed to accept both sides.",
+    "choices": [
+      {
+        "label": "Share some food; haul the bins",
+        "outcome": "You share lunch and haul the bins, back aching. The leaflets say exactly the same thing. American diplomacy has simply decided the letters need feet.",
+        "effects": {
+          "supplies": -1,
+          "hp": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Photograph the font purge",
+        "outcome": "You photograph both versions and Rubio’s order. Every sentence survives. The nation’s dignity apparently rests on tiny legs underneath the alphabet.",
+        "effects": {
+          "credibility": 1,
+          "add_receipt": "classic_bridge_crews"
+        }
+      }
+    ],
+    "source_hook": "Rubio changes the State Department standard typeface",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+        "title": "AP: Rubio orders return to Times New Roman",
+        "date": "2025-12-10",
+        "checked": "2026-09-14",
+        "qualification": "The instruction concerned State Department correspondence; it did not require private printers to change fonts.",
+        "claim": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A printer and a local lunch volunteer.",
+    "status": "draft for user review",
+    "scene_id": "enc-c01-c-display",
+    "scene": {
+      "scene_id": "enc-c01-c-display",
+      "setting": "Print-shop loading yard beside a community lunch table",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A printer and a local lunch volunteer.",
+      "action": "The printer holds two unlettered sample sheets over overflowing recycling bins; a volunteer indicates bins awaiting movement. Travelers watch from the yard entrance.",
+      "visual_gag": "Identical-looking sheets have been separated into ceremonially opposed bins that empty into one shredder.",
+      "composition": "Bins dominate the foreground; the printer and untouched lunch table sit behind them.",
+      "overlays": [
+        {
+          "text": "CALIBRI",
+          "placement": "Blank card on left bin",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "TIMES NEW ROMAN",
+          "placement": "Blank card on right bin",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "gameplay_use": "evidence, credibility",
+    "town": null,
+    "political_basis": {
+      "subject": "Rubio changes the State Department standard typeface",
+      "real_hook": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change. The instruction concerned State Department correspondence; it did not require private printers to change fonts.",
+      "source_url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C03-B",
+    "family_id": "ENC-C03",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "classic_crossing_block_party",
+    "title": "The dry wing",
+    "setup": "Trump announced a donor-funded White House ballroom because big dinners needed tents. At a roadside social club, members hold a benefit under a leaking marquee. Bring some food and you may name the grand new wing. It’s the dry corner.",
+    "choices": [
+      {
+        "label": "Share some food; name the new wing",
+        "outcome": "You donate some food and name the dry corner after yourself. Someone moves a folding chair into it. Your presidential legacy seats one.",
+        "effects": {
+          "supplies": -1,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Record the ballroom comparison",
+        "outcome": "You record the announcement and the club’s budget. Trump’s donors buy a ballroom. These donors can currently afford the word ballroom.",
+        "effects": {
+          "credibility": 1
+        }
+      },
+      {
+        "label": "Supply the quiet picnic corner",
+        "outcome": "You donate supplies and sit quietly. The club names the napkin holder after you. Donor access is very affordable without a president attached.",
+        "effects": {
+          "supplies": -2,
+          "sanity": 1
+        }
+      }
+    ],
+    "source_hook": "Trump announces a donor-funded White House ballroom",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+        "title": "White House announces ballroom construction",
+        "date": "2025-07-31",
+        "checked": "2026-09-14",
+        "qualification": "Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded.",
+        "claim": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: Two social-club members, one collecting food donations.",
+    "status": "draft for user review",
+    "scene_id": "enc-c03-b-display",
+    "scene": {
+      "scene_id": "enc-c03-b-display",
+      "setting": "Roadside social-club lawn under a leaking benefit marquee",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: Two social-club members, one collecting food donations.",
+      "action": "A member points at the single dry corner while another holds a food-donation bowl; travelers stand outside the tent considering the invitation.",
+      "visual_gag": "An elaborate ribbon encloses one dry folding chair while rain drips into cooking pots elsewhere.",
+      "composition": "Wide view through the marquee opening, dry chair at far right, donation table near the travelers.",
+      "overlays": [
+        {
+          "text": "NAME THE NEW WING",
+          "placement": "Blank benefit placard",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Trump announces a donor-funded White House ballroom",
+      "real_hook": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure. Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded.",
+      "source_url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C03-C",
+    "family_id": "ENC-C03",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "classic_crossing_block_party",
+    "title": "Your call is a commitment",
+    "setup": "A court threw out the FTC’s click-to-cancel rule. At a roadside potluck, a neighbor is trying to cancel his gym membership on speakerphone. He invites you to bring some food or use the quiet room. The hold music has outlasted two casseroles.",
+    "choices": [
+      {
+        "label": "Share some food; join the exercise",
+        "outcome": "You share some food and cheer him on. The gym offers three free months. He asks whether any of them include leaving.",
+        "effects": {
+          "supplies": -1,
+          "morale": 2
+        }
+      },
+      {
+        "label": "Record his cancellation attempt",
+        "outcome": "With his permission, you record him selecting cancellation. A voice congratulates him on choosing continued membership. Nobody touches the phone for a moment.",
+        "effects": {
+          "credibility": 1
+        }
+      },
+      {
+        "label": "Supply the quiet room",
+        "outcome": "You donate some supplies and settle in the quiet room. Its door opens from inside. You consider recommending it to the gym.",
+        "effects": {
+          "supplies": -2,
+          "sanity": 1
+        }
+      }
+    ],
+    "source_hook": "Federal appeals court vacates the FTC click-to-cancel rule",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+        "title": "AP: Appeals court vacates FTC click-to-cancel rule",
+        "date": "2025-07-09",
+        "checked": "2026-09-14",
+        "qualification": "The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+        "claim": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A local delivery driver with his own phone and two potluck hosts.",
+    "status": "draft for user review",
+    "scene_id": "enc-c03-c-display",
+    "scene": {
+      "scene_id": "enc-c03-c-display",
+      "setting": "Roadside neighborhood potluck beside a small social hall",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A local delivery driver with his own phone and two potluck hosts.",
+      "action": "The driver holds his phone over the table while a host indicates the food table and open quiet-room door; travelers consider the invitation.",
+      "visual_gag": "Two nearly empty casserole dishes flank a phone still playing hold music, with a fresh casserole waiting behind them.",
+      "composition": "Phone and dishes foreground; hosts, travelers and open side room behind.",
+      "overlays": [
+        {
+          "text": "PLEASE CONTINUE HOLDING",
+          "placement": "Editable caption above the blank phone screen",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "gameplay_use": "credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Federal appeals court vacates the FTC click-to-cancel rule",
+      "real_hook": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up. The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+      "source_url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C09-A",
+    "family_id": "ENC-C09",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "RustBelt",
+      "Beltway"
+    ],
+    "runtime_key": "classic_neighborhood_watch",
+    "title": "Delivered, according to the calendar",
+    "setup": "USPS changed delivery targets in 2025: some faster, some slower. At a picnic beside the post office, a retired carrier offers his new guide and some food for hauling display boards. His birthday card says “Sorry I’m late” in pencil. He’s waiting for the target to decide.",
+    "choices": [
+      {
+        "label": "Record the carrier’s guide",
+        "outcome": "You save the guide with the USPS announcement. He erases “late” from the card. The envelope hasn’t moved, but its performance has improved.",
+        "effects": {
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Haul the boards for some food",
+        "outcome": "You earn some food and a sore shoulder. He calls it same-day delivery. You ask him not to tell management what they can get for a sandwich.",
+        "effects": {
+          "hp": -1,
+          "supplies": 1
+        }
+      },
+      {
+        "label": "Listen to the carrier’s tour",
+        "outcome": "He walks you through the changed targets. Then he opens the card: “Happy birthday, approximately.” You laugh hard enough to need the picnic bench.",
+        "effects": {
+          "morale": 1
+        }
+      }
+    ],
+    "source_hook": "USPS revises delivery standards in its cost-reduction plan",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+        "title": "USPS announces refined service standards and cost reductions",
+        "date": "2025-02-26",
+        "checked": "2026-09-14",
+        "qualification": "USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+        "claim": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A retired mail carrier and a local picnic organizer.",
+    "scene_id": "enc-c09-a-display",
+    "scene": {
+      "scene_id": "enc-c09-a-display",
+      "setting": "Picnic area beside a small post office",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A retired mail carrier and a local picnic organizer.",
+      "action": "The carrier holds a birthday card and pencil beside two unopened display boards; the organizer indicates the work and waiting food. Travelers listen without moving anything.",
+      "visual_gag": "A birthday cake sits under a cover while its unsent card waits beside an eraser as though the calendar may excuse it.",
+      "composition": "Card and untouched display boards nearest camera, covered cake and travelers behind.",
+      "overlays": [
+        {
+          "text": "SORRY I’M LATE",
+          "placement": "Editable text on the blank birthday card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "supplies/aid, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "USPS revises delivery standards in its cost-reduction plan",
+      "real_hook": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same. USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+      "source_url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C11-C",
+    "family_id": "ENC-C11",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "classic_press_briefing",
+    "title": "Plug in your refund",
+    "setup": "The IRS is phasing out paper refund checks under Trump’s order, with limited exceptions. At a diner, a cook compares payment leaflets beside a phone charging from the last socket. “My refund used to arrive with its own power supply. None.” She offers you the other chair.",
+    "choices": [
+      {
+        "label": "Check the changed payment instructions",
+        "outcome": "You check the instructions until your head hurts. Her bank details are correct. Finding her federal refund still requires borrowing electricity from the pie warmer.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Sit while she compares the leaflets",
+        "outcome": "You sit and rest your legs while her phone charges. She checks the plug twice. Her federal refund has become a small appliance.",
+        "effects": {
+          "hp": 1
+        }
+      },
+      {
+        "label": "Save the order and useful locations",
+        "outcome": "You save the order, exceptions and nearby help locations. She adds the diner’s socket to the map. Apparently this is a Treasury branch now.",
+        "effects": {
+          "credibility": 2,
+          "add_receipt": "classic_press_briefing"
+        }
+      }
+    ],
+    "source_hook": "Trump directs the transition from federal paper checks to electronic payments",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+        "title": "IRS: Modernizing payments to and from America’s bank account",
+        "date": "Current guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred.",
+        "claim": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A local school cook on a break, using her own phone.",
+    "scene_id": "enc-c11-c-display",
+    "scene": {
+      "scene_id": "enc-c11-c-display",
+      "setting": "Diner booth beside the only available wall socket",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A local school cook on a break, using her own phone.",
+      "action": "The cook holds two unlettered payment leaflets beside a charging phone and gestures to an empty chair; travelers stand at the booth edge.",
+      "visual_gag": "The phone competes with a pie warmer for the wall socket, turning a refund inquiry into an appliance arrangement.",
+      "composition": "Socket and phone cable in clear profile; leaflets and unused chair visible below.",
+      "overlays": [],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "evidence, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "Trump directs the transition from federal paper checks to electronic payments",
+      "real_hook": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments. Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred.",
+      "source_url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C12-C",
+    "family_id": "ENC-C12",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Beltway"
+    ],
+    "runtime_key": "classic_press_pool_qna",
+    "title": "Total, plus the rest",
+    "setup": "The FTC now requires mandatory lodging fees in the upfront price. At a roadside motel, the owner shows you his “honest” quote: $79 for the room, plus a mandatory $40 service charge. He has made the word honest enormous. The total is still hiding.",
+    "choices": [
+      {
+        "label": "Explain the quote to the lobby",
+        "outcome": "You explain that the required upfront total is $119. Your head aches. The owner asks whether the FTC will accept $79 in a more sincere font.",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1
+        }
+      },
+      {
+        "label": "Repeat that the room is only $79",
+        "outcome": "You praise the price and stop arguing. He announces that an independent traveler has verified it. Your endorsement is the first thing he hasn’t charged extra for.",
+        "effects": {
+          "sanity": 1,
+          "credibility": -1
+        }
+      },
+      {
+        "label": "Rest in the van",
+        "outcome": "You rest in the van. It has no resort fee. It apologizes for the missing resort.",
+        "effects": {
+          "credibility": 0,
+          "morale": 1,
+          "rest": true
+        }
+      }
+    ],
+    "source_hook": "FTC requires upfront totals including mandatory lodging fees",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+        "title": "FTC: Rule on Unfair or Deceptive Fees FAQ",
+        "date": "Effective 2025-05-12",
+        "checked": "2026-09-14",
+        "qualification": "The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business.",
+        "claim": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A motel owner and an adult waiting in the lobby.",
+    "scene_id": "enc-c12-c-display",
+    "scene": {
+      "scene_id": "enc-c12-c-display",
+      "setting": "Roadside motel reception beside the parked van",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A motel owner and an adult waiting in the lobby.",
+      "action": "The owner presents a quote with one large price field and a tiny second field while travelers look on. No room is booked.",
+      "visual_gag": "A huge honesty placard nearly conceals the small mandatory-charge panel beneath it.",
+      "composition": "Counter and oversized placard foreground; owner behind, van visible through the window.",
+      "overlays": [
+        {
+          "text": "HONEST PRICE",
+          "placement": "Large blank placard",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$79",
+          "placement": "Main blank price field",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "MANDATORY SERVICE: $40",
+          "placement": "Small blank price field",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "credibility, recovery, movement/rest",
+    "town": null,
+    "political_basis": {
+      "subject": "FTC requires upfront totals including mandatory lodging fees",
+      "real_hook": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price. The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business.",
+      "source_url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-C13-A",
+    "family_id": "ENC-C13",
+    "variant": "A",
+    "category": "Road encounters",
+    "mode": "Classic",
+    "regions": [
+      "Heartland",
+      "RustBelt"
+    ],
+    "runtime_key": "classic_radio_phonebank",
+    "title": "Airport-ready feet",
+    "setup": "TSA ended routine shoes-off screening in July 2025. At a roadside shoe shop, a cobbler is labeling every pair “Airport Ready.” He offers $8 to check the size tags, or the announcement to read. His entire stock has achieved federal reform without moving a sole.",
+    "choices": [
+      {
+        "label": "Hear the cobbler’s comparison",
+        "outcome": "He compares the old routine with the announcement. You learn the change and laugh. Washington has finally approved keeping the shoe around the foot.",
+        "effects": {
+          "credibility": 1,
+          "morale": 1
+        }
+      },
+      {
+        "label": "Use your paper; record the change",
+        "outcome": "You use some paper to record the rule and its screening exceptions. No special shoe is required. You underline that before the cobbler invents a surcharge.",
+        "effects": {
+          "supplies": -1,
+          "credibility": 2
+        }
+      },
+      {
+        "label": "Check the labels for $8",
+        "outcome": "You check the sizes, settle the labels and collect $8. The cobbler unveils his airport-ready slippers. Their security upgrade appears to be remaining slippers.",
+        "effects": {
+          "sanity": 1,
+          "cash_cents": 800
+        }
+      }
+    ],
+    "source_hook": "TSA ends the routine requirement to remove shoes at checkpoints",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+        "title": "AP: TSA ends routine shoes-off airport screening",
+        "date": "2025-07-08",
+        "checked": "2026-09-14",
+        "qualification": "Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change.",
+        "claim": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cobbler beside ordinary shoes and slippers.",
+    "scene_id": "enc-c13-a-display",
+    "scene": {
+      "scene_id": "enc-c13-a-display",
+      "setting": "Roadside shoe shop doorway and outdoor sale table",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cobbler beside ordinary shoes and slippers.",
+      "action": "The cobbler offers an unsorted tray of size tags beside a clipped announcement; travelers consider the job from the doorway.",
+      "visual_gag": "Formal shoes, work boots and fluffy slippers all wait under one grand airport-ready placard.",
+      "composition": "Low view across varied footwear toward the cobbler; untouched tag tray at the side.",
+      "overlays": [
+        {
+          "text": "AIRPORT READY",
+          "placement": "Blank sale-table placard",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$8: CHECK SIZE TAGS",
+          "placement": "Blank job card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "status": "draft for user review",
+    "gameplay_use": "cash/work, credibility, recovery",
+    "town": null,
+    "political_basis": {
+      "subject": "TSA ends the routine requirement to remove shoes at checkpoints",
+      "real_hook": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints. Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change.",
+      "source_url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S13-B",
+    "family_id": "ENC-S13",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "sat_alternator_tariff",
+    "title": "One cent, before expenses",
+    "setup": "The Mint stopped making circulating pennies after each cost 3.69 cents to produce. Old pennies still count as money. At a roadside shop, some food and water cost $12. The cashier taps her penny jar. “Washington finally found something it couldn’t afford to keep making cheap.”",
+    "choices": [
+      {
+        "label": "Buy the supplies for $12",
+        "outcome": "You pay $12 and collect some supplies. She straightens the penny jar. “Still worth a cent. Just retired from costing us nearly four.”",
+        "effects": {
+          "cash_cents": -1200,
+          "supplies": 3,
+          "log": "You pay $12 and collect some supplies. She straightens the penny jar. “Still worth a cent. Just retired from costing us nearly four.”"
+        }
+      },
+      {
+        "label": "Get the written price breakdown",
+        "outcome": "You keep the $12 quote and the Mint’s cost figures through a long explanation. She asks you not to let the bread hear what a penny cost.",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You keep the $12 quote and the Mint’s cost figures through a long explanation. She asks you not to let the bread hear what a penny cost.",
+          "add_receipt": "sat_alternator_tariff"
+        }
+      },
+      {
+        "label": "Keep your money",
+        "outcome": "You leave empty-handed and annoyed. She pats the penny jar. The smallest thing on the counter has a retirement plan. Your van still needs feeding.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave empty-handed and annoyed. She pats the penny jar. The smallest thing on the counter has a retirement plan. Your van still needs feeding."
+        }
+      }
+    ],
+    "source_hook": "The US Mint ends circulating-penny production while existing coins stay valid",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.usmint.gov/news/media-kit/penny",
+        "title": "United States Mint: Penny information",
+        "date": "Current guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice.",
+        "claim": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cashier holding the shop’s quote beside a Mint information clipping.",
+    "status": "draft for user review",
+    "scene_id": "road-s13-b",
+    "scene": {
+      "scene_id": "road-s13-b",
+      "setting": "Roadside grocery checkout with a crowded penny jar",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cashier holding the shop’s quote beside a Mint information clipping.",
+      "action": "The cashier taps the existing penny jar while travelers consider the quoted food and water; no payment or handover has happened.",
+      "visual_gag": "An ordinary penny jar wears a tiny retirement-party rosette while the cashier continues accepting the coins.",
+      "composition": "Jar foreground, unopened groceries behind it, travelers on the customer side without a completed purchase.",
+      "overlays": [
+        {
+          "text": "$12: FOOD AND WATER",
+          "placement": "Blank quote card",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "STILL LEGAL TENDER",
+          "placement": "Blank card beside penny jar",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "The US Mint ends circulating-penny production while existing coins stay valid",
+      "real_hook": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender. The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice.",
+      "source_url": "https://www.usmint.gov/news/media-kit/penny",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S13-C",
+    "family_id": "ENC-S13",
+    "variant": "C",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "sat_alternator_tariff",
+    "title": "Lost and found a stadium",
+    "setup": "Ohio’s 2025 budget allocated $600 million in unclaimed funds to a Browns stadium. At an Ohio roadside shop, some food and water cost $12. The cashier keeps the report beside the lost-property box. “Anything in there shaped like a billionaire? Apparently they get collected first.”",
+    "choices": [
+      {
+        "label": "Pay $12 for supplies",
+        "outcome": "You buy some food and water. She points at the stadium report. “See? Even you managed to spend your own money.”",
+        "effects": {
+          "cash_cents": -1200,
+          "supplies": 3,
+          "log": "You buy some food and water. She points at the stadium report. “See? Even you managed to spend your own money.”"
+        }
+      },
+      {
+        "label": "Get the itemized quote",
+        "outcome": "You save the $12 quote and budget report through a long explanation. “They couldn’t find the money’s owners,” she says. “The stadium introduced itself immediately.”",
+        "effects": {
+          "sanity": -1,
+          "credibility": 2,
+          "log": "You save the $12 quote and budget report through a long explanation. “They couldn’t find the money’s owners,” she says. “The stadium introduced itself immediately.”",
+          "add_receipt": "sat_alternator_tariff"
+        }
+      },
+      {
+        "label": "Keep the twelve dollars",
+        "outcome": "You leave empty-handed and frustrated. She calls after you: “Keep a hand on it. Ohio’s looking for a midfield logo.”",
+        "effects": {
+          "morale": -1,
+          "log": "You leave empty-handed and frustrated. She calls after you: “Keep a hand on it. Ohio’s looking for a midfield logo.”"
+        }
+      }
+    ],
+    "source_hook": "Ohio allocates unclaimed funds toward a professional football stadium",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+        "title": "AP: Ohio budget allocates unclaimed funds toward Browns stadium",
+        "date": "2025-07-01",
+        "checked": "2026-09-14",
+        "qualification": "This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund.",
+        "claim": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cashier beside an old lost-property box.",
+    "status": "draft for user review",
+    "scene_id": "road-s13-c",
+    "scene": {
+      "scene_id": "road-s13-c",
+      "setting": "Ohio roadside grocery with a small lost-property counter",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A cashier beside an old lost-property box.",
+      "action": "The cashier shows the budget report and a $12 quote while travelers consider the unopened food and water.",
+      "visual_gag": "A toy stadium sits among a forgotten mitten and umbrella in the lost-property box, treated as the obvious claimant.",
+      "composition": "Lost-property box close to camera, quote and groceries on the adjacent counter, cashier and travelers facing each other.",
+      "overlays": [
+        {
+          "text": "$12: FOOD AND WATER",
+          "placement": "Blank quote",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "LOST PROPERTY",
+          "placement": "Blank box label",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Ohio allocates unclaimed funds toward a professional football stadium",
+      "real_hook": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium. This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund.",
+      "source_url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S16-B",
+    "family_id": "ENC-S16",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "RustBelt"
+    ],
+    "runtime_key": "sat_press_pool_radio",
+    "title": "Refund-shaped paper",
+    "setup": "At a parcel counter, a clerk’s airline cancelled her flight. She declined replacement travel, so DOT’s rule requires an automatic refund. It sent a voucher instead. She offers $8 to sort return labels while she reads the rule. Her cash drawer refuses to recognize the voucher as a relative.",
+    "choices": [
+      {
+        "label": "Read the refund rule with her",
+        "outcome": "You confirm that the refund must use her original payment method. “I paid with money,” she says. “Apparently that was an unusual choice.”",
+        "effects": {
+          "credibility": 2,
+          "log": "You confirm that the refund must use her original payment method. “I paid with money,” she says. “Apparently that was an unusual choice.”"
+        }
+      },
+      {
+        "label": "Sort return labels for $8",
+        "outcome": "You sort the labels, earn $8 and rest your aching eyes. The drawer produces cash on its first attempt. She wonders whether it has airline-management experience.",
+        "effects": {
+          "cash_cents": 800,
+          "sanity": -1,
+          "log": "You sort the labels, earn $8 and rest your aching eyes. The drawer produces cash on its first attempt. She wonders whether it has airline-management experience."
+        }
+      },
+      {
+        "label": "Skip the job",
+        "outcome": "You leave unpaid and annoyed. She folds the unwanted voucher into a paper plane. At last, something this airline sent her can take off.",
+        "effects": {
+          "morale": -1,
+          "log": "You leave unpaid and annoyed. She folds the unwanted voucher into a paper plane. At last, something this airline sent her can take off."
+        }
+      }
+    ],
+    "source_hook": "DOT requires automatic refunds for qualifying cancelled flights",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+        "title": "DOT: What passengers need to know about the automatic refund rule",
+        "date": "2024-11-18",
+        "checked": "2026-09-14",
+        "qualification": "Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline.",
+        "claim": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A parcel clerk holding her own airline voucher.",
+    "status": "draft for user review",
+    "scene_id": "road-s16-b",
+    "scene": {
+      "scene_id": "road-s16-b",
+      "setting": "Roadside parcel-return counter",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A parcel clerk holding her own airline voucher.",
+      "action": "The clerk holds the voucher above an open cash drawer, with unsorted return labels and the DOT guidance beside it; travelers consider the offer.",
+      "visual_gag": "A flimsy voucher hovers over orderly cash compartments where it plainly does not belong.",
+      "composition": "Drawer and voucher foreground, untouched label tray at one side, travelers across the counter.",
+      "overlays": [
+        {
+          "text": "TRAVEL VOUCHER",
+          "placement": "Blank voucher",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$8: SORT RETURN LABELS",
+          "placement": "Blank offer card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "DOT requires automatic refunds for qualifying cancelled flights",
+      "real_hook": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method. Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline.",
+      "source_url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  },
+  {
+    "id": "ENC-S29-B",
+    "family_id": "ENC-S29",
+    "variant": "B",
+    "category": "Road encounters",
+    "mode": "Shared",
+    "regions": [
+      "PacificCoast"
+    ],
+    "runtime_key": "west_grant_translation",
+    "title": "The direct route is closed",
+    "setup": "Treasury suspended the IRS’s free Direct File tool for 2026; other free filing options remain. At a used-computer stall, a seller offers $12 to sort replacement labels for old tax-help kiosks. The machines still work. Only the part where government made itself convenient has broken.",
+    "choices": [
+      {
+        "label": "Sort the replacement labels for $12",
+        "outcome": "You earn $12 and a headache sorting “Direct File” from “Other filing options.” The computers pass every hardware test. The government needs a replacement part.",
+        "effects": {
+          "cash_cents": 1200,
+          "sanity": -1,
+          "log": "You earn $12 and a headache sorting “Direct File” from “Other filing options.” The computers pass every hardware test. The government needs a replacement part."
+        }
+      },
+      {
+        "label": "Preserve the old and new captions",
+        "outcome": "You save both captions and the IRS update, head aching. The seller keeps one old label: “File directly with us.” Apparently that was the experimental feature.",
+        "effects": {
+          "credibility": 2,
+          "sanity": -1,
+          "log": "You save both captions and the IRS update, head aching. The seller keeps one old label: “File directly with us.” Apparently that was the experimental feature.",
+          "add_receipt": "west_grant_translation"
+        }
+      },
+      {
+        "label": "Get back on the road",
+        "outcome": "You leave the job behind. He puts the empty kiosks on sale. “Taxes still mandatory,” he calls. “Helpful government sold separately.”",
+        "effects": {
+          "log": "You leave the job behind. He puts the empty kiosks on sale. “Taxes still mandatory,” he calls. “Helpful government sold separately.”"
+        }
+      }
+    ],
+    "source_hook": "Treasury suspends IRS Direct File for the 2026 filing season",
+    "evidence_status": "Political hook verified; the encounter and dialogue are original fiction.",
+    "sources": [
+      {
+        "url": "https://www.gao.gov/products/b-337954",
+        "title": "GAO B-337954: Suspension of IRS Direct File",
+        "date": "2026-05-12",
+        "checked": "2026-09-14",
+        "qualification": "The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+        "claim": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain."
+      }
+    ],
+    "cast_requirements": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A seller with donated tax-help kiosks and loose replacement labels.",
+    "status": "draft for user review",
+    "scene_id": "road-s29-b",
+    "scene": {
+      "scene_id": "road-s29-b",
+      "setting": "Used-computer stall at a roadside reuse market",
+      "characters": "One or two currently present travelers, using their established appearances; remaining active travelers may stay offscreen. Never show absent crew. Locals are separate people. Fictional locals: A seller with donated tax-help kiosks and loose replacement labels.",
+      "action": "The seller indicates unsorted labels beside powered-on but unlettered kiosk screens; travelers consider the $12 job.",
+      "visual_gag": "Perfectly intact computers wait for new labels because the public service they pointed to has vanished.",
+      "composition": "One working screen and loose labels foreground; a row of matching kiosks recedes toward the seller.",
+      "overlays": [
+        {
+          "text": "DIRECT FILE",
+          "placement": "Editable old kiosk label",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "OTHER FILING OPTIONS",
+          "placement": "Editable replacement label",
+          "display_condition": "Before choice selection; editable overlay only."
+        },
+        {
+          "text": "$12: SORT LABELS",
+          "placement": "Blank offer card",
+          "display_condition": "Before choice selection; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays.",
+      "display_phase": "Before choice selection. Travelers only observe or consider. No offered work, payment, donation, purchase, reward, care or departure has occurred."
+    },
+    "political_basis": {
+      "subject": "Treasury suspends IRS Direct File for the 2026 filing season",
+      "real_hook": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain. The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+      "source_url": "https://www.gao.gov/products/b-337954",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    }
+  }
+]

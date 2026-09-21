@@ -1,0 +1,859 @@
+{
+  "key": "endings",
+  "title": "Endings",
+  "target": 45,
+  "count": 45,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Endings",
+      "role": "title"
+    },
+    {
+      "text": "45 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "END-COLD-A · Local Observations",
+      "role": "heading"
+    },
+    {
+      "text": "Cold exposure ends the trip. The radio recalls North Platte cutting weather-balloon launches in 2025. Your breath supplies the replacement forecast: little white warnings, delivered free through clenched teeth.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded cold-exposure ending, focus on the radio and cold outside the van. Only surviving travelers may appear with visible breath when conditions support it. No frozen body, fatality or specific storm is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NOAA cuts weather balloon launches, citing staff shortages (2025-03-21)",
+      "role": "source",
+      "link": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/"
+    },
+    {
+      "text": "END-COLD-B · Victory Has the Keys",
+      "role": "heading"
+    },
+    {
+      "text": "Cold exposure ends the expedition. Trump’s homebuyer order exempts qualifying build-to-rent developments. A rental ad celebrates victory for families. The man in its photograph is holding enough keys to play a tambourine.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded cold-exposure stopping place, an illustrative rental advertisement shows a smiling property representative holding an oversized ring of keys beside houses. The actual van and survivors retain their recorded condition; no invented home loss or death. All ad lettering is omitted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2026/01/stopping-wall-street-from-competing-with-main-street-homebuyers/"
+    },
+    {
+      "text": "END-COLD-C · Energy Dominance, Bring a Coat",
+      "role": "heading"
+    },
+    {
+      "text": "Cold exposure ends the journey. Trump’s energy-dominance speech continues in a heated room. The microphone is wearing better weather protection than the public.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual cold conditions at the stopping place, with a small editorial inset of a foam-covered microphone in a heated briefing room.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "END-COLLAPSE-BREAKDOWN-A · Custody of the Hands",
+      "role": "heading"
+    },
+    {
+      "text": "The unrepaired breakdown ends the expedition. The mechanic you call faces a noncompete threat after the FTC dropped its noncompete-rule appeals. His old boss is trying to keep custody of both his hands.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Keep the unrepaired van at its recorded stopping place. A separate illustrative phone-call inset shows a mechanic studying a blank employment clause with both hands idle beside tools. No claim that every noncompete is enforceable and no completed repair.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC Noncompete Rule (2025-09-05)",
+      "role": "source",
+      "link": "https://www.ftc.gov/legal-library/browse/rules/noncompete-rule"
+    },
+    {
+      "text": "Source: FTC Files to Accede to Vacatur of Non-Compete Clause Rule",
+      "role": "source",
+      "link": "https://search.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule"
+    },
+    {
+      "text": "END-COLLAPSE-BREAKDOWN-B · A Working Nameplate",
+      "role": "heading"
+    },
+    {
+      "text": "The breakdown ends the journey. Washington can rename defense “war” and call the job done. Your van’s newly impressive title still needs a functioning part beneath it.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual unresolved mechanical failure with a pristine blank nameplate beside the tools; no invented successful repair.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Department of War naming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "text": "END-COLLAPSE-BREAKDOWN-C · Tow Pending Approval",
+      "role": "heading"
+    },
+    {
+      "text": "The unrepaired breakdown ends the trip. A farmer’s tractor also awaits dealer-controlled repair; the FTC’s proposed Deere settlement hasn’t fixed it. You have found a tow vehicle. It needs a tow.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: The van remains at its actual breakdown location. A separate farmer stands beside an also-broken tractor and a closed dealer diagnostic case. Neither vehicle moves; no repair, towing, payment or completed settlement is depicted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC and states announce Deere right-to-repair settlement (2026-07-08)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair"
+    },
+    {
+      "text": "END-COLLAPSE-CROSSING-A · Relocation by Argument",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing ends the expedition. In August 2026, a court blocked the administration’s FBI headquarters move. Washington can hold another meeting about relocation. At least their chairs have wheels.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Depict only the recorded crossing-ending state and actual survivors and vehicle condition. A separate editorial inset shows officials considering an unlettered relocation plan from conspicuously wheeled office chairs. No border checkpoint, detention, collision, injury, drowning or death is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Maryland Attorney General Statement on FBI Headquarters Ruling (2026-08-17)",
+      "role": "source",
+      "link": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx"
+    },
+    {
+      "text": "Source: AP reporting on court blocking FBI headquarters move",
+      "role": "source",
+      "link": "https://apnews.com/article/f5a77411bf54f3e17beb9cd41fd046a8"
+    },
+    {
+      "text": "Source: FBI: New FBI Headquarters in Washington, DC",
+      "role": "source",
+      "link": "https://www.fbi.gov/news/press-releases/new-fbi-headquarters-in-washington-dc"
+    },
+    {
+      "text": "END-COLLAPSE-CROSSING-B · A Magnificent Stopping Point",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing ends your journey. Trump’s architecture order favors classical designs for covered federal buildings. Perhaps two marble columns would improve the view of this obstruction. They would be excellent at standing there, which is already the problem.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: The actual crossing-ending state is accompanied by an editorial architectural sketch of two decorative classical columns framing a blocked passage. The columns are hypothetical commentary, not new structures at the actual crossing or its cause.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/"
+    },
+    {
+      "text": "END-COLLAPSE-CROSSING-C · The Improved Record",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing ends the expedition. Trump wants a more flattering national story. The version in which your van never gets through will probably need a smaller font.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual failed crossing, paired with an editorially oversized blank official-history book and a tiny inset page; no invented catastrophe.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: White House history intervention",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    },
+    {
+      "text": "END-COLLAPSE-DISEASE-A · Illness Has No Upload Button",
+      "role": "heading"
+    },
+    {
+      "text": "Illness ends the expedition. Congress wants work documented before more people can keep benefits. Your body has been doing nothing but fight. It has neglected to create a login.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Unlettered work-requirements form sits unused beside the actual health-care belongings at the stopping place; no invented benefit enrollment or death.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicaid and SNAP work requirements",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-DISEASE-B · The Budget Looks Healthy",
+      "role": "heading"
+    },
+    {
+      "text": "Disease ends the journey. Washington can describe projected health-spending cuts as savings. The budget looks much healthier when none of the sick people are drawn on the chart.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual journey health belongings contrasted with a clean blank budget chart in an editorial inset; no invented diagnosis or casualty.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 health spending law",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-DISEASE-C · A Second Opinion From the Slogan",
+      "role": "heading"
+    },
+    {
+      "text": "Illness ends the expedition. The MAHA pitch promised health through suspicion of safeguards. The disease has offered no opinion on government and an extremely detailed opinion on bodies.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual care belongings and stopped vehicle; a separate editorial image of an unlettered raw-milk stall makes no claim that milk caused this particular illness.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "END-COLLAPSE-HUNGER-A · Hold Music",
+      "role": "heading"
+    },
+    {
+      "text": "Hunger ends the expedition. Nebraska’s SNAP soda exclusion is being celebrated as healthy shopping. The newsreader lists forbidden drinks while your stomach provides the hold music.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded stopping point, center a small radio beside the actual provisions as recorded, with a simple illustrative sound-wave motif aimed toward a traveler only if one survives. Do not imply SNAP enrollment or invent an empty inventory.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: USDA approves Nebraska SNAP food-restriction waiver (2025-05-19)",
+      "role": "source",
+      "link": "https://www.fns.usda.gov/newsroom/usda-0113.25"
+    },
+    {
+      "text": "Source: Nebraska DHHS: New SNAP purchase restrictions (Effective 2026-01-01)",
+      "role": "source",
+      "link": "https://dhhs.ne.gov/Documents/SNAP-Signage-New-Restrictions.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-HUNGER-B · A Feast for the Eyes",
+      "role": "heading"
+    },
+    {
+      "text": "Hunger ends the journey. A brochure celebrates Maryland’s financing of Hagerstown’s stadium and calls it a feast for the eyes. Your stomach has applied for a transfer.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded hunger ending, a glossy blank stadium brochure shows an extravagant concession-food photograph beside an oversized stadium rendering. Show actual provisions and survivors only as recorded; no eating paper or invented empty inventory.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium (undated)",
+      "role": "source",
+      "link": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown"
+    },
+    {
+      "text": "END-COLLAPSE-HUNGER-C · Still Setting the Table",
+      "role": "heading"
+    },
+    {
+      "text": "Hunger ends the expedition. The radio praises Oklahoma ending its state grocery tax. Local taxes remain. The government has reduced its appetite and would like applause before anyone serves dinner.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded hunger stopping point, focus on a radio beside an illustrative grocery display with separate small state and local tax tags left blank. Do not depict a purchase, specific stock shortage or additional consequence beyond the actual hunger ending.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients (undated)",
+      "role": "source",
+      "link": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html"
+    },
+    {
+      "text": "END-COLLAPSE-PANIC-A · Nothing to See, Too Much to Hear",
+      "role": "heading"
+    },
+    {
+      "text": "Panic ends the expedition. Officials who misplaced bombing plans will continue explaining that everyone else is overreacting. You switch off the briefing; it is the first thing to stop escalating.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Radio switched off at the actual stopping point, with the present travelers shown without invented medical intervention or death.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Signal airstrike chat",
+      "role": "source",
+      "link": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    },
+    {
+      "text": "END-COLLAPSE-PANIC-B · Definitely a Human",
+      "role": "heading"
+    },
+    {
+      "text": "Panic ends the expedition. The FCC put AI sales voices under consent rules. An unsolicited caller offers to transfer you to a human. The second, identical voice adds a cough.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded panic ending, focus on a blank phone with two nearly identical illustrative speech shapes, the second with a tiny cough-like burst. Show only recorded survivors; no invented diagnosis, injury, death, purchase or completed onward travel.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FCC Makes AI-Generated Voices in Robocalls Illegal (2024-02-08)",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-400393A1.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-PANIC-C · You Have Been Invited to Worry",
+      "role": "heading"
+    },
+    {
+      "text": "Panic ends the expedition. Another political bulletin declares a national emergency over classroom pronouns. A leaking roof has yet to qualify for this level of concern.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual stopping place, with an illustrative cutaway of a school bucket catching a roof leak beside a thick blank policy binder.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Anti-indoctrination and patriotic education",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-radical-indoctrination-in-k-12-schooling/"
+    },
+    {
+      "text": "END-COLLAPSE-VEHICLE-A · The Virtual Road",
+      "role": "heading"
+    },
+    {
+      "text": "The van’s condition ends the trip. The FTC refunded unwanted Fortnite purchases. You’d like to report another one: a very expensive parking simulator.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Show the stopped van in its actual condition, with the ordinary steering wheel and unchanged real road visible beyond it. A small separate illustration of a game controller may accompany the blank refund-news clipping; no claim the van qualifies for a refund.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2025/06/ftc-sends-126-million-refunds-fortnite-players-who-were-charged-unwanted-items-reopens-claims"
+    },
+    {
+      "text": "END-COLLAPSE-VEHICLE-B · The Smaller Transport Plan",
+      "role": "heading"
+    },
+    {
+      "text": "The van’s condition ends the journey. Trump’s push for overland supersonic flight fills the radio. A snail passes the tire carrying its own housing. Washington has a surprisingly small competitor.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the actual vehicle-condition ending, the van stays in its recorded state while a snail creeps past a tire in the foreground. The radio is visible but blank. No crash, destroyed component, new repair cost or later journey is implied.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive Order 14304: Leading the World in Supersonic Flight (2025-06-06)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/leading-the-world-in-supersonic-flight/"
+    },
+    {
+      "text": "END-COLLAPSE-VEHICLE-C · A Very Small Space Program",
+      "role": "heading"
+    },
+    {
+      "text": "The van’s condition ends the expedition. Trump proposed nearly halving NASA’s science budget. The repair estimate offers an equally ambitious mission: find something still working, then build a vehicle around it.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Show the van in its recorded condition at the recorded stopping place. An illustrative repair estimate has one tiny circled component silhouette amid broad blank space. Do not turn a generic vehicle collapse into destruction or invent a failed part.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: American Astronomical Society: Policy Update, 8 April 2026 (2026-04-08)",
+      "role": "source",
+      "link": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026"
+    },
+    {
+      "text": "Source: Lowell Observatory: This Week in Astronomy History, February 15–21 (undated)",
+      "role": "source",
+      "link": "https://lowell.edu/this-week-in-astronomy-history-feb-15-21/"
+    },
+    {
+      "text": "END-COLLAPSE-WEATHER-A · Weather, Unedited",
+      "role": "heading"
+    },
+    {
+      "text": "Weather ends the expedition. Sharpiegate demonstrated how to change a forecast with a pen. Nobody demonstrated how to drive across the correction.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual recorded weather and stopping place with a blank route map and small capped marker inside the van.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-WEATHER-B · Weather Included in the Estimate",
+      "role": "heading"
+    },
+    {
+      "text": "Weather ends the trip. The FTC’s Spark settlement challenged promises about delivery earnings. A recruitment ad still shows perfect conditions. Even the sky in that job has been hired under false pretenses.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Use the actual recorded obstructing weather around the stopped van. Beside it, a blank roadside recruitment display contains an idealized mild-weather landscape with cheerful clouds. No crew employment, delivery, extra vehicle failure or weather type is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Walmart Agrees to $100 Million Judgment over Spark Driver Earnings Claims (2026-02-26)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2026/02/walmart-agrees-100-million-judgment-settle-ftc-states-charges-over-deceptive-earnings-claims-related"
+    },
+    {
+      "text": "Source: Walmart Fiscal 2026 Annual Report",
+      "role": "source",
+      "link": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000091/wmtfy26annualreport-final.pdf"
+    },
+    {
+      "text": "END-COLLAPSE-WEATHER-C · The Signal Has Benefits",
+      "role": "heading"
+    },
+    {
+      "text": "Weather ends the journey. A radio caller attacks Illinois’s paid leave for any reason. “People need to show up,” he says. Then the weather disconnects him. Apparently his signal has benefits.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Use the actual recorded weather and stopping location, with a radio producing an illustrative interrupted speech shape. Do not invent a new storm type, crashed vehicle, lost traveler or dead crew member; the broadcast interruption is the sole visual gag.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Illinois General Assembly: Paid Leave for All Workers Act (2024)",
+      "role": "source",
+      "link": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT"
+    },
+    {
+      "text": "END-DESTROYED-A · The Certain Part",
+      "role": "heading"
+    },
+    {
+      "text": "The van is destroyed, ending the trip. A salvage clerk remembers the SEC’s Keurig recycling settlement. His green claims now say MAYBE. The disposal fee remains admirably certain.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Keep the destroyed van at its actual location. An illustrative remote salvage quote has a blank green-claims area and a prominent blank fee box; no disposal, payment, collision mechanism or unrecorded casualty. MAYBE appears only as a separate editable overlay.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MAYBE” — blank green-claims area of illustrative salvage quote",
+      "role": "scene"
+    },
+    {
+      "text": "Source: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)",
+      "role": "source",
+      "link": "https://www.sec.gov/newsroom/press-releases/2024-122"
+    },
+    {
+      "text": "END-DESTROYED-B · A Different Tax Strategy",
+      "role": "heading"
+    },
+    {
+      "text": "The van is destroyed and the trip ends. Texas raised its business-property exemption. Your private van’s value has fallen by a different method. Nobody is hiring a ribbon-cutter for this one.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Show the van’s recorded destroyed state and location beside an illustrative unopened ceremonial ribbon kit and a blank Texas business-tax news clipping. No benefit eligibility, payment, specific destructive event or casualty is inferred.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Texas Comptroller: Valuing property and business personal property exemption (Current 2026 guidance checked 2026-09-14)",
+      "role": "source",
+      "link": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php"
+    },
+    {
+      "text": "END-DESTROYED-C · Private Mint",
+      "role": "heading"
+    },
+    {
+      "text": "The van is destroyed, ending the journey. Washington stopped making pennies that cost more than a penny. The salvage quote suggests the van was quietly running a similar program.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Show the actual destroyed vehicle at its recorded location, with an illustrative blank salvage estimate and a few loose coins in the foreground. No salvage transaction, crash mechanism, fire or unrecorded casualty is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: United States Mint: Penny information (Current guidance checked 2026-09-14)",
+      "role": "source",
+      "link": "https://www.usmint.gov/news/media-kit/penny"
+    },
+    {
+      "text": "END-FALLBACK-A · No Exclusive Answer",
+      "role": "heading"
+    },
+    {
+      "text": "The result is missing from this account. A court barred Google’s exclusive search-distribution deals in 2025. At least this blank answer has no exclusive distributor. Nobody gets paid to make it your only option.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An open journey notebook has a blank result area. Beside it, a clearly editorial unlettered search-field shape has an empty default-placement bracket. No browser screenshot, invented search result, completed route, or crew fate appears.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Justice Department Wins Significant Remedies Against Google (2025-09-02)",
+      "role": "source",
+      "link": "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google"
+    },
+    {
+      "text": "END-FALLBACK-B · A Less Useful Blank",
+      "role": "heading"
+    },
+    {
+      "text": "Your outcome is not recorded. Kansas City uses local taxes to run a fare-free streetcar. A blank where the fare belongs is a public benefit. A blank where your ending belongs is harder to sell.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A blank final notebook page sits beside a small editorial streetcar vignette with an empty fare-price panel. Do not place the travelers in Kansas City, show them aboard the streetcar, or imply how their journey ended.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: KC Streetcar: Main Street Rail Transportation Development District (undated)",
+      "role": "source",
+      "link": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/"
+    },
+    {
+      "text": "Source: KC Streetcar: About the Streetcar (undated)",
+      "role": "source",
+      "link": "https://kcstreetcar.org/about-streetcar/"
+    },
+    {
+      "text": "END-FALLBACK-C · Heroics Not Supplied",
+      "role": "heading"
+    },
+    {
+      "text": "The ending is missing from this account. The Copyright Office says prompts alone don’t earn authorship. Whoever commissioned a heroic conclusion will have to supply the heroics.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A journey notebook lies open to an unfilled final page beside a blank commission slip and an untouched pencil. Neutral background; no destination, vehicle event, hearing, surviving count or specific ending is inferred.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Copyright Office Releases Part 2 of Artificial Intelligence Report (2025-01-29)",
+      "role": "source",
+      "link": "https://www.copyright.gov/newsnet/2025/1060.html"
+    },
+    {
+      "text": "END-HEAT-A · Local Control of the Thermostat",
+      "role": "heading"
+    },
+    {
+      "text": "Heat exposure ends the expedition. Politicians who oppose mandatory worker heat breaks make their case indoors. The thermostat has been allowed to regulate without a public hearing.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Recorded hot stopping place contrasted with a plainly editorial inset of an indoor politician beside an unlettered thermostat.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: State bans on local heat protections",
+      "role": "source",
+      "link": "https://apnews.com/article/e271a2d78ef1545f4203b88bde514f9b"
+    },
+    {
+      "text": "END-HEAT-B · The Forecast Has Been Corrected",
+      "role": "heading"
+    },
+    {
+      "text": "Heat exposure ends the journey. Sharpiegate offered a cheaper approach to bad forecasts: change the map. The sun remains infuriatingly difficult to reach with a marker.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Recorded heat at the stopping place; a capped marker beside a blank weather map in the van, without altered temperature or invented death.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "END-HEAT-C · Shade for the Screen",
+      "role": "heading"
+    },
+    {
+      "text": "Heat exposure ends the expedition. A kiosk celebrates Washington’s cheap deal for Musk’s Grok and recommends finding shade. Its screen has a small canopy. The public has been advised to supply its own.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded heat-exposure ending, a public information kiosk has a tiny canopy sheltering only its blank screen. Keep any actual survivors and vehicle in their recorded state; no shelter or recovery is granted to the player. The kiosk is a fictional illustration of priorities.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “FIND SHADE” — blank kiosk screen",
+      "role": "scene"
+    },
+    {
+      "text": "Source: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)",
+      "role": "source",
+      "link": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-xai-partner-to-accelerate-federal-ai-adoption-09252025"
+    },
+    {
+      "text": "END-INCOMPLETE-A · Revised Estimate",
+      "role": "heading"
+    },
+    {
+      "text": "This expedition is unfinished. USPS changed delivery targets in 2025, making some faster and others slower. Your ending has not arrived. Someone could move the promised date and call the same waiting a service improvement.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An explicitly editorial close-up of an unfinished journey notebook and a loose promised-date card on a blank calendar. Any actual travelers or vehicle appear only according to the recorded current state; no destination or remaining travel is assumed.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: USPS announces refined service standards and cost reductions (2025-02-26)",
+      "role": "source",
+      "link": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm"
+    },
+    {
+      "text": "END-INCOMPLETE-B · Leave the Label Loose",
+      "role": "heading"
+    },
+    {
+      "text": "Your journey is unfinished. A federal court blocked the administration’s proposed FBI headquarters move in August 2026. The agency famous for finding people has been working on where to put itself. Leave the address label loose.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An unfinished journey notebook beside an explicitly editorial inset of an office-moving box and unattached address label. The inset represents the FBI relocation dispute, not crew inventory or a claim that an FBI move occurred.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Maryland Attorney General Statement on FBI Headquarters Ruling (2026-08-17)",
+      "role": "source",
+      "link": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx"
+    },
+    {
+      "text": "Source: AP reporting on court blocking FBI headquarters move",
+      "role": "source",
+      "link": "https://apnews.com/article/f5a77411bf54f3e17beb9cd41fd046a8"
+    },
+    {
+      "text": "Source: FBI: New FBI Headquarters in Washington, DC",
+      "role": "source",
+      "link": "https://www.fbi.gov/news/press-releases/new-fbi-headquarters-in-washington-dc"
+    },
+    {
+      "text": "END-INCOMPLETE-C · Keep the Pencil",
+      "role": "heading"
+    },
+    {
+      "text": "Your journey is unfinished. Treasury suspended IRS Direct File for 2026, though other free filing options remain. The tax obligation survived its convenient button. At least nobody can remotely discontinue the pencil beside an unfinished page.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An unfinished blank notebook with an ordinary pencil beside a clearly editorial disconnected computer cable. The notebook and cable are visual commentary; do not add them to the crew’s inventory or imply any traveler’s tax status.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: GAO B-337954: Suspension of IRS Direct File (2026-05-12)",
+      "role": "source",
+      "link": "https://www.gao.gov/products/b-337954"
+    },
+    {
+      "text": "END-SANITY-A · The Clock Paid Less Attention",
+      "role": "heading"
+    },
+    {
+      "text": "Your sanity is exhausted; the expedition stops. Trump wanted daylight saving ended, then more evening daylight. Neither announcement changed the law. The clock still works. It has paid much less attention to the news.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Use only the recorded surviving travelers and vehicle condition. An editorial unlettered clock keeps a plain set of hands beside a turned-away radio. Do not depict a new diagnosis, injury, hallucination, panic episode, restraint, crash, or death.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Trump Calls for More Daylight as Debate over Clock Changes Continues (2025-04-11)",
+      "role": "source",
+      "link": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3"
+    },
+    {
+      "text": "END-SANITY-B · The Working Chair",
+      "role": "heading"
+    },
+    {
+      "text": "The strain ends the expedition. On television, a pundit calls Pittsburgh’s expanded paid sick time an assault on work. He pauses to find the massage button on his chair.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the recorded strain ending, a clearly separate broadcast inset shows an anonymous pundit adjusting a reclining massage chair. Only actual surviving travelers may appear outside the inset; no invented diagnosis, death or vehicle event.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: City of Pittsburgh: Paid Sick Days Act (2026)",
+      "role": "source",
+      "link": "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act"
+    },
+    {
+      "text": "Source: Pittsburgh Paid Sick Days Act Guidelines (2025-12)",
+      "role": "source",
+      "link": "https://www.pittsburghpa.gov/files/assets/city/v/1/mayor/documents/paid-sick-day-act-notice/clean-guidelines-v.-4.1-for-adminstering-psda-dec25.pdf"
+    },
+    {
+      "text": "END-SANITY-C · Five Things You Can No Longer Do",
+      "role": "heading"
+    },
+    {
+      "text": "Your sanity is exhausted; the expedition ends. DOGE wanted five weekly accomplishments. You have reached the point where “listen to another announcement” cannot make the list.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Travel radio is switched off beside an unlettered five-line note in the actual stopped van. No suicide imagery or invented death.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE five-accomplishments emails",
+      "role": "source",
+      "link": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/"
+    },
+    {
+      "text": "END-VICTORY-A · Public Access, With Bucket",
+      "role": "heading"
+    },
+    {
+      "text": "You win the final vote. The chair praises NIH opening newly covered taxpayer-funded research, then calls your hearing exclusive access. The cleaner props its door open with a bucket.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the completed successful hearing, show only actual surviving arrivals and a separate cleaner placing an ordinary empty bucket against the open door. No additional law change, payment or second vote is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NIH Public Access Policy Overview (2025-07-01)",
+      "role": "source",
+      "link": "https://www.grants.nih.gov/policy-and-compliance/policy-topics/public-access/nih-public-access-policy-overview"
+    },
+    {
+      "text": "Source: NIH Notice: Accelerated Implementation of 2024 Public Access Policy",
+      "role": "source",
+      "link": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-101.html"
+    },
+    {
+      "text": "END-VICTORY-B · Please Supply the Signature",
+      "role": "heading"
+    },
+    {
+      "text": "You win the final vote. The FTC’s ban on fake customer reviews gives the chair an idea for authentic feedback: he writes the praise himself, then leaves a little space for your signature.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: After the recorded winning final vote, the established hearing chair presents a blank review-like sheet with an oversized praise area and a tiny unsigned signature line. Show only recorded surviving arrivals and established NPC appearances; no traveler signs anything.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “AUTHENTIC FEEDBACK” — Blank review-sheet heading",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)",
+      "role": "source",
+      "link": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers"
+    },
+    {
+      "text": "END-VICTORY-C · Count the Chairs",
+      "role": "heading"
+    },
+    {
+      "text": "You win the final vote. The chair calls Nebraska’s eleven-worker sick-leave cutoff common sense, then asks for a recess. The clerk begins counting chairs. The chair asks him to stop.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the completed hearing, show only actual surviving arrivals. An official clerk has begun counting the officials’ chairs on their fingers while the chair watches uneasily. The vote has passed; no further vote or material reward is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Nebraska Department of Labor: Paid Sick Time Effective October 1 (2025-09-25)",
+      "role": "source",
+      "link": "https://dol.nebraska.gov/PressRelease/Details/335"
+    },
+    {
+      "text": "END-VOTEFAIL-A · The Free Exit",
+      "role": "heading"
+    },
+    {
+      "text": "The final vote goes against you. The chair celebrates Congress overturning the overdraft rule: banks must recover their costs. When you mention the journey here, he points to the free exit.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Only actual surviving arrivals remain at the failed hearing. The chair points across their ordinary travel bags toward the open exit. No fee is paid, new journey begins or extra loss occurs in the image.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule (2025-05-09)",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/PLAW-119publ10/pdf/PLAW-119publ10.pdf"
+    },
+    {
+      "text": "Source: CFPB: Closes Overdraft Loophole",
+      "role": "source",
+      "link": "https://www.consumerfinance.gov/archive/newsroom/cfpb-closes-overdraft-loophole-to-save-americans-billions-in-fees/"
+    },
+    {
+      "text": "END-VOTEFAIL-B · Request Fewer Forms",
+      "role": "heading"
+    },
+    {
+      "text": "You lose the final vote. A court killed the FTC’s click-to-cancel rule on procedural grounds. The chair has borrowed the idea for complaints: the form asking for less paperwork is six pages.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: After the recorded losing final vote, the established hearing chair points to a blank six-page complaint form beside the travelers’ case material. No traveler completes it and no appeal, further hearing, new vote, vote totals or subsequent travel is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “REQUEST LESS PAPERWORK” — Blank first-page heading",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Appeals court vacates FTC click-to-cancel rule (2025-07-09)",
+      "role": "source",
+      "link": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a"
+    },
+    {
+      "text": "END-VOTEFAIL-C · Please Turn That Over",
+      "role": "heading"
+    },
+    {
+      "text": "The final vote rejects your case. The chair insists mistakes cannot simply be undone. A clerk quietly turns over the newspaper about the nuclear-security staff Washington fired, then tried to recall.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: At the failed final hearing, only actual arriving survivors gather their existing case materials. A clerk turns a blank newspaper face down beside the chair’s hand. No later reconsideration, travel or death is implied.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal (2025-02-16)",
+      "role": "source",
+      "link": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5"
+    }
+  ],
+  "text": "Endings\n45 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nEND-COLD-A · Local Observations\nCold exposure ends the trip. The radio recalls North Platte cutting weather-balloon launches in 2025. Your breath supplies the replacement forecast: little white warnings, delivered free through clenched teeth.\nScene: At the recorded cold-exposure ending, focus on the radio and cold outside the van. Only surviving travelers may appear with visible breath when conditions support it. No frozen body, fatality or specific storm is invented.\nSource: NOAA cuts weather balloon launches, citing staff shortages (2025-03-21)\nEND-COLD-B · Victory Has the Keys\nCold exposure ends the expedition. Trump’s homebuyer order exempts qualifying build-to-rent developments. A rental ad celebrates victory for families. The man in its photograph is holding enough keys to play a tambourine.\nScene: At the recorded cold-exposure stopping place, an illustrative rental advertisement shows a smiling property representative holding an oversized ring of keys beside houses. The actual van and survivors retain their recorded condition; no invented home loss or death. All ad lettering is omitted.\nSource: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)\nEND-COLD-C · Energy Dominance, Bring a Coat\nCold exposure ends the journey. Trump’s energy-dominance speech continues in a heated room. The microphone is wearing better weather protection than the public.\nScene: Actual cold conditions at the stopping place, with a small editorial inset of a foam-covered microphone in a heated briefing room.\nSource: Trump energy and climate rollback\nEND-COLLAPSE-BREAKDOWN-A · Custody of the Hands\nThe unrepaired breakdown ends the expedition. The mechanic you call faces a noncompete threat after the FTC dropped its noncompete-rule appeals. His old boss is trying to keep custody of both his hands.\nScene: Keep the unrepaired van at its recorded stopping place. A separate illustrative phone-call inset shows a mechanic studying a blank employment clause with both hands idle beside tools. No claim that every noncompete is enforceable and no completed repair.\nSource: FTC Noncompete Rule (2025-09-05)\nSource: FTC Files to Accede to Vacatur of Non-Compete Clause Rule\nEND-COLLAPSE-BREAKDOWN-B · A Working Nameplate\nThe breakdown ends the journey. Washington can rename defense “war” and call the job done. Your van’s newly impressive title still needs a functioning part beneath it.\nScene: Actual unresolved mechanical failure with a pristine blank nameplate beside the tools; no invented successful repair.\nSource: Department of War naming\nEND-COLLAPSE-BREAKDOWN-C · Tow Pending Approval\nThe unrepaired breakdown ends the trip. A farmer’s tractor also awaits dealer-controlled repair; the FTC’s proposed Deere settlement hasn’t fixed it. You have found a tow vehicle. It needs a tow.\nScene: The van remains at its actual breakdown location. A separate farmer stands beside an also-broken tractor and a closed dealer diagnostic case. Neither vehicle moves; no repair, towing, payment or completed settlement is depicted.\nSource: FTC and states announce Deere right-to-repair settlement (2026-07-08)\nEND-COLLAPSE-CROSSING-A · Relocation by Argument\nThe crossing ends the expedition. In August 2026, a court blocked the administration’s FBI headquarters move. Washington can hold another meeting about relocation. At least their chairs have wheels.\nScene: Depict only the recorded crossing-ending state and actual survivors and vehicle condition. A separate editorial inset shows officials considering an unlettered relocation plan from conspicuously wheeled office chairs. No border checkpoint, detention, collision, injury, drowning or death is invented.\nSource: Maryland Attorney General Statement on FBI Headquarters Ruling (2026-08-17)\nSource: AP reporting on court blocking FBI headquarters move\nSource: FBI: New FBI Headquarters in Washington, DC\nEND-COLLAPSE-CROSSING-B · A Magnificent Stopping Point\nThe crossing ends your journey. Trump’s architecture order favors classical designs for covered federal buildings. Perhaps two marble columns would improve the view of this obstruction. They would be excellent at standing there, which is already the problem.\nScene: The actual crossing-ending state is accompanied by an editorial architectural sketch of two decorative classical columns framing a blocked passage. The columns are hypothetical commentary, not new structures at the actual crossing or its cause.\nSource: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)\nEND-COLLAPSE-CROSSING-C · The Improved Record\nThe crossing ends the expedition. Trump wants a more flattering national story. The version in which your van never gets through will probably need a smaller font.\nScene: Actual failed crossing, paired with an editorially oversized blank official-history book and a tiny inset page; no invented catastrophe.\nSource: White House history intervention\nEND-COLLAPSE-DISEASE-A · Illness Has No Upload Button\nIllness ends the expedition. Congress wants work documented before more people can keep benefits. Your body has been doing nothing but fight. It has neglected to create a login.\nScene: Unlettered work-requirements form sits unused beside the actual health-care belongings at the stopping place; no invented benefit enrollment or death.\nSource: Medicaid and SNAP work requirements\nEND-COLLAPSE-DISEASE-B · The Budget Looks Healthy\nDisease ends the journey. Washington can describe projected health-spending cuts as savings. The budget looks much healthier when none of the sick people are drawn on the chart.\nScene: Actual journey health belongings contrasted with a clean blank budget chart in an editorial inset; no invented diagnosis or casualty.\nSource: 2025 health spending law\nEND-COLLAPSE-DISEASE-C · A Second Opinion From the Slogan\nIllness ends the expedition. The MAHA pitch promised health through suspicion of safeguards. The disease has offered no opinion on government and an extremely detailed opinion on bodies.\nScene: Actual care belongings and stopped vehicle; a separate editorial image of an unlettered raw-milk stall makes no claim that milk caused this particular illness.\nSource: MAHA marketed raw milk and food safety\nEND-COLLAPSE-HUNGER-A · Hold Music\nHunger ends the expedition. Nebraska’s SNAP soda exclusion is being celebrated as healthy shopping. The newsreader lists forbidden drinks while your stomach provides the hold music.\nScene: At the recorded stopping point, center a small radio beside the actual provisions as recorded, with a simple illustrative sound-wave motif aimed toward a traveler only if one survives. Do not imply SNAP enrollment or invent an empty inventory.\nSource: USDA approves Nebraska SNAP food-restriction waiver (2025-05-19)\nSource: Nebraska DHHS: New SNAP purchase restrictions (Effective 2026-01-01)\nEND-COLLAPSE-HUNGER-B · A Feast for the Eyes\nHunger ends the journey. A brochure celebrates Maryland’s financing of Hagerstown’s stadium and calls it a feast for the eyes. Your stomach has applied for a transfer.\nScene: At the recorded hunger ending, a glossy blank stadium brochure shows an extravagant concession-food photograph beside an oversized stadium rendering. Show actual provisions and survivors only as recorded; no eating paper or invented empty inventory.\nSource: Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium (undated)\nEND-COLLAPSE-HUNGER-C · Still Setting the Table\nHunger ends the expedition. The radio praises Oklahoma ending its state grocery tax. Local taxes remain. The government has reduced its appetite and would like applause before anyone serves dinner.\nScene: At the recorded hunger stopping point, focus on a radio beside an illustrative grocery display with separate small state and local tax tags left blank. Do not depict a purchase, specific stock shortage or additional consequence beyond the actual hunger ending.\nSource: Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients (undated)\nEND-COLLAPSE-PANIC-A · Nothing to See, Too Much to Hear\nPanic ends the expedition. Officials who misplaced bombing plans will continue explaining that everyone else is overreacting. You switch off the briefing; it is the first thing to stop escalating.\nScene: Radio switched off at the actual stopping point, with the present travelers shown without invented medical intervention or death.\nSource: Signal airstrike chat\nEND-COLLAPSE-PANIC-B · Definitely a Human\nPanic ends the expedition. The FCC put AI sales voices under consent rules. An unsolicited caller offers to transfer you to a human. The second, identical voice adds a cough.\nScene: At the recorded panic ending, focus on a blank phone with two nearly identical illustrative speech shapes, the second with a tiny cough-like burst. Show only recorded survivors; no invented diagnosis, injury, death, purchase or completed onward travel.\nSource: FCC Makes AI-Generated Voices in Robocalls Illegal (2024-02-08)\nEND-COLLAPSE-PANIC-C · You Have Been Invited to Worry\nPanic ends the expedition. Another political bulletin declares a national emergency over classroom pronouns. A leaking roof has yet to qualify for this level of concern.\nScene: Actual stopping place, with an illustrative cutaway of a school bucket catching a roof leak beside a thick blank policy binder.\nSource: Anti-indoctrination and patriotic education\nEND-COLLAPSE-VEHICLE-A · The Virtual Road\nThe van’s condition ends the trip. The FTC refunded unwanted Fortnite purchases. You’d like to report another one: a very expensive parking simulator.\nScene: Show the stopped van in its actual condition, with the ordinary steering wheel and unchanged real road visible beyond it. A small separate illustration of a game controller may accompany the blank refund-news clipping; no claim the van qualifies for a refund.\nSource: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)\nEND-COLLAPSE-VEHICLE-B · The Smaller Transport Plan\nThe van’s condition ends the journey. Trump’s push for overland supersonic flight fills the radio. A snail passes the tire carrying its own housing. Washington has a surprisingly small competitor.\nScene: At the actual vehicle-condition ending, the van stays in its recorded state while a snail creeps past a tire in the foreground. The radio is visible but blank. No crash, destroyed component, new repair cost or later journey is implied.\nSource: Executive Order 14304: Leading the World in Supersonic Flight (2025-06-06)\nEND-COLLAPSE-VEHICLE-C · A Very Small Space Program\nThe van’s condition ends the expedition. Trump proposed nearly halving NASA’s science budget. The repair estimate offers an equally ambitious mission: find something still working, then build a vehicle around it.\nScene: Show the van in its recorded condition at the recorded stopping place. An illustrative repair estimate has one tiny circled component silhouette amid broad blank space. Do not turn a generic vehicle collapse into destruction or invent a failed part.\nSource: American Astronomical Society: Policy Update, 8 April 2026 (2026-04-08)\nSource: Lowell Observatory: This Week in Astronomy History, February 15–21 (undated)\nEND-COLLAPSE-WEATHER-A · Weather, Unedited\nWeather ends the expedition. Sharpiegate demonstrated how to change a forecast with a pen. Nobody demonstrated how to drive across the correction.\nScene: Actual recorded weather and stopping place with a blank route map and small capped marker inside the van.\nSource: Sharpiegate\nEND-COLLAPSE-WEATHER-B · Weather Included in the Estimate\nWeather ends the trip. The FTC’s Spark settlement challenged promises about delivery earnings. A recruitment ad still shows perfect conditions. Even the sky in that job has been hired under false pretenses.\nScene: Use the actual recorded obstructing weather around the stopped van. Beside it, a blank roadside recruitment display contains an idealized mild-weather landscape with cheerful clouds. No crew employment, delivery, extra vehicle failure or weather type is invented.\nSource: Walmart Agrees to $100 Million Judgment over Spark Driver Earnings Claims (2026-02-26)\nSource: Walmart Fiscal 2026 Annual Report\nEND-COLLAPSE-WEATHER-C · The Signal Has Benefits\nWeather ends the journey. A radio caller attacks Illinois’s paid leave for any reason. “People need to show up,” he says. Then the weather disconnects him. Apparently his signal has benefits.\nScene: Use the actual recorded weather and stopping location, with a radio producing an illustrative interrupted speech shape. Do not invent a new storm type, crashed vehicle, lost traveler or dead crew member; the broadcast interruption is the sole visual gag.\nSource: Illinois General Assembly: Paid Leave for All Workers Act (2024)\nEND-DESTROYED-A · The Certain Part\nThe van is destroyed, ending the trip. A salvage clerk remembers the SEC’s Keurig recycling settlement. His green claims now say MAYBE. The disposal fee remains admirably certain.\nScene: Keep the destroyed van at its actual location. An illustrative remote salvage quote has a blank green-claims area and a prominent blank fee box; no disposal, payment, collision mechanism or unrecorded casualty. MAYBE appears only as a separate editable overlay.\nEditable overlays: “MAYBE” — blank green-claims area of illustrative salvage quote\nSource: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)\nEND-DESTROYED-B · A Different Tax Strategy\nThe van is destroyed and the trip ends. Texas raised its business-property exemption. Your private van’s value has fallen by a different method. Nobody is hiring a ribbon-cutter for this one.\nScene: Show the van’s recorded destroyed state and location beside an illustrative unopened ceremonial ribbon kit and a blank Texas business-tax news clipping. No benefit eligibility, payment, specific destructive event or casualty is inferred.\nSource: Texas Comptroller: Valuing property and business personal property exemption (Current 2026 guidance checked 2026-09-14)\nEND-DESTROYED-C · Private Mint\nThe van is destroyed, ending the journey. Washington stopped making pennies that cost more than a penny. The salvage quote suggests the van was quietly running a similar program.\nScene: Show the actual destroyed vehicle at its recorded location, with an illustrative blank salvage estimate and a few loose coins in the foreground. No salvage transaction, crash mechanism, fire or unrecorded casualty is shown.\nSource: United States Mint: Penny information (Current guidance checked 2026-09-14)\nEND-FALLBACK-A · No Exclusive Answer\nThe result is missing from this account. A court barred Google’s exclusive search-distribution deals in 2025. At least this blank answer has no exclusive distributor. Nobody gets paid to make it your only option.\nScene: An open journey notebook has a blank result area. Beside it, a clearly editorial unlettered search-field shape has an empty default-placement bracket. No browser screenshot, invented search result, completed route, or crew fate appears.\nSource: Justice Department Wins Significant Remedies Against Google (2025-09-02)\nEND-FALLBACK-B · A Less Useful Blank\nYour outcome is not recorded. Kansas City uses local taxes to run a fare-free streetcar. A blank where the fare belongs is a public benefit. A blank where your ending belongs is harder to sell.\nScene: A blank final notebook page sits beside a small editorial streetcar vignette with an empty fare-price panel. Do not place the travelers in Kansas City, show them aboard the streetcar, or imply how their journey ended.\nSource: KC Streetcar: Main Street Rail Transportation Development District (undated)\nSource: KC Streetcar: About the Streetcar (undated)\nEND-FALLBACK-C · Heroics Not Supplied\nThe ending is missing from this account. The Copyright Office says prompts alone don’t earn authorship. Whoever commissioned a heroic conclusion will have to supply the heroics.\nScene: A journey notebook lies open to an unfilled final page beside a blank commission slip and an untouched pencil. Neutral background; no destination, vehicle event, hearing, surviving count or specific ending is inferred.\nSource: Copyright Office Releases Part 2 of Artificial Intelligence Report (2025-01-29)\nEND-HEAT-A · Local Control of the Thermostat\nHeat exposure ends the expedition. Politicians who oppose mandatory worker heat breaks make their case indoors. The thermostat has been allowed to regulate without a public hearing.\nScene: Recorded hot stopping place contrasted with a plainly editorial inset of an indoor politician beside an unlettered thermostat.\nSource: State bans on local heat protections\nEND-HEAT-B · The Forecast Has Been Corrected\nHeat exposure ends the journey. Sharpiegate offered a cheaper approach to bad forecasts: change the map. The sun remains infuriatingly difficult to reach with a marker.\nScene: Recorded heat at the stopping place; a capped marker beside a blank weather map in the van, without altered temperature or invented death.\nSource: Sharpiegate\nEND-HEAT-C · Shade for the Screen\nHeat exposure ends the expedition. A kiosk celebrates Washington’s cheap deal for Musk’s Grok and recommends finding shade. Its screen has a small canopy. The public has been advised to supply its own.\nScene: At the recorded heat-exposure ending, a public information kiosk has a tiny canopy sheltering only its blank screen. Keep any actual survivors and vehicle in their recorded state; no shelter or recovery is granted to the player. The kiosk is a fictional illustration of priorities.\nEditable overlays: “FIND SHADE” — blank kiosk screen\nSource: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)\nEND-INCOMPLETE-A · Revised Estimate\nThis expedition is unfinished. USPS changed delivery targets in 2025, making some faster and others slower. Your ending has not arrived. Someone could move the promised date and call the same waiting a service improvement.\nScene: An explicitly editorial close-up of an unfinished journey notebook and a loose promised-date card on a blank calendar. Any actual travelers or vehicle appear only according to the recorded current state; no destination or remaining travel is assumed.\nSource: USPS announces refined service standards and cost reductions (2025-02-26)\nEND-INCOMPLETE-B · Leave the Label Loose\nYour journey is unfinished. A federal court blocked the administration’s proposed FBI headquarters move in August 2026. The agency famous for finding people has been working on where to put itself. Leave the address label loose.\nScene: An unfinished journey notebook beside an explicitly editorial inset of an office-moving box and unattached address label. The inset represents the FBI relocation dispute, not crew inventory or a claim that an FBI move occurred.\nSource: Maryland Attorney General Statement on FBI Headquarters Ruling (2026-08-17)\nSource: AP reporting on court blocking FBI headquarters move\nSource: FBI: New FBI Headquarters in Washington, DC\nEND-INCOMPLETE-C · Keep the Pencil\nYour journey is unfinished. Treasury suspended IRS Direct File for 2026, though other free filing options remain. The tax obligation survived its convenient button. At least nobody can remotely discontinue the pencil beside an unfinished page.\nScene: An unfinished blank notebook with an ordinary pencil beside a clearly editorial disconnected computer cable. The notebook and cable are visual commentary; do not add them to the crew’s inventory or imply any traveler’s tax status.\nSource: GAO B-337954: Suspension of IRS Direct File (2026-05-12)\nEND-SANITY-A · The Clock Paid Less Attention\nYour sanity is exhausted; the expedition stops. Trump wanted daylight saving ended, then more evening daylight. Neither announcement changed the law. The clock still works. It has paid much less attention to the news.\nScene: Use only the recorded surviving travelers and vehicle condition. An editorial unlettered clock keeps a plain set of hands beside a turned-away radio. Do not depict a new diagnosis, injury, hallucination, panic episode, restraint, crash, or death.\nSource: AP: Trump Calls for More Daylight as Debate over Clock Changes Continues (2025-04-11)\nEND-SANITY-B · The Working Chair\nThe strain ends the expedition. On television, a pundit calls Pittsburgh’s expanded paid sick time an assault on work. He pauses to find the massage button on his chair.\nScene: At the recorded strain ending, a clearly separate broadcast inset shows an anonymous pundit adjusting a reclining massage chair. Only actual surviving travelers may appear outside the inset; no invented diagnosis, death or vehicle event.\nSource: City of Pittsburgh: Paid Sick Days Act (2026)\nSource: Pittsburgh Paid Sick Days Act Guidelines (2025-12)\nEND-SANITY-C · Five Things You Can No Longer Do\nYour sanity is exhausted; the expedition ends. DOGE wanted five weekly accomplishments. You have reached the point where “listen to another announcement” cannot make the list.\nScene: Travel radio is switched off beside an unlettered five-line note in the actual stopped van. No suicide imagery or invented death.\nSource: DOGE five-accomplishments emails\nEND-VICTORY-A · Public Access, With Bucket\nYou win the final vote. The chair praises NIH opening newly covered taxpayer-funded research, then calls your hearing exclusive access. The cleaner props its door open with a bucket.\nScene: At the completed successful hearing, show only actual surviving arrivals and a separate cleaner placing an ordinary empty bucket against the open door. No additional law change, payment or second vote is shown.\nSource: NIH Public Access Policy Overview (2025-07-01)\nSource: NIH Notice: Accelerated Implementation of 2024 Public Access Policy\nEND-VICTORY-B · Please Supply the Signature\nYou win the final vote. The FTC’s ban on fake customer reviews gives the chair an idea for authentic feedback: he writes the praise himself, then leaves a little space for your signature.\nScene: After the recorded winning final vote, the established hearing chair presents a blank review-like sheet with an oversized praise area and a tiny unsigned signature line. Show only recorded surviving arrivals and established NPC appearances; no traveler signs anything.\nEditable overlays: “AUTHENTIC FEEDBACK” — Blank review-sheet heading\nSource: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)\nEND-VICTORY-C · Count the Chairs\nYou win the final vote. The chair calls Nebraska’s eleven-worker sick-leave cutoff common sense, then asks for a recess. The clerk begins counting chairs. The chair asks him to stop.\nScene: At the completed hearing, show only actual surviving arrivals. An official clerk has begun counting the officials’ chairs on their fingers while the chair watches uneasily. The vote has passed; no further vote or material reward is invented.\nSource: Nebraska Department of Labor: Paid Sick Time Effective October 1 (2025-09-25)\nEND-VOTEFAIL-A · The Free Exit\nThe final vote goes against you. The chair celebrates Congress overturning the overdraft rule: banks must recover their costs. When you mention the journey here, he points to the free exit.\nScene: Only actual surviving arrivals remain at the failed hearing. The chair points across their ordinary travel bags toward the open exit. No fee is paid, new journey begins or extra loss occurs in the image.\nSource: Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule (2025-05-09)\nSource: CFPB: Closes Overdraft Loophole\nEND-VOTEFAIL-B · Request Fewer Forms\nYou lose the final vote. A court killed the FTC’s click-to-cancel rule on procedural grounds. The chair has borrowed the idea for complaints: the form asking for less paperwork is six pages.\nScene: After the recorded losing final vote, the established hearing chair points to a blank six-page complaint form beside the travelers’ case material. No traveler completes it and no appeal, further hearing, new vote, vote totals or subsequent travel is invented.\nEditable overlays: “REQUEST LESS PAPERWORK” — Blank first-page heading\nSource: AP: Appeals court vacates FTC click-to-cancel rule (2025-07-09)\nEND-VOTEFAIL-C · Please Turn That Over\nThe final vote rejects your case. The chair insists mistakes cannot simply be undone. A clerk quietly turns over the newspaper about the nuclear-security staff Washington fired, then tried to recall.\nScene: At the failed final hearing, only actual arriving survivors gather their existing case materials. A clerk turns a blank newspaper face down beside the chair’s hand. No later reconsideration, travel or death is implied.\nSource: Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal (2025-02-16)\n"
+}

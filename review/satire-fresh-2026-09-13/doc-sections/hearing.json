@@ -1,0 +1,257 @@
+{
+  "key": "hearing",
+  "title": "The hearing",
+  "target": 6,
+  "count": 6,
+  "ready": true,
+  "rows": [
+    {
+      "text": "The hearing",
+      "role": "title"
+    },
+    {
+      "text": "6 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "HEARING-C-A · The Serious Font",
+      "role": "heading"
+    },
+    {
+      "text": "Rubio made State Department staff return to Times New Roman. Your D.C. hearing chair has caught font fever. He wants the serious font. You want him to read your case. He sends for a ruler.",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The first round drains stamina while he measures the margins. Your case now has more empty space than the van.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: The second round produces a fresh copy in Times New Roman. The same facts return wearing tiny shoes.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The last round straightens the stack. None of the pages has yet been read crooked.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: The ruler goes down. You endured the procedure; one vote will now decide the case.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: You cannot endure the remaining procedure. The hearing ends before the vote. Your unread case has immaculate margins.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Only travelers who actually reached D.C. face a hearing chair holding a ruler beside a blank case folder. An official clerk is approaching with another unused ruler. No vote or exhausted outcome is shown; separate transition states may change the paper stack.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Rubio orders return to Times New Roman (2025-12-10)",
+      "role": "source",
+      "link": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137"
+    },
+    {
+      "text": "HEARING-C-B · A Family of Doorbells",
+      "role": "heading"
+    },
+    {
+      "text": "Your D.C. hearing chair praises Virginia’s bell-to-bell school phone policy and orders your phones away. His rings. Everyone waits while he tells someone the public needs to learn patience.",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The first round drains stamina. His explanation of why he had to take the call lasts longer than the call.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: Another procedural round; his smartwatch rings. Personal responsibility has moved to the other wrist.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The last round begins. A tablet chimes. You appear to be testifying before a family of doorbells.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: The devices finally fall silent. You endured all three rounds; one vote now decides the case.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: The interruptions exhaust you before the vote. Your hearing ends. The chair’s battery remains full.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual arriving travelers face a hearing chair whose phone is poised to ring while their devices remain put away. A smartwatch and tablet are visible on the chair’s side only. No vote result; later procedural images may highlight one device at a time.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)",
+      "role": "source",
+      "link": "https://www.doe.virginia.gov/Home/Components/News/News/411/227"
+    },
+    {
+      "text": "HEARING-C-C · The Approved Account",
+      "role": "heading"
+    },
+    {
+      "text": "At the hearing, the chair invokes Trump’s call for a more flattering American history. Your case concerns the present. He seems annoyed that history is still being manufactured.",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The first procedural round drains stamina. Your difficulties are reclassified as discouraging presentation.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: The second round debates tone. The chair asks whether the unpaid bill could sound more grateful.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The final procedural round. The bill remains the same size despite extensive editing.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: You make it through procedure. One vote will decide whether the room can cope with the unflattering version.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: You cannot finish the hearing. No vote follows. The chair’s preferred account is now conveniently shorter.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual arriving travelers face a hearing chair who tries covering an ordinary blank bill with an ornate, blank patriotic brochure.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: White House history intervention",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    },
+    {
+      "text": "HEARING-D-A · The Appendix Exception",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "At the abortion-ban hearing, a nurse explains why hospital lawyers keep getting called during emergencies. The chair announces a study. She asks whether his appendix also waits for peer review.",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The first round drains stamina. The chair asks the nurse to define urgent. She points to the clock. He requests a second opinion.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: The second round establishes that time is critical. The committee takes a recess to decide which time.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The last procedural round. The study receives an extension. Nobody has worked out how to give one to a patient.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: You finish the procedure. One vote decides your case. The study will get considerably longer to make up its mind.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: You cannot finish the rounds, so there is no vote. The chair schedules a study of why people keep running out of time.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A nurse points toward an ordinary wall clock while a hearing chair gestures to a thick blank study proposal. Only the actual arriving travelers stand at the public microphone. No patient or medical procedure is depicted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Emergency-abortion guidance and medical exceptions",
+      "role": "source",
+      "link": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala"
+    },
+    {
+      "text": "Source: Texas SB31 medical-exception clarification",
+      "role": "source",
+      "link": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM"
+    },
+    {
+      "text": "HEARING-D-B · Nothing to Hide",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "At the hearing on Flock misuse, the chair says innocent people have nothing to hide. A clerk starts describing his own camera records. The chair discovers executive privacy before the first sandwich shop.",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The first procedural round drains stamina. The chair distinguishes public safety from information about his lunch.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: The next round discusses oversight. He demands oversight of whoever overlooked his right to have no oversight.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The last procedural round. His sandwich has been sealed from the public record.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: You endure the procedure. One vote will decide the case. The chair’s lunch has already received full protection.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: You cannot finish the rounds. The hearing ends before a vote; the chair calls this a useful reduction in surveillance.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Hearing chair hurriedly closes a folder as a clerk points to a harmless sandwich-shop icon on a blank map. Actual arriving travelers remain at the microphone; no real addresses or private routes.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Flock database misuse to stalk women",
+      "role": "source",
+      "link": "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/"
+    },
+    {
+      "text": "HEARING-D-C · Prior Authorization to Be Heard",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "The hearing concerns Medicare Advantage denials of qualifying care. The chair asks whether the patients appealed. A nurse holds up the appeal form. “Yes. It made a full recovery.”",
+      "role": "body"
+    },
+    {
+      "text": "Round 1: The opening round drains stamina. The chair asks whether the appeal form needs another appeal form.",
+      "role": "body"
+    },
+    {
+      "text": "Round 2: The second round reviews the review. The nurse adds a chair for the paperwork; it has been here longest.",
+      "role": "body"
+    },
+    {
+      "text": "Round 3: The final procedural round. The paperwork is declared fit to return to work.",
+      "role": "body"
+    },
+    {
+      "text": "Before the vote: You finish the rounds. One vote now decides the case. The form is excused from further examination.",
+      "role": "body"
+    },
+    {
+      "text": "If exhausted: You cannot finish the rounds, so no vote follows. The chair asks the paperwork whether it can continue without you.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: A nurse witnesses the hearing with a thick stack of blank appeal forms occupying a chair. Actual arriving travelers face the committee; no patient is depicted receiving or losing treatment.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicare Advantage prior-authorization denials",
+      "role": "source",
+      "link": "https://www.oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/"
+    }
+  ],
+  "text": "The hearing\n6 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nHEARING-C-A · The Serious Font\nRubio made State Department staff return to Times New Roman. Your D.C. hearing chair has caught font fever. He wants the serious font. You want him to read your case. He sends for a ruler.\nRound 1: The first round drains stamina while he measures the margins. Your case now has more empty space than the van.\nRound 2: The second round produces a fresh copy in Times New Roman. The same facts return wearing tiny shoes.\nRound 3: The last round straightens the stack. None of the pages has yet been read crooked.\nBefore the vote: The ruler goes down. You endured the procedure; one vote will now decide the case.\nIf exhausted: You cannot endure the remaining procedure. The hearing ends before the vote. Your unread case has immaculate margins.\nScene: Only travelers who actually reached D.C. face a hearing chair holding a ruler beside a blank case folder. An official clerk is approaching with another unused ruler. No vote or exhausted outcome is shown; separate transition states may change the paper stack.\nSource: AP: Rubio orders return to Times New Roman (2025-12-10)\nHEARING-C-B · A Family of Doorbells\nYour D.C. hearing chair praises Virginia’s bell-to-bell school phone policy and orders your phones away. His rings. Everyone waits while he tells someone the public needs to learn patience.\nRound 1: The first round drains stamina. His explanation of why he had to take the call lasts longer than the call.\nRound 2: Another procedural round; his smartwatch rings. Personal responsibility has moved to the other wrist.\nRound 3: The last round begins. A tablet chimes. You appear to be testifying before a family of doorbells.\nBefore the vote: The devices finally fall silent. You endured all three rounds; one vote now decides the case.\nIf exhausted: The interruptions exhaust you before the vote. Your hearing ends. The chair’s battery remains full.\nScene: Actual arriving travelers face a hearing chair whose phone is poised to ring while their devices remain put away. A smartwatch and tablet are visible on the chair’s side only. No vote result; later procedural images may highlight one device at a time.\nSource: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)\nHEARING-C-C · The Approved Account\nAt the hearing, the chair invokes Trump’s call for a more flattering American history. Your case concerns the present. He seems annoyed that history is still being manufactured.\nRound 1: The first procedural round drains stamina. Your difficulties are reclassified as discouraging presentation.\nRound 2: The second round debates tone. The chair asks whether the unpaid bill could sound more grateful.\nRound 3: The final procedural round. The bill remains the same size despite extensive editing.\nBefore the vote: You make it through procedure. One vote will decide whether the room can cope with the unflattering version.\nIf exhausted: You cannot finish the hearing. No vote follows. The chair’s preferred account is now conveniently shorter.\nScene: Actual arriving travelers face a hearing chair who tries covering an ordinary blank bill with an ornate, blank patriotic brochure.\nSource: White House history intervention\nHEARING-D-A · The Appendix Exception\nDeep End only\nAt the abortion-ban hearing, a nurse explains why hospital lawyers keep getting called during emergencies. The chair announces a study. She asks whether his appendix also waits for peer review.\nRound 1: The first round drains stamina. The chair asks the nurse to define urgent. She points to the clock. He requests a second opinion.\nRound 2: The second round establishes that time is critical. The committee takes a recess to decide which time.\nRound 3: The last procedural round. The study receives an extension. Nobody has worked out how to give one to a patient.\nBefore the vote: You finish the procedure. One vote decides your case. The study will get considerably longer to make up its mind.\nIf exhausted: You cannot finish the rounds, so there is no vote. The chair schedules a study of why people keep running out of time.\nScene: A nurse points toward an ordinary wall clock while a hearing chair gestures to a thick blank study proposal. Only the actual arriving travelers stand at the public microphone. No patient or medical procedure is depicted.\nSource: Emergency-abortion guidance and medical exceptions\nSource: Texas SB31 medical-exception clarification\nHEARING-D-B · Nothing to Hide\nDeep End only\nAt the hearing on Flock misuse, the chair says innocent people have nothing to hide. A clerk starts describing his own camera records. The chair discovers executive privacy before the first sandwich shop.\nRound 1: The first procedural round drains stamina. The chair distinguishes public safety from information about his lunch.\nRound 2: The next round discusses oversight. He demands oversight of whoever overlooked his right to have no oversight.\nRound 3: The last procedural round. His sandwich has been sealed from the public record.\nBefore the vote: You endure the procedure. One vote will decide the case. The chair’s lunch has already received full protection.\nIf exhausted: You cannot finish the rounds. The hearing ends before a vote; the chair calls this a useful reduction in surveillance.\nScene: Hearing chair hurriedly closes a folder as a clerk points to a harmless sandwich-shop icon on a blank map. Actual arriving travelers remain at the microphone; no real addresses or private routes.\nSource: Flock database misuse to stalk women\nHEARING-D-C · Prior Authorization to Be Heard\nDeep End only\nThe hearing concerns Medicare Advantage denials of qualifying care. The chair asks whether the patients appealed. A nurse holds up the appeal form. “Yes. It made a full recovery.”\nRound 1: The opening round drains stamina. The chair asks whether the appeal form needs another appeal form.\nRound 2: The second round reviews the review. The nurse adds a chair for the paperwork; it has been here longest.\nRound 3: The final procedural round. The paperwork is declared fit to return to work.\nBefore the vote: You finish the rounds. One vote now decides the case. The form is excused from further examination.\nIf exhausted: You cannot finish the rounds, so no vote follows. The chair asks the paperwork whether it can continue without you.\nScene: A nurse witnesses the hearing with a thick stack of blank appeal forms occupying a chair. Actual arriving travelers face the committee; no patient is depicted receiving or losing treatment.\nSource: Medicare Advantage prior-authorization denials\n"
+}

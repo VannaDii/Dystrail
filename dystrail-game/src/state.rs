@@ -2658,6 +2658,10 @@ pub struct BossProgress {
     pub readiness: BossReadiness,
     #[serde(flatten)]
     pub outcome: BossResolution,
+    #[serde(default)]
+    pub hearing: Option<crate::boss::HearingReport>,
+    #[serde(default)]
+    pub presentation: crate::boss::HearingPhase,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
@@ -3283,6 +3287,12 @@ impl GameState {
         let day_index = u16::try_from(self.day.saturating_sub(1)).unwrap_or(u16::MAX);
         self.ledger.current_day_record =
             Some(DayRecord::new(day_index, TravelDayKind::NonTravel, 0.0));
+        // Closing the hearing still records its existing duration and stationary
+        // days. Once its result is committed, crossing a day boundary must not
+        // apply new journey hazards, recover sanity, or consume random draws.
+        if self.boss.outcome.attempted && self.boss.hearing.is_some() {
+            return;
+        }
         self.exec_travel_multiplier = 1.0;
         self.exec_breakdown_bonus = 0.0;
         self.weather_travel_multiplier = 1.0;

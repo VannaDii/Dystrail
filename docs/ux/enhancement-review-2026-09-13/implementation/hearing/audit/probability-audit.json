@@ -1,0 +1,23 @@
+{
+  "runs": 1000,
+  "arrivals": 346,
+  "arrival_sanity_counts": {
+    "10": 271,
+    "9": 69,
+    "8": 5,
+    "7": 1
+  },
+  "starting_odds": [
+    0.550000011920929
+  ],
+  "old_expected_wins_given_these_arrivals": 193.76000000000002,
+  "new_expected_wins_given_these_arrivals": 192.09119976104077,
+  "old_observed_wins": 207,
+  "new_observed_wins": 197,
+  "previous_gate_required_wins": 200,
+  "accepted_gate_required_wins": 190,
+  "acceptance": "The user accepted 190-200 wins per 1,000 runs. Only the Classic/Balanced minimum changed to 19%; the existing 35% ceiling and every other limit remain unchanged.",
+  "interpretation": "Observed 197 wins meet the accepted floor. Both conditional expected values also lie in the accepted 190-200 range. Hearing rules, draws, and seeds were not tuned to obtain a pass.",
+  "method": "Exhaustive convolution of uniform integer influence 50..150 for 1,2,3 rounds, mixed with probabilities .5,.25,.25. Enumerated all 100 original final draws. Old observed count comes from checks/baseline-campaign.log.",
+  "independence_limit": "Expected values condition on the recorded arrival states and model independent hearing draws. Observed seeded outcomes remain the authoritative deterministic results; these expectations do not describe every possible journey."
+}

@@ -2,7 +2,7 @@
 use crate::game::Region;
 use yew::prelude::*;
 pub mod composition;
-mod parked;
+pub(crate) mod parked;
 mod van;
 
 /// Explicit scene context. An aftermath keeps the context of its triggering action.

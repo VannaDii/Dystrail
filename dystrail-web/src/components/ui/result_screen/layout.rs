@@ -1,6 +1,7 @@
 use super::Props;
 use super::menu::render_menu_item;
 use super::share::{resolved_epilogue_key, resolved_headline_key};
+use crate::components::ui::character_portrait::{self, Expression};
 use crate::components::ui::stat_card::StatCard;
 use crate::game::ResultSummary;
 use crate::i18n;
@@ -49,11 +50,12 @@ pub fn render_body(
             <div class="result-art"><crate::components::ui::journey_scene::JourneyScene day={gs.day} hour={u8::try_from(gs.continuity.clock_minutes / 60).unwrap_or(8)} stage={crate::components::ui::journey_scene::SceneStage::Ending(arrived)} deep={gs.mode.is_deep()} weather={Some(gs.weather_state.today)}>
                 <figcaption class="result-art-caption">
                     <div class="result-outcome"><p class="eyebrow">{i18n::t("play.outcome")}</p><h1 id="result-title" class="result-headline">{ &headline_text }</h1><p class="result-epilogue">{&epilogue_text}</p><p class="result-location">{super::super::route_map::location::location(gs)}<span>{progress_text}</span></p></div>
-                    <div class="result-profile"><img class="crew-portrait" src={crate::paths::asset_path(&format!("static/img/journey/occupant-{}.png",gs.persona_id.as_deref().unwrap_or("journalist")))} alt="" decoding="sync" /><div><p class="eyebrow">{i18n::t("play.profile")}</p><strong>{player}</strong><span>{persona_name(summary)}</span><span>{&summary.mode}</span></div></div>
+                    <div class="result-profile">{character_portrait::framed(gs.persona_id.as_deref().unwrap_or("journalist"),player,Expression::ending(gs))}<div><p class="eyebrow">{i18n::t("play.profile")}</p><span>{persona_name(summary)}</span><span>{&summary.mode}</span></div></div>
                 </figcaption>
             </crate::components::ui::journey_scene::JourneyScene></div>
 
             {super::crew_story::render(&props.game_state)}
+            if let Some(report)=&gs.boss.hearing {{crate::pages::boss::summary::scorecard(report)}}
             <section class="ending-scorecard" aria-labelledby="scorecard-title"><h2 id="scorecard-title">{i18n::t("journey.scorecard")}</h2>
             <section class="result-info" aria-labelledby="result-info-heading">
                 <h2 id="result-info-heading" class="sr-only">{ i18n::t("result.labels.stats") }</h2>

@@ -387,9 +387,67 @@ September 13 — missing-slash entry correction: reproduced the bare/play startu
 September 13 — retry-check synchronization: the combined source CI passed 421 of 422 browser cases and all gameplay gates. The remaining offline-menu check asserted before its retry finished preparing assets; the failure snapshot already contains the successfully loaded game. The test now waits for the retry document and existing startup-ready promise before the same visibility assertion. An exact normalized comparison proves all existing assertions and timeouts are unchanged. Eight targeted desktop/phone retry and entry cases pass against the frozen 166ded45a575d0dda4f0 candidate. No product change or new preview revision is required; final source CI still gates publication.
 
 
+## Hearing storyboard design — September 13, 2026
+
+- Added docs/ux/enhancement-review-2026-09-13/hearing-storyboard.md: eight arrival-to-verdict beats, variable-length paths, four ending states, player actions, intended feelings, pacing, and accessibility.
+- Created and visually inspected two pixel-art concept sheets; corrected the main cast treatment to follow the feminine/androgynous and racial-diversity direction. Selected art, generation prompts, provenance, and six arithmetically checked state examples are under the review's storyboard/ folder.
+- Linked the storyboard into the hearing model and plan, carrying the accepted goal's 50–150% influence range and 50% continuation baseline forward. Gameplay and source assets were not changed; no runtime/campaign tests were run for this storyboard task.
+- Implementation handoff: use the saved hearing report for progressive reveals; do not show future sanity costs early, invent tactical agency, or award automatic victory before questioning closes. Validate the specified branches and pacing in the runnable hearing implementation.
+
+
 September 13 — floating language menu and entry URL release complete:
 - Source d7b2277 passes all 14 CI jobs in 34798552993. The combined release includes the separately requested chevron spacing fix; it preserves the intervening production hotfix instead of overwriting it.
 - Exact CI revision 4a35a2024033bd2ce615 is committed and pushed as 22aaa3a and published by Pages 34799527294. All 218 live hashes/types and 10 canonical URL cases pass. Main-only deployment policy is restored.
 - Desktop Classic and phone Deep mode load the formerly broken bare /play URL with query/fragment preserved. The list floats beyond the unchanged menu, all 20 languages remain reachable, and the chevron retains its 13.8 px inset. Preview is refreshed and matches production.
 - Full saved-install update, offline reload, and closed-browser offline restart preserve the journey; all 119 assets, 68 images, and seven fonts are ready. No gameplay rules or writer content changed. Other tasks' drafts are preserved outside this release.
 - Evidence: docs/release/language-popover-2026-09-13/. No remaining implementation or publication work for these follow-ups.
+
+## Approved staged hearing implementation — 2026-09-13
+
+- Implementing the approved arrival-to-verdict storyboard in the existing Rust/Yew game.
+- Added a versioned committed hearing report, conditional 1–3 rounds, unbiased 50–150% influence, per-round sanity, exhaustion precedence, and survival forecasts. Existing stat-based base odds and Deep/Aggressive guarantee are preserved.
+- Added saved presentation phases, player-paced result holds, committee checks, Fast/Skip/reduced-motion handling, four endings and a hearing record before the journey scorecard. Legacy attempts remain terminal without rerolls.
+- Added a six-portrait chair/clerk reaction atlas, using the existing chamber, arrival setting and active crew assets. Generated source: exec-289bbf6a-c999-470a-970c-678170540c89.png; inspected all six atlas cells.
+- New copy follows the current locale coverage: English, Italian, Spanish and Arabic, with English fallback in other locale bundles.
+- Initial 12 engine hearing tests pass, including exact scripted branches, sanity survival, seeded recovery, legacy saves and independent probability distributions. Full workspace testing found the expected campaign CSV fingerprint change; balance thresholds remain unchanged. Desktop/mobile verification and lint fixes are in progress.
+
+### Staged hearing verification completed — 2026-09-13
+
+- The implemented hearing follows the approved storyboard and preserves the existing stat-derived odds. Questioning uses a separate fixed `hearing-v1` stream; the original final-vote draw remains unchanged.
+- Fixed post-verdict daily recovery/hazards while retaining existing two-hour stationary-day accounting. Guarded rapid clicks, paused presentation for dialogs, kept focus without scrolling scenes away, and removed controls/history overlap on phones.
+- Validation: 376 native tests, 2 WebAssembly browser tests and 24 release-build browser checks passed; native/wasm pedantic lint, formatting and offline integrity passed. The supplied game client captured keyboard-driven closed/verdict states with no runtime errors.
+- Release candidate: `0ed9df91bf638019e320`, with 122 verified offline assets. Local test-crew review is available on port 62523. No hearing deployment or commit performed.
+- Remaining balance gate: same-seed 8,000-run comparison found Classic/Balanced wins 19.7% versus 20.7% previously (20% required minimum), with unchanged 34.6% arrival. Deep/Aggressive arrival/wins remain 99.2%. Thresholds and approved parameters were not altered to force a pass.
+- Review, screenshots, checkpoint, exact checks and provenance: `docs/ux/enhancement-review-2026-09-13/implementation/hearing/README.md`.
+
+### Staged hearing accepted and ready for release review — 2026-09-13
+
+- Added accurate disclosure of existing Deep/Aggressive preparation costs and the resulting entry sanity. Forecasts are read-only; Begin charges once, including after reload. The final draw explanation now shows the exact passing range so rounded percentages do not contradict the outcome.
+- The user explicitly accepted 190–200 Classic/Balanced wins per 1,000 runs. Changed only that minimum from 20% to 19%, preserved the 35% ceiling and other scenario limits, and covered the 189/190/197/200/201 boundaries. Hearing probabilities, seeds and strategy decisions are unchanged.
+- Final exact campaign command passes all eight 1,000-run scenario groups. Classic/Balanced remains 197/1,000 wins and 34.6% arrival; Deep/Aggressive remains 99.2% arrival and wins. Nonfatal strategy warnings remain recorded.
+- Conditional exhaustive audit predicts 193.76 old-model and 192.09 staged-model wins for the same 346 arrival states. Input reports and reproducible calculation are retained; these are cohort-conditional expectations.
+- Final verification: 378 native tests, 2 Wasm browser tests, 26 desktop/phone browser cases, strict native/Wasm lint, formatting and all 122 offline asset hashes/lengths pass. Two test-only currency expectation failures were corrected and both targeted cases passed; original logs retained. Supplied game client exercised final preparation and secured-verdict states without runtime errors; screenshots inspected.
+- Release revision 9f4c685e4e9207ccf7d7 is available at http://127.0.0.1:62523/play/hearing-review.html. Review package and requirement audit: docs/ux/enhancement-review-2026-09-13/implementation/hearing/.
+- The staged-hearing implementation goal is fulfilled for release review. No remaining hearing implementation work or balance blocker. No commit, PR or deployment performed. Other enhancement ideas and unrelated drafts remain outside this change.
+
+September 14 — requested save one turn before the hearing:
+- Created docs/ux/enhancement-review-2026-09-13/implementation/hearing/before-hearing-save.json for the review crew The Receipts (seed 4242). Captured the last road state after resolving outstanding crossings through the game.
+- Verified the actual Restore from file flow and reload. Exactly one Travel action and one recorded travel turn advance Day 2 10:02 → 10:03 into hearing Arrival, preserving 10 sanity. The hearing is unattempted and has no committed result. Current user browser storage was not touched; verification used isolated sessions.
+- Save creation only; no gameplay code changed. Validation and screenshots are in the adjacent before-hearing-verification directory.
+
+
+2026-09-14 hearing playtest feedback
+- Arrival now holds for player input in normal, Fast and reduced-motion modes.
+- Replaced mechanical preparation prose with narrative; removed the detached microphone, multiplier tutorial and exact draw explanation.
+- Named framed portraits across the hearing; six reference-derived happy/defeated atlases preserve the standard cast. Verdicts, result profiles, crew epilogues and social PNG crops share expression selection.
+- Round receipts reuse StatCard for influence, sanity delta and odds change. Persistent no-questions row precedes the single Call the vote action. Earlier Skip to verdict remains distinct. Larger equation operators, responsive cards, 320px checks.
+- Validation: 378 native + 2 Wasm tests, 54 browser checks, strict native/Wasm lint, format, whitespace, 128 offline asset hashes. Original accepted hearing probability model unchanged.
+- Updated local previews 62523/62524 to d085be895d332cd717a9. Portable pre-hearing save retained; local before-hearing-review.html restores it without JavaScript rounding of RNG seeds.
+- Evidence and art provenance: docs/ux/enhancement-review-2026-09-13/implementation/hearing/feedback-2026-09-14/. No commit or publication in this turn.
+
+September 14 — standing crew transparency repair:
+- Reproduced the reported magenta rectangles in the actual in-app browser. Filter relocation and explicit primitive color spaces did not fix them; a stronger chroma key removes the leaked matte, preserving the source sprites and RGB values.
+- Inspected all six cutouts, road and arrival in-app, plus desktop/phone captures. New rendered-pixel margins regression covers 128, 64 and 41.5 px widths. Four tests passed in the bundled headless shell and four in installed Chrome; crew absence/recovery checks remain passing.
+- Supplied game client road/arrival captures inspected; strict Wasm lint, format, whitespace and 128 offline hashes pass. No engine changes.
+- Refreshed both local previews to a9965b9895e256c1042c. The user's 62524 tab now shows clean sprites at its existing 638 px width and resumes Day 2 10:02 with the same six crew and stats. No console errors.
+- Evidence: docs/ux/enhancement-review-2026-09-13/implementation/hearing/crew-transparency-2026-09-14/. No commit or publication.

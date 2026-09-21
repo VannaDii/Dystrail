@@ -1,0 +1,481 @@
+[
+  {
+    "id": "LIGHT-01",
+    "topic": "GSA buys agency access to Grok for 42 cents",
+    "category": "Government technology purchasing",
+    "fact": "GSA announced an xAI agreement offering Grok access for $0.42 per federal organization for 18 months, through March 2027.",
+    "date": "2025-09-25",
+    "status": "Announced federal purchasing agreement",
+    "limit": "A promotional agency offer, not a permanent price or unlimited computing. Expanded features and higher limits have an upgrade path. Do not invent favoritism findings or private-data access.",
+    "url": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-xai-partner-to-accelerate-federal-ai-adoption-09252025",
+    "source_title": "GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: At a copy counter, a worker prices a few printed pages above an entire federal agency’s AI access. The shop’s printer remains unimpressed by Washington’s purchasing power."
+  },
+  {
+    "id": "LIGHT-02",
+    "topic": "Copyright Office rejects authorship by prompting alone",
+    "category": "AI and intellectual property",
+    "fact": "The U.S. Copyright Office concluded that merely supplying prompts does not provide sufficient human control to make a user the author of an AI output.",
+    "date": "2025-01-29",
+    "status": "Copyright Office report and interpretation",
+    "limit": "Human expression, creative selection, arrangement, or modification may qualify. This is not a ban on AI art, a new statute, or a ruling that every AI-assisted work lacks copyright.",
+    "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+    "source_title": "Copyright Office Releases Part 2 of Artificial Intelligence Report",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A printshop owner saved money by replacing an illustrator with a prompt. The government’s authorship guidance brings the supposedly unnecessary human back into the negotiation."
+  },
+  {
+    "id": "LIGHT-03",
+    "topic": "Strategic Bitcoin Reserve keeps forfeited digital assets",
+    "category": "Public asset policy and crypto",
+    "fact": "Trump’s order created a Strategic Bitcoin Reserve using eligible, finally forfeited government bitcoin and directed that reserve bitcoin be retained rather than sold.",
+    "date": "2025-03-06",
+    "status": "Executive order",
+    "limit": "The order preserves statutory obligations and exceptions. Additional acquisition strategies must be budget neutral. It does not mean an immediate taxpayer-funded buying spree or a government guarantee of bitcoin’s value.",
+    "url": "https://www.govinfo.gov/content/pkg/DCPD-202500335/pdf/DCPD-202500335.pdf",
+    "source_title": "Establishment of the Strategic Bitcoin Reserve and United States Digital Asset Stockpile",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A coin-shop worker imitates Washington by declaring the till a strategic reserve. The impressive new asset policy lasts until someone needs ordinary change for the bus."
+  },
+  {
+    "id": "LIGHT-04",
+    "topic": "FIFA awards Trump its first peace prize",
+    "category": "Political spectacle and international sport",
+    "fact": "FIFA presented Donald Trump with its inaugural FIFA Peace Prize at the World Cup final draw in Washington on December 5, 2025.",
+    "date": "2025-12-05",
+    "status": "Award presented at a documented event",
+    "limit": "The award was FIFA’s own prize, not the Nobel Peace Prize. Its praise for Trump is the organization’s assessment, not proof of a particular peace claim. Do not invent bribery, a quid pro quo, or a finding that the award was illegal.",
+    "url": "https://inside.fifa.com/campaigns/football-unites-the-world/news/president-trump-peace-prize-football-unites-the-world",
+    "source_title": "FIFA: President Donald J. Trump awarded inaugural FIFA Peace Prize",
+    "comic_angle": "Original scene direction: At a sports-trophy counter, a worker hears that football has awarded the president a peace prize. The gap between the institution’s ordinary expertise and its newly invented award supplies the joke; no copied pundit or comedian lines.",
+    "checked": "2026-09-14",
+    "additional_sources": []
+  },
+  {
+    "id": "LIGHT-05",
+    "topic": "Federal air-traffic modernization confronts floppy disks",
+    "category": "Public infrastructure technology",
+    "fact": "In July 2025 congressional testimony, Transportation Secretary Sean Duffy cited floppy disks, copper wire and antiquated radar while seeking modernization of US air-traffic-control infrastructure.",
+    "date": "2025-07-16",
+    "status": "Official testimony supporting modernization",
+    "limit": "The listed technologies describe parts of the existing infrastructure, not every control tower or aircraft. The testimony does not establish that modernization is now finished, a specific accident was caused by a floppy disk, or flying is unsafe.",
+    "url": "https://www.congress.gov/119/meeting/house/118483/witnesses/HHRG-119-PW00-Wstate-DuffyS-20250716.pdf",
+    "source_title": "Secretary Duffy: July 2025 transportation oversight testimony",
+    "comic_angle": "Original scene direction: At an electronics-recycling stop, a technician compares an obsolete storage device with the government’s air-traffic modernization testimony. The thing discarded by a home computer has retained a federal career.",
+    "checked": "2026-09-14",
+    "additional_sources": []
+  },
+  {
+    "id": "LIGHT-06",
+    "topic": "Summer E15 sales depend on temporary EPA waivers",
+    "category": "Fuel regulation",
+    "fact": "EPA announced an emergency waiver permitting summer sales of E15 gasoline in 2025, temporarily lifting restrictions that otherwise applied during the summer driving season.",
+    "date": "2025-04-28",
+    "status": "Dated temporary waiver announcement",
+    "limit": "The initial waiver covered May 1–20 and required extensions. This was not permanent nationwide legislation. E15 is not suitable for every vehicle; do not turn the scene into fueling advice.",
+    "url": "https://www.epa.gov/newsreleases/ahead-summer-driving-season-epa-allows-nationwide-year-round-e15",
+    "source_title": "Ahead of Summer Driving Season, EPA Allows Nationwide Year-Round E15",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A filling-station worker consults the government calendar before uncovering a pump. The fuel has not changed since yesterday; its federal permission to be sold has."
+  },
+  {
+    "id": "LIGHT-07",
+    "topic": "NASA’s contracted lunar drill lands unable to reach the ground",
+    "category": "Space procurement",
+    "fact": "NASA’s IM-2 payload documentation says the Athena lander’s roughly horizontal orientation prevented the TRIDENT drill from reaching the lunar surface and completing its objectives.",
+    "date": "2025-03-06",
+    "status": "Completed mission; documented payload outcome",
+    "limit": "This was an uncrewed commercial lunar delivery. Other instruments returned data; do not describe the entire mission as producing nothing or invent an astronaut emergency.",
+    "url": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn:nasa:pds:context:instrument_host:spacecraft.clps_to_prime1_athena&version=1.0",
+    "source_title": "NASA Planetary Data System: CLPS TO PRIME-1 Athena",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.nasa.gov/wp-content/uploads/2025/02/np-2025-02-005-jsc-clps-intuitive-machines-press-kit-508-2-25-25.pdf?emrc=67fcdaaf1e7ea",
+        "title": "NASA Intuitive Machines CLPS mission press kit",
+        "supports": "NASA Commercial Lunar Payload Services delivery arrangement and payload context."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: A hardware worker demonstrates a hand drill beside the NASA mission update. The expensive delivery reached the Moon; the last few inches to the ground defeated the drill."
+  },
+  {
+    "id": "LIGHT-08",
+    "topic": "TSA charges for an identity-verification attempt",
+    "category": "Travel administration",
+    "fact": "Starting February 1, 2026, TSA ConfirmID offered travelers without acceptable identification a $45 identity-verification process; payment does not guarantee verification or admission through security.",
+    "date": "2026-02-01",
+    "status": "Implemented travel verification option",
+    "limit": "A passport or other accepted identification can suffice without REAL ID. The fee does not apply to everyone or to domestic passengers under 18. Keep the angle on the fee, not surveillance or detention.",
+    "url": "https://www.travel.dod.mil/About/News/Article/Article/4393216/travelers-without-real-id-could-pay-45-fee-for-tsas-confirmid-beginning-februar/",
+    "source_title": "Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: At an airport shuttle stop, a cleaner explains that a $45 receipt proves someone paid $45. Whether the government accepts who paid remains a separate service."
+  },
+  {
+    "id": "LIGHT-09",
+    "topic": "FTC prohibits fabricated consumer reviews",
+    "category": "Consumer advertising enforcement",
+    "fact": "The FTC’s consumer-review rule took effect on October 21, 2024, addressing fabricated reviewers, nonexistent experiences, and specified buying or selling of deceptive reviews.",
+    "date": "2024-10-21",
+    "status": "Final rule took effect",
+    "limit": "The rule addresses defined commercial misconduct, not every AI-assisted sentence, unpopular opinion, or neutral platform hosting a review. Do not invent an enforcement case against the fictional shop.",
+    "url": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+    "source_title": "Consumer Reviews and Testimonials Rule: Questions and Answers",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A roadside café boasts a crowd of delighted reviewers but has empty chairs. Under the FTC rule, the owner’s next marketing expense might have to be an actual customer."
+  },
+  {
+    "id": "LIGHT-10",
+    "topic": "FCC treats AI telemarketing voices as artificial voices under existing law",
+    "category": "Communications regulation",
+    "fact": "The FCC ruled that AI-generated voices count as artificial voices under the Telephone Consumer Protection Act, bringing them within existing consent requirements for covered calls.",
+    "date": "2024-02-08",
+    "status": "Declaratory ruling",
+    "limit": "This is not a blanket ban on every AI voice call. Telemarketing robocalls require prior express written consent, subject to the law’s scope. Avoid election interference, extortion, or impersonation harms.",
+    "url": "https://docs.fcc.gov/public/attachments/DOC-400393A1.pdf",
+    "source_title": "FCC Makes AI-Generated Voices in Robocalls Illegal",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A garage worker receives a perfectly cheerful synthetic sales call about a warranty. Federal consent rules reach the voice before its sales script learns that the advertised car is not in the garage."
+  },
+  {
+    "id": "LIGHT-11",
+    "topic": "FCC makes broadband providers display comparison labels",
+    "category": "Internet pricing disclosure",
+    "fact": "Under FCC rules, larger broadband providers had to display consumer labels from April 10, 2024; smaller providers followed in October. Labels identify prices, introductory rates, speeds, and data allowances.",
+    "date": "2024-04-10",
+    "status": "Dated rule rollout",
+    "limit": "The labels disclose terms; they do not cap prices or guarantee a particular connection speed. Describe the 2024 rollout rather than asserting that every display requirement is unchanged in 2026.",
+    "url": "https://docs.fcc.gov/public/attachments/DOC-397551A1.pdf",
+    "source_title": "FCC Announces Broadband Consumer Labels Compliance Dates",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A laundromat owner compares the federally required internet label with a soup label. Both list what is supposed to be inside; only the soup is currently arriving at the advertised speed."
+  },
+  {
+    "id": "LIGHT-12",
+    "topic": "Court limits Google’s exclusive search-distribution deals",
+    "category": "Technology competition",
+    "fact": "A federal court’s September 2025 Google remedies barred exclusive distribution contracts for Google Search, Chrome, Assistant, and Gemini and imposed specified data-sharing requirements.",
+    "date": "2025-09-02",
+    "status": "District-court remedies ruling",
+    "limit": "The ruling did not ban Google, require every user to change browsers, order Chrome sold, or prohibit all distribution payments. This records the ruling, not the final outcome of every appeal.",
+    "url": "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google",
+    "source_title": "Justice Department Wins Significant Remedies Against Google",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: At a refurbished-computer stall, a worker demonstrates the difference between a choice of search engines and one engine occupying every available shortcut. Federal antitrust relief finally makes room for a second button."
+  },
+  {
+    "id": "LIGHT-13",
+    "topic": "FTC abandons its nationwide noncompete rule appeals",
+    "category": "Worker mobility",
+    "fact": "The FTC voted in September 2025 to dismiss its appeals and accept the vacatur of its nationwide Non-Compete Clause Rule.",
+    "date": "2025-09-05",
+    "status": "Agency withdrew appeals of rule vacatur",
+    "limit": "This did not make every noncompete enforceable. State restrictions and case-specific enforcement can still apply. Avoid telling a worker that a fictional clause necessarily binds them.",
+    "url": "https://www.ftc.gov/legal-library/browse/rules/noncompete-rule",
+    "source_title": "FTC Noncompete Rule",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://search.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule",
+        "title": "FTC Files to Accede to Vacatur of Non-Compete Clause Rule",
+        "supports": "September 5, 2025 withdrawal decision."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: A sandwich-shop worker reads an employer’s demand to keep bread assembly away from rival sandwiches. The FTC’s abandoned blanket rule leaves the boss still pretending lunch is a trade secret."
+  },
+  {
+    "id": "LIGHT-14",
+    "topic": "Court vacates the higher overtime salary threshold",
+    "category": "Wage and hour policy",
+    "fact": "A federal court vacated the Labor Department’s 2024 overtime rule, including the planned January 2025 increase in the salary threshold to $58,656.",
+    "date": "2024-11-15",
+    "status": "Dated nationwide vacatur reported by DOL",
+    "limit": "Salary alone never determines the exemption: job duties and other rules matter, and state protections may differ. Do not claim everyone below or above a single number has identical rights.",
+    "url": "https://www.dol.gov/agencies/whd/overtime/rulemaking?lang=en",
+    "source_title": "DOL: Overtime Rulemaking",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A store worker gets a grander managerial badge while the court blocks the planned salary-threshold increase. The title has been promoted; the number of hours on the shift has not."
+  },
+  {
+    "id": "LIGHT-15",
+    "topic": "Trump directs repeal of the overland supersonic-flight prohibition",
+    "category": "Aviation rulemaking",
+    "fact": "Trump’s June 6, 2025 order directs the FAA to repeal the general overland supersonic-flight prohibition, adopt an interim noise-based standard and develop subsequent rulemaking.",
+    "date": "2025-06-06",
+    "status": "Issued executive direction to the FAA",
+    "limit": "The order directs regulatory work; it does not establish routine supersonic airline service, immediate approval for every aircraft, or elimination of all noise restrictions. Use the dated political announcement rather than inventing an aircraft operation.",
+    "url": "https://www.whitehouse.gov/presidential-actions/2025/06/leading-the-world-in-supersonic-flight/",
+    "source_title": "Executive Order 14304: Leading the World in Supersonic Flight",
+    "comic_angle": "Original scene direction: At a roadside diner, working travelers compare the administration’s plan for travel faster than sound with their ordinary waiting and repair problems. Keep the government announcement explicit; a fictional customer can imagine escaping a bill faster than the server can finish reading it.",
+    "checked": "2026-09-14",
+    "additional_sources": []
+  },
+  {
+    "id": "LIGHT-16",
+    "topic": "Virginia orders bell-to-bell school phone policies",
+    "category": "State education administration",
+    "fact": "Following Governor Youngkin’s Executive Order 33, Virginia’s education department told school divisions to adopt age-appropriate bell-to-bell phone policies by January 1, 2025.",
+    "date": "2025-01-01",
+    "status": "Dated state implementation deadline",
+    "limit": "Grade-level policies and approved accommodations matter. This source establishes the 2024 guidance and 2025 deadline, not every detail of subsequent legislation. Do not invent punishments or an actual official’s conduct.",
+    "url": "https://www.doe.virginia.gov/Home/Components/News/News/411/227",
+    "source_title": "Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A school custodian puts away phones for a fictional policy-launch event while an adult official keeps interrupting the demonstration to check a phone. The distraction has acquired a job title."
+  },
+  {
+    "id": "LIGHT-17",
+    "topic": "New York City makes the person hiring the rental broker pay",
+    "category": "Housing transaction rules",
+    "fact": "New York City’s FARE Act took effect June 11, 2025, preventing brokers hired by or representing landlords from charging their broker fees to prospective tenants.",
+    "date": "2025-06-11",
+    "status": "City law took effect",
+    "limit": "A tenant can still pay a broker the tenant independently hires. This is fee allocation, not a rent cap or a ban on all brokers. Do not transplant the law to another jurisdiction.",
+    "url": "https://www.nyc.gov/site/dca/news/018-25/dcwp-the-fare-act-now-effect",
+    "source_title": "DCWP: The FARE Act Is Now in Effect",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: An apartment cleaner watches a broker slide the landlord’s bill toward the next person entering the room. The city law requires the invoice to remember who ordered the service."
+  },
+  {
+    "id": "LIGHT-18",
+    "topic": "Trump floats a 50-year mortgage",
+    "category": "Housing affordability proposal",
+    "fact": "In November 2025, Trump and federal housing-finance director Bill Pulte floated a 50-year mortgage as an affordability idea; Trump subsequently sounded less enthusiastic amid criticism.",
+    "date": "2025-11-11",
+    "status": "Dated public proposal, not an enacted national program",
+    "limit": "Do not describe the proposal as currently available or still being pursued. Lower payments and greater total interest depend on loan assumptions; do not invent a numerical mortgage comparison.",
+    "url": "https://apnews.com/article/56a931881ca6f6efeccf2de0333a83bd",
+    "source_title": "AP reporting on Trump’s proposed 50-year mortgage",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: At a modest open house, a working resident compares a tiny floor plan with an enormous payment calendar. Washington’s proposed affordability improvement is mostly extra calendar."
+  },
+  {
+    "id": "LIGHT-19",
+    "topic": "Trump targets federally supported institutional home purchases",
+    "category": "Housing and institutional investment",
+    "fact": "Trump directed agencies to restrict federal support for large institutional investors acquiring single-family homes, develop implementing definitions, and recommend legislation.",
+    "date": "2026-01-20",
+    "status": "Executive Order 14376; implementation directed",
+    "limit": "This was not an instant ban on every private institutional purchase. The order relies on definitions, agency action, applicable law, and exceptions including certain build-to-rent activity.",
+    "url": "https://www.whitehouse.gov/presidential-actions/2026/01/stopping-wall-street-from-competing-with-main-street-homebuyers/",
+    "source_title": "Stopping Wall Street from Competing with Main Street Homebuyers",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: At an open house, a cleaner measures a corporate buyer’s briefcase while everyone waits for the government to define a large investor. The ordinary house already has perfectly definite dimensions."
+  },
+  {
+    "id": "LIGHT-20",
+    "topic": "Interior stops and restarts Empire Wind construction",
+    "category": "Energy-project permits",
+    "fact": "Interior ordered Empire Wind construction halted on April 16, 2025, then lifted that halt on May 19, according to the federal project record.",
+    "date": "2025-05-19",
+    "status": "Completed 2025 stop-and-restart episode",
+    "limit": "This is the specific 2025 episode, not a claim of permanent cancellation or uninterrupted work afterward. Later stoppages and litigation occurred. Keep consequences to fictional scheduling and idle equipment, not invented environmental harm.",
+    "url": "https://www.boem.gov/renewable-energy/state-activities/empire-wind",
+    "source_title": "BOEM: Empire Wind",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.empirewind.com/project/",
+        "title": "Empire Wind project updates",
+        "supports": "Project operator documents later stoppage and court developments; interested-party source, not proof of uninterrupted current work."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: A dockside worker waits beside a turbine component while the government changes the work order. The actual wind has been turning up for its shift throughout the pause."
+  },
+  {
+    "id": "LIGHT-21",
+    "topic": "Congress repeals the CFPB overdraft lending rule",
+    "category": "Bank-fee regulation",
+    "fact": "Congress and Trump nullified the CFPB’s large-bank overdraft rule, which would have required a $5 fee, cost-based pricing, or treatment as a disclosed credit product.",
+    "date": "2025-05-09",
+    "status": "Congressional Review Act disapproval enacted",
+    "limit": "The rule covered institutions above $10 billion in assets and offered alternatives; it was not an unconditional $5 ceiling on every overdraft everywhere. Existing bank policies and other protections remain separate.",
+    "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ10/pdf/PLAW-119publ10.pdf",
+    "source_title": "Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-closes-overdraft-loophole-to-save-americans-billions-in-fees/",
+        "title": "CFPB: Closes Overdraft Loophole",
+        "supports": "December 12, 2024 original rule, covered institutions, and three pricing/disclosure alternatives."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: A worker checks a small negative bank balance after Congress removes the new rule. The bank’s proposed cure for having too little money is to make the shortage more expensive."
+  },
+  {
+    "id": "LIGHT-22",
+    "topic": "DOJ proposes restrictions on RealPage rent coordination",
+    "category": "Rental-market competition",
+    "fact": "DOJ announced a proposed RealPage settlement restricting the use of competitors’ nonpublic information and specified pricing-alignment features in rental-pricing software.",
+    "date": "2025-11-24",
+    "status": "Proposed settlement announced",
+    "limit": "The announcement required court approval; do not silently turn it into a final judgment. Allegations do not establish that every landlord or every local rent was fixed. This is not a ban on all rental software.",
+    "url": "https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and",
+    "source_title": "Justice Department Requires RealPage to End Sharing Competitively Sensitive Information and Pricing Alignment",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A renter shops around while several fictional landlords consult the same pricing service. The Justice Department’s case gives a concrete reason their independent answers sound as if one person is speaking."
+  },
+  {
+    "id": "LIGHT-23",
+    "topic": "FTC challenges patriotic goods with false domestic-origin claims",
+    "category": "Product-origin advertising enforcement",
+    "fact": "The FTC announced a proposed settlement with Americana Liberty and related defendants over allegations that patriotic flag-display products carried false, unqualified Made in USA claims.",
+    "date": "2026-04-14",
+    "status": "Complaint and proposed stipulated settlement",
+    "limit": "The release describes allegations and an order requiring judicial approval. Do not claim every patriotic product is imported, invent a final judicial finding, or turn this into another tariff story.",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/04/ftc-announces-made-usa-sweep-including-three-law-enforcement-actions-protect-american-consumers",
+    "source_title": "FTC Announces Made in the USA Sweep",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/americana-liberty-ftc-v-timeline-item-2026-04-14",
+        "title": "Americana Liberty FTC case timeline: April 14, 2026",
+        "supports": "Exact announcement date, complaint, and proposed order."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: At a hardware counter, an installer examines a flag-display kit whose advertising was more thoroughly American than its components. The FTC asks the patriotic adjectives to supply proof of origin."
+  },
+  {
+    "id": "LIGHT-24",
+    "topic": "FTC returns money for unwanted Fortnite purchases",
+    "category": "Digital purchase design",
+    "fact": "The FTC announced more than $126 million in additional refunds to Fortnite players charged for unwanted purchases, following its settlement over Epic’s billing practices.",
+    "date": "2025-06-25",
+    "status": "Refund distribution announced",
+    "limit": "This is the unwanted-purchase case, separate from children’s privacy claims. Not every player qualifies; do not advertise an open claim window without checking it. Avoid the combined $520 million figure.",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2025/06/ftc-sends-126-million-refunds-fortnite-players-who-were-charged-unwanted-items-reopens-claims",
+    "source_title": "FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: An adult game-shop worker compares the effortless purchase button with the process needed to undo the charge. Federal consumer enforcement supplies the game’s missing reverse gear."
+  },
+  {
+    "id": "LIGHT-25",
+    "topic": "SEC penalizes Keurig’s incomplete recyclability disclosures",
+    "category": "Corporate environmental disclosure",
+    "fact": "Keurig agreed to a $1.5 million SEC penalty over inaccurate recyclability statements in annual reports that omitted major recyclers’ concerns about accepting K-Cup pods.",
+    "date": "2024-09-10",
+    "status": "Settled SEC administrative enforcement",
+    "limit": "Keurig neither admitted nor denied the findings. This was a securities-disclosure case, not a finding that every pod is unrecyclable everywhere. Local collection rules and material claims are separate.",
+    "url": "https://www.sec.gov/newsroom/press-releases/2024-122",
+    "source_title": "SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A diner worker holds a corporate recycling claim beside the actual recycling bin’s instructions. The SEC case exposes the gap between a product being recyclable in a report and welcome in a bin."
+  },
+  {
+    "id": "LIGHT-26",
+    "topic": "NIH ends the public-access embargo on covered research manuscripts",
+    "category": "Publicly funded science access",
+    "fact": "For covered manuscripts accepted from July 1, 2025, NIH’s public-access policy requires public availability through PubMed Central without the previous publication embargo.",
+    "date": "2025-07-01",
+    "status": "Accelerated policy implementation",
+    "limit": "The policy covers qualifying NIH-funded author-accepted manuscripts, not every journal, every historic paper, or every publisher-formatted PDF. This is access policy, distinct from NIH overhead funding caps.",
+    "url": "https://www.grants.nih.gov/policy-and-compliance/policy-topics/public-access/nih-public-access-policy-overview",
+    "source_title": "NIH Public Access Policy Overview",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-101.html",
+        "title": "NIH Notice: Accelerated Implementation of 2024 Public Access Policy",
+        "supports": "July 1, 2025 implementation date and removal of embargo."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: At a library stop, an ordinary taxpayer discovers that helping fund a research paper no longer requires paying a publisher again to read the covered manuscript. The second tollbooth has finally opened."
+  },
+  {
+    "id": "LIGHT-27",
+    "topic": "FTC and states settle over Walmart Spark driver earnings claims",
+    "category": "Delivery-platform pay representations",
+    "fact": "The FTC and 11 states announced a $100 million judgment settling allegations that Walmart misled Spark drivers about base pay, tips, and incentives shown in delivery offers.",
+    "date": "2026-02-26",
+    "status": "Settlement announced; order entered March 3, 2026",
+    "limit": "Walmart denied liability. The $100 million judgment was not all a new cash fine: $63 million was suspended under settlement terms reflecting reimbursements. Do not invent a particular worker’s actual losses.",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/02/walmart-agrees-100-million-judgment-settle-ftc-states-charges-over-deceptive-earnings-claims-related",
+    "source_title": "Walmart Agrees to $100 Million Judgment over Spark Driver Earnings Claims",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000091/wmtfy26annualreport-final.pdf",
+        "title": "Walmart Fiscal 2026 Annual Report",
+        "supports": "Company account: March 3 order, denied liability, suspended portion and accrued amount."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: At a rest stop, a fictional delivery worker compares an offer screen with the payment. The groceries arrived complete; the advertised earnings apparently lost items in transit."
+  },
+  {
+    "id": "LIGHT-28",
+    "topic": "Trump’s daylight-saving positions point the clocks in different directions",
+    "category": "Presidential time-policy proposals",
+    "fact": "In April 2025, Trump urged Congress toward more evening daylight, after calling in December 2024 for eliminating daylight saving time. These point to different permanent clock settings.",
+    "date": "2025-04-11",
+    "status": "Contrasting public proposals; no change enacted by these statements",
+    "limit": "Do not say Congress enacted a new clock regime or treat ending clock changes as synonymous with permanent standard time. Avoid medical or road-safety claims about either setting.",
+    "url": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3",
+    "source_title": "AP: Trump Calls for More Daylight as Debate over Clock Changes Continues",
+    "checked": "2026-09-14",
+    "additional_sources": [],
+    "comic_angle": "Fictional scene direction: A truck-stop worker reads the two presidential positions while holding the clock’s loose minute hand. The administration has promised freedom from changing clocks in both available directions."
+  },
+  {
+    "id": "LIGHT-29",
+    "topic": "Court blocks the administration’s FBI headquarters reversal",
+    "category": "Federal real-estate decisions",
+    "fact": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+    "date": "2026-08-17",
+    "status": "Dated district-court decision",
+    "limit": "This does not mean the FBI already relocated or a Greenbelt campus is finished. Appellate outcomes and later project decisions are not established here. Maryland’s attorney general is a litigating party; AP corroborates the ruling.",
+    "url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+    "source_title": "Maryland Attorney General Statement on FBI Headquarters Ruling",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://apnews.com/article/f5a77411bf54f3e17beb9cd41fd046a8",
+        "title": "AP reporting on court blocking FBI headquarters move",
+        "supports": "Independent account of August 2026 ruling."
+      },
+      {
+        "url": "https://www.fbi.gov/news/press-releases/new-fbi-headquarters-in-washington-dc",
+        "title": "FBI: New FBI Headquarters in Washington, DC",
+        "supports": "July 1, 2025 announcement of the Reagan Building plan."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: A delivery worker keeps changing the destination on a moving box as the administration and court change the headquarters plan. The agency can find an address; keeping its own address settled is harder."
+  },
+  {
+    "id": "LIGHT-30",
+    "topic": "California separates food quality dates from safety dates",
+    "category": "Food-label regulation",
+    "fact": "California’s AB 660 standardizes quality and safety date wording for covered food manufactured from July 1, 2026, and bars consumer-facing sell-by wording on those products.",
+    "date": "2026-07-01",
+    "status": "Statutory requirements took effect for covered newly manufactured foods",
+    "limit": "The law does not require every food to carry a date. Exemptions include eggs, infant formula, and beer. Quality dates are not safety deadlines; do not advise consuming a specific questionable food.",
+    "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB660",
+    "source_title": "California AB 660: Food and Beverage Date Labeling",
+    "checked": "2026-09-14",
+    "additional_sources": [
+      {
+        "url": "https://www.cdfa.ca.gov/is/foodrecovery/fooddatelabeling/",
+        "title": "California Department of Food and Agriculture: Food Date Labeling",
+        "supports": "Consumer explanation of standardized quality and safety wording; statutory text controls scope."
+      }
+    ],
+    "comic_angle": "Fictional scene direction: At a grocery stop, a worker explains that California has made manufacturers say whether a date concerns quality or safety. The bread no longer needs several ambiguous appointments with the bin."
+  }
+]

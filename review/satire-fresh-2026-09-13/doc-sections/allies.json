@@ -1,0 +1,443 @@
+{
+  "key": "allies",
+  "title": "Outside allies",
+  "target": 18,
+  "count": 18,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Outside allies",
+      "role": "title"
+    },
+    {
+      "text": "18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "ALLY-01-A · The Red Hat Referral",
+      "role": "heading"
+    },
+    {
+      "text": "Your outside contact {name} quits helping and joins a MAGA merchandise drive. Their goodbye includes a discount code. Political conversion now has affiliate tracking.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact photographs red hats beside a ring light while a blank goodbye message appears in an inset.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MAGA” — Separate editable overlay on the indicated blank prop or beside it; “Affiliate link” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Unlimited independent political money",
+      "role": "source",
+      "link": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "text": "ALLY-01-B · Free Entrance, Retail Shade",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} drops out to sell sun hats for the park’s Trump-birthday free-entry day. Qualifying visitors get through the gate without an entrance fee. Keeping the sun off their heads remains a growth industry.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact considers an unsold rack of plain sun hats beside a park-event calendar with a blank June panel; no travelers buy hats or pass a park gate.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Badlands National Park: Fees & Passes (undated)",
+      "role": "source",
+      "link": "https://www.nps.gov/badl/planyourvisit/fees.htm"
+    },
+    {
+      "text": "ALLY-01-C · Breakfast for the Lunchbox",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} takes a distant job and can’t keep helping. The FTC dropped its nationwide noncompete appeals; their old boss still threatens the clause. The new commute is so long the lunchbox needs breakfast.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact studies a long route on a blank map beside a bulging lunchbox with separate breakfast and lunch containers; no journey is taken by the van crew in this vignette.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC Noncompete Rule (2025-09-05)",
+      "role": "source",
+      "link": "https://www.ftc.gov/legal-library/browse/rules/noncompete-rule"
+    },
+    {
+      "text": "Source: FTC Files to Accede to Vacatur of Non-Compete Clause Rule",
+      "role": "source",
+      "link": "https://search.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule"
+    },
+    {
+      "text": "ALLY-02-A · Efficiency Has Arrived",
+      "role": "heading"
+    },
+    {
+      "text": "DOGE cuts cost your outside contact {name} their job. They withdraw to find work. Their last assignment was to document the value of documenting their value.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact carries a box of desk belongings past an empty public-service counter; blank forms overflow the box.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Position eliminated” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE and national park staffing",
+      "role": "source",
+      "link": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654"
+    },
+    {
+      "text": "ALLY-02-B · The Undo Button Needs Staff",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} stops helping after a nuclear-workplace job is caught in the Trump-DOGE firings. The reversal arrives after they’ve found other work. Washington has discovered that undo is not a benefits package.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact alone beside a closed moving box and two blank employment letters pointing in opposite directions; no traveling crew member leaves or changes status.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal (2025-02-16)",
+      "role": "source",
+      "link": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5"
+    },
+    {
+      "text": "ALLY-02-C · The Merit Vacancy",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} loses their job as a contractor scraps its DEI work and must withdraw. The boss announces a new era of merit. His son announces that lunch is ready.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact packs an office desk while the owner’s adult son occupies a larger desk behind them.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Merit-based opportunity” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump anti-DEI actions",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/"
+    },
+    {
+      "text": "ALLY-03-A · Bill the Person Who Ordered It",
+      "role": "heading"
+    },
+    {
+      "text": "Your New York contact {name} takes extra work chasing broker invoices and can’t keep helping. The FARE Act makes a landlord’s broker bill the landlord. Several landlords have developed a sudden interest in being difficult to locate.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact studies a small apartment-entry directory with blank slots while holding a blank broker invoice; the setting is explicitly New York City and the van crew does not enter or rent.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DCWP: The FARE Act Is Now in Effect (2025-06-11)",
+      "role": "source",
+      "link": "https://www.nyc.gov/site/dca/news/018-25/dcwp-the-fare-act-now-effect"
+    },
+    {
+      "text": "ALLY-03-B · Trickle-Down Overtime",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} needs extra shifts for medical bills and withdraws. Congress is selling health-budget cuts as savings. They would like to know where the savings get deposited.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact puts a medical bill under a second job’s timecard; no dollar figures embedded.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Savings” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 health spending law",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    },
+    {
+      "text": "ALLY-03-C · The Food Budget",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} takes another shift to cover groceries and stops helping. They watched Congress sell food-aid cuts as independence. They are now independently working Saturday.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact pulls on a second work apron beside a sparsely filled grocery bag.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Saturday shift” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Food assistance cuts",
+      "role": "source",
+      "link": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "text": "ALLY-04-A · The Reverse Button",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} takes a support job after the FTC’s Fortnite refunds and stops helping the trip. They now explain how unwanted purchases get undone. Apparently the reverse button needed a federal case and a human voice.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact sits before an unused headset and a blank training binder with simple game-controller silhouettes; the traveling crew is not depicted working for the service.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2025/06/ftc-sends-126-million-refunds-fortnite-players-who-were-charged-unwanted-items-reopens-claims"
+    },
+    {
+      "text": "ALLY-04-B · The Patriotic Returns Policy",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} quits helping to sell Gulf of America souvenirs. They keep the old Gulf of Mexico stock underneath. The ocean has yet to request a refund.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact flips reversible blank souvenir tags on identical coastal trinkets.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Gulf of America” — Separate editable overlay on the indicated blank prop or beside it; “Gulf of Mexico” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Gulf renaming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    },
+    {
+      "text": "ALLY-04-C · Independently Unaffordable",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} stops helping to write rental ads. DOJ’s proposed RealPage settlement has landlords discussing independent pricing. Their new assignment is finding different adjectives for the same enormous number.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact considers several blank apartment-ad cards attached to identical tiny floor-plan models; no allegation is attached to a real landlord or actual rent figure.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Justice Department Requires RealPage to End Sharing Competitively Sensitive Information and Pricing Alignment (2025-11-24)",
+      "role": "source",
+      "link": "https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and"
+    },
+    {
+      "text": "ALLY-05-A · The Deep State Group Chat",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} sends a video claiming journalists invented the Signal scandal, then blocks the crew. The explanation is now more secure than the bombing chat.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact closes a blank group-chat screen with a physical padlock lying uselessly beside the phone.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Contact blocked” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Signal airstrike chat",
+      "role": "source",
+      "link": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    },
+    {
+      "text": "ALLY-05-B · The Classified Stomach",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} decides your criticism of MAHA milk proves you work for the FDA and cuts contact. Your new federal career comes with no salary and several stomach cramps.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Outside contact shields blank milk bottles from a phone displaying an unanswered crew message.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “FDA operative?” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "ALLY-05-C · Wrong Sport",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} insists Trump’s FIFA peace prize was the Nobel. You point out that FIFA gave its own award. They block you. It’s the first football match you’ve lost for identifying the sport.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact holds a plain football trophy beside a dark phone; a separate simple globe-shaped award drawing stays unlettered. No official likeness or actual Nobel medal is required.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FIFA: President Donald J. Trump awarded inaugural FIFA Peace Prize (2025-12-05)",
+      "role": "source",
+      "link": "https://inside.fifa.com/campaigns/football-unites-the-world/news/president-trump-peace-prize-football-unites-the-world"
+    },
+    {
+      "text": "ALLY-06-A · Put It Down, Pick It Up",
+      "role": "heading"
+    },
+    {
+      "text": "Your contact {name} strains a shoulder shifting tools during Empire Wind’s 2025 stop-and-restart episode and must stop helping. Interior changed the work order. The toolbox insists on being carried in both directions.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External dockside worker holds a sore shoulder beside a closed toolbox between a storage rack and a work cart; no active turbine operation, injury cause diagram or additional crew is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: BOEM: Empire Wind (2025-05-19)",
+      "role": "source",
+      "link": "https://www.boem.gov/renewable-energy/state-activities/empire-wind"
+    },
+    {
+      "text": "Source: Empire Wind project updates",
+      "role": "source",
+      "link": "https://www.empirewind.com/project/"
+    },
+    {
+      "text": "ALLY-06-B · Lighter on Paper",
+      "role": "heading"
+    },
+    {
+      "text": "Your Texas contact {name} hurts their back moving shop equipment and must stop helping. The owner celebrates the state’s larger business-property exemption. The load is much lighter, financially.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External contact braces a sore back beside heavy shop equipment on an unused trolley; a separate owner holds a blank tax notice, with no crew departure or graphic injury shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Texas Comptroller: Valuing property and business personal property exemption (Current 2026 guidance checked 2026-09-14)",
+      "role": "source",
+      "link": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php"
+    },
+    {
+      "text": "ALLY-06-C · The Back Has the Floor",
+      "role": "heading"
+    },
+    {
+      "text": "Your rail-worker contact {name} strains their back and can’t keep helping. They remember Congress imposing the 2022 agreement to stop a strike. Their back has declined to be recalled by resolution.",
+      "role": "body"
+    },
+    {
+      "text": "If this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: External rail worker sits with a cold compress against their lower back beside an unused work bag and blank historic news clipping; no train accident, strike or crew injury is depicted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Rail Workers Gain Sick Leave After Imposed Contract (2023-02)",
+      "role": "source",
+      "link": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f"
+    },
+    {
+      "text": "Source: Union Pacific: Train Types and Hump Yards (undated)",
+      "role": "source",
+      "link": "https://www.up.com/about-us/funstuff/rrtalk/train-types"
+    }
+  ],
+  "text": "Outside allies\n18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nALLY-01-A · The Red Hat Referral\nYour outside contact {name} quits helping and joins a MAGA merchandise drive. Their goodbye includes a discount code. Political conversion now has affiliate tracking.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: Outside contact photographs red hats beside a ring light while a blank goodbye message appears in an inset.\nEditable overlays: “MAGA” — Separate editable overlay on the indicated blank prop or beside it; “Affiliate link” — Separate editable overlay on the indicated blank prop or beside it\nSource: Unlimited independent political money\nALLY-01-B · Free Entrance, Retail Shade\nYour contact {name} drops out to sell sun hats for the park’s Trump-birthday free-entry day. Qualifying visitors get through the gate without an entrance fee. Keeping the sun off their heads remains a growth industry.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: External contact considers an unsold rack of plain sun hats beside a park-event calendar with a blank June panel; no travelers buy hats or pass a park gate.\nSource: Badlands National Park: Fees & Passes (undated)\nALLY-01-C · Breakfast for the Lunchbox\nYour contact {name} takes a distant job and can’t keep helping. The FTC dropped its nationwide noncompete appeals; their old boss still threatens the clause. The new commute is so long the lunchbox needs breakfast.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: External contact studies a long route on a blank map beside a bulging lunchbox with separate breakfast and lunch containers; no journey is taken by the van crew in this vignette.\nSource: FTC Noncompete Rule (2025-09-05)\nSource: FTC Files to Accede to Vacatur of Non-Compete Clause Rule\nALLY-02-A · Efficiency Has Arrived\nDOGE cuts cost your outside contact {name} their job. They withdraw to find work. Their last assignment was to document the value of documenting their value.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: Outside contact carries a box of desk belongings past an empty public-service counter; blank forms overflow the box.\nEditable overlays: “Position eliminated” — Separate editable overlay on the indicated blank prop or beside it\nSource: DOGE and national park staffing\nALLY-02-B · The Undo Button Needs Staff\nYour contact {name} stops helping after a nuclear-workplace job is caught in the Trump-DOGE firings. The reversal arrives after they’ve found other work. Washington has discovered that undo is not a benefits package.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: External contact alone beside a closed moving box and two blank employment letters pointing in opposite directions; no traveling crew member leaves or changes status.\nSource: Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal (2025-02-16)\nALLY-02-C · The Merit Vacancy\nYour contact {name} loses their job as a contractor scraps its DEI work and must withdraw. The boss announces a new era of merit. His son announces that lunch is ready.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: Outside contact packs an office desk while the owner’s adult son occupies a larger desk behind them.\nEditable overlays: “Merit-based opportunity” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump anti-DEI actions\nALLY-03-A · Bill the Person Who Ordered It\nYour New York contact {name} takes extra work chasing broker invoices and can’t keep helping. The FARE Act makes a landlord’s broker bill the landlord. Several landlords have developed a sudden interest in being difficult to locate.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: External contact studies a small apartment-entry directory with blank slots while holding a blank broker invoice; the setting is explicitly New York City and the van crew does not enter or rent.\nSource: DCWP: The FARE Act Is Now in Effect (2025-06-11)\nALLY-03-B · Trickle-Down Overtime\nYour contact {name} needs extra shifts for medical bills and withdraws. Congress is selling health-budget cuts as savings. They would like to know where the savings get deposited.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: Outside contact puts a medical bill under a second job’s timecard; no dollar figures embedded.\nEditable overlays: “Savings” — Separate editable overlay on the indicated blank prop or beside it\nSource: 2025 health spending law\nALLY-03-C · The Food Budget\nYour contact {name} takes another shift to cover groceries and stops helping. They watched Congress sell food-aid cuts as independence. They are now independently working Saturday.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: Outside contact pulls on a second work apron beside a sparsely filled grocery bag.\nEditable overlays: “Saturday shift” — Separate editable overlay on the indicated blank prop or beside it\nSource: Food assistance cuts\nALLY-04-A · The Reverse Button\nYour contact {name} takes a support job after the FTC’s Fortnite refunds and stops helping the trip. They now explain how unwanted purchases get undone. Apparently the reverse button needed a federal case and a human voice.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: External contact sits before an unused headset and a blank training binder with simple game-controller silhouettes; the traveling crew is not depicted working for the service.\nSource: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)\nALLY-04-B · The Patriotic Returns Policy\nYour contact {name} quits helping to sell Gulf of America souvenirs. They keep the old Gulf of Mexico stock underneath. The ocean has yet to request a refund.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: Outside contact flips reversible blank souvenir tags on identical coastal trinkets.\nEditable overlays: “Gulf of America” — Separate editable overlay on the indicated blank prop or beside it; “Gulf of Mexico” — Separate editable overlay on the indicated blank prop or beside it\nSource: Gulf renaming\nALLY-04-C · Independently Unaffordable\nYour contact {name} stops helping to write rental ads. DOJ’s proposed RealPage settlement has landlords discussing independent pricing. Their new assignment is finding different adjectives for the same enormous number.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: External contact considers several blank apartment-ad cards attached to identical tiny floor-plan models; no allegation is attached to a real landlord or actual rent figure.\nSource: Justice Department Requires RealPage to End Sharing Competitively Sensitive Information and Pricing Alignment (2025-11-24)\nALLY-05-A · The Deep State Group Chat\nYour contact {name} sends a video claiming journalists invented the Signal scandal, then blocks the crew. The explanation is now more secure than the bombing chat.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: Outside contact closes a blank group-chat screen with a physical padlock lying uselessly beside the phone.\nEditable overlays: “Contact blocked” — Separate editable overlay on the indicated blank prop or beside it\nSource: Signal airstrike chat\nALLY-05-B · The Classified Stomach\nYour contact {name} decides your criticism of MAHA milk proves you work for the FDA and cuts contact. Your new federal career comes with no salary and several stomach cramps.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: Outside contact shields blank milk bottles from a phone displaying an unanswered crew message.\nEditable overlays: “FDA operative?” — Separate editable overlay on the indicated blank prop or beside it\nSource: MAHA marketed raw milk and food safety\nALLY-05-C · Wrong Sport\nYour contact {name} insists Trump’s FIFA peace prize was the Nobel. You point out that FIFA gave its own award. They block you. It’s the first football match you’ve lost for identifying the sport.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: External contact holds a plain football trophy beside a dark phone; a separate simple globe-shaped award drawing stays unlettered. No official likeness or actual Nobel medal is required.\nSource: FIFA: President Donald J. Trump awarded inaugural FIFA Peace Prize (2025-12-05)\nALLY-06-A · Put It Down, Pick It Up\nYour contact {name} strains a shoulder shifting tools during Empire Wind’s 2025 stop-and-restart episode and must stop helping. Interior changed the work order. The toolbox insists on being carried in both directions.\nIf this was the last outside ally: That was your last outside contact. The traveling crew remains; your support network is now empty.\nScene: External dockside worker holds a sore shoulder beside a closed toolbox between a storage rack and a work cart; no active turbine operation, injury cause diagram or additional crew is shown.\nSource: BOEM: Empire Wind (2025-05-19)\nSource: Empire Wind project updates\nALLY-06-B · Lighter on Paper\nYour Texas contact {name} hurts their back moving shop equipment and must stop helping. The owner celebrates the state’s larger business-property exemption. The load is much lighter, financially.\nIf this was the last outside ally: No outside allies remain. Nobody in the van has departed because of this message.\nScene: External contact braces a sore back beside heavy shop equipment on an unused trolley; a separate owner holds a blank tax notice, with no crew departure or graphic injury shown.\nSource: Texas Comptroller: Valuing property and business personal property exemption (Current 2026 guidance checked 2026-09-14)\nALLY-06-C · The Back Has the Floor\nYour rail-worker contact {name} strains their back and can’t keep helping. They remember Congress imposing the 2022 agreement to stop a strike. Their back has declined to be recalled by resolution.\nIf this was the last outside ally: Your final outside ally has withdrawn. The travelers still present will have to continue without that network.\nScene: External rail worker sits with a cold compress against their lower back beside an unused work bag and blank historic news clipping; no train accident, strike or crew injury is depicted.\nSource: AP: Rail Workers Gain Sick Leave After Imposed Contract (2023-02)\nSource: Union Pacific: Train Types and Hump Yards (undated)\n"
+}

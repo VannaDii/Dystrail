@@ -1,0 +1,50 @@
+[
+  {
+    "id": "RIGHTS-EXTRA-01",
+    "topic": "FCC pressure preceding the temporary Kimmel suspension",
+    "verified_fact": "ABC temporarily suspended Jimmy Kimmel's program in September 2025 after FCC chair Brendan Carr publicly urged broadcasters to preempt it and discussed FCC consequences. Senators described his remarks as implicit license threats; Carr disputed that characterization and said broadcasters made their own business decisions. The program returned that month.",
+    "limits": "Use the documented sequence and pressure, not a claim that the FCC revoked a license, issued a binding cancellation order, or permanently banned the show. The fictional setting and dialogue are original. No quote from Kimmel or another satirist.",
+    "sources": [
+      {"url": "https://docs.fcc.gov/public/attachments/DOC-415483A7.pdf", "kind": "primary Senate oversight letter", "locator": "September 24, 2025, page 1"},
+      {"url": "https://docs.fcc.gov/public/attachments/DOC-415483A6.pdf", "kind": "primary FCC chair response", "locator": "September 25, 2025, pages 1-2"}
+    ],
+    "checked": "2026-09-14",
+    "ordinary_life_satire_angle": "An open-mic host remembers the Kimmel suspension and replaces the suggestion box with a mute button; the local's joke concerns pressure disguised as free choice. Do not portray the fictional venue as subject to broadcast licensing."
+  },
+  {
+    "id": "RIGHTS-EXTRA-02",
+    "topic": "White House retaliation against Associated Press access",
+    "verified_fact": "In 2025 the White House restricted AP access to limited-space presidential events after AP retained Gulf of Mexico in its style. A district judge found retaliation; an appellate stay left that ruling from taking effect while litigation continued. AP's November 24 report said access was sporadic and the appeal remained unresolved then.",
+    "limits": "Frame this as the dated access dispute, not a current permanent ban, a criminal prosecution or exclusion from all White House events. The topic is press-access retaliation, distinct from jokes merely renaming the Gulf.",
+    "sources": [{"url": "https://www.ap.org/media-center/ap-in-the-news/2025/ap-and-trump-administration-argue-access-case-before-federal-appeals-court-no-ruling-yet/", "kind": "primary account from affected news organization", "locator": "November 24, 2025"}],
+    "checked": "2026-09-14",
+    "ordinary_life_satire_angle": "A local reporter compares government access rules with a diner reservation; your name is on the list until you pronounce the soup incorrectly. Establish the real access dispute explicitly."
+  },
+  {
+    "id": "RIGHTS-EXTRA-03",
+    "topic": "Pentagon press-credential policy and judicial correction",
+    "verified_fact": "The Pentagon's March 23, 2026 media memorandum acknowledges a court vacated parts of its October 2025 credential policy. Its response replaces ambiguous solicitation language while disputing the court's analysis; it expressly says asking questions is not a crime.",
+    "limits": "This is a dated policy-and-court episode, not a claim that all journalism is currently illegal or the March revision survived every later case. Do not present the disputed original policy as criminalizing every question. The comic subject is requiring litigation to clarify routine newsgathering.",
+    "sources": [{"url": "https://media.defense.gov/2026/Mar/23/2003902148/-1/-1/1/IMPLEMENTATION-OF-REVISED-MEDIA-IN-BRIEF.PDF", "kind": "primary Pentagon memorandum", "locator": "March 23, 2026, first page"}],
+    "checked": "2026-09-14",
+    "ordinary_life_satire_angle": "A reporter at a coffee counter celebrates the Pentagon's written clarification that asking questions is not a crime; the barista asks what size and instinctively checks for a lawyer."
+  },
+  {
+    "id": "RIGHTS-EXTRA-04",
+    "topic": "Navajo water rights without an affirmative treaty duty to secure water",
+    "verified_fact": "In June 2023 the Supreme Court held that the 1868 Navajo treaty reserved necessary water rights but did not require the federal government to take the affirmative steps sought in the case to assess and secure water for the Nation.",
+    "limits": "The ruling did not abolish Navajo water rights, ban water delivery or say no federal water assistance exists. Distinguish the legal duty from a fictional person's household plumbing. Suitable for a Southwest scene; local residents direct any offered help.",
+    "sources": [{"url": "https://www.supremecourt.gov/opinions/22pdf/21-1484_aplc.pdf", "kind": "primary Supreme Court opinion", "locator": "Arizona v. Navajo Nation, June 22, 2023, syllabus pages 1-2"}],
+    "checked": "2026-09-14",
+    "ordinary_life_satire_angle": "A Navajo resident filling containers holds up the legal distinction between a right to water and a duty to get it to people; a treaty cannot be screwed onto the end of a hose."
+  },
+  {
+    "id": "RIGHTS-EXTRA-05",
+    "topic": "Texas public contracts require an Israel-boycott certification",
+    "verified_fact": "An El Paso school construction contract implements Texas Government Code Chapter 2271: a contractor with at least ten full-time employees and a contract worth at least $100,000 certifies it does not and will not boycott Israel during the agreement. Sole proprietorships are excluded.",
+    "limits": "Do not apply this certification to the road crew's casual work, an individual purchase, every contractor or every small business. The fiction can involve a qualifying local company with a public contract. No claim that criticism itself is a criminal offense or that all forms of boycott are banned.",
+    "sources": [{"url": "https://episd.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=14171&ItemID=6239", "kind": "primary school district contract", "locator": "PDF page 182, clause 15.5"}],
+    "checked": "2026-09-14",
+    "ordinary_life_satire_angle": "At a Southwest hardware counter, a Texas construction-company bookkeeper shows the political certification attached to a qualifying school contract; the bid to fix a toilet has acquired a foreign policy."
+  }
+]

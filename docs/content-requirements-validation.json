@@ -1,0 +1,105 @@
+{
+  "checked_utc": "2026-09-13T22:38:55.985343+00:00",
+  "scope": "Documentation and production inventory only; no game execution required for these document changes.",
+  "checks": {
+    "exact_unique_checklist": true,
+    "open_acceptance_status": true,
+    "source_fingerprints_match": true,
+    "budget_groups_match": true,
+    "every_existing_encounter_has_three_variants": true,
+    "preserved_choice_branch_budget": true,
+    "western_families_have_exact_scope": true,
+    "route_pool_targets": true,
+    "playable_towns_have_three_conversations": true,
+    "endpoint_context_not_conversation": true,
+    "narrative_mode_totals": true,
+    "three_variants_per_narrative_family": true,
+    "local_links_resolve": true,
+    "no_unresolved_placeholders": true,
+    "whitespace_checks_pass": true
+  },
+  "route_pool_targets": {
+    "journalist": {
+      "Classic": 162,
+      "Deep End": 147
+    },
+    "organizer": {
+      "Classic": 162,
+      "Deep End": 147
+    },
+    "whistleblower": {
+      "Classic": 162,
+      "Deep End": 147
+    },
+    "lobbyist": {
+      "Classic": 162,
+      "Deep End": 147
+    },
+    "staffer": {
+      "Classic": 162,
+      "Deep End": 147
+    },
+    "satirist": {
+      "Classic": 162,
+      "Deep End": 147
+    }
+  },
+  "counts": {
+    "Road encounters": 231,
+    "Town conversations": 132,
+    "Crew-care scenarios": 24,
+    "Ally-departure vignettes": 18,
+    "Crossing packages": 12,
+    "Executive-order bulletins": 18,
+    "Breakdown and repair packages": 12,
+    "Gathering, work, barter, and rest": 24,
+    "Weather, illness, hunger, and exposure": 27,
+    "Character departure introductions": 18,
+    "Hearing introductions and transitions": 6,
+    "Ending packages": 45,
+    "Endpoint-context records": 7,
+    "Town profiles": 51,
+    "Shop-item descriptions": 11,
+    "Persona descriptions": 6,
+    "Mode descriptions": 2
+  },
+  "validation_commands": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--no-index",
+        "--check",
+        "/dev/null",
+        "docs/content-requirements.md"
+      ],
+      "exit_code": 1,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--no-index",
+        "--check",
+        "/dev/null",
+        "docs/content-hit-list.md"
+      ],
+      "exit_code": 1,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--no-index",
+        "--check",
+        "/dev/null",
+        "docs/content-hit-list.json"
+      ],
+      "exit_code": 1,
+      "output": ""
+    }
+  ],
+  "validation_note": "git diff --no-index --check returns 1 when the new file differs from /dev/null. All three checks emitted no whitespace diagnostics. An independent trailing-whitespace scan also passed. Original exit codes are retained."
+}

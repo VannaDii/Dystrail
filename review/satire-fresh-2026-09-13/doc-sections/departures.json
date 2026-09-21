@@ -1,0 +1,411 @@
+{
+  "key": "departures",
+  "title": "Departure introductions",
+  "target": 18,
+  "count": 18,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Departure introductions",
+      "role": "title"
+    },
+    {
+      "text": "18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "OPEN-JOURNALIST-A · Seattle: File Under Unavailable",
+      "role": "heading"
+    },
+    {
+      "text": "Treasury suspended Direct File for the 2026 tax season. You’re a Seattle reporter taking five companions to D.C. You have questions about why a service called Direct has developed such an elaborate detour.",
+      "role": "body"
+    },
+    {
+      "text": "Head for D.C. → You set out. The notebook accepts your questions without asking which premium package you need.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Seattle reporter holds an open blank notebook beside a laptop showing only a blank dark screen; five companions gather at the stationary van.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: GAO B-337954: Suspension of IRS Direct File (2026-05-12)",
+      "role": "source",
+      "link": "https://www.gao.gov/products/b-337954"
+    },
+    {
+      "text": "OPEN-JOURNALIST-B · Seattle: The Small Print in Space",
+      "role": "heading"
+    },
+    {
+      "text": "Trump’s 2027 budget request seeks a 47 percent cut to NASA science. You’re a Seattle reporter taking five companions to D.C. Washington wants a smaller view of the universe. Your van has already achieved that with one cracked sun visor.",
+      "role": "body"
+    },
+    {
+      "text": "Start the journey → You head east. The visor stays down; the questions do not.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Seattle reporter and five companions gather beside the parked van; the bent sun visor and a rolled unlettered star chart are visible through the open door, with no vehicle damage beyond the cosmetic visor.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: American Astronomical Society: Policy Update, 8 April 2026 (2026-04-08)",
+      "role": "source",
+      "link": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026"
+    },
+    {
+      "text": "Source: Lowell Observatory: This Week in Astronomy History, February 15–21 (undated)",
+      "role": "source",
+      "link": "https://lowell.edu/this-week-in-astronomy-history-feb-15-21/"
+    },
+    {
+      "text": "OPEN-JOURNALIST-C · Seattle: Original Payment Method",
+      "role": "heading"
+    },
+    {
+      "text": "DOT says qualifying cancelled flights require automatic refunds when passengers reject alternatives. You’re a Seattle reporter taking five companions to D.C. Your transport is a van. If this trip disappoints, the original payment method is everyone looking at everyone else.",
+      "role": "body"
+    },
+    {
+      "text": "Get on the road → You set out. Nobody accepts an apology redeemable only on another cross-country trip.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Seattle reporter gestures between the parked van and a blank airline leaflet; five companions stand with their modest bags, considering the trip rather than already traveling.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOT: What passengers need to know about the automatic refund rule (2024-11-18)",
+      "role": "source",
+      "link": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule"
+    },
+    {
+      "text": "OPEN-LOBBYIST-A · Los Angeles: Difficult to Cancel",
+      "role": "heading"
+    },
+    {
+      "text": "A court struck down the FTC’s click-to-cancel rule over its procedure. You’re a Los Angeles lobbyist taking five companions to D.C. You know how rules disappear. You’d like Washington to demonstrate the trick on your oldest subscription.",
+      "role": "body"
+    },
+    {
+      "text": "Head for D.C. → You leave. Cancelling the government’s interest in cancellation has been remarkably quick.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Los Angeles lobbyist holds a phone beside a long blank subscription bill curling toward the parked van; five companions wait with luggage, with no visible screen text.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Appeals court vacates FTC click-to-cancel rule (2025-07-09)",
+      "role": "source",
+      "link": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a"
+    },
+    {
+      "text": "OPEN-LOBBYIST-B · Los Angeles: Claimed Property",
+      "role": "heading"
+    },
+    {
+      "text": "Ohio allocated $600 million from unclaimed funds toward a Browns stadium. You’re a Los Angeles lobbyist taking five companions to D.C. Your gas money is very much claimed. Everybody is standing beside the van claiming there should be more.",
+      "role": "body"
+    },
+    {
+      "text": "Begin the trip → You set out. The glove box has declined to finance a stadium.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Los Angeles departure: lobbyist and five companions face a nearly empty cash tin on the van seat; a plain miniature football lies beside the lobbyist's blank Ohio news clipping.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Ohio budget allocates unclaimed funds toward Browns stadium (2025-07-01)",
+      "role": "source",
+      "link": "https://apnews.com/article/dc224d6592b4662eda77083266646378"
+    },
+    {
+      "text": "OPEN-LOBBYIST-C · Los Angeles: Total Price of Admission",
+      "role": "heading"
+    },
+    {
+      "text": "The FTC now requires mandatory hotel and ticket fees in the upfront total. You’re a Los Angeles lobbyist taking five companions to D.C. The trip budget is finally transparent: you can see straight through it.",
+      "role": "body"
+    },
+    {
+      "text": "Set off east → You leave. Knowing the full price has removed the surprise without removing the price.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Los Angeles lobbyist holds a thin translucent budget envelope up to daylight; five companions wait beside their bags and the parked van; a blank lodging leaflet provides the context.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC: Rule on Unfair or Deceptive Fees FAQ (Effective 2025-05-12)",
+      "role": "source",
+      "link": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions"
+    },
+    {
+      "text": "OPEN-ORGANIZER-A · Portland: Compatible Humans",
+      "role": "heading"
+    },
+    {
+      "text": "Oregon’s repair law limits software locks on replacement parts. You’re a Portland organizer taking five companions and your case to D.C. Everyone fits the van. Nobody requires manufacturer approval.",
+      "role": "body"
+    },
+    {
+      "text": "Leave for D.C. → You set out. The passengers install themselves without buying a seating license.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: In Portland, the organizer holds a phone with a detached plain back cover while five named companions stand with their luggage beside the open, parked van; nobody has departed.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Oregon Revised Statutes: Right to Repair Consumer Equipment (2025 codification)",
+      "role": "source",
+      "link": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html"
+    },
+    {
+      "text": "OPEN-ORGANIZER-B · Portland: Mint Condition",
+      "role": "heading"
+    },
+    {
+      "text": "Washington stopped making pennies that cost more than pennies. You’re a Portland organizer taking five companions to D.C. Your gas jar contains the old ones. For once, the government has spent more on your savings than you have.",
+      "role": "body"
+    },
+    {
+      "text": "Start the trip → You set out. The pennies remain legal tender, which is more than can be said for your optimistic fuel estimate.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Portland departure: the organizer tilts a modest coin jar while the five named companions inspect luggage beside the stationary van; scattered copper-colored coins carry no readable markings.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: United States Mint: Penny information (Current guidance checked 2026-09-14)",
+      "role": "source",
+      "link": "https://www.usmint.gov/news/media-kit/penny"
+    },
+    {
+      "text": "OPEN-ORGANIZER-C · Portland: Special Delivery",
+      "role": "heading"
+    },
+    {
+      "text": "USPS changed delivery standards: some mail faster, some slower. You’re a Portland organizer taking five companions and your case to D.C. The government’s reply may take a scenic route. You’ve decided to arrive with the question.",
+      "role": "body"
+    },
+    {
+      "text": "Begin the journey → You leave Portland. Six people are harder to misplace behind a sorting machine.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Portland organizer beside five companions and a parked van; an oversized ordinary case folder rests against a small blank envelope, neither sent nor loaded yet.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: USPS announces refined service standards and cost reductions (2025-02-26)",
+      "role": "source",
+      "link": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm"
+    },
+    {
+      "text": "OPEN-SATIRIST-A · San Diego: Roadworthy Monarchy",
+      "role": "heading"
+    },
+    {
+      "text": "Trump celebrated his attempted congestion-toll reversal with “LONG LIVE THE KING!” The toll survived that celebration. You’re a San Diego satirist taking five companions to D.C. Your van offers monarchy’s traditional problem: everybody wants the front seat.",
+      "role": "body"
+    },
+    {
+      "text": "Start the trip → You pull away. The succession is settled by whoever remembered to fill the tank.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Diego satirist and five companions gather by the parked van; a cheap paper crown without markings rests on the empty front passenger seat, nobody crowned or already aboard.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: New York governor’s transcript on the federal congestion-pricing reversal attempt (2025-02-19)",
+      "role": "source",
+      "link": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing"
+    },
+    {
+      "text": "Source: Southern District of New York: Congestion-pricing opinion (2026-03-03)",
+      "role": "source",
+      "link": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf"
+    },
+    {
+      "text": "OPEN-SATIRIST-B · San Diego: The Sugar Summit",
+      "role": "heading"
+    },
+    {
+      "text": "Trump claimed credit for Coca-Cola’s additional cane-sugar drink. The old lineup stayed. You’re a San Diego satirist taking five companions to D.C. The country has two versions of a soft drink and you still have one version of broke.",
+      "role": "body"
+    },
+    {
+      "text": "Leave for D.C. → You set out. The cooler provides bipartisan support to whichever drinks were cheapest.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Diego satirist holds two plain drink bottles beside a modest cooler; five companions stand with their bags near the parked van; no brand lettering or logos.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Coca-Cola reports second-quarter 2025 results (2025-07-22)",
+      "role": "source",
+      "link": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results"
+    },
+    {
+      "text": "Source: AP: Coca-Cola confirms a cane-sugar option after Trump’s claim (2025-07-22)",
+      "role": "source",
+      "link": "https://apnews.com/article/a95e4c1f25eaab05de7da5df30ff66ed"
+    },
+    {
+      "text": "OPEN-SATIRIST-C · San Diego: Shoes of State",
+      "role": "heading"
+    },
+    {
+      "text": "TSA generally lets passengers keep their shoes on now. You’re a San Diego satirist taking five companions to D.C. by van. After a look at the footwear, the crew requests that Washington consider jurisdiction over socks.",
+      "role": "body"
+    },
+    {
+      "text": "Get on the road → You leave. The shoes stay on; a window becomes foreign policy.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Diego satirist and five companions stand beside the parked van; one scuffed pair of shoes sits next to an open gym bag, with no passenger removed or added.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: TSA ends routine shoes-off airport screening (2025-07-08)",
+      "role": "source",
+      "link": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788"
+    },
+    {
+      "text": "OPEN-STAFFER-A · Sacramento: Serious Serifs",
+      "role": "heading"
+    },
+    {
+      "text": "Rubio sent State Department correspondence back to Times New Roman. You’re a Sacramento staffer taking five companions to D.C. Your case is already in the correct font. The people described in it remain inconveniently broke.",
+      "role": "body"
+    },
+    {
+      "text": "Leave for D.C. → You set out. Italics made the complaints lean forward, but someone still has to drive.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Sacramento staffer examines a blank printed page beside a closed laptop while five companions wait with bags at the parked van; all apparent typography must be an optional overlay.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Rubio orders return to Times New Roman (2025-12-10)",
+      "role": "source",
+      "link": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137"
+    },
+    {
+      "text": "OPEN-STAFFER-B · Sacramento: Direct Deposit, Indirect Help",
+      "role": "heading"
+    },
+    {
+      "text": "Trump began moving federal refund checks to electronic payments, with exceptions. You’re a Sacramento staffer taking five companions and your case to D.C. Washington can now move money without an envelope. Getting an answer still seems to require a van.",
+      "role": "body"
+    },
+    {
+      "text": "Start toward D.C. → You get underway. There is no box to tick for direct deposit of attention.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Sacramento departure: staffer compares a blank envelope and a dark phone screen; five companions and luggage wait beside the van with its engine off.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: IRS: Modernizing payments to and from America’s bank account (Current guidance checked 2026-09-14)",
+      "role": "source",
+      "link": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account"
+    },
+    {
+      "text": "OPEN-STAFFER-C · Sacramento: Whole Government",
+      "role": "heading"
+    },
+    {
+      "text": "Congress found time to put whole milk back on school-lunch menus. You’re a Sacramento staffer taking five companions and your rent petition to D.C. You consider submitting it in a milk carton.",
+      "role": "body"
+    },
+    {
+      "text": "Get underway → You leave Sacramento. The petition now has a handle and a better chance of reaching the lunch committee.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Sacramento staffer considers a blank rent-petition folder beside an empty plain milk carton with a carry handle; five companions wait at the parked van. The papers are not yet inserted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public Law 119-69: Whole Milk for Healthy Kids Act of 2025 (2026-01-14)",
+      "role": "source",
+      "link": "https://www.govinfo.gov/app/details/PLAW-119publ69"
+    },
+    {
+      "text": "OPEN-WHISTLEBLOWER-A · San Francisco: Hours Actually Worked",
+      "role": "heading"
+    },
+    {
+      "text": "A DOE audit described a nuclear contractor billing for hours nobody worked. You’re a San Francisco whistleblower taking five companions and your case to D.C. The drive will take actual hours. It’s an embarrassing habit of yours.",
+      "role": "body"
+    },
+    {
+      "text": "Drive toward D.C. → You set out. The odometer refuses to accept estimated effort.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Francisco whistleblower holds a blank audit folder beside the van's unnumbered instrument panel; five companions wait at the open doors before departure.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Audit: DOE-OIG-25-36 (2025-11-26)",
+      "role": "source",
+      "link": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36"
+    },
+    {
+      "text": "OPEN-WHISTLEBLOWER-B · San Francisco: Ten Out, One In",
+      "role": "heading"
+    },
+    {
+      "text": "Trump told agencies to identify ten regulations for repeal when adding one, subject to exceptions. You’re a San Francisco whistleblower taking five companions to D.C. Your case concerns what gets missed. Washington has announced a quantity discount.",
+      "role": "body"
+    },
+    {
+      "text": "Begin the journey → You leave. The crew keeps every seat belt; counting is not the same as checking what things do.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Francisco whistleblower checks an intact seat-belt latch beside a thick blank folder; five companions gather outside the parked van, all safety equipment in its actual state.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive order: Unleashing Prosperity Through Deregulation (2025-01-31)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/"
+    },
+    {
+      "text": "OPEN-WHISTLEBLOWER-C · San Francisco: Pending Review",
+      "role": "heading"
+    },
+    {
+      "text": "Trump paused new federal wind approvals for review in 2025. You’re a San Francisco whistleblower taking five companions to D.C. Your case is ready. The folder keeps blowing open, showing a disappointing lack of respect for the memorandum.",
+      "role": "body"
+    },
+    {
+      "text": "Set out for D.C. → You leave San Francisco. A rubber band succeeds where the wind order lacked jurisdiction.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: San Francisco whistleblower catches blank pages lifting from a case folder in an ordinary breeze; five companions and the stationary van wait nearby, with a rubber band lying unused beside the folder.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. Th…",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/temporary-withdrawal-of-all-areas-on-the-outer-continental-shelf-from-offshore-wind-leasing-and-review-of-the-federal-governments-leasing-and-permitting-practices-for-wind-projects/"
+    }
+  ],
+  "text": "Departure introductions\n18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nOPEN-JOURNALIST-A · Seattle: File Under Unavailable\nTreasury suspended Direct File for the 2026 tax season. You’re a Seattle reporter taking five companions to D.C. You have questions about why a service called Direct has developed such an elaborate detour.\nHead for D.C. → You set out. The notebook accepts your questions without asking which premium package you need.\nScene: Seattle reporter holds an open blank notebook beside a laptop showing only a blank dark screen; five companions gather at the stationary van.\nSource: GAO B-337954: Suspension of IRS Direct File (2026-05-12)\nOPEN-JOURNALIST-B · Seattle: The Small Print in Space\nTrump’s 2027 budget request seeks a 47 percent cut to NASA science. You’re a Seattle reporter taking five companions to D.C. Washington wants a smaller view of the universe. Your van has already achieved that with one cracked sun visor.\nStart the journey → You head east. The visor stays down; the questions do not.\nScene: Seattle reporter and five companions gather beside the parked van; the bent sun visor and a rolled unlettered star chart are visible through the open door, with no vehicle damage beyond the cosmetic visor.\nSource: American Astronomical Society: Policy Update, 8 April 2026 (2026-04-08)\nSource: Lowell Observatory: This Week in Astronomy History, February 15–21 (undated)\nOPEN-JOURNALIST-C · Seattle: Original Payment Method\nDOT says qualifying cancelled flights require automatic refunds when passengers reject alternatives. You’re a Seattle reporter taking five companions to D.C. Your transport is a van. If this trip disappoints, the original payment method is everyone looking at everyone else.\nGet on the road → You set out. Nobody accepts an apology redeemable only on another cross-country trip.\nScene: Seattle reporter gestures between the parked van and a blank airline leaflet; five companions stand with their modest bags, considering the trip rather than already traveling.\nSource: DOT: What passengers need to know about the automatic refund rule (2024-11-18)\nOPEN-LOBBYIST-A · Los Angeles: Difficult to Cancel\nA court struck down the FTC’s click-to-cancel rule over its procedure. You’re a Los Angeles lobbyist taking five companions to D.C. You know how rules disappear. You’d like Washington to demonstrate the trick on your oldest subscription.\nHead for D.C. → You leave. Cancelling the government’s interest in cancellation has been remarkably quick.\nScene: Los Angeles lobbyist holds a phone beside a long blank subscription bill curling toward the parked van; five companions wait with luggage, with no visible screen text.\nSource: AP: Appeals court vacates FTC click-to-cancel rule (2025-07-09)\nOPEN-LOBBYIST-B · Los Angeles: Claimed Property\nOhio allocated $600 million from unclaimed funds toward a Browns stadium. You’re a Los Angeles lobbyist taking five companions to D.C. Your gas money is very much claimed. Everybody is standing beside the van claiming there should be more.\nBegin the trip → You set out. The glove box has declined to finance a stadium.\nScene: Los Angeles departure: lobbyist and five companions face a nearly empty cash tin on the van seat; a plain miniature football lies beside the lobbyist's blank Ohio news clipping.\nSource: AP: Ohio budget allocates unclaimed funds toward Browns stadium (2025-07-01)\nOPEN-LOBBYIST-C · Los Angeles: Total Price of Admission\nThe FTC now requires mandatory hotel and ticket fees in the upfront total. You’re a Los Angeles lobbyist taking five companions to D.C. The trip budget is finally transparent: you can see straight through it.\nSet off east → You leave. Knowing the full price has removed the surprise without removing the price.\nScene: Los Angeles lobbyist holds a thin translucent budget envelope up to daylight; five companions wait beside their bags and the parked van; a blank lodging leaflet provides the context.\nSource: FTC: Rule on Unfair or Deceptive Fees FAQ (Effective 2025-05-12)\nOPEN-ORGANIZER-A · Portland: Compatible Humans\nOregon’s repair law limits software locks on replacement parts. You’re a Portland organizer taking five companions and your case to D.C. Everyone fits the van. Nobody requires manufacturer approval.\nLeave for D.C. → You set out. The passengers install themselves without buying a seating license.\nScene: In Portland, the organizer holds a phone with a detached plain back cover while five named companions stand with their luggage beside the open, parked van; nobody has departed.\nSource: Oregon Revised Statutes: Right to Repair Consumer Equipment (2025 codification)\nOPEN-ORGANIZER-B · Portland: Mint Condition\nWashington stopped making pennies that cost more than pennies. You’re a Portland organizer taking five companions to D.C. Your gas jar contains the old ones. For once, the government has spent more on your savings than you have.\nStart the trip → You set out. The pennies remain legal tender, which is more than can be said for your optimistic fuel estimate.\nScene: Portland departure: the organizer tilts a modest coin jar while the five named companions inspect luggage beside the stationary van; scattered copper-colored coins carry no readable markings.\nSource: United States Mint: Penny information (Current guidance checked 2026-09-14)\nOPEN-ORGANIZER-C · Portland: Special Delivery\nUSPS changed delivery standards: some mail faster, some slower. You’re a Portland organizer taking five companions and your case to D.C. The government’s reply may take a scenic route. You’ve decided to arrive with the question.\nBegin the journey → You leave Portland. Six people are harder to misplace behind a sorting machine.\nScene: Portland organizer beside five companions and a parked van; an oversized ordinary case folder rests against a small blank envelope, neither sent nor loaded yet.\nSource: USPS announces refined service standards and cost reductions (2025-02-26)\nOPEN-SATIRIST-A · San Diego: Roadworthy Monarchy\nTrump celebrated his attempted congestion-toll reversal with “LONG LIVE THE KING!” The toll survived that celebration. You’re a San Diego satirist taking five companions to D.C. Your van offers monarchy’s traditional problem: everybody wants the front seat.\nStart the trip → You pull away. The succession is settled by whoever remembered to fill the tank.\nScene: San Diego satirist and five companions gather by the parked van; a cheap paper crown without markings rests on the empty front passenger seat, nobody crowned or already aboard.\nSource: New York governor’s transcript on the federal congestion-pricing reversal attempt (2025-02-19)\nSource: Southern District of New York: Congestion-pricing opinion (2026-03-03)\nOPEN-SATIRIST-B · San Diego: The Sugar Summit\nTrump claimed credit for Coca-Cola’s additional cane-sugar drink. The old lineup stayed. You’re a San Diego satirist taking five companions to D.C. The country has two versions of a soft drink and you still have one version of broke.\nLeave for D.C. → You set out. The cooler provides bipartisan support to whichever drinks were cheapest.\nScene: San Diego satirist holds two plain drink bottles beside a modest cooler; five companions stand with their bags near the parked van; no brand lettering or logos.\nSource: Coca-Cola reports second-quarter 2025 results (2025-07-22)\nSource: AP: Coca-Cola confirms a cane-sugar option after Trump’s claim (2025-07-22)\nOPEN-SATIRIST-C · San Diego: Shoes of State\nTSA generally lets passengers keep their shoes on now. You’re a San Diego satirist taking five companions to D.C. by van. After a look at the footwear, the crew requests that Washington consider jurisdiction over socks.\nGet on the road → You leave. The shoes stay on; a window becomes foreign policy.\nScene: San Diego satirist and five companions stand beside the parked van; one scuffed pair of shoes sits next to an open gym bag, with no passenger removed or added.\nSource: AP: TSA ends routine shoes-off airport screening (2025-07-08)\nOPEN-STAFFER-A · Sacramento: Serious Serifs\nRubio sent State Department correspondence back to Times New Roman. You’re a Sacramento staffer taking five companions to D.C. Your case is already in the correct font. The people described in it remain inconveniently broke.\nLeave for D.C. → You set out. Italics made the complaints lean forward, but someone still has to drive.\nScene: Sacramento staffer examines a blank printed page beside a closed laptop while five companions wait with bags at the parked van; all apparent typography must be an optional overlay.\nSource: AP: Rubio orders return to Times New Roman (2025-12-10)\nOPEN-STAFFER-B · Sacramento: Direct Deposit, Indirect Help\nTrump began moving federal refund checks to electronic payments, with exceptions. You’re a Sacramento staffer taking five companions and your case to D.C. Washington can now move money without an envelope. Getting an answer still seems to require a van.\nStart toward D.C. → You get underway. There is no box to tick for direct deposit of attention.\nScene: Sacramento departure: staffer compares a blank envelope and a dark phone screen; five companions and luggage wait beside the van with its engine off.\nSource: IRS: Modernizing payments to and from America’s bank account (Current guidance checked 2026-09-14)\nOPEN-STAFFER-C · Sacramento: Whole Government\nCongress found time to put whole milk back on school-lunch menus. You’re a Sacramento staffer taking five companions and your rent petition to D.C. You consider submitting it in a milk carton.\nGet underway → You leave Sacramento. The petition now has a handle and a better chance of reaching the lunch committee.\nScene: Sacramento staffer considers a blank rent-petition folder beside an empty plain milk carton with a carry handle; five companions wait at the parked van. The papers are not yet inserted.\nSource: Public Law 119-69: Whole Milk for Healthy Kids Act of 2025 (2026-01-14)\nOPEN-WHISTLEBLOWER-A · San Francisco: Hours Actually Worked\nA DOE audit described a nuclear contractor billing for hours nobody worked. You’re a San Francisco whistleblower taking five companions and your case to D.C. The drive will take actual hours. It’s an embarrassing habit of yours.\nDrive toward D.C. → You set out. The odometer refuses to accept estimated effort.\nScene: San Francisco whistleblower holds a blank audit folder beside the van's unnumbered instrument panel; five companions wait at the open doors before departure.\nSource: Audit: DOE-OIG-25-36 (2025-11-26)\nOPEN-WHISTLEBLOWER-B · San Francisco: Ten Out, One In\nTrump told agencies to identify ten regulations for repeal when adding one, subject to exceptions. You’re a San Francisco whistleblower taking five companions to D.C. Your case concerns what gets missed. Washington has announced a quantity discount.\nBegin the journey → You leave. The crew keeps every seat belt; counting is not the same as checking what things do.\nScene: San Francisco whistleblower checks an intact seat-belt latch beside a thick blank folder; five companions gather outside the parked van, all safety equipment in its actual state.\nSource: Executive order: Unleashing Prosperity Through Deregulation (2025-01-31)\nOPEN-WHISTLEBLOWER-C · San Francisco: Pending Review\nTrump paused new federal wind approvals for review in 2025. You’re a San Francisco whistleblower taking five companions to D.C. Your case is ready. The folder keeps blowing open, showing a disappointing lack of respect for the memorandum.\nSet out for D.C. → You leave San Francisco. A rubber band succeeds where the wind order lacked jurisdiction.\nScene: San Francisco whistleblower catches blank pages lifting from a case folder in an ordinary breeze; five companions and the stationary van wait nearby, with a rubber band lying unused beside the folder.\nSource: January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. Th…\n"
+}

@@ -1,0 +1,543 @@
+[
+  {
+    "id": "END-COLLAPSE-CROSSING-A",
+    "family_id": "END-COLLAPSE-CROSSING",
+    "variant": "A",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "Collapse:crossing",
+    "title": "Relocation by Argument",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+        "title": "Maryland Attorney General Statement on FBI Headquarters Ruling",
+        "date": "2026-08-17",
+        "checked": "2026-09-14",
+        "claim": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+        "qualification": "This does not mean the FBI already relocated or a Greenbelt campus is finished. Appellate outcomes and later project decisions are not established here. Maryland’s attorney general is a litigating party; AP corroborates the ruling."
+      },
+      {
+        "url": "https://apnews.com/article/f5a77411bf54f3e17beb9cd41fd046a8",
+        "title": "AP reporting on court blocking FBI headquarters move",
+        "checked": "2026-09-14",
+        "claim": "Independent account of August 2026 ruling.",
+        "qualification": "Supporting source; observe the primary source limits."
+      },
+      {
+        "url": "https://www.fbi.gov/news/press-releases/new-fbi-headquarters-in-washington-dc",
+        "title": "FBI: New FBI Headquarters in Washington, DC",
+        "checked": "2026-09-14",
+        "claim": "July 1, 2025 announcement of the Reagan Building plan.",
+        "qualification": "Supporting source; observe the primary source limits."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "Depict only the recorded crossing-ending state and actual survivors and vehicle condition. A separate editorial inset shows empty office chairs facing an unlettered relocation plan. Do not invent a border checkpoint, detention, collision, injury, drowning, or death.",
+    "headline": "Relocation by Argument",
+    "epilogue": "The crossing ends the expedition. In August 2026, a court blocked the administration’s FBI headquarters move. Washington can argue about relocation from chairs that are not moving. Your journey needed an actual way across.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-collapse-crossing-a-scene",
+      "description": "Depict only the recorded crossing-ending state and actual survivors and vehicle condition. A separate editorial inset shows empty office chairs facing an unlettered relocation plan. Do not invent a border checkpoint, detention, collision, injury, drowning, or death.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Recorded crossing state is primary; compact office-planning inset is clearly separated and cannot be mistaken for the crossing site.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Use only the recorded failed crossing location; neutral background if unavailable.",
+      "action": "The recorded expedition state is static; in the editorial inset, the office chairs face a plan while remaining firmly in place.",
+      "visual_gag": "The relocation plan points in several directions while every heavy office chair stays planted.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Court blocks the administration’s FBI headquarters reversal",
+      "real_hook": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+      "source_url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+      "date": "2026-08-17",
+      "status": "Dated district-court decision",
+      "limit": "This does not mean the FBI already relocated or a Greenbelt campus is finished. Appellate outcomes and later project decisions are not established here. Maryland’s attorney general is a litigating party; AP corroborates the ruling.",
+      "news_hook_id": "LIGHT-29",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition."
+    },
+    "news_hook_id": "LIGHT-29"
+  },
+  {
+    "id": "END-INCOMPLETE-A",
+    "family_id": "END-INCOMPLETE",
+    "variant": "A",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "result.epilogue.incomplete",
+    "title": "Revised Estimate",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+        "title": "USPS announces refined service standards and cost reductions",
+        "date": "2025-02-26",
+        "checked": "2026-09-14",
+        "qualification": "USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+        "claim": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "An explicitly editorial close-up of an unfinished journey notebook and a loose promised-date card on a blank calendar. Any actual travelers or vehicle appear only according to the recorded current state; no destination or remaining travel is assumed.",
+    "headline": "Revised Estimate",
+    "epilogue": "This expedition is unfinished. USPS changed delivery targets in 2025, making some faster and others slower. Your ending has not arrived. Someone could move the promised date and call the same waiting a service improvement.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-incomplete-a-scene",
+      "description": "An explicitly editorial close-up of an unfinished journey notebook and a loose promised-date card on a blank calendar. Any actual travelers or vehicle appear only according to the recorded current state; no destination or remaining travel is assumed.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Phone-sized close-up of notebook and movable card; any recorded location remains secondary and indistinct.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Recorded current location if available; otherwise a neutral editorial background.",
+      "action": "A loose date card sits above the calendar with its attachment still open; the journey page remains unfinished.",
+      "visual_gag": "The movable date card can change position without the unfinished notebook gaining a single completed line.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "USPS revises delivery standards in its cost-reduction plan",
+      "real_hook": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same. USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+      "source_url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition.",
+      "news_hook_id": "existing-2a7b9cd932bf"
+    },
+    "news_hook_id": "existing-2a7b9cd932bf"
+  },
+  {
+    "id": "END-INCOMPLETE-C",
+    "family_id": "END-INCOMPLETE",
+    "variant": "C",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "result.epilogue.incomplete",
+    "title": "Keep the Pencil",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://www.gao.gov/products/b-337954",
+        "title": "GAO B-337954: Suspension of IRS Direct File",
+        "date": "2026-05-12",
+        "checked": "2026-09-14",
+        "qualification": "The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+        "claim": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "An unfinished blank notebook with an ordinary pencil beside a clearly editorial disconnected computer cable. The notebook and cable are visual commentary; do not add them to the crew’s inventory or imply any traveler’s tax status.",
+    "headline": "Keep the Pencil",
+    "epilogue": "Your journey is unfinished. Treasury suspended IRS Direct File for 2026, though other free filing options remain. The tax obligation survived its convenient button. At least nobody can remotely discontinue the pencil beside an unfinished page.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-incomplete-c-scene",
+      "description": "An unfinished blank notebook with an ordinary pencil beside a clearly editorial disconnected computer cable. The notebook and cable are visual commentary; do not add them to the crew’s inventory or imply any traveler’s tax status.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Spare tabletop editorial still life; only recorded crew or vehicle details may appear outside the close-up.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Recorded current location if available; otherwise a neutral editorial background.",
+      "action": "The pencil rests ready beside the incomplete page while the cable has no device attached.",
+      "visual_gag": "The obviously unplugged cable lies next to a pencil with nowhere to plug it in.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Treasury suspends IRS Direct File for the 2026 filing season",
+      "real_hook": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain. The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+      "source_url": "https://www.gao.gov/products/b-337954",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition.",
+      "news_hook_id": "existing-8f19561197c4"
+    },
+    "news_hook_id": "existing-8f19561197c4"
+  },
+  {
+    "id": "END-COLLAPSE-CROSSING-B",
+    "family_id": "END-COLLAPSE-CROSSING",
+    "variant": "B",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "Collapse:crossing",
+    "title": "A Magnificent Stopping Point",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+        "title": "Executive Order 14344: Making Federal Architecture Beautiful Again",
+        "date": "2025-08-28",
+        "checked": "2026-09-14",
+        "qualification": "Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+        "claim": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "The actual crossing-ending state is accompanied by an editorial architectural sketch of two decorative classical columns framing a blocked passage. The columns are hypothetical commentary, not new structures at the actual crossing or its cause.",
+    "headline": "A Magnificent Stopping Point",
+    "epilogue": "The crossing ends your journey. Trump’s architecture order favors classical designs for covered federal buildings. Perhaps two marble columns would improve the view of this obstruction. They would be excellent at standing there, which is already the problem.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-collapse-crossing-b-scene",
+      "description": "The actual crossing-ending state is accompanied by an editorial architectural sketch of two decorative classical columns framing a blocked passage. The columns are hypothetical commentary, not new structures at the actual crossing or its cause.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Actual recorded state first, small unlettered architectural sketch second; no invented water, officials, wreckage, or casualties.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Use only the recorded failed crossing location; neutral background if unavailable.",
+      "action": "No new event occurs in the recorded scene; the separate architectural sketch presents a grand frame around an unusable passage.",
+      "visual_gag": "The decorative columns magnificently frame the part that still cannot be passed.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Trump’s preference for classical federal architecture",
+      "real_hook": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia. Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition.",
+      "news_hook_id": "existing-be6797a2a0cf"
+    },
+    "news_hook_id": "existing-be6797a2a0cf"
+  },
+  {
+    "id": "END-SANITY-A",
+    "family_id": "END-SANITY",
+    "variant": "A",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "SanityLoss",
+    "title": "The Clock Paid Less Attention",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3",
+        "title": "AP: Trump Calls for More Daylight as Debate over Clock Changes Continues",
+        "date": "2025-04-11",
+        "checked": "2026-09-14",
+        "claim": "In April 2025, Trump urged Congress toward more evening daylight, after calling in December 2024 for eliminating daylight saving time. These point to different permanent clock settings.",
+        "qualification": "Do not say Congress enacted a new clock regime or treat ending clock changes as synonymous with permanent standard time. Avoid medical or road-safety claims about either setting."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "Use only the recorded surviving travelers and vehicle condition. An editorial unlettered clock keeps a plain set of hands beside a turned-away radio. Do not depict a new diagnosis, injury, hallucination, panic episode, restraint, crash, or death.",
+    "headline": "The Clock Paid Less Attention",
+    "epilogue": "Your sanity is exhausted; the expedition stops. Trump wanted daylight saving ended, then more evening daylight. Neither announcement changed the law. The clock still works. It has paid much less attention to the news.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-sanity-a-scene",
+      "description": "Use only the recorded surviving travelers and vehicle condition. An editorial unlettered clock keeps a plain set of hands beside a turned-away radio. Do not depict a new diagnosis, injury, hallucination, panic episode, restraint, crash, or death.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Quiet close-up of clock and turned-away radio, with the recorded expedition state secondary and no invented medical imagery.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Recorded location and vehicle state at the sanity ending; neutral editorial background if unavailable.",
+      "action": "The recorded expedition has stopped; the editorial clock remains ordinary and the radio’s blank face points away.",
+      "visual_gag": "The clock has one calm set of hands despite the radio representing contradictory clock-policy announcements.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Trump’s daylight-saving positions point the clocks in different directions",
+      "real_hook": "In April 2025, Trump urged Congress toward more evening daylight, after calling in December 2024 for eliminating daylight saving time. These point to different permanent clock settings.",
+      "source_url": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3",
+      "date": "2025-04-11",
+      "status": "Contrasting public proposals; no change enacted by these statements",
+      "limit": "Do not say Congress enacted a new clock regime or treat ending clock changes as synonymous with permanent standard time. Avoid medical or road-safety claims about either setting.",
+      "news_hook_id": "LIGHT-28",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition."
+    },
+    "news_hook_id": "LIGHT-28"
+  },
+  {
+    "id": "END-FALLBACK-A",
+    "family_id": "END-FALLBACK",
+    "variant": "A",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "result.epilogue.generic",
+    "title": "No Exclusive Answer",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google",
+        "title": "Justice Department Wins Significant Remedies Against Google",
+        "date": "2025-09-02",
+        "checked": "2026-09-14",
+        "claim": "A federal court’s September 2025 Google remedies barred exclusive distribution contracts for Google Search, Chrome, Assistant, and Gemini and imposed specified data-sharing requirements.",
+        "qualification": "The ruling did not ban Google, require every user to change browsers, order Chrome sold, or prohibit all distribution payments. This records the ruling, not the final outcome of every appeal."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "An open journey notebook has a blank result area. Beside it, a clearly editorial unlettered search-field shape has an empty default-placement bracket. No browser screenshot, invented search result, completed route, or crew fate appears.",
+    "headline": "No Exclusive Answer",
+    "epilogue": "The result is missing from this account. A court barred Google’s exclusive search-distribution deals in 2025. At least this blank answer has no exclusive distributor. Nobody gets paid to make it your only option.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-fallback-a-scene",
+      "description": "An open journey notebook has a blank result area. Beside it, a clearly editorial unlettered search-field shape has an empty default-placement bracket. No browser screenshot, invented search result, completed route, or crew fate appears.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Two clear empty spaces side by side, readable at phone size without any depicted journey outcome.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Neutral editorial background; no inferred travel location or fate.",
+      "action": "The notebook’s result area and the separate editorial search field both remain empty.",
+      "visual_gag": "A large decorative default-placement bracket surrounds an answer that is simply absent.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Court limits Google’s exclusive search-distribution deals",
+      "real_hook": "A federal court’s September 2025 Google remedies barred exclusive distribution contracts for Google Search, Chrome, Assistant, and Gemini and imposed specified data-sharing requirements.",
+      "source_url": "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google",
+      "date": "2025-09-02",
+      "status": "District-court remedies ruling",
+      "limit": "The ruling did not ban Google, require every user to change browsers, order Chrome sold, or prohibit all distribution payments. This records the ruling, not the final outcome of every appeal.",
+      "news_hook_id": "LIGHT-12",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition."
+    },
+    "news_hook_id": "LIGHT-12"
+  },
+  {
+    "id": "END-VICTORY-B",
+    "family_id": "END-VICTORY",
+    "variant": "B",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "BossVictory",
+    "title": "Please Supply the Signature",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+        "title": "Consumer Reviews and Testimonials Rule: Questions and Answers",
+        "date": "2024-10-21",
+        "checked": "2026-09-14",
+        "claim": "The FTC’s consumer-review rule took effect on October 21, 2024, addressing fabricated reviewers, nonexistent experiences, and specified buying or selling of deceptive reviews.",
+        "qualification": "The rule addresses defined commercial misconduct, not every AI-assisted sentence, unpopular opinion, or neutral platform hosting a review. Do not invent an enforcement case against the fictional shop."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "After the recorded winning final vote, the established hearing chair presents a blank review-like sheet with an oversized praise area and a tiny unsigned signature line. Show only recorded surviving arrivals and established NPC appearances; no traveler signs anything.",
+    "headline": "Please Supply the Signature",
+    "epilogue": "You win the final vote. The FTC’s ban on fake customer reviews gives the chair an idea for authentic feedback: he writes the praise himself, then leaves a little space for your signature.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-victory-b-scene",
+      "description": "After the recorded winning final vote, the established hearing chair presents a blank review-like sheet with an oversized praise area and a tiny unsigned signature line. Show only recorded surviving arrivals and established NPC appearances; no traveler signs anything.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Hearing table close-up with the unsigned sheet central and only actual surviving travelers visible opposite the established chair.",
+      "overlays": [
+        {
+          "text": "AUTHENTIC FEEDBACK",
+          "placement": "Blank review-sheet heading",
+          "display_condition": "Only for the recorded winning final vote; signature line stays blank."
+        }
+      ],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "The recorded final-vote hearing location.",
+      "action": "The chair points to the small empty signature line beneath the expansive praise area.",
+      "visual_gag": "The chair has left very little room for the people whose opinion the document supposedly requests.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "FTC prohibits fabricated consumer reviews",
+      "real_hook": "The FTC’s consumer-review rule took effect on October 21, 2024, addressing fabricated reviewers, nonexistent experiences, and specified buying or selling of deceptive reviews.",
+      "source_url": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+      "date": "2024-10-21",
+      "status": "Final rule took effect",
+      "limit": "The rule addresses defined commercial misconduct, not every AI-assisted sentence, unpopular opinion, or neutral platform hosting a review. Do not invent an enforcement case against the fictional shop.",
+      "news_hook_id": "LIGHT-09",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition."
+    },
+    "news_hook_id": "LIGHT-09"
+  },
+  {
+    "id": "END-VOTEFAIL-B",
+    "family_id": "END-VOTEFAIL",
+    "variant": "B",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "BossVoteFailed",
+    "title": "Procedure Complete",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+        "title": "AP: Appeals court vacates FTC click-to-cancel rule",
+        "date": "2025-07-09",
+        "checked": "2026-09-14",
+        "qualification": "The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+        "claim": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "After the recorded losing final vote, the established hearing chair closes an ornate procedural folder beside the travelers’ case material. Do not invent vote totals, subsequent legislation, a further hearing, or any new journey outcome.",
+    "headline": "Procedure Complete",
+    "epilogue": "You lose the final vote. The court that vacated the FTC’s click-to-cancel rule in 2025 objected to procedure. The chair assures you today’s refusal followed every procedure. There was even a special folder for making sure nothing improved.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-votefail-b-scene",
+      "description": "After the recorded losing final vote, the established hearing chair closes an ornate procedural folder beside the travelers’ case material. Do not invent vote totals, subsequent legislation, a further hearing, or any new journey outcome.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Compact hearing-table scene centered on the oversized folder; only recorded survivors and the established chair appear.",
+      "overlays": [
+        {
+          "text": "PROCEDURE COMPLETE",
+          "placement": "Blank procedural-folder cover",
+          "display_condition": "Only for the recorded losing final vote."
+        }
+      ],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "The recorded final-vote hearing location.",
+      "action": "The chair aligns the procedural folder neatly while the recorded case receives no successful vote.",
+      "visual_gag": "The meticulously arranged procedural folder takes more desk space than the case it has helped reject.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Federal appeals court vacates the FTC click-to-cancel rule",
+      "real_hook": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up. The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+      "source_url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition.",
+      "news_hook_id": "existing-c2bb87c81233"
+    },
+    "news_hook_id": "existing-c2bb87c81233"
+  },
+  {
+    "id": "END-INCOMPLETE-B",
+    "family_id": "END-INCOMPLETE",
+    "variant": "B",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "result.epilogue.incomplete",
+    "title": "Leave the Label Loose",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+        "title": "Maryland Attorney General Statement on FBI Headquarters Ruling",
+        "date": "2026-08-17",
+        "checked": "2026-09-14",
+        "claim": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+        "qualification": "This does not mean the FBI already relocated or a Greenbelt campus is finished. Appellate outcomes and later project decisions are not established here. Maryland’s attorney general is a litigating party; AP corroborates the ruling."
+      },
+      {
+        "url": "https://apnews.com/article/f5a77411bf54f3e17beb9cd41fd046a8",
+        "title": "AP reporting on court blocking FBI headquarters move",
+        "checked": "2026-09-14",
+        "claim": "Independent account of August 2026 ruling.",
+        "qualification": "Supporting source; observe the primary source limits."
+      },
+      {
+        "url": "https://www.fbi.gov/news/press-releases/new-fbi-headquarters-in-washington-dc",
+        "title": "FBI: New FBI Headquarters in Washington, DC",
+        "checked": "2026-09-14",
+        "claim": "July 1, 2025 announcement of the Reagan Building plan.",
+        "qualification": "Supporting source; observe the primary source limits."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "An unfinished journey notebook beside an explicitly editorial inset of an office-moving box and unattached address label. The inset represents the FBI relocation dispute, not crew inventory or a claim that an FBI move occurred.",
+    "headline": "Leave the Label Loose",
+    "epilogue": "Your journey is unfinished. A federal court blocked the administration’s proposed FBI headquarters move in August 2026. The agency famous for finding people has been working on where to put itself. Leave the address label loose.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-incomplete-b-scene",
+      "description": "An unfinished journey notebook beside an explicitly editorial inset of an office-moving box and unattached address label. The inset represents the FBI relocation dispute, not crew inventory or a claim that an FBI move occurred.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Simple notebook foreground with a clearly separated office-box inset; no map route or next destination is drawn.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Recorded current location if available; otherwise a neutral editorial background.",
+      "action": "The address label hangs loose above the stationary editorial box while the notebook stays open.",
+      "visual_gag": "The box has more possible attachment points than usable address labels.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Court blocks the administration’s FBI headquarters reversal",
+      "real_hook": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+      "source_url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+      "date": "2026-08-17",
+      "status": "Dated district-court decision",
+      "limit": "This does not mean the FBI already relocated or a Greenbelt campus is finished. Appellate outcomes and later project decisions are not established here. Maryland’s attorney general is a litigating party; AP corroborates the ruling.",
+      "news_hook_id": "LIGHT-29",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition."
+    },
+    "news_hook_id": "LIGHT-29"
+  },
+  {
+    "id": "END-FALLBACK-B",
+    "family_id": "END-FALLBACK",
+    "variant": "B",
+    "category": "Ending packages",
+    "mode": "Shared",
+    "regions": [],
+    "runtime_key": "result.epilogue.generic",
+    "title": "A Less Useful Blank",
+    "status": "draft for user review",
+    "evidence_status": "Verified dated political hook within source qualifications; original fictional ending commentary and editorial scene.",
+    "sources": [
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+        "title": "KC Streetcar: Main Street Rail Transportation Development District",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/",
+        "title": "KC Streetcar: About the Streetcar",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ],
+    "variables": [],
+    "cast_requirements": "Show only the recorded survivors and actual vehicle state. A missing cause does not imply death, a crash, a completed hearing or D.C. arrival.",
+    "illustration": "A blank final notebook page sits beside a small editorial streetcar vignette with an empty fare-price panel. Do not place the travelers in Kansas City, show them aboard the streetcar, or imply how their journey ended.",
+    "headline": "A Less Useful Blank",
+    "epilogue": "Your outcome is not recorded. Kansas City uses local taxes to run a fare-free streetcar. A blank where the fare belongs is a public benefit. A blank where your ending belongs is harder to sell.",
+    "integration_note": "Select by the exact typed ending. Incomplete and fallback are distinct. Use recorded location; outcome text intentionally does not invent one.",
+    "scene": {
+      "scene_id": "end-fallback-b-scene",
+      "description": "A blank final notebook page sits beside a small editorial streetcar vignette with an empty fare-price panel. Do not place the travelers in Kansas City, show them aboard the streetcar, or imply how their journey ended.",
+      "cast": "Use active roster appearances; no invented traveler. External contacts and officials are separate NPCs.",
+      "composition": "Small streetcar vignette beside a larger blank notebook page; no route line connects them.",
+      "overlays": [],
+      "asset_notes": "No embedded lettering, readable text, numbers, logos, captions, interface text or watermarks. Keep written surfaces blank; all words are editable overlays.",
+      "setting": "Neutral editorial background; Kansas City appears only in an explicitly editorial transit vignette.",
+      "action": "The editorial streetcar is framed as an illustration while the actual result page remains blank.",
+      "visual_gag": "The transit illustration’s empty fare panel has a clear public purpose; the notebook’s empty result area does not.",
+      "display_phase": "After selection of this exact typed ending; depict only its recorded state. Editorial insets are commentary, not additional game events."
+    },
+    "political_basis": {
+      "subject": "Kansas City tax-funded fare-free streetcar",
+      "real_hook": "The transportation district levies local taxes and assessments to fund the streetcar; passengers ride without a fare.",
+      "source_url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+      "fictionalization": "The ending comparison and any local dialogue or editorial props are original fictional satire. The source establishes the named political event only. The political event is not asserted to cause this run’s outcome; the source rule is not extended to the game’s hearing or crossing. Preserve the exact recorded ending, location, survivors, and vehicle condition.",
+      "news_hook_id": "existing-9ca2cc3536b6"
+    },
+    "news_hook_id": "existing-9ca2cc3536b6"
+  }
+]

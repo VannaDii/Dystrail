@@ -1,0 +1,9 @@
+{
+  "documents_checked": 4,
+  "local_links_checked": 83,
+  "main_frames": 8,
+  "ending_variants": 4,
+  "arithmetic_scenarios_checked": 6,
+  "checks_scope": "Storyboard and illustrative arithmetic only; no game build, engine, browser, or campaign tests run for this design task.",
+  "issues": []
+}

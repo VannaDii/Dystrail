@@ -1,0 +1,739 @@
+[
+  {
+    "id": "TOWN-03-C",
+    "family_id": "TOWN-03",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Austin",
+    "runtime_key": "Austin",
+    "title": "Feed the Pole",
+    "setup": "While you check an Austin parking meter, a bakery worker points from its timer to her ticket.",
+    "speaker": "Fictional resident: a bakery worker on a delivery break",
+    "fact": "Austin’s council set the unpaid-meter fine at $75, effective March 1, 2025.",
+    "commentary": "“Seventy-five dollars if the meter expires. I’m feeding it before I buy lunch. Austin has taught a pole to eat first.”",
+    "sources": [
+      {
+        "url": "https://services.austintexas.gov/edims/document.cfm?id=447196",
+        "title": "Austin council document setting the unpaid-meter fine",
+        "date": "2025-02-13",
+        "checked": "2026-09-14",
+        "qualification": "The $75 figure applies to the unpaid-meter fine from March 1, 2025; it is not a universal parking penalty."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The upright meter receives its coin at mouth height while the lunch bag waits below.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-03-C-SHARED-CIVIC-SCENE",
+      "setting": "Austin curb beside a parking meter and a bakery delivery vehicle.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a bakery worker on a delivery break"
+      ],
+      "action": "The worker holds a coin above the meter slot while her paper lunch bag hangs from her other hand; a traveler checks the meter.",
+      "visual_gag": "The upright meter receives its coin at mouth height while the lunch bag waits below.",
+      "composition": "Eye-level three-quarter view: meter and worker in the foreground, one current traveler alongside, parked vehicles behind with blank plates.",
+      "overlays": [
+        {
+          "text": "Unpaid meter: $75",
+          "placement": "Beside the blank ticket, as an editable callout.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Austin’s higher unpaid-meter fine",
+      "real_hook": "Austin’s council approved a $75 unpaid-meter fine on February 13, 2025, effective March 1. This is the unpaid-meter offense, not every parking violation.",
+      "source_url": "https://services.austintexas.gov/edims/document.cfm?id=447196",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-13-B",
+    "family_id": "TOWN-13",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Des Moines",
+    "runtime_key": "Des Moines",
+    "title": "The Light Switch Veto",
+    "setup": "At a Des Moines laundromat, a bus driver holds an electric bill up to the window beside your folding table.",
+    "speaker": "Fictional resident: a bus driver doing laundry on a day off",
+    "fact": "Des Moines’s electric franchise fee rose to 7.5% in 2025.",
+    "commentary": "“City gets seven and a half percent when I turn on a lamp. I read the bill by the window now. The sun hasn’t signed a franchise agreement.”",
+    "sources": [
+      {
+        "url": "https://councildocs.dsm.city/ordinances/16%2C485.pdf",
+        "title": "Des Moines electric-franchise ordinance 16,485",
+        "date": "2025",
+        "checked": "2026-09-14",
+        "qualification": "The ordinance establishes the 7.5% franchise-fee rate. No claim about an individual bill’s total increase or the electric utility’s underlying rates."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "A switched-off lamp stands beside the bill; sunlight does the job from outside the building.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-13-B-SHARED-CIVIC-SCENE",
+      "setting": "Des Moines laundromat with bright daylight across a folding table.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a bus driver doing laundry on a day off"
+      ],
+      "action": "The driver tilts an unlettered utility bill into the sunbeam while a traveler sorts the crew’s own laundry nearby.",
+      "visual_gag": "A switched-off lamp stands beside the bill; sunlight does the job from outside the building.",
+      "composition": "Side view across the folding table, bill in the sunlit foreground, driver and one current traveler at either side; washer controls remain blank.",
+      "overlays": [
+        {
+          "text": "City franchise fee: 7.5%",
+          "placement": "Beside the blank utility bill.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Des Moines’s electric franchise fee",
+      "real_hook": "Des Moines’s 2025 electric-franchise ordinance sets the franchise fee at 7.5%. This is the fee rate, not a claim that every customer’s total bill rose by 7.5%.",
+      "source_url": "https://councildocs.dsm.city/ordinances/16%2C485.pdf",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-14-A",
+    "family_id": "TOWN-14",
+    "variant": "A",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "El Paso",
+    "runtime_key": "El Paso",
+    "title": "The Card Can Sit Down",
+    "setup": "At an El Paso streetcar stop, a grocery clerk watches a visitor hunt through a wallet beside you.",
+    "speaker": "Fictional resident: a grocery clerk waiting for the streetcar",
+    "fact": "El Paso’s Sun Metro streetcar is fare-free.",
+    "commentary": "“City streetcar’s free. You can tell who’s new: they board with their card out, like they’re feeding a nervous horse.”",
+    "sources": [
+      {
+        "url": "https://sunmetro.net/streetcar/about-streetcars",
+        "title": "Sun Metro: About the Streetcars",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Fare-free service applies to the streetcar; no claim about other bus fares, service frequency or reliability."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The visitor approaches the harmless open door with the cautious arm position used to feed a horse.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-14-A-SHARED-CIVIC-SCENE",
+      "setting": "El Paso streetcar platform beside an open streetcar door.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a grocery clerk waiting for the streetcar",
+        "A separate visiting streetcar rider; this person is not part of the crew."
+      ],
+      "action": "A visitor extends an unmarked card gingerly toward the open doorway while the grocery clerk gestures them aboard; a current traveler waits nearby.",
+      "visual_gag": "The visitor approaches the harmless open door with the cautious arm position used to feed a horse.",
+      "composition": "Low platform view with the doorway at right, visitor’s extended hand central, resident and one current traveler at left; no horse or extra crew.",
+      "overlays": [
+        {
+          "text": "Streetcar: FREE",
+          "placement": "On the blank platform information panel.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "El Paso’s fare-free streetcar",
+      "real_hook": "Sun Metro states that riding the El Paso streetcar is free. This does not establish that every Sun Metro service is fare-free.",
+      "source_url": "https://sunmetro.net/streetcar/about-streetcars",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-14-B",
+    "family_id": "TOWN-14",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "El Paso",
+    "runtime_key": "El Paso",
+    "title": "Dress the Fridge for Subsidies",
+    "setup": "While you ask about a charging cable, an El Paso repair-shop owner holds a necktie against a refrigerator.",
+    "speaker": "Fictional resident: an appliance repair-shop owner",
+    "fact": "El Paso’s December 2023 Meta agreement offered an 80% city property-tax rebate for its first phase, conditioned on $800 million investment and 50 jobs.",
+    "commentary": "“Meta can get eighty percent of its city property tax back. I’m putting a tie on the fridge. One of us is going to qualify.”",
+    "sources": [
+      {
+        "url": "https://www.elpasotexas.gov/data-centers",
+        "title": "City of El Paso: Data Centers",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "First-phase city property-tax rebate: 80%, 15 years, with stated investment and job conditions. No assertion of actual job delivery or exemption from school and county taxes."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The refrigerator is being dressed as the applicant most likely to obtain an economic-development deal.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-14-B-SHARED-CIVIC-SCENE",
+      "setting": "El Paso appliance repair shop with an unbranded refrigerator beside the service counter.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: an appliance repair-shop owner"
+      ],
+      "action": "The owner holds a necktie against the refrigerator’s handle while a traveler points to a charging cable on the counter.",
+      "visual_gag": "The refrigerator is being dressed as the applicant most likely to obtain an economic-development deal.",
+      "composition": "Medium view with refrigerator and tie central, owner at one side and one current traveler at the counter; blank appliances and paperwork.",
+      "overlays": [
+        {
+          "text": "Meta deal: 80% city property-tax rebate",
+          "placement": "Detached callout above the refrigerator.",
+          "display_condition": "Town conversation; editable overlay only."
+        },
+        {
+          "text": "Conditions apply",
+          "placement": "Beneath the rebate callout.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "El Paso’s conditional Meta data-center tax rebate",
+      "real_hook": "El Paso’s December 2023 agreement offered Meta an 80% city property-tax rebate for the first phase over 15 years, conditional on $800 million investment and 50 jobs. This is not a rebate of all jurisdictions’ taxes or proof the conditions were met.",
+      "source_url": "https://www.elpasotexas.gov/data-centers",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-17-C",
+    "family_id": "TOWN-17",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Hagerstown",
+    "runtime_key": "Hagerstown",
+    "title": "Your Seat Is Sold Separately",
+    "setup": "At a Hagerstown snack counter, a roofer checks stadium ticket prices while you study the menu.",
+    "speaker": "Fictional resident: a local roofer buying lunch",
+    "fact": "Maryland’s 2021 law authorized bonds for Hagerstown’s new stadium; the state also committed supplemental and fiscal 2023 funding.",
+    "commentary": "“Public money helped build the ballpark. I asked about my seat. Apparently I paid for the building where they sell it to me again.”",
+    "sources": [
+      {
+        "url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+        "title": "Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Supports the state bond authority and identified public commitments. The resident’s seat exchange is invented; no claim of promised free admission or diversion from a named service."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "His hand grips the stool protectively as he looks toward the publicly financed stadium.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-17-C-SHARED-CIVIC-SCENE",
+      "setting": "Hagerstown snack counter with a ballpark visible down the street.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a local roofer buying lunch"
+      ],
+      "action": "The roofer compares an unmarked ticket-price sheet with the ordinary stool beneath him while a traveler considers the menu.",
+      "visual_gag": "His hand grips the stool protectively as he looks toward the publicly financed stadium.",
+      "composition": "Eye-level counter view, roofer and stool foreground, one current traveler browsing a blank menu board, distant stadium architecture without lettering.",
+      "overlays": [
+        {
+          "text": "Tickets sold separately",
+          "placement": "On the blank price sheet held by the resident.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Maryland’s public financing for Hagerstown’s stadium",
+      "real_hook": "Maryland’s 2021 law authorized stadium bonds for Hagerstown. The state announcement also identified $8.5 million in supplemental funding and $1.5 million in fiscal 2023 funding. These figures are not a total project cost or an operating-loss claim.",
+      "source_url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-18-C",
+    "family_id": "TOWN-18",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Iowa City",
+    "runtime_key": "Iowa City",
+    "title": "Still Learning to Be Free",
+    "setup": "At an Iowa City bus shelter, a campus cleaner moves a lunchbox so you can sit.",
+    "speaker": "Fictional resident: a campus cleaner waiting for a bus",
+    "fact": "Iowa City extended its fare-free bus pilot, as recorded in the city’s December 2025 strategic-plan progress report.",
+    "commentary": "“They extended the free-bus pilot. Still testing whether passengers miss paying. I’m willing to be observed keeping my money for as long as science needs.”",
+    "sources": [
+      {
+        "url": "https://www.icgov.org/home/showpublisheddocument/2925/639040638387730000",
+        "title": "Iowa City strategic-plan progress report, December 2025",
+        "date": "2025-12",
+        "checked": "2026-09-14",
+        "qualification": "Supports extension of the fare-free pilot, not permanent funding or a claim that the program is an actual scientific experiment."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The intact coin purse is displayed like the successful result of a very long experiment.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-18-C-SHARED-CIVIC-SCENE",
+      "setting": "Iowa City bus shelter with a municipal bus approaching.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a campus cleaner waiting for a bus"
+      ],
+      "action": "The cleaner moves the lunchbox off the bench and rests a closed coin purse prominently on one palm while speaking to a current traveler.",
+      "visual_gag": "The intact coin purse is displayed like the successful result of a very long experiment.",
+      "composition": "Bench-height view of resident and one current traveler, closed purse and lunchbox in the foreground, approaching bus with blank route panel.",
+      "overlays": [
+        {
+          "text": "Fare-free pilot extended",
+          "placement": "On the shelter’s blank information panel.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Iowa City’s extended fare-free bus pilot",
+      "real_hook": "Iowa City’s December 2025 strategic-plan progress report records an extension of the fare-free transit pilot. An extension is not a permanent fare-free guarantee.",
+      "source_url": "https://www.icgov.org/home/showpublisheddocument/2925/639040638387730000",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-19-A",
+    "family_id": "TOWN-19",
+    "variant": "A",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Joplin",
+    "runtime_key": "Joplin",
+    "title": "The Drain Got a Raise",
+    "setup": "At a Joplin hardware counter, a plumber holds a new drain fitting beside a sewer bill.",
+    "speaker": "Fictional resident: a residential plumber",
+    "fact": "Joplin’s council approved sewer-rate increases beginning April 2025, averaging 4% annually through 2029; individual bills vary.",
+    "commentary": "“Council gave the sewer yearly increases through 2029. My boss says raises must be earned. The drain gets one just for swallowing.”",
+    "sources": [
+      {
+        "url": "https://joplinbusinessoutlook.com/2025/01/08/sewer-rate-adjustment-begins-for-city-of-joplin-residents-with-april-2025-billing-cycle/",
+        "title": "Sewer rate adjustment begins for Joplin residents with April 2025 billing",
+        "date": "2025-01-08",
+        "checked": "2026-09-14",
+        "qualification": "Average annual change over 2025–2029, with individual impacts varying. No claim about water safety, service failure or an exact household charge."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "An ordinary drain fitting receives the triumphant presentation usually reserved for an employee’s award.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-19-A-SHARED-CIVIC-SCENE",
+      "setting": "Joplin hardware store plumbing counter.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a residential plumber"
+      ],
+      "action": "The plumber raises a shiny drain fitting like a small trophy while showing the bill to a traveler browsing replacement hardware.",
+      "visual_gag": "An ordinary drain fitting receives the triumphant presentation usually reserved for an employee’s award.",
+      "composition": "Close counter view with fitting raised center-frame, unlettered bill below, plumber and one current traveler on opposite sides of the prop.",
+      "overlays": [
+        {
+          "text": "Average annual sewer increase: 4%",
+          "placement": "Beside the blank bill.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Joplin’s scheduled sewer-rate increases",
+      "real_hook": "Joplin approved sewer-rate adjustments beginning with April 2025 billing, averaging 4% annually from 2025 through 2029. The impact varies by customer; 4% is not every individual bill’s guaranteed increase.",
+      "source_url": "https://joplinbusinessoutlook.com/2025/01/08/sewer-rate-adjustment-begins-for-city-of-joplin-residents-with-april-2025-billing-cycle/",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-21-B",
+    "family_id": "TOWN-21",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "La Crosse",
+    "runtime_key": "La Crosse",
+    "title": "Constitutional Scissors",
+    "setup": "At a La Crosse copy shop, a school secretary holds a utility bill up to a pair of scissors.",
+    "speaker": "Fictional resident: a school secretary",
+    "fact": "Wisconsin’s Supreme Court upheld Governor Evers’s partial veto extending school revenue-limit increases through 2425. The ruling did not guarantee future appropriations.",
+    "commentary": "“Evers crossed out digits and got school revenue limits through 2425. I tried it on my electric bill. Apparently only one of us has constitutional scissors.”",
+    "sources": [
+      {
+        "url": "https://apnews.com/article/5a1be188f78ab5e4223b2c7c7ad3ca7d",
+        "title": "AP report on the upheld Wisconsin school revenue-limit veto",
+        "date": "2025",
+        "checked": "2026-09-14",
+        "qualification": "The decision concerns revenue-limit increases through 2425, not an unconditional promise of 400 years of appropriations. The utility-bill comparison is invented satire."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The tiny scissors hover over a personal bill beside a long curling printout representing the governor’s much longer reach.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-21-B-SHARED-CIVIC-SCENE",
+      "setting": "La Crosse copy shop beside a self-service paper cutter.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a school secretary"
+      ],
+      "action": "The secretary holds ordinary scissors above an unlettered utility bill while a traveler waits at the print counter.",
+      "visual_gag": "The tiny scissors hover over a personal bill beside a long curling printout representing the governor’s much longer reach.",
+      "composition": "Oblique view of copy counter, scissors and bill central, curled blank paper extending into background; secretary and one current traveler only.",
+      "overlays": [
+        {
+          "text": "School revenue limits: through 2425",
+          "placement": "Along the blank curling printout as an editable annotation.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Wisconsin’s partial veto extending school revenue-limit increases",
+      "real_hook": "Wisconsin’s Supreme Court upheld Governor Tony Evers’s partial veto that extended school revenue-limit increases to 2425 by deleting characters from the budget text. Revenue limits are not guaranteed future appropriations.",
+      "source_url": "https://apnews.com/article/5a1be188f78ab5e4223b2c7c7ad3ca7d",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-25-C",
+    "family_id": "TOWN-25",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Missoula",
+    "runtime_key": "Missoula",
+    "title": "The Car Can Fend for Itself",
+    "setup": "At a Missoula yard sale, a carpenter shows you a sketch for a small backyard rental.",
+    "speaker": "Fictional resident: a carpenter planning an accessory dwelling unit",
+    "fact": "Missoula’s accessory-dwelling-unit code requires no additional parking for the added home.",
+    "commentary": "“A backyard home doesn’t need extra parking. I’ve drawn the tenant a kitchen. If the car wants its own living room, it can get a job.”",
+    "sources": [
+      {
+        "url": "https://library.municode.com/MT/Missoula/codes/municipal_code?nodeId=TIT20ZO_CH20.45ACUSST_20.45.060ACDWUN",
+        "title": "Missoula municipal code, section 20.45.060: Accessory Dwelling Units",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Uses the current code rather than older planning PDFs. No claim of automatic permit approval or removal of every parking requirement."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "A toy pickup from the sale sits on the oversized chair next to the modest human-sized house sketch.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-25-C-SHARED-CIVIC-SCENE",
+      "setting": "Missoula front-yard sale beside a side gate overlooking a small backyard.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a carpenter planning an accessory dwelling unit"
+      ],
+      "action": "The carpenter points to the kitchen rectangle on an unlettered cottage sketch while a traveler browses a secondhand chair.",
+      "visual_gag": "A toy pickup from the sale sits on the oversized chair next to the modest human-sized house sketch.",
+      "composition": "Three-quarter view across the sale table; sketch and toy pickup foreground, carpenter and one current traveler behind, backyard visible through the gate.",
+      "overlays": [
+        {
+          "text": "ADU: no additional parking required",
+          "placement": "Beside the blank cottage sketch.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Missoula’s accessory-dwelling-unit parking rule",
+      "real_hook": "Missoula’s current accessory-dwelling-unit code requires no additional parking for an ADU. This does not eliminate all parking rules or other conditions on the proposed dwelling.",
+      "source_url": "https://library.municode.com/MT/Missoula/codes/municipal_code?nodeId=TIT20ZO_CH20.45ACUSST_20.45.060ACDWUN",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-31-B",
+    "family_id": "TOWN-31",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Rapid City",
+    "runtime_key": "Rapid City",
+    "title": "The Trucks Get Private Suites",
+    "setup": "Stopping to check your map, you meet a Rapid City cleaner rolling a bin along a vacation rental’s wide driveway.",
+    "speaker": "Fictional resident: a vacation-rental cleaner",
+    "fact": "Rapid City’s council approved vacation-rental rules in December 2025 requiring two off-street parking spaces.",
+    "commentary": "“Council wants two parking spaces for a vacation rental. The guests get bunk beds. Their trucks each get a private suite.”",
+    "sources": [
+      {
+        "url": "https://www.kotatv.com/2025/12/02/rapid-city-council-votes-regulate-vacation-home-rentals/",
+        "title": "Rapid City council votes to regulate vacation home rentals",
+        "date": "2025-12-02",
+        "checked": "2026-09-14",
+        "qualification": "Supports the two-space requirement under the new vacation-rental rules. No assertion about every existing property’s status or a city requirement that guests use bunk beds."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The trucks occupy two generous bays while the little guest cottage is squeezed visually between them.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-31-B-SHARED-CIVIC-SCENE",
+      "setting": "Rapid City residential curb beside a small vacation cottage and a broad driveway.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a vacation-rental cleaner"
+      ],
+      "action": "The cleaner rolls an empty bin past two large parked pickups while pointing toward the cottage’s narrow doorway; a current traveler stands beside the van with a map.",
+      "visual_gag": "The trucks occupy two generous bays while the little guest cottage is squeezed visually between them.",
+      "composition": "Wide curb-level view with large trucks framing the tiny cottage, cleaner midground and one current traveler by the existing van; plates and map blank.",
+      "overlays": [
+        {
+          "text": "Vacation rental: two off-street spaces",
+          "placement": "Detached callout over the driveway.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Rapid City’s vacation-rental parking requirements",
+      "real_hook": "Rapid City’s council approved vacation-rental regulations in December 2025 that require two off-street parking spaces. The requirement is for covered vacation rentals, not all homes.",
+      "source_url": "https://www.kotatv.com/2025/12/02/rapid-city-council-votes-regulate-vacation-home-rentals/",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-34-C",
+    "family_id": "TOWN-34",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "San Antonio",
+    "runtime_key": "San Antonio",
+    "title": "The Fee Passed Inspection",
+    "setup": "At a San Antonio garage, a mechanic taps a registration receipt while you ask about the new rules.",
+    "speaker": "Fictional resident: an independent mechanic",
+    "fact": "Texas ended most noncommercial vehicle safety inspections in January 2025 but kept a $7.50 replacement fee; emissions and commercial inspection requirements remain.",
+    "commentary": "“They scrapped most safety inspections and kept the fee. The car stays outside. Open your wallet and say ‘ah.’”",
+    "sources": [
+      {
+        "url": "https://www.dps.texas.gov/news/vehicle-safety-inspection-changes-take-effect-january-2025",
+        "title": "Texas DPS: Vehicle Safety Inspection Changes Take Effect January 2025",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Most noncommercial safety inspections ended; applicable emissions and commercial rules remain. The fee is not represented as the entire vehicle-registration bill."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The wallet receives the close inspection while the vehicle waits untouched outside.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-34-C-SHARED-CIVIC-SCENE",
+      "setting": "San Antonio garage reception counter with the van still parked outside.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: an independent mechanic"
+      ],
+      "action": "The mechanic aims a small inspection mirror into his own open wallet while explaining the rule to a current traveler holding vehicle keys.",
+      "visual_gag": "The wallet receives the close inspection while the vehicle waits untouched outside.",
+      "composition": "Counter-height close view of mirror and wallet, mechanic and one current traveler behind, van through the window; receipt, plates and cards blank.",
+      "overlays": [
+        {
+          "text": "Inspection replacement fee: $7.50",
+          "placement": "Beside the blank registration receipt.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Texas’s inspection replacement fee",
+      "real_hook": "From January 2025, Texas removed most noncommercial vehicle safety inspections and retained a $7.50 inspection-program replacement fee. Applicable emissions inspections and commercial-vehicle inspections remain.",
+      "source_url": "https://www.dps.texas.gov/news/vehicle-safety-inspection-changes-take-effect-january-2025",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-35-B",
+    "family_id": "TOWN-35",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Sioux Falls",
+    "runtime_key": "Sioux Falls",
+    "title": "The State Came for Dinner",
+    "setup": "At a Sioux Falls grocery checkout, a school cook separates onions from a sprawling receipt.",
+    "speaker": "Fictional resident: a school cook shopping for dinner",
+    "fact": "South Dakota voters rejected Initiated Measure 28 in 2024. It proposed barring state taxes on many human-consumption goods, excluding alcohol and prepared food.",
+    "commentary": "“The grocery-tax repeal lost. State still comes to dinner. Never chops an onion, never washes a plate, always gets served before I do.”",
+    "sources": [
+      {
+        "url": "https://sdsos.gov/elections-voting/assets/BallotQuestions%20%282024%29.pdf",
+        "title": "South Dakota Secretary of State: 2024 Ballot Questions",
+        "date": "2024",
+        "checked": "2026-09-14",
+        "qualification": "Official result: Measure 28 failed, 129,261 to 290,969. The proposal was broader than groceries alone; no claim that it would have eliminated every local tax."
+      },
+      {
+        "url": "https://sdsos.gov/elections-voting/assets/2024%20Assets/2024GeneralBQPamphlet.FINALdocx.pdf",
+        "title": "South Dakota 2024 General Election Ballot Question Pamphlet",
+        "date": "2024",
+        "qualification": "Attorney General’s explanation describes the state-tax proposal and excludes alcoholic beverages and prepared food. Competing campaign arguments are not treated as established facts.",
+        "checked": "2026-09-14"
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The upright receipt occupies more counter space than the food, as if it has claimed its own seat at dinner.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-35-B-SHARED-CIVIC-SCENE",
+      "setting": "Sioux Falls grocery checkout with onions, a loaf and the resident’s reusable bag.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a school cook shopping for dinner"
+      ],
+      "action": "The cook holds the long blank receipt upright beside the groceries like a place card for an unwelcome dinner guest; a current traveler waits behind with a basket.",
+      "visual_gag": "The upright receipt occupies more counter space than the food, as if it has claimed its own seat at dinner.",
+      "composition": "Eye-level checkout view, receipt and onions foreground, cook and one current traveler beyond; scanner display, packaging and receipt unlettered.",
+      "overlays": [
+        {
+          "text": "2024: grocery-tax measure rejected",
+          "placement": "Detached callout beside the receipt.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "South Dakota’s rejected 2024 consumption-tax ballot measure",
+      "real_hook": "South Dakota’s official ballot-question history records Initiated Measure 28 failing in 2024, 129,261 to 290,969. The proposal concerned state taxes on goods for human consumption, excluding alcoholic beverages and prepared food; its broader scope was disputed.",
+      "source_url": "https://sdsos.gov/elections-voting/assets/BallotQuestions%20%282024%29.pdf",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-40-C",
+    "family_id": "TOWN-40",
+    "variant": "C",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "St. Louis",
+    "runtime_key": "St. Louis",
+    "title": "A Thriving Little Ticket",
+    "setup": "At a St. Louis copy shop, a delivery driver lays a parking notice beside a savings statement.",
+    "speaker": "Fictional resident: a delivery driver sorting personal paperwork",
+    "fact": "St. Louis lists a $20 meter fine that doubles after 30 days and reaches $80 after 45 days.",
+    "commentary": "“Twenty dollars grows into eighty in forty-five days. I keep the ticket next to my savings statement. Maybe it’ll teach it something.”",
+    "sources": [
+      {
+        "url": "https://www.stlouis-mo.gov/government/departments/treasurer/parking-violations/parking-violation-fines.cfm",
+        "title": "City of St. Louis: Parking Violation Fines",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Applies to the listed meter violation and payment intervals. No claim that the resident has obtained any investment return or that the rule covers every citation."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The bulky escalating notice looms over the tiny savings statement like an overqualified tutor.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-40-C-SHARED-CIVIC-SCENE",
+      "setting": "St. Louis copy shop with two personal documents on a counter.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a delivery driver sorting personal paperwork"
+      ],
+      "action": "The driver places the parking notice beside a thin savings statement and nudges them together while a current traveler waits nearby.",
+      "visual_gag": "The bulky escalating notice looms over the tiny savings statement like an overqualified tutor.",
+      "composition": "Over-counter view with the two unlettered documents centered; driver’s hands beside them, one current traveler and copier softly in background.",
+      "overlays": [
+        {
+          "text": "$20 → $80 after 45 days",
+          "placement": "Above the parking notice.",
+          "display_condition": "Town conversation; editable overlay only."
+        },
+        {
+          "text": "Savings",
+          "placement": "On the smaller blank statement.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "St. Louis’s escalating unpaid-meter penalty",
+      "real_hook": "St. Louis’s posted parking-fine schedule lists a $20 meter fine, doubling after 30 days and reaching $80 after 45 days. The schedule is not a universal rule for every parking offense.",
+      "source_url": "https://www.stlouis-mo.gov/government/departments/treasurer/parking-violations/parking-violation-fines.cfm",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  },
+  {
+    "id": "TOWN-43-B",
+    "family_id": "TOWN-43",
+    "variant": "B",
+    "category": "Town conversations",
+    "mode": "Shared",
+    "town": "Tulsa",
+    "runtime_key": "Tulsa",
+    "title": "Check the Bag for Government",
+    "setup": "At a Tulsa grocery loading area, a warehouse worker peers into a shopping bag beside your parked van.",
+    "speaker": "Fictional resident: a warehouse worker shopping after a shift",
+    "fact": "Oklahoma ended the state sales tax on qualifying groceries on August 29, 2024; local grocery sales taxes remain.",
+    "commentary": "“State grocery tax is gone. Local tax stayed. I shook the bag to make sure. One level of government was still in there.”",
+    "sources": [
+      {
+        "url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+        "title": "Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "State exemption for qualifying groceries; local taxes and excluded categories remain. No invented local rate or claim that all food purchases are tax-free."
+      }
+    ],
+    "evidence_status": "verified political hook; fictional resident and commentary",
+    "illustration": "The search through ordinary groceries treats the remaining tax as something hiding at the bottom of the bag.",
+    "status": "draft for user review",
+    "scene": {
+      "scene_id": "TOWN-43-B-SHARED-CIVIC-SCENE",
+      "setting": "Tulsa grocery-store loading area beside the resident’s open car trunk and the crew’s parked van.",
+      "characters": [
+        "One or two currently present travelers only; use the current roster and do not invent extra or absent crew.",
+        "Fictional resident: a warehouse worker shopping after a shift"
+      ],
+      "action": "The worker peers deep into a reusable bag of raw produce while holding a receipt; a current traveler looks over from beside the van.",
+      "visual_gag": "The search through ordinary groceries treats the remaining tax as something hiding at the bottom of the bag.",
+      "composition": "Three-quarter view into the open bag, resident foreground, one current traveler beside the van behind; no extra traveler, labels or readable plates.",
+      "overlays": [
+        {
+          "text": "State grocery tax: $0",
+          "placement": "First line beside the blank receipt.",
+          "display_condition": "Town conversation; editable overlay only."
+        },
+        {
+          "text": "Local tax: still here",
+          "placement": "Second line beside the blank receipt.",
+          "display_condition": "Town conversation; editable overlay only."
+        }
+      ],
+      "asset_notes": "No readable text/logos/numbers/lettering/UI text embedded; all necessary words are editable overlays."
+    },
+    "political_basis": {
+      "subject": "Oklahoma’s state-only grocery-tax repeal",
+      "real_hook": "Oklahoma ended state sales tax on qualifying food and food ingredients on August 29, 2024 under HB 1955. Applicable local sales taxes remain; the exemption does not cover every prepared-food purchase.",
+      "source_url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    }
+  }
+]

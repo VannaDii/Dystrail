@@ -1,0 +1,708 @@
+{
+  "key": "conditions",
+  "title": "Weather & health",
+  "target": 27,
+  "count": 27,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Weather & health",
+      "role": "title"
+    },
+    {
+      "text": "27 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "COND-CLEAR-A · Unregulated Sunshine",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The clear weather continues. The sun has not returned the communications team’s calls.",
+      "role": "body"
+    },
+    {
+      "text": "Clear skies. The radio credits Trump’s energy agenda. The sun declines the cabinet appointment.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The clear spell ends. Apparently the sun serves at its own pleasure.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Clear sky over the van; a radio inside carries a boastful announcement through a separate overlay.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "COND-CLEAR-B · Forecast Approved",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The sky remains clear without editorial assistance.",
+      "role": "body"
+    },
+    {
+      "text": "Clear weather gives the crew a break. Nobody has needed to improve the forecast with a Sharpie.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The weather changes. The marker is referred to the complaints department.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Open road beneath clear sky, with an unused marker lying beside a folded weather map.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "COND-CLEAR-C · The Public Option",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The forecast continues to match the sky. An unfashionable government outcome.",
+      "role": "body"
+    },
+    {
+      "text": "Clear skies. DOGE fired forecasters; the remaining staff called this one. The sunshine has been given until Monday to explain what it accomplished.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The clear spell ends; check the actual new forecast, not the applause.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Sunlit van and an ordinary weather radio beside an unlettered forecast map.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE-era weather-service firings",
+      "role": "source",
+      "link": "https://halifax.citynews.ca/2025/02/27/hundreds-of-weather-forecasters-fired-in-latest-wave-of-doge-cuts/"
+    },
+    {
+      "text": "Source: DOGE five-accomplishments emails",
+      "role": "source",
+      "link": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/"
+    },
+    {
+      "text": "COND-COLD-A · Fare-Free Warmth",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The cold continues. The van’s windows maintain a strict distinction between indoors and warm.",
+      "role": "body"
+    },
+    {
+      "text": "Cold grips the route. The radio discusses Kansas City’s tax-funded, fare-free streetcar. You contemplate a radical new public service: sitting somewhere whose windows are somebody else’s responsibility.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The cold eases. Your own windows become less of an ideological obstacle.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers sit in the parked van wearing their actual gear, looking at frosty edges on the windows; the radio supplies the distant Kansas City discussion. No streetcar boarding or route change is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: KC Streetcar: Main Street Rail Transportation Development District (undated)",
+      "role": "source",
+      "link": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/"
+    },
+    {
+      "text": "Source: KC Streetcar: About the Streetcar (undated)",
+      "role": "source",
+      "link": "https://kcstreetcar.org/about-streetcar/"
+    },
+    {
+      "text": "COND-COLD-B · Frozen Federal Assets",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Cold persists. The locked visitor center is achieving excellent energy savings.",
+      "role": "body"
+    },
+    {
+      "text": "The cold settles in beside a reduced-hours public visitor center. DOGE saved on heating the office by removing the people who opened it.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Conditions improve. The door remains a separate policy problem.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Cold travelers outside a visibly closed visitor center, with a blank reduced-hours notice on the locked door.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE and national park staffing",
+      "role": "source",
+      "link": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654"
+    },
+    {
+      "text": "COND-COLD-C · Fifty Winters",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The cold persists. The blanket’s term ends several inches before your ankles.",
+      "role": "body"
+    },
+    {
+      "text": "The temperature drops while you read about Trump’s floated fifty-year mortgage idea. Washington considered spreading the payments out. You are concentrating on spreading a blanket far enough.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Temperatures rise. Your ankles finally receive the promised coverage.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers consider an existing folded blanket while a blank clipping and a long rolled calendar lie beside them; the cold is visible outside, with no loan, house purchase or new gear granted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)",
+      "role": "source",
+      "link": "https://apnews.com/article/56a931881ca6f6efeccf2de0333a83bd"
+    },
+    {
+      "text": "COND-COLDEXPOSURE-A · The Total Is Visible",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Cold is still causing harm. Seek actual protection; the price board supplies information, not insulation.",
+      "role": "body"
+    },
+    {
+      "text": "Cold exposure is harming the crew near a motel. The FTC requires mandatory fees in the upfront total. The warm room is expensive. Looking at the price remains free.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure eases with protection. The motel’s beautifully clear total can be somebody else’s problem.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers stand near their van outside a modest motel, facing a blank total-price board; the door remains closed and no booking, payment or room entry is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC: Rule on Unfair or Deceptive Fees FAQ (Effective 2025-05-12)",
+      "role": "source",
+      "link": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions"
+    },
+    {
+      "text": "COND-COLDEXPOSURE-B · The Inside of a House",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Cold remains harmful. Find real protection; the housing headline is not a roof.",
+      "role": "body"
+    },
+    {
+      "text": "Cold exposure is harming the crew. You remember Trump’s order targeting federal support for big investors buying houses. Washington is debating who gets the whole house. Right now, you’re interested in the inside.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure eases with protection. Having an inside proves more useful than having a housing slogan.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers wait beside the actual van in cold weather; a blank housing-policy clipping rests against a closed case folder, with a distant ordinary house kept unoccupied and unidentified.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2026/01/stopping-wall-street-from-competing-with-main-street-homebuyers/"
+    },
+    {
+      "text": "COND-COLDEXPOSURE-C · Competitive Shivering",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Cold remains dangerous. Seek protection; coordinated chattering is not a heating system.",
+      "role": "body"
+    },
+    {
+      "text": "Cold exposure is harming the crew while you read about DOJ’s proposed RealPage settlement over rental-price coordination. The rent ads seem well organized. Your teeth have formed their own committee.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure is relieved. The committee of teeth quietly dissolves.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers show non-graphic cold fatigue beside the parked van; a blank rental-ad sheet flutters against a door, with no housing application, rental payment or new shelter shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Justice Department Requires RealPage to End Sharing Competitively Sensitive Information and Pricing Alignment (2025-11-24)",
+      "role": "source",
+      "link": "https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and"
+    },
+    {
+      "text": "COND-HEAT-A · The Freedom to Sweat",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The heat persists. The protest has spread to every seat.",
+      "role": "body"
+    },
+    {
+      "text": "A heat wave settles over the route. Politicians call mandatory water breaks overreach. Your sweat appears to be a grassroots protest.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The heat eases. The seats begin negotiating a return to normal relations.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Travelers sit in shade beside the van, with visibly hot upholstery and an ordinary water bottle.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: State bans on local heat protections",
+      "role": "source",
+      "link": "https://apnews.com/article/e271a2d78ef1545f4203b88bde514f9b"
+    },
+    {
+      "text": "COND-HEAT-B · Summer Arrived Unlicensed",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The heat persists. Every metal buckle offers a demonstration.",
+      "role": "body"
+    },
+    {
+      "text": "Heat settles over the route. A fuel-stop clerk recalls EPA’s temporary 2025 summer E15 waivers. The gasoline needed permission for summer. The heat didn’t even phone ahead.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Temperatures ease. Summer has finally stopped leaning on everything.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers remain beside the stopped van at a fuel stop; a separate clerk holds a plain calendar beside a covered pump. No fuel selection, purchase or E15 compatibility is implied.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Ahead of Summer Driving Season, EPA Allows Nationwide Year-Round E15 (2025-04-28)",
+      "role": "source",
+      "link": "https://www.epa.gov/newsreleases/ahead-summer-driving-season-epa-allows-nationwide-year-round-e15"
+    },
+    {
+      "text": "COND-HEAT-C · Bell to Bell, Sun to Sun",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The heat persists. The phone is getting a break whether its owner approves or not.",
+      "role": "body"
+    },
+    {
+      "text": "The heat climbs while you read about Virginia’s school phone restrictions. The phone becomes too hot to hold comfortably. The sun has achieved a persuasive phone policy without hiring a consultant.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Temperatures ease. The phone returns to being irritating at a manageable temperature.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current traveler holds a phone by its shaded edge beside the parked van; sunlight falls sharply across the seat, with no injury or readable phone warning embedded.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)",
+      "role": "source",
+      "link": "https://www.doe.virginia.gov/Home/Components/News/News/411/227"
+    },
+    {
+      "text": "COND-HEATEXPOSURE-A · Renewable Hands",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Heat is still causing harm. Find real protection; the hand fan cannot do the whole job.",
+      "role": "body"
+    },
+    {
+      "text": "Heat exposure is harming the crew. Trump ordered strict enforcement of the wind-and-solar credit phaseout. Your hand fan remains completely unsubsidized and seems to require a larger workforce than advertised.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure eases with protection. The fan can finally stop operating as critical infrastructure.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Affected current travelers show non-graphic heat fatigue beside the parked van; an existing small hand fan rests unused on a seat next to a blank energy-policy clipping. No recovery or additional worker is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable a…",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-market-distorting-subsidies-for-unreliable-foreign%E2%80%91controlled-energy-sources/"
+    },
+    {
+      "text": "COND-HEATEXPOSURE-B · Policy-Proof Temperature",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The heat remains harmful. The marker stays comfortably cool in the glove box.",
+      "role": "body"
+    },
+    {
+      "text": "Heat exposure is causing damage. The Sharpiegate approach has failed: you can change a line on a map, but the steering wheel still burns.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure is relieved. You return the marker to a job within its qualifications.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Traveler avoids a hot steering wheel while a capped marker rests on an unaltered blank forecast map.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "COND-HEATEXPOSURE-C · Three Inches of Grandeur",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The heat remains harmful. Find effective protection; architectural approval does not widen the shadow.",
+      "role": "body"
+    },
+    {
+      "text": "Heat exposure is harming the crew near a federal building. Trump’s architecture order favors classical design. Its impressive columns cast an unimpressive strip of shade. At this hour, grandeur is about three inches wide.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Exposure is relieved. The columns can return to looking important.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers stand short of a narrow column shadow beside a generic federal building; the van is parked nearby and no traveler has yet taken shelter. Do not depict a specific real building as newly redesigned.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/"
+    },
+    {
+      "text": "COND-HUNGER-A · Trickle-Down Lunch",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Hunger continues. You turn the bowl around to improve reception.",
+      "role": "body"
+    },
+    {
+      "text": "Food is running short. Congress has cut projected food-aid spending. Someone holds an empty bowl under the radio, just in case the savings trickle down.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: Food relieves the hunger. It arrives through an actual person, a supply the radio had overlooked.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Empty bowl held below an ordinary radio inside the van; no magic food or actual benefit enrollment implied.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Food assistance cuts",
+      "role": "source",
+      "link": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "text": "COND-HUNGER-B · A Very Long Menu",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Hunger continues. The imaginary menu is developing excellent diplomatic relations.",
+      "role": "body"
+    },
+    {
+      "text": "Food runs low as the radio revisits Trump’s Argentine-beef import proposal and Farm Bureau’s objection. The menu has become international. Your immediate difficulty is getting anything onto a plate.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: You get enough food. The debate can continue somewhere outside your mouth.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers consider the actual remaining food and an empty ordinary plate beside a radio; no foreign shipment, new food or purchase is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Suggestions to increase Argentinian beef imports harm Texas cattle ranchers (2025-10-20)",
+      "role": "source",
+      "link": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/"
+    },
+    {
+      "text": "COND-HUNGER-C · The Checkout Has Opinions",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Hunger persists. The provisions bag continues ruling whole categories unavailable.",
+      "role": "body"
+    },
+    {
+      "text": "Food is running low. A Nebraska grocery story explains USDA’s SNAP soda exclusion. The crew studies its own provisions. You’ve achieved a much broader exclusion without any federal assistance.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: You get enough food. The bag’s sweeping exclusion policy loses its majority.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers look into their actual low provisions beside a dark radio and a blank Nebraska grocery-news card; no benefits enrollment, rejected transaction or food donation is assumed.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: USDA approves Nebraska SNAP food-restriction waiver (2025-05-19)",
+      "role": "source",
+      "link": "https://www.fns.usda.gov/newsroom/usda-0113.25"
+    },
+    {
+      "text": "Source: Nebraska DHHS: New SNAP purchase restrictions (Effective 2026-01-01)",
+      "role": "source",
+      "link": "https://dhhs.ne.gov/Documents/SNAP-Signage-New-Restrictions.pdf"
+    },
+    {
+      "text": "COND-ILLNESS-A · An Unfunded Body",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The illness continues. Your body remains inconveniently outside the budget’s success metrics.",
+      "role": "body"
+    },
+    {
+      "text": "Illness hits the journey. Congress calls health-budget cuts a saving. Your body would like to see the return address for whatever it caught.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The illness clears. Recovery has happened despite the running commentary.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: An unwell current traveler rests beside plain care supplies and a muted budget-news broadcast.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 health spending law",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    },
+    {
+      "text": "COND-ILLNESS-B · Natural Selection of a Chair",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The illness persists. The miracle advertisement remains in excellent health.",
+      "role": "body"
+    },
+    {
+      "text": "Illness interrupts the trip. A MAHA advertisement offers to help your body heal itself. The crew starts with a chair that makes fewer promises.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The illness clears. The chair asks for no testimonial.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Affected traveler rests in a modest chair while a glossy, unlettered wellness poster hangs far behind.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "COND-ILLNESS-C · The Medical Work Requirement",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: You remain unwell. The immune system has not taken a lunch break or received a supervisor’s signature.",
+      "role": "body"
+    },
+    {
+      "text": "Illness slows the crew. The radio explains Congress’s new Medicaid work requirements. Your immune system would like its overtime recorded.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The illness clears. Your body submits its completed assignment by getting out of the chair.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Unwell traveler under a blanket with a blank work-requirements form deliberately set aside.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicaid and SNAP work requirements",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    },
+    {
+      "text": "COND-SMOKE-A · Count the Clouds",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The smoke persists. The horizon remains outside the available information.",
+      "role": "body"
+    },
+    {
+      "text": "Smoke hangs over the road. Trump’s ten-for-one deregulation order comes up on the radio. You try counting the layers between you and the horizon. Removing them looks more useful than removing instructions.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The smoke clears. Visibility returns without anyone having to repeal a mountain.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Actual van and present travelers are surrounded by non-graphic haze; distant terrain is partly obscured. No source of the smoke, policy-caused fire, new illness or physical vehicle damage is depicted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Executive order: Unleashing Prosperity Through Deregulation (2025-01-31)",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/"
+    },
+    {
+      "text": "COND-SMOKE-B · Visibility, Terms Apply",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The smoke continues. The scenic route is delivering a very small sample.",
+      "role": "body"
+    },
+    {
+      "text": "Smoke reduces visibility. You recall the FCC’s broadband labels listing advertised speeds. The road could use one: scenery available up to the distance you can actually see.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The smoke clears. The landscape finally supplies more than a preview.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: View from the actual van toward a hazy road with very limited visible scenery; an unlettered comparison-label card sits near the radio. No driving maneuver, injury or new road condition beyond smoke is invented.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FCC Announces Broadband Consumer Labels Compliance Dates (2024-04-10)",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-397551A1.pdf"
+    },
+    {
+      "text": "COND-SMOKE-C · The Museum of Clean Air",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The smoke persists. The souvenir has entered through a gap in the window seal.",
+      "role": "body"
+    },
+    {
+      "text": "Smoke settles over the route. A museum follows Trump’s flattering-history directive with an exhibit celebrating American industry. You are inhaling the deleted scenes.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The air clears. You decline the gift shop’s take-home edition.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Smoky air surrounds an industrial-history display outside a closed van window; the panel remains blank for overlays.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: White House history intervention",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    },
+    {
+      "text": "COND-STORM-A · The Map Is Dry",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Rain continues. The forecast map is the only dry territory you control.",
+      "role": "body"
+    },
+    {
+      "text": "A storm lashes the van. You consider the Sharpiegate approach, but there isn’t enough marker to cross out the sky.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The storm passes. The sky has corrected itself without a press conference.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Rain beats against the van while a traveler holds a small marker beneath an enormous storm front.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "COND-STORM-B · The Full Edition",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: The rain continues. Every window has received another unsolicited update.",
+      "role": "body"
+    },
+    {
+      "text": "Heavy rain hits. You remember North Platte cutting weather-balloon launches during the 2025 staffing shortage. The windshield is receiving the full, uncut edition.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The storm eases. The sky finally stops delivering its report directly to the glass.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Current travelers face heavy rain from inside the actual van; dense drops fill the windshield while a small unlettered weather-balloon news clipping rests beside the radio. Do not invent leaks or injury.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NOAA cuts weather balloon launches, citing staff shortages (2025-03-21)",
+      "role": "source",
+      "link": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/"
+    },
+    {
+      "text": "COND-STORM-C · Patriotically Wet",
+      "role": "heading"
+    },
+    {
+      "text": "Continuing: Rain keeps coming. You have recognized its sovereignty over the seat cushion.",
+      "role": "body"
+    },
+    {
+      "text": "The storm does not care what Trump calls the Gulf. Water arrives under both names and immediately ignores your towel.",
+      "role": "body"
+    },
+    {
+      "text": "Recovery / relief: The storm ends. The towel requests disaster assistance.",
+      "role": "body"
+    },
+    {
+      "text": "Scene: Wet van interior with two unlettered maps and one saturated towel between them.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Gulf renaming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    }
+  ],
+  "text": "Weather & health\n27 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nCOND-CLEAR-A · Unregulated Sunshine\nContinuing: The clear weather continues. The sun has not returned the communications team’s calls.\nClear skies. The radio credits Trump’s energy agenda. The sun declines the cabinet appointment.\nRecovery / relief: The clear spell ends. Apparently the sun serves at its own pleasure.\nScene: Clear sky over the van; a radio inside carries a boastful announcement through a separate overlay.\nSource: Trump energy and climate rollback\nCOND-CLEAR-B · Forecast Approved\nContinuing: The sky remains clear without editorial assistance.\nClear weather gives the crew a break. Nobody has needed to improve the forecast with a Sharpie.\nRecovery / relief: The weather changes. The marker is referred to the complaints department.\nScene: Open road beneath clear sky, with an unused marker lying beside a folded weather map.\nSource: Sharpiegate\nCOND-CLEAR-C · The Public Option\nContinuing: The forecast continues to match the sky. An unfashionable government outcome.\nClear skies. DOGE fired forecasters; the remaining staff called this one. The sunshine has been given until Monday to explain what it accomplished.\nRecovery / relief: The clear spell ends; check the actual new forecast, not the applause.\nScene: Sunlit van and an ordinary weather radio beside an unlettered forecast map.\nSource: DOGE-era weather-service firings\nSource: DOGE five-accomplishments emails\nCOND-COLD-A · Fare-Free Warmth\nContinuing: The cold continues. The van’s windows maintain a strict distinction between indoors and warm.\nCold grips the route. The radio discusses Kansas City’s tax-funded, fare-free streetcar. You contemplate a radical new public service: sitting somewhere whose windows are somebody else’s responsibility.\nRecovery / relief: The cold eases. Your own windows become less of an ideological obstacle.\nScene: Current travelers sit in the parked van wearing their actual gear, looking at frosty edges on the windows; the radio supplies the distant Kansas City discussion. No streetcar boarding or route change is shown.\nSource: KC Streetcar: Main Street Rail Transportation Development District (undated)\nSource: KC Streetcar: About the Streetcar (undated)\nCOND-COLD-B · Frozen Federal Assets\nContinuing: Cold persists. The locked visitor center is achieving excellent energy savings.\nThe cold settles in beside a reduced-hours public visitor center. DOGE saved on heating the office by removing the people who opened it.\nRecovery / relief: Conditions improve. The door remains a separate policy problem.\nScene: Cold travelers outside a visibly closed visitor center, with a blank reduced-hours notice on the locked door.\nSource: DOGE and national park staffing\nCOND-COLD-C · Fifty Winters\nContinuing: The cold persists. The blanket’s term ends several inches before your ankles.\nThe temperature drops while you read about Trump’s floated fifty-year mortgage idea. Washington considered spreading the payments out. You are concentrating on spreading a blanket far enough.\nRecovery / relief: Temperatures rise. Your ankles finally receive the promised coverage.\nScene: Current travelers consider an existing folded blanket while a blank clipping and a long rolled calendar lie beside them; the cold is visible outside, with no loan, house purchase or new gear granted.\nSource: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)\nCOND-COLDEXPOSURE-A · The Total Is Visible\nContinuing: Cold is still causing harm. Seek actual protection; the price board supplies information, not insulation.\nCold exposure is harming the crew near a motel. The FTC requires mandatory fees in the upfront total. The warm room is expensive. Looking at the price remains free.\nRecovery / relief: Exposure eases with protection. The motel’s beautifully clear total can be somebody else’s problem.\nScene: Current travelers stand near their van outside a modest motel, facing a blank total-price board; the door remains closed and no booking, payment or room entry is shown.\nSource: FTC: Rule on Unfair or Deceptive Fees FAQ (Effective 2025-05-12)\nCOND-COLDEXPOSURE-B · The Inside of a House\nContinuing: Cold remains harmful. Find real protection; the housing headline is not a roof.\nCold exposure is harming the crew. You remember Trump’s order targeting federal support for big investors buying houses. Washington is debating who gets the whole house. Right now, you’re interested in the inside.\nRecovery / relief: Exposure eases with protection. Having an inside proves more useful than having a housing slogan.\nScene: Current travelers wait beside the actual van in cold weather; a blank housing-policy clipping rests against a closed case folder, with a distant ordinary house kept unoccupied and unidentified.\nSource: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)\nCOND-COLDEXPOSURE-C · Competitive Shivering\nContinuing: Cold remains dangerous. Seek protection; coordinated chattering is not a heating system.\nCold exposure is harming the crew while you read about DOJ’s proposed RealPage settlement over rental-price coordination. The rent ads seem well organized. Your teeth have formed their own committee.\nRecovery / relief: Exposure is relieved. The committee of teeth quietly dissolves.\nScene: Current travelers show non-graphic cold fatigue beside the parked van; a blank rental-ad sheet flutters against a door, with no housing application, rental payment or new shelter shown.\nSource: Justice Department Requires RealPage to End Sharing Competitively Sensitive Information and Pricing Alignment (2025-11-24)\nCOND-HEAT-A · The Freedom to Sweat\nContinuing: The heat persists. The protest has spread to every seat.\nA heat wave settles over the route. Politicians call mandatory water breaks overreach. Your sweat appears to be a grassroots protest.\nRecovery / relief: The heat eases. The seats begin negotiating a return to normal relations.\nScene: Travelers sit in shade beside the van, with visibly hot upholstery and an ordinary water bottle.\nSource: State bans on local heat protections\nCOND-HEAT-B · Summer Arrived Unlicensed\nContinuing: The heat persists. Every metal buckle offers a demonstration.\nHeat settles over the route. A fuel-stop clerk recalls EPA’s temporary 2025 summer E15 waivers. The gasoline needed permission for summer. The heat didn’t even phone ahead.\nRecovery / relief: Temperatures ease. Summer has finally stopped leaning on everything.\nScene: Current travelers remain beside the stopped van at a fuel stop; a separate clerk holds a plain calendar beside a covered pump. No fuel selection, purchase or E15 compatibility is implied.\nSource: Ahead of Summer Driving Season, EPA Allows Nationwide Year-Round E15 (2025-04-28)\nCOND-HEAT-C · Bell to Bell, Sun to Sun\nContinuing: The heat persists. The phone is getting a break whether its owner approves or not.\nThe heat climbs while you read about Virginia’s school phone restrictions. The phone becomes too hot to hold comfortably. The sun has achieved a persuasive phone policy without hiring a consultant.\nRecovery / relief: Temperatures ease. The phone returns to being irritating at a manageable temperature.\nScene: Current traveler holds a phone by its shaded edge beside the parked van; sunlight falls sharply across the seat, with no injury or readable phone warning embedded.\nSource: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)\nCOND-HEATEXPOSURE-A · Renewable Hands\nContinuing: Heat is still causing harm. Find real protection; the hand fan cannot do the whole job.\nHeat exposure is harming the crew. Trump ordered strict enforcement of the wind-and-solar credit phaseout. Your hand fan remains completely unsubsidized and seems to require a larger workforce than advertised.\nRecovery / relief: Exposure eases with protection. The fan can finally stop operating as critical infrastructure.\nScene: Affected current travelers show non-graphic heat fatigue beside the parked van; an existing small hand fan rests unused on a seat next to a blank energy-policy clipping. No recovery or additional worker is shown.\nSource: July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable a…\nCOND-HEATEXPOSURE-B · Policy-Proof Temperature\nContinuing: The heat remains harmful. The marker stays comfortably cool in the glove box.\nHeat exposure is causing damage. The Sharpiegate approach has failed: you can change a line on a map, but the steering wheel still burns.\nRecovery / relief: Exposure is relieved. You return the marker to a job within its qualifications.\nScene: Traveler avoids a hot steering wheel while a capped marker rests on an unaltered blank forecast map.\nSource: Sharpiegate\nCOND-HEATEXPOSURE-C · Three Inches of Grandeur\nContinuing: The heat remains harmful. Find effective protection; architectural approval does not widen the shadow.\nHeat exposure is harming the crew near a federal building. Trump’s architecture order favors classical design. Its impressive columns cast an unimpressive strip of shade. At this hour, grandeur is about three inches wide.\nRecovery / relief: Exposure is relieved. The columns can return to looking important.\nScene: Current travelers stand short of a narrow column shadow beside a generic federal building; the van is parked nearby and no traveler has yet taken shelter. Do not depict a specific real building as newly redesigned.\nSource: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)\nCOND-HUNGER-A · Trickle-Down Lunch\nContinuing: Hunger continues. You turn the bowl around to improve reception.\nFood is running short. Congress has cut projected food-aid spending. Someone holds an empty bowl under the radio, just in case the savings trickle down.\nRecovery / relief: Food relieves the hunger. It arrives through an actual person, a supply the radio had overlooked.\nScene: Empty bowl held below an ordinary radio inside the van; no magic food or actual benefit enrollment implied.\nSource: Food assistance cuts\nCOND-HUNGER-B · A Very Long Menu\nContinuing: Hunger continues. The imaginary menu is developing excellent diplomatic relations.\nFood runs low as the radio revisits Trump’s Argentine-beef import proposal and Farm Bureau’s objection. The menu has become international. Your immediate difficulty is getting anything onto a plate.\nRecovery / relief: You get enough food. The debate can continue somewhere outside your mouth.\nScene: Current travelers consider the actual remaining food and an empty ordinary plate beside a radio; no foreign shipment, new food or purchase is shown.\nSource: Suggestions to increase Argentinian beef imports harm Texas cattle ranchers (2025-10-20)\nCOND-HUNGER-C · The Checkout Has Opinions\nContinuing: Hunger persists. The provisions bag continues ruling whole categories unavailable.\nFood is running low. A Nebraska grocery story explains USDA’s SNAP soda exclusion. The crew studies its own provisions. You’ve achieved a much broader exclusion without any federal assistance.\nRecovery / relief: You get enough food. The bag’s sweeping exclusion policy loses its majority.\nScene: Current travelers look into their actual low provisions beside a dark radio and a blank Nebraska grocery-news card; no benefits enrollment, rejected transaction or food donation is assumed.\nSource: USDA approves Nebraska SNAP food-restriction waiver (2025-05-19)\nSource: Nebraska DHHS: New SNAP purchase restrictions (Effective 2026-01-01)\nCOND-ILLNESS-A · An Unfunded Body\nContinuing: The illness continues. Your body remains inconveniently outside the budget’s success metrics.\nIllness hits the journey. Congress calls health-budget cuts a saving. Your body would like to see the return address for whatever it caught.\nRecovery / relief: The illness clears. Recovery has happened despite the running commentary.\nScene: An unwell current traveler rests beside plain care supplies and a muted budget-news broadcast.\nSource: 2025 health spending law\nCOND-ILLNESS-B · Natural Selection of a Chair\nContinuing: The illness persists. The miracle advertisement remains in excellent health.\nIllness interrupts the trip. A MAHA advertisement offers to help your body heal itself. The crew starts with a chair that makes fewer promises.\nRecovery / relief: The illness clears. The chair asks for no testimonial.\nScene: Affected traveler rests in a modest chair while a glossy, unlettered wellness poster hangs far behind.\nSource: MAHA marketed raw milk and food safety\nCOND-ILLNESS-C · The Medical Work Requirement\nContinuing: You remain unwell. The immune system has not taken a lunch break or received a supervisor’s signature.\nIllness slows the crew. The radio explains Congress’s new Medicaid work requirements. Your immune system would like its overtime recorded.\nRecovery / relief: The illness clears. Your body submits its completed assignment by getting out of the chair.\nScene: Unwell traveler under a blanket with a blank work-requirements form deliberately set aside.\nSource: Medicaid and SNAP work requirements\nCOND-SMOKE-A · Count the Clouds\nContinuing: The smoke persists. The horizon remains outside the available information.\nSmoke hangs over the road. Trump’s ten-for-one deregulation order comes up on the radio. You try counting the layers between you and the horizon. Removing them looks more useful than removing instructions.\nRecovery / relief: The smoke clears. Visibility returns without anyone having to repeal a mountain.\nScene: Actual van and present travelers are surrounded by non-graphic haze; distant terrain is partly obscured. No source of the smoke, policy-caused fire, new illness or physical vehicle damage is depicted.\nSource: Executive order: Unleashing Prosperity Through Deregulation (2025-01-31)\nCOND-SMOKE-B · Visibility, Terms Apply\nContinuing: The smoke continues. The scenic route is delivering a very small sample.\nSmoke reduces visibility. You recall the FCC’s broadband labels listing advertised speeds. The road could use one: scenery available up to the distance you can actually see.\nRecovery / relief: The smoke clears. The landscape finally supplies more than a preview.\nScene: View from the actual van toward a hazy road with very limited visible scenery; an unlettered comparison-label card sits near the radio. No driving maneuver, injury or new road condition beyond smoke is invented.\nSource: FCC Announces Broadband Consumer Labels Compliance Dates (2024-04-10)\nCOND-SMOKE-C · The Museum of Clean Air\nContinuing: The smoke persists. The souvenir has entered through a gap in the window seal.\nSmoke settles over the route. A museum follows Trump’s flattering-history directive with an exhibit celebrating American industry. You are inhaling the deleted scenes.\nRecovery / relief: The air clears. You decline the gift shop’s take-home edition.\nScene: Smoky air surrounds an industrial-history display outside a closed van window; the panel remains blank for overlays.\nSource: White House history intervention\nCOND-STORM-A · The Map Is Dry\nContinuing: Rain continues. The forecast map is the only dry territory you control.\nA storm lashes the van. You consider the Sharpiegate approach, but there isn’t enough marker to cross out the sky.\nRecovery / relief: The storm passes. The sky has corrected itself without a press conference.\nScene: Rain beats against the van while a traveler holds a small marker beneath an enormous storm front.\nSource: Sharpiegate\nCOND-STORM-B · The Full Edition\nContinuing: The rain continues. Every window has received another unsolicited update.\nHeavy rain hits. You remember North Platte cutting weather-balloon launches during the 2025 staffing shortage. The windshield is receiving the full, uncut edition.\nRecovery / relief: The storm eases. The sky finally stops delivering its report directly to the glass.\nScene: Current travelers face heavy rain from inside the actual van; dense drops fill the windshield while a small unlettered weather-balloon news clipping rests beside the radio. Do not invent leaks or injury.\nSource: NOAA cuts weather balloon launches, citing staff shortages (2025-03-21)\nCOND-STORM-C · Patriotically Wet\nContinuing: Rain keeps coming. You have recognized its sovereignty over the seat cushion.\nThe storm does not care what Trump calls the Gulf. Water arrives under both names and immediately ignores your towel.\nRecovery / relief: The storm ends. The towel requests disaster assistance.\nScene: Wet van interior with two unlettered maps and one saturated towel between them.\nSource: Gulf renaming\n"
+}

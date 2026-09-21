@@ -16,3 +16,38 @@ test('player and crew names recover during onboarding and absent members leave t
  await expect(page.locator('.ending-crew [data-fate="crew.departed"]')).toContainText('Alex Morgan');
  await expect(page.locator('.scene-speaker[data-subject=organizer]')).toHaveCount(0);
 });
+
+test('standing sprites have clear margins at full and fractional display sizes',async({page})=>{
+ await baseline(page);
+ // Use the actual scene SVGs and filter over a flat backing. Checking only that
+ // the six images exist missed a translucent magenta matte on accelerated GPUs.
+ for(const width of [128,64,41.5]){
+  await page.evaluate(width=>{
+   document.querySelector('#crew-transparency-probe')?.remove();
+   const probe=document.createElement('div');probe.id='crew-transparency-probe';
+   probe.style.cssText=`position:fixed;inset:0 auto auto 0;z-index:99999;display:grid;grid-template-columns:repeat(3,${width}px);background:rgb(85,102,119)`;
+   for(const source of document.querySelectorAll('.standing-member')){
+    const sprite=source.cloneNode(true) as SVGElement;sprite.removeAttribute('class');
+    sprite.style.cssText=`display:block;width:${width}px;height:${width*1.6}px`;
+    probe.append(sprite);
+   }
+   document.body.append(probe);
+  },width);
+  const pixels=await page.locator('#crew-transparency-probe').screenshot({animations:'disabled'});
+  const samples=await page.evaluate(async data=>{
+   const image=new Image();image.src=`data:image/png;base64,${data}`;await image.decode();
+   const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
+   const context=canvas.getContext('2d')!;context.drawImage(image,0,0);
+   return Array.from({length:6},(_,index)=>[.02,.98].flatMap(x=>[.1,.9].map(y=>{
+    const px=Math.floor((index%3+x)*image.width/3);
+    const py=Math.floor((Math.floor(index/3)+y)*image.height/2);
+    return [...context.getImageData(px,py,1,1).data];
+   })));
+  },pixels.toString('base64'));
+  for(const [member,points] of samples.entries())for(const sample of points){
+   expect(sample.map((value,index)=>Math.abs(value-[85,102,119,255][index])),`member ${member}, width ${width}: ${sample}`).toEqual([0,0,0,0]);
+  }
+ }
+ await page.locator('#crew-transparency-probe').evaluate(element=>element.remove());
+ await snap(page,'crew-transparency');
+});

@@ -1,0 +1,2510 @@
+[
+  {
+    "id": "TOWN-01-A",
+    "category": "Town conversations",
+    "title": "Albuquerque",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Albuquerque",
+    "runtime_key": "Albuquerque",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-01",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-01-B",
+    "category": "Town conversations",
+    "title": "Albuquerque",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Albuquerque",
+    "runtime_key": "Albuquerque",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-01",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-01-C",
+    "category": "Town conversations",
+    "title": "Albuquerque",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Albuquerque",
+    "runtime_key": "Albuquerque",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-01",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-02-A",
+    "category": "Town conversations",
+    "title": "Amarillo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Amarillo",
+    "runtime_key": "Amarillo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-02",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-02-B",
+    "category": "Town conversations",
+    "title": "Amarillo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Amarillo",
+    "runtime_key": "Amarillo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-02",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-02-C",
+    "category": "Town conversations",
+    "title": "Amarillo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Amarillo",
+    "runtime_key": "Amarillo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-02",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-03-A",
+    "category": "Town conversations",
+    "title": "Austin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Austin",
+    "runtime_key": "Austin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-03",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-03-B",
+    "category": "Town conversations",
+    "title": "Austin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Austin",
+    "runtime_key": "Austin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-03",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-03-C",
+    "category": "Town conversations",
+    "title": "Austin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Austin",
+    "runtime_key": "Austin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-03",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-04-A",
+    "category": "Town conversations",
+    "title": "Billings",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Billings",
+    "runtime_key": "Billings",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-04",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-04-B",
+    "category": "Town conversations",
+    "title": "Billings",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Billings",
+    "runtime_key": "Billings",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-04",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-04-C",
+    "category": "Town conversations",
+    "title": "Billings",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Billings",
+    "runtime_key": "Billings",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-04",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-05-A",
+    "category": "Town conversations",
+    "title": "Boise",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Boise",
+    "runtime_key": "Boise",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-05",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-05-B",
+    "category": "Town conversations",
+    "title": "Boise",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Boise",
+    "runtime_key": "Boise",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-05",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-05-C",
+    "category": "Town conversations",
+    "title": "Boise",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Boise",
+    "runtime_key": "Boise",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-05",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-06-A",
+    "category": "Town conversations",
+    "title": "Cheyenne",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Cheyenne",
+    "runtime_key": "Cheyenne",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-06",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-06-B",
+    "category": "Town conversations",
+    "title": "Cheyenne",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Cheyenne",
+    "runtime_key": "Cheyenne",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-06",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-06-C",
+    "category": "Town conversations",
+    "title": "Cheyenne",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Cheyenne",
+    "runtime_key": "Cheyenne",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-06",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-07-A",
+    "category": "Town conversations",
+    "title": "Chicago",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Chicago",
+    "runtime_key": "Chicago",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-07",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-07-B",
+    "category": "Town conversations",
+    "title": "Chicago",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Chicago",
+    "runtime_key": "Chicago",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-07",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-07-C",
+    "category": "Town conversations",
+    "title": "Chicago",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Chicago",
+    "runtime_key": "Chicago",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-07",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-08-A",
+    "category": "Town conversations",
+    "title": "Cleveland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cleveland",
+    "runtime_key": "Cleveland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-08",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-08-B",
+    "category": "Town conversations",
+    "title": "Cleveland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cleveland",
+    "runtime_key": "Cleveland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-08",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-08-C",
+    "category": "Town conversations",
+    "title": "Cleveland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cleveland",
+    "runtime_key": "Cleveland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-08",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-09-A",
+    "category": "Town conversations",
+    "title": "Columbia",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Columbia",
+    "runtime_key": "Columbia",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-09",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-09-B",
+    "category": "Town conversations",
+    "title": "Columbia",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Columbia",
+    "runtime_key": "Columbia",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-09",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-09-C",
+    "category": "Town conversations",
+    "title": "Columbia",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Columbia",
+    "runtime_key": "Columbia",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-09",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-10-A",
+    "category": "Town conversations",
+    "title": "Cumberland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cumberland",
+    "runtime_key": "Cumberland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-10",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-10-B",
+    "category": "Town conversations",
+    "title": "Cumberland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cumberland",
+    "runtime_key": "Cumberland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-10",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-10-C",
+    "category": "Town conversations",
+    "title": "Cumberland",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Cumberland",
+    "runtime_key": "Cumberland",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-10",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-11-A",
+    "category": "Town conversations",
+    "title": "Dallas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Dallas",
+    "runtime_key": "Dallas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-11",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-11-B",
+    "category": "Town conversations",
+    "title": "Dallas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Dallas",
+    "runtime_key": "Dallas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-11",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-11-C",
+    "category": "Town conversations",
+    "title": "Dallas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Dallas",
+    "runtime_key": "Dallas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-11",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-12-A",
+    "category": "Town conversations",
+    "title": "Denver",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Denver",
+    "runtime_key": "Denver",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-12",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-12-B",
+    "category": "Town conversations",
+    "title": "Denver",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Denver",
+    "runtime_key": "Denver",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-12",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-12-C",
+    "category": "Town conversations",
+    "title": "Denver",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Denver",
+    "runtime_key": "Denver",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-12",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-13-A",
+    "category": "Town conversations",
+    "title": "Des Moines",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Des Moines",
+    "runtime_key": "Des Moines",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-13",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-13-B",
+    "category": "Town conversations",
+    "title": "Des Moines",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Des Moines",
+    "runtime_key": "Des Moines",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-13",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-13-C",
+    "category": "Town conversations",
+    "title": "Des Moines",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Des Moines",
+    "runtime_key": "Des Moines",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-13",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-14-A",
+    "category": "Town conversations",
+    "title": "El Paso",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "El Paso",
+    "runtime_key": "El Paso",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-14",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-14-B",
+    "category": "Town conversations",
+    "title": "El Paso",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "El Paso",
+    "runtime_key": "El Paso",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-14",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-14-C",
+    "category": "Town conversations",
+    "title": "El Paso",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "El Paso",
+    "runtime_key": "El Paso",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-14",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-15-A",
+    "category": "Town conversations",
+    "title": "Flagstaff",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Flagstaff",
+    "runtime_key": "Flagstaff",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-15",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-15-B",
+    "category": "Town conversations",
+    "title": "Flagstaff",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Flagstaff",
+    "runtime_key": "Flagstaff",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-15",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-15-C",
+    "category": "Town conversations",
+    "title": "Flagstaff",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Flagstaff",
+    "runtime_key": "Flagstaff",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-15",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-16-A",
+    "category": "Town conversations",
+    "title": "Frederick",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Beltway"
+    ],
+    "town": "Frederick",
+    "runtime_key": "Frederick",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-16",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-16-B",
+    "category": "Town conversations",
+    "title": "Frederick",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Beltway"
+    ],
+    "town": "Frederick",
+    "runtime_key": "Frederick",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-16",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-16-C",
+    "category": "Town conversations",
+    "title": "Frederick",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Beltway"
+    ],
+    "town": "Frederick",
+    "runtime_key": "Frederick",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-16",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-17-A",
+    "category": "Town conversations",
+    "title": "Hagerstown",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Hagerstown",
+    "runtime_key": "Hagerstown",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-17",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-17-B",
+    "category": "Town conversations",
+    "title": "Hagerstown",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Hagerstown",
+    "runtime_key": "Hagerstown",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-17",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-17-C",
+    "category": "Town conversations",
+    "title": "Hagerstown",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Hagerstown",
+    "runtime_key": "Hagerstown",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-17",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-18-A",
+    "category": "Town conversations",
+    "title": "Iowa City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Iowa City",
+    "runtime_key": "Iowa City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-18",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-18-B",
+    "category": "Town conversations",
+    "title": "Iowa City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Iowa City",
+    "runtime_key": "Iowa City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-18",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-18-C",
+    "category": "Town conversations",
+    "title": "Iowa City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Iowa City",
+    "runtime_key": "Iowa City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-18",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-19-A",
+    "category": "Town conversations",
+    "title": "Joplin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Joplin",
+    "runtime_key": "Joplin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-19",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-19-B",
+    "category": "Town conversations",
+    "title": "Joplin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Joplin",
+    "runtime_key": "Joplin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-19",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-19-C",
+    "category": "Town conversations",
+    "title": "Joplin",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Joplin",
+    "runtime_key": "Joplin",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-19",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-20-A",
+    "category": "Town conversations",
+    "title": "Kansas City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Kansas City",
+    "runtime_key": "Kansas City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-20",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-20-B",
+    "category": "Town conversations",
+    "title": "Kansas City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Kansas City",
+    "runtime_key": "Kansas City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-20",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-20-C",
+    "category": "Town conversations",
+    "title": "Kansas City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Kansas City",
+    "runtime_key": "Kansas City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-20",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-21-A",
+    "category": "Town conversations",
+    "title": "La Crosse",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "La Crosse",
+    "runtime_key": "La Crosse",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-21",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-21-B",
+    "category": "Town conversations",
+    "title": "La Crosse",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "La Crosse",
+    "runtime_key": "La Crosse",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-21",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-21-C",
+    "category": "Town conversations",
+    "title": "La Crosse",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "La Crosse",
+    "runtime_key": "La Crosse",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-21",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-22-A",
+    "category": "Town conversations",
+    "title": "Las Vegas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Las Vegas",
+    "runtime_key": "Las Vegas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-22",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-22-B",
+    "category": "Town conversations",
+    "title": "Las Vegas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Las Vegas",
+    "runtime_key": "Las Vegas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-22",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-22-C",
+    "category": "Town conversations",
+    "title": "Las Vegas",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Las Vegas",
+    "runtime_key": "Las Vegas",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-22",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-23-A",
+    "category": "Town conversations",
+    "title": "Madison",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Madison",
+    "runtime_key": "Madison",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-23",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-23-B",
+    "category": "Town conversations",
+    "title": "Madison",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Madison",
+    "runtime_key": "Madison",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-23",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-23-C",
+    "category": "Town conversations",
+    "title": "Madison",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Madison",
+    "runtime_key": "Madison",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-23",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-24-A",
+    "category": "Town conversations",
+    "title": "Minneapolis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Minneapolis",
+    "runtime_key": "Minneapolis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-24",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-24-B",
+    "category": "Town conversations",
+    "title": "Minneapolis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Minneapolis",
+    "runtime_key": "Minneapolis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-24",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-24-C",
+    "category": "Town conversations",
+    "title": "Minneapolis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Minneapolis",
+    "runtime_key": "Minneapolis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-24",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-25-A",
+    "category": "Town conversations",
+    "title": "Missoula",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Missoula",
+    "runtime_key": "Missoula",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-25",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-25-B",
+    "category": "Town conversations",
+    "title": "Missoula",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Missoula",
+    "runtime_key": "Missoula",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-25",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-25-C",
+    "category": "Town conversations",
+    "title": "Missoula",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Missoula",
+    "runtime_key": "Missoula",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-25",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-26-A",
+    "category": "Town conversations",
+    "title": "North Platte",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "North Platte",
+    "runtime_key": "North Platte",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-26",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-26-B",
+    "category": "Town conversations",
+    "title": "North Platte",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "North Platte",
+    "runtime_key": "North Platte",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-26",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-26-C",
+    "category": "Town conversations",
+    "title": "North Platte",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "North Platte",
+    "runtime_key": "North Platte",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-26",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-27-A",
+    "category": "Town conversations",
+    "title": "Oklahoma City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Oklahoma City",
+    "runtime_key": "Oklahoma City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-27",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-27-B",
+    "category": "Town conversations",
+    "title": "Oklahoma City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Oklahoma City",
+    "runtime_key": "Oklahoma City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-27",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-27-C",
+    "category": "Town conversations",
+    "title": "Oklahoma City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Oklahoma City",
+    "runtime_key": "Oklahoma City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-27",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-28-A",
+    "category": "Town conversations",
+    "title": "Omaha",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Omaha",
+    "runtime_key": "Omaha",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-28",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-28-B",
+    "category": "Town conversations",
+    "title": "Omaha",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Omaha",
+    "runtime_key": "Omaha",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-28",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-28-C",
+    "category": "Town conversations",
+    "title": "Omaha",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Omaha",
+    "runtime_key": "Omaha",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-28",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-29-A",
+    "category": "Town conversations",
+    "title": "Phoenix",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Phoenix",
+    "runtime_key": "Phoenix",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-29",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-29-B",
+    "category": "Town conversations",
+    "title": "Phoenix",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Phoenix",
+    "runtime_key": "Phoenix",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-29",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-29-C",
+    "category": "Town conversations",
+    "title": "Phoenix",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Phoenix",
+    "runtime_key": "Phoenix",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-29",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-30-A",
+    "category": "Town conversations",
+    "title": "Pittsburgh",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Pittsburgh",
+    "runtime_key": "Pittsburgh",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-30",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-30-B",
+    "category": "Town conversations",
+    "title": "Pittsburgh",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Pittsburgh",
+    "runtime_key": "Pittsburgh",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-30",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-30-C",
+    "category": "Town conversations",
+    "title": "Pittsburgh",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Pittsburgh",
+    "runtime_key": "Pittsburgh",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-30",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-31-A",
+    "category": "Town conversations",
+    "title": "Rapid City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Rapid City",
+    "runtime_key": "Rapid City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-31",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-31-B",
+    "category": "Town conversations",
+    "title": "Rapid City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Rapid City",
+    "runtime_key": "Rapid City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-31",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-31-C",
+    "category": "Town conversations",
+    "title": "Rapid City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Rapid City",
+    "runtime_key": "Rapid City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-31",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-32-A",
+    "category": "Town conversations",
+    "title": "Reno",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Reno",
+    "runtime_key": "Reno",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-32",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-32-B",
+    "category": "Town conversations",
+    "title": "Reno",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Reno",
+    "runtime_key": "Reno",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-32",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-32-C",
+    "category": "Town conversations",
+    "title": "Reno",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Reno",
+    "runtime_key": "Reno",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-32",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-33-A",
+    "category": "Town conversations",
+    "title": "Salt Lake City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Salt Lake City",
+    "runtime_key": "Salt Lake City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-33",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-33-B",
+    "category": "Town conversations",
+    "title": "Salt Lake City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Salt Lake City",
+    "runtime_key": "Salt Lake City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-33",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-33-C",
+    "category": "Town conversations",
+    "title": "Salt Lake City",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "MountainWest"
+    ],
+    "town": "Salt Lake City",
+    "runtime_key": "Salt Lake City",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-33",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-34-A",
+    "category": "Town conversations",
+    "title": "San Antonio",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "San Antonio",
+    "runtime_key": "San Antonio",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-34",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-34-B",
+    "category": "Town conversations",
+    "title": "San Antonio",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "San Antonio",
+    "runtime_key": "San Antonio",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-34",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-34-C",
+    "category": "Town conversations",
+    "title": "San Antonio",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "San Antonio",
+    "runtime_key": "San Antonio",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-34",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-35-A",
+    "category": "Town conversations",
+    "title": "Sioux Falls",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Sioux Falls",
+    "runtime_key": "Sioux Falls",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-35",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-35-B",
+    "category": "Town conversations",
+    "title": "Sioux Falls",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Sioux Falls",
+    "runtime_key": "Sioux Falls",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-35",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-35-C",
+    "category": "Town conversations",
+    "title": "Sioux Falls",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Sioux Falls",
+    "runtime_key": "Sioux Falls",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-35",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-36-A",
+    "category": "Town conversations",
+    "title": "South Bend",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "South Bend",
+    "runtime_key": "South Bend",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-36",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-36-B",
+    "category": "Town conversations",
+    "title": "South Bend",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "South Bend",
+    "runtime_key": "South Bend",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-36",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-36-C",
+    "category": "Town conversations",
+    "title": "South Bend",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "South Bend",
+    "runtime_key": "South Bend",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-36",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-37-A",
+    "category": "Town conversations",
+    "title": "Spokane",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": "Spokane",
+    "runtime_key": "Spokane",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-37",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-37-B",
+    "category": "Town conversations",
+    "title": "Spokane",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": "Spokane",
+    "runtime_key": "Spokane",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-37",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-37-C",
+    "category": "Town conversations",
+    "title": "Spokane",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "PacificCoast"
+    ],
+    "town": "Spokane",
+    "runtime_key": "Spokane",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-37",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-38-A",
+    "category": "Town conversations",
+    "title": "Springfield, IL",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, IL",
+    "runtime_key": "Springfield, IL",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-38",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-38-B",
+    "category": "Town conversations",
+    "title": "Springfield, IL",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, IL",
+    "runtime_key": "Springfield, IL",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-38",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-38-C",
+    "category": "Town conversations",
+    "title": "Springfield, IL",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, IL",
+    "runtime_key": "Springfield, IL",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-38",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-39-A",
+    "category": "Town conversations",
+    "title": "Springfield, MO",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, MO",
+    "runtime_key": "Springfield, MO",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-39",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-39-B",
+    "category": "Town conversations",
+    "title": "Springfield, MO",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, MO",
+    "runtime_key": "Springfield, MO",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-39",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-39-C",
+    "category": "Town conversations",
+    "title": "Springfield, MO",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Springfield, MO",
+    "runtime_key": "Springfield, MO",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-39",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-40-A",
+    "category": "Town conversations",
+    "title": "St. Louis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "St. Louis",
+    "runtime_key": "St. Louis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-40",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-40-B",
+    "category": "Town conversations",
+    "title": "St. Louis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "St. Louis",
+    "runtime_key": "St. Louis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-40",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-40-C",
+    "category": "Town conversations",
+    "title": "St. Louis",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "St. Louis",
+    "runtime_key": "St. Louis",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-40",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-41-A",
+    "category": "Town conversations",
+    "title": "Toledo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Toledo",
+    "runtime_key": "Toledo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-41",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-41-B",
+    "category": "Town conversations",
+    "title": "Toledo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Toledo",
+    "runtime_key": "Toledo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-41",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-41-C",
+    "category": "Town conversations",
+    "title": "Toledo",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "RustBelt"
+    ],
+    "town": "Toledo",
+    "runtime_key": "Toledo",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-41",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-42-A",
+    "category": "Town conversations",
+    "title": "Tucson",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Tucson",
+    "runtime_key": "Tucson",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-42",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-42-B",
+    "category": "Town conversations",
+    "title": "Tucson",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Tucson",
+    "runtime_key": "Tucson",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-42",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-42-C",
+    "category": "Town conversations",
+    "title": "Tucson",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Southwest"
+    ],
+    "town": "Tucson",
+    "runtime_key": "Tucson",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-42",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-43-A",
+    "category": "Town conversations",
+    "title": "Tulsa",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Tulsa",
+    "runtime_key": "Tulsa",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-43",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-43-B",
+    "category": "Town conversations",
+    "title": "Tulsa",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Tulsa",
+    "runtime_key": "Tulsa",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-43",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-43-C",
+    "category": "Town conversations",
+    "title": "Tulsa",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Tulsa",
+    "runtime_key": "Tulsa",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-43",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-44-A",
+    "category": "Town conversations",
+    "title": "Waco",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Waco",
+    "runtime_key": "Waco",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-44",
+    "variant": "A",
+    "status": "Review existing fact and resident comment",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-44-B",
+    "category": "Town conversations",
+    "title": "Waco",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Waco",
+    "runtime_key": "Waco",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-44",
+    "variant": "B",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  },
+  {
+    "id": "TOWN-44-C",
+    "category": "Town conversations",
+    "title": "Waco",
+    "mode": "Shared",
+    "use": "sourced local fact/angle and fictional resident comment",
+    "regions": [
+      "Heartland"
+    ],
+    "town": "Waco",
+    "runtime_key": "Waco",
+    "source_path": "dystrail-web/static/assets/data/town-facts.json",
+    "group": "primary satire",
+    "notes": "Each B/C needs a different supported factual angle and a new comment. Preserve exact place identity and evidence qualification.",
+    "family_id": "TOWN-44",
+    "variant": "C",
+    "status": "Write a distinct new variant",
+    "accepted": false
+  }
+]

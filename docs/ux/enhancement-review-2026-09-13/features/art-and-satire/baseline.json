@@ -1,0 +1,30 @@
+{
+  "prepared_date": "2026-09-14",
+  "scope": "Feature planning and source inventory only; no fresh live-document or production check",
+  "source_checkout_commit": "c56bc90ce023cddb0c7a6e06bf148838d5cd388f",
+  "current_workspace_head": "f1ed4fe15377e60ad6063b7262aa482aec0767ba",
+  "document_id": "1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+  "document_revision": "ANLCKQnwMWWXuS4ELr1I0ohWwa1b-7h9hCUDSdGapEtxM96pfap2t9ljAaL7YlDbeOUqHkCw-mxgQk7SVY7QXTBMrGZhoF7TGhpoQofaZjM",
+  "counts": {
+    "compatible_narrative": 531,
+    "reference_or_functional": 77,
+    "separate_encounter_mechanics": 36
+  },
+  "selected_narrative_packages": 177,
+  "compatible_families": 177,
+  "source_files": {
+    "/Users/vanna/Source/Dystrail/review/satire-fresh-2026-09-13/complete-pack.json": {
+      "sha256": "2d4ca55a1ad21c90809446d89690a0b36b90c3d0da793f81abc08314d5daa025"
+    },
+    "/private/tmp/dystrail-satire-source/docs/release/satire-content-2026-09-14/selected-units.json": {
+      "sha256": "6d01fdab2f7b8d26e29486be68bd7633a405c9b6eef96de5ef1c008edeca1d2c"
+    },
+    "/private/tmp/dystrail-satire-source/docs/release/satire-content-2026-09-14/content-validation.json": {
+      "sha256": "82affbb64e7042455ca74b9bb62fc055857a3ab1bb0ee172aba50dfa98e8e93d"
+    },
+    "/private/tmp/dystrail-satire-source/docs/release/satire-content-2026-09-14/document-verification.json": {
+      "sha256": "292dca6ea1b6cdd41390653db506c0935f3b312012c0923b95c7ac5509be5b3f"
+    }
+  },
+  "note": "Pack editorial status predates the content release. The release selected A packages; B/C and new art were deferred. New western mechanics remain proposed. Refresh source revision before implementation."
+}

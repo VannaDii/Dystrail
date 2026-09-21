@@ -1,0 +1,252 @@
+{
+  "status": "pass",
+  "checked_utc": "2026-09-14T01:24:37.144541+00:00",
+  "scope": "Structural validation only: exact hit-list IDs and metadata, category/mode totals, category-specific nonempty copy fields, scene presence and shape, editable overlay fields, and branch coverage. No prose review, source re-verification, or runtime reread.",
+  "reference": "docs/content-hit-list.json",
+  "totals": {
+    "expected": 644,
+    "actual": 644,
+    "narrative_expected": 567,
+    "narrative_actual": 567,
+    "functional_expected": 77,
+    "functional_actual": 77
+  },
+  "files": {
+    "roads-a.json": {
+      "packages": 117,
+      "sha256": "5b08ad701823a882f0090ce5d5eb8a4da0ed23aa93dca7cd7603f041aeb1ceaa"
+    },
+    "roads-b.json": {
+      "packages": 114,
+      "sha256": "302353195c41bf9558b90295c19a8f5e479fdd0ee95488de6c0ed18f9e174691"
+    },
+    "towns.json": {
+      "packages": 132,
+      "sha256": "b17547153d7ef8c2236e7f6a2a74cf14eee6df9ee79aa2d49caecedb64832cb1"
+    },
+    "support.json": {
+      "packages": 204,
+      "sha256": "a8cf3b16e0da31574e6f6f4764f66a24415fef0a96d255fbbf76fd39f84e01a4"
+    },
+    "functional.json": {
+      "packages": 77,
+      "sha256": "74bb4f16edc71054c15b989bf4c2a0d56ec73d70c31811f56fcb9a66e749d9ee"
+    }
+  },
+  "group_totals": {
+    "primary satire": {
+      "expected": 405,
+      "actual": 405
+    },
+    "supporting narrative": {
+      "expected": 162,
+      "actual": 162
+    },
+    "factual or functional record": {
+      "expected": 77,
+      "actual": 77
+    }
+  },
+  "category_mode_totals": [
+    {
+      "category": "Ally-departure vignettes",
+      "mode": "Shared",
+      "expected": 18,
+      "actual": 18
+    },
+    {
+      "category": "Breakdown and repair packages",
+      "mode": "Shared",
+      "expected": 12,
+      "actual": 12
+    },
+    {
+      "category": "Character departure introductions",
+      "mode": "Shared",
+      "expected": 18,
+      "actual": 18
+    },
+    {
+      "category": "Crew-care scenarios",
+      "mode": "Shared",
+      "expected": 24,
+      "actual": 24
+    },
+    {
+      "category": "Crossing packages",
+      "mode": "Classic",
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "category": "Crossing packages",
+      "mode": "Deep End",
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "category": "Crossing packages",
+      "mode": "Shared",
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "category": "Ending packages",
+      "mode": "Shared",
+      "expected": 45,
+      "actual": 45
+    },
+    {
+      "category": "Endpoint-context records",
+      "mode": "Shared",
+      "expected": 7,
+      "actual": 7
+    },
+    {
+      "category": "Executive-order bulletins",
+      "mode": "Shared",
+      "expected": 18,
+      "actual": 18
+    },
+    {
+      "category": "Gathering, work, barter, and rest",
+      "mode": "Shared",
+      "expected": 24,
+      "actual": 24
+    },
+    {
+      "category": "Hearing introductions and transitions",
+      "mode": "Classic",
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "category": "Hearing introductions and transitions",
+      "mode": "Deep End",
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "category": "Mode descriptions",
+      "mode": "Shared",
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "category": "Persona descriptions",
+      "mode": "Shared",
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "category": "Road encounters",
+      "mode": "Classic",
+      "expected": 72,
+      "actual": 72
+    },
+    {
+      "category": "Road encounters",
+      "mode": "Deep End",
+      "expected": 57,
+      "actual": 57
+    },
+    {
+      "category": "Road encounters",
+      "mode": "Shared",
+      "expected": 102,
+      "actual": 102
+    },
+    {
+      "category": "Shop-item descriptions",
+      "mode": "Shared",
+      "expected": 11,
+      "actual": 11
+    },
+    {
+      "category": "Town conversations",
+      "mode": "Shared",
+      "expected": 132,
+      "actual": 132
+    },
+    {
+      "category": "Town profiles",
+      "mode": "Shared",
+      "expected": 51,
+      "actual": 51
+    },
+    {
+      "category": "Weather, illness, hunger, and exposure",
+      "mode": "Shared",
+      "expected": 27,
+      "actual": 27
+    }
+  ],
+  "coverage": {
+    "road_packages": 231,
+    "road_choice_branches": 669,
+    "care_packages": 24,
+    "care_choice_branches": 72,
+    "care_resolution_branches": 120,
+    "repair_packages": 12,
+    "repair_method_branches": 48,
+    "hearing_packages": 6,
+    "hearing_stamina_transitions": 18,
+    "ending_packages": 45,
+    "ending_families": 15,
+    "packages_with_scenes": 644,
+    "scene_definitions": 644
+  },
+  "schema_notes": [
+    "Category-specific scene forms are accepted: rich setting/action scenes and descriptive scenes with their appropriate cast/composition fields.",
+    "Optional null integration keys, global empty region lists, empty source or overlay arrays, and explicitly empty persona modifier maps are not missing-content defects.",
+    "Executive-order remappings explicitly declared in integration notes are recorded below; their runtime correctness is outside this pass.",
+    "Crossing resolution requirements follow the individual hit-list use: first-checkpoint refusal/diversion versus terminal-failure coverage at subsequent crossings.",
+    "Purchase town/roadside distinction and cashless radio-work availability are present in repair method conditions; this pass checks coverage, not runtime values."
+  ],
+  "documented_integration_remaps": [
+    {
+      "family_id": "ORDER-MILITARIZE",
+      "hit_list_key": "militarize",
+      "documented_target": "travel_ban_lite"
+    },
+    {
+      "family_id": "ORDER-GAG",
+      "hit_list_key": "gag",
+      "documented_target": "book_panic"
+    },
+    {
+      "family_id": "ORDER-TARIFFS",
+      "hit_list_key": "tariffs",
+      "documented_target": "tariff_tsunami"
+    },
+    {
+      "family_id": "ORDER-TAXCUTS",
+      "hit_list_key": "taxcuts",
+      "documented_target": "doe_eliminated"
+    },
+    {
+      "family_id": "ORDER-DEREGULATE",
+      "hit_list_key": "deregulate",
+      "documented_target": "war_dept_reorg"
+    }
+  ],
+  "pending_town_ids": [],
+  "missing_non_town_ids": [],
+  "unexpected_ids": [],
+  "issues": [],
+  "final_copy_only_check": {
+    "checked_utc": "2026-09-14T01:39:27.816853+00:00",
+    "ids": [
+      "TOWN-31-A",
+      "TOWN-38-C"
+    ],
+    "fields": [
+      "commentary"
+    ],
+    "result": "Two final nonempty commentary edits; no IDs, metadata, scenes, sources, facts, mechanics, or required branch fields changed. All other source file hashes match the structural validation."
+  },
+  "editorial_status": "User rejected the political qualification of the bulk draft. Structural validation is not editorial approval.",
+  "subsequent_vocabulary_edit": "Food and water pack terminology and associated choice/outcome wording corrected after the recorded structural snapshot. Snapshot hashes refer to the earlier draft.",
+  "superseded_source_hashes": "Use validation-political-revision.json for the current authored collections; this file retains the original coverage check.",
+  "current_editorial_status": "Political revision complete for user review; not approved for integration"
+}

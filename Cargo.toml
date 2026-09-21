@@ -22,7 +22,7 @@ yew-router = "=0.18.0"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 web-sys = { version = "0.3", features = [
-  "Window","VisualViewport","EventTarget","CssStyleDeclaration","Document","Navigator","Clipboard",
+  "Window","MediaQueryList","FocusOptions","VisualViewport","EventTarget","CssStyleDeclaration","Document","Navigator","Clipboard",
   "Element","DomRect","HtmlElement","NodeList","DomTokenList",
   "HtmlImageElement","HtmlInputElement","HtmlSelectElement","HtmlTextAreaElement",
   "HtmlCanvasElement","CanvasRenderingContext2d","TextMetrics","Blob","File","FileList","FilePropertyBag","Url","HtmlAnchorElement"

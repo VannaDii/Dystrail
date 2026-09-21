@@ -1,0 +1,1197 @@
+{
+  "purpose": "Shared verified factual hooks for original fictional political satire. The fictional scenario is not a report. Do not copy satire or source prose. Use new targeted research when introducing additional factual claims. Names and political criticism are permitted; preserve clear politics.",
+  "sources": [
+    {
+      "id": "tariffs",
+      "subject": "Trump tariffs passed to Americans",
+      "fact_and_limits": "2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices and shops are invented.",
+      "url": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/"
+    },
+    {
+      "id": "doge_parks",
+      "subject": "DOGE and national park staffing",
+      "fact_and_limits": "The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not present every later park closure as caused by those firings.",
+      "url": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654"
+    },
+    {
+      "id": "signal",
+      "subject": "Signal airstrike chat",
+      "fact_and_limits": "In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fictional workers and dialogue are invented.",
+      "url": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    },
+    {
+      "id": "gulf",
+      "subject": "Gulf renaming",
+      "fact_and_limits": "January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography or claim universal international recognition.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    },
+    {
+      "id": "war_name",
+      "subject": "Department of War naming",
+      "fact_and_limits": "September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Department of Defense name.",
+      "url": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "id": "history",
+      "subject": "White House history intervention",
+      "fact_and_limits": "March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restoring truth; that phrase is its framing, not an objective finding.",
+      "url": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    },
+    {
+      "id": "schooling",
+      "subject": "Anti-indoctrination and patriotic education",
+      "fact_and_limits": "January 2025 EO targets gender/equity ideology in K12 and promotes patriotic education. Fictional local boards, books and incidents are composites, not allegations about real schools.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-radical-indoctrination-in-k-12-schooling/"
+    },
+    {
+      "id": "education",
+      "subject": "Education Department dismantling direction",
+      "fact_and_limits": "March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished the department.",
+      "url": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    },
+    {
+      "id": "benefit_work",
+      "subject": "Medicaid and SNAP work requirements",
+      "fact_and_limits": "2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. Medicaid federal rollout begins January 2027 or earlier state option; do not claim nationwide current 2026 implementation.",
+      "url": "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    },
+    {
+      "id": "health_budget",
+      "subject": "2025 health spending law",
+      "fact_and_limits": "P.L.119-21 reduces projected federal Medicaid spending and changes eligibility. Projected insurance losses are projections, not an already observed number.",
+      "url": "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    },
+    {
+      "id": "snap",
+      "subject": "Food assistance cuts",
+      "fact_and_limits": "2025 reconciliation law contains SNAP spending reductions and eligibility changes alongside tax provisions. Describe the law/forecasts accurately; do not say every food pantry lost its funding.",
+      "url": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "id": "campaign_money",
+      "subject": "Unlimited independent political money",
+      "fact_and_limits": "Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committees. Direct candidate contribution limits are a different rule.",
+      "url": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "id": "heat_preemption",
+      "subject": "State bans on local heat protections",
+      "fact_and_limits": "DeSantis signed Florida 2024 law barring local government heat/water-break mandates. This does not make drinking water illegal or remove all federal obligations.",
+      "url": "https://apnews.com/article/e271a2d78ef1545f4203b88bde514f9b"
+    },
+    {
+      "id": "raw_milk",
+      "subject": "MAHA marketed raw milk and food safety",
+      "fact_and_limits": "FDA describes pathogen and illness risks from unpasteurized milk. Vendor MAHA slogans are fictional marketing, not official medical advice or attribution of a specific outbreak.",
+      "url": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "id": "local_funding",
+      "subject": "Federal attempts to withdraw Albuquerque walk/bike funding",
+      "fact_and_limits": "City reported a September 2025 attempt to withdraw 11.5m Rail Trail grant amid car-focused priorities. Attempt, not proof of final cancellation/closure.",
+      "url": "https://www.cabq.gov/mayor/news/trump-administration-attempts-to-cancel-money-for-rail-trail"
+    },
+    {
+      "id": "nih",
+      "subject": "Proposed NIH overhead cap",
+      "fact_and_limits": "UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or proposal as an already realized local loss.",
+      "url": "https://www.utsouthwestern.edu/about-us/assets/president-message-020925.pdf"
+    },
+    {
+      "id": "news-enc-d10-a",
+      "subject": "Police misuse of Flock to monitor former partners",
+      "fact_and_limits": "Alpharetta internal records documented an officer using Flock to track a former female partner; he resigned in August 2026 while a criminal investigation remained open. This establishes officer misuse, not a conviction or Flock employees personally stalking her.",
+      "url": "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d11-a",
+      "subject": "ALPR searches in an abortion investigation",
+      "fact_and_limits": "Records obtained by EFF connected Texas deputies’ May 2025 nationwide Flock searches to an abortion-related death investigation and consultation about possible charges, contradicting the public welfare-check explanation. Prosecutors told investigators they could not charge the woman for the abortion; do not invent an abortion conviction.",
+      "url": "https://www.eff.org/deeplinks/2025/10/flock-safety-and-texas-sheriff-claimed-license-plate-search-was-missing-person-it",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d12-a",
+      "subject": "Premom reproductive-health data disclosures",
+      "fact_and_limits": "The FTC’s 2023 Premom settlement addressed allegations that the fertility app deceptively shared identifiable reproductive-health information with advertising/analytics companies and failed to notify users. These are historical allegations resolved through settlement, not evidence that every period app currently does this or that these disclosures produced prosecutions.",
+      "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/202-3186-easy-healthcare-corporation-us-v",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d13-a",
+      "subject": "Broker sale of sensitive clinic-location data",
+      "fact_and_limits": "The FTC finalized a 2024 order banning X-Mode/Outlogic from selling or sharing sensitive-location data after allegations involving data capable of revealing medical and reproductive-clinic visits. That establishes a documented commercial privacy risk, not a proven prosecution of a particular patient.",
+      "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/X-ModeSocialDecisionandOrder.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-pc-d01-a",
+      "subject": "Passport sex-marker restrictions",
+      "fact_and_limits": "State currently issues only M/F passport markers matching its sex-at-birth policy and warns that conflicting requests may delay issuance. Existing passports are not automatically invalid: State lists expiration, replacement or regulatory invalidation as the relevant conditions.",
+      "url": "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-pc-d02-a",
+      "subject": "VA gender-affirming care cutoff",
+      "fact_and_limits": "VA’s March 2025 policy restricts starting gender-affirming hormone therapy, with exceptions for people already receiving it through VA or qualifying military-care continuation. It does not mean all trans veterans lost all healthcare.",
+      "url": "https://news.va.gov/press-room/va-to-phase-out-treatment-for-gender-dysphoria/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-mw-d01-a",
+      "subject": "SSI countable-resource limits",
+      "fact_and_limits": "SSA’s 2026 SSI rules retain countable-resource limits of $2,000 individually and $3,000 for a couple. This is SSI, not all disability benefits; exclusions include a transportation vehicle and qualifying ABLE funds.",
+      "url": "https://www.ssa.gov/ssi/text-resources-ussi.htm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-mw-d02-a",
+      "subject": "Federal medical-debt reporting rule vacated",
+      "fact_and_limits": "On July 11, 2025, a court vacated the federal medical-debt reporting rule at the joint request of CFPB and industry plaintiffs. Do not imply every medical bill must appear on a credit report or that all other protections vanished.",
+      "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-finalizes-rule-to-remove-medical-bills-from-credit-reports/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-sw-d01-a",
+      "subject": "Medicare Advantage denial of qualifying care",
+      "fact_and_limits": "HHS OIG found that 13% of sampled Medicare Advantage prior-authorization denials met Medicare coverage rules. This was a 2022 report examining June 2019 denials, not a current rejection rate for all claims; subsequent recommendations were implemented.",
+      "url": "https://www.oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-w-sw-d02-a",
+      "subject": "Missing chronic-care plans in immigration detention",
+      "fact_and_limits": "GAO’s June 2026 report described a December 2025 Camp East Montana review finding missing comprehensive assessments and no treatment plans for detained people with diabetes or HIV. These are facility- and period-specific findings, not proof that every ICE facility has identical conditions.",
+      "url": "https://files.gao.gov/reports/GAO-26-108886/index.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d01-a",
+      "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+      "fact_and_limits": "CMS announced on June 3, 2025 that it had rescinded its 2022 abortion-specific EMTALA guidance effective May 29, while affirming that EMTALA remains enforceable. Texas SB31 took effect June 20, 2025 and clarifies that qualifying physical danger need not be imminent; it did not remove the underlying abortion prohibitions.",
+      "url": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d02-a",
+      "subject": "Georgia miscarriage arrest followed by dismissal",
+      "fact_and_limits": "In 2025 Georgia authorities used concealment-of-death and body-disposal charges after a miscarriage; prosecutors dropped the charges on April 4 after medical and legal review concluded they did not apply.",
+      "url": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d03-a",
+      "subject": "Idaho restrictions on abortion assistance to minors",
+      "fact_and_limits": "Idaho Code 18-623 addresses specified assistance obtaining an abortion for an unemancipated minor with intent to conceal it from a parent or guardian. The Ninth Circuit's December 2, 2024 ruling left harboring and transporting provisions enforceable while enjoining recruiting; litigation was still in briefing as of September 7, 2026.",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d04-a",
+      "subject": "Texas restrictions on public abortion-travel assistance",
+      "fact_and_limits": "Texas SB33 took effect September 1, 2025 and restricts governmental spending and taxpayer-resource transactions for abortion assistance, including transport, lodging, food and childcare, regardless of the abortion's location.",
+      "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d05-a",
+      "subject": "Louisiana controls on mifepristone and misoprostol",
+      "fact_and_limits": "Louisiana Act246 placed mifepristone and misoprostol in Schedule IV effective October 1, 2024. New Orleans Health Department's September 2025 report documented reported dispensing and retrieval delays under new storage practices and legal confusion.",
+      "url": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d06-a",
+      "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+      "fact_and_limits": "Alabama's February 16, 2024 ruling applied its wrongful-death statute to frozen extrauterine embryos. The March 6, 2024 IVF law provided specified immunity for embryo damage or death, allowing interrupted services to resume without resolving the underlying embryo-status question.",
+      "url": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d07-a",
+      "subject": "Arizona conscience refusal for emergency contraception",
+      "fact_and_limits": "Arizona Revised Statutes 36-2154 permits listed institutions and personnel with written moral or religious objections to refuse emergency contraception and specified other services; a patient's written prescription must be returned.",
+      "url": "https://www.azleg.gov/ars/36/02154.htm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d08-a",
+      "subject": "Pregnancy-center advertising and service mismatch",
+      "fact_and_limits": "Massachusetts DPH warns that some anti-abortion centers advertise abortion-related care without providing abortion, full options counseling or referrals; many are not licensed medical clinics.",
+      "url": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-d09-a",
+      "subject": "Maternity-care deserts and loss of local birth services",
+      "fact_and_limits": "March of Dimes's August 2026 report identifies roughly one-third of US counties as maternity-care deserts, lacking obstetric clinicians and birthing facilities.",
+      "url": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "news-enc-c01-b",
+      "subject": "Oregon limits software barriers to independent electronics repair",
+      "fact_and_limits": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025. Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction.",
+      "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c01-c",
+      "subject": "Rubio changes the State Department standard typeface",
+      "fact_and_limits": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change. The instruction concerned State Department correspondence; it did not require private printers to change fonts.",
+      "url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c03-b",
+      "subject": "Trump announces a donor-funded White House ballroom",
+      "fact_and_limits": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure. Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded.",
+      "url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c03-c",
+      "subject": "Federal appeals court vacates the FTC click-to-cancel rule",
+      "fact_and_limits": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up. The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+      "url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c09-a",
+      "subject": "USPS revises delivery standards in its cost-reduction plan",
+      "fact_and_limits": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same. USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+      "url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c11-c",
+      "subject": "Trump directs the transition from federal paper checks to electronic payments",
+      "fact_and_limits": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments. Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred.",
+      "url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c12-c",
+      "subject": "FTC requires upfront totals including mandatory lodging fees",
+      "fact_and_limits": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price. The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business.",
+      "url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c13-a",
+      "subject": "TSA ends the routine requirement to remove shoes at checkpoints",
+      "fact_and_limits": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints. Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change.",
+      "url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s13-b",
+      "subject": "The US Mint ends circulating-penny production while existing coins stay valid",
+      "fact_and_limits": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender. The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice.",
+      "url": "https://www.usmint.gov/news/media-kit/penny",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s13-c",
+      "subject": "Ohio allocates unclaimed funds toward a professional football stadium",
+      "fact_and_limits": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium. This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund.",
+      "url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s16-b",
+      "subject": "DOT requires automatic refunds for qualifying cancelled flights",
+      "fact_and_limits": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method. Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline.",
+      "url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s29-b",
+      "subject": "Treasury suspends IRS Direct File for the 2026 filing season",
+      "fact_and_limits": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain. The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+      "url": "https://www.gao.gov/products/b-337954",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c08-c",
+      "subject": "Trump’s attempted reversal of New York congestion pricing and royal celebration",
+      "fact_and_limits": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal. The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll. A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds. Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented.",
+      "url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-c12-a",
+      "subject": "Trump claims credit for Coca-Cola’s additional cane-sugar product",
+      "fact_and_limits": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup. The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier. Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option. The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration.",
+      "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s12-a",
+      "subject": "USDA approves Nebraska’s SNAP soda and energy-drink exclusion",
+      "fact_and_limits": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits. This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP. Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026. The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes.",
+      "url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s20-c",
+      "subject": "Congress permits whole milk in the National School Lunch Program",
+      "fact_and_limits": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program. The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made.",
+      "url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-s34-b",
+      "subject": "Trump’s ten-for-one federal deregulation instruction",
+      "fact_and_limits": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions. The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-w-pc-c01-c",
+      "subject": "FTC and states negotiate access to Deere farm-equipment repair resources",
+      "fact_and_limits": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers. The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here.",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-enc-w-sw-c02-c",
+      "subject": "Texas business-personal-property tax exemption",
+      "fact_and_limits": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit. This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption.",
+      "url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-order-gag-b",
+      "subject": "Trump’s preference for classical federal architecture",
+      "fact_and_limits": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia. Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-03-c",
+      "subject": "Austin’s higher unpaid-meter fine",
+      "fact_and_limits": "Austin’s council approved a $75 unpaid-meter fine on February 13, 2025, effective March 1. This is the unpaid-meter offense, not every parking violation.",
+      "url": "https://services.austintexas.gov/edims/document.cfm?id=447196",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-13-b",
+      "subject": "Des Moines’s electric franchise fee",
+      "fact_and_limits": "Des Moines’s 2025 electric-franchise ordinance sets the franchise fee at 7.5%. This is the fee rate, not a claim that every customer’s total bill rose by 7.5%.",
+      "url": "https://councildocs.dsm.city/ordinances/16%2C485.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-14-a",
+      "subject": "El Paso’s fare-free streetcar",
+      "fact_and_limits": "Sun Metro states that riding the El Paso streetcar is free. This does not establish that every Sun Metro service is fare-free.",
+      "url": "https://sunmetro.net/streetcar/about-streetcars",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-14-b",
+      "subject": "El Paso’s conditional Meta data-center tax rebate",
+      "fact_and_limits": "El Paso’s December 2023 agreement offered Meta an 80% city property-tax rebate for the first phase over 15 years, conditional on $800 million investment and 50 jobs. This is not a rebate of all jurisdictions’ taxes or proof the conditions were met.",
+      "url": "https://www.elpasotexas.gov/data-centers",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-17-c",
+      "subject": "Maryland’s public financing for Hagerstown’s stadium",
+      "fact_and_limits": "Maryland’s 2021 law authorized stadium bonds for Hagerstown. The state announcement also identified $8.5 million in supplemental funding and $1.5 million in fiscal 2023 funding. These figures are not a total project cost or an operating-loss claim.",
+      "url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-18-c",
+      "subject": "Iowa City’s extended fare-free bus pilot",
+      "fact_and_limits": "Iowa City’s December 2025 strategic-plan progress report records an extension of the fare-free transit pilot. An extension is not a permanent fare-free guarantee.",
+      "url": "https://www.icgov.org/home/showpublisheddocument/2925/639040638387730000",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-19-a",
+      "subject": "Joplin’s scheduled sewer-rate increases",
+      "fact_and_limits": "Joplin approved sewer-rate adjustments beginning with April 2025 billing, averaging 4% annually from 2025 through 2029. The impact varies by customer; 4% is not every individual bill’s guaranteed increase.",
+      "url": "https://joplinbusinessoutlook.com/2025/01/08/sewer-rate-adjustment-begins-for-city-of-joplin-residents-with-april-2025-billing-cycle/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-21-b",
+      "subject": "Wisconsin’s partial veto extending school revenue-limit increases",
+      "fact_and_limits": "Wisconsin’s Supreme Court upheld Governor Tony Evers’s partial veto that extended school revenue-limit increases to 2425 by deleting characters from the budget text. Revenue limits are not guaranteed future appropriations.",
+      "url": "https://apnews.com/article/5a1be188f78ab5e4223b2c7c7ad3ca7d",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-25-c",
+      "subject": "Missoula’s accessory-dwelling-unit parking rule",
+      "fact_and_limits": "Missoula’s current accessory-dwelling-unit code requires no additional parking for an ADU. This does not eliminate all parking rules or other conditions on the proposed dwelling.",
+      "url": "https://library.municode.com/MT/Missoula/codes/municipal_code?nodeId=TIT20ZO_CH20.45ACUSST_20.45.060ACDWUN",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-31-b",
+      "subject": "Rapid City’s vacation-rental parking requirements",
+      "fact_and_limits": "Rapid City’s council approved vacation-rental regulations in December 2025 that require two off-street parking spaces. The requirement is for covered vacation rentals, not all homes.",
+      "url": "https://www.kotatv.com/2025/12/02/rapid-city-council-votes-regulate-vacation-home-rentals/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-34-c",
+      "subject": "Texas’s inspection replacement fee",
+      "fact_and_limits": "From January 2025, Texas removed most noncommercial vehicle safety inspections and retained a $7.50 inspection-program replacement fee. Applicable emissions inspections and commercial-vehicle inspections remain.",
+      "url": "https://www.dps.texas.gov/news/vehicle-safety-inspection-changes-take-effect-january-2025",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-35-b",
+      "subject": "South Dakota’s rejected 2024 consumption-tax ballot measure",
+      "fact_and_limits": "South Dakota’s official ballot-question history records Initiated Measure 28 failing in 2024, 129,261 to 290,969. The proposal concerned state taxes on goods for human consumption, excluding alcoholic beverages and prepared food; its broader scope was disputed.",
+      "url": "https://sdsos.gov/elections-voting/assets/BallotQuestions%20%282024%29.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-40-c",
+      "subject": "St. Louis’s escalating unpaid-meter penalty",
+      "fact_and_limits": "St. Louis’s posted parking-fine schedule lists a $20 meter fine, doubling after 30 days and reaching $80 after 45 days. The schedule is not a universal rule for every parking offense.",
+      "url": "https://www.stlouis-mo.gov/government/departments/treasurer/parking-violations/parking-violation-fines.cfm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "news-town-43-b",
+      "subject": "Oklahoma’s state-only grocery-tax repeal",
+      "fact_and_limits": "Oklahoma ended state sales tax on qualifying food and food ingredients on August 29, 2024 under HB 1955. Applicable local sales taxes remain; the exemption does not cover every prepared-food purchase.",
+      "url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-07",
+      "subject": "NASA’s contracted lunar drill lands unable to reach the ground",
+      "fact_and_limits": "NASA’s IM-2 payload documentation says the Athena lander’s roughly horizontal orientation prevented the TRIDENT drill from reaching the lunar surface and completing its objectives.",
+      "url": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn:nasa:pds:context:instrument_host:spacecraft.clps_to_prime1_athena&version=1.0",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-24",
+      "subject": "FTC returns money for unwanted Fortnite purchases",
+      "fact_and_limits": "The FTC announced more than $126 million in additional refunds to Fortnite players charged for unwanted purchases, following its settlement over Epic’s billing practices.",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/06/ftc-sends-126-million-refunds-fortnite-players-who-were-charged-unwanted-items-reopens-claims",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-30",
+      "subject": "California separates food quality dates from safety dates",
+      "fact_and_limits": "California’s AB 660 standardizes quality and safety date wording for covered food manufactured from July 1, 2026, and bars consumer-facing sell-by wording on those products.",
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB660",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-27",
+      "subject": "FTC and states settle over Walmart Spark driver earnings claims",
+      "fact_and_limits": "The FTC and 11 states announced a $100 million judgment settling allegations that Walmart misled Spark drivers about base pay, tips, and incentives shown in delivery offers.",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/02/walmart-agrees-100-million-judgment-settle-ftc-states-charges-over-deceptive-earnings-claims-related",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-08",
+      "subject": "TSA charges for an identity-verification attempt",
+      "fact_and_limits": "Starting February 1, 2026, TSA ConfirmID offered travelers without acceptable identification a $45 identity-verification process; payment does not guarantee verification or admission through security.",
+      "url": "https://www.travel.dod.mil/About/News/Article/Article/4393216/travelers-without-real-id-could-pay-45-fee-for-tsas-confirmid-beginning-februar/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-03",
+      "subject": "Strategic Bitcoin Reserve keeps forfeited digital assets",
+      "fact_and_limits": "Trump’s order created a Strategic Bitcoin Reserve using eligible, finally forfeited government bitcoin and directed that reserve bitcoin be retained rather than sold.",
+      "url": "https://www.govinfo.gov/content/pkg/DCPD-202500335/pdf/DCPD-202500335.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-14",
+      "subject": "Court vacates the higher overtime salary threshold",
+      "fact_and_limits": "A federal court vacated the Labor Department’s 2024 overtime rule, including the planned January 2025 increase in the salary threshold to $58,656.",
+      "url": "https://www.dol.gov/agencies/whd/overtime/rulemaking?lang=en",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-01",
+      "subject": "GSA buys agency access to Grok for 42 cents",
+      "fact_and_limits": "GSA announced an xAI agreement offering Grok access for $0.42 per federal organization for 18 months, through March 2027.",
+      "url": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-xai-partner-to-accelerate-federal-ai-adoption-09252025",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-25",
+      "subject": "SEC penalizes Keurig’s incomplete recyclability disclosures",
+      "fact_and_limits": "Keurig agreed to a $1.5 million SEC penalty over inaccurate recyclability statements in annual reports that omitted major recyclers’ concerns about accepting K-Cup pods.",
+      "url": "https://www.sec.gov/newsroom/press-releases/2024-122",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-11",
+      "subject": "FCC makes broadband providers display comparison labels",
+      "fact_and_limits": "Under FCC rules, larger broadband providers had to display consumer labels from April 10, 2024; smaller providers followed in October. Labels identify prices, introductory rates, speeds, and data allowances.",
+      "url": "https://docs.fcc.gov/public/attachments/DOC-397551A1.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-19",
+      "subject": "Trump targets federally supported institutional home purchases",
+      "fact_and_limits": "Trump directed agencies to restrict federal support for large institutional investors acquiring single-family homes, develop implementing definitions, and recommend legislation.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/01/stopping-wall-street-from-competing-with-main-street-homebuyers/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-28",
+      "subject": "Trump’s daylight-saving positions point the clocks in different directions",
+      "fact_and_limits": "In April 2025, Trump urged Congress toward more evening daylight, after calling in December 2024 for eliminating daylight saving time. These point to different permanent clock settings.",
+      "url": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-10",
+      "subject": "FCC treats AI telemarketing voices as artificial voices under existing law",
+      "fact_and_limits": "The FCC ruled that AI-generated voices count as artificial voices under the Telephone Consumer Protection Act, bringing them within existing consent requirements for covered calls.",
+      "url": "https://docs.fcc.gov/public/attachments/DOC-400393A1.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-04",
+      "subject": "FIFA awards Trump its first peace prize",
+      "fact_and_limits": "FIFA presented Donald Trump with its inaugural FIFA Peace Prize at the World Cup final draw in Washington on December 5, 2025.",
+      "url": "https://inside.fifa.com/campaigns/football-unites-the-world/news/president-trump-peace-prize-football-unites-the-world",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-16",
+      "subject": "Virginia orders bell-to-bell school phone policies",
+      "fact_and_limits": "Following Governor Youngkin’s Executive Order 33, Virginia’s education department told school divisions to adopt age-appropriate bell-to-bell phone policies by January 1, 2025.",
+      "url": "https://www.doe.virginia.gov/Home/Components/News/News/411/227",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-15",
+      "subject": "Trump directs repeal of the overland supersonic-flight prohibition",
+      "fact_and_limits": "Trump’s June 6, 2025 order directs the FAA to repeal the general overland supersonic-flight prohibition, adopt an interim noise-based standard and develop subsequent rulemaking.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/06/leading-the-world-in-supersonic-flight/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-21",
+      "subject": "Congress repeals the CFPB overdraft lending rule",
+      "fact_and_limits": "Congress and Trump nullified the CFPB’s large-bank overdraft rule, which would have required a $5 fee, cost-based pricing, or treatment as a disclosed credit product.",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ10/pdf/PLAW-119publ10.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-13",
+      "subject": "FTC abandons its nationwide noncompete rule appeals",
+      "fact_and_limits": "The FTC voted in September 2025 to dismiss its appeals and accept the vacatur of its nationwide Non-Compete Clause Rule.",
+      "url": "https://www.ftc.gov/legal-library/browse/rules/noncompete-rule",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-18",
+      "subject": "Trump floats a 50-year mortgage",
+      "fact_and_limits": "In November 2025, Trump and federal housing-finance director Bill Pulte floated a 50-year mortgage as an affordability idea; Trump subsequently sounded less enthusiastic amid criticism.",
+      "url": "https://apnews.com/article/56a931881ca6f6efeccf2de0333a83bd",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-09",
+      "subject": "FTC prohibits fabricated consumer reviews",
+      "fact_and_limits": "The FTC’s consumer-review rule took effect on October 21, 2024, addressing fabricated reviewers, nonexistent experiences, and specified buying or selling of deceptive reviews.",
+      "url": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-26",
+      "subject": "NIH ends the public-access embargo on covered research manuscripts",
+      "fact_and_limits": "For covered manuscripts accepted from July 1, 2025, NIH’s public-access policy requires public availability through PubMed Central without the previous publication embargo.",
+      "url": "https://www.grants.nih.gov/policy-and-compliance/policy-topics/public-access/nih-public-access-policy-overview",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-12",
+      "subject": "Court limits Google’s exclusive search-distribution deals",
+      "fact_and_limits": "A federal court’s September 2025 Google remedies barred exclusive distribution contracts for Google Search, Chrome, Assistant, and Gemini and imposed specified data-sharing requirements.",
+      "url": "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-06",
+      "subject": "Summer E15 sales depend on temporary EPA waivers",
+      "fact_and_limits": "EPA announced an emergency waiver permitting summer sales of E15 gasoline in 2025, temporarily lifting restrictions that otherwise applied during the summer driving season.",
+      "url": "https://www.epa.gov/newsreleases/ahead-summer-driving-season-epa-allows-nationwide-year-round-e15",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-20",
+      "subject": "Interior stops and restarts Empire Wind construction",
+      "fact_and_limits": "Interior ordered Empire Wind construction halted on April 16, 2025, then lifted that halt on May 19, according to the federal project record.",
+      "url": "https://www.boem.gov/renewable-energy/state-activities/empire-wind",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-22",
+      "subject": "DOJ proposes restrictions on RealPage rent coordination",
+      "fact_and_limits": "DOJ announced a proposed RealPage settlement restricting the use of competitors’ nonpublic information and specified pricing-alignment features in rental-pricing software.",
+      "url": "https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-02",
+      "subject": "Copyright Office rejects authorship by prompting alone",
+      "fact_and_limits": "The U.S. Copyright Office concluded that merely supplying prompts does not provide sufficient human control to make a user the author of an AI output.",
+      "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-17",
+      "subject": "New York City makes the person hiring the rental broker pay",
+      "fact_and_limits": "New York City’s FARE Act took effect June 11, 2025, preventing brokers hired by or representing landlords from charging their broker fees to prospective tenants.",
+      "url": "https://www.nyc.gov/site/dca/news/018-25/dcwp-the-fare-act-now-effect",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-23",
+      "subject": "FTC challenges patriotic goods with false domestic-origin claims",
+      "fact_and_limits": "The FTC announced a proposed settlement with Americana Liberty and related defendants over allegations that patriotic flag-display products carried false, unqualified Made in USA claims.",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/04/ftc-announces-made-usa-sweep-including-three-law-enforcement-actions-protect-american-consumers",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-05",
+      "subject": "Federal air-traffic modernization confronts floppy disks",
+      "fact_and_limits": "In July 2025 congressional testimony, Transportation Secretary Sean Duffy cited floppy disks, copper wire and antiquated radar while seeking modernization of US air-traffic-control infrastructure.",
+      "url": "https://www.congress.gov/119/meeting/house/118483/witnesses/HHRG-119-PW00-Wstate-DuffyS-20250716.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "LIGHT-29",
+      "subject": "Court blocks the administration’s FBI headquarters reversal",
+      "fact_and_limits": "In August 2026, a federal district court blocked the administration’s plan to move FBI headquarters to Washington’s Reagan Building, reversing the previous selection of Greenbelt, Maryland.",
+      "url": "https://oag.maryland.gov/News/pages/STATEMENT-Attorney-General-Brown-on-Victory-in-Lawsuit-to-Restore-FBI-Headquarters-Project-to-Greenbelt.aspx",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-1ec764570c48",
+      "subject": "Nebraska paid-sick-leave small-employer exemption",
+      "fact_and_limits": "Nebraska’s October 2025 mandate applies to employers with eleven or more employees; a ten-person workplace falls outside that state mandate, though voluntary benefits may exist.",
+      "url": "https://dol.nebraska.gov/PressRelease/Details/335",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-ef78bd790a42",
+      "subject": "Trump and DOGE nuclear-workforce firings",
+      "fact_and_limits": "Abrupt NNSA firings followed by reversal, with Pantex affected.",
+      "url": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-6b9000975eec",
+      "subject": "Illinois Paid Leave for All Workers Act",
+      "fact_and_limits": "Illinois’s paid-leave law took effect in 2024, allowing covered workers to earn up to forty hours annually for any reason, subject to its eligibility and notice rules.",
+      "url": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-ed4bd9386b06",
+      "subject": "Federal nuclear contractor billing scandal",
+      "fact_and_limits": "DOE audit describes public money paid for unworked hours and the contractor’s 2024 settlement.",
+      "url": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-0e71a18a61b3",
+      "subject": "Trump FY2027 NASA science budget proposal",
+      "fact_and_limits": "The April 2026 proposal again sought a 47 percent NASA science cut; it was a request. Lowell’s Pluto discovery establishes the town’s astronomy connection, not a claim about Lowell losing NASA funding.",
+      "url": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-963afef2ad5b",
+      "subject": "Federal pension reform after Studebaker’s collapse",
+      "fact_and_limits": "Studebaker’s 1963 closure left nearly 3,000 South Bend workers without pension benefits, fueling reform. Congress’s 1974 ERISA law later set minimum standards for private retirement plans.",
+      "url": "https://www.dol.gov/node/22391",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-9f01d758d55e",
+      "subject": "Congress and Biden imposing the 2022 rail agreement",
+      "fact_and_limits": "Congress and President Biden imposed a national freight-rail labor agreement in December 2022, blocking a strike; later sick-leave negotiations are separate.",
+      "url": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-0e80f4000e74",
+      "subject": "Illinois adult minimum-wage increase",
+      "fact_and_limits": "Illinois’s state minimum wage reached $15 an hour for covered workers aged eighteen and older on January 1, 2025.",
+      "url": "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-1ba51645fea6",
+      "subject": "Trump’s Argentine beef import proposal",
+      "fact_and_limits": "Farm Bureau opposed the proposed import expansion; no local job loss or realized price decline is asserted.",
+      "url": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-tip-overtime-deductions",
+      "subject": "Trump’s no-tax-on-tips promise and limited deduction",
+      "fact_and_limits": "The 2025 law created a capped, eligibility-limited federal income-tax deduction for qualified tips through 2028; Social Security and Medicare taxes still generally apply.",
+      "url": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-nws-staffing-losses",
+      "subject": "National Weather Service staffing-related balloon reduction",
+      "fact_and_limits": "In March 2025 staffing shortages during federal workforce cuts reduced North Platte routine balloon launches from two a day to one.",
+      "url": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-2a112b332855",
+      "subject": "Trump birthday on the 2026 national-park fee schedule",
+      "fact_and_limits": "Nearby Badlands National Park’s 2026 fee-free schedule includes June 14, described as Flag Day and President Trump’s birthday, for US citizens and residents.",
+      "url": "https://www.nps.gov/badl/planyourvisit/fees.htm",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-60b639262067",
+      "subject": "Trump wind and solar subsidy phaseout enforcement",
+      "fact_and_limits": "July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable and foreign-controlled are administration framing, not independent scientific findings.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-market-distorting-subsidies-for-unreliable-foreign%E2%80%91controlled-energy-sources/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-21fa6d357cee",
+      "subject": "Pittsburgh’s 2026 paid-sick-time expansion",
+      "fact_and_limits": "The city’s 2025 amendment effective January 2026 expanded accrual to 72 hours for covered workers at employers with fifteen or more workers.",
+      "url": "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-97da8fc68ddd",
+      "subject": "Trump wind-permitting pause",
+      "fact_and_limits": "January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. This is a historical order, not a claim that every project remains stopped or every later closure was caused by it.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/temporary-withdrawal-of-all-areas-on-the-outer-continental-shelf-from-offshore-wind-leasing-and-review-of-the-federal-governments-leasing-and-permitting-practices-for-wind-projects/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "existing-9ca2cc3536b6",
+      "subject": "Kansas City tax-funded fare-free streetcar",
+      "fact_and_limits": "The transportation district levies local taxes and assessments to fund the streetcar; passengers ride without a fare.",
+      "url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Classic or Shared"
+    },
+    {
+      "id": "TRANS-RESEARCH-01",
+      "subject": "Counterterrorism framing of trans advocacy",
+      "fact_and_limits": "The May 2026 U.S. Counterterrorism Strategy prioritizes violent secular groups it describes as “radically pro-transgender.” The wording does not designate all trans people or peaceful advocacy as terrorist organizations.",
+      "url": "https://www.whitehouse.gov/wp-content/uploads/2026/05/2026-USCT-Strategy-1.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "RIGHTS-EXTRA-03",
+      "subject": "Pentagon press-credential policy and judicial correction",
+      "fact_and_limits": "The Pentagon's March 23, 2026 media memorandum acknowledges a court vacated parts of its October 2025 credential policy. Its response replaces ambiguous solicitation language while disputing the court's analysis; it expressly says asking questions is not a crime.",
+      "url": "https://media.defense.gov/2026/Mar/23/2003902148/-1/-1/1/IMPLEMENTATION-OF-REVISED-MEDIA-IN-BRIEF.PDF",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-13",
+      "subject": "Women's sports restrictions enforced through federal funding",
+      "fact_and_limits": "Executive Order 14201 directs Title IX enforcement and grant reviews against educational programs allowing participation inconsistent with the administration's sex-based definition of women's sports.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/02/keeping-men-out-of-womens-sports/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-08",
+      "subject": "New nursing-home staffing minimums repealed",
+      "fact_and_limits": "CMS repealed the 2024 nursing-home minimum staffing provisions, including the new round-the-clock registered-nurse requirement and specified nursing hours per resident. Congress had barred implementation, administration or enforcement of those provisions until September 30, 2034.",
+      "url": "https://regulations.justia.com/regulations/fedreg/2025/12/03/2025-21792.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-10",
+      "subject": "Kansas links bathroom enforcement to invalidated identity documents",
+      "fact_and_limits": "Kansas SB 244 requires sex-designated multi-occupancy facilities in public buildings, creates civil and criminal enforcement, and invalidates specified licenses and birth certificates with conflicting markers. Revenue Department guidance later set March 25, 2026 as the final license-change grace deadline.",
+      "url": "https://www.kslegislature.gov/li/b2025_26/measures/documents/sb244_enrolled.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-06",
+      "subject": "Federal phaseout of disabled-worker subminimum-wage certificates abandoned",
+      "fact_and_limits": "The Labor Department withdrew its December 2024 proposal to phase out FLSA section 14(c) certificates, which permit certain employers to pay less than the federal minimum wage to workers whose disabilities affect their productive capacity.",
+      "url": "https://regulations.justia.com/regulations/fedreg/2025/07/07/2025-12534.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-02",
+      "subject": "Gun-rights promises and ATF identity paperwork",
+      "fact_and_limits": "ATF’s May 6, 2026 proposed rule would define the sex field on its forms by the agency’s biological-sex definition, excluding gender identity. The measure is a proposal, not a blanket prohibition on trans gun ownership.",
+      "url": "https://www.atf.gov/rules-and-regulations/rulemaking-notices/selecting-biological-sex-atf-forms-rin-1140-aa64",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-19",
+      "subject": "Homelessness order promotes expanded civil commitment",
+      "fact_and_limits": "Trump directed federal agencies to support broader civil-commitment practices, seek reversal of impeding precedents or consent decrees, and consider grant priorities favoring jurisdictions using commitment and encampment enforcement.",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-crime-and-disorder-on-americas-streets/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-06",
+      "subject": "Upcoming Medicaid and CHIP treatment-payment exclusion",
+      "fact_and_limits": "CMS’s final rule excludes specified gender-transition procedures from federally matched Medicaid payments for under-18s and separate CHIP payments for under-19s. It permits up to six months of continued federal matching for existing hormone treatment after effectiveness.",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-08-13/pdf/2026-16508.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-05",
+      "subject": "Disabled retirees' employment-discrimination claim meets the job-holding requirement",
+      "fact_and_limits": "In Stanley v. City of Sanford, the Supreme Court held that a Title I ADA claimant must hold or seek a job and be able to perform its essential functions at the time of the alleged discrimination. The dispute concerned health-coverage terms for disability retirees.",
+      "url": "https://www.supremecourt.gov/opinions/24pdf/23-997_6579.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-11",
+      "subject": "Federal prison care and personal-item restrictions",
+      "fact_and_limits": "BOP Program Statement 5260.01 restricted gender-affirming care and social accommodations. On June 17, a federal court stayed it and ordered medication and accommodations for class members under the prior policy.",
+      "url": "https://law.justia.com/cases/federal/district-courts/district-of-columbia/dcdce/1:2025cv00691/278186/216/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-17",
+      "subject": "Stronger coal-plant mercury and toxic-metal standards repealed",
+      "fact_and_limits": "EPA published a final repeal of 2024 requirements tightening coal-plant particulate limits used to control toxic metals, lignite-plant mercury limits, and particulate continuous-monitoring requirements.",
+      "url": "https://www.federalregister.gov/documents/2026/02/24/2026-03638/national-emission-standards-for-hazardous-air-pollutants-coal--and-oil-fired-electric-utility-steam",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-12",
+      "subject": "Social Security's invisible sex field is frozen to birth records",
+      "fact_and_limits": "SSA's manual permits sex-field corrections or changes only to reflect sex at birth, with specified evidence rules. The sex field is not printed on the face of the Social Security card.",
+      "url": "https://secure.ssa.gov/poms.nsf/lnx/0110212200",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-07",
+      "subject": "Government website accessibility deadlines extended",
+      "fact_and_limits": "DOJ extended the Title II ADA web-accessibility technical compliance dates: larger public entities moved from April 2026 to April 26, 2027, and smaller entities and special districts from April 2027 to April 26, 2028.",
+      "url": "https://www.ada.gov/assets/pdfs/2026-ifr.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-01",
+      "subject": "Workplace abortion accommodations removed from the PWFA regulation",
+      "fact_and_limits": "A federal district court vacated the EEOC provision treating abortion as a pregnancy-related condition for workplace accommodations, and guidance requiring accommodation for elective abortions unrelated to treating a pregnancy-related medical condition.",
+      "url": "https://cases.justia.com/federal/district-courts/louisiana/lawdce/2:2024cv00629/205802/107/0.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-16",
+      "subject": "EPA proposes removing some PFAS drinking-water limits and delaying others",
+      "fact_and_limits": "EPA proposed rescinding the PFHxS, PFNA, GenX and PFAS-mixture standards, while separately retaining PFOA/PFOS limits and proposing an application-based extension from 2029 to 2031 for qualifying water systems.",
+      "url": "https://www.epa.gov/sdwa/proposed-pfas-rescission-rule",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-15",
+      "subject": "Closure of specialized LGBTQ+ youth crisis-line service",
+      "fact_and_limits": "SAMHSA ended the specialized LGBTQ+ youth option within 988 on July 17, 2025, presenting the change as ending separate services. The Lifeline operator confirms the subnetwork closed.",
+      "url": "https://www.samhsa.gov/about/news-announcements/statements/2025/samhsa-statement-988-press-3-option",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-02",
+      "subject": "Women's Health Initiative funding cancellation reversed",
+      "fact_and_limits": "Women's Health Initiative investigators were told on April 21 that regional-center contracts would end in September 2025. On May 6, the study announced official confirmation that the nonrenewal was rescinded and the study would continue uninterrupted.",
+      "url": "https://www.whi.org/md/news/whi-funding-announcement",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-14",
+      "subject": "EEOC rescinds workplace harassment guidance",
+      "fact_and_limits": "The EEOC rescinded its workplace-harassment guidance after disputes over its transgender-related provisions. Its announcement explicitly says federal discrimination, harassment and retaliation law and Supreme Court precedent remain.",
+      "url": "https://www.eeoc.gov/newsroom/eeoc-commission-votes-rescind-2024-harassment-guidance",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-14",
+      "subject": "Head Start recast as an immigration-restricted federal benefit",
+      "fact_and_limits": "HHS's July 2025 reinterpretation of federal-benefit law expanded immigration restrictions to programs including Head Start. A September 11, 2025 injunction blocked implementation against Head Start agencies, providers, students and families nationwide.",
+      "url": "https://www.hhs.gov/press-room/prwora-hhs-bans-illegal-aliens-accessing-taxpayer-funded-programs.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-11",
+      "subject": "Rapid detention transfers obstruct access to lawyers",
+      "fact_and_limits": "A Minnesota federal judge ordered DHS to provide people detained at the Whipple holding facility free, private telephone access within an hour, access to legal visitors, and a 72-hour hold on out-of-state transfers after finding serious barriers to counsel.",
+      "url": "https://clearinghouse-umich-production.s3.amazonaws.com/media/doc/169796.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-04",
+      "subject": "Proposed insurance coverage for over-the-counter contraception withdrawn",
+      "fact_and_limits": "Treasury, Labor and HHS withdrew an October 2024 proposal that would have required covered plans to provide certain recommended over-the-counter contraceptives without a prescription or cost sharing.",
+      "url": "https://public-inspection.federalregister.gov/2025-00774.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-10",
+      "subject": "Appearing at immigration court becomes an arrest opportunity",
+      "fact_and_limits": "A federal court vacated ICE and EOIR policies expanding civil immigration arrests at courthouses, finding the agencies failed to justify their reversal and consider effects on hearing attendance.",
+      "url": "https://www.govinfo.gov/content/pkg/USCOURTS-cand-5_25-cv-06487/pdf/USCOURTS-cand-5_25-cv-06487-8.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-12",
+      "subject": "Third-country deportations without a meaningful chance to contest the destination",
+      "fact_and_limits": "A federal district court set aside DHS's third-country removal policy and required meaningful procedures to raise destination-specific fears. The First Circuit stayed that judgment on March 16, 2026 while the government appealed.",
+      "url": "https://apnews.com/article/148cee2906dc7286b074116d3eec6fd4",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "RIGHTS-EXTRA-02",
+      "subject": "White House retaliation against Associated Press access",
+      "fact_and_limits": "In 2025 the White House restricted AP access to limited-space presidential events after AP retained Gulf of Mexico in its style. A district judge found retaliation; an appellate stay left that ruling from taking effect while litigation continued. AP's November 24 report said access was sporadic and the appeal remained unresolved then.",
+      "url": "https://www.ap.org/media-center/ap-in-the-news/2025/ap-and-trump-administration-argue-access-case-before-federal-appeals-court-no-ruling-yet/",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-15",
+      "subject": "Lowndes County sewage agreement terminated as environmental-justice policy",
+      "fact_and_limits": "DOJ terminated its environmental-justice settlement concerning inadequate wastewater disposal in Lowndes County, Alabama, citing Trump's directive against DEI and environmental-justice initiatives.",
+      "url": "https://www.justice.gov/opa/pr/department-justice-terminates-environmental-justice-settlement-agreement-advancing-president",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-03",
+      "subject": "Military discharge and loss of transition-to-work assistance",
+      "fact_and_limits": "The Navy’s April 24, 2026 NAVADMIN 098/26 implements involuntary-separation procedures under the gender-dysphoria policy and says covered personnel cannot participate in SkillBridge.",
+      "url": "https://www.mynavyhr.navy.mil/Portals/55/Messages/NAVADMIN/NAV2026/NAV26098.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-09",
+      "subject": "Protected-area immigration enforcement guidance rescinded; some churches regain protection",
+      "fact_and_limits": "DHS rescinded its protected-area enforcement guidance on January 20, 2025. On August 18, 2026, the Fourth Circuit upheld a preliminary injunction restoring the earlier policy at the plaintiff religious organizations' identified places of worship.",
+      "url": "https://law.justia.com/cases/federal/appellate-courts/ca4/25-1512/25-1512-2026-08-18.html",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-09",
+      "subject": "School disclosure orders override student confidentiality policies",
+      "fact_and_limits": "In Mirabelli v. Bonta, the Supreme Court lifted the appellate stay as to parents challenging California school gender-notification policies, restoring the relevant injunction while the appeal proceeded.",
+      "url": "https://www.supremecourt.gov/opinions/25pdf/25a810_b97d.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "RIGHTS-EXTRA-01",
+      "subject": "FCC pressure preceding the temporary Kimmel suspension",
+      "fact_and_limits": "ABC temporarily suspended Jimmy Kimmel's program in September 2025 after FCC chair Brendan Carr publicly urged broadcasters to preempt it and discussed FCC consequences. Senators described his remarks as implicit license threats; Carr disputed that characterization and said broadcasters made their own business decisions. The program returned that month.",
+      "url": "https://docs.fcc.gov/public/attachments/DOC-415483A7.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-08",
+      "subject": "NIH terminates research over gender-identity priorities",
+      "fact_and_limits": "The Supreme Court’s August 21, 2025 NIH opinion records internal guidance rejecting gender-identity research priorities and resulting grant terminations. Its order treated challenges to grant terminations separately from challenges to the guidance.",
+      "url": "https://www.supremecourt.gov/opinions/24pdf/25a103_kh7p.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-20",
+      "subject": "Public-charge rule broadens benefit scrutiny for immigration decisions",
+      "fact_and_limits": "DHS finalized rescission of the narrower 2022 public-charge framework, restoring broader discretion to consider means-tested benefits when assessing certain admission or adjustment-of-status applications. The new rule is scheduled to apply from September 18, 2026.",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-07-20/pdf/2026-14539.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-03",
+      "subject": "Cancelled USAID contraception distribution produces storage bills and unusable stock",
+      "fact_and_limits": "USAID's June 10, 2026 inspector-general advisory traced the March 2025 family-planning contract cancellation and repeated destruction reversals. About $8 million in commodities became largely unusable after removal from temperature-controlled storage; storage and freight cost $360,667 through March 2026.",
+      "url": "https://oig.usaid.gov/sites/default/files/2026-06/Management%20Advisory_Family%20Planning%20Commodities%20in%20Belgium%20Need%20Final%20Disposition%20Instructions.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-13",
+      "subject": "HUD proposes ending indefinite prorated assistance for mixed-status households",
+      "fact_and_limits": "HUD proposed requiring verification of citizenship or eligible immigration status for covered housing recipients regardless of age and making prorated assistance temporary rather than potentially indefinite for mixed-status families.",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-20/pdf/2026-03405.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "DRR-18",
+      "subject": "Public-camping penalties survive an Eighth Amendment challenge",
+      "fact_and_limits": "The Supreme Court held in City of Grants Pass v. Johnson that enforcing generally applicable public-camping ordinances does not violate the Eighth Amendment's cruel-and-unusual-punishment clause, rejecting the shelter-availability rule used by the Ninth Circuit.",
+      "url": "https://www.supremecourt.gov/opinions/23pdf/23-175_19m2.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "RIGHTS-EXTRA-04",
+      "subject": "Navajo water rights without an affirmative treaty duty to secure water",
+      "fact_and_limits": "In June 2023 the Supreme Court held that the 1868 Navajo treaty reserved necessary water rights but did not require the federal government to take the affirmative steps sought in the case to assess and secure water for the Nation.",
+      "url": "https://www.supremecourt.gov/opinions/22pdf/21-1484_aplc.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "TRANS-RESEARCH-07",
+      "subject": "Federal employee insurance removes mid-treatment exceptions",
+      "fact_and_limits": "OPM’s March 31, 2026 carrier letter directs FEHB and postal-plan insurers to remove the mid-treatment exceptions process for excluded gender-transition services in 2027. The 2026 exclusion had required case-by-case exceptions.",
+      "url": "https://www.opm.gov/healthcare-insurance/carriers/fehb/2026/2026-07.pdf",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    },
+    {
+      "id": "RIGHTS-EXTRA-05",
+      "subject": "Texas public contracts require an Israel-boycott certification",
+      "fact_and_limits": "An El Paso school construction contract implements Texas Government Code Chapter 2271: a contractor with at least ten full-time employees and a contract worth at least $100,000 certifies it does not and will not boycott Israel during the agreement. Sole proprietorships are excluded.",
+      "url": "https://episd.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=14171&ItemID=6239",
+      "checked": "2026-09-14",
+      "editorial_mode": "Deep End only"
+    }
+  ]
+}

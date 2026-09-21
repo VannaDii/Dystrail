@@ -1,0 +1,159 @@
+{
+  "purpose": "Illustrative storyboard fixtures, checked arithmetically; not runtime test results",
+  "cases": [
+    {
+      "name": "Main three-round journey",
+      "starting_odds_percent": 55,
+      "starting_sanity": 7,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 120,
+          "sanity_after": 5,
+          "provisional_odds_percent": 66.0
+        },
+        {
+          "round": 2,
+          "influence_percent": 90,
+          "sanity_after": 3,
+          "provisional_odds_percent": 57.75
+        },
+        {
+          "round": 3,
+          "influence_percent": 150,
+          "sanity_after": 1,
+          "provisional_odds_percent": 66.0
+        }
+      ],
+      "average_influence_percent": 120.0,
+      "adjusted_odds_percent": 66.0,
+      "final_vote_roll": 42,
+      "outcome": "vote_passed"
+    },
+    {
+      "name": "Closes after opening",
+      "starting_odds_percent": 55,
+      "starting_sanity": 7,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 120,
+          "sanity_after": 5,
+          "provisional_odds_percent": 66.0
+        }
+      ],
+      "average_influence_percent": 120.0,
+      "adjusted_odds_percent": 66.0,
+      "final_vote_roll": 42,
+      "outcome": "vote_passed"
+    },
+    {
+      "name": "Closes after follow-up",
+      "starting_odds_percent": 55,
+      "starting_sanity": 7,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 120,
+          "sanity_after": 5,
+          "provisional_odds_percent": 66.0
+        },
+        {
+          "round": 2,
+          "influence_percent": 90,
+          "sanity_after": 3,
+          "provisional_odds_percent": 57.75
+        }
+      ],
+      "average_influence_percent": 105.0,
+      "adjusted_odds_percent": 57.75,
+      "final_vote_roll": 42,
+      "outcome": "vote_passed"
+    },
+    {
+      "name": "Final vote fails",
+      "starting_odds_percent": 55,
+      "starting_sanity": 7,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 120,
+          "sanity_after": 5,
+          "provisional_odds_percent": 66.0
+        },
+        {
+          "round": 2,
+          "influence_percent": 90,
+          "sanity_after": 3,
+          "provisional_odds_percent": 57.75
+        },
+        {
+          "round": 3,
+          "influence_percent": 150,
+          "sanity_after": 1,
+          "provisional_odds_percent": 66.0
+        }
+      ],
+      "average_influence_percent": 120.0,
+      "adjusted_odds_percent": 66.0,
+      "final_vote_roll": 78,
+      "outcome": "vote_failed"
+    },
+    {
+      "name": "Automatic victory",
+      "starting_odds_percent": 80,
+      "starting_sanity": 7,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 140,
+          "sanity_after": 5,
+          "provisional_odds_percent": 112.0
+        },
+        {
+          "round": 2,
+          "influence_percent": 130,
+          "sanity_after": 3,
+          "provisional_odds_percent": 108.0
+        },
+        {
+          "round": 3,
+          "influence_percent": 120,
+          "sanity_after": 1,
+          "provisional_odds_percent": 104.0
+        }
+      ],
+      "average_influence_percent": 130.0,
+      "adjusted_odds_percent": 104.0,
+      "final_vote_roll": null,
+      "outcome": "automatic_victory"
+    },
+    {
+      "name": "Exhaustion on third round",
+      "starting_odds_percent": 55,
+      "starting_sanity": 5,
+      "rounds": [
+        {
+          "round": 1,
+          "influence_percent": 120,
+          "sanity_after": 3,
+          "provisional_odds_percent": 66.0
+        },
+        {
+          "round": 2,
+          "influence_percent": 90,
+          "sanity_after": 1,
+          "provisional_odds_percent": 57.75
+        },
+        {
+          "round": 3,
+          "influence_percent": 150,
+          "sanity_after": 0,
+          "provisional_odds_percent": 66.0
+        }
+      ],
+      "outcome": "exhausted",
+      "final_vote_roll": null
+    }
+  ]
+}

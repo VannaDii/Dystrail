@@ -1,0 +1,92 @@
+[
+  {
+    "id": "END-VOTEFAIL-B",
+    "headline": "The Record Shows",
+    "epilogue": "The final vote goes against you. The chair congratulates the room on listening, then moves to the next item before anyone asks what the listening was for.",
+    "reason": "Replaces consoling commentary about preserved meaning with an action at the failed hearing."
+  },
+  {
+    "id": "END-SANITY-B",
+    "headline": "At Capacity",
+    "epilogue": "The strain leaves you unable to continue, and the trip ends. Somewhere a motivational speaker is calling this a mindset problem from a chair someone else carried.",
+    "reason": "Replaces the spendable sanity statistic with the experienced strain; keeps the joke aimed at privileged advice."
+  },
+  {
+    "id": "END-SANITY-C",
+    "headline": "Enough",
+    "epilogue": "Accumulated strain ends the expedition. The speeches about resilience carry on, conveniently delivered by people who can send somebody else to answer the difficult questions.",
+    "reason": "Removes narration about what the record preserves and keeps the cause as accumulated strain."
+  },
+  {
+    "id": "END-DESTROYED-A",
+    "headline": "Beyond a Spare Part",
+    "epilogue": "The van is destroyed, ending the journey. Replacing it would cost more than grit, optimism, and an enthusiastic speech about taking responsibility can raise.",
+    "reason": "Removes repair-choice instructions while retaining actual vehicle destruction without adding casualties or a location."
+  },
+  {
+    "id": "END-COLD-B",
+    "headline": "Below What You Could Bear",
+    "epilogue": "Cold exposure ends the trip. The advice to tough it out offers no shelter; its authors generally deliver it from heated rooms.",
+    "reason": "Replaces the recorded-cause label with narration and directs the satire at insulated advice."
+  },
+  {
+    "id": "END-HEAT-C",
+    "headline": "Beyond the Forecast",
+    "epilogue": "Heat exposure brings the trip to an end. A confident forecast could describe the conditions; it could not make them bearable.",
+    "reason": "Removes the unsupported assertion that an accurate forecast was received while preserving heat exposure as the cause."
+  },
+  {
+    "id": "END-COLLAPSE-VEHICLE-B",
+    "headline": "The Van Has the Last Word",
+    "epilogue": "Vehicle trouble ends the trip. Whatever could be argued about the government, the van has become the more immediate opponent.",
+    "reason": "Removes the typed-outcome label without upgrading vehicle trouble to destruction or inventing rescue."
+  },
+  {
+    "id": "END-COLLAPSE-BREAKDOWN-A",
+    "headline": "Stranded Too Long",
+    "epilogue": "The unresolved breakdown ends the trip. The van remains broken, and determination turns out to be an extremely poor substitute for a working part.",
+    "reason": "Removes the instruction distinguishing this outcome from a completed repair; keeps the breakdown unresolved."
+  },
+  {
+    "id": "END-COLLAPSE-BREAKDOWN-B",
+    "headline": "The Repair That Didn’t Happen",
+    "epilogue": "The van is still broken when the expedition ends. The repair never comes together; the route map has become an ambitious suggestion for somebody else’s vehicle.",
+    "reason": "Avoids claiming that a missing spare specifically caused the unresolved breakdown."
+  },
+  {
+    "id": "END-COLLAPSE-CROSSING-C",
+    "headline": "Beyond This Point",
+    "epilogue": "The crossing failure ends the expedition. The destination remains elsewhere, beyond a route that cannot carry this journey any farther.",
+    "reason": "Removes an invented sign and denial of permission; crossing failure alone does not establish either."
+  },
+  {
+    "id": "END-INCOMPLETE-A",
+    "headline": "The Case Is Still Packed",
+    "epilogue": "The journey is unfinished. Washington has a talent for turning delays into permanent arrangements; this one has not become a verdict.",
+    "reason": "Removes save-record narration and the unnecessary assertion about an unseen hearing without declaring an outcome."
+  },
+  {
+    "id": "END-INCOMPLETE-C",
+    "headline": "The Road Can Wait",
+    "epilogue": "The journey remains unfinished. If there is another stretch, Washington is unlikely to have run out of things that need explaining.",
+    "reason": "Removes the instruction to keep the record and makes any continuation conditional."
+  },
+  {
+    "id": "END-FALLBACK-A",
+    "headline": "The Last Page Is Missing",
+    "epilogue": "The account breaks off before it says how the journey ended. Somewhere, a press office could make a triumph out of that much blank space.",
+    "reason": "Removes the reference to a game and preserves the unknown outcome through an in-world account."
+  },
+  {
+    "id": "END-FALLBACK-B",
+    "headline": "The Missing Ending",
+    "epilogue": "The account ends without an outcome. A press office could probably fill the gap by lunchtime; finding out what happened would take actual work.",
+    "reason": "Replaces commentary about retained facts and hired staff with narration that leaves the outcome unknown."
+  },
+  {
+    "id": "END-FALLBACK-C",
+    "headline": "An Unanswered Question",
+    "epilogue": "What became of the journey is unknown. No grand conclusion emerges from the silence, although that has rarely stopped a podium from being wheeled out.",
+    "reason": "Removes the official-looking screen reference without inventing a journey result or anyone’s fate."
+  }
+]

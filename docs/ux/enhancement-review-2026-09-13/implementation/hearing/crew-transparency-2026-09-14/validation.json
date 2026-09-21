@@ -1,0 +1,58 @@
+{
+  "revision": "a9965b9895e256c1042c",
+  "scope": [
+    "standing sprite chroma key",
+    "rendered-pixel regression"
+  ],
+  "browsers": {
+    "in_app": {
+      "before_reproduced": true,
+      "all_six_cutouts_inspected": true,
+      "road_and_arrival_inspected": true,
+      "existing_638px_tab_reloaded": true,
+      "errors": []
+    },
+    "chromium_headless_shell": {
+      "passed": 4
+    },
+    "installed_chrome": {
+      "passed": 4
+    }
+  },
+  "sprite_widths_px": [
+    128,
+    64,
+    41.5
+  ],
+  "game_client_screens": [
+    "travel",
+    "boss/Arrival"
+  ],
+  "checks": {
+    "wasm_pedantic_clippy": "passed",
+    "rustfmt": "passed",
+    "diff_check": "passed",
+    "offline_assets_verified": 128
+  },
+  "user_visible_state_before_and_after": {
+    "screen": "travel",
+    "day": 2,
+    "time": "10:02",
+    "stats": [
+      13,
+      9,
+      10,
+      7,
+      0,
+      5,
+      1
+    ],
+    "cash": 14,
+    "crew_count": 6
+  },
+  "preview_ports": [
+    62523,
+    62524
+  ],
+  "published": false
+}

@@ -1,0 +1,1174 @@
+{
+  "key": "care",
+  "title": "Crew care",
+  "target": 24,
+  "count": 24,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Crew care",
+      "role": "title"
+    },
+    {
+      "text": "24 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "CARE-01-A · Alive With Goodness",
+      "role": "heading"
+    },
+    {
+      "text": "{name} tries raw milk from a “Make America Healthy Again” stall. The vendor calls it “alive with goodness.” Judging by the screaming from the toilet, the goodness has a knife.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still ill from the MAHA raw milk. The vendor has promoted the stomach cramps to a cleansing process.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers with care. The vendor asks for a testimonial. You offer the bathroom key.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The affected traveler heads toward a portable toilet while a raw-milk vendor proudly presents an unlettered bottle. A small knife-shaped shadow falls from the bottle; no violence.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Make America Healthy Again” — Separate editable overlay on the indicated blank prop or beside it; “Alive with goodness” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "CARE-01-B · The Freedom Fridge",
+      "role": "heading"
+    },
+    {
+      "text": "{name} drinks raw milk at a MAHA stall opposing government food rules. They start vomiting. The vendor checks the fridge: unplugged, in protest.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still sick. The vendor says refrigeration is a slippery slope to federal control of cheese.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers. The vendor plugs in the fridge and asks you to keep his surrender quiet.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Unplugged mini-fridge behind a MAHA vendor; affected traveler leaning near a wash station. The unplugged cable is the focal gag.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MAHA” — Separate editable overlay on the indicated blank prop or beside it; “Keep government out of my fridge” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "CARE-01-C · A Second Opinion",
+      "role": "heading"
+    },
+    {
+      "text": "A MAHA vendor tells {name} raw milk builds immunity. Now they’re ill. He recommends a second bottle. Apparently the immune system needs a rematch.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains ill. The unopened second bottle sits in the van like a very small hostile nation.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. You decline the rematch. The bottle keeps its undefeated record.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Vendor offers another blank milk bottle while the ill traveler sits beside the van. Keep the second bottle sealed and conspicuously separate.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “B” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: MAHA marketed raw milk and food safety",
+      "role": "source",
+      "link": "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    },
+    {
+      "text": "CARE-02-A · Executive Forecast",
+      "role": "heading"
+    },
+    {
+      "text": "During a paid unloading shift, {name} becomes dehydrated. The boss crossed out the heat warning with a Sharpie, but apparently, the sun doesn’t take corrections. #sharpiegate",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still dehydrated. The Sharpie has made a full recovery and returned to management.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care restores {name}. The sun continues operating outside the boss’s chain of command.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Dehydrated traveler rests beside unloaded crates. A boss stands with a marker beside a blank warning board; heat shimmers beyond his small patch of shade.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Heat warning” — Separate editable overlay on the indicated blank prop or beside it; “Cancelled” — Separate editable overlay on the indicated blank prop or beside it; “#sharpiegate” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Sharpiegate",
+      "role": "source",
+      "link": "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    },
+    {
+      "text": "CARE-02-B · Local Control",
+      "role": "heading"
+    },
+    {
+      "text": "During an unloading shift, {name} becomes dehydrated. The boss praises Florida’s ban on local heat-break rules. “Government shouldn’t tell us what to do,” he says, blocking the water.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains dehydrated. The boss’s freedom to manage has developed an impressive thirst.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers with care. For several revolutionary minutes, thirst gets a vote.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: A boss blocks a shaded water cooler while the affected traveler sits among delivery crates. His own full glass has condensation.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “L” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: State bans on local heat protections",
+      "role": "source",
+      "link": "https://apnews.com/article/e271a2d78ef1545f4203b88bde514f9b"
+    },
+    {
+      "text": "CARE-02-C · Drill, Baby, Drink",
+      "role": "heading"
+    },
+    {
+      "text": "{name} becomes dehydrated unloading a “Drill, baby, drill” rally stage. The organizer says heat is natural. So is the ice in his private cooler.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still dehydrated. The organizer has ordered more ice for his argument.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The organizer guards the cooler like the last remaining oil reserve.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Rally-stage crates on hot asphalt, traveler in shade, organizer leaning protectively over a private ice cooler. No baked-in rally lettering.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “D” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “,” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it; “,” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "CARE-03-A · Proof of Labor",
+      "role": "heading"
+    },
+    {
+      "text": "After a temp shift, {name} stays up proving those hours count under Congress’s benefits work rules. By dawn, the only unpaid work is proving they work.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is exhausted from the benefits paperwork. Their shift is documented; the night spent proving it remains volunteer work.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. You put the forms away before they develop a work requirement of their own.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Exhausted traveler at a late-night diner table with a small mountain of blank forms and a crumpled work glove.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “B” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “f” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “w” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “k” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “q” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicaid and SNAP work requirements",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    },
+    {
+      "text": "CARE-03-B · Efficient Exhaustion",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses sleep helping a laid-off DOGE-cut worker assemble job applications. The government called them redundant. Every employer wants the same information entered again.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still exhausted. The last application has asked the worker to upload the résumé it just deleted.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care restores {name}. For once, something has been saved without creating a new account.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Traveler nods over a laptop beside a former public worker holding a plain résumé; repetitive empty form boxes remain blank for overlays.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “P” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE and national park staffing",
+      "role": "source",
+      "link": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654"
+    },
+    {
+      "text": "CARE-03-C · The Merit Test",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses a night applying for a government contractor’s temp work. The firm denounces DEI. Its application asks whether the owner’s nephew referred them. He’s twelve.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted. The nephew’s referral box is still the shortest route through the merit system.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers. The nephew is unavailable for comment; it’s a school night.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Exhausted adult traveler faces a blank application while a contractor’s family portrait prominently displays a child in an oversized executive chair.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “M” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “-” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump anti-DEI actions",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/"
+    },
+    {
+      "text": "CARE-04-A · Presidential Serving",
+      "role": "heading"
+    },
+    {
+      "text": "At a stall celebrating Trump's cane-sugar Coke announcement, {name} accepts a gigantic sample and becomes nauseated. It's still soda. The vendor calls the size presidential: it has filled the available space and started demanding more.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains nauseated after the oversized soda sample. The serving has declared the stomach fully occupied.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The rest of the presidential serving is left without a constituency.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits nauseated beside a comically oversized plain drink cup at a roadside tasting stall; the vendor gestures proudly at the cup. No care, drinking or recovery is underway.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Cane-sugar option” — On the blank stall placard as a separate overlay",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Coca-Cola reports second-quarter 2025 results (2025-07-22)",
+      "role": "source",
+      "link": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results"
+    },
+    {
+      "text": "Source: AP: Coca-Cola confirms a cane-sugar option after Trump’s claim (2025-07-22)",
+      "role": "source",
+      "link": "https://apnews.com/article/a95e4c1f25eaab05de7da5df30ff66ed"
+    },
+    {
+      "text": "CARE-04-B · Aspirational Digestion",
+      "role": "heading"
+    },
+    {
+      "text": "{name} feels sick after a café's free tasting. Its glowing reviews turn out to be invented. The FTC banned fake testimonials; the owner calls these aspirational. So is {name}'s plan to keep lunch down.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains ill after the tasting. The café's imaginary customers continue reporting perfect digestion.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The owner has finally met a customer whose feedback requires a bucket.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits nauseated beside an untouched remainder of a small tasting dish and an empty bucket; the café owner points toward blank review cards above several empty chairs.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)",
+      "role": "source",
+      "link": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers"
+    },
+    {
+      "text": "CARE-04-C · The Calendar Is Refrigerated",
+      "role": "heading"
+    },
+    {
+      "text": "At a tasting table, a cook waves news of California's clearer food-date labels. {name} gets sick from food the cook left in the sun. He has mastered the calendar. The thermometer is next.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains ill after the poorly stored sample. The cook is still very confident about the date.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The cook moves the calendar into the shade; the food has already made its point.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits unwell at the edge of a public tasting table; a separate cook holds a blank news clipping beside an unopened food container in direct sunlight and an unused cooler. No care has begun.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: California AB 660: Food and Beverage Date Labeling (2026-07-01)",
+      "role": "source",
+      "link": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB660"
+    },
+    {
+      "text": "Source: California Department of Food and Agriculture: Food Date Labeling",
+      "role": "source",
+      "link": "https://www.cdfa.ca.gov/is/foodrecovery/fooddatelabeling/"
+    },
+    {
+      "text": "CARE-05-A · Patriotically Lost",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses sleep reconciling maps after Trump’s Gulf and mountain renaming. The van still needs the same turn. Geography has failed its loyalty test.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is exhausted. Two maps disagree about the name of something that has not moved.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care restores {name}. You follow the road, which has managed to stay in office.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Traveler slumps between two otherwise identical blank maps; the route lines match precisely while removable label boxes sit in different piles.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “Gulf of Mexico” — Separate editable overlay on the indicated blank prop or beside it; “Gulf of America” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Gulf renaming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    },
+    {
+      "text": "CARE-05-B · Known at Every Sandwich Shop",
+      "role": "heading"
+    },
+    {
+      "text": "{name} stays up helping an airport traveler check TSA’s $45 verification option, which can still fail. The traveler empties a wallet full of loyalty cards. Twelve sandwich shops recognize them. The checkpoint is holding out.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted from the overnight wait. Recognition continues to improve everywhere that sells lunch.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The loyalty cards return to their proper work: getting sandwiches recognized.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits tired at a public airport-shuttle bench beside a separate traveler sorting plain loyalty cards from a wallet. No private details, ID text, verification result or boarding is shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1 (2026-02-01)",
+      "role": "source",
+      "link": "https://www.travel.dod.mil/About/News/Article/Article/4393216/travelers-without-real-id-could-pay-45-fee-for-tsas-confirmid-beginning-februar/"
+    },
+    {
+      "text": "CARE-05-C · Still in Service",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses sleep helping an overnight electronics-recycling drive. Duffy's testimony mentioned floppy disks in air-traffic infrastructure. The volunteer keeps moving one box from obsolete junk to potential federal supplier.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted. The floppy disks have survived another attempt to give them a proper retirement.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The oldest technology in the room no longer has the most rested face.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler rests their head on folded arms beside two open bins and a box of unmarked floppy disks; a separate volunteer hesitates between the bins. No aircraft or safety incident is depicted.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Secretary Duffy: July 2025 transportation oversight testimony (2025-07-16)",
+      "role": "source",
+      "link": "https://www.congress.gov/119/meeting/house/118483/witnesses/HHRG-119-PW00-Wstate-DuffyS-20250716.pdf"
+    },
+    {
+      "text": "CARE-06-A · Advertised Speed",
+      "role": "heading"
+    },
+    {
+      "text": "{name} stays up trying to load public records on a rest-stop connection. The FCC introduced broadband labels to disclose speeds and prices. This one is very informative about everything except when the page will appear.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted. The connection has supplied another full night of information about its price.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. You close the laptop; the loading wheel can entertain itself.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits exhausted beside an open laptop with a simple unlettered loading shape; a blank broadband information card stands beside the router, with other current travelers considering care.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FCC Announces Broadband Consumer Labels Compliance Dates (2024-04-10)",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-397551A1.pdf"
+    },
+    {
+      "text": "CARE-06-B · The Human Part",
+      "role": "heading"
+    },
+    {
+      "text": "{name} stays up helping a print shop repair AI artwork. The Copyright Office says prompts alone do not make someone the author. The owner discovers the importance of human creativity when forty painted hands need fingers.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted from redrawing the artwork. The owner's original creative contribution is still the invoice.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The remaining hands can wait for the visionary who ordered them.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler slumps beside pencils and unlettered illustrations of badly drawn hands; a separate print-shop owner holds a blank invoice. No copyrighted source artwork or text is embedded.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Copyright Office Releases Part 2 of Artificial Intelligence Report (2025-01-29)",
+      "role": "source",
+      "link": "https://www.copyright.gov/newsnet/2025/1060.html"
+    },
+    {
+      "text": "CARE-06-C · A Longer House",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses sleep helping renters draw out Trump's floated fifty-year mortgage idea for a public meeting. It was a proposal, not a new program. The payment calendar reaches the door before the floor plan reaches the sofa.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted. The mortgage calendar is still larger than the house it was meant to make affordable.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. You roll up the calendar before it reaches retirement.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits beside an extremely long blank calendar strip and a small plain floor-plan sketch at a public housing meeting; the strip is unrolled but no loan has been offered or signed.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)",
+      "role": "source",
+      "link": "https://apnews.com/article/56a931881ca6f6efeccf2de0333a83bd"
+    },
+    {
+      "text": "CARE-07-A · Five Things Before Breakfast",
+      "role": "heading"
+    },
+    {
+      "text": "{name} loses sleep helping a DOGE-cut friend list their work for an efficiency review. They count five tasks. The person requesting the list has created a sixth.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted. The review has classified time spent answering the review as administrative waste.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care restores {name}. You record one completed task: keeping an actual person functioning.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Traveler nods over a plain laptop while five physical work objects—keys, gloves, brush, map and radio—line the table.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE five-accomplishments emails",
+      "role": "source",
+      "link": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/"
+    },
+    {
+      "text": "CARE-07-B · Secure Group Chat",
+      "role": "heading"
+    },
+    {
+      "text": "After a loading job, {name} spends the night sorting the boss’s endless group messages. He copied the Pentagon’s bombing-plan chat. Nobody is sure who invited the pizza delivery driver.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still exhausted. The delivery driver knows tomorrow’s rota and would prefer to know who ordered garlic bread.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers. You mute the chat before the boss authorizes a second shift by emoji.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Traveler in the van faces an overflowing blank chat screen; nearby delivery driver holds a pizza box and a phone with the same notification shapes.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “S” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Signal airstrike chat",
+      "role": "source",
+      "link": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    },
+    {
+      "text": "CARE-07-C · Bonus Parking",
+      "role": "heading"
+    },
+    {
+      "text": "After the FTC's Spark earnings settlement, {name} spends a night helping a delivery worker check a bonus offer. The bonus fits in a coin tray. Its conditions unfold across the entire hood.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains exhausted from checking the bonus conditions. The fine print has needed more space than the delivery.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. The driver rolls up the conditions before they require their own parking bay.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits exhausted beside a separate delivery worker; a long blank conditions printout rests across the parked van’s hood, beside the worker’s small coin tray. No payment or crew resources change.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Walmart Agrees to $100 Million Judgment over Spark Driver Earnings Claims (2026-02-26)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2026/02/walmart-agrees-100-million-judgment-settle-ftc-states-charges-over-deceptive-earnings-claims-related"
+    },
+    {
+      "text": "Source: Walmart Fiscal 2026 Annual Report",
+      "role": "source",
+      "link": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000091/wmtfy26annualreport-final.pdf"
+    },
+    {
+      "text": "CARE-08-A · Self-Made, Staff Carried",
+      "role": "heading"
+    },
+    {
+      "text": "At a paid unloading job for a billionaire’s political fundraiser, {name} injures their back moving his memoir, I Did It All Myself. The donor steps over them to reach the podium.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains injured. The donor’s speech about self-reliance has required another pair of hands to turn the pages.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. You leave the remaining memoirs to pull themselves up by their dust jackets.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Injured traveler beside crates of blank memoir covers; an affluent fundraiser guest steps around the crates toward a podium. Other crew remain by the van.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “I” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “D” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “I” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “A” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “M” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “f” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Unlimited independent political money",
+      "role": "source",
+      "link": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "text": "CARE-08-B · The Donation Photo",
+      "role": "heading"
+    },
+    {
+      "text": "{name} strains their back moving food-pantry donations as the radio covers Congress’s SNAP cuts. A politician arrives to lift an empty box. Finally, a balanced workload.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} is still injured. The politician’s empty box has appeared in three photographs without requiring medical attention.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → {name} recovers with care. The empty box is unavailable to help; it has a press conference.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Affected traveler sits beside heavy donated groceries; fictional politician comfortably lifts an obviously empty open-bottomed box for a photographer.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “F” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Food assistance cuts",
+      "role": "source",
+      "link": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "text": "CARE-08-C · The Pension Has Weight",
+      "role": "heading"
+    },
+    {
+      "text": "At a public Studebaker-history event, {name} strains their back lifting pension records. Thousands of workers lost benefits in the 1963 collapse, helping spur ERISA. The benefits those workers lost have left a surprisingly heavy archive.",
+      "role": "body"
+    },
+    {
+      "text": "Continuing: {name} remains injured from lifting the pension records. The empty promises were printed on very heavy paper.",
+      "role": "body"
+    },
+    {
+      "text": "Critical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
+      "role": "body"
+    },
+    {
+      "text": "Provide care → Care helps {name} recover. Nobody volunteers to carry the sequel.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+      "role": "choice"
+    },
+    {
+      "text": "Press on → You continue without care. {name} remains unwell, and the incident can worsen.",
+      "role": "choice"
+    },
+    {
+      "text": "Companion lost → {name} has died after the crew continued without care. Their place in the van is empty.",
+      "role": "choice"
+    },
+    {
+      "text": "Player lost → You have died after continuing without care. Your journey ends here.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: At a public industrial-history event, the affected current traveler braces their sore back beside a heavy closed archive box; a retired worker holds the unused hand truck nearby. No care has begun.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: US Department of Labor: Studebaker Plant Closes (1963-12-09)",
+      "role": "source",
+      "link": "https://www.dol.gov/node/22391"
+    },
+    {
+      "text": "Source: US Department of Labor: ERISA (undated)",
+      "role": "source",
+      "link": "https://www.dol.gov/general/topic/health-plans/erisa"
+    }
+  ],
+  "text": "Crew care\n24 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nCARE-01-A · Alive With Goodness\n{name} tries raw milk from a “Make America Healthy Again” stall. The vendor calls it “alive with goodness.” Judging by the screaming from the toilet, the goodness has a knife.\nContinuing: {name} is still ill from the MAHA raw milk. The vendor has promoted the stomach cramps to a cleansing process.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers with care. The vendor asks for a testimonial. You offer the bathroom key.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: The affected traveler heads toward a portable toilet while a raw-milk vendor proudly presents an unlettered bottle. A small knife-shaped shadow falls from the bottle; no violence.\nEditable overlays: “Make America Healthy Again” — Separate editable overlay on the indicated blank prop or beside it; “Alive with goodness” — Separate editable overlay on the indicated blank prop or beside it\nSource: MAHA marketed raw milk and food safety\nCARE-01-B · The Freedom Fridge\n{name} drinks raw milk at a MAHA stall opposing government food rules. They start vomiting. The vendor checks the fridge: unplugged, in protest.\nContinuing: {name} is still sick. The vendor says refrigeration is a slippery slope to federal control of cheese.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers. The vendor plugs in the fridge and asks you to keep his surrender quiet.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Unplugged mini-fridge behind a MAHA vendor; affected traveler leaning near a wash station. The unplugged cable is the focal gag.\nEditable overlays: “MAHA” — Separate editable overlay on the indicated blank prop or beside it; “Keep government out of my fridge” — Separate editable overlay on the indicated blank prop or beside it\nSource: MAHA marketed raw milk and food safety\nCARE-01-C · A Second Opinion\nA MAHA vendor tells {name} raw milk builds immunity. Now they’re ill. He recommends a second bottle. Apparently the immune system needs a rematch.\nContinuing: {name} remains ill. The unopened second bottle sits in the van like a very small hostile nation.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. You decline the rematch. The bottle keeps its undefeated record.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Vendor offers another blank milk bottle while the ill traveler sits beside the van. Keep the second bottle sealed and conspicuously separate.\nEditable overlays: “B” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it\nSource: MAHA marketed raw milk and food safety\nCARE-02-A · Executive Forecast\nDuring a paid unloading shift, {name} becomes dehydrated. The boss crossed out the heat warning with a Sharpie, but apparently, the sun doesn’t take corrections. #sharpiegate\nContinuing: {name} is still dehydrated. The Sharpie has made a full recovery and returned to management.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care restores {name}. The sun continues operating outside the boss’s chain of command.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Dehydrated traveler rests beside unloaded crates. A boss stands with a marker beside a blank warning board; heat shimmers beyond his small patch of shade.\nEditable overlays: “Heat warning” — Separate editable overlay on the indicated blank prop or beside it; “Cancelled” — Separate editable overlay on the indicated blank prop or beside it; “#sharpiegate” — Separate editable overlay on the indicated blank prop or beside it\nSource: Sharpiegate\nCARE-02-B · Local Control\nDuring an unloading shift, {name} becomes dehydrated. The boss praises Florida’s ban on local heat-break rules. “Government shouldn’t tell us what to do,” he says, blocking the water.\nContinuing: {name} remains dehydrated. The boss’s freedom to manage has developed an impressive thirst.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers with care. For several revolutionary minutes, thirst gets a vote.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: A boss blocks a shaded water cooler while the affected traveler sits among delivery crates. His own full glass has condensation.\nEditable overlays: “L” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it\nSource: State bans on local heat protections\nCARE-02-C · Drill, Baby, Drink\n{name} becomes dehydrated unloading a “Drill, baby, drill” rally stage. The organizer says heat is natural. So is the ice in his private cooler.\nContinuing: {name} is still dehydrated. The organizer has ordered more ice for his argument.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The organizer guards the cooler like the last remaining oil reserve.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Rally-stage crates on hot asphalt, traveler in shade, organizer leaning protectively over a private ice cooler. No baked-in rally lettering.\nEditable overlays: “D” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “,” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it; “,” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump energy and climate rollback\nCARE-03-A · Proof of Labor\nAfter a temp shift, {name} stays up proving those hours count under Congress’s benefits work rules. By dawn, the only unpaid work is proving they work.\nContinuing: {name} is exhausted from the benefits paperwork. Their shift is documented; the night spent proving it remains volunteer work.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. You put the forms away before they develop a work requirement of their own.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Exhausted traveler at a late-night diner table with a small mountain of blank forms and a crumpled work glove.\nEditable overlays: “B” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “f” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “w” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “k” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “q” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it\nSource: Medicaid and SNAP work requirements\nCARE-03-B · Efficient Exhaustion\n{name} loses sleep helping a laid-off DOGE-cut worker assemble job applications. The government called them redundant. Every employer wants the same information entered again.\nContinuing: {name} is still exhausted. The last application has asked the worker to upload the résumé it just deleted.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care restores {name}. For once, something has been saved without creating a new account.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Traveler nods over a laptop beside a former public worker holding a plain résumé; repetitive empty form boxes remain blank for overlays.\nEditable overlays: “P” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “o” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it\nSource: DOGE and national park staffing\nCARE-03-C · The Merit Test\n{name} loses a night applying for a government contractor’s temp work. The firm denounces DEI. Its application asks whether the owner’s nephew referred them. He’s twelve.\nContinuing: {name} remains exhausted. The nephew’s referral box is still the shortest route through the merit system.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers. The nephew is unavailable for comment; it’s a school night.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Exhausted adult traveler faces a blank application while a contractor’s family portrait prominently displays a child in an oversized executive chair.\nEditable overlays: “M” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “-” — Separate editable overlay on the indicated blank prop or beside it; “b” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it\nSource: Trump anti-DEI actions\nCARE-04-A · Presidential Serving\nAt a stall celebrating Trump's cane-sugar Coke announcement, {name} accepts a gigantic sample and becomes nauseated. It's still soda. The vendor calls the size presidential: it has filled the available space and started demanding more.\nContinuing: {name} remains nauseated after the oversized soda sample. The serving has declared the stomach fully occupied.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The rest of the presidential serving is left without a constituency.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits nauseated beside a comically oversized plain drink cup at a roadside tasting stall; the vendor gestures proudly at the cup. No care, drinking or recovery is underway.\nEditable overlays: “Cane-sugar option” — On the blank stall placard as a separate overlay\nSource: Coca-Cola reports second-quarter 2025 results (2025-07-22)\nSource: AP: Coca-Cola confirms a cane-sugar option after Trump’s claim (2025-07-22)\nCARE-04-B · Aspirational Digestion\n{name} feels sick after a café's free tasting. Its glowing reviews turn out to be invented. The FTC banned fake testimonials; the owner calls these aspirational. So is {name}'s plan to keep lunch down.\nContinuing: {name} remains ill after the tasting. The café's imaginary customers continue reporting perfect digestion.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The owner has finally met a customer whose feedback requires a bucket.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits nauseated beside an untouched remainder of a small tasting dish and an empty bucket; the café owner points toward blank review cards above several empty chairs.\nSource: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)\nCARE-04-C · The Calendar Is Refrigerated\nAt a tasting table, a cook waves news of California's clearer food-date labels. {name} gets sick from food the cook left in the sun. He has mastered the calendar. The thermometer is next.\nContinuing: {name} remains ill after the poorly stored sample. The cook is still very confident about the date.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The cook moves the calendar into the shade; the food has already made its point.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits unwell at the edge of a public tasting table; a separate cook holds a blank news clipping beside an unopened food container in direct sunlight and an unused cooler. No care has begun.\nSource: California AB 660: Food and Beverage Date Labeling (2026-07-01)\nSource: California Department of Food and Agriculture: Food Date Labeling\nCARE-05-A · Patriotically Lost\n{name} loses sleep reconciling maps after Trump’s Gulf and mountain renaming. The van still needs the same turn. Geography has failed its loyalty test.\nContinuing: {name} is exhausted. Two maps disagree about the name of something that has not moved.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care restores {name}. You follow the road, which has managed to stay in office.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Traveler slumps between two otherwise identical blank maps; the route lines match precisely while removable label boxes sit in different piles.\nEditable overlays: “Gulf of Mexico” — Separate editable overlay on the indicated blank prop or beside it; “Gulf of America” — Separate editable overlay on the indicated blank prop or beside it\nSource: Gulf renaming\nCARE-05-B · Known at Every Sandwich Shop\n{name} stays up helping an airport traveler check TSA’s $45 verification option, which can still fail. The traveler empties a wallet full of loyalty cards. Twelve sandwich shops recognize them. The checkpoint is holding out.\nContinuing: {name} remains exhausted from the overnight wait. Recognition continues to improve everywhere that sells lunch.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The loyalty cards return to their proper work: getting sandwiches recognized.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits tired at a public airport-shuttle bench beside a separate traveler sorting plain loyalty cards from a wallet. No private details, ID text, verification result or boarding is shown.\nSource: Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1 (2026-02-01)\nCARE-05-C · Still in Service\n{name} loses sleep helping an overnight electronics-recycling drive. Duffy's testimony mentioned floppy disks in air-traffic infrastructure. The volunteer keeps moving one box from obsolete junk to potential federal supplier.\nContinuing: {name} remains exhausted. The floppy disks have survived another attempt to give them a proper retirement.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The oldest technology in the room no longer has the most rested face.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler rests their head on folded arms beside two open bins and a box of unmarked floppy disks; a separate volunteer hesitates between the bins. No aircraft or safety incident is depicted.\nSource: Secretary Duffy: July 2025 transportation oversight testimony (2025-07-16)\nCARE-06-A · Advertised Speed\n{name} stays up trying to load public records on a rest-stop connection. The FCC introduced broadband labels to disclose speeds and prices. This one is very informative about everything except when the page will appear.\nContinuing: {name} remains exhausted. The connection has supplied another full night of information about its price.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. You close the laptop; the loading wheel can entertain itself.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits exhausted beside an open laptop with a simple unlettered loading shape; a blank broadband information card stands beside the router, with other current travelers considering care.\nSource: FCC Announces Broadband Consumer Labels Compliance Dates (2024-04-10)\nCARE-06-B · The Human Part\n{name} stays up helping a print shop repair AI artwork. The Copyright Office says prompts alone do not make someone the author. The owner discovers the importance of human creativity when forty painted hands need fingers.\nContinuing: {name} remains exhausted from redrawing the artwork. The owner's original creative contribution is still the invoice.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The remaining hands can wait for the visionary who ordered them.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler slumps beside pencils and unlettered illustrations of badly drawn hands; a separate print-shop owner holds a blank invoice. No copyrighted source artwork or text is embedded.\nSource: Copyright Office Releases Part 2 of Artificial Intelligence Report (2025-01-29)\nCARE-06-C · A Longer House\n{name} loses sleep helping renters draw out Trump's floated fifty-year mortgage idea for a public meeting. It was a proposal, not a new program. The payment calendar reaches the door before the floor plan reaches the sofa.\nContinuing: {name} remains exhausted. The mortgage calendar is still larger than the house it was meant to make affordable.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. You roll up the calendar before it reaches retirement.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits beside an extremely long blank calendar strip and a small plain floor-plan sketch at a public housing meeting; the strip is unrolled but no loan has been offered or signed.\nSource: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)\nCARE-07-A · Five Things Before Breakfast\n{name} loses sleep helping a DOGE-cut friend list their work for an efficiency review. They count five tasks. The person requesting the list has created a sixth.\nContinuing: {name} remains exhausted. The review has classified time spent answering the review as administrative waste.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care restores {name}. You record one completed task: keeping an actual person functioning.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Traveler nods over a plain laptop while five physical work objects—keys, gloves, brush, map and radio—line the table.\nSource: DOGE five-accomplishments emails\nCARE-07-B · Secure Group Chat\nAfter a loading job, {name} spends the night sorting the boss’s endless group messages. He copied the Pentagon’s bombing-plan chat. Nobody is sure who invited the pizza delivery driver.\nContinuing: {name} is still exhausted. The delivery driver knows tomorrow’s rota and would prefer to know who ordered garlic bread.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers. You mute the chat before the boss authorizes a second shift by emoji.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Traveler in the van faces an overflowing blank chat screen; nearby delivery driver holds a pizza box and a phone with the same notification shapes.\nEditable overlays: “S” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “m” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “c” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “a” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it\nSource: Signal airstrike chat\nCARE-07-C · Bonus Parking\nAfter the FTC's Spark earnings settlement, {name} spends a night helping a delivery worker check a bonus offer. The bonus fits in a coin tray. Its conditions unfold across the entire hood.\nContinuing: {name} remains exhausted from checking the bonus conditions. The fine print has needed more space than the delivery.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. The driver rolls up the conditions before they require their own parking bay.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits exhausted beside a separate delivery worker; a long blank conditions printout rests across the parked van’s hood, beside the worker’s small coin tray. No payment or crew resources change.\nSource: Walmart Agrees to $100 Million Judgment over Spark Driver Earnings Claims (2026-02-26)\nSource: Walmart Fiscal 2026 Annual Report\nCARE-08-A · Self-Made, Staff Carried\nAt a paid unloading job for a billionaire’s political fundraiser, {name} injures their back moving his memoir, I Did It All Myself. The donor steps over them to reach the podium.\nContinuing: {name} remains injured. The donor’s speech about self-reliance has required another pair of hands to turn the pages.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. You leave the remaining memoirs to pull themselves up by their dust jackets.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Injured traveler beside crates of blank memoir covers; an affluent fundraiser guest steps around the crates toward a podium. Other crew remain by the van.\nEditable overlays: “I” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “D” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “d” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “I” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “A” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “M” — Separate editable overlay on the indicated blank prop or beside it; “y” — Separate editable overlay on the indicated blank prop or beside it; “s” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “l” — Separate editable overlay on the indicated blank prop or beside it; “f” — Separate editable overlay on the indicated blank prop or beside it\nSource: Unlimited independent political money\nCARE-08-B · The Donation Photo\n{name} strains their back moving food-pantry donations as the radio covers Congress’s SNAP cuts. A politician arrives to lift an empty box. Finally, a balanced workload.\nContinuing: {name} is still injured. The politician’s empty box has appeared in three photographs without requiring medical attention.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → {name} recovers with care. The empty box is unavailable to help; it has a press conference.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: Affected traveler sits beside heavy donated groceries; fictional politician comfortably lifts an obviously empty open-bottomed box for a photographer.\nEditable overlays: “F” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “t” — Separate editable overlay on the indicated blank prop or beside it; “i” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “ ” — Separate editable overlay on the indicated blank prop or beside it; “h” — Separate editable overlay on the indicated blank prop or beside it; “u” — Separate editable overlay on the indicated blank prop or beside it; “n” — Separate editable overlay on the indicated blank prop or beside it; “g” — Separate editable overlay on the indicated blank prop or beside it; “e” — Separate editable overlay on the indicated blank prop or beside it; “r” — Separate editable overlay on the indicated blank prop or beside it\nSource: Food assistance cuts\nCARE-08-C · The Pension Has Weight\nAt a public Studebaker-history event, {name} strains their back lifting pension records. Thousands of workers lost benefits in the 1963 collapse, helping spur ERISA. The benefits those workers lost have left a surprisingly heavy archive.\nContinuing: {name} remains injured from lifting the pension records. The empty promises were printed on very heavy paper.\nCritical warning: {name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.\nProvide care → Care helps {name} recover. Nobody volunteers to carry the sequel.\nLeave in shelter → {name} stays in shelter and leaves the traveling crew alive. The incident is cleared.\nPress on → You continue without care. {name} remains unwell, and the incident can worsen.\nCompanion lost → {name} has died after the crew continued without care. Their place in the van is empty.\nPlayer lost → You have died after continuing without care. Your journey ends here.\nScene: At a public industrial-history event, the affected current traveler braces their sore back beside a heavy closed archive box; a retired worker holds the unused hand truck nearby. No care has begun.\nSource: US Department of Labor: Studebaker Plant Closes (1963-12-09)\nSource: US Department of Labor: ERISA (undated)\n"
+}

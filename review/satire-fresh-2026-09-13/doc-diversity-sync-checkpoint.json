@@ -1,0 +1,215 @@
+{
+  "documentId": "1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+  "savedUnits": [
+    "MODE-D",
+    "mode-guide",
+    "ENC-W-SW-D02-A",
+    "ENC-W-PC-D02-A",
+    "ENC-W-PC-D01-B",
+    "ENC-W-MW-D01-A",
+    "ENC-D10-A",
+    "ENC-D09-C",
+    "ENC-D09-B",
+    "ENC-D08-C",
+    "ENC-D08-B",
+    "ENC-D07-C",
+    "ENC-D07-B",
+    "ENC-D06-B",
+    "ENC-D06-A",
+    "ENC-D05-C",
+    "ENC-D05-B",
+    "ENC-D04-B",
+    "ENC-D04-A",
+    "ENC-D03-B",
+    "ENC-D03-A",
+    "ENC-D02-C",
+    "ENC-D02-B",
+    "ENC-D01-B",
+    "ENC-D01-A",
+    "ENC-W-SW-D02-C",
+    "ENC-W-SW-D01-B",
+    "ENC-W-SW-D01-A",
+    "ENC-W-PC-D02-C",
+    "ENC-W-PC-D01-C",
+    "ENC-W-MW-D02-B",
+    "ENC-W-MW-D02-A",
+    "ENC-W-MW-D01-C",
+    "ENC-D13-C",
+    "ENC-D13-B",
+    "ENC-D12-B",
+    "ENC-D12-A",
+    "ENC-D11-C",
+    "ENC-D11-A",
+    "ENC-D10-B",
+    "ENC-W-SW-C02-B",
+    "ENC-W-SW-C01-C",
+    "ENC-W-PC-C02-B",
+    "ENC-W-PC-C02-A",
+    "ENC-W-PC-C01-B",
+    "ENC-W-PC-C01-A",
+    "ENC-W-MW-C01-A",
+    "ENC-C17-C",
+    "ENC-C17-B",
+    "ENC-C17-A",
+    "ENC-C16-C",
+    "ENC-C16-A",
+    "ENC-C15-A",
+    "ENC-C14-C",
+    "ENC-C14-B",
+    "ENC-C13-C",
+    "ENC-C12-B",
+    "ENC-C11-B",
+    "ENC-C10-A",
+    "ENC-C09-B",
+    "ENC-C07-A",
+    "ENC-C06-B",
+    "ENC-C04-B",
+    "ENC-C04-A",
+    "ENC-S34-A",
+    "ENC-S33-C",
+    "ENC-S32-C",
+    "ENC-S31-C",
+    "ENC-S31-B",
+    "ENC-S31-A",
+    "ENC-S29-A",
+    "ENC-S28-C",
+    "ENC-S28-B",
+    "ENC-S28-A",
+    "ENC-S27-C",
+    "ENC-S27-B",
+    "ENC-S27-A",
+    "ENC-S26-B",
+    "ENC-S25-C"
+  ],
+  "writeBlock": {
+    "reason": "Automatic approval review acknowledged explicit authorization for scoped, revision-guarded edits, but rejected the next batch because the content is political satire and criticism rather than neutral, factual, source-cited material.",
+    "blockedAt": "2026-09-14T19:24:18.386Z",
+    "renewedAuthorizationReceived": true,
+    "standardConnectorRetrySavedUnits": 15
+  },
+  "readback": {
+    "status": "verified",
+    "documentId": "1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+    "url": "https://docs.google.com/document/d/1YIwegfefxIMTskhFsbTSwHBmWNyGo9zCmANuKfvLf9k",
+    "revisionId": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+    "tabs": [
+      {
+        "key": "start",
+        "tabId": "t.0",
+        "paragraphs": 18,
+        "unitCount": 0,
+        "textMatches": true
+      },
+      {
+        "key": "classic",
+        "tabId": "t.5bhbm0veor3n",
+        "paragraphs": 549,
+        "unitCount": 72,
+        "textMatches": true
+      },
+      {
+        "key": "deep",
+        "tabId": "t.hnz3abpdqe3b",
+        "paragraphs": 472,
+        "unitCount": 57,
+        "textMatches": true
+      },
+      {
+        "key": "shared",
+        "tabId": "t.w3pknsnu8gcm",
+        "paragraphs": 812,
+        "unitCount": 102,
+        "textMatches": true
+      },
+      {
+        "key": "towns",
+        "tabId": "t.e4vbtrh2qo76",
+        "paragraphs": 964,
+        "unitCount": 132,
+        "textMatches": true
+      },
+      {
+        "key": "care",
+        "tabId": "t.7s63fsgx99si",
+        "paragraphs": 289,
+        "unitCount": 24,
+        "textMatches": true
+      },
+      {
+        "key": "allies",
+        "tabId": "t.p06q9hquynli",
+        "paragraphs": 110,
+        "unitCount": 18,
+        "textMatches": true
+      },
+      {
+        "key": "crossings",
+        "tabId": "t.rgut5mnhec5b",
+        "paragraphs": 137,
+        "unitCount": 12,
+        "textMatches": true
+      },
+      {
+        "key": "orders",
+        "tabId": "t.5duejvu7jz5u",
+        "paragraphs": 128,
+        "unitCount": 18,
+        "textMatches": true
+      },
+      {
+        "key": "repairs",
+        "tabId": "t.waa4jgl1n7ci",
+        "paragraphs": 182,
+        "unitCount": 12,
+        "textMatches": true
+      },
+      {
+        "key": "routines",
+        "tabId": "t.5rhi5ifc3kte",
+        "paragraphs": 122,
+        "unitCount": 24,
+        "textMatches": true
+      },
+      {
+        "key": "conditions",
+        "tabId": "t.xrzbo5po3hds",
+        "paragraphs": 165,
+        "unitCount": 27,
+        "textMatches": true
+      },
+      {
+        "key": "departures",
+        "tabId": "t.8tsogsxzjsvx",
+        "paragraphs": 92,
+        "unitCount": 18,
+        "textMatches": true
+      },
+      {
+        "key": "hearing",
+        "tabId": "t.cu1bimlz2nkw",
+        "paragraphs": 60,
+        "unitCount": 6,
+        "textMatches": true
+      },
+      {
+        "key": "endings",
+        "tabId": "t.5ky1szdljxfq",
+        "paragraphs": 182,
+        "unitCount": 45,
+        "textMatches": true
+      },
+      {
+        "key": "reference",
+        "tabId": "t.e7vjkvgg2xca",
+        "paragraphs": 451,
+        "unitCount": 77,
+        "textMatches": true
+      }
+    ],
+    "totalParagraphs": 4733,
+    "unitHeadings": 644,
+    "sourceLinks": 739,
+    "nativeTextAndStylesVerified": true,
+    "errors": []
+  }
+}

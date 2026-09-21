@@ -1,0 +1,36 @@
+{
+  "revision": "d085be895d332cd717a9",
+  "verified_assets": 128,
+  "expression_atlases": [
+    {
+      "path": "static/img/journey/occupant-journalist-expressions-v1.png",
+      "bytes": 1458692,
+      "integrity": "sha256-jkgm4+wy1bU2iG/ueVVxO+ERtwJYT1xdklBfPNbnhg0="
+    },
+    {
+      "path": "static/img/journey/occupant-lobbyist-expressions-v1.png",
+      "bytes": 1318783,
+      "integrity": "sha256-tLC6LhncaomNYCczT2Pqagu7FCy8LTWdKe7eJ06HGVY="
+    },
+    {
+      "path": "static/img/journey/occupant-organizer-expressions-v1.png",
+      "bytes": 1451890,
+      "integrity": "sha256-KX6ZJPQ2oE02ESDWiV9Wh7Ifdx8FD3oLdOhcCXdahqA="
+    },
+    {
+      "path": "static/img/journey/occupant-satirist-expressions-v1.png",
+      "bytes": 1441096,
+      "integrity": "sha256-QH5DG2Ef5qiPdQuIGmv4YEa/a38lD71oIETRTb3ku0Q="
+    },
+    {
+      "path": "static/img/journey/occupant-staffer-expressions-v1.png",
+      "bytes": 1449659,
+      "integrity": "sha256-FWAZyQIouVrJojuraBCbQ4jR7pYYDBQLtqHN2PqoKCo="
+    },
+    {
+      "path": "static/img/journey/occupant-whistleblower-expressions-v1.png",
+      "bytes": 1313185,
+      "integrity": "sha256-Lol0K6saawf+OIVdJMltcDvBslvMJw7TqlV7F4OWw2w="
+    }
+  ]
+}

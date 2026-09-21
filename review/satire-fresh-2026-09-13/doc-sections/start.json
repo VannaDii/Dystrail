@@ -1,0 +1,82 @@
+{
+  "key": "start",
+  "title": "Start here",
+  "target": 1,
+  "count": 0,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Dystrail · Fresh satire draft",
+      "role": "title"
+    },
+    {
+      "text": "Revised political satire draft. This workshop contains 567 narrative packages and 77 factual or functional records. All narrative sections are ready for editorial review.",
+      "role": "body"
+    },
+    {
+      "text": "Six ordinary people set out in one van to make their case in D.C. Road scenes must establish how they become involved: a stop, a work offer, a purchase, a request for help, or trouble along the route. They do not automatically have customers, employers, staff or authority.",
+      "role": "body"
+    },
+    {
+      "text": "How to review",
+      "role": "heading"
+    },
+    {
+      "text": "Choose a content-type tab. Each entry has its stable ID, playable copy, scene direction and any editable overlays. Choices precede the arrow; their results follow. A, B and C are alternative scenes, not a sequence.",
+      "role": "body"
+    },
+    {
+      "text": "Classic keeps the political absurdity lighter. Deep End is an explicit opt-in to darker satire about attacks on trans rights, reproductive restrictions, surveillance abuse, detention, and denied care. Shared packages must fit Classic; Deep End material must never enter a shared pool or a Classic fallback.",
+      "role": "body"
+    },
+    {
+      "text": "Every narrative package needs a recognizable government action, political promise, policy or public scandal, an ordinary consequence, and a punchline that depends on that connection. Generic jokes about a boss, an app or poor service do not qualify. Approved English then moves into game resources, scene production and Spanish, Italian and Arabic localization.",
+      "role": "body"
+    },
+    {
+      "text": "The encounters, dialogue, bulletins and hearing are fictional. Linked sources document the real political hook. Town facts retain dates and distinguish proposals from enacted changes. Detailed source qualifications and outcome-specific art instructions remain with the structured content pack.",
+      "role": "body"
+    },
+    {
+      "text": "Art direction",
+      "role": "heading"
+    },
+    {
+      "text": "Every package suggests a display scene. Use distinct assets wherever the joke needs them; scene count is not constrained by the current art bank. Images contain no readable text, logos, numbers or lettering. Signs, book titles, messages, captions and interface words are separate localized overlays.",
+      "role": "body"
+    },
+    {
+      "text": "Before a choice, show the offer or problem. Show completed work, payments, exchanges and repairs only after the matching outcome. Use only present travelers; external allies are contacts outside the van. Departures, deaths and the player’s actual appearance remain authoritative.",
+      "role": "body"
+    },
+    {
+      "text": "Scope",
+      "role": "heading"
+    },
+    {
+      "text": "Road: 72 Classic, 57 Deep End, 102 shared. Towns: 132. Care: 24. Outside allies: 18. Crossings: 12. Orders: 18. Repairs: 12. Routine activities: 24. Conditions: 27. Departure introductions: 18. Hearing: 6. Endings: 45.",
+      "role": "body"
+    },
+    {
+      "text": "The 12 new western road families have proposed mechanical branches for design review. Existing families retain their ordered effects. Each town has three different sourced angles; fictional resident speech is separated from the facts.",
+      "role": "body"
+    },
+    {
+      "text": "Current-game corrections",
+      "role": "heading"
+    },
+    {
+      "text": "The 18 executive-order slots now cover the six orders the simulation actually runs: Shutdown, Travel Ban Lite, Book Panic, Tariff Tsunami, Education Department Eliminated, and War Department Reorganization. The draft ledger keeps the old editorial IDs as traceable slots.",
+      "role": "body"
+    },
+    {
+      "text": "The legal-fund item currently grants credibility, while tariff protection checks a separate inventory tag. Its description does not promise protection unless that tag is actually present.",
+      "role": "body"
+    },
+    {
+      "text": "Reference records retain their dated population/source basis. A proposal, warning, attempted cancellation or dated report is not rewritten as a confirmed current loss.",
+      "role": "body"
+    }
+  ],
+  "text": "Dystrail · Fresh satire draft\nRevised political satire draft. This workshop contains 567 narrative packages and 77 factual or functional records. All narrative sections are ready for editorial review.\nSix ordinary people set out in one van to make their case in D.C. Road scenes must establish how they become involved: a stop, a work offer, a purchase, a request for help, or trouble along the route. They do not automatically have customers, employers, staff or authority.\nHow to review\nChoose a content-type tab. Each entry has its stable ID, playable copy, scene direction and any editable overlays. Choices precede the arrow; their results follow. A, B and C are alternative scenes, not a sequence.\nClassic keeps the political absurdity lighter. Deep End is an explicit opt-in to darker satire about attacks on trans rights, reproductive restrictions, surveillance abuse, detention, and denied care. Shared packages must fit Classic; Deep End material must never enter a shared pool or a Classic fallback.\nEvery narrative package needs a recognizable government action, political promise, policy or public scandal, an ordinary consequence, and a punchline that depends on that connection. Generic jokes about a boss, an app or poor service do not qualify. Approved English then moves into game resources, scene production and Spanish, Italian and Arabic localization.\nThe encounters, dialogue, bulletins and hearing are fictional. Linked sources document the real political hook. Town facts retain dates and distinguish proposals from enacted changes. Detailed source qualifications and outcome-specific art instructions remain with the structured content pack.\nArt direction\nEvery package suggests a display scene. Use distinct assets wherever the joke needs them; scene count is not constrained by the current art bank. Images contain no readable text, logos, numbers or lettering. Signs, book titles, messages, captions and interface words are separate localized overlays.\nBefore a choice, show the offer or problem. Show completed work, payments, exchanges and repairs only after the matching outcome. Use only present travelers; external allies are contacts outside the van. Departures, deaths and the player’s actual appearance remain authoritative.\nScope\nRoad: 72 Classic, 57 Deep End, 102 shared. Towns: 132. Care: 24. Outside allies: 18. Crossings: 12. Orders: 18. Repairs: 12. Routine activities: 24. Conditions: 27. Departure introductions: 18. Hearing: 6. Endings: 45.\nThe 12 new western road families have proposed mechanical branches for design review. Existing families retain their ordered effects. Each town has three different sourced angles; fictional resident speech is separated from the facts.\nCurrent-game corrections\nThe 18 executive-order slots now cover the six orders the simulation actually runs: Shutdown, Travel Ban Lite, Book Panic, Tariff Tsunami, Education Department Eliminated, and War Department Reorganization. The draft ledger keeps the old editorial IDs as traceable slots.\nThe legal-fund item currently grants credibility, while tariff protection checks a separate inventory tag. Its description does not promise protection unless that tag is actually present.\nReference records retain their dated population/source basis. A proposal, warning, attempted cancellation or dated report is not rewritten as a confirmed current loss.\n"
+}

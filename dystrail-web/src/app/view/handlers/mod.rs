@@ -9,6 +9,7 @@ use yew::prelude::*;
 use yew_router::prelude::Navigator;
 
 pub use boss::build_boss;
+pub use boss::{HearingCommand, build_hearing};
 pub use prefs::{
     build_begin_boot, build_go_home, build_lang_change, build_settings_hc_change, build_toggle_hc,
 };
@@ -24,6 +25,7 @@ pub struct AppHandlers {
     pub diet_change: Callback<DietId>,
     pub encounter_choice: Callback<usize>,
     pub boss: Callback<()>,
+    pub hearing: Callback<HearingCommand>,
     pub save: Callback<()>,
     pub load: Callback<()>,
     pub export_state: Callback<()>,
@@ -45,6 +47,7 @@ impl AppHandlers {
             diet_change: build_diet_change(state),
             encounter_choice: build_encounter_choice(state),
             boss: build_boss(state),
+            hearing: build_hearing(state),
             save: build_save(state),
             load: build_load(state),
             export_state: build_export_state(state),

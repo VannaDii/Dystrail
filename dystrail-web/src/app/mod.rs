@@ -60,8 +60,12 @@ pub fn app_inner() -> Html {
                 *app_state.phase,
                 app_state.aftermath.is_some(),
                 app_state.pending_turn.is_some(),
+                app_state
+                    .session
+                    .as_ref()
+                    .map(|s| s.state().boss.presentation),
             ),
-            move |(_, feedback, transit)| {
+            move |(_, feedback, transit, _)| {
                 if !feedback && !transit {
                     *lock.borrow_mut() = false;
                 }

@@ -1,0 +1,584 @@
+{
+  "key": "crossings",
+  "title": "Crossings",
+  "target": 12,
+  "count": 12,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Crossings",
+      "role": "title"
+    },
+    {
+      "text": "12 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "CROSS-01-A · Both Sides of the Laminate",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing supervisor admires Congress and Biden imposing a rail agreement in 2022. He offers you the same negotiation: a laminated sheet bolted to the counter. The bolts appear to represent your side.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You’re waved through. The supervisor congratulates both sides of the sheet on a successful negotiation.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the diversion. The consultation ends with you consulting a map.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit settles it. He has finally met a document he didn’t write. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit settles it. He has finally met a document he didn’t write. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → Your payment secures passage. The negotiating table turns out to have a cash drawer.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → He keeps the money and refuses passage. Your position has been considered, then folded into his wallet.",
+      "role": "choice"
+    },
+    {
+      "text": "Refused passage → He refuses passage; you take the detour. He records unanimous agreement among the bolts.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The current van occupants face a crossing supervisor at a roadside counter with a blank laminated sheet conspicuously fixed down by bolts. Barrier remains lowered on the near side. No bargain, payment or passage is already shown.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Rail Workers Gain Sick Leave After Imposed Contract (2023-02)",
+      "role": "source",
+      "link": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f"
+    },
+    {
+      "text": "Source: Union Pacific: Train Types and Hump Yards (undated)",
+      "role": "source",
+      "link": "https://www.up.com/about-us/funstuff/rrtalk/train-types"
+    },
+    {
+      "text": "CROSS-01-B · Geographic Contraband",
+      "role": "heading"
+    },
+    {
+      "text": "The checkpoint officer spots “Gulf of Mexico” on your map. Trump renamed it. The officer holds the map by one corner, like it might leak Mexicans.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → He lets you pass after folding the offending Gulf out of sight. The ocean has been contained.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the detour. Both names continue to contain the same water.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit is accepted. Apparently the map has diplomatic immunity. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit is accepted. Apparently the map has diplomatic immunity. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment gets you through. He becomes surprisingly relaxed about where things come from.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → He takes the payment but refuses passage. You have purchased a very patriotic delay.",
+      "role": "choice"
+    },
+    {
+      "text": "Refused passage → He refuses passage. You detour around the checkpoint; the Gulf stays where it was.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Officer holds a folded blank map at arm’s length beside the waiting van. The tiny coastal area, not any human ethnicity, is the visual target.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Gulf renaming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    },
+    {
+      "text": "CROSS-01-C · Where Was the Van Born?",
+      "role": "heading"
+    },
+    {
+      "text": "The checkpoint officer announces Trump-style extreme vetting. He asks where the van was born. You point to the manufacturer’s plate. “Long-form certificate,” he says.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You are waved through. The van’s citizenship interview has not improved its suspension.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You detour. The van is now accused of taking jobs from American vans.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit is accepted. The van is apparently a naturalized cargo space. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit is accepted. The van is apparently a naturalized cargo space. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment opens the barrier. The van has qualified for the investor route.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is taken; the barrier stays down. The van’s investment has become foreign aid.",
+      "role": "choice"
+    },
+    {
+      "text": "Refused passage → Passage is refused. You take the detour before he asks the spare tire for its grandparents.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: An officer bends toward a blank manufacturer plate while the travelers wait beside the van; a towering stack of blank forms dwarfs the tiny plate.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 entry restrictions and extreme vetting",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/06/restricting-the-entry-of-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats/"
+    },
+    {
+      "text": "CROSS-02C-A · The Department of Barrier",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing office has copied Trump’s “Department of War” makeover. The new nameplate is enormous. Behind it, two workers are holding up the barrier by hand.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You cross while the workers hold the barrier. The nameplate offers strong moral support.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the detour. The new department has secured a decisive victory over traffic.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment gets the barrier raised. The department has discovered arms funding.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment disappears into the office. The workers still have only the original two arms each.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → You cannot complete this crossing. The expedition ends beneath a nameplate large enough to hide the problem.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Two tired crossing workers physically support a raised barrier beside an oversized blank office nameplate; the van remains on the approach.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Department of War naming",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    },
+    {
+      "text": "CROSS-02C-B · Merit-Based Concrete",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing boss boasts that he removed DEI from the inspection checklist. He points to a crack in the concrete. “That’s a diversity of surfaces.”",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You make it across. The concrete remains unpersuaded by the personnel policy.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You detour. The boss has successfully excluded your van from the bridge.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment clears the crossing. Merit has turned out to have a cash option.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is taken, but passage is refused. You have funded another investigation into the concrete’s pronouns.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → This crossing ends the expedition. The boss’s review recommends less diversity in the complaint form.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Boss proudly displays a blank inspection sheet beside an obvious concrete crack, with the waiting van safely before the crossing.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump anti-DEI actions",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/"
+    },
+    {
+      "text": "CROSS-02C-C · The Slot Works",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing supervisor has read about TSA’s $45 identity check, which doesn’t guarantee clearance. He likes the principle. His own counter now has a cash slot and a much smaller slot for objections.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → The barrier rises and you cross. He looks disappointed that a procedure has resulted in transportation.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the diversion. Your objection would fit the slot if folded into a paper airplane.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit clears you. He checks both sides for a payment he might have missed. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit clears you. He checks both sides for a payment he might have missed. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → Your payment opens the barrier. For once, the useful part of the machine moves.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → He takes your money and keeps the barrier down. The cash slot, he explains, is fully operational.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing ends your expedition. He points to the working cash slot as evidence that nothing here is broken.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The van waits on the near side of a crossing barrier. A separate supervisor indicates a broad slot and a comically narrow slit in an otherwise blank counter. Current occupants are considering the situation; no hands offer money or permits.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PAYMENTS” — above broad blank slot; “OBJECTIONS” — above narrow blank slot",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1 (2026-02-01)",
+      "role": "source",
+      "link": "https://www.travel.dod.mil/About/News/Article/Article/4393216/travelers-without-real-id-could-pay-45-fee-for-tsas-confirmid-beginning-februar/"
+    },
+    {
+      "text": "CROSS-02D-A · The Privacy Camera",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "The checkpoint’s Flock camera is advertised as protection. A woman ahead asks who protects her when an officer uses it to stalk her. The guard points to a second camera.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You pass. The second camera is apparently supervising the first camera’s personal growth.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the diversion. The privacy notice promises to record your concerns, along with your number plate.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit is accepted. The guard briefly experiences identifying someone without stalking them. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit is accepted. The guard briefly experiences identifying someone without stalking them. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment clears the barrier. Privacy remains unavailable, but passage has a price.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is taken and passage refused. The camera has preserved an excellent record of the customer experience.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing ends your expedition. The protection camera continues protecting the guard from having to remember anything.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Waiting van before a checkpoint camera. A separate woman questions a guard who points toward another camera instead of answering. Blank plates and screens; no private location data.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Flock database misuse to stalk women",
+      "role": "source",
+      "link": "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/"
+    },
+    {
+      "text": "CROSS-02D-B · Two Documents, One Person",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "At the checkpoint, a trans traveler’s renewed federal passport conflicts with her state ID. The guard says the computer cannot reconcile them. She suggests looking up from the computer.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You clear the crossing. The woman ahead remains one person, despite the office’s impressive ability to manufacture two problems.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You divert. The guard says the alternate road is less direct, a subject on which he has considerable experience.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment opens the barrier. The computer recognizes money with touching flexibility.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is taken; passage is refused. Money has been recognized. People remain under review.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing ends your expedition. The computer displays no conflict with that outcome.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: A separate trans traveler holds two blank identity cards with matching portraits while a guard stares at a blank monitor. Current crew and van wait behind; no body inspection or readable personal data.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal passport sex-marker policy",
+      "role": "source",
+      "link": "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html"
+    },
+    {
+      "text": "CROSS-02D-C · Screened for Needing Treatment",
+      "role": "heading"
+    },
+    {
+      "text": "Deep End only",
+      "role": "meta"
+    },
+    {
+      "text": "The checkpoint advertises ICE-style medical screening. A diabetic man asks about treatment. The guard points to his intake form. “We’ve already established that you need some.”",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You pass. The clinic’s treatment plan remains a very thorough description of why it needs a treatment plan.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You divert. The intake desk describes your departure as reduced demand for services.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit is accepted. The crossing can process paper considerably faster than it processes people. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit is accepted. The crossing can process paper considerably faster than it processes people. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment clears the barrier. The cash receives immediate attention from a specialist.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is taken without passage. The office has completed its financial intake.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing ends your expedition. The intake form is complete; the service it describes remains missing.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: A separate adult at a checkpoint clinic gestures toward an unused treatment chair while a guard displays a blank completed intake form. No medical procedure, distress spectacle or new crew passenger.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Detention medical care beyond intake",
+      "role": "source",
+      "link": "https://files.gao.gov/reports/GAO-26-108886/index.html"
+    },
+    {
+      "text": "CROSS-03-A · His Majesty’s Tollbooth",
+      "role": "heading"
+    },
+    {
+      "text": "At the final crossing, an official admires Trump’s “LONG LIVE THE KING!” post about trying to kill New York’s congestion toll. He has made himself a paper crown. It catches on the tollbooth ceiling.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → He lifts the barrier and you cross. The crown stays wedged in the ceiling, governing the booth without him.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You take the diversion. His Majesty points the way with a plastic coffee stirrer.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit clears the van. He lowers his crown to inspect a document with more authority. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit clears the van. He lowers his crown to inspect a document with more authority. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → Your payment opens the barrier. The royal treasury turns out to be a trouser pocket.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → He takes the payment but refuses passage. The royal treasury is flourishing; the transport policy needs work.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing ends your expedition. Inside the booth, His Majesty has to remove his crown to reach the kettle.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current occupants wait with the van on the near side of the final barrier. A separate crossing official wears a bent paper crown that touches the low booth ceiling; a plastic stirrer and kettle sit inside. No payment or crossing has occurred.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: New York governor’s transcript on the federal congestion-pricing reversal attempt (2025-02-19)",
+      "role": "source",
+      "link": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing"
+    },
+    {
+      "text": "Source: Southern District of New York: Congestion-pricing opinion (2026-03-03)",
+      "role": "source",
+      "link": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf"
+    },
+    {
+      "text": "CROSS-03-B · Approved Version of the Journey",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing office follows Trump’s demand for a more flattering American history. The officer weighs your case folder. “That’s a lot of country that needs improving.”",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You cross with the case. The country’s flattering biography has acquired an awkward appendix.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You detour. The officer starts describing your absence as public satisfaction.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit clears you. The folder remains inconveniently full. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit clears you. The folder remains inconveniently full. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment opens the barrier. Your story has found a sponsor.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is kept, but passage is refused. Sponsorship does not include editorial control.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → You cannot complete this crossing. The expedition ends; the official version is already shorter.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Officer weighs a thick, unlettered case folder beside a conspicuously thin blank official-history booklet, with the van waiting behind.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: White House history intervention",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    },
+    {
+      "text": "CROSS-03-C · The Department of Arrivals",
+      "role": "heading"
+    },
+    {
+      "text": "The crossing office is copying Trump’s plan to dismantle the Education Department: abolish the desk, announce better service. Your appointment is being held on an upturned bucket.",
+      "role": "body"
+    },
+    {
+      "text": "Passage → You cross. The bucket receives no credit for its public service.",
+      "role": "choice"
+    },
+    {
+      "text": "Diversion → You detour. The bucket is now managing both arrivals and complaints.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit receipt → Your permit clears you. The bucket has retained institutional knowledge. One Receipt is used.",
+      "role": "choice"
+    },
+    {
+      "text": "Permit tag → Your permit clears you. The bucket has retained institutional knowledge. Your permit tag remains available.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe success → The payment gets you through. A private contractor immediately offers to rent you a second bucket.",
+      "role": "choice"
+    },
+    {
+      "text": "Bribe failure → The payment is kept, but passage is refused. The contractor bills for bucket access.",
+      "role": "choice"
+    },
+    {
+      "text": "Terminal failure → The crossing cannot be completed. The expedition ends; the bucket has been shortlisted for promotion.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: An official balances blank appointment papers on an upturned bucket where a desk used to stand. Keep the van before the barrier.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Education Department dismantling direction",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    }
+  ],
+  "text": "Crossings\n12 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nCROSS-01-A · Both Sides of the Laminate\nThe crossing supervisor admires Congress and Biden imposing a rail agreement in 2022. He offers you the same negotiation: a laminated sheet bolted to the counter. The bolts appear to represent your side.\nPassage → You’re waved through. The supervisor congratulates both sides of the sheet on a successful negotiation.\nDiversion → You take the diversion. The consultation ends with you consulting a map.\nPermit receipt → Your permit settles it. He has finally met a document he didn’t write. One Receipt is used.\nPermit tag → Your permit settles it. He has finally met a document he didn’t write. Your permit tag remains available.\nBribe success → Your payment secures passage. The negotiating table turns out to have a cash drawer.\nBribe failure → He keeps the money and refuses passage. Your position has been considered, then folded into his wallet.\nRefused passage → He refuses passage; you take the detour. He records unanimous agreement among the bolts.\nScene: The current van occupants face a crossing supervisor at a roadside counter with a blank laminated sheet conspicuously fixed down by bolts. Barrier remains lowered on the near side. No bargain, payment or passage is already shown.\nSource: AP: Rail Workers Gain Sick Leave After Imposed Contract (2023-02)\nSource: Union Pacific: Train Types and Hump Yards (undated)\nCROSS-01-B · Geographic Contraband\nThe checkpoint officer spots “Gulf of Mexico” on your map. Trump renamed it. The officer holds the map by one corner, like it might leak Mexicans.\nPassage → He lets you pass after folding the offending Gulf out of sight. The ocean has been contained.\nDiversion → You take the detour. Both names continue to contain the same water.\nPermit receipt → Your permit is accepted. Apparently the map has diplomatic immunity. One Receipt is used.\nPermit tag → Your permit is accepted. Apparently the map has diplomatic immunity. Your permit tag remains available.\nBribe success → The payment gets you through. He becomes surprisingly relaxed about where things come from.\nBribe failure → He takes the payment but refuses passage. You have purchased a very patriotic delay.\nRefused passage → He refuses passage. You detour around the checkpoint; the Gulf stays where it was.\nScene: Officer holds a folded blank map at arm’s length beside the waiting van. The tiny coastal area, not any human ethnicity, is the visual target.\nSource: Gulf renaming\nCROSS-01-C · Where Was the Van Born?\nThe checkpoint officer announces Trump-style extreme vetting. He asks where the van was born. You point to the manufacturer’s plate. “Long-form certificate,” he says.\nPassage → You are waved through. The van’s citizenship interview has not improved its suspension.\nDiversion → You detour. The van is now accused of taking jobs from American vans.\nPermit receipt → Your permit is accepted. The van is apparently a naturalized cargo space. One Receipt is used.\nPermit tag → Your permit is accepted. The van is apparently a naturalized cargo space. Your permit tag remains available.\nBribe success → The payment opens the barrier. The van has qualified for the investor route.\nBribe failure → The payment is taken; the barrier stays down. The van’s investment has become foreign aid.\nRefused passage → Passage is refused. You take the detour before he asks the spare tire for its grandparents.\nScene: An officer bends toward a blank manufacturer plate while the travelers wait beside the van; a towering stack of blank forms dwarfs the tiny plate.\nSource: 2025 entry restrictions and extreme vetting\nCROSS-02C-A · The Department of Barrier\nThe crossing office has copied Trump’s “Department of War” makeover. The new nameplate is enormous. Behind it, two workers are holding up the barrier by hand.\nPassage → You cross while the workers hold the barrier. The nameplate offers strong moral support.\nDiversion → You take the detour. The new department has secured a decisive victory over traffic.\nPermit receipt → The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. One Receipt is used.\nPermit tag → The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. Your permit tag remains available.\nBribe success → The payment gets the barrier raised. The department has discovered arms funding.\nBribe failure → The payment disappears into the office. The workers still have only the original two arms each.\nTerminal failure → You cannot complete this crossing. The expedition ends beneath a nameplate large enough to hide the problem.\nScene: Two tired crossing workers physically support a raised barrier beside an oversized blank office nameplate; the van remains on the approach.\nSource: Department of War naming\nCROSS-02C-B · Merit-Based Concrete\nThe crossing boss boasts that he removed DEI from the inspection checklist. He points to a crack in the concrete. “That’s a diversity of surfaces.”\nPassage → You make it across. The concrete remains unpersuaded by the personnel policy.\nDiversion → You detour. The boss has successfully excluded your van from the bridge.\nPermit receipt → Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. One Receipt is used.\nPermit tag → Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. Your permit tag remains available.\nBribe success → The payment clears the crossing. Merit has turned out to have a cash option.\nBribe failure → The payment is taken, but passage is refused. You have funded another investigation into the concrete’s pronouns.\nTerminal failure → This crossing ends the expedition. The boss’s review recommends less diversity in the complaint form.\nScene: Boss proudly displays a blank inspection sheet beside an obvious concrete crack, with the waiting van safely before the crossing.\nSource: Trump anti-DEI actions\nCROSS-02C-C · The Slot Works\nThe crossing supervisor has read about TSA’s $45 identity check, which doesn’t guarantee clearance. He likes the principle. His own counter now has a cash slot and a much smaller slot for objections.\nPassage → The barrier rises and you cross. He looks disappointed that a procedure has resulted in transportation.\nDiversion → You take the diversion. Your objection would fit the slot if folded into a paper airplane.\nPermit receipt → Your permit clears you. He checks both sides for a payment he might have missed. One Receipt is used.\nPermit tag → Your permit clears you. He checks both sides for a payment he might have missed. Your permit tag remains available.\nBribe success → Your payment opens the barrier. For once, the useful part of the machine moves.\nBribe failure → He takes your money and keeps the barrier down. The cash slot, he explains, is fully operational.\nTerminal failure → The crossing ends your expedition. He points to the working cash slot as evidence that nothing here is broken.\nScene: The van waits on the near side of a crossing barrier. A separate supervisor indicates a broad slot and a comically narrow slit in an otherwise blank counter. Current occupants are considering the situation; no hands offer money or permits.\nEditable overlays: “PAYMENTS” — above broad blank slot; “OBJECTIONS” — above narrow blank slot\nSource: Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1 (2026-02-01)\nCROSS-02D-A · The Privacy Camera\nDeep End only\nThe checkpoint’s Flock camera is advertised as protection. A woman ahead asks who protects her when an officer uses it to stalk her. The guard points to a second camera.\nPassage → You pass. The second camera is apparently supervising the first camera’s personal growth.\nDiversion → You take the diversion. The privacy notice promises to record your concerns, along with your number plate.\nPermit receipt → Your permit is accepted. The guard briefly experiences identifying someone without stalking them. One Receipt is used.\nPermit tag → Your permit is accepted. The guard briefly experiences identifying someone without stalking them. Your permit tag remains available.\nBribe success → The payment clears the barrier. Privacy remains unavailable, but passage has a price.\nBribe failure → The payment is taken and passage refused. The camera has preserved an excellent record of the customer experience.\nTerminal failure → The crossing ends your expedition. The protection camera continues protecting the guard from having to remember anything.\nScene: Waiting van before a checkpoint camera. A separate woman questions a guard who points toward another camera instead of answering. Blank plates and screens; no private location data.\nSource: Flock database misuse to stalk women\nCROSS-02D-B · Two Documents, One Person\nDeep End only\nAt the checkpoint, a trans traveler’s renewed federal passport conflicts with her state ID. The guard says the computer cannot reconcile them. She suggests looking up from the computer.\nPassage → You clear the crossing. The woman ahead remains one person, despite the office’s impressive ability to manufacture two problems.\nDiversion → You divert. The guard says the alternate road is less direct, a subject on which he has considerable experience.\nPermit receipt → Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. One Receipt is used.\nPermit tag → Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. Your permit tag remains available.\nBribe success → The payment opens the barrier. The computer recognizes money with touching flexibility.\nBribe failure → The payment is taken; passage is refused. Money has been recognized. People remain under review.\nTerminal failure → The crossing ends your expedition. The computer displays no conflict with that outcome.\nScene: A separate trans traveler holds two blank identity cards with matching portraits while a guard stares at a blank monitor. Current crew and van wait behind; no body inspection or readable personal data.\nSource: Federal passport sex-marker policy\nCROSS-02D-C · Screened for Needing Treatment\nDeep End only\nThe checkpoint advertises ICE-style medical screening. A diabetic man asks about treatment. The guard points to his intake form. “We’ve already established that you need some.”\nPassage → You pass. The clinic’s treatment plan remains a very thorough description of why it needs a treatment plan.\nDiversion → You divert. The intake desk describes your departure as reduced demand for services.\nPermit receipt → Your permit is accepted. The crossing can process paper considerably faster than it processes people. One Receipt is used.\nPermit tag → Your permit is accepted. The crossing can process paper considerably faster than it processes people. Your permit tag remains available.\nBribe success → The payment clears the barrier. The cash receives immediate attention from a specialist.\nBribe failure → The payment is taken without passage. The office has completed its financial intake.\nTerminal failure → The crossing ends your expedition. The intake form is complete; the service it describes remains missing.\nScene: A separate adult at a checkpoint clinic gestures toward an unused treatment chair while a guard displays a blank completed intake form. No medical procedure, distress spectacle or new crew passenger.\nSource: Detention medical care beyond intake\nCROSS-03-A · His Majesty’s Tollbooth\nAt the final crossing, an official admires Trump’s “LONG LIVE THE KING!” post about trying to kill New York’s congestion toll. He has made himself a paper crown. It catches on the tollbooth ceiling.\nPassage → He lifts the barrier and you cross. The crown stays wedged in the ceiling, governing the booth without him.\nDiversion → You take the diversion. His Majesty points the way with a plastic coffee stirrer.\nPermit receipt → Your permit clears the van. He lowers his crown to inspect a document with more authority. One Receipt is used.\nPermit tag → Your permit clears the van. He lowers his crown to inspect a document with more authority. Your permit tag remains available.\nBribe success → Your payment opens the barrier. The royal treasury turns out to be a trouser pocket.\nBribe failure → He takes the payment but refuses passage. The royal treasury is flourishing; the transport policy needs work.\nTerminal failure → The crossing ends your expedition. Inside the booth, His Majesty has to remove his crown to reach the kettle.\nScene: Current occupants wait with the van on the near side of the final barrier. A separate crossing official wears a bent paper crown that touches the low booth ceiling; a plastic stirrer and kettle sit inside. No payment or crossing has occurred.\nSource: New York governor’s transcript on the federal congestion-pricing reversal attempt (2025-02-19)\nSource: Southern District of New York: Congestion-pricing opinion (2026-03-03)\nCROSS-03-B · Approved Version of the Journey\nThe crossing office follows Trump’s demand for a more flattering American history. The officer weighs your case folder. “That’s a lot of country that needs improving.”\nPassage → You cross with the case. The country’s flattering biography has acquired an awkward appendix.\nDiversion → You detour. The officer starts describing your absence as public satisfaction.\nPermit receipt → Your permit clears you. The folder remains inconveniently full. One Receipt is used.\nPermit tag → Your permit clears you. The folder remains inconveniently full. Your permit tag remains available.\nBribe success → The payment opens the barrier. Your story has found a sponsor.\nBribe failure → The payment is kept, but passage is refused. Sponsorship does not include editorial control.\nTerminal failure → You cannot complete this crossing. The expedition ends; the official version is already shorter.\nScene: Officer weighs a thick, unlettered case folder beside a conspicuously thin blank official-history booklet, with the van waiting behind.\nSource: White House history intervention\nCROSS-03-C · The Department of Arrivals\nThe crossing office is copying Trump’s plan to dismantle the Education Department: abolish the desk, announce better service. Your appointment is being held on an upturned bucket.\nPassage → You cross. The bucket receives no credit for its public service.\nDiversion → You detour. The bucket is now managing both arrivals and complaints.\nPermit receipt → Your permit clears you. The bucket has retained institutional knowledge. One Receipt is used.\nPermit tag → Your permit clears you. The bucket has retained institutional knowledge. Your permit tag remains available.\nBribe success → The payment gets you through. A private contractor immediately offers to rent you a second bucket.\nBribe failure → The payment is kept, but passage is refused. The contractor bills for bucket access.\nTerminal failure → The crossing cannot be completed. The expedition ends; the bucket has been shortlisted for promotion.\nScene: An official balances blank appointment papers on an upturned bucket where a desk used to stand. Keep the van before the barrier.\nSource: Education Department dismantling direction\n"
+}

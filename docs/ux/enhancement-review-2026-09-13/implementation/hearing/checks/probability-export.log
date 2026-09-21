@@ -1,0 +1,10 @@
+   Compiling dystrail-game v0.1.0 (/tmp/dystrail-hearing-audit/dystrail-game)
+   Compiling dystrail-tester v0.10.0 (/tmp/dystrail-hearing-audit/dystrail-tester)
+    Finished `release` profile [optimized] target(s) in 8.61s
+     Running unittests src/main.rs (/tmp/dystrail-hearing-baseline-target/release/deps/dystrail_tester-206e9a10ed4bf22c)
+
+running 1 test
+test logic::playability::hearing_release_diagnostic ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 4.06s
+

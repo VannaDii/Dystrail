@@ -1,0 +1,546 @@
+{
+  "key": "routines",
+  "title": "Gather, work, barter, rest",
+  "target": 24,
+  "count": 24,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Gather, work, barter, rest",
+      "role": "title"
+    },
+    {
+      "text": "24 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "ACT-BARTERBATTERY-A · Energy Independence",
+      "role": "heading"
+    },
+    {
+      "text": "Someone offers a battery for supplies at the exchange. Trump promises American energy independence on the radio. You ask if that includes starting the van.",
+      "role": "body"
+    },
+    {
+      "text": "Trade supplies for the battery → You get the battery. The van’s energy policy now has terminals.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Resident holds a replacement battery beside a small grocery bundle; a radio sits nearby.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "ACT-BARTERBATTERY-B · The Tariff-Free Conversation",
+      "role": "heading"
+    },
+    {
+      "text": "A resident offers a spare battery for supplies. After hearing the shop’s tariff quote, direct diplomacy between two broke people is looking remarkably sophisticated.",
+      "role": "body"
+    },
+    {
+      "text": "Make the battery trade → Supplies leave; a battery arrives. China has been spared another bill it wasn’t going to pay.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Exchange table holds a plain battery, groceries and an unopened printed shop quote.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump tariffs passed to Americans",
+      "role": "source",
+      "link": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/"
+    },
+    {
+      "text": "ACT-BARTERBATTERY-C · The Grid Is Negotiable",
+      "role": "heading"
+    },
+    {
+      "text": "At the exchange, a resident offers a battery for supplies. Politicians on the radio debate an energy emergency. The resident has brought the part you actually need.",
+      "role": "body"
+    },
+    {
+      "text": "Barter for the battery → The battery is yours. The debate continues without providing any voltage.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Resident taps a real battery while an unlettered radio display glows beside empty political leaflets.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Trump energy and climate rollback",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    },
+    {
+      "text": "ACT-BARTERSUPPLIES-A · A Very Small Redistribution",
+      "role": "heading"
+    },
+    {
+      "text": "A resident offers food for your spare tire. Congress is discussing who deserves assistance. The resident mainly wants a tire that holds air.",
+      "role": "body"
+    },
+    {
+      "text": "Trade the spare for supplies → You get supplies. Eligibility was established by looking at the tire.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Resident sets plain groceries opposite an intact spare; no money or goods have changed hands yet.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Food assistance cuts",
+      "role": "source",
+      "link": "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    },
+    {
+      "text": "ACT-BARTERSUPPLIES-B · Shared Custody of the Grocery Bill",
+      "role": "heading"
+    },
+    {
+      "text": "At the exchange, a Tulsa visitor offers some supplies for your spare tire. Oklahoma ended its state grocery tax; local taxes stayed. “Even my grocery bill has roommates.”",
+      "role": "body"
+    },
+    {
+      "text": "Swap the spare for supplies → You exchange the tire for some supplies. For once, the entire bag is coming home with you.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Tulsa visitor stands behind closed grocery bags, pointing at separate blank lines on an old receipt; a traveler considers the offer with the crew’s actual spare tire still beside the van.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients (undated)",
+      "role": "source",
+      "link": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html"
+    },
+    {
+      "text": "ACT-BARTERSUPPLIES-C · The Budget That Feeds Someone",
+      "role": "heading"
+    },
+    {
+      "text": "A resident offers supplies for a spare tire while Congress’s budget fight plays on a radio. You manage to move resources without discovering anyone is undeserving.",
+      "role": "body"
+    },
+    {
+      "text": "Exchange the tire for supplies → The trade is done. Your budget has produced lunch, putting it ahead of several televised proposals.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Simple swap table in front of a radio; groceries are unmistakably practical, the spare visibly intact.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: 2025 health spending law",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    },
+    {
+      "text": "ACT-BARTERTIRE-A · Independent Spending",
+      "role": "heading"
+    },
+    {
+      "text": "At the community exchange, a resident offers a tire for supplies. A nearby radio discusses unlimited political spending. You check whether the tire comes with a senator.",
+      "role": "body"
+    },
+    {
+      "text": "Trade supplies for the tire → The tire is yours. No senator included, but it may actually get you somewhere.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Resident presents an intact spare beside a modest grocery bundle and an ordinary radio.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Unlimited independent political money",
+      "role": "source",
+      "link": "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    },
+    {
+      "text": "ACT-BARTERTIRE-B · Strategic Rubber Reserve",
+      "role": "heading"
+    },
+    {
+      "text": "A resident offers a spare tire for some supplies. After Trump created a bitcoin reserve, she calls the tire her strategic reserve. It becomes considerably less strategic when you mention beans.",
+      "role": "body"
+    },
+    {
+      "text": "Trade supplies for the spare → You trade some supplies and stow the tire. National asset policy has been defeated by lunch.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: At a community exchange, a resident stands beside one spare tire and studies the travelers’ closed provisions bag from across the table; nothing has changed hands.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Establishment of the Strategic Bitcoin Reserve and United States Digital Asset Stockpile (2025-03-06)",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/DCPD-202500335/pdf/DCPD-202500335.pdf"
+    },
+    {
+      "text": "ACT-BARTERTIRE-C · After Deductions",
+      "role": "heading"
+    },
+    {
+      "text": "An off-duty server offers a tire for some supplies. Trump’s tip deduction helped with income tax; payroll taxes still appear on the server’s slip. “I’d like a deal with fewer people helping themselves first.”",
+      "role": "body"
+    },
+    {
+      "text": "Exchange supplies for the tire → You trade some supplies for the spare. The tire arrives whole, with nobody withholding the tread.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Server displays a blank pay slip beside the offered spare tire; current travelers consider the exchange across a table, their provisions still in their possession.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: IRS: Tips (undated)",
+      "role": "source",
+      "link": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips"
+    },
+    {
+      "text": "Source: IRS: Publication 15, Employer’s Tax Guide (2026)",
+      "role": "source",
+      "link": "https://www.irs.gov/publications/p15"
+    },
+    {
+      "text": "ACT-CASHWORK-A · Family Values Payroll",
+      "role": "heading"
+    },
+    {
+      "text": "A diner offers $18 for a three-hour cleanup. The owner praises Trump’s “no tax on tips” promise. You ask about the wage. He points at the tip jar.",
+      "role": "body"
+    },
+    {
+      "text": "Take the cleanup shift → You collect the $18 and lose some patience. The empty tip jar enjoys a completely tax-free afternoon.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Owner gestures to an empty tip jar beside dishes waiting to be cleared; travelers are still considering the job.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: No tax on tips and overtime",
+      "role": "source",
+      "link": "https://www.irs.gov/newsroom/one-big-beautiful-bill-how-to-take-advantage-of-no-tax-on-tips-and-overtime"
+    },
+    {
+      "text": "ACT-CASHWORK-B · Work You Can Sit On",
+      "role": "heading"
+    },
+    {
+      "text": "A hall offers $18 for teardown after a talk on a nuclear contractor billing for unworked hours. The caretaker points to the chairs. “These have to be physically absent.”",
+      "role": "body"
+    },
+    {
+      "text": "Stack the hall’s chairs → You stack the chairs, collect $18, and lose patience with the well-paid history of imaginary work.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Hall caretaker gestures to rows of empty chairs and a blank audit-talk poster; the current crew stands ready to consider the job, with no chairs yet moved.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Audit: DOE-OIG-25-36 (2025-11-26)",
+      "role": "source",
+      "link": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36"
+    },
+    {
+      "text": "ACT-CASHWORK-C · Infrastructure Week, Again",
+      "role": "heading"
+    },
+    {
+      "text": "A shop offers $18 to unload a delivery delayed by broken local access roads. The owner calls it Trump’s Infrastructure Week. The driver calls it Thursday.",
+      "role": "body"
+    },
+    {
+      "text": "Unload the delivery → You collect $18, tired of the speeches. The delivery truck has completed more public works than the slogan.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Delivery truck waits by a damaged access road; shop owner offers work beside untouched crates.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal attempts to withdraw Albuquerque walk/bike funding",
+      "role": "source",
+      "link": "https://www.cabq.gov/mayor/news/trump-administration-attempts-to-cancel-money-for-rail-trail"
+    },
+    {
+      "text": "ACT-FOODWORK-A · The Heavy End of Dairy Policy",
+      "role": "heading"
+    },
+    {
+      "text": "A community kitchen offers some food for a sorting shift. Volunteers discuss Congress returning whole milk to school-lunch menus. A carton has found a champion in Washington. The stack of crates is looking for one here.",
+      "role": "body"
+    },
+    {
+      "text": "Sort the kitchen donations → You earn some food and lose patience. Congress took the milk question. You took the heavy end.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Kitchen volunteer offers a sorting apron beside stacked unmarked cartons and unsorted donated groceries; current travelers consider the work with empty hands.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public Law 119-69: Whole Milk for Healthy Kids Act of 2025 (2026-01-14)",
+      "role": "source",
+      "link": "https://www.govinfo.gov/app/details/PLAW-119publ69"
+    },
+    {
+      "text": "ACT-FOODWORK-B · Domestic Grease",
+      "role": "heading"
+    },
+    {
+      "text": "A ranchers’ community dinner offers your crew some food for cleanup. The talk is Farm Bureau’s opposition to Trump’s Argentine beef-import proposal. Everyone has strong views about origin. Nobody is claiming the pans.",
+      "role": "body"
+    },
+    {
+      "text": "Help clean up for food → You earn some food and lose patience scraping plates. The argument about foreign beef has left a thoroughly domestic grease stain.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Community-dinner volunteer gestures toward dirty pans and a covered portion of food offered after work; current travelers stand at the kitchen entrance, before cleanup.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Suggestions to increase Argentinian beef imports harm Texas cattle ranchers (2025-10-20)",
+      "role": "source",
+      "link": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/"
+    },
+    {
+      "text": "ACT-FOODWORK-C · Origin of the Stain",
+      "role": "heading"
+    },
+    {
+      "text": "A community kitchen offers some food for cleaning cookware from a patriotic-goods fair. The FTC is pursuing false Made in USA claims. The pans have complicated biographies and uncomplicated grease.",
+      "role": "body"
+    },
+    {
+      "text": "Clean the donated cookware → You earn some food, tired of scraping. The patriotic adjectives come off before the burnt onions.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Kitchen volunteer displays an ordinary greasy pan with a blank paper flag sleeve caught on its handle; current travelers consider the offered cleanup beside unwashed cookware.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC Announces Made in the USA Sweep (2026-04-14)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2026/04/ftc-announces-made-usa-sweep-including-three-law-enforcement-actions-protect-american-consumers"
+    },
+    {
+      "text": "Source: Americana Liberty FTC case timeline: April 14, 2026",
+      "role": "source",
+      "link": "https://www.ftc.gov/legal-library/browse/cases-proceedings/americana-liberty-ftc-v-timeline-item-2026-04-14"
+    },
+    {
+      "text": "ACT-FORAGE-A · No Payslip Required",
+      "role": "heading"
+    },
+    {
+      "text": "A local guide leads a foraging walk while neighbors discuss Congress’s food-aid work rules. The blackberry bush has failed to install a document-upload portal.",
+      "role": "body"
+    },
+    {
+      "text": "Gather what the guide identifies → You gather some food. The bush accepts evidence that you are hungry. Washington may want to audit it.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Guide points out familiar edible berries to current travelers; a blank phone form sits unused beside a basket.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicaid and SNAP work requirements",
+      "role": "source",
+      "link": "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    },
+    {
+      "text": "ACT-FORAGE-B · The Redundant Botanist",
+      "role": "heading"
+    },
+    {
+      "text": "A botanist laid off in the DOGE cuts shows your crew what is safe to gather. She points to a dangerous lookalike. “That advice used to be considered waste.”",
+      "role": "body"
+    },
+    {
+      "text": "Follow the botanist’s guidance → You collect some food and avoid the lookalikes. The savings remain difficult to eat.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Former public botanist shows travelers two clearly different plants without a harvesting tutorial or readable labels.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: DOGE and national park staffing",
+      "role": "source",
+      "link": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654"
+    },
+    {
+      "text": "ACT-FORAGE-C · Open Access",
+      "role": "heading"
+    },
+    {
+      "text": "A botanist offers a permitted foraging walk. She’s celebrating NIH ending the embargo on newly covered research. Taxpayers can finally read what they funded. She points to the berries: “These have a simpler access policy.”",
+      "role": "body"
+    },
+    {
+      "text": "Gather with the botanist → You return with some food and a clearer head. The hedge never asks whether your library has a subscription.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Botanist indicates a permitted berry patch with a walking stick; current travelers consider the path with empty containers, and a blank research printout remains in her open satchel.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NIH Public Access Policy Overview (2025-07-01)",
+      "role": "source",
+      "link": "https://www.grants.nih.gov/policy-and-compliance/policy-topics/public-access/nih-public-access-policy-overview"
+    },
+    {
+      "text": "Source: NIH Notice: Accelerated Implementation of 2024 Public Access Policy",
+      "role": "source",
+      "link": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-101.html"
+    },
+    {
+      "text": "ACT-GLEAN-A · Permission to Pick",
+      "role": "heading"
+    },
+    {
+      "text": "A farmer offers your crew leftover produce. The FTC’s proposed Deere settlement promises better access to repair tools. His tractor is waiting on the promise. The vegetables have gone ahead without software approval.",
+      "role": "body"
+    },
+    {
+      "text": "Glean with permission → You collect some food and earn sore muscles. The carrots release themselves without an authorized dealer.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Farmer gestures toward a permitted row of leftover carrots while current travelers stand beside empty baskets; a stationary tractor and closed tool case sit in the distance.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FTC and states announce Deere right-to-repair settlement (2026-07-08)",
+      "role": "source",
+      "link": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair"
+    },
+    {
+      "text": "ACT-GLEAN-B · The Crate’s Expiration Date",
+      "role": "heading"
+    },
+    {
+      "text": "A farmer offers gleaning after volunteers mistook a reused crate’s old sell-by stamp for the vegetables’ birthday. She’s reading California’s new date-label law. The government has finally attempted to distinguish a date from a death certificate.",
+      "role": "body"
+    },
+    {
+      "text": "Glean the fresh vegetables → You collect some food and earn sore muscles. The ancient stamp stays on the empty crate, ready to frighten someone else.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Farmer gestures toward fresh vegetables growing in a permitted row while holding an empty reused crate with a blank old date-stamp surface; current travelers consider the offered gleaning.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SELL BY · LAST YEAR” — On the reused crate’s blank stamp surface",
+      "role": "scene"
+    },
+    {
+      "text": "Source: California AB 660: Food and Beverage Date Labeling (2026-07-01)",
+      "role": "source",
+      "link": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB660"
+    },
+    {
+      "text": "Source: California Department of Food and Agriculture: Food Date Labeling",
+      "role": "source",
+      "link": "https://www.cdfa.ca.gov/is/foodrecovery/fooddatelabeling/"
+    },
+    {
+      "text": "ACT-GLEAN-C · The Wrong Sort of Field",
+      "role": "heading"
+    },
+    {
+      "text": "A farmer offers leftover corn and shows a clipping about Maryland financing Hagerstown’s stadium. He studies an ear of corn. “Perhaps if it could throw a ball.”",
+      "role": "body"
+    },
+    {
+      "text": "Glean the remaining corn → You collect some food and strain your muscles. The corn has failed another tryout for public financing.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Farmer compares one ear of corn with a scuffed baseball beside a blank Maryland news clipping; travelers wait with empty baskets at a row they have permission to glean.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium (undated)",
+      "role": "source",
+      "link": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown"
+    },
+    {
+      "text": "ACT-REST-A · Reason for Absence",
+      "role": "heading"
+    },
+    {
+      "text": "Illinois lets covered workers earn paid leave for any reason. The crew can rest here for a day without a paycheck. Your reason is that nobody has the strength to invent a more professional one.",
+      "role": "body"
+    },
+    {
+      "text": "Take a day to rest → The day restores what it can. Your explanation has been reduced to a horizontal position.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers stand beside the parked van and an available resting place, considering a day off; a closed Illinois news clipping lies on a small table, and nobody is asleep yet.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Illinois General Assembly: Paid Leave for All Workers Act (2024)",
+      "role": "source",
+      "link": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT"
+    },
+    {
+      "text": "ACT-REST-B · The Clock Can Argue Alone",
+      "role": "heading"
+    },
+    {
+      "text": "Trump called for ending daylight saving, then for more evening daylight. Neither statement changed the clocks. The crew can rest for a day. You’re prepared to recognize whichever time contains a pillow.",
+      "role": "body"
+    },
+    {
+      "text": "Rest for the day → The day’s rest helps. You close the curtains and let Washington argue with the daylight outside.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Current travelers consider resting in the stationary van; curtains are still open, pillows unused, and a small unnumbered clock sits beside a dark radio.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: AP: Trump Calls for More Daylight as Debate over Clock Changes Continues (2025-04-11)",
+      "role": "source",
+      "link": "https://apnews.com/article/dd756bcf1f923c72b47d862c43be75d3"
+    },
+    {
+      "text": "ACT-REST-C · National Security, Airplane Mode",
+      "role": "heading"
+    },
+    {
+      "text": "The crew can take a day off the road. You silence the phones before another headline about the cabinet’s Signal chats. Let someone else accidentally run the Pentagon.",
+      "role": "body"
+    },
+    {
+      "text": "Rest and mute the phones → The crew rests. No airstrike plans are found in the sandwich order. A quiet diplomatic success.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Phones face down beside wrapped food while current crew rests by the van; no content embedded on screens.",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Signal airstrike chat",
+      "role": "source",
+      "link": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    }
+  ],
+  "text": "Gather, work, barter, rest\n24 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nACT-BARTERBATTERY-A · Energy Independence\nSomeone offers a battery for supplies at the exchange. Trump promises American energy independence on the radio. You ask if that includes starting the van.\nTrade supplies for the battery → You get the battery. The van’s energy policy now has terminals.\nScene: Resident holds a replacement battery beside a small grocery bundle; a radio sits nearby.\nSource: Trump energy and climate rollback\nACT-BARTERBATTERY-B · The Tariff-Free Conversation\nA resident offers a spare battery for supplies. After hearing the shop’s tariff quote, direct diplomacy between two broke people is looking remarkably sophisticated.\nMake the battery trade → Supplies leave; a battery arrives. China has been spared another bill it wasn’t going to pay.\nScene: Exchange table holds a plain battery, groceries and an unopened printed shop quote.\nSource: Trump tariffs passed to Americans\nACT-BARTERBATTERY-C · The Grid Is Negotiable\nAt the exchange, a resident offers a battery for supplies. Politicians on the radio debate an energy emergency. The resident has brought the part you actually need.\nBarter for the battery → The battery is yours. The debate continues without providing any voltage.\nScene: Resident taps a real battery while an unlettered radio display glows beside empty political leaflets.\nSource: Trump energy and climate rollback\nACT-BARTERSUPPLIES-A · A Very Small Redistribution\nA resident offers food for your spare tire. Congress is discussing who deserves assistance. The resident mainly wants a tire that holds air.\nTrade the spare for supplies → You get supplies. Eligibility was established by looking at the tire.\nScene: Resident sets plain groceries opposite an intact spare; no money or goods have changed hands yet.\nSource: Food assistance cuts\nACT-BARTERSUPPLIES-B · Shared Custody of the Grocery Bill\nAt the exchange, a Tulsa visitor offers some supplies for your spare tire. Oklahoma ended its state grocery tax; local taxes stayed. “Even my grocery bill has roommates.”\nSwap the spare for supplies → You exchange the tire for some supplies. For once, the entire bag is coming home with you.\nScene: Tulsa visitor stands behind closed grocery bags, pointing at separate blank lines on an old receipt; a traveler considers the offer with the crew’s actual spare tire still beside the van.\nSource: Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients (undated)\nACT-BARTERSUPPLIES-C · The Budget That Feeds Someone\nA resident offers supplies for a spare tire while Congress’s budget fight plays on a radio. You manage to move resources without discovering anyone is undeserving.\nExchange the tire for supplies → The trade is done. Your budget has produced lunch, putting it ahead of several televised proposals.\nScene: Simple swap table in front of a radio; groceries are unmistakably practical, the spare visibly intact.\nSource: 2025 health spending law\nACT-BARTERTIRE-A · Independent Spending\nAt the community exchange, a resident offers a tire for supplies. A nearby radio discusses unlimited political spending. You check whether the tire comes with a senator.\nTrade supplies for the tire → The tire is yours. No senator included, but it may actually get you somewhere.\nScene: Resident presents an intact spare beside a modest grocery bundle and an ordinary radio.\nSource: Unlimited independent political money\nACT-BARTERTIRE-B · Strategic Rubber Reserve\nA resident offers a spare tire for some supplies. After Trump created a bitcoin reserve, she calls the tire her strategic reserve. It becomes considerably less strategic when you mention beans.\nTrade supplies for the spare → You trade some supplies and stow the tire. National asset policy has been defeated by lunch.\nScene: At a community exchange, a resident stands beside one spare tire and studies the travelers’ closed provisions bag from across the table; nothing has changed hands.\nSource: Establishment of the Strategic Bitcoin Reserve and United States Digital Asset Stockpile (2025-03-06)\nACT-BARTERTIRE-C · After Deductions\nAn off-duty server offers a tire for some supplies. Trump’s tip deduction helped with income tax; payroll taxes still appear on the server’s slip. “I’d like a deal with fewer people helping themselves first.”\nExchange supplies for the tire → You trade some supplies for the spare. The tire arrives whole, with nobody withholding the tread.\nScene: Server displays a blank pay slip beside the offered spare tire; current travelers consider the exchange across a table, their provisions still in their possession.\nSource: IRS: Tips (undated)\nSource: IRS: Publication 15, Employer’s Tax Guide (2026)\nACT-CASHWORK-A · Family Values Payroll\nA diner offers $18 for a three-hour cleanup. The owner praises Trump’s “no tax on tips” promise. You ask about the wage. He points at the tip jar.\nTake the cleanup shift → You collect the $18 and lose some patience. The empty tip jar enjoys a completely tax-free afternoon.\nScene: Owner gestures to an empty tip jar beside dishes waiting to be cleared; travelers are still considering the job.\nSource: No tax on tips and overtime\nACT-CASHWORK-B · Work You Can Sit On\nA hall offers $18 for teardown after a talk on a nuclear contractor billing for unworked hours. The caretaker points to the chairs. “These have to be physically absent.”\nStack the hall’s chairs → You stack the chairs, collect $18, and lose patience with the well-paid history of imaginary work.\nScene: Hall caretaker gestures to rows of empty chairs and a blank audit-talk poster; the current crew stands ready to consider the job, with no chairs yet moved.\nSource: Audit: DOE-OIG-25-36 (2025-11-26)\nACT-CASHWORK-C · Infrastructure Week, Again\nA shop offers $18 to unload a delivery delayed by broken local access roads. The owner calls it Trump’s Infrastructure Week. The driver calls it Thursday.\nUnload the delivery → You collect $18, tired of the speeches. The delivery truck has completed more public works than the slogan.\nScene: Delivery truck waits by a damaged access road; shop owner offers work beside untouched crates.\nSource: Federal attempts to withdraw Albuquerque walk/bike funding\nACT-FOODWORK-A · The Heavy End of Dairy Policy\nA community kitchen offers some food for a sorting shift. Volunteers discuss Congress returning whole milk to school-lunch menus. A carton has found a champion in Washington. The stack of crates is looking for one here.\nSort the kitchen donations → You earn some food and lose patience. Congress took the milk question. You took the heavy end.\nScene: Kitchen volunteer offers a sorting apron beside stacked unmarked cartons and unsorted donated groceries; current travelers consider the work with empty hands.\nSource: Public Law 119-69: Whole Milk for Healthy Kids Act of 2025 (2026-01-14)\nACT-FOODWORK-B · Domestic Grease\nA ranchers’ community dinner offers your crew some food for cleanup. The talk is Farm Bureau’s opposition to Trump’s Argentine beef-import proposal. Everyone has strong views about origin. Nobody is claiming the pans.\nHelp clean up for food → You earn some food and lose patience scraping plates. The argument about foreign beef has left a thoroughly domestic grease stain.\nScene: Community-dinner volunteer gestures toward dirty pans and a covered portion of food offered after work; current travelers stand at the kitchen entrance, before cleanup.\nSource: Suggestions to increase Argentinian beef imports harm Texas cattle ranchers (2025-10-20)\nACT-FOODWORK-C · Origin of the Stain\nA community kitchen offers some food for cleaning cookware from a patriotic-goods fair. The FTC is pursuing false Made in USA claims. The pans have complicated biographies and uncomplicated grease.\nClean the donated cookware → You earn some food, tired of scraping. The patriotic adjectives come off before the burnt onions.\nScene: Kitchen volunteer displays an ordinary greasy pan with a blank paper flag sleeve caught on its handle; current travelers consider the offered cleanup beside unwashed cookware.\nSource: FTC Announces Made in the USA Sweep (2026-04-14)\nSource: Americana Liberty FTC case timeline: April 14, 2026\nACT-FORAGE-A · No Payslip Required\nA local guide leads a foraging walk while neighbors discuss Congress’s food-aid work rules. The blackberry bush has failed to install a document-upload portal.\nGather what the guide identifies → You gather some food. The bush accepts evidence that you are hungry. Washington may want to audit it.\nScene: Guide points out familiar edible berries to current travelers; a blank phone form sits unused beside a basket.\nSource: Medicaid and SNAP work requirements\nACT-FORAGE-B · The Redundant Botanist\nA botanist laid off in the DOGE cuts shows your crew what is safe to gather. She points to a dangerous lookalike. “That advice used to be considered waste.”\nFollow the botanist’s guidance → You collect some food and avoid the lookalikes. The savings remain difficult to eat.\nScene: Former public botanist shows travelers two clearly different plants without a harvesting tutorial or readable labels.\nSource: DOGE and national park staffing\nACT-FORAGE-C · Open Access\nA botanist offers a permitted foraging walk. She’s celebrating NIH ending the embargo on newly covered research. Taxpayers can finally read what they funded. She points to the berries: “These have a simpler access policy.”\nGather with the botanist → You return with some food and a clearer head. The hedge never asks whether your library has a subscription.\nScene: Botanist indicates a permitted berry patch with a walking stick; current travelers consider the path with empty containers, and a blank research printout remains in her open satchel.\nSource: NIH Public Access Policy Overview (2025-07-01)\nSource: NIH Notice: Accelerated Implementation of 2024 Public Access Policy\nACT-GLEAN-A · Permission to Pick\nA farmer offers your crew leftover produce. The FTC’s proposed Deere settlement promises better access to repair tools. His tractor is waiting on the promise. The vegetables have gone ahead without software approval.\nGlean with permission → You collect some food and earn sore muscles. The carrots release themselves without an authorized dealer.\nScene: Farmer gestures toward a permitted row of leftover carrots while current travelers stand beside empty baskets; a stationary tractor and closed tool case sit in the distance.\nSource: FTC and states announce Deere right-to-repair settlement (2026-07-08)\nACT-GLEAN-B · The Crate’s Expiration Date\nA farmer offers gleaning after volunteers mistook a reused crate’s old sell-by stamp for the vegetables’ birthday. She’s reading California’s new date-label law. The government has finally attempted to distinguish a date from a death certificate.\nGlean the fresh vegetables → You collect some food and earn sore muscles. The ancient stamp stays on the empty crate, ready to frighten someone else.\nScene: Farmer gestures toward fresh vegetables growing in a permitted row while holding an empty reused crate with a blank old date-stamp surface; current travelers consider the offered gleaning.\nEditable overlays: “SELL BY · LAST YEAR” — On the reused crate’s blank stamp surface\nSource: California AB 660: Food and Beverage Date Labeling (2026-07-01)\nSource: California Department of Food and Agriculture: Food Date Labeling\nACT-GLEAN-C · The Wrong Sort of Field\nA farmer offers leftover corn and shows a clipping about Maryland financing Hagerstown’s stadium. He studies an ear of corn. “Perhaps if it could throw a ball.”\nGlean the remaining corn → You collect some food and strain your muscles. The corn has failed another tryout for public financing.\nScene: Farmer compares one ear of corn with a scuffed baseball beside a blank Maryland news clipping; travelers wait with empty baskets at a row they have permission to glean.\nSource: Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium (undated)\nACT-REST-A · Reason for Absence\nIllinois lets covered workers earn paid leave for any reason. The crew can rest here for a day without a paycheck. Your reason is that nobody has the strength to invent a more professional one.\nTake a day to rest → The day restores what it can. Your explanation has been reduced to a horizontal position.\nScene: Current travelers stand beside the parked van and an available resting place, considering a day off; a closed Illinois news clipping lies on a small table, and nobody is asleep yet.\nSource: Illinois General Assembly: Paid Leave for All Workers Act (2024)\nACT-REST-B · The Clock Can Argue Alone\nTrump called for ending daylight saving, then for more evening daylight. Neither statement changed the clocks. The crew can rest for a day. You’re prepared to recognize whichever time contains a pillow.\nRest for the day → The day’s rest helps. You close the curtains and let Washington argue with the daylight outside.\nScene: Current travelers consider resting in the stationary van; curtains are still open, pillows unused, and a small unnumbered clock sits beside a dark radio.\nSource: AP: Trump Calls for More Daylight as Debate over Clock Changes Continues (2025-04-11)\nACT-REST-C · National Security, Airplane Mode\nThe crew can take a day off the road. You silence the phones before another headline about the cabinet’s Signal chats. Let someone else accidentally run the Pentagon.\nRest and mute the phones → The crew rests. No airstrike plans are found in the sandwich order. A quiet diplomatic success.\nScene: Phones face down beside wrapped food while current crew rests by the van; no content embedded on screens.\nSource: Signal airstrike chat\n"
+}

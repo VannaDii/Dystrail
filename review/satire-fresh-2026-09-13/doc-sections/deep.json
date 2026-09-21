@@ -1,0 +1,1978 @@
+{
+  "key": "deep",
+  "title": "Road — Deep End",
+  "target": 57,
+  "count": 57,
+  "ready": true,
+  "rows": [
+    {
+      "text": "Road — Deep End",
+      "role": "title"
+    },
+    {
+      "text": "57 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.",
+      "role": "meta"
+    },
+    {
+      "text": "ENC-D01-A · The lunch threat",
+      "role": "heading"
+    },
+    {
+      "text": "At a diner, a trans driver reads May 2026’s counterterrorism strategy targeting violent groups described as “radically pro-transgender.” On TV, a pundit drops “violent.” The driver closes his lunch cooler. “There goes my weapons inspection.”",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the actual wording → You use some paper to save the wording, head pounding. The driver opens lunch slowly. Apparently mayonnaise now needs witnesses.",
+      "role": "choice"
+    },
+    {
+      "text": "Take the quick TV version → The simple version clears your head. By dessert, the pundit has promoted coleslaw to a sleeper cell.",
+      "role": "choice"
+    },
+    {
+      "text": "Say all trans people were designated → He says no: the strategy does not designate all trans people. The pundit has already booked a second expert on sandwiches.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The driver closes a lunch cooler beside a public document while the travelers pause near the counter; a pundit gestures on a blank television. The ordinary lunch cooler occupies the foreground beneath the grandiose television performance.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MAY 2026 COUNTERTERRORISM STRATEGY” — Editable caption beside the blank public document",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Counterterrorism framing of trans advocacy — www.whitehouse.gov",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2026/05/2026-USCT-Strategy-1.pdf"
+    },
+    {
+      "text": "ENC-D01-B · White, rye, or counsel",
+      "role": "heading"
+    },
+    {
+      "text": "At a Pentagon-adjacent sandwich counter, a reporter shows March 2026’s revised press rules after a court struck parts down. The memo says asking questions isn’t criminal. The cashier asks white or rye. Three people check whether he’s credentialed.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the actual memo → You use paper to save the memo, head pounding. The cashier repeats the bread options slowly, as though negotiating access to a submarine.",
+      "role": "choice"
+    },
+    {
+      "text": "Accept that the dispute is settled → You relax at the reassurance. The reporter corrects you: revised rules don’t settle every dispute. The sandwich still awaits clearance.",
+      "role": "choice"
+    },
+    {
+      "text": "Say ingredient questions are forbidden → The reporter corrects you: the memo expressly says asking questions isn’t criminal. The cashier courageously reveals the existence of mustard.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The cashier holds two unbranded bread loaves apart while the reporter points to a blank public memo and travelers pause at the counter. An ordinary choice of bread receives the solemn scrutiny of a security briefing.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “REVISED PRESS MEMO · MARCH 23, 2026” — Blank public memo",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Pentagon press-credential policy and judicial correction — media.defense.gov",
+      "role": "source",
+      "link": "https://media.defense.gov/2026/Mar/23/2003902148/-1/-1/1/IMPLEMENTATION-OF-REVISED-MEDIA-IN-BRIEF.PDF"
+    },
+    {
+      "text": "ENC-D01-C · Your call is medically important",
+      "role": "heading"
+    },
+    {
+      "text": "At a diner, an off-duty nurse asks your crew to document her hospital's response to CMS withdrawing emergency-abortion guidance: a legal hotline. She's testing it over breakfast. The waitress brings the phone its own menu. It's been here longer than anyone.",
+      "role": "body"
+    },
+    {
+      "text": "Use your paper; document the delay → You use some supplies to save the timed account, head aching. The waitress clears breakfast around the phone. It has qualified for lunch.",
+      "role": "choice"
+    },
+    {
+      "text": "Accept the hotline's reassuring greeting → The recorded reassurance settles your head until the nurse explains it approves nothing. The waitress asks whether the recording wants its usual.",
+      "role": "choice"
+    },
+    {
+      "text": "Say federal law requires this hotline → The nurse corrects you: the hospital invented the hotline. The waitress takes back its menu. House guests aren't federal officials.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The nurse shows the observing travelers a phone on speaker beside untouched toast while the waitress sets a blank menu upright beside it. A phone occupies a complete place setting with its own menu while a cold breakfast crowds the nurse's side of the table.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PLEASE HOLD” — Separate caption beside the phone, not part of its screen",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Emergency abortion exceptions and federal guidance withdrawal — cms.gov",
+      "role": "source",
+      "link": "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala"
+    },
+    {
+      "text": "Source: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov",
+      "role": "source",
+      "link": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00031F.HTM"
+    },
+    {
+      "text": "Source: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov",
+      "role": "source",
+      "link": "https://capitol.texas.gov/billlookup/History.aspx?Bill=SB31&LegSess=89R&Sort=A"
+    },
+    {
+      "text": "ENC-D02-A · The house is still at large",
+      "role": "heading"
+    },
+    {
+      "text": "Outside a courthouse, a volunteer asks your crew to help carry returned belongings. Her client was arrested after a miscarriage; the charges were dropped. Police kept the woman's house keys as evidence. Apparently her front door was an accessory.",
+      "role": "body"
+    },
+    {
+      "text": "Use some water; rest in shade → You drink some water and recover in the shade. The volunteer checks the returned keys. The house is still at large.",
+      "role": "choice"
+    },
+    {
+      "text": "Help carry the returned-property box → You scrape your arms carrying the box. The volunteer checks its contents twice. An apology wasn't among the items police returned.",
+      "role": "choice"
+    },
+    {
+      "text": "Share water; record the property delay → You share some water and record the arrest, dismissal and property delay. The volunteer turns the key. The door declines to resist release.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer indicates a sealed returned-property box on a trolley while holding a key ring; travelers consider helping beside an empty shaded bench. An oversized blank evidence tag still dangles from an ordinary house key after the case has ended.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “RETURNED PROPERTY” — Blank tag on the sealed box",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Georgia miscarriage arrest followed by dismissal — themarshallproject.org",
+      "role": "source",
+      "link": "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama"
+    },
+    {
+      "text": "Source: Georgia miscarriage arrest followed by dismissal — walb.com",
+      "role": "source",
+      "link": "https://www.walb.com/2025/04/04/georgia-lawmakers-respond-charges-dropped-tifton-fetal-remains-case/"
+    },
+    {
+      "text": "ENC-D02-B · The roof remains eligible",
+      "role": "heading"
+    },
+    {
+      "text": "A school gym’s equipment sale draws you inside. The coach explains Trump’s sports order uses federal funding to exclude trans girls from girls’ teams. A leak drips onto the basketballs. Washington located the girl. Nobody located a roofer.",
+      "role": "body"
+    },
+    {
+      "text": "Use food and water; take a break → You use some food and water for a break, recovering. The coach moves a bucket. The roof remains eligible for every team.",
+      "role": "choice"
+    },
+    {
+      "text": "Shift equipment away from the leak → You strain yourself shifting equipment out of the leak. The coach adds another bucket. It passes eligibility without a hearing.",
+      "role": "choice"
+    },
+    {
+      "text": "Supply the coach’s public notice → You give paper and tape for a notice quoting the actual order. Above it, the leak continues its undefeated season.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The coach points to a public order beside unsold balls while a roof drip falls toward an existing bucket; travelers pause at the sale entrance. A row of ordinary buckets is doing more visible work than the oversized official-looking policy sheet.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC EQUIPMENT SALE” — Blank entrance board; “FEDERAL SCHOOL-SPORTS ORDER” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Women's sports restrictions enforced through federal funding — www.whitehouse.gov",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/02/keeping-men-out-of-womens-sports/"
+    },
+    {
+      "text": "ENC-D02-C · An active workplace",
+      "role": "heading"
+    },
+    {
+      "text": "At a nursing-home rummage sale, an aide points to federal staffing minimums repealed in February 2026. Older requirements remain. The administrator is selling extra chairs. His plan for keeping everybody on their feet is proceeding beautifully.",
+      "role": "body"
+    },
+    {
+      "text": "Use food and water; rest → You use food and water to rest and recover. The aide sits briefly. The chair demonstrates a suspiciously affordable retention strategy.",
+      "role": "choice"
+    },
+    {
+      "text": "Help move the sale chairs → You strain yourself moving chairs. The administrator calls this proof fewer seats encourage activity. The aide offers him the heaviest one.",
+      "role": "choice"
+    },
+    {
+      "text": "Supply an accurate public notice → You give paper and tape for an accurate notice. The aide adds the older requirements. The administrator’s uncluttered wall becomes less efficient.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The administrator presents several unsold chairs while the aide holds a public staffing notice and travelers consider the sale. The administrator alone has brought a luxurious folding seat behind the table.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC RUMMAGE SALE” — Blank entrance board; “FEDERAL STAFFING REPEAL · FEBRUARY 2026” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: New nursing-home staffing minimums repealed — regulations.justia.com",
+      "role": "source",
+      "link": "https://regulations.justia.com/regulations/fedreg/2025/12/03/2025-21792.html"
+    },
+    {
+      "text": "ENC-D03-A · Tell the airbags",
+      "role": "heading"
+    },
+    {
+      "text": "At a rest stop, a trans Kansas driver shows the replacement license the state required. Same driver. Same car. Different sex marker. He asks whether he needs to notify the airbags.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the law’s scope → You use paper to save the law’s actual scope. He puts the new card away. The camera still remembers who it photographed.",
+      "role": "choice"
+    },
+    {
+      "text": "Share lunch with the driver → You share lunch and laugh. His car unlocks without consulting his birth certificate. Even the door recognizes him.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet bench break → You clear your head on a quiet bench. He adjusts the driver’s seat. It still has the same opinion of his legs.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The worker keeps all details of a blank replacement card covered while pointing toward a public law printout; travelers listen beside the picnic area. His face and the obscured card occupy parallel positions, with an ordinary car door waiting behind him.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “KANSAS · REPLACEMENT LICENSE” — Editable caption beside blank public law",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Kansas links bathroom enforcement to invalidated identity documents — www.kslegislature.gov",
+      "role": "source",
+      "link": "https://www.kslegislature.gov/li/b2025_26/measures/documents/sb244_enrolled.pdf"
+    },
+    {
+      "text": "Source: Kansas links bathroom enforcement to invalidated identity documents — www.ksrevenue.gov",
+      "role": "source",
+      "link": "https://www.ksrevenue.gov/dovgender.html"
+    },
+    {
+      "text": "ENC-D03-B · The toaster has a floor",
+      "role": "heading"
+    },
+    {
+      "text": "At a thrift store, a visiting disabled worker shows July 2025’s abandoned federal phaseout of subminimum-wage certificates. His employer uses one where state law permits. Here, the donated toaster enjoys a firm minimum price.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the federal rule → You use paper to save the federal rule. He turns the toaster over. Even secondhand appliances receive a proper valuation.",
+      "role": "choice"
+    },
+    {
+      "text": "Share a full lunch → You share lunch and laugh. He checks the toaster’s warranty. Lasting thirty days apparently earns more confidence than working every weekday.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break → You take a quiet break. The cashier refuses a lower offer for the toaster. Some labor-saving devices must never be undervalued.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The worker examines an unplugged donated toaster’s blank price card while offering a public federal notice; travelers browse beside him. The cashier protects the toaster’s price card with the firmness missing from the worker’s wage policy.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PRICE FIRM” — Blank toaster price tag; “FEDERAL PHASEOUT WITHDRAWN · JULY 2025” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — regulations.justia.com",
+      "role": "source",
+      "link": "https://regulations.justia.com/regulations/fedreg/2025/07/07/2025-12534.html"
+    },
+    {
+      "text": "Source: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — www.dol.gov",
+      "role": "source",
+      "link": "https://www.dol.gov/agencies/whd/workers-with-disabilities?lang=ht"
+    },
+    {
+      "text": "ENC-D03-C · Roadworthy, pending counsel",
+      "role": "heading"
+    },
+    {
+      "text": "At a motel breakfast, adult volunteers review Idaho's restrictions on concealed abortion assistance to unemancipated minors. They ask your crew to record the public facts for D.C. Their car passed its inspection. The route needs a lawyer. The lawyer doesn't do roadside assistance.",
+      "role": "body"
+    },
+    {
+      "text": "Use your paper; record the limits → You use some supplies to save the minor-specific limits. The driver files the car's clean inspection beside the questions keeping it parked.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food with the planning volunteers → You share some food and enjoy lunch together. The lawyer unrolls the route papers. The driver puts the bread basket on them. Lunch proceeds.",
+      "role": "choice"
+    },
+    {
+      "text": "Read quietly on the motel porch → You clear your head on the porch. The car wears a cheerful roadworthy sticker. Its driver is still inside, qualifying the journey.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: A volunteer shows an inspection sheet and broad, unmarked route map to the observing travelers; the lawyer waits beside an untouched bread basket. A small vehicle inspection sheet lies beside a much larger set of legal questions while the inspected car remains visibly parked outside.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “VEHICLE INSPECTION: PASSED” — Blank inspection-sheet heading; “IDAHO MINOR-ASSISTANCE LAW” — Blank legal folder heading",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Idaho restrictions on abortion assistance to minors — cdn.ca9.uscourts.gov",
+      "role": "source",
+      "link": "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf"
+    },
+    {
+      "text": "Source: Idaho restrictions on abortion assistance to minors — litigationtracker.law.georgetown.edu",
+      "role": "source",
+      "link": "https://litigationtracker.law.georgetown.edu/litigation/matsumoto-et-al-v-labrador/"
+    },
+    {
+      "text": "ENC-D04-A · Small government, large pants",
+      "role": "heading"
+    },
+    {
+      "text": "At an outdoor shop, a trans hunting-club treasurer shows you ATF’s proposed birth-sex rule for its forms. The owner wants Washington out of his gun cabinet. He is considerably more flexible about somebody else’s pants.",
+      "role": "body"
+    },
+    {
+      "text": "Read the actual proposal → You check the proposal’s limits. The owner hides his sales ledger when you glance at it. Certain personal details are sacred.",
+      "role": "choice"
+    },
+    {
+      "text": "Save the public notice → You save the notice, head aching. The owner locks his office. His small-government tour has reached its border.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust the total-ban rumor → The treasurer corrects you: this proposal does not ban all trans gun owners. The owner still pats his cabinet protectively.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The treasurer offers the public notice to the observing travelers while the owner closes a blank ledger beside his locked office. The owner guards his own paperwork with both arms while leaning toward somebody else’s public forms.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ATF PROPOSED RULE · MAY 2026” — Editable caption above the blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Gun-rights promises and ATF identity paperwork — www.atf.gov",
+      "role": "source",
+      "link": "https://www.atf.gov/rules-and-regulations/rulemaking-notices/selecting-biological-sex-atf-forms-rin-1140-aa64"
+    },
+    {
+      "text": "ENC-D04-B · Housing, with a lock",
+      "role": "heading"
+    },
+    {
+      "text": "At a camping shop, an outreach worker reads Trump’s July 2025 order promoting broader civil commitment through legal and funding changes. It isn’t automatic confinement. The display tent has three bedrooms. Her clients keep getting offered plans with locks.",
+      "role": "body"
+    },
+    {
+      "text": "Read what the order actually directs → You check the order’s limits. The worker measures the display tent. It remains the most detailed housing proposal in the room.",
+      "role": "choice"
+    },
+    {
+      "text": "Save the public order → You save the order, head aching. The salesman demonstrates a zipper from the inside. Choosing when to leave appears to be a feature.",
+      "role": "choice"
+    },
+    {
+      "text": "Call it automatic confinement for everyone → The worker corrects you: legal processes and criteria still matter. The government’s sweeping announcement came with much smaller print.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The outreach worker compares a public order with the display tent while the salesperson holds its entrance open and travelers browse nearby. The inviting tent doorway is much larger than the small official-looking policy sheet beside it.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “DISPLAY TENT” — Blank retail card; “FEDERAL ORDER · JULY 2025” — Blank public policy sheet",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Homelessness order promotes expanded civil commitment — www.whitehouse.gov",
+      "role": "source",
+      "link": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-crime-and-disorder-on-americas-streets/"
+    },
+    {
+      "text": "ENC-D04-C · The purpose of a sandwich",
+      "role": "heading"
+    },
+    {
+      "text": "A Texas volunteer at a roadside café asks your crew to check SB33: public abortion-travel assistance includes food. The café owner is preparing a city-convention catering bid. He holds up one sandwich. Apparently he needs to know where it plans to go after lunch.",
+      "role": "body"
+    },
+    {
+      "text": "Check the public-spending limits → You verify the limits. The owner puts the sandwich beside his catering forms. It qualifies for public money by staying vague about its itinerary.",
+      "role": "choice"
+    },
+    {
+      "text": "Save the food-assistance provision → You save the provision, head aching. The owner cuts the sandwich diagonally. It has changed direction without resolving its funding status.",
+      "role": "choice"
+    },
+    {
+      "text": "Post that private food donations are banned → The volunteer corrects you: SB33 targets public assistance. The owner removes your claim from the table before it frightens the bread.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The owner holds a whole sandwich over a blank catering form while the volunteer offers a public source to the observing travelers. An ordinary sandwich sits where a formal applicant's headshot would go on an oversized blank catering application.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC CATERING BID” — Blank folder header",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Texas restrictions on public abortion-travel assistance — capitol.texas.gov",
+      "role": "source",
+      "link": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm"
+    },
+    {
+      "text": "Source: Texas restrictions on public abortion-travel assistance — texasattorneygeneral.gov",
+      "role": "source",
+      "link": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-victory-against-san-antonio-after-city-illegally-tried-fund-out"
+    },
+    {
+      "text": "ENC-D05-A · A lifetime warranty",
+      "role": "heading"
+    },
+    {
+      "text": "A visiting Louisiana nurse asks your crew to time a cabinet lock at a hardware store. State controls now secure misoprostol, also used to stop bleeding. The salesman offers a lifetime warranty. She would settle for getting it open before closing.",
+      "role": "body"
+    },
+    {
+      "text": "Check the rule and reported delays → You verify the rule and reported delays, head aching. The salesman offers another key. The nurse asks whether it comes with another afternoon.",
+      "role": "choice"
+    },
+    {
+      "text": "Browse the quiet garden aisle → You clear your head by the garden supplies. The salesman demonstrates a watering can. Its contents escape without finding a supervisor.",
+      "role": "choice"
+    },
+    {
+      "text": "Say the medicine is completely banned → The simple story settles your head until she corrects it: valid prescribing remains lawful. The salesman resumes wrestling with the lawful cabinet.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The salesman tries a key in an empty demonstration cabinet while the nurse holds a timing device and travelers watch without assisting. A giant warranty ribbon hangs from a small cabinet whose demonstration door will not open.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “LIFETIME WARRANTY” — Blank sales ribbon",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Louisiana controls on mifepristone and misoprostol — legis.la.gov",
+      "role": "source",
+      "link": "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195"
+    },
+    {
+      "text": "Source: Louisiana controls on mifepristone and misoprostol — nola.gov",
+      "role": "source",
+      "link": "https://nola.gov/getattachment/NEXT/Health-Department/Topics/Data-and-Publications/Act-246-Report-Final-9-30-25.pdf"
+    },
+    {
+      "text": "Source: Louisiana controls on mifepristone and misoprostol — lawyeringproject.org",
+      "role": "source",
+      "link": "https://lawyeringproject.org/our-work/birthmark-v-louisiana/"
+    },
+    {
+      "text": "ENC-D05-B · The phone plan stays",
+      "role": "heading"
+    },
+    {
+      "text": "At a pharmacy café, a parent reads the Medicaid and CHIP youth transition-care exclusions due October 13, 2026. Some existing hormone care gets up to six extra months. Her teenager keeps growing. The phone plan renews automatically.",
+      "role": "body"
+    },
+    {
+      "text": "Read the dates and funding limits → You check the dates and exceptions, head aching. The phone company has committed to her longer than the benefits department.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet window seat → You clear your head by the window. Her phone renews with a cheerful ping. Apparently continuity is available as an add-on.",
+      "role": "choice"
+    },
+    {
+      "text": "Use the headline; take a break → The short version feels manageable until she corrects it: funding exclusions, not a ban on all care. Your certainty expires first.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The parent compares a blank policy sheet with her blank phone screen while the travelers wait at the café counter. A tiny phone renewal notification sits beside the much larger federal exclusion document, as though the phone offers the longer commitment.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “FEDERAL FUNDING RULE · EFFECTIVE OCTOBER 13, 2026” — Blank public policy sheet; “PLAN RENEWED” — Blank phone screen; no account or personal details",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Upcoming Medicaid and CHIP treatment-payment exclusion — www.govinfo.gov",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/FR-2026-08-13/pdf/2026-16508.pdf"
+    },
+    {
+      "text": "ENC-D05-C · Still part of the family",
+      "role": "heading"
+    },
+    {
+      "text": "A retired municipal worker at a diner shows June 2025’s Supreme Court ruling limiting disabled retirees’ employment-discrimination claims. Other protections remain. His old workplace still calls him family. Benefits would like to know whether he’s currently employed by this family.",
+      "role": "body"
+    },
+    {
+      "text": "Read the actual employment limits → You read the job-holding limits, head aching. His retirement photograph has room for everybody except the person calculating the benefits.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break → You take a quiet break. He folds the workplace-family brochure into a coaster. It finally supports something.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust the warm brochure → You trust the warm brochure and relax. He corrects your legal summary. The family reunion has an eligibility date.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The retiree holds a generic workplace-family brochure beside the public court ruling while travelers wait near the counter. An exuberant group-photo silhouette on the blank brochure contrasts with a tiny isolated chair at the end of the table.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ALWAYS PART OF THE FAMILY” — Blank retirement brochure; “SUPREME COURT · JUNE 2025” — Blank public ruling",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Disabled retirees' employment-discrimination claim meets the job-holding requirement — www.supremecourt.gov",
+      "role": "source",
+      "link": "https://www.supremecourt.gov/opinions/24pdf/23-997_6579.pdf"
+    },
+    {
+      "text": "ENC-D06-A · The federal wardrobe case",
+      "role": "heading"
+    },
+    {
+      "text": "At a post office, a woman explains how June 2026’s court order restored her trans sister’s care and clothing in federal prison. She needs a stamp. Her sister needed a federal judge to get dressed.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the public ruling → You save the ruling, head aching. Her sister’s care needed a judge. The postage merely wants money.",
+      "role": "choice"
+    },
+    {
+      "text": "Give paper for the public order → You give paper for the public order; her sister’s details stay private. The wardrobe dispute has grown another stack of stationery.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → You clear your head outside. She seals the envelope. Ordinary glue remains one of the few accommodations requiring no litigation.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The woman holds the public ruling beside a blank copier tray; her sealed private envelope remains face down, and travelers observe from the public counter. A small sealed envelope is dwarfed by the public legal papers resting beside it; its address is hidden.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC COURT RULING · JUNE 17, 2026” — Blank public document cover",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal prison care and personal-item restrictions — law.justia.com",
+      "role": "source",
+      "link": "https://law.justia.com/cases/federal/district-courts/district-of-columbia/dcdce/1:2025cv00691/278186/216/"
+    },
+    {
+      "text": "Source: Federal prison care and personal-item restrictions — www.markey.senate.gov",
+      "role": "source",
+      "link": "https://www.markey.senate.gov/imo/media/doc/letter_to_bop_on_anti-trans_policies.pdf"
+    },
+    {
+      "text": "ENC-D06-B · A cleaner angle",
+      "role": "heading"
+    },
+    {
+      "text": "At a hardware counter, a power-plant neighbor reads EPA’s February 2026 repeal of stronger mercury and toxic-metal rules. Older limits survive. The salesman makes a dirty demonstration filter look cleaner by turning it around. Government innovation travels fast.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the remaining limits → You save the remaining limits and repealed requirements, head aching. The salesman turns the filter back. The dirt declines to renegotiate.",
+      "role": "choice"
+    },
+    {
+      "text": "Use paper for an accurate notice → You use paper for an accurate notice. The neighbor draws the filter’s dirty side. The salesman calls it an unfair angle.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → You clear your head outside. Through the window, the same filter is enjoying a second immaculate face.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The salesperson rotates a two-sided demonstration filter while the neighbor holds the public EPA notice and travelers browse. The filter’s clean face points toward the sales counter while its visibly dirty side faces away.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “EPA RULE · FEBRUARY 2026” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Stronger coal-plant mercury and toxic-metal standards repealed — www.federalregister.gov",
+      "role": "source",
+      "link": "https://www.federalregister.gov/documents/2026/02/24/2026-03638/national-emission-standards-for-hazardous-air-pollutants-coal--and-oil-fired-electric-utility-steam"
+    },
+    {
+      "text": "ENC-D06-C · The complimentary lullaby",
+      "role": "heading"
+    },
+    {
+      "text": "At a rest stop, an Alabama couple asks your crew to check the embryo ruling and later IVF-clinic immunity law. Their own insurance excludes IVF. The agent on speaker calls children priceless. He has priced everything required to have one.",
+      "role": "body"
+    },
+    {
+      "text": "Check and save the legal distinction → You save the ruling and immunity limits, head aching. The agent congratulates them on the embryos' status. They ask where to redeem it.",
+      "role": "choice"
+    },
+    {
+      "text": "Use your paper; copy the limits → You use some supplies to copy the limits. They fold the agent's smiling-baby brochure over the exclusions. The baby is sitting on the bill.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the call for some quiet → You clear your head away from the call. The hold music plays a lullaby. The couple has been receiving it for free.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The couple indicates a blank insurance booklet beside a phone on speaker while travelers consider checking the public legal sources. An idyllic generic baby image on an insurance brochure covers a visibly dense block of blank exclusion lines.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “IVF EXCLUDED” — Editable label on the blank policy-summary area",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Alabama frozen-embryo wrongful-death ruling and IVF immunity — law.justia.com",
+      "role": "source",
+      "link": "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html"
+    },
+    {
+      "text": "Source: Alabama frozen-embryo wrongful-death ruling and IVF immunity — apnews.com",
+      "role": "source",
+      "link": "https://apnews.com/article/cab8171e80c88a088778dc7a187b7b5a"
+    },
+    {
+      "text": "ENC-D07-A · Rewards for coming back empty",
+      "role": "heading"
+    },
+    {
+      "text": "A traveler at a rest stop asks your crew to check Arizona's emergency-contraception refusal rule. The pharmacy returned her prescription, as required. It also offered a loyalty card. She holds them side by side. They are building a lasting relationship with the paper.",
+      "role": "body"
+    },
+    {
+      "text": "Check and save the actual rule → You save the refusal-and-return rule, clearing the confusion. She folds the loyalty card around the prescription. It finally supports contraception.",
+      "role": "choice"
+    },
+    {
+      "text": "Say Arizona banned emergency contraception → She corrects you: the law permits specified refusals. She hasn't come this far to collect another person saying no.",
+      "role": "choice"
+    },
+    {
+      "text": "Use your paper; copy the limits → You use some supplies to copy the limits. She tucks them into the loyalty-card sleeve. The free gift finally contains useful information.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The traveler holds an unmarked prescription sheet and a blank loyalty card side by side while current crew members listen. The polished promotional sleeve is much larger than the small piece of care information returned with it.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “LOYALTY REWARDS” — Blank promotional card heading",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Arizona conscience refusal for emergency contraception",
+      "role": "source",
+      "link": "https://www.azleg.gov/ars/36/02154.htm"
+    },
+    {
+      "text": "ENC-D07-B · The invisible emergency",
+      "role": "heading"
+    },
+    {
+      "text": "At a copy shop, a trans mechanic reads Social Security’s June 2026 rule: its sex field can only be changed to reflect sex at birth. It isn’t printed on the card. Washington has discovered his most urgent component: invisible paperwork.",
+      "role": "body"
+    },
+    {
+      "text": "Save the actual records rule → You save the rule and clear up the confusion. He holds the card to the light. Still no sex field. Tremendous progress.",
+      "role": "choice"
+    },
+    {
+      "text": "Assume the card displays it → He corrects you and covers the personal details. The blank space remains flawless. The federal government has defended it at considerable length.",
+      "role": "choice"
+    },
+    {
+      "text": "Use paper for the public rule → You use your paper for the public rule. He puts it beside the card. The invisible field now requires visible luggage.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The mechanic compares a covered blank card with a long public policy sheet while travelers wait near the copier. A tiny card with no visible sex field lies beside a vastly larger pile of instructions about that field.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SSA RECORDS RULE · JUNE 2026” — Blank public instruction sheet",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Social Security's invisible sex field is frozen to birth records — secure.ssa.gov",
+      "role": "source",
+      "link": "https://secure.ssa.gov/poms.nsf/lnx/0110212200"
+    },
+    {
+      "text": "ENC-D07-C · The website gets an extension",
+      "role": "heading"
+    },
+    {
+      "text": "At a library printer, a low-vision resident reads DOJ’s April 2026 extension of government-web accessibility deadlines into 2027 and 2028. Existing access duties remain. Her appointment confirmation is due today. The website has successfully requested an accommodation.",
+      "role": "body"
+    },
+    {
+      "text": "Save the actual deadlines → You save the deadlines and clear up the confusion. Her appointment still needs confirming. Only the website has been excused from showing up.",
+      "role": "choice"
+    },
+    {
+      "text": "Assume all access duties are suspended → She corrects you: existing access duties remain. The government gave its website more time, not permission to stop being a government.",
+      "role": "choice"
+    },
+    {
+      "text": "Use paper for a large-type copy → You use paper for a large-type public notice. She checks the dates. Enlarging the words proves considerably faster than enlarging the deadline.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The resident holds a public notice near a reading aid while a blank computer screen and printer sit beside the observing travelers. A large, comfortable office chair belongs to the uncooperative public computer; the resident stands beside a small stool.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC WEB DEADLINES · 2027 / 2028” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Government website accessibility deadlines extended — www.ada.gov",
+      "role": "source",
+      "link": "https://www.ada.gov/assets/pdfs/2026-ifr.pdf"
+    },
+    {
+      "text": "Source: Government website accessibility deadlines extended — www.ada.gov",
+      "role": "source",
+      "link": "https://www.ada.gov/resources/web-rule-first-steps/"
+    },
+    {
+      "text": "ENC-D08-A · Two functioning arms",
+      "role": "heading"
+    },
+    {
+      "text": "At a pregnancy center's open house, a nurse asks your crew to check its ads against Massachusetts's warnings about misleading centers. The manager offers a 'medical volunteer' badge for carrying a sandwich board. The qualifications are two functioning arms. The center offers no abortion referrals.",
+      "role": "body"
+    },
+    {
+      "text": "Use your paper; check the services → You use some supplies to check the missing services, head pounding. The manager offers a lab coat. Apparently it covers the gaps.",
+      "role": "choice"
+    },
+    {
+      "text": "Carry the sign; endorse the center → You scrape your shin and relax into the pitch. The nurse corrects your endorsement: no abortion referrals. Your badge doesn't cover that either.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave without checking the claims → You leave with a quieter head and no checked account. The manager hangs your unused badge on the sandwich board. Staffing restored.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The manager offers an unworn blank badge toward the observing travelers beside a leaning sandwich board while the nurse holds a public agency fact sheet. The large badge and spare white coat are ready before any qualifications have been discussed; the board's metal feet protrude visibly.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MEDICAL VOLUNTEER” — Blank offered badge; “OPEN HOUSE” — Blank sandwich-board header",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Pregnancy-center advertising and service mismatch — mass.gov",
+      "role": "source",
+      "link": "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers"
+    },
+    {
+      "text": "Source: Pregnancy-center advertising and service mismatch — mass.gov",
+      "role": "source",
+      "link": "https://www.mass.gov/doc/fact-sheet-avoid-anti-abortion-centers-pdf/download"
+    },
+    {
+      "text": "ENC-D08-B · Family first, calendar later",
+      "role": "heading"
+    },
+    {
+      "text": "At a union-hall table sale, a worker shows May 2025’s ruling removing certain abortion accommodations from the federal pregnancy-workplace rule. Medical-treatment exceptions remain. A manager selling “FAMILY FIRST” mugs promises unlimited time off, provided time stops first.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; check the actual limits → You save the actual limits using paper, drained. The manager removes the clock batteries. His generous leave policy is nearly operational.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust him; help stack tables → The simple promise clears your head. You strain yourself stacking tables, then learn the manager’s unlimited leave exists only on mugs.",
+      "role": "choice"
+    },
+    {
+      "text": "Skip the details; take a break → You relax, then repeat that every pregnancy protection vanished. The worker corrects you. The mug is still the least complicated witness.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The manager presents a blank mug beside folded tables while the worker offers the public ruling and travelers browse. A large cheerful mug sits beneath an ordinary wall clock with a blank face and simple hands; the battery cover is visible but untouched.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “FAMILY FIRST” — Blank mug; editable lettering only; “PUBLIC RULING · MAY 2025” — Blank court document",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Workplace abortion accommodations removed from the PWFA regulation — cases.justia.com",
+      "role": "source",
+      "link": "https://cases.justia.com/federal/district-courts/louisiana/lawdce/2:2024cv00629/205802/107/0.pdf"
+    },
+    {
+      "text": "Source: Workplace abortion accommodations removed from the PWFA regulation — apnews.com",
+      "role": "source",
+      "link": "https://apnews.com/article/afcb9a2cc49d563d5fd5f6cc85b0bf3a"
+    },
+    {
+      "text": "ENC-D08-C · Same water, happier label",
+      "role": "heading"
+    },
+    {
+      "text": "At a water-filter shop, a utility worker reads EPA’s May 2026 proposals to drop some PFAS limits and extend certain deadlines. Nothing is final. The salesman presents two identical demonstration samples. One has a much more optimistic label.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; check the actual proposals → You use paper to save the proposals, drained. The salesman swaps the labels. The samples achieve an immediate regulatory breakthrough.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust him; help carry display boxes → His assurance clears your head. You strain yourself carrying boxes before the worker corrects his claims. The optimism weighs more than advertised.",
+      "role": "choice"
+    },
+    {
+      "text": "Take the headline; take a break → You relax, then describe the proposals as final. The worker corrects you. The salesman has already printed the victory stickers.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The salesperson holds blank tags beside two sealed clear-water display bottles while the worker points to a public proposal and travelers consider the counter. Identical display samples are treated as opposites because one blank tag has a cheerful decorative border.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “OPTIMISTIC” — Blank decorative display tag; “EPA PROPOSALS · MAY 2026” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov",
+      "role": "source",
+      "link": "https://www.epa.gov/sdwa/proposed-pfas-rescission-rule"
+    },
+    {
+      "text": "Source: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov",
+      "role": "source",
+      "link": "https://www.epa.gov/newsreleases/epa-advances-comprehensive-pfas-strategy-legally-defensible-practical-scientifically"
+    },
+    {
+      "text": "ENC-D09-A · Reserved for the return trip",
+      "role": "heading"
+    },
+    {
+      "text": "Your crew stops at a hospital's public meeting about losing maternity services. A volunteer shows the national maternity-care desert report. The county commissioner unveils reserved parking for new mothers. From those spaces, it's a long drive to somewhere they can become one.",
+      "role": "body"
+    },
+    {
+      "text": "Check the closure and remaining services → You check the closure and remaining services, head aching. The commissioner measures the parking bay. The route to a delivery ward won't fit.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet look at the garden → You clear your head in the garden. The commissioner tests the parking ribbon again. It is the only local delivery he has scheduled.",
+      "role": "choice"
+    },
+    {
+      "text": "Rest in the van instead → You nap and miss the community account. The commissioner posts his parking photograph, cropped just above the shuttered maternity windows.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The commissioner holds a ribbon across an empty reserved bay while the volunteer offers a broad service map to the observing travelers. A carefully decorated new-mother parking space faces a closed former maternity entrance.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “NEW MOTHERS” — Blank reserved-parking sign; “MATERNITY SERVICES RELOCATED” — Blank former-entrance notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Maternity-care deserts and loss of local birth services — marchofdimes.org",
+      "role": "source",
+      "link": "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access"
+    },
+    {
+      "text": "Source: Maternity-care deserts and loss of local birth services — www2.marchofdimes.org",
+      "role": "source",
+      "link": "https://www2.marchofdimes.org/maternity-care-deserts-report"
+    },
+    {
+      "text": "ENC-D09-B · The cheaper repair",
+      "role": "heading"
+    },
+    {
+      "text": "At a phone-repair counter, a youth volunteer revises referral cards: the specialized LGBTQ+ option within 988 closed July 17, 2025; the general line remains. Washington called it ending separate services. The clerk calls removing buttons a cheaper repair.",
+      "role": "body"
+    },
+    {
+      "text": "Check the agency and operator notices → You check both notices, head aching. The clerk points at a phone missing a button. It also serves everyone equally now.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → You clear your head outside. The clerk is still waiting to hear how fewer specialists became a larger welcome.",
+      "role": "choice"
+    },
+    {
+      "text": "Skim the headline; nap → You nap, then repeat that 988 closed. The volunteer corrects you. Your shortcut has disconnected the service that remains.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer keeps blank referral cards and public notices on the counter while the clerk indicates an unpowered demonstration phone missing a button; travelers observe. The visibly incomplete demonstration phone sits on a neat repair cushion like an officially improved product.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “GENERAL 988 SERVICE CONTINUES” — Blank public referral card; “SPECIALIZED LGBTQ+ YOUTH OPTION CLOSED JULY 17, 2025” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Closure of specialized LGBTQ+ youth crisis-line service — www.samhsa.gov",
+      "role": "source",
+      "link": "https://www.samhsa.gov/about/news-announcements/statements/2025/samhsa-statement-988-press-3-option"
+    },
+    {
+      "text": "Source: Closure of specialized LGBTQ+ youth crisis-line service — 988lifeline.org",
+      "role": "source",
+      "link": "https://988lifeline.org/faq/calling-the-988-lifeline/faq-are-there-specialized-services-for-lgbtq-youth-who-reach-out-to-988/"
+    },
+    {
+      "text": "ENC-D09-C · A longer planning horizon",
+      "role": "heading"
+    },
+    {
+      "text": "At a rest-area picnic table, a Women’s Health Initiative participant shows April 2025’s funding cancellation and May’s reversal. The study continued. She’s kept appointments for decades. Her bagged salad has a longer planning horizon than Washington.",
+      "role": "body"
+    },
+    {
+      "text": "Read the cancellation and reversal → You check the timeline, head aching. She puts the cancellation under her salad container. It has finally helped preserve something.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet bench break → You clear your head on a quiet bench. She checks next year’s appointment. The salad is the only thing legitimately expiring.",
+      "role": "choice"
+    },
+    {
+      "text": "Skim the cancellation; nap → You nap and repeat that the study closed. She corrects you. Your obituary arrived before her next appointment reminder.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The participant lays public cancellation and reversal notices beside an unopened salad container while travelers pause at the table. The orderly lunch container sits between two official-looking notices that visibly point in opposite directions through their paper folds.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “APRIL 2025: NONRENEWAL” — First blank public notice; “MAY 2025: REVERSED; STUDY CONTINUES” — Second blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Women's Health Initiative funding cancellation reversed — www.whi.org",
+      "role": "source",
+      "link": "https://www.whi.org/md/news/whi-funding-announcement"
+    },
+    {
+      "text": "ENC-D10-A · Freedom at whisper volume",
+      "role": "heading"
+    },
+    {
+      "text": "While you price copies, a trans warehouse worker reads EEOC’s January 2026 decision rescinding harassment guidance. Discrimination law survives. A supervisor asks whether he can say anything now. The clerk switches on the security microphone.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the agency statement → You use paper to save the agency’s statement. The supervisor lowers his voice. Remarkable how quickly clarification improves working conditions.",
+      "role": "choice"
+    },
+    {
+      "text": "Wait quietly by the door → You wait by the door and clear your head. The supervisor tests a whisper. His new freedom requires very little volume.",
+      "role": "choice"
+    },
+    {
+      "text": "Accept the supervisor’s interpretation → The worker corrects you: the law remains. The supervisor asks if the camera records sound. His confidence needs terms and conditions.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The clerk’s hand rests on a microphone switch as the supervisor leans toward the counter and the worker holds the public notice; travelers compare blank copy-price cards. The supervisor’s expansive posture contracts under a tiny microphone.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “EEOC NOTICE · JANUARY 2026” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: EEOC rescinds workplace harassment guidance — www.eeoc.gov",
+      "role": "source",
+      "link": "https://www.eeoc.gov/newsroom/eeoc-commission-votes-rescind-2024-harassment-guidance"
+    },
+    {
+      "text": "ENC-D10-B · The crayon checkpoint",
+      "role": "heading"
+    },
+    {
+      "text": "At a school-supply sale, a Head Start volunteer shows the September 2025 injunction stopping Washington’s attempted immigration restrictions on the program. The policy remains unenforced. A box of crayons has survived its promotion to border-control equipment.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper; save the court notice → You use paper to save the injunction. The volunteer opens the crayon box. Every color got in without a background check.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break → You clear your head outside. The volunteer returns to sorting crayons. Her original job has survived another attempt to make it something else.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust the headline about new checks → The volunteer corrects you: the injunction blocks the Head Start restriction. The crayons have already returned to their previous profession.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer holds a blank public court notice beside an unopened box of unbranded crayons while travelers browse the supply table. A miniature plastic toy gate rests beside the crayon box, visibly much too small for the pile of public legal papers.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “HEAD START RESTRICTION BLOCKED · SEPTEMBER 2025” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Head Start recast as an immigration-restricted federal benefit — www.hhs.gov",
+      "role": "source",
+      "link": "https://www.hhs.gov/press-room/prwora-hhs-bans-illegal-aliens-accessing-taxpayer-funded-programs.html"
+    },
+    {
+      "text": "ENC-D10-C · The wrong door needs a lock",
+      "role": "heading"
+    },
+    {
+      "text": "After reports of police using Flock to follow ex-partners, a hardware shop advertises extra door locks. A customer offers the public investigation report. The salesman recommends another deadbolt. She asks whether it fits a police database.",
+      "role": "body"
+    },
+    {
+      "text": "Share food; check the public report → You share food and preserve the findings. The shop has seventeen locks for a door and none for authorized curiosity.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a break by the key rack → Your head clears by the key rack. Every ordinary key has teeth; the safeguards in the brochure appear to be decorative.",
+      "role": "choice"
+    },
+    {
+      "text": "Trust the brochure’s safety promise → You endorse the brochure. She turns it over: a warranty for the camera, nothing for the person underneath.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Salesman holds an unused deadbolt toward the customer’s closed report; crew observes from the aisle. An impressive display of physical locks cannot answer the problem on a camera brochure.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MORE SECURITY” — lock-display header; “PUBLIC INVESTIGATION” — closed report cover; “CAMERA WARRANTY” — brochure back",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Police misuse of Flock to monitor former partners",
+      "role": "source",
+      "link": "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/"
+    },
+    {
+      "text": "ENC-D11-A · The atlas answers first",
+      "role": "heading"
+    },
+    {
+      "text": "At a rest stop, a Minnesota legal volunteer offers directions while reading March 2026’s Whipple order requiring private legal calls and transfer safeguards. Her atlas finds every town. Finding a detained client took a federal judge.",
+      "role": "body"
+    },
+    {
+      "text": "Take her direct highway detour → Her direct route recovers time and clears your head. The atlas locates you without requiring three phone calls and a court order.",
+      "role": "choice"
+    },
+    {
+      "text": "Take her gentler back-road route → The gentler route regains some time and lifts the mood. She waves goodbye. Nobody needs permission to tell you where you are.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer opens a blank road atlas beside the public order while travelers stand by their parked van considering two ordinary detours. The clear open atlas is small beside the public legal document required to establish basic communication safeguards.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “WHIPPLE ORDER · MARCH 2026” — Blank public document",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Rapid detention transfers obstruct access to lawyers — clearinghouse-umich-production.s3.amazonaws.com",
+      "role": "source",
+      "link": "https://clearinghouse-umich-production.s3.amazonaws.com/media/doc/169796.pdf"
+    },
+    {
+      "text": "ENC-D11-B · Directions, not a statement",
+      "role": "heading"
+    },
+    {
+      "text": "At a truck-stop counter, a camera promoter calls Texas’s abortion-related Flock search a welfare check. The cashier keeps the released investigation summary beside the road maps. She separates them: one tells you where to go; the other demands an explanation.",
+      "role": "body"
+    },
+    {
+      "text": "Use the cashier’s direct road map → You follow her public-road directions and make up miles, head clearer. She gets the van moving without asking for a statement.",
+      "role": "choice"
+    },
+    {
+      "text": "Take the slower signed exit → You regain some road, spirits lifted. The cashier declines the promoter’s help finding everybody’s reason for leaving.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Cashier separates a public investigation summary from ordinary highway maps and offers directions to the crew. Road maps and an investigative report share a counter but receive sharply different treatment.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ROAD MAPS” — map rack; “PUBLIC INVESTIGATION SUMMARY” — closed public folder; “WELFARE CHECK” — promoter card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: ALPR searches in an abortion investigation",
+      "role": "source",
+      "link": "https://www.eff.org/deeplinks/2025/10/flock-safety-and-texas-sheriff-claimed-license-plate-search-was-missing-person-it"
+    },
+    {
+      "text": "ENC-D11-C · Over one counter",
+      "role": "heading"
+    },
+    {
+      "text": "At a highway pharmacy, a clerk offers detour directions while recalling Biden’s January 2025 withdrawal of proposed prescription-free contraceptive coverage. Existing rules remained. The medicine was already on the shelf. The insurance card wanted it to visit a doctor.",
+      "role": "body"
+    },
+    {
+      "text": "Follow the clerk’s direct detour → The direct detour regains time and clears your head. The clerk’s map has a startling innovation: only one place marked destination.",
+      "role": "choice"
+    },
+    {
+      "text": "Take her scenic back road → You regain some time and laugh at her directions: “Past the doctor, past the insurer, then actually go somewhere.”",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The clerk points to two blank road sketches beside a generic shelf product and a public withdrawal notice while travelers pause at the counter. The product sits within easy reach while a large blank insurance pamphlet appears to send its tiny illustrated shopper around several counters.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “COVERAGE PROPOSAL WITHDRAWN · JANUARY 2025” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Proposed insurance coverage for over-the-counter contraception withdrawn — public-inspection.federalregister.gov",
+      "role": "source",
+      "link": "https://public-inspection.federalregister.gov/2025-00774.pdf"
+    },
+    {
+      "text": "ENC-D12-A · Attendance, with free delivery",
+      "role": "heading"
+    },
+    {
+      "text": "At a courthouse coffee cart, a visiting California volunteer offers detour directions. June 2026’s judgment struck down the immigration-court arrest policy; appeals continue. The system invited people to attend hearings, then discovered attendance came with free delivery.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper for the road shortcut → Your copied shortcut uses some paper and recovers time. The volunteer separates it from the court notice. Directions should honor their invitations.",
+      "role": "choice"
+    },
+    {
+      "text": "Check the ruling; take side streets → You confirm the ruling’s limits and recover some time on side streets. The volunteer appreciates a route that discloses its destination.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer keeps a public court ruling separate from two blank road sketches while travelers stand beside the coffee cart considering directions. The ordinary map offers a clearly bounded route while the public invitation-style document sits under a heavy legal file.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC JUDGMENT · JUNE 2026” — Blank public court document",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Appearing at immigration court becomes an arrest opportunity — www.govinfo.gov",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/USCOURTS-cand-5_25-cv-06487/pdf/USCOURTS-cand-5_25-cv-06487-8.pdf"
+    },
+    {
+      "text": "Source: Appearing at immigration court becomes an arrest opportunity — caselaw.findlaw.com",
+      "role": "source",
+      "link": "https://caselaw.findlaw.com/court/us-dis-crt-n-d-cal/245936.html"
+    },
+    {
+      "text": "ENC-D12-B · Destination included",
+      "role": "heading"
+    },
+    {
+      "text": "At a bus-station café, a travel-aid volunteer offers directions while reading March 2026’s stay of a third-country deportation ruling. A chance to contest the destination remains disputed. At the ticket desk, that privilege comes with the cheap seats.",
+      "role": "body"
+    },
+    {
+      "text": "Use paper for the quick road route → You copy the quick road route using some paper and regain time. The volunteer circles the destination. Your itinerary has advanced civil rights.",
+      "role": "choice"
+    },
+    {
+      "text": "Check the status; take the slower shortcut → You verify the ruling’s status and take the slower shortcut. The volunteer confirms where you’re going. No one calls this radical.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The volunteer offers two blank road sketches beside a public appellate notice while a ticket clerk displays a blank destination card to another adult customer. The cheap-ticket counter openly offers the destination information at the center of a much heavier legal dispute.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PUBLIC APPEALS STAY · MARCH 2026” — Blank public court notice; “DESTINATION INCLUDED” — Blank ticket-counter card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Third-country deportations without a meaningful chance to contest the destination — apnews.com",
+      "role": "source",
+      "link": "https://apnews.com/article/148cee2906dc7286b074116d3eec6fd4"
+    },
+    {
+      "text": "Source: Third-country deportations without a meaningful chance to contest the destination — dockets.justia.com",
+      "role": "source",
+      "link": "https://dockets.justia.com/docket/circuit-courts/ca1/26-1212"
+    },
+    {
+      "text": "ENC-D12-C · The screen is the easy repair",
+      "role": "heading"
+    },
+    {
+      "text": "At a phone-repair kiosk, a customer asks about deleting fertility data already shared. The technician points to the FTC’s Premom settlement, tips glitter into a desk fan, and hands her a dustpan. “Now ask for it back.”",
+      "role": "body"
+    },
+    {
+      "text": "Share food; take his direct directions → You share food and take his direct road directions. He can repair the screen; the audience assembled behind it is another department.",
+      "role": "choice"
+    },
+    {
+      "text": "Check the settlement before leaving → You regain some road and credibility. The technician can replace a cracked screen faster than an advertiser can forget a useful secret.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Before either choice, a technician demonstrates scattered data with glitter dispersing from a desk fan while a separate customer holds a dustpan. Current travelers watch at the kiosk. A tiny dustpan faces a glitter cloud spreading well beyond the repair counter.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PREMOM: FTC SETTLEMENT” — public notice; “LOCAL ROADS” — map heading",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Premom reproductive-health data disclosures",
+      "role": "source",
+      "link": "https://www.ftc.gov/legal-library/browse/cases-proceedings/202-3186-easy-healthcare-corporation-us-v"
+    },
+    {
+      "text": "ENC-D13-A · Smaller dots, same clinic",
+      "role": "heading"
+    },
+    {
+      "text": "The FTC banned X-Mode’s sale of sensitive location data. At a roadside café, a promoter insists location dots are anonymous. The waitress points to the clinic across the street. He offers to make the dots smaller.",
+      "role": "body"
+    },
+    {
+      "text": "Take the waitress’s highway directions → You regain road. Her directions point to the highway; the promoter’s map keeps trying to explain why everyone stopped beside the clinic.",
+      "role": "choice"
+    },
+    {
+      "text": "Wait for the signed exit lane → You regain some road and clear your head. She folds the promoter’s map until his pitch is the smallest dot in town.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Waitress indicates the clinic without identifying visitors while promoter shows a fabricated abstract map with no real routes. A salesman tries to solve an obvious privacy problem by shrinking decorative dots.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ANONYMOUS INSIGHTS” — promoter board; “FTC SENSITIVE-LOCATION ORDER” — public notice; “HIGHWAY” — road sign",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Broker sale of sensitive clinic-location data",
+      "role": "source",
+      "link": "https://www.ftc.gov/system/files/ftc_gov/pdf/X-ModeSocialDecisionandOrder.pdf"
+    },
+    {
+      "text": "ENC-D13-B · The tolerant detour sign",
+      "role": "heading"
+    },
+    {
+      "text": "At a Beltway road closure, a reporter recalls 2025’s White House restrictions on AP over “Gulf of Mexico.” Access was still disputed that November. The detour sign is more tolerant: it lets you disagree with the arrows.",
+      "role": "body"
+    },
+    {
+      "text": "Follow the reporter’s main-road detour → The reporter’s directions recover time. The road accepts your destination without testing whether you’ve used the president’s preferred name for the water.",
+      "role": "choice"
+    },
+    {
+      "text": "Take the quiet side streets → You regain some time and clear your head. The reporter waves goodbye. No test of your publication’s ocean vocabulary.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The reporter holds a public news printout beside an ordinary blank detour board while travelers consider the roads from their parked van. The angled detour board bends on a flexible post, displaying greater flexibility than the access dispute being described.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “DETOUR” — Blank roadworks sign; “AP ACCESS DISPUTE · NOVEMBER 2025” — Blank public article caption",
+      "role": "scene"
+    },
+    {
+      "text": "Source: White House retaliation against Associated Press access — www.ap.org",
+      "role": "source",
+      "link": "https://www.ap.org/media-center/ap-in-the-news/2025/ap-and-trump-administration-argue-access-case-before-federal-appeals-court-no-ruling-yet/"
+    },
+    {
+      "text": "ENC-D13-C · Turn the page",
+      "role": "heading"
+    },
+    {
+      "text": "At a Beltway service station, a visiting Alabama plumber offers directions and recalls DOJ ending Lowndes County’s sewage settlement in April 2025 as an anti-DEI move. His wrench turns both ways. Washington prefers turning the page.",
+      "role": "body"
+    },
+    {
+      "text": "Take the plumber’s direct route → His shortcut gets you moving. He points to the turn, then the wrench. One problem can actually be fixed today.",
+      "role": "choice"
+    },
+    {
+      "text": "Take his quieter side streets → You regain some time and clear your head. He caps a clean pipe fitting. Still waiting on the government’s matching part.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The plumber rests a clean wrench beside a blank public DOJ notice and points at two blank road sketches while travelers stand near their van. A plainly useful wrench weighs down a page announcing withdrawal of practical federal oversight.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “LOWNDES COUNTY SETTLEMENT ENDED · APRIL 2025” — Blank public notice",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Lowndes County sewage agreement terminated as environmental-justice policy — www.justice.gov",
+      "role": "source",
+      "link": "https://www.justice.gov/opa/pr/department-justice-terminates-environmental-justice-settlement-agreement-advancing-president"
+    },
+    {
+      "text": "ENC-W-MW-D01-A · The chairs retain their value",
+      "role": "heading"
+    },
+    {
+      "text": "A surplus dealer offers $14 to sort office chairs. A researcher says NIH cancelled her gender-identity research grant in 2025. Washington found the work worthless. The dealer finds a lever beneath her chair and immediately sees its potential.",
+      "role": "body"
+    },
+    {
+      "text": "Sort chairs; keep the public ruling → You earn $14 and save the ruling, drained. The dealer finds the chairs extremely useful now nobody is thinking in them.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and exchange contacts → You share food and swap contacts. She corrects your account of the funding fight. The dealer prices her chair above her expertise.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break → You take a quiet break. A customer sits in the best chair and announces that science has gone too far.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The dealer pinches upholstery while the researcher holds a public court ruling and the travelers consider the unsorted chairs. The dealer gives the empty chair a close professional examination while overlooking the expert standing beside it.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SORT CHAIRS · $14” — Blank offer card; “PUBLIC RULING · AUGUST 2025” — Blank document caption",
+      "role": "scene"
+    },
+    {
+      "text": "Source: NIH terminates research over gender-identity priorities — www.supremecourt.gov",
+      "role": "source",
+      "link": "https://www.supremecourt.gov/opinions/24pdf/25a103_kh7p.pdf"
+    },
+    {
+      "text": "ENC-W-MW-D01-B · The wedding shrank the safety cushion",
+      "role": "heading"
+    },
+    {
+      "text": "SSI allows $2,000 in countable resources individually, $3,000 for a couple. At a grocery counter, newlyweds compare the public rules. The clerk offers $14 to sort receipt rolls. Their wedding card congratulates them on becoming one.",
+      "role": "body"
+    },
+    {
+      "text": "Sort the receipt rolls for $14 → You earn $14 and save the rule, head aching. Their combined safety cushion has lost a corner to the wedding.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food; compare the exemptions → You share food, gain a contact, and check exemptions. They agree the cake was easier to divide than legal permission to save.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → Your head clears outside. The shop sells two-for-one wedding cards, which is still less aggressive arithmetic than the benefits rule.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Clerk offers unsorted blank receipt rolls while couple compare public individual and couple limits beside a wedding card. A cheerful paired-heart wedding card sits between two mismatched savings-limit figures.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “$2,000 INDIVIDUAL” — public rule column; “$3,000 COUPLE” — public rule column; “TWO BECOME ONE” — wedding-card message; “$14 SORTING JOB” — work card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: SSI countable-resource limits",
+      "role": "source",
+      "link": "https://www.ssa.gov/ssi/text-resources-ussi.htm"
+    },
+    {
+      "text": "ENC-W-MW-D01-C · Both hands of government",
+      "role": "heading"
+    },
+    {
+      "text": "A community print shop offers $14 to sort benefit leaflets. A volunteer points to September 18, 2026’s upcoming public-charge rule, broadening certain immigration reviews. Exceptions remain. One government leaflet offers help; another asks why anybody would need it.",
+      "role": "body"
+    },
+    {
+      "text": "Sort leaflets; keep the public rule → You earn $14 and keep the public rule, drained. Both leaflets feature welcoming hands. They point in opposite directions.",
+      "role": "choice"
+    },
+    {
+      "text": "Share paper and exchange contacts → You share paper and swap contacts with the volunteer. She marks the actual exceptions. The helping hand requires an instruction manual.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break → You take a quiet break. The volunteer puts both leaflets on one stand. One open hand has developed a pointing finger.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The printer indicates two unsorted leaflet stacks with blank covers and generic hand illustrations while the volunteer holds the public rule and travelers consider the offer. Two cheerful illustrated helping hands point away from each other across the same counter.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SORT LEAFLETS · $14” — Blank offer card; “RULE EFFECTIVE SEPTEMBER 18, 2026” — Blank public rule",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public-charge rule broadens benefit scrutiny for immigration decisions — www.govinfo.gov",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/FR-2026-07-20/pdf/2026-14539.pdf"
+    },
+    {
+      "text": "Source: Public-charge rule broadens benefit scrutiny for immigration decisions — www.axios.com",
+      "role": "source",
+      "link": "https://www.axios.com/2026/09/14/trump-immigration-benefits-lawsuit-mamdani-nyc"
+    },
+    {
+      "text": "ENC-W-MW-D02-A · Storage is thriving",
+      "role": "heading"
+    },
+    {
+      "text": "A freight depot offers $12 to shift empty coolers. A dispatcher reads June 2026’s USAID audit: cancelled distribution left contraceptives deteriorating in Belgium while storage bills grew. The empty coolers are still receiving excellent logistical support.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the public audit → You save the audit, drained. The warehouse charges by the day. Uncertainty has proved far more durable than the stock.",
+      "role": "choice"
+    },
+    {
+      "text": "Shift the empty coolers → You earn $12 and strain your back shifting coolers. The empty ones are marked urgent. That seems to have helped.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the freight job → You leave discouraged. The dispatcher checks another storage invoice. At least someone has found a reliable form of aid.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The dispatcher holds the public audit beside unused empty shipping coolers while travelers stand at the depot entrance considering the moving job. The conspicuously empty coolers are protected by an extravagant amount of clean packing material.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SHIFT EMPTY COOLERS · $12” — Blank offer card; “USAID AUDIT · BELGIUM · JUNE 2026” — Blank public audit cover",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Cancelled USAID contraception distribution produces storage bills and unusable stock — oig.usaid.gov",
+      "role": "source",
+      "link": "https://oig.usaid.gov/sites/default/files/2026-06/Management%20Advisory_Family%20Planning%20Commodities%20in%20Belgium%20Need%20Final%20Disposition%20Instructions.pdf"
+    },
+    {
+      "text": "ENC-W-MW-D02-B · Some assembly required",
+      "role": "heading"
+    },
+    {
+      "text": "A warehouse offers $12 to move bed frames. A tenant volunteer explains HUD’s February 2026 proposal to limit mixed-status families’ prorated housing aid; it isn’t final. The beds come in halves for assembly. Families are proving less cooperative.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the actual proposal → You save the proposal, drained, and mark it not final. The volunteer measures a bed. No section is designed for conditional occupants.",
+      "role": "choice"
+    },
+    {
+      "text": "Move the bed frames → You earn $12 moving bed frames and strain your back. Every frame expects the whole sleeper to arrive.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the moving job → You leave discouraged. The volunteer puts the proposal beside the assembly instructions. Only one admits you’ll need help.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The manager points to disassembled bed frames while the volunteer compares a blank public proposal with blank assembly instructions and travelers consider the offer. Two neatly separated halves of a bed frame face a single intact pillow.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “MOVE BED FRAMES · $12” — Blank offer card; “HUD PROPOSAL · NOT FINAL” — Blank public proposal",
+      "role": "scene"
+    },
+    {
+      "text": "Source: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/FR-2026-02-20/pdf/2026-03405.pdf"
+    },
+    {
+      "text": "Source: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov",
+      "role": "source",
+      "link": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16603.pdf"
+    },
+    {
+      "text": "ENC-W-MW-D02-C · The car is a survivor",
+      "role": "heading"
+    },
+    {
+      "text": "At a used-car lot, a buyer shares a redacted credit refusal after the federal medical-debt rule was scrapped. The dealer offers $12 to move wheels. The car’s three previous accidents require less explanation than the hospital bill.",
+      "role": "body"
+    },
+    {
+      "text": "Compare the ruling with public terms → You save the public terms, head aching. Three crashes are character; one hospital bill apparently makes a person unreliable.",
+      "role": "choice"
+    },
+    {
+      "text": "Move the wheels for $12 → You earn $12 and a sore back. The dealer calls the damaged car a survivor, then refuses the human version financing.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the car lot → You leave angry. The dealer puts another certified sticker on the car and asks the customer for more proof.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Dealer gestures toward unmoved spare wheels while buyer holds a redacted letter beside a visibly repaired display car. The patched car wears a grand certification ribbon while the living applicant faces more questions.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “CERTIFIED SURVIVOR” — car ribbon; “$12 WHEEL-MOVING JOB” — work card; “PUBLIC CREDIT TERMS” — desk booklet",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal medical-debt reporting rule vacated",
+      "role": "source",
+      "link": "https://www.consumerfinance.gov/archive/newsroom/cfpb-finalizes-rule-to-remove-medical-bills-from-credit-reports/"
+    },
+    {
+      "text": "ENC-W-PC-D01-A · The camera recognizes you",
+      "role": "heading"
+    },
+    {
+      "text": "Trump’s passport rules can force a trans applicant’s documents to disagree. At a photo shop, a clerk offers $16 to fold public guidance sheets. The camera recognizes the customer; the government needs older evidence.",
+      "role": "body"
+    },
+    {
+      "text": "Fold the guides for $16 → You earn $16 and save the public rule, head aching. The photo must resemble the applicant; the sex marker apparently needn’t.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food with the customer → You share food, laugh, and exchange numbers. The customer suggests a baby photo so both fields can be equally current.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the folding job → You leave the job. The clerk checks the lighting again. It remains easier to correct a shadow than a federal document.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Clerk offers unfolded public guides while customer stands beside the idle camera; all personal documents remain closed. The camera sees the present customer while the public form requests evidence from the past.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “$16 GUIDE FOLDING” — work card; “PASSPORT SEX-MARKER POLICY” — public guide heading; “CURRENT PHOTO” — camera-area placard",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Passport sex-marker restrictions",
+      "role": "source",
+      "link": "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html"
+    },
+    {
+      "text": "ENC-W-PC-D01-B · The boots can stay",
+      "role": "heading"
+    },
+    {
+      "text": "A workwear shop offers $16 to sort boots. A trans Navy technician shows April 2026 separation guidance: covered personnel cannot use SkillBridge job training, with retention waivers possible. Behind him, a recruiting poster begs for his exact skills.",
+      "role": "body"
+    },
+    {
+      "text": "Sort the boots; keep the guidance → You earn $16 and save the guidance, drained. The boots have a simpler route back to useful service.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and contact details → You share food and swap numbers. He offers job leads. The recruitment poster has contributed neither lunch nor a phone number.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the sorting job → You leave the boots for someone else. The poster keeps recruiting the man standing underneath it.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The shopkeeper gestures toward unsorted boots while the technician holds public guidance beneath a blank recruiting poster; the travelers consider the offer. The recruitment poster’s reaching silhouette seems to beckon the skilled technician whom the policy may separate.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SORT RETURNS · $16” — Blank counter card; “TECHNICAL SKILLS WANTED” — Blank recruiting poster",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Military discharge and loss of transition-to-work assistance — www.mynavyhr.navy.mil",
+      "role": "source",
+      "link": "https://www.mynavyhr.navy.mil/Portals/55/Messages/NAVADMIN/NAV2026/NAV26098.pdf"
+    },
+    {
+      "text": "Source: Military discharge and loss of transition-to-work assistance — law.justia.com",
+      "role": "source",
+      "link": "https://law.justia.com/cases/federal/appellate-courts/cadc/25-5087/25-5087-2026-06-01.html"
+    },
+    {
+      "text": "ENC-W-PC-D01-C · A legally supported welcome",
+      "role": "heading"
+    },
+    {
+      "text": "A church pantry offers $16 to stack chairs. A visiting organizer explains August 2026’s ruling upholding immigration-enforcement protections at named congregations after DHS dropped protected-area guidance. Every door has the same welcome mat. Only some have a court order.",
+      "role": "body"
+    },
+    {
+      "text": "Stack chairs; save the public ruling → You earn $16 and save the ruling, drained. Every chair folds the same way. The protection surrounding it doesn’t.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and exchange numbers → You share food and exchange numbers. The organizer introduces you by first name. Lunch survives without a jurisdictional chart.",
+      "role": "choice"
+    },
+    {
+      "text": "Leave the chair job → You leave the chairs to someone else. The welcome mat remains impressively fluent in promises.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The coordinator gestures toward scattered empty chairs while the visiting organizer holds a public ruling beside a blank welcome mat; travelers consider the offer. The enormous framed public ruling the visitor carries nearly covers the ordinary welcome mat beneath it.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “WELCOME” — Blank doorway mat; “STACK CHAIRS · $16” — Blank offer card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Protected-area immigration enforcement guidance rescinded; some churches regain protection — law.justia.com",
+      "role": "source",
+      "link": "https://law.justia.com/cases/federal/appellate-courts/ca4/25-1512/25-1512-2026-08-18.html"
+    },
+    {
+      "text": "ENC-W-PC-D02-A · Privacy begins at voting age",
+      "role": "heading"
+    },
+    {
+      "text": "At a print counter, a visiting California teacher explains March 2026’s limited ruling on trans student identity disclosures. A campaigner offers $8 to hang flyers demanding every trans student’s identity. His phone lights up. He turns it face down.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the actual ruling → You save the ruling’s parent-class limits, head aching. The campaigner shields his messages with both hands. Privacy begins at voting age.",
+      "role": "choice"
+    },
+    {
+      "text": "Hang the campaigner’s flyers → You earn $8 spreading his blanket claim. The teacher corrects it. He asks you not to print his personal number.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → You clear your head outside. Inside, the man selling total disclosure has moved his phone under the table.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The campaigner turns his phone face down beside a stack of unposted blank flyers while the teacher offers a public ruling to the observing travelers. The campaigner’s hands conceal his own phone as his other elbow pins down a pile of total-disclosure flyers.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PARENTS MUST KNOW EVERYTHING” — Blank flyer stack; “HANG FLYERS · $8” — Blank offer slip",
+      "role": "scene"
+    },
+    {
+      "text": "Source: School disclosure orders override student confidentiality policies — www.supremecourt.gov",
+      "role": "source",
+      "link": "https://www.supremecourt.gov/opinions/25pdf/25a810_b97d.pdf"
+    },
+    {
+      "text": "ENC-W-PC-D02-B · Thank you, minus the treatment page",
+      "role": "heading"
+    },
+    {
+      "text": "VA limits starting gender-affirming hormones while preserving specified exceptions. At an army-surplus shop, a veteran discusses the cutoff. The owner offers $8 to remove the restrictions page from benefit folders. The thank-you-for-your-service page stays.",
+      "role": "body"
+    },
+    {
+      "text": "Compare and save the public pages → You keep the public pages, mentally drained. Gratitude gets glossy paper; the missing treatment rule gets the shredder.",
+      "role": "choice"
+    },
+    {
+      "text": "Remove the restrictions pages for $8 → You earn $8 and lose trust. The folders now thank veterans in color and disappoint them by appointment.",
+      "role": "choice"
+    },
+    {
+      "text": "Step outside for a break → Your head clears outside. The owner calls the thinner folder less confusing, which is true until anyone tries to use it.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Owner holds a complete public folder and indicates the page he wants removed; crew has touched nothing. A glossy gratitude sheet shares a folder with the plain restriction page marked for removal.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “THANK YOU FOR YOUR SERVICE” — glossy sheet; “HORMONE-CARE RESTRICTIONS” — public policy-page heading; “$8 FOLDER JOB” — work card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: VA gender-affirming care cutoff",
+      "role": "source",
+      "link": "https://news.va.gov/press-room/va-to-phase-out-treatment-for-gender-dysphoria/"
+    },
+    {
+      "text": "ENC-W-PC-D02-C · An independent mute button",
+      "role": "heading"
+    },
+    {
+      "text": "A bar offers $8 to hang “NO CENSORSHIP” flyers. Its comic recalls Kimmel’s brief September 2025 suspension after FCC pressure; Carr disputed responsibility. The owner tests the microphone. It works beautifully until somebody says the chairman’s name.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save both public letters → You save the letters, head aching. The owner demonstrates independent business judgment by watching the TV before touching the volume.",
+      "role": "choice"
+    },
+    {
+      "text": "Hang the owner’s flyers → You earn $8 backing the owner’s blanket claim. He mutes the sound check. The flyers remain impressively outspoken.",
+      "role": "choice"
+    },
+    {
+      "text": "Take a quiet break outside → You clear your head outside. Through the window, the owner tests mute again. Freedom keeps passing the silent portion.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The owner reaches toward a microphone mixer while looking at a blank television; the comic holds public letters beside unposted flyers, and travelers consider the job. The owner’s large protective hand hovers over the tiny mute control while the oversized free-expression flyers lie silent beside it.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “NO CENSORSHIP” — Blank flyer stack; “HANG FLYERS · $8” — Blank offer card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-415483A7.pdf"
+    },
+    {
+      "text": "Source: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov",
+      "role": "source",
+      "link": "https://docs.fcc.gov/public/attachments/DOC-415483A6.pdf"
+    },
+    {
+      "text": "ENC-W-SW-D01-A · A better angle on homelessness",
+      "role": "heading"
+    },
+    {
+      "text": "At a camping-supply yard, a resident challenges a local ticket after 2024’s Grants Pass ruling allowed general camping penalties. A contractor offers $10 to arrange barriers for a victory photo. His camera is aimed away from the tents.",
+      "role": "body"
+    },
+    {
+      "text": "Read the ruling’s actual limits → You read the ruling’s limits, head aching. The resident files the ticket carefully. It is the most expensive piece of shelter available.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and water; rest → You share food and water, rest, and swap numbers. The resident saves you a seat. It requires no enforcement budget.",
+      "role": "choice"
+    },
+    {
+      "text": "Haul barriers for the victory photo → You earn $10 hauling barriers, strain your back, and help sell the photo. The contractor thanks you for moving the problem eight feet.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The contractor points to unmoved barriers while adjusting a camera away from distant tents; the resident holds a covered ticket and the public ruling as travelers consider the offer. The camera’s carefully narrow angle excludes the tents but includes the contractor’s large empty presentation board.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ARRANGE BARRIERS · $10” — Blank offer card; “PROBLEM SOLVED” — Blank presentation board",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Public-camping penalties survive an Eighth Amendment challenge — www.supremecourt.gov",
+      "role": "source",
+      "link": "https://www.supremecourt.gov/opinions/23pdf/23-175_19m2.pdf"
+    },
+    {
+      "text": "ENC-W-SW-D01-B · The treaty fitting",
+      "role": "heading"
+    },
+    {
+      "text": "A Navajo resident at a water depot explains the 2023 ruling: treaty water rights survived, but that treaty didn’t require Washington to secure water. A contractor offers $10 to load jugs beneath a banner declaring the problem solved.",
+      "role": "body"
+    },
+    {
+      "text": "Read what the treaty ruling decides → You read the ruling’s limits, head aching. The resident screws on a jug cap. The treaty still doesn’t fit a hose.",
+      "role": "choice"
+    },
+    {
+      "text": "Share water; rest and swap numbers → You share water and rest, recovering. The resident swaps numbers. A treaty did not do this. Somebody turned a tap.",
+      "role": "choice"
+    },
+    {
+      "text": "Load jugs for the victory photo → You earn $10 and strain your back loading jugs. The contractor crops the waiting line out of his victory photo.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The resident checks empty personal water containers beside a public court printout while the contractor points toward unmoved depot jugs and a blank banner; travelers consider the offers. An enormous congratulatory banner towers above one modest working tap and a queue of ordinary containers.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “PROBLEM SOLVED” — Blank contractor banner; “LOAD JUGS · $10” — Blank offer card",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Navajo water rights without an affirmative treaty duty to secure water — www.supremecourt.gov",
+      "role": "source",
+      "link": "https://www.supremecourt.gov/opinions/22pdf/21-1484_aplc.pdf"
+    },
+    {
+      "text": "ENC-W-SW-D01-C · The narrowest doorway is invisible",
+      "role": "heading"
+    },
+    {
+      "text": "At a mobility shop, a demonstrator offers $10 to carry a ramp beneath CARE WITHOUT OBSTACLES. A customer has the 2022 federal Medicare Advantage denial audit. The smallest obstacle here has a customer-service number.",
+      "role": "body"
+    },
+    {
+      "text": "Read and save the audit findings → You save the findings, head aching. The shop measures every doorway; the insurer has built an invisible one narrower than the chair.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food; take a seated break → You share food, recover on the bench, and gain a contact. It supports your weight without sending the decision to another office.",
+      "role": "choice"
+    },
+    {
+      "text": "Move the display ramp for $10 → You earn $10 and aching arms, losing trust. The ramp crosses a step; the promise above it still cannot cross the insurer.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Demonstrator points to an unmoved portable ramp while customer holds a public report; crew has not begun lifting. A practical ramp waits below an outsized obstacle-free-care promise and a closed approval-information stand.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “CARE WITHOUT OBSTACLES” — display banner; “$10 RAMP-MOVING JOB” — offer card; “2022 FEDERAL AUDIT” — public report cover",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Medicare Advantage denial of qualifying care",
+      "role": "source",
+      "link": "https://www.oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/"
+    },
+    {
+      "text": "ENC-W-SW-D02-A · Counseling about the envelope",
+      "role": "heading"
+    },
+    {
+      "text": "A print shop offers $16 to collate postal-benefit notices: mid-treatment transition-care exceptions end in 2027; counseling remains covered. A trans mail carrier taps OPM’s letter. “They’ll pay someone to hear me say this is ridiculous.”",
+      "role": "body"
+    },
+    {
+      "text": "Collate the benefit notices → You earn $16 and finish the stacks, drained. The carrier asks whether the denial comes with a prepaid reply scream.",
+      "role": "choice"
+    },
+    {
+      "text": "Save the 2027 instruction → You save the instruction, head aching. The carrier stamps a practice envelope twice. Once for delivery, once for emphasis.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and swap numbers → You share food and swap numbers. He promises to answer. Your new contact immediately outperforms the benefits department.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The printer indicates separate stacks while the carrier taps a blank public letter; the travelers have not touched the papers. An oversized stack of benefit explanations towers over one small unopened lunch bag.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “COLLATING JOB · $16” — Blank counter offer card; “2027 BENEFITS” — Blank cover sheet",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Federal employee insurance removes mid-treatment exceptions — www.opm.gov",
+      "role": "source",
+      "link": "https://www.opm.gov/healthcare-insurance/carriers/fehb/2026/2026-07.pdf"
+    },
+    {
+      "text": "ENC-W-SW-D02-B · The clock is receiving excellent care",
+      "role": "heading"
+    },
+    {
+      "text": "GAO’s Camp East Montana review found intake screenings without required follow-up assessments. At a diner, a relative waits for a medical update. The owner offers $16 to roll cutlery. A contractor’s round-the-clock-care slogan plays on TV. The clock is winning.",
+      "role": "body"
+    },
+    {
+      "text": "Roll the cutlery for $16 → You earn $16 and a headache. The cutlery is ready before the call is answered; forks apparently face fewer staffing difficulties.",
+      "role": "choice"
+    },
+    {
+      "text": "Read and save the public report → You save the findings, mentally drained. The intake questionnaire appears to have been mistaken for the treatment.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food with the relative → You share food and exchange numbers. The relative says the diner has already checked on their table more often than the contractor.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: Owner offers unused cutlery and napkins while relative waits beside a blank phone and closed public report. A large diner clock sits above a reassuring care slogan while a silent phone waits below.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “ROUND-THE-CLOCK CARE” — television advertisement overlay; “$16 CUTLERY-ROLLING JOB” — offer card; “GAO PUBLIC REPORT” — report cover",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Missing chronic-care plans in immigration detention",
+      "role": "source",
+      "link": "https://files.gao.gov/reports/GAO-26-108886/index.html"
+    },
+    {
+      "text": "ENC-W-SW-D02-C · The toilet takes no position",
+      "role": "heading"
+    },
+    {
+      "text": "A warehouse offers $16 to sort valve labels. A Texas contractor’s bookkeeper explains Israel-boycott certification for qualifying large public contracts. His company’s school-toilet bid has reached foreign policy. The toilet, so far, has taken no position.",
+      "role": "body"
+    },
+    {
+      "text": "Sort the warehouse valve labels → You earn $16 sorting labels, drained. The valves have open and closed positions. The bookkeeper envies their limited range of political opinions.",
+      "role": "choice"
+    },
+    {
+      "text": "Save the contract’s actual thresholds → You save the contract’s actual thresholds, head aching. The bid can now discuss international relations. It still cannot flush.",
+      "role": "choice"
+    },
+    {
+      "text": "Share food and exchange numbers → You share food and swap numbers. The bookkeeper promises a call if the toilet issues a statement.",
+      "role": "choice"
+    },
+    {
+      "text": "Scene: The clerk gestures toward unsorted blank valve labels while the bookkeeper holds a public contract clause beside an uninstalled demonstration toilet; travelers consider the job. The silent demonstration toilet occupies the head of a table covered by foreign-policy certification paperwork.",
+      "role": "scene"
+    },
+    {
+      "text": "Editable overlays: “SORT VALVE LABELS · $16” — Blank offer card; “PUBLIC-CONTRACT CERTIFICATION” — Blank public clause cover",
+      "role": "scene"
+    },
+    {
+      "text": "Source: Texas public contracts require an Israel-boycott certification — episd.novusagenda.com",
+      "role": "source",
+      "link": "https://episd.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=14171&ItemID=6239"
+    }
+  ],
+  "text": "Road — Deep End\n57 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately.\nENC-D01-A · The lunch threat\nAt a diner, a trans driver reads May 2026’s counterterrorism strategy targeting violent groups described as “radically pro-transgender.” On TV, a pundit drops “violent.” The driver closes his lunch cooler. “There goes my weapons inspection.”\nUse paper; save the actual wording → You use some paper to save the wording, head pounding. The driver opens lunch slowly. Apparently mayonnaise now needs witnesses.\nTake the quick TV version → The simple version clears your head. By dessert, the pundit has promoted coleslaw to a sleeper cell.\nSay all trans people were designated → He says no: the strategy does not designate all trans people. The pundit has already booked a second expert on sandwiches.\nScene: The driver closes a lunch cooler beside a public document while the travelers pause near the counter; a pundit gestures on a blank television. The ordinary lunch cooler occupies the foreground beneath the grandiose television performance.\nEditable overlays: “MAY 2026 COUNTERTERRORISM STRATEGY” — Editable caption beside the blank public document\nSource: Counterterrorism framing of trans advocacy — www.whitehouse.gov\nENC-D01-B · White, rye, or counsel\nAt a Pentagon-adjacent sandwich counter, a reporter shows March 2026’s revised press rules after a court struck parts down. The memo says asking questions isn’t criminal. The cashier asks white or rye. Three people check whether he’s credentialed.\nUse paper; save the actual memo → You use paper to save the memo, head pounding. The cashier repeats the bread options slowly, as though negotiating access to a submarine.\nAccept that the dispute is settled → You relax at the reassurance. The reporter corrects you: revised rules don’t settle every dispute. The sandwich still awaits clearance.\nSay ingredient questions are forbidden → The reporter corrects you: the memo expressly says asking questions isn’t criminal. The cashier courageously reveals the existence of mustard.\nScene: The cashier holds two unbranded bread loaves apart while the reporter points to a blank public memo and travelers pause at the counter. An ordinary choice of bread receives the solemn scrutiny of a security briefing.\nEditable overlays: “REVISED PRESS MEMO · MARCH 23, 2026” — Blank public memo\nSource: Pentagon press-credential policy and judicial correction — media.defense.gov\nENC-D01-C · Your call is medically important\nAt a diner, an off-duty nurse asks your crew to document her hospital's response to CMS withdrawing emergency-abortion guidance: a legal hotline. She's testing it over breakfast. The waitress brings the phone its own menu. It's been here longer than anyone.\nUse your paper; document the delay → You use some supplies to save the timed account, head aching. The waitress clears breakfast around the phone. It has qualified for lunch.\nAccept the hotline's reassuring greeting → The recorded reassurance settles your head until the nurse explains it approves nothing. The waitress asks whether the recording wants its usual.\nSay federal law requires this hotline → The nurse corrects you: the hospital invented the hotline. The waitress takes back its menu. House guests aren't federal officials.\nScene: The nurse shows the observing travelers a phone on speaker beside untouched toast while the waitress sets a blank menu upright beside it. A phone occupies a complete place setting with its own menu while a cold breakfast crowds the nurse's side of the table.\nEditable overlays: “PLEASE HOLD” — Separate caption beside the phone, not part of its screen\nSource: Emergency abortion exceptions and federal guidance withdrawal — cms.gov\nSource: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov\nSource: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov\nENC-D02-A · The house is still at large\nOutside a courthouse, a volunteer asks your crew to help carry returned belongings. Her client was arrested after a miscarriage; the charges were dropped. Police kept the woman's house keys as evidence. Apparently her front door was an accessory.\nUse some water; rest in shade → You drink some water and recover in the shade. The volunteer checks the returned keys. The house is still at large.\nHelp carry the returned-property box → You scrape your arms carrying the box. The volunteer checks its contents twice. An apology wasn't among the items police returned.\nShare water; record the property delay → You share some water and record the arrest, dismissal and property delay. The volunteer turns the key. The door declines to resist release.\nScene: The volunteer indicates a sealed returned-property box on a trolley while holding a key ring; travelers consider helping beside an empty shaded bench. An oversized blank evidence tag still dangles from an ordinary house key after the case has ended.\nEditable overlays: “RETURNED PROPERTY” — Blank tag on the sealed box\nSource: Georgia miscarriage arrest followed by dismissal — themarshallproject.org\nSource: Georgia miscarriage arrest followed by dismissal — walb.com\nENC-D02-B · The roof remains eligible\nA school gym’s equipment sale draws you inside. The coach explains Trump’s sports order uses federal funding to exclude trans girls from girls’ teams. A leak drips onto the basketballs. Washington located the girl. Nobody located a roofer.\nUse food and water; take a break → You use some food and water for a break, recovering. The coach moves a bucket. The roof remains eligible for every team.\nShift equipment away from the leak → You strain yourself shifting equipment out of the leak. The coach adds another bucket. It passes eligibility without a hearing.\nSupply the coach’s public notice → You give paper and tape for a notice quoting the actual order. Above it, the leak continues its undefeated season.\nScene: The coach points to a public order beside unsold balls while a roof drip falls toward an existing bucket; travelers pause at the sale entrance. A row of ordinary buckets is doing more visible work than the oversized official-looking policy sheet.\nEditable overlays: “PUBLIC EQUIPMENT SALE” — Blank entrance board; “FEDERAL SCHOOL-SPORTS ORDER” — Blank public notice\nSource: Women's sports restrictions enforced through federal funding — www.whitehouse.gov\nENC-D02-C · An active workplace\nAt a nursing-home rummage sale, an aide points to federal staffing minimums repealed in February 2026. Older requirements remain. The administrator is selling extra chairs. His plan for keeping everybody on their feet is proceeding beautifully.\nUse food and water; rest → You use food and water to rest and recover. The aide sits briefly. The chair demonstrates a suspiciously affordable retention strategy.\nHelp move the sale chairs → You strain yourself moving chairs. The administrator calls this proof fewer seats encourage activity. The aide offers him the heaviest one.\nSupply an accurate public notice → You give paper and tape for an accurate notice. The aide adds the older requirements. The administrator’s uncluttered wall becomes less efficient.\nScene: The administrator presents several unsold chairs while the aide holds a public staffing notice and travelers consider the sale. The administrator alone has brought a luxurious folding seat behind the table.\nEditable overlays: “PUBLIC RUMMAGE SALE” — Blank entrance board; “FEDERAL STAFFING REPEAL · FEBRUARY 2026” — Blank public notice\nSource: New nursing-home staffing minimums repealed — regulations.justia.com\nENC-D03-A · Tell the airbags\nAt a rest stop, a trans Kansas driver shows the replacement license the state required. Same driver. Same car. Different sex marker. He asks whether he needs to notify the airbags.\nUse paper; save the law’s scope → You use paper to save the law’s actual scope. He puts the new card away. The camera still remembers who it photographed.\nShare lunch with the driver → You share lunch and laugh. His car unlocks without consulting his birth certificate. Even the door recognizes him.\nTake a quiet bench break → You clear your head on a quiet bench. He adjusts the driver’s seat. It still has the same opinion of his legs.\nScene: The worker keeps all details of a blank replacement card covered while pointing toward a public law printout; travelers listen beside the picnic area. His face and the obscured card occupy parallel positions, with an ordinary car door waiting behind him.\nEditable overlays: “KANSAS · REPLACEMENT LICENSE” — Editable caption beside blank public law\nSource: Kansas links bathroom enforcement to invalidated identity documents — www.kslegislature.gov\nSource: Kansas links bathroom enforcement to invalidated identity documents — www.ksrevenue.gov\nENC-D03-B · The toaster has a floor\nAt a thrift store, a visiting disabled worker shows July 2025’s abandoned federal phaseout of subminimum-wage certificates. His employer uses one where state law permits. Here, the donated toaster enjoys a firm minimum price.\nUse paper; save the federal rule → You use paper to save the federal rule. He turns the toaster over. Even secondhand appliances receive a proper valuation.\nShare a full lunch → You share lunch and laugh. He checks the toaster’s warranty. Lasting thirty days apparently earns more confidence than working every weekday.\nTake a quiet break → You take a quiet break. The cashier refuses a lower offer for the toaster. Some labor-saving devices must never be undervalued.\nScene: The worker examines an unplugged donated toaster’s blank price card while offering a public federal notice; travelers browse beside him. The cashier protects the toaster’s price card with the firmness missing from the worker’s wage policy.\nEditable overlays: “PRICE FIRM” — Blank toaster price tag; “FEDERAL PHASEOUT WITHDRAWN · JULY 2025” — Blank public notice\nSource: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — regulations.justia.com\nSource: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — www.dol.gov\nENC-D03-C · Roadworthy, pending counsel\nAt a motel breakfast, adult volunteers review Idaho's restrictions on concealed abortion assistance to unemancipated minors. They ask your crew to record the public facts for D.C. Their car passed its inspection. The route needs a lawyer. The lawyer doesn't do roadside assistance.\nUse your paper; record the limits → You use some supplies to save the minor-specific limits. The driver files the car's clean inspection beside the questions keeping it parked.\nShare food with the planning volunteers → You share some food and enjoy lunch together. The lawyer unrolls the route papers. The driver puts the bread basket on them. Lunch proceeds.\nRead quietly on the motel porch → You clear your head on the porch. The car wears a cheerful roadworthy sticker. Its driver is still inside, qualifying the journey.\nScene: A volunteer shows an inspection sheet and broad, unmarked route map to the observing travelers; the lawyer waits beside an untouched bread basket. A small vehicle inspection sheet lies beside a much larger set of legal questions while the inspected car remains visibly parked outside.\nEditable overlays: “VEHICLE INSPECTION: PASSED” — Blank inspection-sheet heading; “IDAHO MINOR-ASSISTANCE LAW” — Blank legal folder heading\nSource: Idaho restrictions on abortion assistance to minors — cdn.ca9.uscourts.gov\nSource: Idaho restrictions on abortion assistance to minors — litigationtracker.law.georgetown.edu\nENC-D04-A · Small government, large pants\nAt an outdoor shop, a trans hunting-club treasurer shows you ATF’s proposed birth-sex rule for its forms. The owner wants Washington out of his gun cabinet. He is considerably more flexible about somebody else’s pants.\nRead the actual proposal → You check the proposal’s limits. The owner hides his sales ledger when you glance at it. Certain personal details are sacred.\nSave the public notice → You save the notice, head aching. The owner locks his office. His small-government tour has reached its border.\nTrust the total-ban rumor → The treasurer corrects you: this proposal does not ban all trans gun owners. The owner still pats his cabinet protectively.\nScene: The treasurer offers the public notice to the observing travelers while the owner closes a blank ledger beside his locked office. The owner guards his own paperwork with both arms while leaning toward somebody else’s public forms.\nEditable overlays: “ATF PROPOSED RULE · MAY 2026” — Editable caption above the blank public notice\nSource: Gun-rights promises and ATF identity paperwork — www.atf.gov\nENC-D04-B · Housing, with a lock\nAt a camping shop, an outreach worker reads Trump’s July 2025 order promoting broader civil commitment through legal and funding changes. It isn’t automatic confinement. The display tent has three bedrooms. Her clients keep getting offered plans with locks.\nRead what the order actually directs → You check the order’s limits. The worker measures the display tent. It remains the most detailed housing proposal in the room.\nSave the public order → You save the order, head aching. The salesman demonstrates a zipper from the inside. Choosing when to leave appears to be a feature.\nCall it automatic confinement for everyone → The worker corrects you: legal processes and criteria still matter. The government’s sweeping announcement came with much smaller print.\nScene: The outreach worker compares a public order with the display tent while the salesperson holds its entrance open and travelers browse nearby. The inviting tent doorway is much larger than the small official-looking policy sheet beside it.\nEditable overlays: “DISPLAY TENT” — Blank retail card; “FEDERAL ORDER · JULY 2025” — Blank public policy sheet\nSource: Homelessness order promotes expanded civil commitment — www.whitehouse.gov\nENC-D04-C · The purpose of a sandwich\nA Texas volunteer at a roadside café asks your crew to check SB33: public abortion-travel assistance includes food. The café owner is preparing a city-convention catering bid. He holds up one sandwich. Apparently he needs to know where it plans to go after lunch.\nCheck the public-spending limits → You verify the limits. The owner puts the sandwich beside his catering forms. It qualifies for public money by staying vague about its itinerary.\nSave the food-assistance provision → You save the provision, head aching. The owner cuts the sandwich diagonally. It has changed direction without resolving its funding status.\nPost that private food donations are banned → The volunteer corrects you: SB33 targets public assistance. The owner removes your claim from the table before it frightens the bread.\nScene: The owner holds a whole sandwich over a blank catering form while the volunteer offers a public source to the observing travelers. An ordinary sandwich sits where a formal applicant's headshot would go on an oversized blank catering application.\nEditable overlays: “PUBLIC CATERING BID” — Blank folder header\nSource: Texas restrictions on public abortion-travel assistance — capitol.texas.gov\nSource: Texas restrictions on public abortion-travel assistance — texasattorneygeneral.gov\nENC-D05-A · A lifetime warranty\nA visiting Louisiana nurse asks your crew to time a cabinet lock at a hardware store. State controls now secure misoprostol, also used to stop bleeding. The salesman offers a lifetime warranty. She would settle for getting it open before closing.\nCheck the rule and reported delays → You verify the rule and reported delays, head aching. The salesman offers another key. The nurse asks whether it comes with another afternoon.\nBrowse the quiet garden aisle → You clear your head by the garden supplies. The salesman demonstrates a watering can. Its contents escape without finding a supervisor.\nSay the medicine is completely banned → The simple story settles your head until she corrects it: valid prescribing remains lawful. The salesman resumes wrestling with the lawful cabinet.\nScene: The salesman tries a key in an empty demonstration cabinet while the nurse holds a timing device and travelers watch without assisting. A giant warranty ribbon hangs from a small cabinet whose demonstration door will not open.\nEditable overlays: “LIFETIME WARRANTY” — Blank sales ribbon\nSource: Louisiana controls on mifepristone and misoprostol — legis.la.gov\nSource: Louisiana controls on mifepristone and misoprostol — nola.gov\nSource: Louisiana controls on mifepristone and misoprostol — lawyeringproject.org\nENC-D05-B · The phone plan stays\nAt a pharmacy café, a parent reads the Medicaid and CHIP youth transition-care exclusions due October 13, 2026. Some existing hormone care gets up to six extra months. Her teenager keeps growing. The phone plan renews automatically.\nRead the dates and funding limits → You check the dates and exceptions, head aching. The phone company has committed to her longer than the benefits department.\nTake a quiet window seat → You clear your head by the window. Her phone renews with a cheerful ping. Apparently continuity is available as an add-on.\nUse the headline; take a break → The short version feels manageable until she corrects it: funding exclusions, not a ban on all care. Your certainty expires first.\nScene: The parent compares a blank policy sheet with her blank phone screen while the travelers wait at the café counter. A tiny phone renewal notification sits beside the much larger federal exclusion document, as though the phone offers the longer commitment.\nEditable overlays: “FEDERAL FUNDING RULE · EFFECTIVE OCTOBER 13, 2026” — Blank public policy sheet; “PLAN RENEWED” — Blank phone screen; no account or personal details\nSource: Upcoming Medicaid and CHIP treatment-payment exclusion — www.govinfo.gov\nENC-D05-C · Still part of the family\nA retired municipal worker at a diner shows June 2025’s Supreme Court ruling limiting disabled retirees’ employment-discrimination claims. Other protections remain. His old workplace still calls him family. Benefits would like to know whether he’s currently employed by this family.\nRead the actual employment limits → You read the job-holding limits, head aching. His retirement photograph has room for everybody except the person calculating the benefits.\nTake a quiet break → You take a quiet break. He folds the workplace-family brochure into a coaster. It finally supports something.\nTrust the warm brochure → You trust the warm brochure and relax. He corrects your legal summary. The family reunion has an eligibility date.\nScene: The retiree holds a generic workplace-family brochure beside the public court ruling while travelers wait near the counter. An exuberant group-photo silhouette on the blank brochure contrasts with a tiny isolated chair at the end of the table.\nEditable overlays: “ALWAYS PART OF THE FAMILY” — Blank retirement brochure; “SUPREME COURT · JUNE 2025” — Blank public ruling\nSource: Disabled retirees' employment-discrimination claim meets the job-holding requirement — www.supremecourt.gov\nENC-D06-A · The federal wardrobe case\nAt a post office, a woman explains how June 2026’s court order restored her trans sister’s care and clothing in federal prison. She needs a stamp. Her sister needed a federal judge to get dressed.\nRead and save the public ruling → You save the ruling, head aching. Her sister’s care needed a judge. The postage merely wants money.\nGive paper for the public order → You give paper for the public order; her sister’s details stay private. The wardrobe dispute has grown another stack of stationery.\nTake a quiet break outside → You clear your head outside. She seals the envelope. Ordinary glue remains one of the few accommodations requiring no litigation.\nScene: The woman holds the public ruling beside a blank copier tray; her sealed private envelope remains face down, and travelers observe from the public counter. A small sealed envelope is dwarfed by the public legal papers resting beside it; its address is hidden.\nEditable overlays: “PUBLIC COURT RULING · JUNE 17, 2026” — Blank public document cover\nSource: Federal prison care and personal-item restrictions — law.justia.com\nSource: Federal prison care and personal-item restrictions — www.markey.senate.gov\nENC-D06-B · A cleaner angle\nAt a hardware counter, a power-plant neighbor reads EPA’s February 2026 repeal of stronger mercury and toxic-metal rules. Older limits survive. The salesman makes a dirty demonstration filter look cleaner by turning it around. Government innovation travels fast.\nRead and save the remaining limits → You save the remaining limits and repealed requirements, head aching. The salesman turns the filter back. The dirt declines to renegotiate.\nUse paper for an accurate notice → You use paper for an accurate notice. The neighbor draws the filter’s dirty side. The salesman calls it an unfair angle.\nTake a quiet break outside → You clear your head outside. Through the window, the same filter is enjoying a second immaculate face.\nScene: The salesperson rotates a two-sided demonstration filter while the neighbor holds the public EPA notice and travelers browse. The filter’s clean face points toward the sales counter while its visibly dirty side faces away.\nEditable overlays: “EPA RULE · FEBRUARY 2026” — Blank public notice\nSource: Stronger coal-plant mercury and toxic-metal standards repealed — www.federalregister.gov\nENC-D06-C · The complimentary lullaby\nAt a rest stop, an Alabama couple asks your crew to check the embryo ruling and later IVF-clinic immunity law. Their own insurance excludes IVF. The agent on speaker calls children priceless. He has priced everything required to have one.\nCheck and save the legal distinction → You save the ruling and immunity limits, head aching. The agent congratulates them on the embryos' status. They ask where to redeem it.\nUse your paper; copy the limits → You use some supplies to copy the limits. They fold the agent's smiling-baby brochure over the exclusions. The baby is sitting on the bill.\nLeave the call for some quiet → You clear your head away from the call. The hold music plays a lullaby. The couple has been receiving it for free.\nScene: The couple indicates a blank insurance booklet beside a phone on speaker while travelers consider checking the public legal sources. An idyllic generic baby image on an insurance brochure covers a visibly dense block of blank exclusion lines.\nEditable overlays: “IVF EXCLUDED” — Editable label on the blank policy-summary area\nSource: Alabama frozen-embryo wrongful-death ruling and IVF immunity — law.justia.com\nSource: Alabama frozen-embryo wrongful-death ruling and IVF immunity — apnews.com\nENC-D07-A · Rewards for coming back empty\nA traveler at a rest stop asks your crew to check Arizona's emergency-contraception refusal rule. The pharmacy returned her prescription, as required. It also offered a loyalty card. She holds them side by side. They are building a lasting relationship with the paper.\nCheck and save the actual rule → You save the refusal-and-return rule, clearing the confusion. She folds the loyalty card around the prescription. It finally supports contraception.\nSay Arizona banned emergency contraception → She corrects you: the law permits specified refusals. She hasn't come this far to collect another person saying no.\nUse your paper; copy the limits → You use some supplies to copy the limits. She tucks them into the loyalty-card sleeve. The free gift finally contains useful information.\nScene: The traveler holds an unmarked prescription sheet and a blank loyalty card side by side while current crew members listen. The polished promotional sleeve is much larger than the small piece of care information returned with it.\nEditable overlays: “LOYALTY REWARDS” — Blank promotional card heading\nSource: Arizona conscience refusal for emergency contraception\nENC-D07-B · The invisible emergency\nAt a copy shop, a trans mechanic reads Social Security’s June 2026 rule: its sex field can only be changed to reflect sex at birth. It isn’t printed on the card. Washington has discovered his most urgent component: invisible paperwork.\nSave the actual records rule → You save the rule and clear up the confusion. He holds the card to the light. Still no sex field. Tremendous progress.\nAssume the card displays it → He corrects you and covers the personal details. The blank space remains flawless. The federal government has defended it at considerable length.\nUse paper for the public rule → You use your paper for the public rule. He puts it beside the card. The invisible field now requires visible luggage.\nScene: The mechanic compares a covered blank card with a long public policy sheet while travelers wait near the copier. A tiny card with no visible sex field lies beside a vastly larger pile of instructions about that field.\nEditable overlays: “SSA RECORDS RULE · JUNE 2026” — Blank public instruction sheet\nSource: Social Security's invisible sex field is frozen to birth records — secure.ssa.gov\nENC-D07-C · The website gets an extension\nAt a library printer, a low-vision resident reads DOJ’s April 2026 extension of government-web accessibility deadlines into 2027 and 2028. Existing access duties remain. Her appointment confirmation is due today. The website has successfully requested an accommodation.\nSave the actual deadlines → You save the deadlines and clear up the confusion. Her appointment still needs confirming. Only the website has been excused from showing up.\nAssume all access duties are suspended → She corrects you: existing access duties remain. The government gave its website more time, not permission to stop being a government.\nUse paper for a large-type copy → You use paper for a large-type public notice. She checks the dates. Enlarging the words proves considerably faster than enlarging the deadline.\nScene: The resident holds a public notice near a reading aid while a blank computer screen and printer sit beside the observing travelers. A large, comfortable office chair belongs to the uncooperative public computer; the resident stands beside a small stool.\nEditable overlays: “PUBLIC WEB DEADLINES · 2027 / 2028” — Blank public notice\nSource: Government website accessibility deadlines extended — www.ada.gov\nSource: Government website accessibility deadlines extended — www.ada.gov\nENC-D08-A · Two functioning arms\nAt a pregnancy center's open house, a nurse asks your crew to check its ads against Massachusetts's warnings about misleading centers. The manager offers a 'medical volunteer' badge for carrying a sandwich board. The qualifications are two functioning arms. The center offers no abortion referrals.\nUse your paper; check the services → You use some supplies to check the missing services, head pounding. The manager offers a lab coat. Apparently it covers the gaps.\nCarry the sign; endorse the center → You scrape your shin and relax into the pitch. The nurse corrects your endorsement: no abortion referrals. Your badge doesn't cover that either.\nLeave without checking the claims → You leave with a quieter head and no checked account. The manager hangs your unused badge on the sandwich board. Staffing restored.\nScene: The manager offers an unworn blank badge toward the observing travelers beside a leaning sandwich board while the nurse holds a public agency fact sheet. The large badge and spare white coat are ready before any qualifications have been discussed; the board's metal feet protrude visibly.\nEditable overlays: “MEDICAL VOLUNTEER” — Blank offered badge; “OPEN HOUSE” — Blank sandwich-board header\nSource: Pregnancy-center advertising and service mismatch — mass.gov\nSource: Pregnancy-center advertising and service mismatch — mass.gov\nENC-D08-B · Family first, calendar later\nAt a union-hall table sale, a worker shows May 2025’s ruling removing certain abortion accommodations from the federal pregnancy-workplace rule. Medical-treatment exceptions remain. A manager selling “FAMILY FIRST” mugs promises unlimited time off, provided time stops first.\nUse paper; check the actual limits → You save the actual limits using paper, drained. The manager removes the clock batteries. His generous leave policy is nearly operational.\nTrust him; help stack tables → The simple promise clears your head. You strain yourself stacking tables, then learn the manager’s unlimited leave exists only on mugs.\nSkip the details; take a break → You relax, then repeat that every pregnancy protection vanished. The worker corrects you. The mug is still the least complicated witness.\nScene: The manager presents a blank mug beside folded tables while the worker offers the public ruling and travelers browse. A large cheerful mug sits beneath an ordinary wall clock with a blank face and simple hands; the battery cover is visible but untouched.\nEditable overlays: “FAMILY FIRST” — Blank mug; editable lettering only; “PUBLIC RULING · MAY 2025” — Blank court document\nSource: Workplace abortion accommodations removed from the PWFA regulation — cases.justia.com\nSource: Workplace abortion accommodations removed from the PWFA regulation — apnews.com\nENC-D08-C · Same water, happier label\nAt a water-filter shop, a utility worker reads EPA’s May 2026 proposals to drop some PFAS limits and extend certain deadlines. Nothing is final. The salesman presents two identical demonstration samples. One has a much more optimistic label.\nUse paper; check the actual proposals → You use paper to save the proposals, drained. The salesman swaps the labels. The samples achieve an immediate regulatory breakthrough.\nTrust him; help carry display boxes → His assurance clears your head. You strain yourself carrying boxes before the worker corrects his claims. The optimism weighs more than advertised.\nTake the headline; take a break → You relax, then describe the proposals as final. The worker corrects you. The salesman has already printed the victory stickers.\nScene: The salesperson holds blank tags beside two sealed clear-water display bottles while the worker points to a public proposal and travelers consider the counter. Identical display samples are treated as opposites because one blank tag has a cheerful decorative border.\nEditable overlays: “OPTIMISTIC” — Blank decorative display tag; “EPA PROPOSALS · MAY 2026” — Blank public notice\nSource: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov\nSource: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov\nENC-D09-A · Reserved for the return trip\nYour crew stops at a hospital's public meeting about losing maternity services. A volunteer shows the national maternity-care desert report. The county commissioner unveils reserved parking for new mothers. From those spaces, it's a long drive to somewhere they can become one.\nCheck the closure and remaining services → You check the closure and remaining services, head aching. The commissioner measures the parking bay. The route to a delivery ward won't fit.\nTake a quiet look at the garden → You clear your head in the garden. The commissioner tests the parking ribbon again. It is the only local delivery he has scheduled.\nRest in the van instead → You nap and miss the community account. The commissioner posts his parking photograph, cropped just above the shuttered maternity windows.\nScene: The commissioner holds a ribbon across an empty reserved bay while the volunteer offers a broad service map to the observing travelers. A carefully decorated new-mother parking space faces a closed former maternity entrance.\nEditable overlays: “NEW MOTHERS” — Blank reserved-parking sign; “MATERNITY SERVICES RELOCATED” — Blank former-entrance notice\nSource: Maternity-care deserts and loss of local birth services — marchofdimes.org\nSource: Maternity-care deserts and loss of local birth services — www2.marchofdimes.org\nENC-D09-B · The cheaper repair\nAt a phone-repair counter, a youth volunteer revises referral cards: the specialized LGBTQ+ option within 988 closed July 17, 2025; the general line remains. Washington called it ending separate services. The clerk calls removing buttons a cheaper repair.\nCheck the agency and operator notices → You check both notices, head aching. The clerk points at a phone missing a button. It also serves everyone equally now.\nTake a quiet break outside → You clear your head outside. The clerk is still waiting to hear how fewer specialists became a larger welcome.\nSkim the headline; nap → You nap, then repeat that 988 closed. The volunteer corrects you. Your shortcut has disconnected the service that remains.\nScene: The volunteer keeps blank referral cards and public notices on the counter while the clerk indicates an unpowered demonstration phone missing a button; travelers observe. The visibly incomplete demonstration phone sits on a neat repair cushion like an officially improved product.\nEditable overlays: “GENERAL 988 SERVICE CONTINUES” — Blank public referral card; “SPECIALIZED LGBTQ+ YOUTH OPTION CLOSED JULY 17, 2025” — Blank public notice\nSource: Closure of specialized LGBTQ+ youth crisis-line service — www.samhsa.gov\nSource: Closure of specialized LGBTQ+ youth crisis-line service — 988lifeline.org\nENC-D09-C · A longer planning horizon\nAt a rest-area picnic table, a Women’s Health Initiative participant shows April 2025’s funding cancellation and May’s reversal. The study continued. She’s kept appointments for decades. Her bagged salad has a longer planning horizon than Washington.\nRead the cancellation and reversal → You check the timeline, head aching. She puts the cancellation under her salad container. It has finally helped preserve something.\nTake a quiet bench break → You clear your head on a quiet bench. She checks next year’s appointment. The salad is the only thing legitimately expiring.\nSkim the cancellation; nap → You nap and repeat that the study closed. She corrects you. Your obituary arrived before her next appointment reminder.\nScene: The participant lays public cancellation and reversal notices beside an unopened salad container while travelers pause at the table. The orderly lunch container sits between two official-looking notices that visibly point in opposite directions through their paper folds.\nEditable overlays: “APRIL 2025: NONRENEWAL” — First blank public notice; “MAY 2025: REVERSED; STUDY CONTINUES” — Second blank public notice\nSource: Women's Health Initiative funding cancellation reversed — www.whi.org\nENC-D10-A · Freedom at whisper volume\nWhile you price copies, a trans warehouse worker reads EEOC’s January 2026 decision rescinding harassment guidance. Discrimination law survives. A supervisor asks whether he can say anything now. The clerk switches on the security microphone.\nUse paper; save the agency statement → You use paper to save the agency’s statement. The supervisor lowers his voice. Remarkable how quickly clarification improves working conditions.\nWait quietly by the door → You wait by the door and clear your head. The supervisor tests a whisper. His new freedom requires very little volume.\nAccept the supervisor’s interpretation → The worker corrects you: the law remains. The supervisor asks if the camera records sound. His confidence needs terms and conditions.\nScene: The clerk’s hand rests on a microphone switch as the supervisor leans toward the counter and the worker holds the public notice; travelers compare blank copy-price cards. The supervisor’s expansive posture contracts under a tiny microphone.\nEditable overlays: “EEOC NOTICE · JANUARY 2026” — Blank public notice\nSource: EEOC rescinds workplace harassment guidance — www.eeoc.gov\nENC-D10-B · The crayon checkpoint\nAt a school-supply sale, a Head Start volunteer shows the September 2025 injunction stopping Washington’s attempted immigration restrictions on the program. The policy remains unenforced. A box of crayons has survived its promotion to border-control equipment.\nUse paper; save the court notice → You use paper to save the injunction. The volunteer opens the crayon box. Every color got in without a background check.\nTake a quiet break → You clear your head outside. The volunteer returns to sorting crayons. Her original job has survived another attempt to make it something else.\nTrust the headline about new checks → The volunteer corrects you: the injunction blocks the Head Start restriction. The crayons have already returned to their previous profession.\nScene: The volunteer holds a blank public court notice beside an unopened box of unbranded crayons while travelers browse the supply table. A miniature plastic toy gate rests beside the crayon box, visibly much too small for the pile of public legal papers.\nEditable overlays: “HEAD START RESTRICTION BLOCKED · SEPTEMBER 2025” — Blank public notice\nSource: Head Start recast as an immigration-restricted federal benefit — www.hhs.gov\nENC-D10-C · The wrong door needs a lock\nAfter reports of police using Flock to follow ex-partners, a hardware shop advertises extra door locks. A customer offers the public investigation report. The salesman recommends another deadbolt. She asks whether it fits a police database.\nShare food; check the public report → You share food and preserve the findings. The shop has seventeen locks for a door and none for authorized curiosity.\nTake a break by the key rack → Your head clears by the key rack. Every ordinary key has teeth; the safeguards in the brochure appear to be decorative.\nTrust the brochure’s safety promise → You endorse the brochure. She turns it over: a warranty for the camera, nothing for the person underneath.\nScene: Salesman holds an unused deadbolt toward the customer’s closed report; crew observes from the aisle. An impressive display of physical locks cannot answer the problem on a camera brochure.\nEditable overlays: “MORE SECURITY” — lock-display header; “PUBLIC INVESTIGATION” — closed report cover; “CAMERA WARRANTY” — brochure back\nSource: Police misuse of Flock to monitor former partners\nENC-D11-A · The atlas answers first\nAt a rest stop, a Minnesota legal volunteer offers directions while reading March 2026’s Whipple order requiring private legal calls and transfer safeguards. Her atlas finds every town. Finding a detained client took a federal judge.\nTake her direct highway detour → Her direct route recovers time and clears your head. The atlas locates you without requiring three phone calls and a court order.\nTake her gentler back-road route → The gentler route regains some time and lifts the mood. She waves goodbye. Nobody needs permission to tell you where you are.\nScene: The volunteer opens a blank road atlas beside the public order while travelers stand by their parked van considering two ordinary detours. The clear open atlas is small beside the public legal document required to establish basic communication safeguards.\nEditable overlays: “WHIPPLE ORDER · MARCH 2026” — Blank public document\nSource: Rapid detention transfers obstruct access to lawyers — clearinghouse-umich-production.s3.amazonaws.com\nENC-D11-B · Directions, not a statement\nAt a truck-stop counter, a camera promoter calls Texas’s abortion-related Flock search a welfare check. The cashier keeps the released investigation summary beside the road maps. She separates them: one tells you where to go; the other demands an explanation.\nUse the cashier’s direct road map → You follow her public-road directions and make up miles, head clearer. She gets the van moving without asking for a statement.\nTake the slower signed exit → You regain some road, spirits lifted. The cashier declines the promoter’s help finding everybody’s reason for leaving.\nScene: Cashier separates a public investigation summary from ordinary highway maps and offers directions to the crew. Road maps and an investigative report share a counter but receive sharply different treatment.\nEditable overlays: “ROAD MAPS” — map rack; “PUBLIC INVESTIGATION SUMMARY” — closed public folder; “WELFARE CHECK” — promoter card\nSource: ALPR searches in an abortion investigation\nENC-D11-C · Over one counter\nAt a highway pharmacy, a clerk offers detour directions while recalling Biden’s January 2025 withdrawal of proposed prescription-free contraceptive coverage. Existing rules remained. The medicine was already on the shelf. The insurance card wanted it to visit a doctor.\nFollow the clerk’s direct detour → The direct detour regains time and clears your head. The clerk’s map has a startling innovation: only one place marked destination.\nTake her scenic back road → You regain some time and laugh at her directions: “Past the doctor, past the insurer, then actually go somewhere.”\nScene: The clerk points to two blank road sketches beside a generic shelf product and a public withdrawal notice while travelers pause at the counter. The product sits within easy reach while a large blank insurance pamphlet appears to send its tiny illustrated shopper around several counters.\nEditable overlays: “COVERAGE PROPOSAL WITHDRAWN · JANUARY 2025” — Blank public notice\nSource: Proposed insurance coverage for over-the-counter contraception withdrawn — public-inspection.federalregister.gov\nENC-D12-A · Attendance, with free delivery\nAt a courthouse coffee cart, a visiting California volunteer offers detour directions. June 2026’s judgment struck down the immigration-court arrest policy; appeals continue. The system invited people to attend hearings, then discovered attendance came with free delivery.\nUse paper for the road shortcut → Your copied shortcut uses some paper and recovers time. The volunteer separates it from the court notice. Directions should honor their invitations.\nCheck the ruling; take side streets → You confirm the ruling’s limits and recover some time on side streets. The volunteer appreciates a route that discloses its destination.\nScene: The volunteer keeps a public court ruling separate from two blank road sketches while travelers stand beside the coffee cart considering directions. The ordinary map offers a clearly bounded route while the public invitation-style document sits under a heavy legal file.\nEditable overlays: “PUBLIC JUDGMENT · JUNE 2026” — Blank public court document\nSource: Appearing at immigration court becomes an arrest opportunity — www.govinfo.gov\nSource: Appearing at immigration court becomes an arrest opportunity — caselaw.findlaw.com\nENC-D12-B · Destination included\nAt a bus-station café, a travel-aid volunteer offers directions while reading March 2026’s stay of a third-country deportation ruling. A chance to contest the destination remains disputed. At the ticket desk, that privilege comes with the cheap seats.\nUse paper for the quick road route → You copy the quick road route using some paper and regain time. The volunteer circles the destination. Your itinerary has advanced civil rights.\nCheck the status; take the slower shortcut → You verify the ruling’s status and take the slower shortcut. The volunteer confirms where you’re going. No one calls this radical.\nScene: The volunteer offers two blank road sketches beside a public appellate notice while a ticket clerk displays a blank destination card to another adult customer. The cheap-ticket counter openly offers the destination information at the center of a much heavier legal dispute.\nEditable overlays: “PUBLIC APPEALS STAY · MARCH 2026” — Blank public court notice; “DESTINATION INCLUDED” — Blank ticket-counter card\nSource: Third-country deportations without a meaningful chance to contest the destination — apnews.com\nSource: Third-country deportations without a meaningful chance to contest the destination — dockets.justia.com\nENC-D12-C · The screen is the easy repair\nAt a phone-repair kiosk, a customer asks about deleting fertility data already shared. The technician points to the FTC’s Premom settlement, tips glitter into a desk fan, and hands her a dustpan. “Now ask for it back.”\nShare food; take his direct directions → You share food and take his direct road directions. He can repair the screen; the audience assembled behind it is another department.\nCheck the settlement before leaving → You regain some road and credibility. The technician can replace a cracked screen faster than an advertiser can forget a useful secret.\nScene: Before either choice, a technician demonstrates scattered data with glitter dispersing from a desk fan while a separate customer holds a dustpan. Current travelers watch at the kiosk. A tiny dustpan faces a glitter cloud spreading well beyond the repair counter.\nEditable overlays: “PREMOM: FTC SETTLEMENT” — public notice; “LOCAL ROADS” — map heading\nSource: Premom reproductive-health data disclosures\nENC-D13-A · Smaller dots, same clinic\nThe FTC banned X-Mode’s sale of sensitive location data. At a roadside café, a promoter insists location dots are anonymous. The waitress points to the clinic across the street. He offers to make the dots smaller.\nTake the waitress’s highway directions → You regain road. Her directions point to the highway; the promoter’s map keeps trying to explain why everyone stopped beside the clinic.\nWait for the signed exit lane → You regain some road and clear your head. She folds the promoter’s map until his pitch is the smallest dot in town.\nScene: Waitress indicates the clinic without identifying visitors while promoter shows a fabricated abstract map with no real routes. A salesman tries to solve an obvious privacy problem by shrinking decorative dots.\nEditable overlays: “ANONYMOUS INSIGHTS” — promoter board; “FTC SENSITIVE-LOCATION ORDER” — public notice; “HIGHWAY” — road sign\nSource: Broker sale of sensitive clinic-location data\nENC-D13-B · The tolerant detour sign\nAt a Beltway road closure, a reporter recalls 2025’s White House restrictions on AP over “Gulf of Mexico.” Access was still disputed that November. The detour sign is more tolerant: it lets you disagree with the arrows.\nFollow the reporter’s main-road detour → The reporter’s directions recover time. The road accepts your destination without testing whether you’ve used the president’s preferred name for the water.\nTake the quiet side streets → You regain some time and clear your head. The reporter waves goodbye. No test of your publication’s ocean vocabulary.\nScene: The reporter holds a public news printout beside an ordinary blank detour board while travelers consider the roads from their parked van. The angled detour board bends on a flexible post, displaying greater flexibility than the access dispute being described.\nEditable overlays: “DETOUR” — Blank roadworks sign; “AP ACCESS DISPUTE · NOVEMBER 2025” — Blank public article caption\nSource: White House retaliation against Associated Press access — www.ap.org\nENC-D13-C · Turn the page\nAt a Beltway service station, a visiting Alabama plumber offers directions and recalls DOJ ending Lowndes County’s sewage settlement in April 2025 as an anti-DEI move. His wrench turns both ways. Washington prefers turning the page.\nTake the plumber’s direct route → His shortcut gets you moving. He points to the turn, then the wrench. One problem can actually be fixed today.\nTake his quieter side streets → You regain some time and clear your head. He caps a clean pipe fitting. Still waiting on the government’s matching part.\nScene: The plumber rests a clean wrench beside a blank public DOJ notice and points at two blank road sketches while travelers stand near their van. A plainly useful wrench weighs down a page announcing withdrawal of practical federal oversight.\nEditable overlays: “LOWNDES COUNTY SETTLEMENT ENDED · APRIL 2025” — Blank public notice\nSource: Lowndes County sewage agreement terminated as environmental-justice policy — www.justice.gov\nENC-W-MW-D01-A · The chairs retain their value\nA surplus dealer offers $14 to sort office chairs. A researcher says NIH cancelled her gender-identity research grant in 2025. Washington found the work worthless. The dealer finds a lever beneath her chair and immediately sees its potential.\nSort chairs; keep the public ruling → You earn $14 and save the ruling, drained. The dealer finds the chairs extremely useful now nobody is thinking in them.\nShare food and exchange contacts → You share food and swap contacts. She corrects your account of the funding fight. The dealer prices her chair above her expertise.\nTake a quiet break → You take a quiet break. A customer sits in the best chair and announces that science has gone too far.\nScene: The dealer pinches upholstery while the researcher holds a public court ruling and the travelers consider the unsorted chairs. The dealer gives the empty chair a close professional examination while overlooking the expert standing beside it.\nEditable overlays: “SORT CHAIRS · $14” — Blank offer card; “PUBLIC RULING · AUGUST 2025” — Blank document caption\nSource: NIH terminates research over gender-identity priorities — www.supremecourt.gov\nENC-W-MW-D01-B · The wedding shrank the safety cushion\nSSI allows $2,000 in countable resources individually, $3,000 for a couple. At a grocery counter, newlyweds compare the public rules. The clerk offers $14 to sort receipt rolls. Their wedding card congratulates them on becoming one.\nSort the receipt rolls for $14 → You earn $14 and save the rule, head aching. Their combined safety cushion has lost a corner to the wedding.\nShare food; compare the exemptions → You share food, gain a contact, and check exemptions. They agree the cake was easier to divide than legal permission to save.\nTake a quiet break outside → Your head clears outside. The shop sells two-for-one wedding cards, which is still less aggressive arithmetic than the benefits rule.\nScene: Clerk offers unsorted blank receipt rolls while couple compare public individual and couple limits beside a wedding card. A cheerful paired-heart wedding card sits between two mismatched savings-limit figures.\nEditable overlays: “$2,000 INDIVIDUAL” — public rule column; “$3,000 COUPLE” — public rule column; “TWO BECOME ONE” — wedding-card message; “$14 SORTING JOB” — work card\nSource: SSI countable-resource limits\nENC-W-MW-D01-C · Both hands of government\nA community print shop offers $14 to sort benefit leaflets. A volunteer points to September 18, 2026’s upcoming public-charge rule, broadening certain immigration reviews. Exceptions remain. One government leaflet offers help; another asks why anybody would need it.\nSort leaflets; keep the public rule → You earn $14 and keep the public rule, drained. Both leaflets feature welcoming hands. They point in opposite directions.\nShare paper and exchange contacts → You share paper and swap contacts with the volunteer. She marks the actual exceptions. The helping hand requires an instruction manual.\nTake a quiet break → You take a quiet break. The volunteer puts both leaflets on one stand. One open hand has developed a pointing finger.\nScene: The printer indicates two unsorted leaflet stacks with blank covers and generic hand illustrations while the volunteer holds the public rule and travelers consider the offer. Two cheerful illustrated helping hands point away from each other across the same counter.\nEditable overlays: “SORT LEAFLETS · $14” — Blank offer card; “RULE EFFECTIVE SEPTEMBER 18, 2026” — Blank public rule\nSource: Public-charge rule broadens benefit scrutiny for immigration decisions — www.govinfo.gov\nSource: Public-charge rule broadens benefit scrutiny for immigration decisions — www.axios.com\nENC-W-MW-D02-A · Storage is thriving\nA freight depot offers $12 to shift empty coolers. A dispatcher reads June 2026’s USAID audit: cancelled distribution left contraceptives deteriorating in Belgium while storage bills grew. The empty coolers are still receiving excellent logistical support.\nRead and save the public audit → You save the audit, drained. The warehouse charges by the day. Uncertainty has proved far more durable than the stock.\nShift the empty coolers → You earn $12 and strain your back shifting coolers. The empty ones are marked urgent. That seems to have helped.\nLeave the freight job → You leave discouraged. The dispatcher checks another storage invoice. At least someone has found a reliable form of aid.\nScene: The dispatcher holds the public audit beside unused empty shipping coolers while travelers stand at the depot entrance considering the moving job. The conspicuously empty coolers are protected by an extravagant amount of clean packing material.\nEditable overlays: “SHIFT EMPTY COOLERS · $12” — Blank offer card; “USAID AUDIT · BELGIUM · JUNE 2026” — Blank public audit cover\nSource: Cancelled USAID contraception distribution produces storage bills and unusable stock — oig.usaid.gov\nENC-W-MW-D02-B · Some assembly required\nA warehouse offers $12 to move bed frames. A tenant volunteer explains HUD’s February 2026 proposal to limit mixed-status families’ prorated housing aid; it isn’t final. The beds come in halves for assembly. Families are proving less cooperative.\nRead and save the actual proposal → You save the proposal, drained, and mark it not final. The volunteer measures a bed. No section is designed for conditional occupants.\nMove the bed frames → You earn $12 moving bed frames and strain your back. Every frame expects the whole sleeper to arrive.\nLeave the moving job → You leave discouraged. The volunteer puts the proposal beside the assembly instructions. Only one admits you’ll need help.\nScene: The manager points to disassembled bed frames while the volunteer compares a blank public proposal with blank assembly instructions and travelers consider the offer. Two neatly separated halves of a bed frame face a single intact pillow.\nEditable overlays: “MOVE BED FRAMES · $12” — Blank offer card; “HUD PROPOSAL · NOT FINAL” — Blank public proposal\nSource: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov\nSource: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov\nENC-W-MW-D02-C · The car is a survivor\nAt a used-car lot, a buyer shares a redacted credit refusal after the federal medical-debt rule was scrapped. The dealer offers $12 to move wheels. The car’s three previous accidents require less explanation than the hospital bill.\nCompare the ruling with public terms → You save the public terms, head aching. Three crashes are character; one hospital bill apparently makes a person unreliable.\nMove the wheels for $12 → You earn $12 and a sore back. The dealer calls the damaged car a survivor, then refuses the human version financing.\nLeave the car lot → You leave angry. The dealer puts another certified sticker on the car and asks the customer for more proof.\nScene: Dealer gestures toward unmoved spare wheels while buyer holds a redacted letter beside a visibly repaired display car. The patched car wears a grand certification ribbon while the living applicant faces more questions.\nEditable overlays: “CERTIFIED SURVIVOR” — car ribbon; “$12 WHEEL-MOVING JOB” — work card; “PUBLIC CREDIT TERMS” — desk booklet\nSource: Federal medical-debt reporting rule vacated\nENC-W-PC-D01-A · The camera recognizes you\nTrump’s passport rules can force a trans applicant’s documents to disagree. At a photo shop, a clerk offers $16 to fold public guidance sheets. The camera recognizes the customer; the government needs older evidence.\nFold the guides for $16 → You earn $16 and save the public rule, head aching. The photo must resemble the applicant; the sex marker apparently needn’t.\nShare food with the customer → You share food, laugh, and exchange numbers. The customer suggests a baby photo so both fields can be equally current.\nLeave the folding job → You leave the job. The clerk checks the lighting again. It remains easier to correct a shadow than a federal document.\nScene: Clerk offers unfolded public guides while customer stands beside the idle camera; all personal documents remain closed. The camera sees the present customer while the public form requests evidence from the past.\nEditable overlays: “$16 GUIDE FOLDING” — work card; “PASSPORT SEX-MARKER POLICY” — public guide heading; “CURRENT PHOTO” — camera-area placard\nSource: Passport sex-marker restrictions\nENC-W-PC-D01-B · The boots can stay\nA workwear shop offers $16 to sort boots. A trans Navy technician shows April 2026 separation guidance: covered personnel cannot use SkillBridge job training, with retention waivers possible. Behind him, a recruiting poster begs for his exact skills.\nSort the boots; keep the guidance → You earn $16 and save the guidance, drained. The boots have a simpler route back to useful service.\nShare food and contact details → You share food and swap numbers. He offers job leads. The recruitment poster has contributed neither lunch nor a phone number.\nLeave the sorting job → You leave the boots for someone else. The poster keeps recruiting the man standing underneath it.\nScene: The shopkeeper gestures toward unsorted boots while the technician holds public guidance beneath a blank recruiting poster; the travelers consider the offer. The recruitment poster’s reaching silhouette seems to beckon the skilled technician whom the policy may separate.\nEditable overlays: “SORT RETURNS · $16” — Blank counter card; “TECHNICAL SKILLS WANTED” — Blank recruiting poster\nSource: Military discharge and loss of transition-to-work assistance — www.mynavyhr.navy.mil\nSource: Military discharge and loss of transition-to-work assistance — law.justia.com\nENC-W-PC-D01-C · A legally supported welcome\nA church pantry offers $16 to stack chairs. A visiting organizer explains August 2026’s ruling upholding immigration-enforcement protections at named congregations after DHS dropped protected-area guidance. Every door has the same welcome mat. Only some have a court order.\nStack chairs; save the public ruling → You earn $16 and save the ruling, drained. Every chair folds the same way. The protection surrounding it doesn’t.\nShare food and exchange numbers → You share food and exchange numbers. The organizer introduces you by first name. Lunch survives without a jurisdictional chart.\nLeave the chair job → You leave the chairs to someone else. The welcome mat remains impressively fluent in promises.\nScene: The coordinator gestures toward scattered empty chairs while the visiting organizer holds a public ruling beside a blank welcome mat; travelers consider the offer. The enormous framed public ruling the visitor carries nearly covers the ordinary welcome mat beneath it.\nEditable overlays: “WELCOME” — Blank doorway mat; “STACK CHAIRS · $16” — Blank offer card\nSource: Protected-area immigration enforcement guidance rescinded; some churches regain protection — law.justia.com\nENC-W-PC-D02-A · Privacy begins at voting age\nAt a print counter, a visiting California teacher explains March 2026’s limited ruling on trans student identity disclosures. A campaigner offers $8 to hang flyers demanding every trans student’s identity. His phone lights up. He turns it face down.\nRead and save the actual ruling → You save the ruling’s parent-class limits, head aching. The campaigner shields his messages with both hands. Privacy begins at voting age.\nHang the campaigner’s flyers → You earn $8 spreading his blanket claim. The teacher corrects it. He asks you not to print his personal number.\nTake a quiet break outside → You clear your head outside. Inside, the man selling total disclosure has moved his phone under the table.\nScene: The campaigner turns his phone face down beside a stack of unposted blank flyers while the teacher offers a public ruling to the observing travelers. The campaigner’s hands conceal his own phone as his other elbow pins down a pile of total-disclosure flyers.\nEditable overlays: “PARENTS MUST KNOW EVERYTHING” — Blank flyer stack; “HANG FLYERS · $8” — Blank offer slip\nSource: School disclosure orders override student confidentiality policies — www.supremecourt.gov\nENC-W-PC-D02-B · Thank you, minus the treatment page\nVA limits starting gender-affirming hormones while preserving specified exceptions. At an army-surplus shop, a veteran discusses the cutoff. The owner offers $8 to remove the restrictions page from benefit folders. The thank-you-for-your-service page stays.\nCompare and save the public pages → You keep the public pages, mentally drained. Gratitude gets glossy paper; the missing treatment rule gets the shredder.\nRemove the restrictions pages for $8 → You earn $8 and lose trust. The folders now thank veterans in color and disappoint them by appointment.\nStep outside for a break → Your head clears outside. The owner calls the thinner folder less confusing, which is true until anyone tries to use it.\nScene: Owner holds a complete public folder and indicates the page he wants removed; crew has touched nothing. A glossy gratitude sheet shares a folder with the plain restriction page marked for removal.\nEditable overlays: “THANK YOU FOR YOUR SERVICE” — glossy sheet; “HORMONE-CARE RESTRICTIONS” — public policy-page heading; “$8 FOLDER JOB” — work card\nSource: VA gender-affirming care cutoff\nENC-W-PC-D02-C · An independent mute button\nA bar offers $8 to hang “NO CENSORSHIP” flyers. Its comic recalls Kimmel’s brief September 2025 suspension after FCC pressure; Carr disputed responsibility. The owner tests the microphone. It works beautifully until somebody says the chairman’s name.\nRead and save both public letters → You save the letters, head aching. The owner demonstrates independent business judgment by watching the TV before touching the volume.\nHang the owner’s flyers → You earn $8 backing the owner’s blanket claim. He mutes the sound check. The flyers remain impressively outspoken.\nTake a quiet break outside → You clear your head outside. Through the window, the owner tests mute again. Freedom keeps passing the silent portion.\nScene: The owner reaches toward a microphone mixer while looking at a blank television; the comic holds public letters beside unposted flyers, and travelers consider the job. The owner’s large protective hand hovers over the tiny mute control while the oversized free-expression flyers lie silent beside it.\nEditable overlays: “NO CENSORSHIP” — Blank flyer stack; “HANG FLYERS · $8” — Blank offer card\nSource: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov\nSource: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov\nENC-W-SW-D01-A · A better angle on homelessness\nAt a camping-supply yard, a resident challenges a local ticket after 2024’s Grants Pass ruling allowed general camping penalties. A contractor offers $10 to arrange barriers for a victory photo. His camera is aimed away from the tents.\nRead the ruling’s actual limits → You read the ruling’s limits, head aching. The resident files the ticket carefully. It is the most expensive piece of shelter available.\nShare food and water; rest → You share food and water, rest, and swap numbers. The resident saves you a seat. It requires no enforcement budget.\nHaul barriers for the victory photo → You earn $10 hauling barriers, strain your back, and help sell the photo. The contractor thanks you for moving the problem eight feet.\nScene: The contractor points to unmoved barriers while adjusting a camera away from distant tents; the resident holds a covered ticket and the public ruling as travelers consider the offer. The camera’s carefully narrow angle excludes the tents but includes the contractor’s large empty presentation board.\nEditable overlays: “ARRANGE BARRIERS · $10” — Blank offer card; “PROBLEM SOLVED” — Blank presentation board\nSource: Public-camping penalties survive an Eighth Amendment challenge — www.supremecourt.gov\nENC-W-SW-D01-B · The treaty fitting\nA Navajo resident at a water depot explains the 2023 ruling: treaty water rights survived, but that treaty didn’t require Washington to secure water. A contractor offers $10 to load jugs beneath a banner declaring the problem solved.\nRead what the treaty ruling decides → You read the ruling’s limits, head aching. The resident screws on a jug cap. The treaty still doesn’t fit a hose.\nShare water; rest and swap numbers → You share water and rest, recovering. The resident swaps numbers. A treaty did not do this. Somebody turned a tap.\nLoad jugs for the victory photo → You earn $10 and strain your back loading jugs. The contractor crops the waiting line out of his victory photo.\nScene: The resident checks empty personal water containers beside a public court printout while the contractor points toward unmoved depot jugs and a blank banner; travelers consider the offers. An enormous congratulatory banner towers above one modest working tap and a queue of ordinary containers.\nEditable overlays: “PROBLEM SOLVED” — Blank contractor banner; “LOAD JUGS · $10” — Blank offer card\nSource: Navajo water rights without an affirmative treaty duty to secure water — www.supremecourt.gov\nENC-W-SW-D01-C · The narrowest doorway is invisible\nAt a mobility shop, a demonstrator offers $10 to carry a ramp beneath CARE WITHOUT OBSTACLES. A customer has the 2022 federal Medicare Advantage denial audit. The smallest obstacle here has a customer-service number.\nRead and save the audit findings → You save the findings, head aching. The shop measures every doorway; the insurer has built an invisible one narrower than the chair.\nShare food; take a seated break → You share food, recover on the bench, and gain a contact. It supports your weight without sending the decision to another office.\nMove the display ramp for $10 → You earn $10 and aching arms, losing trust. The ramp crosses a step; the promise above it still cannot cross the insurer.\nScene: Demonstrator points to an unmoved portable ramp while customer holds a public report; crew has not begun lifting. A practical ramp waits below an outsized obstacle-free-care promise and a closed approval-information stand.\nEditable overlays: “CARE WITHOUT OBSTACLES” — display banner; “$10 RAMP-MOVING JOB” — offer card; “2022 FEDERAL AUDIT” — public report cover\nSource: Medicare Advantage denial of qualifying care\nENC-W-SW-D02-A · Counseling about the envelope\nA print shop offers $16 to collate postal-benefit notices: mid-treatment transition-care exceptions end in 2027; counseling remains covered. A trans mail carrier taps OPM’s letter. “They’ll pay someone to hear me say this is ridiculous.”\nCollate the benefit notices → You earn $16 and finish the stacks, drained. The carrier asks whether the denial comes with a prepaid reply scream.\nSave the 2027 instruction → You save the instruction, head aching. The carrier stamps a practice envelope twice. Once for delivery, once for emphasis.\nShare food and swap numbers → You share food and swap numbers. He promises to answer. Your new contact immediately outperforms the benefits department.\nScene: The printer indicates separate stacks while the carrier taps a blank public letter; the travelers have not touched the papers. An oversized stack of benefit explanations towers over one small unopened lunch bag.\nEditable overlays: “COLLATING JOB · $16” — Blank counter offer card; “2027 BENEFITS” — Blank cover sheet\nSource: Federal employee insurance removes mid-treatment exceptions — www.opm.gov\nENC-W-SW-D02-B · The clock is receiving excellent care\nGAO’s Camp East Montana review found intake screenings without required follow-up assessments. At a diner, a relative waits for a medical update. The owner offers $16 to roll cutlery. A contractor’s round-the-clock-care slogan plays on TV. The clock is winning.\nRoll the cutlery for $16 → You earn $16 and a headache. The cutlery is ready before the call is answered; forks apparently face fewer staffing difficulties.\nRead and save the public report → You save the findings, mentally drained. The intake questionnaire appears to have been mistaken for the treatment.\nShare food with the relative → You share food and exchange numbers. The relative says the diner has already checked on their table more often than the contractor.\nScene: Owner offers unused cutlery and napkins while relative waits beside a blank phone and closed public report. A large diner clock sits above a reassuring care slogan while a silent phone waits below.\nEditable overlays: “ROUND-THE-CLOCK CARE” — television advertisement overlay; “$16 CUTLERY-ROLLING JOB” — offer card; “GAO PUBLIC REPORT” — report cover\nSource: Missing chronic-care plans in immigration detention\nENC-W-SW-D02-C · The toilet takes no position\nA warehouse offers $16 to sort valve labels. A Texas contractor’s bookkeeper explains Israel-boycott certification for qualifying large public contracts. His company’s school-toilet bid has reached foreign policy. The toilet, so far, has taken no position.\nSort the warehouse valve labels → You earn $16 sorting labels, drained. The valves have open and closed positions. The bookkeeper envies their limited range of political opinions.\nSave the contract’s actual thresholds → You save the contract’s actual thresholds, head aching. The bid can now discuss international relations. It still cannot flush.\nShare food and exchange numbers → You share food and swap numbers. The bookkeeper promises a call if the toilet issues a statement.\nScene: The clerk gestures toward unsorted blank valve labels while the bookkeeper holds a public contract clause beside an uninstalled demonstration toilet; travelers consider the job. The silent demonstration toilet occupies the head of a table covered by foreign-policy certification paperwork.\nEditable overlays: “SORT VALVE LABELS · $16” — Blank offer card; “PUBLIC-CONTRACT CERTIFICATION” — Blank public clause cover\nSource: Texas public contracts require an Israel-boycott certification — episd.novusagenda.com\n"
+}

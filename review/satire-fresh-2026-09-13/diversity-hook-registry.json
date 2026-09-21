@@ -1,0 +1,2457 @@
+[
+  {
+    "news_hook_id": "existing-nps-firings",
+    "subject": "DOGE and national park staffing",
+    "before_count": 30,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C01-A",
+      "ENC-C04-A",
+      "ENC-C14-C",
+      "ENC-C17-A",
+      "ENC-S01-A",
+      "ENC-S04-B",
+      "ENC-S07-A",
+      "ENC-S11-A",
+      "ENC-S27-A",
+      "ENC-W-PC-C02-A",
+      "TOWN-10-A",
+      "CARE-03-B",
+      "ALLY-02-A",
+      "ALLY-02-B",
+      "ALLY-06-B",
+      "REPAIR-ALTERNATOR-B",
+      "ACT-FORAGE-B",
+      "ACT-REST-A",
+      "COND-COLD-B",
+      "COND-COLDEXPOSURE-B",
+      "OPEN-ORGANIZER-A",
+      "OPEN-WHISTLEBLOWER-A",
+      "OPEN-STAFFER-B",
+      "END-VICTORY-C",
+      "END-VOTEFAIL-C",
+      "END-DESTROYED-C",
+      "END-COLD-B",
+      "END-COLLAPSE-VEHICLE-C",
+      "END-COLLAPSE-BREAKDOWN-C",
+      "END-FALLBACK-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654",
+      "https://wtop.com/government/2025/07/what-budget-cuts-and-reduced-staffing-could-mean-for-the-national-park-service/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b34b8fb4059e",
+    "subject": "Oregon limits software barriers to independent electronics repair",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C01-B"
+    ],
+    "source_urls": [
+      "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-032a2500af33",
+    "subject": "Rubio changes the State Department standard typeface",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C01-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137"
+    ]
+  },
+  {
+    "news_hook_id": "existing-522fae7c83b4",
+    "subject": "Food assistance cuts",
+    "before_count": 17,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C02-A",
+      "ENC-C12-B",
+      "ENC-C17-B",
+      "ENC-S07-C",
+      "ENC-S15-C",
+      "ENC-S20-B",
+      "ENC-S26-B",
+      "ENC-W-SW-C02-B",
+      "CARE-08-B",
+      "CARE-08-C",
+      "ALLY-03-C",
+      "ORDER-SHUTDOWN-C",
+      "ACT-GLEAN-B",
+      "ACT-FOODWORK-A",
+      "ACT-BARTERSUPPLIES-A",
+      "COND-HUNGER-A",
+      "END-COLLAPSE-HUNGER-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/f65be44e1050431a601320197322551b"
+    ]
+  },
+  {
+    "news_hook_id": "existing-medicaid-snap-work-requirements",
+    "subject": "Medicaid and SNAP work requirements",
+    "before_count": 15,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C02-B",
+      "ENC-C06-B",
+      "ENC-C11-B",
+      "ENC-S03-A",
+      "ENC-S15-A",
+      "ENC-S23-B",
+      "ENC-S28-C",
+      "TOWN-29-B",
+      "CARE-03-A",
+      "ACT-FORAGE-A",
+      "ACT-GLEAN-C",
+      "COND-ILLNESS-C",
+      "OPEN-ORGANIZER-C",
+      "OPEN-STAFFER-C",
+      "END-COLLAPSE-DISEASE-A"
+    ],
+    "source_urls": [
+      "https://www.azahcccs.gov/AHCCCS/Initiatives/HR1/",
+      "https://www.congress.gov/crs_external_products/R/PDF/R48755/R48755.2.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0cd7bcc14e83",
+    "subject": "Unlimited independent political money",
+    "before_count": 44,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C02-C",
+      "ENC-C10-A",
+      "ENC-C15-A",
+      "ENC-C17-C",
+      "ENC-S02-C",
+      "ENC-S08-A",
+      "ENC-S09-C",
+      "ENC-S14-A",
+      "ENC-S16-C",
+      "ENC-S19-C",
+      "ENC-S27-B",
+      "ENC-W-PC-C01-B",
+      "CARE-08-A",
+      "ALLY-01-A",
+      "ALLY-01-C",
+      "ALLY-04-A",
+      "ALLY-04-C",
+      "ALLY-06-A",
+      "ALLY-06-C",
+      "CROSS-03-A",
+      "ORDER-SHUTDOWN-A",
+      "ORDER-SHUTDOWN-B",
+      "REPAIR-TIRE-A",
+      "REPAIR-ALTERNATOR-C",
+      "ACT-FORAGE-C",
+      "ACT-FOODWORK-B",
+      "ACT-CASHWORK-B",
+      "ACT-BARTERTIRE-A",
+      "ACT-BARTERTIRE-C",
+      "ACT-REST-B",
+      "COND-COLD-C",
+      "COND-HUNGER-C",
+      "COND-COLDEXPOSURE-A",
+      "OPEN-JOURNALIST-C",
+      "OPEN-ORGANIZER-B",
+      "OPEN-LOBBYIST-A",
+      "OPEN-LOBBYIST-C",
+      "HEARING-C-A",
+      "END-VICTORY-A",
+      "END-VOTEFAIL-A",
+      "END-COLD-A",
+      "END-COLLAPSE-HUNGER-B",
+      "END-COLLAPSE-CROSSING-A",
+      "END-INCOMPLETE-A"
+    ],
+    "source_urls": [
+      "https://www.fec.gov/updates/ao-2010-11-contributions-to-an-independent-expenditure-committee/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-f96e63e13956",
+    "subject": "Education Department dismantling direction",
+    "before_count": 11,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C03-A",
+      "ENC-C07-B",
+      "ENC-C16-C",
+      "ENC-S06-C",
+      "ENC-S11-C",
+      "ENC-S18-A",
+      "ENC-W-PC-C02-B",
+      "CROSS-03-C",
+      "ORDER-TAXCUTS-A",
+      "ORDER-TAXCUTS-B",
+      "ORDER-TAXCUTS-C"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-empowers-parents-states-and-communities-to-improve-education-outcomes/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-62e45b376a2e",
+    "subject": "Trump announces a donor-funded White House ballroom",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C03-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-c2bb87c81233",
+    "subject": "Federal appeals court vacates the FTC click-to-cancel rule",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C03-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a"
+    ]
+  },
+  {
+    "news_hook_id": "existing-2025-tariff-incidence",
+    "subject": "Trump tariffs passed to Americans",
+    "before_count": 39,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C04-B",
+      "ENC-C07-A",
+      "ENC-C09-B",
+      "ENC-C16-A",
+      "ENC-S01-B",
+      "ENC-S02-A",
+      "ENC-S05-A",
+      "ENC-S07-B",
+      "ENC-S13-A",
+      "ENC-S34-A",
+      "ENC-W-PC-C01-A",
+      "TOWN-14-C",
+      "TOWN-41-A",
+      "CARE-06-A",
+      "CARE-06-B",
+      "CARE-06-C",
+      "ALLY-01-B",
+      "ALLY-03-A",
+      "ALLY-05-C",
+      "CROSS-01-A",
+      "CROSS-02C-C",
+      "ORDER-TARIFFS-A",
+      "ORDER-TARIFFS-B",
+      "ORDER-TARIFFS-C",
+      "REPAIR-TIRE-B",
+      "REPAIR-ALTERNATOR-A",
+      "REPAIR-FUELPUMP-B",
+      "ACT-GLEAN-A",
+      "ACT-FOODWORK-C",
+      "ACT-BARTERTIRE-B",
+      "ACT-BARTERBATTERY-B",
+      "ACT-BARTERSUPPLIES-B",
+      "COND-HUNGER-B",
+      "OPEN-LOBBYIST-B",
+      "END-DESTROYED-A",
+      "END-COLLAPSE-HUNGER-C",
+      "END-COLLAPSE-VEHICLE-B",
+      "END-COLLAPSE-BREAKDOWN-A",
+      "END-INCOMPLETE-C"
+    ],
+    "source_urls": [
+      "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/",
+      "https://toledofreepress.com/local-businesses-brace-for-tariffs/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7856bd5e1052",
+    "subject": "State bans on local heat protections",
+    "before_count": 12,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C04-C",
+      "ENC-C14-A",
+      "ENC-S09-A",
+      "ENC-S17-B",
+      "ENC-S32-C",
+      "ENC-S33-C",
+      "ENC-W-SW-C01-C",
+      "CARE-02-B",
+      "COND-HEAT-A",
+      "COND-HEAT-C",
+      "COND-HEATEXPOSURE-A",
+      "END-HEAT-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/e271a2d78ef1545f4203b88bde514f9b"
+    ]
+  },
+  {
+    "news_hook_id": "existing-maha-false-citations",
+    "subject": "Nonexistent citations in the first MAHA report",
+    "before_count": 9,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C05-A",
+      "ENC-C15-C",
+      "ENC-S02-B",
+      "ENC-S06-A",
+      "ENC-S09-B",
+      "ENC-S19-A",
+      "ENC-S25-B",
+      "ENC-S28-A",
+      "ENC-S31-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/f382af8552dbc1729329a13e58f1f3c4",
+      "https://www.notus.org/health-science/make-america-healthy-again-report-citation-errors"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1978ecf02d00",
+    "subject": "Pentagon acceptance of a Qatari luxury jet",
+    "before_count": 5,
+    "retained_count": 5,
+    "member_ids": [
+      "ENC-C05-B",
+      "ENC-C10-C",
+      "ENC-C18-B",
+      "ENC-S03-C",
+      "ENC-S05-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/c4e1d73c3dbe18397c10e3d3d267bcd6"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1a05b5f9aa03",
+    "subject": "Trump dinner for leading meme-coin investors",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "ENC-C05-C",
+      "ENC-C08-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/0e2d7ca5170bf594d44a391884ec52b3"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4983a65fb221",
+    "subject": "2025 health spending law",
+    "before_count": 12,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C06-A",
+      "ENC-C10-B",
+      "ENC-C14-B",
+      "ENC-S08-B",
+      "ENC-S14-B",
+      "ENC-S28-B",
+      "ENC-S31-C",
+      "ENC-W-MW-C01-A",
+      "ALLY-03-B",
+      "ACT-BARTERSUPPLIES-C",
+      "COND-ILLNESS-A",
+      "END-COLLAPSE-DISEASE-B"
+    ],
+    "source_urls": [
+      "https://www.congress.gov/crs_external_products/R/PDF/R48633/R48633.3.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-38001dd809cd",
+    "subject": "Department of War naming",
+    "before_count": 21,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C06-C",
+      "ENC-C13-C",
+      "ENC-S01-C",
+      "ENC-S05-C",
+      "ENC-S08-C",
+      "ENC-S10-C",
+      "ENC-S21-B",
+      "ENC-S22-B",
+      "ENC-S25-A",
+      "CROSS-02C-A",
+      "ORDER-DEREGULATE-A",
+      "ORDER-DEREGULATE-B",
+      "ORDER-DEREGULATE-C",
+      "OPEN-STAFFER-A",
+      "OPEN-SATIRIST-C",
+      "END-SANITY-B",
+      "END-DESTROYED-B",
+      "END-COLLAPSE-VEHICLE-A",
+      "END-COLLAPSE-BREAKDOWN-B",
+      "END-COLLAPSE-CROSSING-B",
+      "END-COLLAPSE-PANIC-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-restores-the-united-states-department-of-war/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-nih-overhead-cap",
+    "subject": "Proposed NIH overhead cap",
+    "before_count": 9,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C07-C",
+      "ENC-C11-A",
+      "ENC-S03-B",
+      "ENC-S19-B",
+      "ENC-S31-A",
+      "TOWN-11-A",
+      "TOWN-28-A",
+      "TOWN-32-A",
+      "TOWN-33-A"
+    ],
+    "source_urls": [
+      "https://www.research.utah.edu/features/u-research-leaders-keep-doing-the-science/",
+      "https://www.unmc.edu/newsroom/2025/02/09/unmc-statement-on-nih-indirect-cost-guidance/",
+      "https://www.unr.edu/nevada-today/news/president-messages/2025-02-11-update-nih-funding",
+      "https://www.utsouthwestern.edu/about-us/assets/president-message-020925.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-gulf-renaming",
+    "subject": "Gulf renaming",
+    "before_count": 17,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C08-A",
+      "ENC-C16-B",
+      "ENC-S04-C",
+      "ENC-S10-A",
+      "ENC-S10-B",
+      "ENC-S17-C",
+      "ENC-S21-A",
+      "ENC-S24-B",
+      "TOWN-10-B",
+      "CARE-05-A",
+      "CARE-05-B",
+      "CARE-05-C",
+      "ALLY-04-B",
+      "CROSS-01-B",
+      "COND-STORM-C",
+      "OPEN-SATIRIST-A",
+      "END-COLLAPSE-WEATHER-B"
+    ],
+    "source_urls": [
+      "https://www.nps.gov/choh/learn/historyculture/canalconstruction.htm",
+      "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ace39e9e4dd2",
+    "subject": "Trump’s attempted reversal of New York congestion pricing and royal celebration",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C08-C"
+    ],
+    "source_urls": [
+      "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing"
+    ]
+  },
+  {
+    "news_hook_id": "existing-2a7b9cd932bf",
+    "subject": "USPS revises delivery standards in its cost-reduction plan",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C09-A"
+    ],
+    "source_urls": [
+      "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b7d3aec2d91f",
+    "subject": "Signal airstrike chat",
+    "before_count": 19,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C09-C",
+      "ENC-C13-B",
+      "ENC-C18-C",
+      "ENC-S04-A",
+      "ENC-S06-B",
+      "ENC-S16-A",
+      "TOWN-42-C",
+      "CARE-07-B",
+      "CARE-07-C",
+      "ALLY-05-A",
+      "REPAIR-FUELPUMP-C",
+      "ACT-REST-C",
+      "OPEN-JOURNALIST-A",
+      "OPEN-WHISTLEBLOWER-B",
+      "OPEN-SATIRIST-B",
+      "HEARING-C-B",
+      "END-SANITY-A",
+      "END-COLLAPSE-PANIC-A",
+      "END-FALLBACK-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7848d0727242",
+    "subject": "Trump directs the transition from federal paper checks to electronic payments",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C11-C"
+    ],
+    "source_urls": [
+      "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account"
+    ]
+  },
+  {
+    "news_hook_id": "existing-82cf68fcbc95",
+    "subject": "Trump claims credit for Coca-Cola’s additional cane-sugar product",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C12-A"
+    ],
+    "source_urls": [
+      "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b362bc55c8ad",
+    "subject": "FTC requires upfront totals including mandatory lodging fees",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C12-C"
+    ],
+    "source_urls": [
+      "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6554f6c32498",
+    "subject": "TSA ends the routine requirement to remove shoes at checkpoints",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-C13-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788"
+    ]
+  },
+  {
+    "news_hook_id": "existing-9600d14d6357",
+    "subject": "Anti-indoctrination and patriotic education",
+    "before_count": 9,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-C15-B",
+      "ENC-C18-A",
+      "ENC-S11-B",
+      "ENC-S18-C",
+      "ENC-S27-C",
+      "ENC-S29-A",
+      "ORDER-GAG-A",
+      "ORDER-GAG-C",
+      "END-COLLAPSE-PANIC-C"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/01/ending-radical-indoctrination-in-k-12-schooling/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0542aa7b0589",
+    "subject": "Emergency abortion exceptions and federal guidance withdrawal",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-D01-A",
+      "ENC-D01-B",
+      "ENC-D01-C",
+      "HEARING-D-A"
+    ],
+    "source_urls": [
+      "https://www.cms.gov/newsroom/press-releases/cms-statement-emergency-medical-treatment-labor-act-emtala"
+    ]
+  },
+  {
+    "news_hook_id": "existing-01619d25baae",
+    "subject": "Georgia miscarriage arrest followed by dismissal",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D02-A",
+      "ENC-D02-B",
+      "ENC-D02-C"
+    ],
+    "source_urls": [
+      "https://www.themarshallproject.org/2025/04/02/law-pregnancy-california-ohio-georgia-alabama"
+    ]
+  },
+  {
+    "news_hook_id": "existing-50ba2ab57fd3",
+    "subject": "Idaho restrictions on abortion assistance to minors",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D03-A",
+      "ENC-D03-B",
+      "ENC-D03-C"
+    ],
+    "source_urls": [
+      "https://cdn.ca9.uscourts.gov/datastore/opinions/2024/12/02/23-3787.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-c73113ffed50",
+    "subject": "Texas restrictions on public abortion-travel assistance",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D04-A",
+      "ENC-D04-B",
+      "ENC-D04-C"
+    ],
+    "source_urls": [
+      "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00033F.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d7da82560460",
+    "subject": "Louisiana controls on mifepristone and misoprostol",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D05-A",
+      "ENC-D05-B",
+      "ENC-D05-C"
+    ],
+    "source_urls": [
+      "https://legis.la.gov/Legis/ViewDocument.aspx?d=1383195"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4d90c9edbdbd",
+    "subject": "Alabama frozen-embryo wrongful-death ruling and IVF immunity",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D06-A",
+      "ENC-D06-B",
+      "ENC-D06-C"
+    ],
+    "source_urls": [
+      "https://law.justia.com/cases/alabama/supreme-court/2024/sc-2022-0579.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-414338487990",
+    "subject": "Arizona conscience refusal for emergency contraception",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D07-A",
+      "ENC-D07-B",
+      "ENC-D07-C"
+    ],
+    "source_urls": [
+      "https://www.azleg.gov/ars/36/02154.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-a3b11aee063b",
+    "subject": "Pregnancy-center advertising and service mismatch",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D08-A",
+      "ENC-D08-B",
+      "ENC-D08-C"
+    ],
+    "source_urls": [
+      "https://www.mass.gov/info-details/information-about-anti-abortion-centers-for-health-care-providers"
+    ]
+  },
+  {
+    "news_hook_id": "existing-56b6a783acbc",
+    "subject": "Maternity-care deserts and loss of local birth services",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D09-A",
+      "ENC-D09-B",
+      "ENC-D09-C"
+    ],
+    "source_urls": [
+      "https://www.marchofdimes.org/about/news/march-dimes-report-reveals-persistent-gaps-maternity-care-access"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4de9a845b360",
+    "subject": "Police misuse of Flock to monitor former partners",
+    "before_count": 5,
+    "retained_count": 5,
+    "member_ids": [
+      "ENC-D10-A",
+      "ENC-D10-B",
+      "ENC-D10-C",
+      "CROSS-02D-A",
+      "HEARING-D-B"
+    ],
+    "source_urls": [
+      "https://www.wired.com/story/a-georgia-cop-used-flock-to-track-2-other-cops-his-ex-and-her-friend/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-8beb8208762b",
+    "subject": "ALPR searches in an abortion investigation",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D11-A",
+      "ENC-D11-B",
+      "ENC-D11-C"
+    ],
+    "source_urls": [
+      "https://www.eff.org/deeplinks/2025/10/flock-safety-and-texas-sheriff-claimed-license-plate-search-was-missing-person-it"
+    ]
+  },
+  {
+    "news_hook_id": "existing-86745338d450",
+    "subject": "Premom reproductive-health data disclosures",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D12-A",
+      "ENC-D12-B",
+      "ENC-D12-C"
+    ],
+    "source_urls": [
+      "https://www.ftc.gov/legal-library/browse/cases-proceedings/202-3186-easy-healthcare-corporation-us-v"
+    ]
+  },
+  {
+    "news_hook_id": "existing-dfbfc1e2a274",
+    "subject": "Broker sale of sensitive clinic-location data",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-D13-A",
+      "ENC-D13-B",
+      "ENC-D13-C"
+    ],
+    "source_urls": [
+      "https://www.ftc.gov/system/files/ftc_gov/pdf/X-ModeSocialDecisionandOrder.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1955bf2a29c0",
+    "subject": "USDA approves Nebraska’s SNAP soda and energy-drink exclusion",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-S12-A"
+    ],
+    "source_urls": [
+      "https://www.fns.usda.gov/newsroom/usda-0113.25"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b98e56f203fd",
+    "subject": "Trump Accounts and unavailable childhood cash",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-S12-B",
+      "ENC-S26-C",
+      "ENC-S34-C",
+      "ENC-W-PC-C02-C"
+    ],
+    "source_urls": [
+      "https://www.irs.gov/irb/2025-52_IRB"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7a98659de66c",
+    "subject": "Trump federal paper-straw order",
+    "before_count": 5,
+    "retained_count": 5,
+    "member_ids": [
+      "ENC-S12-C",
+      "ENC-S23-A",
+      "ENC-S33-B",
+      "ENC-W-MW-C02-C",
+      "ENC-W-SW-C01-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/02/ending-procurement-and-forced-use-of-paper-straws/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-penny-production-end",
+    "subject": "The US Mint ends circulating-penny production while existing coins stay valid",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "ENC-S13-B",
+      "TOWN-12-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/86139df5644ef0885a9baf98e9677380",
+      "https://www.usmint.gov/news/media-kit/penny"
+    ]
+  },
+  {
+    "news_hook_id": "existing-27a4966c946d",
+    "subject": "Ohio allocates unclaimed funds toward a professional football stadium",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "ENC-S13-C",
+      "TOWN-41-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/dc224d6592b4662eda77083266646378"
+    ]
+  },
+  {
+    "news_hook_id": "existing-43933198cea6",
+    "subject": "Trump Gold Card immigration program",
+    "before_count": 6,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-S14-C",
+      "ENC-S21-C",
+      "ENC-S24-C",
+      "ENC-S29-C",
+      "ENC-S30-B",
+      "ENC-W-MW-C01-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/09/the-gold-card/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-history-directive",
+    "subject": "White House history intervention",
+    "before_count": 18,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-S15-B",
+      "ENC-S18-B",
+      "ENC-S22-C",
+      "ENC-S23-C",
+      "ENC-S25-C",
+      "TOWN-08-B",
+      "TOWN-11-C",
+      "CROSS-03-B",
+      "REPAIR-TIRE-C",
+      "COND-SMOKE-C",
+      "OPEN-JOURNALIST-B",
+      "OPEN-WHISTLEBLOWER-C",
+      "HEARING-C-C",
+      "END-VICTORY-B",
+      "END-VOTEFAIL-B",
+      "END-COLLAPSE-CROSSING-C",
+      "END-INCOMPLETE-B",
+      "END-FALLBACK-B"
+    ],
+    "source_urls": [
+      "https://home.nps.gov/articles/story-of-the-fire.htm",
+      "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6220725300fc",
+    "subject": "DOT requires automatic refunds for qualifying cancelled flights",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-S16-B"
+    ],
+    "source_urls": [
+      "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7d6f485df9d5",
+    "subject": "Trump showerhead deregulation",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-S17-A",
+      "ENC-S24-A",
+      "ENC-S33-A",
+      "ENC-W-SW-C01-A"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/wp-content/uploads/2025/04/eo-14264.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-usda-local-food-cancellations",
+    "subject": "USDA local-food purchasing cancellations",
+    "before_count": 8,
+    "retained_count": 6,
+    "member_ids": [
+      "ENC-S20-A",
+      "ENC-W-MW-C01-C",
+      "ENC-W-SW-C02-A",
+      "TOWN-13-A",
+      "TOWN-20-A",
+      "TOWN-27-A",
+      "TOWN-39-A",
+      "TOWN-40-A"
+    ],
+    "source_urls": [
+      "https://ozarksfoodharvest.org/media/federal-cuts-leave-funding-gap-usda-ozarks-food-harvest/",
+      "https://stlfoodbank.org/blog/may2025blog/",
+      "https://www.kcur.org/news/2025-03-28/harvesters-food-bank-deliveries-trump-administration-missouri-kansas",
+      "https://www.kswo.com/2025/04/07/federal-cuts-may-soon-begin-affect-local-food-banks/",
+      "https://www.mass.gov/news/trump-administration-continues-to-take-away-food-from-massachusetts-families-and-students",
+      "https://www.radioiowa.com/2025/04/02/iowa-farmers-feel-the-impact-of-local-food-programs-being-eliminated/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-5af0b97887ba",
+    "subject": "Congress permits whole milk in the National School Lunch Program",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-S20-C"
+    ],
+    "source_urls": [
+      "https://www.govinfo.gov/app/details/PLAW-119publ69"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d80de9d998ac",
+    "subject": "Federal attempts to withdraw Albuquerque walk/bike funding",
+    "before_count": 5,
+    "retained_count": 5,
+    "member_ids": [
+      "ENC-S22-A",
+      "ENC-S26-A",
+      "ENC-S30-A",
+      "TOWN-01-A",
+      "ACT-CASHWORK-C"
+    ],
+    "source_urls": [
+      "https://www.cabq.gov/mayor/news/trump-administration-attempts-to-cancel-money-for-rail-trail"
+    ]
+  },
+  {
+    "news_hook_id": "existing-8f19561197c4",
+    "subject": "Treasury suspends IRS Direct File for the 2026 filing season",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-S29-B"
+    ],
+    "source_urls": [
+      "https://www.gao.gov/products/b-337954"
+    ]
+  },
+  {
+    "news_hook_id": "existing-97da8fc68ddd",
+    "subject": "Trump wind-permitting pause",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-S30-C",
+      "ENC-S32-A",
+      "ENC-W-MW-C02-A"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/01/temporary-withdrawal-of-all-areas-on-the-outer-continental-shelf-from-offshore-wind-leasing-and-review-of-the-federal-governments-leasing-and-permitting-practices-for-wind-projects/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-60b639262067",
+    "subject": "Trump wind and solar subsidy phaseout enforcement",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "ENC-S32-B",
+      "ENC-W-MW-C02-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/07/ending-market-distorting-subsidies-for-unreliable-foreign%E2%80%91controlled-energy-sources/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-632c1bc85803",
+    "subject": "Trump’s ten-for-one federal deregulation instruction",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-S34-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-cab9bf55722e",
+    "subject": "FTC and states negotiate access to Deere farm-equipment repair resources",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-W-PC-C01-C"
+    ],
+    "source_urls": [
+      "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1ef157f3930e",
+    "subject": "Passport sex-marker restrictions",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-W-PC-D01-A",
+      "ENC-W-PC-D01-B",
+      "ENC-W-PC-D01-C",
+      "CROSS-02D-B"
+    ],
+    "source_urls": [
+      "https://travel.state.gov/en/passports/apply/unique-needs/sex-markers.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-65f3020ce96a",
+    "subject": "VA gender-affirming care cutoff",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-W-PC-D02-A",
+      "ENC-W-PC-D02-B",
+      "ENC-W-PC-D02-C"
+    ],
+    "source_urls": [
+      "https://news.va.gov/press-room/va-to-phase-out-treatment-for-gender-dysphoria/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-e2be343f70c3",
+    "subject": "SSI countable-resource limits",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-W-MW-D01-A",
+      "ENC-W-MW-D01-B",
+      "ENC-W-MW-D01-C"
+    ],
+    "source_urls": [
+      "https://www.ssa.gov/ssi/text-resources-ussi.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-cb97f002fb1b",
+    "subject": "Federal medical-debt reporting rule vacated",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "ENC-W-MW-D02-A",
+      "ENC-W-MW-D02-B",
+      "ENC-W-MW-D02-C"
+    ],
+    "source_urls": [
+      "https://www.consumerfinance.gov/archive/newsroom/cfpb-finalizes-rule-to-remove-medical-bills-from-credit-reports/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7f5f373a16dc",
+    "subject": "Texas business-personal-property tax exemption",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ENC-W-SW-C02-C"
+    ],
+    "source_urls": [
+      "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php"
+    ]
+  },
+  {
+    "news_hook_id": "existing-db5b524180c6",
+    "subject": "Medicare Advantage denial of qualifying care",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-W-SW-D01-A",
+      "ENC-W-SW-D01-B",
+      "ENC-W-SW-D01-C",
+      "HEARING-D-C"
+    ],
+    "source_urls": [
+      "https://www.oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-5e0dcf01dd4c",
+    "subject": "Missing chronic-care plans in immigration detention",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "ENC-W-SW-D02-A",
+      "ENC-W-SW-D02-B",
+      "ENC-W-SW-D02-C",
+      "CROSS-02D-C"
+    ],
+    "source_urls": [
+      "https://files.gao.gov/reports/GAO-26-108886/index.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b163260c6fe1",
+    "subject": "Trump administration immigration conditions on police grants",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-01-B",
+      "TOWN-01-C"
+    ],
+    "source_urls": [
+      "https://www.cabq.gov/mayor/news/city-joins-lawsuits-to-block-federal-cuts-to-public-safety-housing"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1ba51645fea6",
+    "subject": "Trump’s Argentine beef import proposal",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-02-A"
+    ],
+    "source_urls": [
+      "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ed4bd9386b06",
+    "subject": "Federal nuclear contractor billing scandal",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-02-B"
+    ],
+    "source_urls": [
+      "https://www.energy.gov/ig/articles/audit-doe-oig-25-36"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ef78bd790a42",
+    "subject": "Trump and DOGE nuclear-workforce firings",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-02-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b9aad1f38ce1",
+    "subject": "Federal termination of Humanities Texas funding",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-03-A"
+    ],
+    "source_urls": [
+      "https://www.humanitiestexas.org/news/articles/director-may-2025"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7c6f19a0ab93",
+    "subject": "Texas Legislature’s 2025 private-school funding program",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-03-B",
+      "TOWN-34-B"
+    ],
+    "source_urls": [
+      "https://educationfreedom.texas.gov/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-debe682b11d5",
+    "subject": "Austin’s higher unpaid-meter fine",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-03-C"
+    ],
+    "source_urls": [
+      "https://services.austintexas.gov/edims/document.cfm?id=447196"
+    ]
+  },
+  {
+    "news_hook_id": "existing-8aff01f8d22e",
+    "subject": "Montana SNAP food restrictions approved by USDA",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-04-A"
+    ],
+    "source_urls": [
+      "https://dphhs.mt.gov/News/2026/May/USDA-Approves-Gov-Junk-Food-Ban-SNAP"
+    ]
+  },
+  {
+    "news_hook_id": "existing-425d211f518c",
+    "subject": "Montana’s 2026 property-tax structure",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-04-B"
+    ],
+    "source_urls": [
+      "https://revenue.mt.gov/property/property-tax-changes/2026-property-tax-information"
+    ]
+  },
+  {
+    "news_hook_id": "existing-35948c59256d",
+    "subject": "Montana Legislature’s official-flag restrictions",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-04-C"
+    ],
+    "source_urls": [
+      "https://docs.legmt.gov/download-ticket?ticketId=9cfc3496-02a6-4ccd-9f8b-ad85ec1bab90"
+    ]
+  },
+  {
+    "news_hook_id": "existing-9315d350d0b1",
+    "subject": "Trump administration federal-funding orders",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-05-A"
+    ],
+    "source_urls": [
+      "https://www.boisestate.edu/research-osp/2025/01/30/federal-funding-update-january-30-2025/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0223cc7d137b",
+    "subject": "Idaho flag law and Boise’s municipal response",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-05-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/13c8f9f7269d1b33daaa7ef041c6c497"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d48c44f50363",
+    "subject": "Governor Brad Little’s education tax-credit law",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-05-C"
+    ],
+    "source_urls": [
+      "https://gov.idaho.gov/pressrelease/gov-little-signs-house-bill-93-creating-the-parental-choice-tax-credit-program/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7ee70b09f6f8",
+    "subject": "Trump renewable-energy order and Chuck Gray’s endorsement",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-06-A"
+    ],
+    "source_urls": [
+      "https://sos.wyo.gov/Media/2025/SoS_Release_2025-07-09.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-349fe3593a92",
+    "subject": "Wyoming’s 2025 voter-registration documentation law",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-06-B"
+    ],
+    "source_urls": [
+      "https://sos.wyo.gov/Media/2025/SoS_Release_2025-03-21.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6410614783d0",
+    "subject": "Wyoming government’s Capitol restoration spending",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-06-C"
+    ],
+    "source_urls": [
+      "https://wyohistory.org/encyclopedia/history-wyoming-capitol"
+    ]
+  },
+  {
+    "news_hook_id": "existing-bbffdb5acdb1",
+    "subject": "Trump administration transit-funding pause",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-07-A"
+    ],
+    "source_urls": [
+      "https://www.transitchicago.com/chicago-transit-authority-sues-federal-government-over-paused-red-line-extension-and-red--purple-modernization-project-funding/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-76bd5f3d0f09",
+    "subject": "Trump’s attempted National Guard deployment to Chicago",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-07-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/97192a48f01dd4954f1ba505628b5f21"
+    ]
+  },
+  {
+    "news_hook_id": "existing-918a05bed2f6",
+    "subject": "Illinois transit-funding legislation",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-07-C"
+    ],
+    "source_urls": [
+      "https://www.transitchicago.com/chicago-transit-board-approves-2026-cta-budget/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-8bf0c4c5299d",
+    "subject": "Trump administration termination of education grants",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-08-A"
+    ],
+    "source_urls": [
+      "https://shontelbrown.house.gov/media/press-releases/brown-calls-trump-administration-restore-millions-terminated-education-grants"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7c7fa8a91ac6",
+    "subject": "Cleveland voters’ sewer and treatment bond",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-08-C"
+    ],
+    "source_urls": [
+      "https://home.nps.gov/articles/story-of-the-fire.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-186f682ddc14",
+    "subject": "Governor Kehoe’s repeal of paid-sick-leave requirements",
+    "before_count": 7,
+    "retained_count": 6,
+    "member_ids": [
+      "TOWN-09-A",
+      "TOWN-09-B",
+      "TOWN-09-C",
+      "TOWN-19-B",
+      "TOWN-19-C",
+      "TOWN-39-B",
+      "TOWN-40-B"
+    ],
+    "source_urls": [
+      "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law"
+    ]
+  },
+  {
+    "news_hook_id": "existing-maryland-leave-delay",
+    "subject": "Maryland paid-family-leave implementation delay",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-10-C",
+      "TOWN-16-C"
+    ],
+    "source_urls": [
+      "https://paidleave.maryland.gov/stakeholders/Documents/FAMLI%20FAQs%20October%202025.pdf",
+      "https://www.labor.maryland.gov/whatsnews/gov-moore-announces-employer-registration-for-paid-family-and-medical-leave-insurance-is-live.shtml"
+    ]
+  },
+  {
+    "news_hook_id": "existing-3adddac7ffbf",
+    "subject": "Texas residence homestead exemption",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-11-B"
+    ],
+    "source_urls": [
+      "https://comptroller.texas.gov/taxes/property-tax/exemptions/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-75f0a174a77a",
+    "subject": "Trump administration denial of Denver migrant-service reimbursement",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-12-A"
+    ],
+    "source_urls": [
+      "https://denverite.com/2025/04/29/denver-losing-24-million-federal-funding-explained/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ea461afa47a1",
+    "subject": "Governor Polis veto of SB25-005",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-12-B"
+    ],
+    "source_urls": [
+      "https://leg.colorado.gov/bills/sb25-005"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ba838fb8dbb5",
+    "subject": "Des Moines’s electric franchise fee",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-13-B"
+    ],
+    "source_urls": [
+      "https://councildocs.dsm.city/ordinances/16%2C485.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-de84d3428402",
+    "subject": "Iowa universal education savings account eligibility",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-13-C"
+    ],
+    "source_urls": [
+      "https://educate.iowa.gov/pk-12/educational-choice/education-savings-accounts"
+    ]
+  },
+  {
+    "news_hook_id": "existing-41503a7d0081",
+    "subject": "El Paso’s fare-free streetcar",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-14-A"
+    ],
+    "source_urls": [
+      "https://sunmetro.net/streetcar/about-streetcars"
+    ]
+  },
+  {
+    "news_hook_id": "existing-f7c83a67eab7",
+    "subject": "El Paso’s conditional Meta data-center tax rebate",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-14-B"
+    ],
+    "source_urls": [
+      "https://www.elpasotexas.gov/data-centers"
+    ]
+  },
+  {
+    "news_hook_id": "existing-bc3e15f54849",
+    "subject": "Trump proposal to close Grand Canyon monitoring center",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-15-A"
+    ],
+    "source_urls": [
+      "https://www.kjzz.org/text/the-show/2025-06-18/trump-proposal-would-almost-completely-cut-funds-for-grand-canyon-monitoring-and-research-center"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0e71a18a61b3",
+    "subject": "Trump FY2027 NASA science budget proposal",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-15-B"
+    ],
+    "source_urls": [
+      "https://aas.org/posts/news/2026/04/policy-update-8-april-2026"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7a6e24d83322",
+    "subject": "Flagstaff municipal protection of the night sky",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-15-C"
+    ],
+    "source_urls": [
+      "https://flagstaff.az.gov/4042/Dark-Sky"
+    ]
+  },
+  {
+    "news_hook_id": "existing-5c4d3a1daeb2",
+    "subject": "Trump administration HHS reductions in force",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-16-A"
+    ],
+    "source_urls": [
+      "https://labor.maryland.gov/employment/rif2025.shtml"
+    ]
+  },
+  {
+    "news_hook_id": "existing-13c667fc0822",
+    "subject": "Frederick County source-of-income housing protection",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-16-B"
+    ],
+    "source_urls": [
+      "https://www.frederickcountymd.gov/6386/Housing-Choice-Voucher"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0b1fb1516043",
+    "subject": "Trump and Musk USPS privatization proposals",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-17-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/692d56e701f3853af4ce914832a33124"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4e2cbb21c5bb",
+    "subject": "Maryland’s 2025 tax on specified technology services",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-17-B"
+    ],
+    "source_urls": [
+      "https://www.marylandcomptroller.gov/legal-library/tb-30-jun-2025.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-f3e8f1394628",
+    "subject": "Maryland’s public financing for Hagerstown’s stadium",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-17-C"
+    ],
+    "source_urls": [
+      "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d843be0ce75f",
+    "subject": "Trump State Department cuts to Iowa’s International Writing Program",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-18-A"
+    ],
+    "source_urls": [
+      "https://now.uiowa.edu/news/2025/03/us-department-state-halts-international-writing-program-funding"
+    ]
+  },
+  {
+    "news_hook_id": "existing-07490c3dc1c8",
+    "subject": "Iowa law and regents’ restrictions on university DEI functions",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-18-B"
+    ],
+    "source_urls": [
+      "https://now.uiowa.edu/news/2025/03/ui-close-division-access-opportunity-and-diversity-march-27"
+    ]
+  },
+  {
+    "news_hook_id": "existing-494ef9ff6470",
+    "subject": "Iowa City’s extended fare-free bus pilot",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-18-C"
+    ],
+    "source_urls": [
+      "https://www.icgov.org/home/showpublisheddocument/2925/639040638387730000"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4326a9b0ede6",
+    "subject": "Joplin’s scheduled sewer-rate increases",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-19-A"
+    ],
+    "source_urls": [
+      "https://joplinbusinessoutlook.com/2025/01/08/sewer-rate-adjustment-begins-for-city-of-joplin-residents-with-april-2025-billing-cycle/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-9ca2cc3536b6",
+    "subject": "Kansas City tax-funded fare-free streetcar",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-20-B"
+    ],
+    "source_urls": [
+      "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-61f0c8c0602b",
+    "subject": "Jackson County rejection of stadium sales-tax proposal",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-20-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/e9605296b85e91699441e4ba10e83212"
+    ]
+  },
+  {
+    "news_hook_id": "existing-e40540fd275e",
+    "subject": "Trump proposed closure of La Crosse USGS center",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-21-A"
+    ],
+    "source_urls": [
+      "https://www.wizmnews.com/2025/11/21/closure-of-upper-midwest-environmental-sciences-center-possible-under-proposed-budget/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-9363a9049eee",
+    "subject": "Wisconsin’s partial veto extending school revenue-limit increases",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-21-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/5a1be188f78ab5e4223b2c7c7ad3ca7d"
+    ]
+  },
+  {
+    "news_hook_id": "existing-bd27f25dfa83",
+    "subject": "Wisconsin’s 2025 constitutional voter-ID amendment",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-21-C",
+      "TOWN-23-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/abdcaa07f7e82d15330ab8b79485ed9b"
+    ]
+  },
+  {
+    "news_hook_id": "existing-88bcc5aa3397",
+    "subject": "Tourism decline amid Trump tariff and immigration policies",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-22-A"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/fbcb23cacef7c54f4ecaac0a43ba0703"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7f374fbc1ed0",
+    "subject": "Local restrictions on new golf-course Colorado River water use",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-22-B"
+    ],
+    "source_urls": [
+      "https://www.lvvwd.com/conservation/measures/index.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-tip-overtime-deductions",
+    "subject": "Trump’s no-tax-on-tips promise and limited deduction",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-22-C",
+      "ACT-CASHWORK-A"
+    ],
+    "source_urls": [
+      "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips",
+      "https://www.irs.gov/newsroom/one-big-beautiful-bill-how-to-take-advantage-of-no-tax-on-tips-and-overtime"
+    ]
+  },
+  {
+    "news_hook_id": "existing-aa53453bca56",
+    "subject": "Federal research disruptions requiring UW–Madison bridge funding",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-23-A"
+    ],
+    "source_urls": [
+      "https://research.wisc.edu/press-release/2025/08/06/building-bridges-support-for-research-impacted-by-federal-funding-cuts-gets-a-boost-from-ovcr/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-83c2a5f7b018",
+    "subject": "Elon Musk’s spending in Wisconsin’s 2025 Supreme Court election",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-23-B"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/cdea66e0dcbaa53dd183e1d10bee2b35"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6dab54aaaca5",
+    "subject": "Trump administration research-award terminations at the University of Minnesota",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-24-A"
+    ],
+    "source_urls": [
+      "https://research.umn.edu/news/navigating-uncertainty-research-leaders-update-board-regents-impact-federal-funding"
+    ]
+  },
+  {
+    "news_hook_id": "existing-451585e221a5",
+    "subject": "Minnesota paid family and medical leave",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-24-B"
+    ],
+    "source_urls": [
+      "https://mn.gov/governor/newsroom/press-releases/?id=1055-714988"
+    ]
+  },
+  {
+    "news_hook_id": "existing-556e47cd0fe7",
+    "subject": "Minnesota universal school-meal reimbursement",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-24-C"
+    ],
+    "source_urls": [
+      "https://education.mn.gov/MDE/dse/FNS/SNP/free/?os=f"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6103dc7a9244",
+    "subject": "Trump federal funding-freeze reversal with continued reviews",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-25-A"
+    ],
+    "source_urls": [
+      "https://www.umt.edu/sponsored-programs/exec-orders/funding-freeze.php"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1c855c2c6dc1",
+    "subject": "EPA-backed Milltown Reservoir cleanup settlement",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-25-B"
+    ],
+    "source_urls": [
+      "https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/158eb922f77cefe4852570d900462bdb.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b4b848a68002",
+    "subject": "Missoula’s accessory-dwelling-unit parking rule",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-25-C"
+    ],
+    "source_urls": [
+      "https://library.municode.com/MT/Missoula/codes/municipal_code?nodeId=TIT20ZO_CH20.45ACUSST_20.45.060ACDWUN"
+    ]
+  },
+  {
+    "news_hook_id": "existing-nws-staffing-losses",
+    "subject": "National Weather Service staffing-related balloon reduction",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-26-A",
+      "COND-CLEAR-C"
+    ],
+    "source_urls": [
+      "https://halifax.citynews.ca/2025/02/27/hundreds-of-weather-forecasters-fired-in-latest-wave-of-doge-cuts/",
+      "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-88f7580fd190",
+    "subject": "Nebraska voters’ 2024 repeal of private-school scholarship funding",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-26-B"
+    ],
+    "source_urls": [
+      "https://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20General%20Canvass%20Book.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-9f01d758d55e",
+    "subject": "Congress and Biden imposing the 2022 rail agreement",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-26-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f"
+    ]
+  },
+  {
+    "news_hook_id": "existing-e668b859e277",
+    "subject": "Ryan Walters’ purchase of Trump-endorsed classroom Bibles",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-27-B",
+      "TOWN-43-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/e00fdcd3253cc11169cc6857d8e8e9de"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1133cc911ffe",
+    "subject": "Oklahoma parental-choice tax-credit allocation",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-27-C"
+    ],
+    "source_urls": [
+      "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/reports/pctc/2025/PCTC_Report_6112025.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-86a9f7e0540a",
+    "subject": "Omaha’s public sewer-overflow control program",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-28-B"
+    ],
+    "source_urls": [
+      "https://omahacso.com/about-program"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1ec764570c48",
+    "subject": "Nebraska paid-sick-leave small-employer exemption",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-28-C"
+    ],
+    "source_urls": [
+      "https://dol.nebraska.gov/PressRelease/Details/335"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7820979ccf8b",
+    "subject": "Arizona Attorney General litigation over Trump funding actions",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-29-A"
+    ],
+    "source_urls": [
+      "https://www.azag.gov/press-release/attorney-general-mayes-safeguards-15-billion-federal-funds-arizona-lawsuits-against"
+    ]
+  },
+  {
+    "news_hook_id": "existing-f531e6084389",
+    "subject": "Phoenix municipal shade-plan commitments",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-29-C"
+    ],
+    "source_urls": [
+      "https://www.phoenix.gov/content/dam/phoenix/heatsite/documents/ShadePhoenixPlan_Nov13CouncilDraft_topost_EN.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d99c6767139c",
+    "subject": "Trump federal research-award terminations at Pitt",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-30-A"
+    ],
+    "source_urls": [
+      "https://www.publicsource.org/trump-administration-higher-education-funding-orders-university-pittsburgh-pitt-cmu-timeline/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-21fa6d357cee",
+    "subject": "Pittsburgh’s 2026 paid-sick-time expansion",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-30-B"
+    ],
+    "source_urls": [
+      "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act"
+    ]
+  },
+  {
+    "news_hook_id": "existing-5951299ab725",
+    "subject": "Pittsburgh’s 1941 smoke-control ordinance",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-30-C"
+    ],
+    "source_urls": [
+      "https://historicpittsburgh.org/islandora/object/pitt:US-PPiU-ais198007"
+    ]
+  },
+  {
+    "news_hook_id": "existing-2a112b332855",
+    "subject": "Trump birthday on the 2026 national-park fee schedule",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-31-A"
+    ],
+    "source_urls": [
+      "https://www.nps.gov/badl/planyourvisit/fees.htm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-3468a3835f1f",
+    "subject": "Rapid City’s vacation-rental parking requirements",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-31-B"
+    ],
+    "source_urls": [
+      "https://www.kotatv.com/2025/12/02/rapid-city-council-votes-regulate-vacation-home-rentals/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-8fb5e3223c4d",
+    "subject": "Trump library-grant disruption and South Dakota interlibrary loans",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-31-C"
+    ],
+    "source_urls": [
+      "https://apnews.com/article/d3a236243b3a5c2b04e85d2004d1a946"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b18832a5820b",
+    "subject": "Governor Lombardo’s 2025 tenant-protection veto",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-32-B"
+    ],
+    "source_urls": [
+      "https://gov.nv.gov/uploadedFiles/gov2022nvgov/content/Newsroom/vetos/2025/AB280.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1696fdcdbb52",
+    "subject": "Federal Newlands water diversions and Pyramid Lake",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-32-C"
+    ],
+    "source_urls": [
+      "https://www.usbr.gov/projects/index.php?id=368"
+    ]
+  },
+  {
+    "news_hook_id": "existing-ac562e00de74",
+    "subject": "UTA’s downtown Free Fare Zone",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-33-B"
+    ],
+    "source_urls": [
+      "https://myuta.rideuta.com/Fares-And-Passes/Individual-Fares/Free-Fare-Zone"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4c9ae52f749d",
+    "subject": "Salt Lake City official flags responding to Utah restrictions",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-33-C"
+    ],
+    "source_urls": [
+      "https://www.slc.gov/blog/2025/05/07/salt-lake-city-adopts-four-flags-to-represent-residents-visitors/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-4d8148127e2c",
+    "subject": "Trump funding-freeze uncertainty in San Antonio schools",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-34-A"
+    ],
+    "source_urls": [
+      "https://www.mysanantonio.com/news/local/article/head-start-funding-federal-freeze-20061743.php"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d1601e0eef10",
+    "subject": "Texas’s inspection replacement fee",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-34-C"
+    ],
+    "source_urls": [
+      "https://www.dps.texas.gov/news/vehicle-safety-inspection-changes-take-effect-january-2025"
+    ]
+  },
+  {
+    "news_hook_id": "existing-d573a6a3ffa7",
+    "subject": "Feeding South Dakota’s request after federal cuts",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-35-A"
+    ],
+    "source_urls": [
+      "https://www.kotatv.com/2025/07/31/feeding-south-dakota-asks-south-dakota-lawmakers-3m-due-federal-cuts/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-def6e5dce08b",
+    "subject": "South Dakota’s rejected 2024 consumption-tax ballot measure",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-35-B"
+    ],
+    "source_urls": [
+      "https://sdsos.gov/elections-voting/assets/BallotQuestions%20%282024%29.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-1f917237bdc6",
+    "subject": "South Dakota ban on carbon-pipeline eminent domain",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-35-C"
+    ],
+    "source_urls": [
+      "https://news.sd.gov/news?id=news_kb_article_view&sysparm_article=KB0043737"
+    ]
+  },
+  {
+    "news_hook_id": "existing-e617511a3abc",
+    "subject": "Notre Dame’s budget response to federal uncertainty",
+    "before_count": 2,
+    "retained_count": 2,
+    "member_ids": [
+      "TOWN-36-A",
+      "TOWN-36-C"
+    ],
+    "source_urls": [
+      "https://scholastic.nd.edu/issues/notre-dames-response-to-federal-funding-cuts/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-963afef2ad5b",
+    "subject": "Federal pension reform after Studebaker’s collapse",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-36-B"
+    ],
+    "source_urls": [
+      "https://www.dol.gov/node/22391"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b43765066380",
+    "subject": "Spokane home-energy grant rescission",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-37-A"
+    ],
+    "source_urls": [
+      "https://my.spokanecity.org/news/releases/2025/09/23/proposed-resolution-outlines-city-of-spokanes-federal-priorities/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-a9b2e09e6402",
+    "subject": "Washington’s 2025 rent-stabilization law",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-37-B"
+    ],
+    "source_urls": [
+      "https://governor.wa.gov/news/2025/governor-ferguson-signs-rent-stabilization-affordable-housing-bills"
+    ]
+  },
+  {
+    "news_hook_id": "existing-133edc9c86b0",
+    "subject": "Spokane’s municipal restriction on labor street speeches",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-37-C"
+    ],
+    "source_urls": [
+      "https://historylink.org/File/7357"
+    ]
+  },
+  {
+    "news_hook_id": "existing-7c3f09c681d4",
+    "subject": "Federal shutdown closing Lincoln Home tours",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-38-A"
+    ],
+    "source_urls": [
+      "https://www.wandtv.com/news/lincoln-home-site-closed-until-further-notice-amid-government-shutdown/article_94ee0b81-24ba-4115-9020-a723d343a04e.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6b9000975eec",
+    "subject": "Illinois Paid Leave for All Workers Act",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-38-B"
+    ],
+    "source_urls": [
+      "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT"
+    ]
+  },
+  {
+    "news_hook_id": "existing-0e80f4000e74",
+    "subject": "Illinois adult minimum-wage increase",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-38-C"
+    ],
+    "source_urls": [
+      "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-712da82612a0",
+    "subject": "Springfield public fiber infrastructure and private leases",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-39-C"
+    ],
+    "source_urls": [
+      "https://www.cityutilities.net/DocumentCenter/View/1069/Annual-Report---2022-PDF"
+    ]
+  },
+  {
+    "news_hook_id": "existing-151a8b3fb8f4",
+    "subject": "St. Louis’s escalating unpaid-meter penalty",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-40-C"
+    ],
+    "source_urls": [
+      "https://www.stlouis-mo.gov/government/departments/treasurer/parking-violations/parking-violation-fines.cfm"
+    ]
+  },
+  {
+    "news_hook_id": "existing-e9eb297ab2ec",
+    "subject": "Metroparks Toledo restoration with clean harbor sediment",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-41-C"
+    ],
+    "source_urls": [
+      "https://maac.partnersforcleanstreams.org/wp-content/uploads/sites/2/2024/09/BUI7_RemovalRecommendations_with-AOC-Program-cover-letter_8-20-24.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6625cb469b79",
+    "subject": "Federal grant disruptions and Tucson jobs at risk",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-42-A"
+    ],
+    "source_urls": [
+      "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/prior-budgets/april-22-2025-study-session.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-b4570e836198",
+    "subject": "Tucson’s municipal reclaimed-water investment",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-42-B"
+    ],
+    "source_urls": [
+      "https://www.tucsonaz.gov/Departments/Water/Water-Resources-and-Drought-Preparedness/Reclaimed-Water"
+    ]
+  },
+  {
+    "news_hook_id": "existing-540318aab1c7",
+    "subject": "Tulsa Health Department’s federal funding uncertainty",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-43-A"
+    ],
+    "source_urls": [
+      "https://www.publicradiotulsa.org/local-regional/2025-03-14/anxiety-levels-here-are-extremely-high-tulsa-health-department-braces-for-an-unknown-future"
+    ]
+  },
+  {
+    "news_hook_id": "existing-95612afaab1a",
+    "subject": "Oklahoma’s state-only grocery-tax repeal",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-43-B"
+    ],
+    "source_urls": [
+      "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html"
+    ]
+  },
+  {
+    "news_hook_id": "existing-f9a60b58bb5b",
+    "subject": "Shutdown interruption of SNAP in McLennan County",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-44-A"
+    ],
+    "source_urls": [
+      "https://www.kwbu.org/news/2025-11-04/central-texas-food-banks-brace-for-surge-after-snap-benefits-cut"
+    ]
+  },
+  {
+    "news_hook_id": "existing-a29760a141fa",
+    "subject": "Texas toll-bridge monopoly and Waco’s public purchase",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-44-B"
+    ],
+    "source_urls": [
+      "https://atlas.thc.texas.gov/Details/5309005448"
+    ]
+  },
+  {
+    "news_hook_id": "existing-a1080b661302",
+    "subject": "Texas law requiring classroom Ten Commandments",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "TOWN-44-C"
+    ],
+    "source_urls": [
+      "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00010F.HTM"
+    ]
+  },
+  {
+    "news_hook_id": "existing-c13bacb8e496",
+    "subject": "MAHA marketed raw milk and food safety",
+    "before_count": 9,
+    "retained_count": 6,
+    "member_ids": [
+      "CARE-01-A",
+      "CARE-01-B",
+      "CARE-01-C",
+      "CARE-04-A",
+      "CARE-04-B",
+      "CARE-04-C",
+      "ALLY-05-B",
+      "COND-ILLNESS-B",
+      "END-COLLAPSE-DISEASE-C"
+    ],
+    "source_urls": [
+      "https://www.fda.gov/food/buy-store-serve-safe-food/dangers-raw-milk-unpasteurized-milk-can-pose-serious-health-risk"
+    ]
+  },
+  {
+    "news_hook_id": "existing-3a98ed4c6831",
+    "subject": "Sharpiegate",
+    "before_count": 6,
+    "retained_count": 6,
+    "member_ids": [
+      "CARE-02-A",
+      "COND-CLEAR-B",
+      "COND-STORM-A",
+      "COND-HEATEXPOSURE-B",
+      "END-HEAT-B",
+      "END-COLLAPSE-WEATHER-A"
+    ],
+    "source_urls": [
+      "https://www.oig.doc.gov/OIGPublications/OIG-20-032-I.pdf"
+    ]
+  },
+  {
+    "news_hook_id": "existing-5d6f646a7cbf",
+    "subject": "Trump energy and climate rollback",
+    "before_count": 16,
+    "retained_count": 6,
+    "member_ids": [
+      "CARE-02-C",
+      "REPAIR-BATTERY-B",
+      "REPAIR-FUELPUMP-A",
+      "ACT-BARTERBATTERY-A",
+      "ACT-BARTERBATTERY-C",
+      "COND-CLEAR-A",
+      "COND-STORM-B",
+      "COND-HEAT-B",
+      "COND-COLD-A",
+      "COND-SMOKE-A",
+      "COND-SMOKE-B",
+      "COND-HEATEXPOSURE-C",
+      "COND-COLDEXPOSURE-C",
+      "END-COLD-C",
+      "END-HEAT-C",
+      "END-COLLAPSE-WEATHER-C"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-2771015125f0",
+    "subject": "Trump anti-DEI actions",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "CARE-03-C",
+      "ALLY-02-C",
+      "CROSS-02C-B",
+      "REPAIR-BATTERY-C"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/01/ending-illegal-discrimination-and-restoring-merit-based-opportunity/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-6da1bf37e171",
+    "subject": "DOGE five-accomplishments emails",
+    "before_count": 3,
+    "retained_count": 3,
+    "member_ids": [
+      "CARE-07-A",
+      "REPAIR-BATTERY-A",
+      "END-SANITY-C"
+    ],
+    "source_urls": [
+      "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-03ab33c337ba",
+    "subject": "2025 entry restrictions and extreme vetting",
+    "before_count": 4,
+    "retained_count": 4,
+    "member_ids": [
+      "CROSS-01-C",
+      "ORDER-MILITARIZE-A",
+      "ORDER-MILITARIZE-B",
+      "ORDER-MILITARIZE-C"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/06/restricting-the-entry-of-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats/"
+    ]
+  },
+  {
+    "news_hook_id": "existing-be6797a2a0cf",
+    "subject": "Trump’s preference for classical federal architecture",
+    "before_count": 1,
+    "retained_count": 1,
+    "member_ids": [
+      "ORDER-GAG-B"
+    ],
+    "source_urls": [
+      "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/"
+    ]
+  }
+]

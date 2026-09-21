@@ -1,0 +1,1000 @@
+[
+  {
+    "news_hook_id": "existing-b34b8fb4059e",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Oregon limits software barriers to independent electronics repair",
+      "real_hook": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025. Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction.",
+      "source_url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+        "title": "Oregon Revised Statutes: Right to Repair Consumer Equipment",
+        "date": "2025 codification",
+        "checked": "2026-09-14",
+        "qualification": "Coverage and equipment exceptions apply, including motor vehicles. This is an Oregon rule, not a nationwide repair right; the roadside washing machine and its rejection are fiction.",
+        "claim": "Oregon requires fair access to repair materials for covered consumer electronics and limits parts pairing that blocks otherwise functional replacements on qualifying equipment first manufactured and sold or used in Oregon after January 1, 2025."
+      }
+    ],
+    "example_setup": "At a roadside repair co-op, a mechanic shows you Oregon’s law limiting software locks on spare parts. Volunteers need some food and help salvaging switches. A washing machine rejects a working replacement. It accepts dirty underwear without checking the manufacturer.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-032a2500af33",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Rubio changes the State Department standard typeface",
+      "real_hook": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change. The instruction concerned State Department correspondence; it did not require private printers to change fonts.",
+      "source_url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/1fcdc92f8229efd515fe44ae9ca16137",
+        "title": "AP: Rubio orders return to Times New Roman",
+        "date": "2025-12-10",
+        "checked": "2026-09-14",
+        "qualification": "The instruction concerned State Department correspondence; it did not require private printers to change fonts.",
+        "claim": "Secretary of State Marco Rubio ordered diplomatic correspondence back from Calibri to Times New Roman effective December 10, 2025, reversing the Biden-era change."
+      }
+    ],
+    "example_setup": "Rubio ordered State Department letters back to Times New Roman. A roadside printer is copying him, binning Calibri leaflets before the community lunch. Volunteers need some food and help shifting the bins. The shredder has agreed to accept both sides.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-62e45b376a2e",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump announces a donor-funded White House ballroom",
+      "real_hook": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure. Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded.",
+      "source_url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/briefings-statements/2025/07/the-white-house-announces-white-house-ballroom-construction-to-begin/",
+        "title": "White House announces ballroom construction",
+        "date": "2025-07-31",
+        "checked": "2026-09-14",
+        "qualification": "Dated announcement and its original estimate, not the final cost or completion status. Security enhancements were separately assigned to the Secret Service. Do not call the whole project taxpayer-funded.",
+        "claim": "The White House announced a ballroom in July 2025, citing the need to install tents for large functions; the announcement said Trump and donors would fund the approximately $200 million structure."
+      }
+    ],
+    "example_setup": "Trump announced a donor-funded White House ballroom because big dinners needed tents. At a roadside social club, members hold a benefit under a leaking marquee. Bring some food and you may name the grand new wing. It’s the dry corner.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-c2bb87c81233",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Federal appeals court vacates the FTC click-to-cancel rule",
+      "real_hook": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up. The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+      "source_url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/30db2be07fdcb8aefd0d4835abdb116a",
+        "title": "AP: Appeals court vacates FTC click-to-cancel rule",
+        "date": "2025-07-09",
+        "checked": "2026-09-14",
+        "qualification": "The ruling concerned the FTC’s regulatory procedure, not a finding that every difficult cancellation practice is lawful. Other consumer protections can still apply.",
+        "claim": "In July 2025 the Eighth Circuit vacated the FTC rule intended to make cancelling recurring subscriptions as easy as signing up."
+      }
+    ],
+    "example_setup": "A court threw out the FTC’s click-to-cancel rule. At a roadside potluck, a neighbor is trying to cancel his gym membership on speakerphone. He invites you to bring some food or use the quiet room. The hold music has outlasted two casseroles.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-1a05b5f9aa03",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "Trump dinner for leading meme-coin investors",
+      "real_hook": "Trump hosted top investors in his meme coin at his Virginia golf club on May 22, 2025; roughly 220 were invited. This establishes paid investment tied to access, not an adjudicated purchase of a policy decision.",
+      "source_url": "https://apnews.com/article/0e2d7ca5170bf594d44a391884ec52b3",
+      "fictionalization": "The roadside setting, local response, prices, characters, actions and dialogue in this package are invented; the source establishes only the stated government hook."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/0e2d7ca5170bf594d44a391884ec52b3",
+        "claim": "Trump hosted top investors in his meme coin at his Virginia golf club on May 22, 2025; roughly 220 were invited. This establishes paid investment tied to access, not an adjudicated purchase of a policy decision.",
+        "checked": "2026-09-13; targeted AP report"
+      }
+    ],
+    "example_setup": "After Trump’s dinner for top meme-coin investors, diner regulars have written their own requests for a hearing. They flag down your crew to carry them to D.C. The cook offers some food for a recorded reply. Their invitation is clipped to an unpaid gas bill.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-ace39e9e4dd2",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump’s attempted reversal of New York congestion pricing and royal celebration",
+      "real_hook": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal. The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll. A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds. Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented.",
+      "source_url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.governor.ny.gov/news/video-audio-photos-rush-transcript-governor-hochul-updates-new-yorkers-congestion-pricing",
+        "title": "New York governor’s transcript on the federal congestion-pricing reversal attempt",
+        "date": "2025-02-19",
+        "checked": "2026-09-14",
+        "qualification": "The governor is an interested participant; use the transcript for the documented announcement and post, not her contested evaluation of motives. The game does not claim that the attempted withdrawal permanently ended the toll.",
+        "claim": "In February 2025 the Trump administration attempted to withdraw federal approval for New York City congestion pricing, and Trump posted “LONG LIVE THE KING!” while celebrating the attempted reversal."
+      },
+      {
+        "url": "https://www.nysd.uscourts.gov/sites/default/files/2026-03/25cv1413%20Opinion%203.3.26.pdf",
+        "title": "Southern District of New York: Congestion-pricing opinion",
+        "date": "2026-03-03",
+        "checked": "2026-09-14",
+        "qualification": "Dated district-court ruling, not a claim about all subsequent appellate proceedings. The visiting courier and his toll bill are invented.",
+        "claim": "A federal district court ruled in March 2026 that the federal government lacked authority to terminate the congestion-pricing approval on the asserted grounds."
+      }
+    ],
+    "example_setup": "Trump tried to end New York’s congestion toll and posted “Long Live the King.” A judge blocked the attempt. At a carpool picnic, a visiting New York courier shows his bill. Hosts invite supplies for recording drivers’ accounts, or some food to share. His bill accepts money, not royal proclamations.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-2a7b9cd932bf",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "USPS revises delivery standards in its cost-reduction plan",
+      "real_hook": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same. USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+      "source_url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://about.usps.com/newsroom/national-releases/2025/0226-usps-announces-refined-service-standards-and-cost-reductions.htm",
+        "title": "USPS announces refined service standards and cost reductions",
+        "date": "2025-02-26",
+        "checked": "2026-09-14",
+        "qualification": "USPS said most affected-market volume would retain its existing standard and more volume would be upgraded than downgraded. This is not a claim that all mail became slower or that any particular birthday card was late.",
+        "claim": "USPS announced delivery-standard changes for April and July 2025: some targets would become faster and some slower, while the overall one-to-five-day First-Class Mail range stayed the same."
+      }
+    ],
+    "example_setup": "USPS changed delivery targets in 2025: some faster, some slower. At a picnic beside the post office, a retired carrier offers his new guide and some food for hauling display boards. His birthday card says “Sorry I’m late” in pencil. He’s waiting for the target to decide.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-7848d0727242",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump directs the transition from federal paper checks to electronic payments",
+      "real_hook": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments. Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred.",
+      "source_url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.irs.gov/newsroom/modernizing-payments-to-and-from-americas-bank-account",
+        "title": "IRS: Modernizing payments to and from America’s bank account",
+        "date": "Current guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "Limited exceptions apply, and implementation is subject to law. This does not mean every federal payment or every private cheque is prohibited, or that the fictional diner encounter actually occurred.",
+        "claim": "Following Trump’s March 2025 executive order, the IRS began phasing out paper refund checks on September 30, 2025, moving toward electronic payments."
+      }
+    ],
+    "example_setup": "The IRS is phasing out paper refund checks under Trump’s order, with limited exceptions. At a diner, a cook compares payment leaflets beside a phone charging from the last socket. “My refund used to arrive with its own power supply. None.” She offers you the other chair.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-82cf68fcbc95",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump claims credit for Coca-Cola’s additional cane-sugar product",
+      "real_hook": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup. The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier. Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option. The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration.",
+      "source_url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-second-quarter-2025-results",
+        "title": "Coca-Cola reports second-quarter 2025 results",
+        "date": "2025-07-22",
+        "checked": "2026-09-14",
+        "qualification": "The announcement establishes a new option, not a wholesale reformulation of every bottle or evidence that cane sugar is healthier.",
+        "claim": "Coca-Cola announced an additional US cane-sugar offering in July 2025 that would complement, rather than replace, the existing Coca-Cola product lineup."
+      },
+      {
+        "url": "https://apnews.com/article/a95e4c1f25eaab05de7da5df30ff66ed",
+        "title": "AP: Coca-Cola confirms a cane-sugar option after Trump’s claim",
+        "date": "2025-07-22",
+        "checked": "2026-09-14",
+        "qualification": "The sequence does not establish that Trump alone caused the product decision. The fictional cafe owner exaggerates the announcement, and player text explicitly corrects that exaggeration.",
+        "claim": "Trump said he had worked with Coca-Cola to secure a US cane-sugar drink; Coca-Cola subsequently announced a new cane-sugar option."
+      }
+    ],
+    "example_setup": "Trump said he got Coca-Cola to use cane sugar. The company announced an additional option, keeping its existing lineup. At a roadside cafe, the owner declares the whole soda shelf presidentially reformulated. His clerk points to the old bottles. They appear to have missed the inauguration.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-b362bc55c8ad",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "FTC requires upfront totals including mandatory lodging fees",
+      "real_hook": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price. The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business.",
+      "source_url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.ftc.gov/business-guidance/resources/rule-unfair-or-deceptive-fees-frequently-asked-questions",
+        "title": "FTC: Rule on Unfair or Deceptive Fees FAQ",
+        "date": "Effective 2025-05-12",
+        "checked": "2026-09-14",
+        "qualification": "The rule does not ban fees or set prices. Government charges and genuinely optional items have distinct disclosure treatment. The fictional motel’s invented $79 plus $40 mandatory charge is not a report about a named business.",
+        "claim": "The FTC rule effective May 12, 2025 requires covered short-term lodging and live-event sellers to display mandatory charges in the upfront total price."
+      }
+    ],
+    "example_setup": "The FTC now requires mandatory lodging fees in the upfront price. At a roadside motel, the owner shows you his “honest” quote: $79 for the room, plus a mandatory $40 service charge. He has made the word honest enormous. The total is still hiding.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-6554f6c32498",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "TSA ends the routine requirement to remove shoes at checkpoints",
+      "real_hook": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints. Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change.",
+      "source_url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/1b9fda716f7a24eddf2e706857f2b788",
+        "title": "AP: TSA ends routine shoes-off airport screening",
+        "date": "2025-07-08",
+        "checked": "2026-09-14",
+        "qualification": "Additional screening can still require shoe removal. No special shoe, manufacturer or shop gained a government certification from this change.",
+        "claim": "The Trump administration announced in July 2025 that passengers would generally no longer have to remove their shoes at TSA checkpoints."
+      }
+    ],
+    "example_setup": "TSA ended routine shoes-off screening in July 2025. At a roadside shoe shop, a cobbler is labeling every pair “Airport Ready.” He offers $8 to check the size tags, or the announcement to read. His entire stock has achieved federal reform without moving a sole.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-1955bf2a29c0",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "USDA approves Nebraska’s SNAP soda and energy-drink exclusion",
+      "real_hook": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits. This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP. Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026. The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes.",
+      "source_url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.fns.usda.gov/newsroom/usda-0113.25",
+        "title": "USDA approves Nebraska SNAP food-restriction waiver",
+        "date": "2025-05-19",
+        "checked": "2026-09-14",
+        "qualification": "This restricts one program’s eligible purchases, not cash sales, possession of soda or anyone’s general permission to drink it. No traveler is assumed to receive SNAP.",
+        "claim": "USDA approved Nebraska’s request to exclude soda and energy drinks from purchases made with SNAP benefits."
+      },
+      {
+        "url": "https://dhhs.ne.gov/Documents/SNAP-Signage-New-Restrictions.pdf",
+        "title": "Nebraska DHHS: New SNAP purchase restrictions",
+        "date": "Effective 2026-01-01",
+        "checked": "2026-09-14",
+        "qualification": "The fictional grocery scene concerns Nebraska. Do not imply identical restrictions apply nationwide or make unsupported claims about comparative health outcomes.",
+        "claim": "Nebraska’s soda and energy-drink SNAP restrictions took effect January 1, 2026."
+      }
+    ],
+    "example_setup": "USDA approved Nebraska’s ban on buying soda and energy drinks with SNAP benefits, effective January 2026. At a Nebraska grocer, you can move crates for $14 or sort shelf labels for some food. Cash still buys the identical bottles. The government’s taste test happens inside the card reader.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-penny-production-end",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "The US Mint ends circulating-penny production while existing coins stay valid",
+      "real_hook": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender. The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice.",
+      "source_url": "https://www.usmint.gov/news/media-kit/penny",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.usmint.gov/news/media-kit/penny",
+        "title": "United States Mint: Penny information",
+        "date": "Current guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "The change stops production of circulating pennies; it does not cancel the value of pennies people already own or mandate one particular retail rounding practice.",
+        "claim": "The Mint ended circulating-penny production in 2025 after the cost of making each penny had risen to 3.69 cents. Existing pennies remain legal tender."
+      }
+    ],
+    "example_setup": "The Mint stopped making circulating pennies after each cost 3.69 cents to produce. Old pennies still count as money. At a roadside shop, some food and water cost $12. The cashier taps her penny jar. “Washington finally found something it couldn’t afford to keep making cheap.”",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-27a4966c946d",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "Ohio allocates unclaimed funds toward a professional football stadium",
+      "real_hook": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium. This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund.",
+      "source_url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+        "title": "AP: Ohio budget allocates unclaimed funds toward Browns stadium",
+        "date": "2025-07-01",
+        "checked": "2026-09-14",
+        "qualification": "This is the dated budget allocation, not a claim that every dollar was spent or subsequent legal challenges were resolved. Unclaimed property has owners; the joke does not assert that the travelers have a claim on this fund.",
+        "claim": "Ohio’s 2025 budget allocated $600 million from the state’s unclaimed-funds system toward a new Cleveland Browns stadium."
+      }
+    ],
+    "example_setup": "Ohio’s 2025 budget allocated $600 million in unclaimed funds to a Browns stadium. At an Ohio roadside shop, some food and water cost $12. The cashier keeps the report beside the lost-property box. “Anything in there shaped like a billionaire? Apparently they get collected first.”",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-6220725300fc",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "DOT requires automatic refunds for qualifying cancelled flights",
+      "real_hook": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method. Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline.",
+      "source_url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule",
+        "title": "DOT: What passengers need to know about the automatic refund rule",
+        "date": "2024-11-18",
+        "checked": "2026-09-14",
+        "qualification": "Eligibility and timing rules apply; not every delay warrants a refund. The parcel clerk’s cancelled flight, rejected alternative and unwanted voucher are fiction, not an allegation about a named airline.",
+        "claim": "DOT’s rule requires automatic refunds when an airline cancels or significantly changes a flight and the passenger declines replacement travel or other offered compensation. Refunds must use the original payment method."
+      }
+    ],
+    "example_setup": "At a parcel counter, a clerk’s airline cancelled her flight. She declined replacement travel, so DOT’s rule requires an automatic refund. It sent a voucher instead. She offers $8 to sort return labels while she reads the rule. Her cash drawer refuses to recognize the voucher as a relative.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-5af0b97887ba",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Congress permits whole milk in the National School Lunch Program",
+      "real_hook": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program. The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made.",
+      "source_url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.govinfo.gov/app/details/PLAW-119publ69",
+        "title": "Public Law 119-69: Whole Milk for Healthy Kids Act of 2025",
+        "date": "2026-01-14",
+        "checked": "2026-09-14",
+        "qualification": "The law permits additional options; it does not require every school or every child to choose whole milk. No comparative nutrition or health claim is made.",
+        "claim": "Congress passed and Trump signed legislation in January 2026 allowing whole and reduced-fat milk in the National School Lunch Program."
+      }
+    ],
+    "example_setup": "Congress and Trump let schools serve whole milk again in 2026. A dairy co-op is throwing a tiny welcome-back party for a carton. You can pack produce for some food or sort pickup slips for $10. The milk was always for sale. It just needed federal clearance for lunch.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-8f19561197c4",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Treasury suspends IRS Direct File for the 2026 filing season",
+      "real_hook": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain. The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+      "source_url": "https://www.gao.gov/products/b-337954",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.gao.gov/products/b-337954",
+        "title": "GAO B-337954: Suspension of IRS Direct File",
+        "date": "2026-05-12",
+        "checked": "2026-09-14",
+        "qualification": "The GAO decision addresses Congressional Review Act procedure, not whether suspending the service was good policy. No claim that all free filing vanished, that all alternatives charge fees, or that the government sold any real kiosks.",
+        "claim": "Treasury suspended IRS Direct File in fall 2025, and the IRS confirmed it would not be available for the 2026 filing season. Other free filing programs, including IRS Free File, remain."
+      }
+    ],
+    "example_setup": "Treasury suspended the IRS’s free Direct File tool for 2026; other free filing options remain. At a used-computer stall, a seller offers $12 to sort replacement labels for old tax-help kiosks. The machines still work. Only the part where government made itself convenient has broken.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-97da8fc68ddd",
+    "additional_budget": 2,
+    "existing_count": 3,
+    "political_basis": {
+      "subject": "Trump wind-permitting pause",
+      "real_hook": "January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. This is a historical order, not a claim that every project remains stopped or every later closure was caused by it.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/01/temporary-withdrawal-of-all-areas-on-the-outer-continental-shelf-from-offshore-wind-leasing-and-review-of-the-federal-governments-leasing-and-permitting-practices-for-wind-projects/",
+      "fictionalization": "The encounter setting, locals, prices, dialogue, and local consequences are original fiction; only the historical political hook is sourced."
+    },
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/temporary-withdrawal-of-all-areas-on-the-outer-continental-shelf-from-offshore-wind-leasing-and-review-of-the-federal-governments-leasing-and-permitting-practices-for-wind-projects/",
+        "claim": "January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. This is a historical order, not a claim that every project remains stopped or every later closure was caused by it.",
+        "checked": "2026-09-13"
+      }
+    ],
+    "example_setup": "Trump paused new federal wind-project approvals. At an energy meeting, an organizer offers $15 to deliver display materials using your supplies. A technician has the order. The anti-wind banner keeps escaping across the car park, apparently unaware it should wait for a review.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-60b639262067",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "Trump wind and solar subsidy phaseout enforcement",
+      "real_hook": "July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable and foreign-controlled are administration framing, not independent scientific findings.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-market-distorting-subsidies-for-unreliable-foreign%E2%80%91controlled-energy-sources/",
+      "fictionalization": "The encounter setting, locals, prices, dialogue, and local consequences are original fiction; only the historical political hook is sourced."
+    },
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/07/ending-market-distorting-subsidies-for-unreliable-foreign%E2%80%91controlled-energy-sources/",
+        "claim": "July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable and foreign-controlled are administration framing, not independent scientific findings.",
+        "checked": "2026-09-13"
+      }
+    ],
+    "example_setup": "Trump ordered strict enforcement of wind and solar tax-credit terminations, calling those sources unreliable. At a repair fair, a technician offers $10 to sort component labels. The anti-solar presentation is powered by the small solar panel nobody wants included in the photograph.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-632c1bc85803",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump’s ten-for-one federal deregulation instruction",
+      "real_hook": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions. The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-prosperity-through-deregulation/",
+        "title": "Executive order: Unleashing Prosperity Through Deregulation",
+        "date": "2025-01-31",
+        "checked": "2026-09-14",
+        "qualification": "The order governs covered federal regulatory activity. It does not legally require private hotels to delete laundry instructions. The hotel owner’s voluntary imitation is the invented joke.",
+        "claim": "Trump’s January 2025 order directs federal agencies to identify at least ten existing regulations for repeal when proposing a new regulation, subject to law and exceptions."
+      }
+    ],
+    "example_setup": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost him ten folding instructions. He offers $16 to sort linen labels. His fitted sheet has captured one arm. Deregulation is reaching for the other.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-cab9bf55722e",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "FTC and states negotiate access to Deere farm-equipment repair resources",
+      "real_hook": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers. The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here.",
+      "source_url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-states-secure-settlement-deere-company-advancing-farmers-right-repair",
+        "title": "FTC and states announce Deere right-to-repair settlement",
+        "date": "2026-07-08",
+        "checked": "2026-09-14",
+        "qualification": "The proposed stipulated order requires court approval to acquire the force of law. The scene discusses the announced proposal, not a claim that every promised tool is already available. Original misconduct claims were allegations in the lawsuit, not findings assumed here.",
+        "claim": "The FTC and five states announced a July 2026 settlement proposal requiring Deere to provide farmers and independent repairers equivalent repair resources, including software capabilities, to those available to authorized dealers."
+      }
+    ],
+    "example_setup": "At a coastal fruit stand, a farmer reads the FTC’s July 2026 settlement proposal to open Deere repair tools, subject to court approval. He offers $14 to unload the harvest; some food and water cost $8. “Bought a tractor. Waiting for a judge to confirm I bought a tractor.”",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-7f5f373a16dc",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Texas business-personal-property tax exemption",
+      "real_hook": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit. This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption.",
+      "source_url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+      "fictionalization": "The encounter, local imitation, people, dialogue, prices and events are original fiction. Sources support only the stated political action; no invented local consequence is presented as reporting."
+    },
+    "sources": [
+      {
+        "url": "https://comptroller.texas.gov/taxes/property-tax/valuing-property.php",
+        "title": "Texas Comptroller: Valuing property and business personal property exemption",
+        "date": "Current 2026 guidance checked 2026-09-14",
+        "checked": "2026-09-14",
+        "qualification": "This is a property-value exemption, not a $125,000 cash payment or a claim that all business property is tax-free. The fictional independent produce distributor is not a farm claiming an already-existing farm-equipment exemption.",
+        "claim": "Texas Comptroller guidance states that business personal property with a total taxable value of $125,000 or less in a taxing unit is exempt in that taxing unit."
+      }
+    ],
+    "example_setup": "Texas exempts qualifying business property worth up to $125,000 per taxing unit. At an independent produce depot, the owner frames the notice beside his labeling machine. He offers some food for boxing produce or $10 to sort dispatch labels. “Hard work finally recognized,” he says, polishing the machine.",
+    "town": null,
+    "mode": "Classic"
+  },
+  {
+    "news_hook_id": "existing-1ba51645fea6",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump’s Argentine beef import proposal",
+      "real_hook": "Farm Bureau opposed the proposed import expansion; no local job loss or realized price decline is asserted.",
+      "source_url": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/",
+      "fictionalization": "Resident, encounter, gestures and satirical speech are invented; factual policy claims are in the fact field and are not quotations."
+    },
+    "sources": [
+      {
+        "url": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/",
+        "title": "Suggestions to increase Argentinian beef imports harm Texas cattle ranchers",
+        "date": "2025-10-20",
+        "checked": "2026-09-13",
+        "qualification": "Farm Bureau advocacy statement about a proposed import expansion; statewide relevance, not measured Amarillo job losses."
+      }
+    ],
+    "example_setup": "At an Amarillo grocery picnic table, a feed-store loader notices the crew dividing a sandwich.",
+    "town": "Amarillo",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-ed4bd9386b06",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Federal nuclear contractor billing scandal",
+      "real_hook": "DOE audit describes public money paid for unworked hours and the contractor’s 2024 settlement.",
+      "source_url": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36",
+      "fictionalization": "Resident, encounter, gestures and satirical speech are invented; factual policy claims are in the fact field and are not quotations."
+    },
+    "sources": [
+      {
+        "url": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36",
+        "title": "Audit: DOE-OIG-25-36",
+        "date": "2025-11-26",
+        "checked": "2026-09-13",
+        "qualification": "DOE inspector general says CNS paid $18.4 million in a 2024 settlement for claimed hours not worked; report also records operational harm and corrective controls."
+      }
+    ],
+    "example_setup": "At an Amarillo diner counter, a delivery driver reads a Pantex audit beside the travelers.",
+    "town": "Amarillo",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-ef78bd790a42",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump and DOGE nuclear-workforce firings",
+      "real_hook": "Abrupt NNSA firings followed by reversal, with Pantex affected.",
+      "source_url": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5",
+      "fictionalization": "Resident, encounter, gestures and satirical speech are invented; factual policy claims are in the fact field and are not quotations."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5",
+        "title": "Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal",
+        "date": "2025-02-16",
+        "checked": "2026-09-13",
+        "qualification": "AP reported Pantex among the hardest-hit NNSA offices; most firings were reversed. Administration and AP sources disputed exact numbers, so none are used."
+      }
+    ],
+    "example_setup": "While the van cools in Amarillo, an appliance repairer recalls the nuclear-worker firings.",
+    "town": "Amarillo",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-0e71a18a61b3",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump FY2027 NASA science budget proposal",
+      "real_hook": "The April 2026 proposal again sought a 47 percent NASA science cut; it was a request. Lowell’s Pluto discovery establishes the town’s astronomy connection, not a claim about Lowell losing NASA funding.",
+      "source_url": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026",
+        "title": "American Astronomical Society: Policy Update, 8 April 2026",
+        "date": "2026-04-08",
+        "checked": "2026-09-13",
+        "qualification": "Professional society analysis of a proposed FY2027 budget, not enacted cuts or a documented loss to Lowell."
+      },
+      {
+        "url": "https://lowell.edu/this-week-in-astronomy-history-feb-15-21/",
+        "title": "Lowell Observatory: This Week in Astronomy History, February 15–21",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ],
+    "example_setup": "Outside a Flagstaff stargazing event, a mechanic steadies a battered amateur telescope.",
+    "town": "Flagstaff",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-f3e8f1394628",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Maryland’s public financing for Hagerstown’s stadium",
+      "real_hook": "Maryland’s 2021 law authorized stadium bonds for Hagerstown. The state announcement also identified $8.5 million in supplemental funding and $1.5 million in fiscal 2023 funding. These figures are not a total project cost or an operating-loss claim.",
+      "source_url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+        "title": "Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Supports the state bond authority and identified public commitments. The resident’s seat exchange is invented; no claim of promised free admission or diversion from a named service."
+      }
+    ],
+    "example_setup": "At a Hagerstown snack counter, a roofer checks stadium ticket prices while you study the menu.",
+    "town": "Hagerstown",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-9ca2cc3536b6",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Kansas City tax-funded fare-free streetcar",
+      "real_hook": "The transportation district levies local taxes and assessments to fund the streetcar; passengers ride without a fare.",
+      "source_url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+        "title": "KC Streetcar: Main Street Rail Transportation Development District",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/",
+        "title": "KC Streetcar: About the Streetcar",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ],
+    "example_setup": "At a Kansas City streetcar platform, a cook notices you searching for fare money.",
+    "town": "Kansas City",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-tip-overtime-deductions",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "Trump’s no-tax-on-tips promise and limited deduction",
+      "real_hook": "The 2025 law created a capped, eligibility-limited federal income-tax deduction for qualified tips through 2028; Social Security and Medicare taxes still generally apply.",
+      "source_url": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips",
+        "title": "IRS: Tips",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Qualified-tip deduction has occupation, income, reporting and dollar limits and runs through 2028."
+      },
+      {
+        "url": "https://www.irs.gov/publications/p15",
+        "title": "IRS: Publication 15, Employer’s Tax Guide",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "Reported tips remain generally subject to Social Security and Medicare taxes."
+      }
+    ],
+    "example_setup": "At a Las Vegas food court, an off-duty server checks a pay slip beside your lunch.",
+    "town": "Las Vegas",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-nws-staffing-losses",
+    "additional_budget": 2,
+    "existing_count": 2,
+    "political_basis": {
+      "subject": "National Weather Service staffing-related balloon reduction",
+      "real_hook": "In March 2025 staffing shortages during federal workforce cuts reduced North Platte routine balloon launches from two a day to one.",
+      "source_url": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/",
+        "title": "NOAA cuts weather balloon launches, citing staff shortages",
+        "date": "2025-03-21",
+        "checked": "2026-09-13",
+        "qualification": "Reporting of a temporary reduction beginning March 20, 2025; not a claim that the reduced schedule remains in effect."
+      }
+    ],
+    "example_setup": "At a North Platte fuel stop, a farmhand checks the clouds while you fill the van.",
+    "town": "North Platte",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-9f01d758d55e",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Congress and Biden imposing the 2022 rail agreement",
+      "real_hook": "Congress and President Biden imposed a national freight-rail labor agreement in December 2022, blocking a strike; later sick-leave negotiations are separate.",
+      "source_url": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f",
+        "title": "AP: Rail Workers Gain Sick Leave After Imposed Contract",
+        "date": "2023-02",
+        "checked": "2026-09-13",
+        "qualification": "Reports the prior December imposition and subsequent leave gains; the joke addresses lost strike leverage, not a claim no rail worker later gained sick leave."
+      },
+      {
+        "url": "https://www.up.com/about-us/funstuff/rrtalk/train-types",
+        "title": "Union Pacific: Train Types and Hump Yards",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ],
+    "example_setup": "At a North Platte diner, a rail worker talks while a freight train passes outside.",
+    "town": "North Platte",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-1ec764570c48",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Nebraska paid-sick-leave small-employer exemption",
+      "real_hook": "Nebraska’s October 2025 mandate applies to employers with eleven or more employees; a ten-person workplace falls outside that state mandate, though voluntary benefits may exist.",
+      "source_url": "https://dol.nebraska.gov/PressRelease/Details/335",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://dol.nebraska.gov/PressRelease/Details/335",
+        "title": "Nebraska Department of Labor: Paid Sick Time Effective October 1",
+        "date": "2025-09-25",
+        "checked": "2026-09-13",
+        "qualification": "The mandate covers employers with at least eleven employees; accrual and worker eligibility conditions remain."
+      }
+    ],
+    "example_setup": "At an Omaha sandwich shop’s public bench, a clerk counts coworkers on their fingers.",
+    "town": "Omaha",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-21fa6d357cee",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Pittsburgh’s 2026 paid-sick-time expansion",
+      "real_hook": "The city’s 2025 amendment effective January 2026 expanded accrual to 72 hours for covered workers at employers with fifteen or more workers.",
+      "source_url": "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act",
+        "title": "City of Pittsburgh: Paid Sick Days Act",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.pittsburghpa.gov/files/assets/city/v/1/mayor/documents/paid-sick-day-act-notice/clean-guidelines-v.-4.1-for-adminstering-psda-dec25.pdf",
+        "title": "Pittsburgh Paid Sick Days Act Guidelines",
+        "date": "2025-12",
+        "checked": "2026-09-13",
+        "qualification": "Accrual cap and eligibility requirements, not an immediate bank of 72 hours for every worker."
+      }
+    ],
+    "example_setup": "At a Pittsburgh diner exit, an off-duty server pockets a work schedule.",
+    "town": "Pittsburgh",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-2a112b332855",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump birthday on the 2026 national-park fee schedule",
+      "real_hook": "Nearby Badlands National Park’s 2026 fee-free schedule includes June 14, described as Flag Day and President Trump’s birthday, for US citizens and residents.",
+      "source_url": "https://www.nps.gov/badl/planyourvisit/fees.htm",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://www.nps.gov/badl/planyourvisit/fees.htm",
+        "title": "Badlands National Park: Fees & Passes",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Official 2026 schedule checked September 13; free entrance days apply to US citizens and residents and may exclude other fees."
+      }
+    ],
+    "example_setup": "At a Rapid City campground table, a cleaner compares park dates with your route.",
+    "town": "Rapid City",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-963afef2ad5b",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Federal pension reform after Studebaker’s collapse",
+      "real_hook": "Studebaker’s 1963 closure left nearly 3,000 South Bend workers without pension benefits, fueling reform. Congress’s 1974 ERISA law later set minimum standards for private retirement plans.",
+      "source_url": "https://www.dol.gov/node/22391",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://www.dol.gov/node/22391",
+        "title": "US Department of Labor: Studebaker Plant Closes",
+        "date": "1963-12-09",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.dol.gov/general/topic/health-plans/erisa",
+        "title": "US Department of Labor: ERISA",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Minimum standards for covered private plans, not an unlimited federal guarantee of all benefits."
+      }
+    ],
+    "example_setup": "Outside South Bend’s auto museum, a retired machinist shares a bench with you.",
+    "town": "South Bend",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-6b9000975eec",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Illinois Paid Leave for All Workers Act",
+      "real_hook": "Illinois’s paid-leave law took effect in 2024, allowing covered workers to earn up to forty hours annually for any reason, subject to its eligibility and notice rules.",
+      "source_url": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT",
+        "title": "Illinois General Assembly: Paid Leave for All Workers Act",
+        "date": "2024",
+        "checked": "2026-09-13",
+        "qualification": "Covered workers accrue leave; the law has exclusions and does not grant every worker an immediate forty-hour bank."
+      }
+    ],
+    "example_setup": "At a Springfield laundromat, a cook plans a day off while your blankets dry.",
+    "town": "Springfield, IL",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-0e80f4000e74",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Illinois adult minimum-wage increase",
+      "real_hook": "Illinois’s state minimum wage reached $15 an hour for covered workers aged eighteen and older on January 1, 2025.",
+      "source_url": "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html",
+        "title": "Illinois Department of Labor: Minimum Wage FAQ",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Adult covered-worker rate; tipped and under-eighteen rules differ."
+      }
+    ],
+    "example_setup": "At a Springfield grocery checkout, an off-duty stocker compares your food total with an hourly wage.",
+    "town": "Springfield, IL",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-95612afaab1a",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Oklahoma’s state-only grocery-tax repeal",
+      "real_hook": "Oklahoma ended state sales tax on qualifying food and food ingredients on August 29, 2024 under HB 1955. Applicable local sales taxes remain; the exemption does not cover every prepared-food purchase.",
+      "source_url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+      "fictionalization": "Resident, encounter and satire are invented. The fact field contains the sourced political action; dialogue is not a real quotation or a report of additional local incidents."
+    },
+    "sources": [
+      {
+        "url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+        "title": "Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "State exemption for qualifying groceries; local taxes and excluded categories remain. No invented local rate or claim that all food purchases are tax-free."
+      }
+    ],
+    "example_setup": "At a Tulsa grocery loading area, a warehouse worker peers into a shopping bag beside your parked van.",
+    "town": "Tulsa",
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-6da1bf37e171",
+    "additional_budget": 2,
+    "existing_count": 3,
+    "political_basis": {
+      "subject": "DOGE five-accomplishments emails",
+      "real_hook": "In February 2025 federal employees received an OPM demand for approximately five recent accomplishments; Musk threatened that nonresponse would be treated as resignation. Agency instructions and the threatened consequences were contested. Fictional employers and objects parody the request.",
+      "source_url": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/",
+      "fictionalization": "Original fictional people, dialogue, scene and prices; not a report of this event occurring."
+    },
+    "sources": [
+      {
+        "title": "DOGE five-accomplishments emails",
+        "url": "https://www.bangordailynews.com/2025/02/24/nation/federal-workers-confront-mass-confusion-as-musks-deadline-to-list-accomplishments-looms/",
+        "qualification": "In February 2025 federal employees received an OPM demand for approximately five recent accomplishments; Musk threatened that nonresponse would be treated as resignation. Agency instructions and the threatened consequences were contested. Fictional employers and objects parody the request."
+      }
+    ],
+    "example_setup": "{name} loses sleep helping a DOGE-cut friend list their work for an efficiency review. They count five tasks. The person requesting the list has created a sixth.",
+    "town": null,
+    "mode": "Shared"
+  },
+  {
+    "news_hook_id": "existing-be6797a2a0cf",
+    "additional_budget": 2,
+    "existing_count": 1,
+    "political_basis": {
+      "subject": "Trump’s preference for classical federal architecture",
+      "real_hook": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia. Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+      "source_url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+      "fictionalization": "The rest-stop owner, cardboard columns and blocked snack-machine return are original fiction inspired by the documented order. The simulated bulletin’s gameplay duration and sanity effect are not claims about real federal architecture law. The crew has no official role."
+    },
+    "sources": [
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+        "title": "Executive Order 14344: Making Federal Architecture Beautiful Again",
+        "date": "2025-08-28",
+        "checked": "2026-09-14",
+        "qualification": "Coverage includes federal courthouses and agency headquarters, federal public buildings in the National Capital Region and certain other projects above a cost threshold. It does not require private rest stops to install columns. The bulletin’s duration and effects are game fiction, not a real legal expiration.",
+        "claim": "Trump’s August 2025 executive order prefers traditional and classical architecture for covered federal public buildings, with classical architecture the preferred default in the District of Columbia."
+      }
+    ],
+    "example_setup": "Trump’s architecture order prefers classical designs for covered federal buildings. A rest-stop owner copies it with cardboard columns around the snack machine. One blocks the coin return. It now serves the grandeur of Western civilization. It no longer serves coins.",
+    "town": null,
+    "mode": "Shared"
+  }
+]

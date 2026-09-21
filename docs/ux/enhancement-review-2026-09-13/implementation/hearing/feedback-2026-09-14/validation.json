@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-14",
+  "revision": "d085be895d332cd717a9",
+  "native_tests": 378,
+  "wasm_browser_tests": 2,
+  "browser_tests": 54,
+  "native_pedantic_clippy": "passed",
+  "wasm_pedantic_clippy": "passed",
+  "format": "passed",
+  "whitespace": "passed",
+  "offline_assets_verified": 128,
+  "expression_atlases": 6,
+  "expression_variants": 12,
+  "browser_scenarios": [
+    "desktop",
+    "mobile",
+    "320px layout",
+    "normal and Fast arrival holds",
+    "reduced motion",
+    "manual saves and reload",
+    "four endings",
+    "English Italian Spanish Arabic",
+    "offline portrait rendering",
+    "pixel-exact exported avatar crop for every persona and outcome"
+  ],
+  "hearing_probability_changes": false,
+  "local_previews": [
+    62523,
+    62524
+  ]
+}

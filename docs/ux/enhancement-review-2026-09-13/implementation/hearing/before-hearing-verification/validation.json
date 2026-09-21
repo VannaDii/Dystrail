@@ -1,0 +1,26 @@
+{
+  "file_restore": "pass",
+  "reload_on_road": "pass",
+  "travel_clicks_to_hearing": 1,
+  "travel_turns_to_hearing": 1,
+  "hearing_unattempted": true,
+  "hearing_result_committed": false,
+  "crew": "The Receipts",
+  "seed": 4242,
+  "sanity_before": 10,
+  "sanity_at_hearing": 10,
+  "clock_before": 602,
+  "clock_at_hearing": 603,
+  "arrival_phase": "Arrival",
+  "runtime_errors": [],
+  "save_sha256": "4d1c1be09cc93b568a5032b8d2ee090394cf82fd63cf48fd566f3955051af02a",
+  "release_revision": "9f4c685e4e9207ccf7d7",
+  "fixture_origin": "Review test crew The Receipts, positioned near D.C.; pending crossings were resolved through the game before capturing the final road checkpoint.",
+  "supplied_game_client": {
+    "status": "pass",
+    "arrived_phase": "Preparation",
+    "visible_sanity": 10,
+    "runtime_errors": 0,
+    "screenshot_inspected": true
+  }
+}
