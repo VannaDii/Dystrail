@@ -68,6 +68,7 @@ pub fn strategy_for_state(state: &GameState) -> StrategyId {
 #[must_use]
 pub fn session_from_state(mut state: GameState, endgame_cfg: &EndgameTravelCfg) -> JourneySession {
     state.continuity.interactive_repairs = true;
+    super::visual_content::seal_encounter(&mut state);
     let strategy = strategy_for_state(&state);
     JourneySession::from_state(state, strategy, endgame_cfg)
 }

@@ -38,6 +38,7 @@ pub fn build_travel(state: &AppState) -> Callback<()> {
         }
         sess.with_state_mut(|gs| {
             gs.check_crew(before.day);
+            crate::app::visual_content::seal_encounter(gs);
             gs.continuity.scene_subject = gs.current_encounter.as_ref().and_then(|enc| {
                 crate::components::ui::journey_scene::composition::subject(
                     &gs.party, None, gs.day, &enc.id,

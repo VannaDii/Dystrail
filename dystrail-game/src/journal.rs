@@ -3,9 +3,20 @@ use crate::journey::{DayRecord, TravelDayKind};
 use crate::{GameState, Stats};
 use serde::{Deserialize, Serialize};
 
+/// Presentation edition and sealed story choices; never used by simulation RNG.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct VisualContent {
+    #[serde(default)]
+    pub edition: u16,
+    #[serde(default)]
+    pub selections: std::collections::BTreeMap<String, String>,
+}
+
 /// The saved player-facing account of the journey, including its route checkpoint.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Continuity {
+    #[serde(default)]
+    pub visual_content: VisualContent,
     #[serde(default)]
     pub weather_impact: Option<crate::weather_impact::WeatherImpact>,
     #[serde(default)]
@@ -43,6 +54,7 @@ pub struct Continuity {
 impl Default for Continuity {
     fn default() -> Self {
         Self {
+            visual_content: VisualContent::default(),
             weather_impact: None,
             interactive_repairs: false,
             activities: crate::activities::TrailActivities::default(),

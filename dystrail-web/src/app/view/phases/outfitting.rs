@@ -30,6 +30,8 @@ pub fn render_outfitting(state: &AppState) -> Html {
                         crate::game::GameMode::Classic
                     };
                     let mut initialized = new_state.with_seed(seed, mode, (*data).clone());
+                    initialized.continuity.visual_content.edition =
+                        crate::app::visual_content::EDITION;
                     let mut report = crate::app::aftermath::Aftermath {
                         title: crate::i18n::t("play.loadout"),
                         message: crate::i18n::t("journey.mission"),

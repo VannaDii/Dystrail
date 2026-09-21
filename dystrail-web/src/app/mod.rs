@@ -123,3 +123,5 @@ mod tests {
 }
 
 pub mod weather_status;
+
+pub mod visual_content;
