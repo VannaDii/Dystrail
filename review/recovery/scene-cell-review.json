@@ -8390,7 +8390,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "secured_comment_box",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-01",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C10-A",
@@ -8431,7 +8447,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "shortened_bed",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-01",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C10-C",
@@ -8452,7 +8484,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "paper_aircraft",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-01",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C11-A",
@@ -8460,12 +8508,20 @@
       "source_direction": [
         "A researcher shows cost sheets beside safe demonstration equipment; empty chairs are available to the watching travelers. Demonstration ice drips beneath an unplugged freezer while a plugged-in fan waits nearby."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-3280de0b-03a0-4c4b-8ed8-6d22123365e8.png",
+      "candidate_sha256": "f9fc7819642fba97f79465e07842b63ac03e3066e5ff7123a7f78630bc49b203",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        8,
+        8,
+        752,
+        496
+      ],
       "decision": "visual_gag_component_required",
-      "finding": "Unplugged demonstration freezer and melting ice contrasted with a powered fan; visible safe cable relationships.",
+      "finding": "Recovered freezer atlas directly inspected: unplugged freezer, melting demonstration ice, empty tray and two external locals convey the overhead gag. Reuse the offer panel; the extra fan is optional under approved selective staging. Never show paid/moved outcomes before success. No obvious religious symbols. Crop excludes the white grid divider; preserve native aspect.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
@@ -8473,7 +8529,8 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "overhead_freezer",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "reuse_retained"
     },
     {
       "unit": "ENC-C11-B",
@@ -8514,7 +8571,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "competing_socket",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-01",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C12-A",
@@ -8575,7 +8648,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "hidden_fee_panel",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-02",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C13-A",
@@ -8656,7 +8745,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "unequal_shade",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-02",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C14-B",
@@ -8797,7 +8902,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "paint_over_rust",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-02",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C16-C",
@@ -8818,7 +8939,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "padded_phones_books",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-02",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C17-A",
@@ -8919,7 +9056,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "biscuit_lift",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-03",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-C18-C",
@@ -9000,7 +9153,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "phone_place_setting",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-03",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D02-A",
@@ -9181,7 +9350,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "sandwich_application",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-03",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D05-A",
@@ -9282,7 +9467,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "two_sided_filter",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-03",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D06-C",
@@ -9443,7 +9644,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "parking_without_service",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-04",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D09-B",
@@ -9664,7 +9881,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "scattered_data",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-04",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D13-A",
@@ -9685,7 +9918,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "smaller_map_dots",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-04",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-D13-B",
@@ -9886,7 +10135,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "unsupported_cushion",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-04",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S03-C",
@@ -9987,7 +10252,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "layered_price_labels",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-05",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S05-B",
@@ -10135,12 +10416,20 @@
       "source_direction": [
         "The cook indicates an unplugged freezer awaiting movement and holds a blank glossy leaflet beside its worn wheel; travelers watch. A cheerful political leaflet is the only object ready to stabilize the unreliable freezer wheel."
       ],
-      "candidate_original": null,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-6451c026-83ac-4534-9f34-ee8b25edee54.png",
       "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        8,
+        8,
+        752,
+        496
+      ],
       "decision": "visual_gag_component_required",
-      "finding": "Political leaflet offered as a shim for a worn freezer wheel. Compare retained freezer art first; do not claim a wheel repaired before the choice.",
+      "finding": "A retained freezer/leaflet scene exists at original 59, already inspected for ENC-C07-C. Its leaflet is under a stool rather than the required freezer wheel. Keep this attempted composition for user review; do not rename or repackage it into another automatic generation attempt.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
@@ -10148,7 +10437,8 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "freezer_leaflet",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "user_review_retained_attempt"
     },
     {
       "unit": "ENC-S08-A",
@@ -10229,7 +10519,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "unequal_cooling",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-05",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S09-B",
@@ -10270,7 +10576,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "donor_fan",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-05",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S10-A",
@@ -10291,7 +10613,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "flag_instead_of_tool",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-05",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S10-B",
@@ -10352,7 +10690,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "raccoon_cleanup",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-06",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S11-B",
@@ -10473,7 +10827,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "flag_card_reader",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-06",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S13-B",
@@ -10534,7 +10904,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "cheque_doorway",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-06",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "doorway",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S14-B",
@@ -10675,7 +11061,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "voucher_cash_drawer",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-06",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S16-C",
@@ -10696,7 +11098,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "balloon_doorway",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-07",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "doorway",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S17-A",
@@ -10717,7 +11135,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "flooded_food_display",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-07",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S17-B",
@@ -10738,7 +11172,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "premium_fan_work",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-07",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S17-C",
@@ -10779,7 +11229,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "flyer_supports_books",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-07",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S18-B",
@@ -10860,7 +11326,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "overhead_leak",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-08",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S19-C",
@@ -10921,7 +11403,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "leaflet_not_food",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-08",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S20-C",
@@ -10982,7 +11480,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "one_mug_two_names",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-08",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S21-C",
@@ -11043,7 +11557,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "two_pins_one_building",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-08",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S22-C",
@@ -11084,7 +11614,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "straw_inspection",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-09",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S23-B",
@@ -11145,7 +11691,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "wig_in_shower",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-09",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S24-B",
@@ -11166,7 +11728,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "puddle_border",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-09",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S24-C",
@@ -11187,7 +11765,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "melting_gateway",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-09",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S25-A",
@@ -11288,7 +11882,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "phone_free_photo",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-10",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S26-C",
@@ -11349,7 +11959,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "towels_as_room",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-10",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S27-C",
@@ -11550,7 +12176,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "anti_wind_banner",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-10",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S31-A",
@@ -11651,7 +12293,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "solar_powers_criticism",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-10",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S32-C",
@@ -11692,7 +12350,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "water_tank_display",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-11",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S33-B",
@@ -11713,7 +12387,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "straw_blocks_water",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-11",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "doorway",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S33-C",
@@ -11774,7 +12464,23 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "folding_instructions",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-11",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "ENC-S34-C",
@@ -11814,7 +12520,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-11",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-01-B",
@@ -11974,7 +12696,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-12",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-04-A",
@@ -12594,7 +13332,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-12",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-14-B",
@@ -12614,7 +13368,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Apply approved staging policy, select existing candidates or complete necessary-image briefs, then obtain production approval.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-12",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-14-C",
@@ -13174,7 +13944,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-12",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "room",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-24-A",
@@ -13534,7 +14320,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-13",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "rig": "outdoor",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-30-A",
@@ -13834,7 +14636,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Apply approved staging policy, select existing candidates or complete necessary-image briefs, then obtain production approval.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-13",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-35-A",
@@ -13874,7 +14692,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-13",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-35-C",
@@ -14334,7 +15168,23 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
-      "staging_scope_resolved": true
+      "staging_scope_resolved": true,
+      "production_route": "proposed_new_atlas_panel",
+      "production_spec": {
+        "asset_id": "selected-satire-13",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "cell_xywh": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "rig": "counter",
+        "approval": "pending"
+      }
     },
     {
       "unit": "TOWN-44-B",
@@ -14633,5 +15483,1225 @@
     "rule": "Illustrate visual jokes central to understanding the encounter; reuse appropriate settings when dialogue carries the joke. Distinct presentation for departures, major events and Hearing. Retain minor prop suggestions without making them automatic production requirements.",
     "production_approved": false,
     "one_attempt_per_necessary_image": true
+  },
+  "production_proposal": {
+    "status": "draft_new_art_portion_only",
+    "production_authorized": false,
+    "scope": "52 selected visual compositions on 13 atlas sheets; two further selected compositions use retained work or require user review. Existing 308 proposals and shared-setting bindings still need final consolidation before requesting production approval.",
+    "rig_coordinate_space": [
+      768,
+      512
+    ],
+    "rigs": {
+      "counter": {
+        "camera": "Eye-level three-quarter view across a counter; verticals upright, vanishing point [384,160].",
+        "npc_xywh": [
+          520,
+          72,
+          176,
+          320
+        ],
+        "primary_action_xywh": [
+          208,
+          168,
+          304,
+          184
+        ],
+        "secondary_prop_xywh": [
+          72,
+          272,
+          120,
+          96
+        ],
+        "surface_contact_y": 320,
+        "caption_xywh": [
+          24,
+          424,
+          496,
+          64
+        ],
+        "traveler_slot_xywh": [
+          24,
+          104,
+          160,
+          288
+        ],
+        "notes": "Counter front starts y352; NPC lower body is naturally occluded, never represented by a detached bust. Runtime traveler is optional and only uses the empty left slot if the scene needs one."
+      },
+      "room": {
+        "camera": "Level three-quarter room view; vanishing point [384,160], ground contact y416.",
+        "npc_xywh": [
+          560,
+          120,
+          152,
+          296
+        ],
+        "primary_action_xywh": [
+          224,
+          88,
+          304,
+          304
+        ],
+        "secondary_prop_xywh": [
+          88,
+          304,
+          112,
+          96
+        ],
+        "surface_contact_y": 416,
+        "caption_xywh": [
+          24,
+          424,
+          496,
+          64
+        ],
+        "traveler_slot_xywh": [
+          24,
+          120,
+          152,
+          296
+        ],
+        "notes": "Doors are 344px tall for 296px adults at equal depth; furniture sits on the shared floor. No van in this close room view."
+      },
+      "outdoor": {
+        "camera": "Level medium-wide outdoor view; horizon y208, ground contact y416; no wide-angle lens.",
+        "npc_xywh": [
+          552,
+          192,
+          128,
+          224
+        ],
+        "primary_action_xywh": [
+          200,
+          152,
+          312,
+          240
+        ],
+        "secondary_prop_xywh": [
+          64,
+          280,
+          112,
+          112
+        ],
+        "surface_contact_y": 416,
+        "caption_xywh": [
+          24,
+          424,
+          496,
+          64
+        ],
+        "traveler_slot_xywh": [
+          24,
+          192,
+          128,
+          224
+        ],
+        "notes": "All standing adults at this depth are 224px tall, with at most 10% natural variation. Foreground is reserved for action and caption, not a miniature van."
+      },
+      "doorway": {
+        "camera": "Level frontal doorway view, upright verticals and shallow depth; ground y416.",
+        "npc_xywh": [
+          40,
+          144,
+          136,
+          272
+        ],
+        "primary_action_xywh": [
+          192,
+          168,
+          464,
+          160
+        ],
+        "secondary_prop_xywh": [
+          312,
+          72,
+          184,
+          344
+        ],
+        "surface_contact_y": 416,
+        "caption_xywh": [
+          24,
+          424,
+          496,
+          64
+        ],
+        "traveler_slot_xywh": null,
+        "notes": "Secondary rectangle is the doorway. Only the declared cheque/balloon/straw/display prop may be oversized. Viewpoint is the actual travelers looking on; do not bake any of them into the panel."
+      }
+    },
+    "pixel_rule": "Each panel uses a deliberate 192×128 logical grid enlarged 4×. Crisp square clusters and limited stepped shading match retained cast; no smooth painting, fine texture, gradients or photographic rendering.",
+    "atlas_rule": "Four independent scenes, reading order, no gutter or shared scenery crossing cell boundaries. Keep essential objects at least 16px inside their cell. Never rescale just one person or object to fix a collision.",
+    "responsive_rule": "Select one 768×512 cell and scale it uniformly, without cover-cropping, on desktop and mobile. At scene widths 1440/390/320, its heights are 960/260/213.33 respectively; real container width governs size. Keep caption as existing live UI over bottom-left; localization wraps without distorting the art. Check final responsive layout before acceptance.",
+    "state_rule": "Panels show offers before choice only. Outcome text and existing approved stats report actual results; do not commission duplicate result/day/night/locale paintings. Any runtime traveler layer uses the actual active roster and the declared empty slot.",
+    "text_rule": "All painted papers, signs, labels and screens are blank. Localized text is rendered live. No religious symbols, crosses, devotional jewelry or religious architecture anywhere, including small details.",
+    "failure_rule": "One attempt per approved atlas, not one per cell plus retries. Preserve a failed panel/sheet for user review. Do not rename it or move it to another sheet to get a second attempt.",
+    "sheets": [
+      {
+        "asset_id": "selected-satire-01",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-C09-C",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Disproportionate safe around an ordinary public-comment box; phone stays ordinary and separate.",
+            "source_direction_reference": "ENC-C09-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C10-B",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Oversized pillow on a shortened empty demonstration mattress; no patient or implied injury.",
+            "source_direction_reference": "ENC-C10-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C10-C",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Cardboard aircraft made from forms with a modest tip jar; visibly a stationary display, not a real aircraft.",
+            "source_direction_reference": "ENC-C10-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C11-C",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Phone and pie warmer compete for one socket; keep plugs, hands and appliances coherent.",
+            "source_direction_reference": "ENC-C11-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-02",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-C12-C",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Large honesty sign partly hides a smaller charge panel; both labels are localized live text, not baked pixels.",
+            "source_direction_reference": "ENC-C12-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C14-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Cardboard politician gets a dedicated umbrella while real volunteers share a canopy; all stay on one ground plane.",
+            "source_direction_reference": "ENC-C14-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C16-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Bright paint around an unrepaired rust hole, with daylight visibly passing through it.",
+            "source_direction_reference": "ENC-C16-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-C16-C",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Luxurious small phone pouches contrast with heavy books in a battered wheelbarrow; no phones or books granted to crew.",
+            "source_direction_reference": "ENC-C16-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-03",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-C18-B",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Envelope with a biscuit-shaped bulge beside a reserved lift and working stairs; stage the offer, not an already completed passage.",
+            "source_direction_reference": "ENC-C18-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-D01-C",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Phone gets a full menu/place setting while the nurse’s breakfast waits; do not replace the nurse with a traveler.",
+            "source_direction_reference": "ENC-D01-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-D04-C",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Whole sandwich positioned over the blank photo field of a catering form; no invented approval or food reward.",
+            "source_direction_reference": "ENC-D04-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-D06-B",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "One filter has a clean sales-facing side and dirty reverse, both legible in a single view.",
+            "source_direction_reference": "ENC-D06-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-04",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-D09-A",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Decorated empty new-mother parking space faces the closed former maternity entrance; no patient or denial of treatment depicted.",
+            "source_direction_reference": "ENC-D09-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-D12-C",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Fan disperses demonstration glitter beyond a small dustpan at a repair kiosk; use fictional blank data cues.",
+            "source_direction_reference": "ENC-D12-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-D13-A",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Promoter shrinks dots on a fabricated abstract map while privacy remains visibly unresolved; never map real clinic visitors.",
+            "source_direction_reference": "ENC-D13-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S03-B",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Prestigious cushion held above safe disassembled chair parts, with intact seats elsewhere; nobody sits on the broken display.",
+            "source_direction_reference": "ENC-S03-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-05",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S05-A",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Built-up blank price stickers visibly thicken the shelf edge; readable localized pricing remains a UI overlay.",
+            "source_direction_reference": "ENC-S05-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S09-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Cooled trailer exhaust reaches the worker outside; show separate air paths and a plausible shared scale.",
+            "source_direction_reference": "ENC-S09-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S09-C",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "One large fan serves the premium area rather than equal-access seating; preserve usable unoccupied rest space.",
+            "source_direction_reference": "ENC-S09-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S10-A",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Owner offers a small flag while water pools over a clogged drain; distinguish the prop from an actual repair tool.",
+            "source_direction_reference": "ENC-S10-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-06",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S11-A",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Raccoon tangled in a picnic cloth among overflowing waste; reuse retained park context if suitable, not a new full landscape by default.",
+            "source_direction_reference": "ENC-S11-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S13-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Cashier presents a tiny Chinese flag to a card reader while the traveler still holds their wallet; payment has not happened.",
+            "source_direction_reference": "ENC-S13-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S14-A",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "doorway",
+            "essential_action": "Ceremonial cheque on stands is too wide for the ordinary doorway; people and doorway retain normal proportions.",
+            "source_direction_reference": "ENC-S14-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S16-B",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "A flimsy voucher held over real cash compartments; no refund or cash transfer is implied before resolution.",
+            "source_direction_reference": "ENC-S16-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-07",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S16-C",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "doorway",
+            "essential_action": "An oversized donor balloon obstructs the loading door above normal balloons; other scenery stays normal scale.",
+            "source_direction_reference": "ENC-S16-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S17-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Wrapped sandwiches drift in a spraying demonstration tray; retain separation from the remaining food and no completed cleanup.",
+            "source_direction_reference": "ENC-S17-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S17-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Heavy unassembled fan bases are offered as work while the contractor has iced drinks; do not depict travelers already working.",
+            "source_direction_reference": "ENC-S17-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S18-A",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Folded department-closure leaflet props the shelf holding educational books; label remains live localized text.",
+            "source_direction_reference": "ENC-S18-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-08",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S19-B",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Bucket catches a fictional leak threatening a funding display; reuse inspected room/leak components when consistent.",
+            "source_direction_reference": "ENC-S19-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S20-B",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Policy leaflet held over an empty bowl fails to supply food; avoid magical rewards or a completed meal.",
+            "source_direction_reference": "ENC-S20-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S21-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "One mug and an unattached second-name sleeve; never duplicate the mug to illustrate two institutions.",
+            "source_direction_reference": "ENC-S21-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S22-B",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Two destination pins overlap on one fictional building outline; both destinations remain readable live text.",
+            "source_direction_reference": "ENC-S22-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-09",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S23-A",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Ordinary drink/straw dwarfed by inspection equipment; props, not human proportions, carry the exaggeration.",
+            "source_direction_reference": "ENC-S23-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S24-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Loose wig drifts away from a spraying display/mannequin; no actual traveler loses hair or is injured.",
+            "source_direction_reference": "ENC-S24-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S24-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Small flag marks the edge of a spreading lobby fountain puddle; no invented flooding outside this demonstration.",
+            "source_direction_reference": "ENC-S24-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S24-C",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Decorative gateway melts toward unused cleaning tools while guests approach its dry side; no completed cleanup.",
+            "source_direction_reference": "ENC-S24-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-10",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S26-B",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Organizer uses a phone to photograph the empty phone-storage tray; no crew phone confiscation is implied.",
+            "source_direction_reference": "ENC-S26-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S27-B",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Folded towels fill the cupboard advertised as a luxury room; keep the cupboard visibly distinct from an occupied hotel room.",
+            "source_direction_reference": "ENC-S27-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S30-C",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Wind moves an anti-wind banner while boxes remain unopened; wind direction agrees with other scene effects.",
+            "source_direction_reference": "ENC-S30-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S32-B",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Visible cable connects a solar panel to the presentation criticizing it; preserve a continuous plausible connection.",
+            "source_direction_reference": "ENC-S32-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-11",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "ENC-S33-A",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "A spraying display drains toward a low tank while its owner studies a freedom banner; no false water refill for travelers.",
+            "source_direction_reference": "ENC-S33-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S33-B",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "doorway",
+            "essential_action": "Giant display straw physically blocks access to drinking water; ordinary people and fixtures retain consistent scale.",
+            "source_direction_reference": "ENC-S33-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "ENC-S34-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.",
+            "source_direction_reference": "ENC-S34-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-01-A",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "A small license-plate-shaped scrap held over ordinary shoes is the visual premise. Keep both at plausible hand/foot scale; no actual plate installation, visible identifier, or invented road hazard.",
+            "source_direction_reference": "TOWN-01-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-12",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "TOWN-03-C",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "A person feeding a parking meter before eating is the visible contrast. Show coin approaching the slot and lunch bag in the other hand; ordinary meter height, no human face or mouth added to the pole.",
+            "source_direction_reference": "TOWN-03-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-14-A",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "The uncertain fare-card approach to a free streetcar is the core gesture. Card at normal hand scale, open level doorway and clerk welcoming the visitor; do not depict a literal horse or charge a fare.",
+            "source_direction_reference": "TOWN-14-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-14-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "The owner dressing a refrigerator in a necktie is the central visible action. Keep refrigerator, tie and owner hand contact readable in one repair-shop composition; recover compatible props/poses before specifying generation.",
+            "source_direction_reference": "TOWN-14-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-23-C",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "room",
+            "essential_action": "The ID nearly entering the wash is the visible action. Keep a small blank portrait card in the cook’s hand above the open washer; no readable personal data or false loss of voting eligibility.",
+            "source_direction_reference": "TOWN-23-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      },
+      {
+        "asset_id": "selected-satire-13",
+        "decision": "proposed_one_generation_needed",
+        "canvas": [
+          1536,
+          1024
+        ],
+        "grid": [
+          2,
+          2
+        ],
+        "cell_size": [
+          768,
+          512
+        ],
+        "background": "opaque RGB or alpha255 everywhere",
+        "panels": [
+          {
+            "unit": "TOWN-29-C",
+            "cell": 0,
+            "cell_xywh": [
+              0,
+              0,
+              768,
+              512
+            ],
+            "rig": "outdoor",
+            "essential_action": "Shoes fitting into a bus-stop pole’s narrow shade make the waiting-for-trees joke visible. One coherent sunlight direction; do not use a lush existing canopy that contradicts the scene.",
+            "source_direction_reference": "TOWN-29-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-34-C",
+            "cell": 1,
+            "cell_xywh": [
+              768,
+              0,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "Inspection of the wallet is the central visual contrast. Show the mechanic aiming a small inspection mirror into an open wallet, with the vehicle untouched. This requires a compatible hand/prop composition, not an oversized wallet or miniature van.",
+            "source_direction_reference": "TOWN-34-C",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-35-B",
+            "cell": 2,
+            "cell_xywh": [
+              0,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "The long receipt occupying dinner space is the central visual personification. Keep it physically supported at the grocery counter beside a small food bag; no giant person or fictional tax payment animation.",
+            "source_direction_reference": "TOWN-35-B",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          },
+          {
+            "unit": "TOWN-44-A",
+            "cell": 3,
+            "cell_xywh": [
+              768,
+              512,
+              768,
+              512
+            ],
+            "rig": "counter",
+            "essential_action": "One sandwich cut into two equal halves makes the accounting joke tangible. Same total food before and after; plain clean plate, no newly awarded food or duplicated sandwich.",
+            "source_direction_reference": "TOWN-44-A",
+            "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
+            "production_authorized": false
+          }
+        ],
+        "attempt_limit_if_approved": 1,
+        "attempts_in_this_recovery": 0,
+        "production_authorized": false
+      }
+    ]
   }
 }

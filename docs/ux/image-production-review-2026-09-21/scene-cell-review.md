@@ -296,3 +296,40 @@ All 171 remaining compatible road records are classified under the approved appr
 - **ENC-S34-B / folding_instructions:** Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.
 
 The 300 previously unresolved road/town records are now staging-classified. Next consolidate reusable components and exact asset selections across all groups into the finite production specification; the older 308 proposals must also follow the approved selective-staging rule. No production authorization follows from this classification.
+
+## Draft new-art portion: 13 atlas sheets, not yet approved
+
+Retained original 33 supplies the ENC-C11-A freezer offer; its native 1536×1024 atlas uses crop `[8,8,752,496]` to avoid the divider. Original 59 remains the attempted ENC-S07-C freezer/leaflet composition for user review; its stool-versus-wheel mismatch is not permission for another generation.
+
+The remaining 52 selected compositions are proposed as 13 opaque **1536×1024** sheets, four **768×512** panels each. One attempt per approved sheet; a failed cell does not authorize a retry in another sheet. This is only the new-art portion, not the final production approval package.
+
+| Proposed asset | Top left | Top right | Bottom left | Bottom right |
+| --- | --- | --- | --- | --- |
+| selected-satire-01 | ENC-C09-C (counter) | ENC-C10-B (room) | ENC-C10-C (room) | ENC-C11-C (counter) |
+| selected-satire-02 | ENC-C12-C (counter) | ENC-C14-A (outdoor) | ENC-C16-B (outdoor) | ENC-C16-C (room) |
+| selected-satire-03 | ENC-C18-B (outdoor) | ENC-D01-C (counter) | ENC-D04-C (counter) | ENC-D06-B (counter) |
+| selected-satire-04 | ENC-D09-A (outdoor) | ENC-D12-C (counter) | ENC-D13-A (counter) | ENC-S03-B (room) |
+| selected-satire-05 | ENC-S05-A (counter) | ENC-S09-A (outdoor) | ENC-S09-C (outdoor) | ENC-S10-A (outdoor) |
+| selected-satire-06 | ENC-S11-A (outdoor) | ENC-S13-A (counter) | ENC-S14-A (doorway) | ENC-S16-B (counter) |
+| selected-satire-07 | ENC-S16-C (doorway) | ENC-S17-A (room) | ENC-S17-B (outdoor) | ENC-S18-A (room) |
+| selected-satire-08 | ENC-S19-B (room) | ENC-S20-B (counter) | ENC-S21-B (counter) | ENC-S22-B (counter) |
+| selected-satire-09 | ENC-S23-A (outdoor) | ENC-S24-A (room) | ENC-S24-B (room) | ENC-S24-C (room) |
+| selected-satire-10 | ENC-S26-B (counter) | ENC-S27-B (room) | ENC-S30-C (outdoor) | ENC-S32-B (outdoor) |
+| selected-satire-11 | ENC-S33-A (outdoor) | ENC-S33-B (doorway) | ENC-S34-B (room) | TOWN-01-A (outdoor) |
+| selected-satire-12 | TOWN-03-C (outdoor) | TOWN-14-A (outdoor) | TOWN-14-B (room) | TOWN-23-C (room) |
+| selected-satire-13 | TOWN-29-C (outdoor) | TOWN-34-C (counter) | TOWN-35-B (counter) | TOWN-44-A (counter) |
+
+### Exact panel composition rigs
+
+Coordinates are local to each 768×512 panel; add its atlas cell origin for master coordinates. The JSON production proposal binds every essential action to one rig.
+
+- **counter:** Eye-level three-quarter view across a counter; verticals upright, vanishing point [384,160]. NPC `[520, 72, 176, 320]`; primary action group `[208, 168, 304, 184]`; secondary prop `[72, 272, 120, 96]`; contact y=320; caption `[24, 424, 496, 64]`; optional live-traveler slot `[24, 104, 160, 288]`. Counter front starts y352; NPC lower body is naturally occluded, never represented by a detached bust. Runtime traveler is optional and only uses the empty left slot if the scene needs one.
+- **room:** Level three-quarter room view; vanishing point [384,160], ground contact y416. NPC `[560, 120, 152, 296]`; primary action group `[224, 88, 304, 304]`; secondary prop `[88, 304, 112, 96]`; contact y=416; caption `[24, 424, 496, 64]`; optional live-traveler slot `[24, 120, 152, 296]`. Doors are 344px tall for 296px adults at equal depth; furniture sits on the shared floor. No van in this close room view.
+- **outdoor:** Level medium-wide outdoor view; horizon y208, ground contact y416; no wide-angle lens. NPC `[552, 192, 128, 224]`; primary action group `[200, 152, 312, 240]`; secondary prop `[64, 280, 112, 112]`; contact y=416; caption `[24, 424, 496, 64]`; optional live-traveler slot `[24, 192, 128, 224]`. All standing adults at this depth are 224px tall, with at most 10% natural variation. Foreground is reserved for action and caption, not a miniature van.
+- **doorway:** Level frontal doorway view, upright verticals and shallow depth; ground y416. NPC `[40, 144, 136, 272]`; primary action group `[192, 168, 464, 160]`; secondary prop `[312, 72, 184, 344]`; contact y=416; caption `[24, 424, 496, 64]`; optional live-traveler slot `None`. Secondary rectangle is the doorway. Only the declared cheque/balloon/straw/display prop may be oversized. Viewpoint is the actual travelers looking on; do not bake any of them into the panel.
+
+Each panel uses a deliberate 192×128 logical grid enlarged 4×. Crisp square clusters and limited stepped shading match retained cast; no smooth painting, fine texture, gradients or photographic rendering. Select one 768×512 cell and scale it uniformly, without cover-cropping, on desktop and mobile. At scene widths 1440/390/320, its heights are 960/260/213.33 respectively; real container width governs size. Keep caption as existing live UI over bottom-left; localization wraps without distorting the art. Check final responsive layout before acceptance.
+
+All painted papers, signs, labels and screens are blank. Localized text is rendered live. No religious symbols, crosses, devotional jewelry or religious architecture anywhere, including small details. One attempt per approved atlas, not one per cell plus retries. Preserve a failed panel/sheet for user review. Do not rename it or move it to another sheet to get a second attempt.
+
+Final reconciliation must still select shared backgrounds, carry forward explicit retained-art holds, and verify that these rigs can stage every assigned gag without conflicts. No image generation or runtime changes are authorized by this draft.
