@@ -1754,5 +1754,14 @@
     "preparation_cash": "Before you go in, the crew will buy a bite to eat. Apparently testimony is hungry work.",
     "no_questions_title": "No further questions",
     "odds": "Odds"
+  },
+  "qualitative": {
+    "gain": "{stat} పెరుగుతుంది",
+    "cost": "{stat} తగ్గుతుంది",
+    "full": "{stat} ఇప్పటికే గరిష్ఠ స్థాయిలో ఉంది",
+    "empty": "{stat} ఇప్పటికే అయిపోయింది",
+    "evidence": "ఆధారాలను సేకరిస్తుంది",
+    "use_evidence": "ఒక ఆధారాన్ని ఉపయోగిస్తుంది",
+    "bonus_evidence": "అదనపు ఆధారం దొరకవచ్చు"
   }
 }

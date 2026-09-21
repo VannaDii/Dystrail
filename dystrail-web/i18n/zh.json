@@ -1761,5 +1761,14 @@
     "preparation_cash": "Before you go in, the crew will buy a bite to eat. Apparently testimony is hungry work.",
     "no_questions_title": "No further questions",
     "odds": "Odds"
+  },
+  "qualitative": {
+    "gain": "增加{stat}",
+    "cost": "消耗{stat}",
+    "full": "{stat}已满",
+    "empty": "{stat}已耗尽",
+    "evidence": "收集证据",
+    "use_evidence": "使用一份证据",
+    "bonus_evidence": "可能发现额外证据"
   }
 }

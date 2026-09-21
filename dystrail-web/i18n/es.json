@@ -1817,5 +1817,14 @@
       "copy": "Ahora en negro opaco.",
       "compact": "SIN SECRETOS"
     }
+  },
+  "qualitative": {
+    "gain": "Mejora {stat}",
+    "cost": "Reduce {stat}",
+    "full": "{stat} ya está al máximo",
+    "empty": "{stat} ya está agotado",
+    "evidence": "Recoge pruebas",
+    "use_evidence": "Usa una prueba",
+    "bonus_evidence": "Puede descubrir pruebas adicionales"
   }
 }

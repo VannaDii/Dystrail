@@ -1817,5 +1817,14 @@
       "copy": "Now in opaque black.",
       "compact": "OPEN BOOKS"
     }
+  },
+  "qualitative": {
+    "gain": "Improves {stat}",
+    "cost": "Costs {stat}",
+    "full": "{stat} already full",
+    "empty": "{stat} already depleted",
+    "evidence": "Collect evidence",
+    "use_evidence": "Uses a Receipt",
+    "bonus_evidence": "May uncover extra evidence"
   }
 }

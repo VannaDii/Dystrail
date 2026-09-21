@@ -1754,5 +1754,14 @@
     "preparation_cash": "Before you go in, the crew will buy a bite to eat. Apparently testimony is hungry work.",
     "no_questions_title": "No further questions",
     "odds": "Odds"
+  },
+  "qualitative": {
+    "gain": "{stat} artar",
+    "cost": "{stat} azalır",
+    "full": "{stat} zaten en yüksek düzeyde",
+    "empty": "{stat} zaten tükenmiş",
+    "evidence": "Kanıt toplar",
+    "use_evidence": "Bir kanıt kullanır",
+    "bonus_evidence": "Ek kanıt bulunabilir"
   }
 }

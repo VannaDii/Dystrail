@@ -1817,5 +1817,14 @@
       "copy": "Ora in nero opaco.",
       "compact": "TRASPARENZA"
     }
+  },
+  "qualitative": {
+    "gain": "Migliora {stat}",
+    "cost": "Riduce {stat}",
+    "full": "{stat} già al massimo",
+    "empty": "{stat} già esaurito",
+    "evidence": "Raccogli prove",
+    "use_evidence": "Usa una prova",
+    "bonus_evidence": "Potrebbe rivelare altre prove"
   }
 }
