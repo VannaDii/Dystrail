@@ -151,6 +151,9 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
         }
         *state.action_lock.borrow_mut() = true;
         let before = sess.state().clone();
+        let copy_id = crate::app::visual_content::encounter_unit(&before)
+            .unwrap_or(&encounter.id)
+            .to_owned();
         let message = choice
             .effects
             .log
@@ -158,9 +161,9 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
             .unwrap_or_else(|| choice.label.clone());
         sess.with_state_mut(|gs| {
             gs.resolve_encounter_choice(idx);
+            crate::app::visual_content::record_outcome(&before, gs, idx);
         });
-        let mut message =
-            crate::i18n::encounter_text(&encounter.id, &format!("log_{idx}"), &message);
+        let mut message = crate::i18n::encounter_text(&copy_id, &format!("log_{idx}"), &message);
         for line in sess.state().logs.iter().skip(before.logs.len()) {
             if line.starts_with("log.crossing.") {
                 message.push(' ');
@@ -170,7 +173,7 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
         let mut logs = (*state.logs).clone();
         logs.push(message.clone());
         let mut report = crate::app::aftermath::Aftermath {
-            title: crate::i18n::encounter_text(&encounter.id, "name", &encounter.name),
+            title: crate::i18n::encounter_text(&copy_id, "name", &encounter.name),
             message: before
                 .continuity
                 .scene_subject
@@ -180,7 +183,7 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
                     || message.clone(),
                     |member| format!("{}: {message}", member.name),
                 ),
-            scene: SceneStage::Encounter(encounter.id),
+            scene: crate::components::ui::journey_scene::road_art::aftermath(copy_id, idx),
             resources: Vec::new(),
             details: crate::app::receipt::resource_details(&before, sess.state()),
             before: before.stats.clone(),

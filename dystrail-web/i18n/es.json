@@ -1315,6 +1315,36 @@
       "log_1": "Añades la contradicción a las pruebas. Nadie ha pedido aún que las vacas se disculpen.",
       "choice_2": "Seguir adelante",
       "log_2": "El grupo deja atrás la oferta."
+    },
+    "ENC-C01-B": {
+      "name": "Permiso para centrifugar",
+      "desc": "En una cooperativa de reparaciones junto a la carretera, una persona del taller te muestra la ley de Oregón que limita los bloqueos de software en las piezas de repuesto. El voluntariado necesita comida y ayuda para recuperar interruptores. Una lavadora rechaza un repuesto que funciona. Acepta ropa interior sucia sin comprobar el fabricante.",
+      "choice_0": "Compartir comida y recuperar interruptores",
+      "log_0": "Compartís el almuerzo y sacáis interruptores hasta que os duelen las muñecas. El tambor puede girar. El permiso de la empresa sigue cargando.",
+      "choice_1": "Fotografiar el bloqueo y la ley de Oregón",
+      "log_1": "Guardáis el error y la norma de Oregón para D.C. El repuesto encaja perfectamente. Parece que la pieza incompatible es ser su propietario.",
+      "overlay_0": "PIEZA NO RECONOCIDA",
+      "fact": "Oregón exige un acceso justo a materiales de reparación para determinados aparatos electrónicos y limita la vinculación de piezas que bloquea repuestos funcionales en equipos que reúnen los requisitos, fabricados y vendidos o usados por primera vez en Oregón después del 1 de enero de 2025. Existen excepciones, entre ellas los vehículos de motor. Es una norma de Oregón, no un derecho nacional; la lavadora de esta escena es ficticia."
+    },
+    "ENC-C01-C": {
+      "name": "Dignidad al peso",
+      "desc": "Rubio ordenó que las cartas del Departamento de Estado volvieran a Times New Roman. Una imprenta de carretera lo imita y tira los folletos en Calibri antes del almuerzo comunitario. El voluntariado necesita comida y ayuda para mover los contenedores. La trituradora ha aceptado admitir a ambos bandos.",
+      "choice_0": "Compartir comida y mover los contenedores",
+      "log_0": "Compartís el almuerzo y movéis los contenedores con dolor de espalda. Los folletos dicen exactamente lo mismo. La diplomacia estadounidense simplemente ha decidido que las letras necesitan pies.",
+      "choice_1": "Fotografiar la purga tipográfica",
+      "log_1": "Fotografiáis ambas versiones y la orden de Rubio. Todas las frases sobreviven. Por lo visto, la dignidad nacional descansa sobre las patitas del alfabeto.",
+      "overlay_0": "CALIBRI",
+      "overlay_1": "TIMES NEW ROMAN",
+      "fact": "El secretario de Estado Marco Rubio ordenó que la correspondencia diplomática volviera de Calibri a Times New Roman a partir del 10 de diciembre de 2025, revirtiendo el cambio de la era Biden. La instrucción afectaba al Departamento de Estado; no exigía que las imprentas privadas cambiaran de tipografía."
+    },
+    "ENC-C01-A": {
+      "name": "Un gobierno más pequeño",
+      "desc": "DOGE despidió al personal de limpieza del parque. La guardabosques que queda aún no ha almorzado. Os ofrece guantes junto a unos contenedores desbordados. «Enhorabuena. Vosotros sois el gobierno más pequeño».",
+      "choice_0": "Compartir comida y ayudar a vaciar los contenedores",
+      "log_0": "Compartís el almuerzo y cargáis bolsas hasta que os duele la espalda. Ella os entrega una bolsa de basura. «Asignación para uniformes».",
+      "choice_1": "Fotografiar el desastre para vuestro caso en D.C.",
+      "log_1": "Fotografiáis los contenedores desbordados. Ella señala las moscas. «El único departamento que sigue contratando».",
+      "fact": "La escena satiriza los recortes de personal del Servicio de Parques Nacionales de febrero de 2025. La guardabosques y el encuentro son ficticios."
     }
   },
   "play": {

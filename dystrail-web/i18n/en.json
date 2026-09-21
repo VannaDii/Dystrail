@@ -1315,6 +1315,36 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ENC-C01-A": {
+      "name": "Smaller government",
+      "desc": "DOGE fired the park’s cleaners. The remaining ranger hasn’t had lunch. She offers your crew gloves beside overflowing bins. “Congratulations. You’re the smaller government.”",
+      "choice_0": "Share some food and help clear the bins",
+      "log_0": "You share lunch and haul bags until your back aches. She hands you a bin liner. “Uniform allowance.”",
+      "choice_1": "Photograph the mess for your D.C. case",
+      "log_1": "You photograph the overflowing bins. She points at the flies. “Only department still recruiting.”",
+      "fact": "This scene satirizes the February 2025 National Park Service staffing cuts. The ranger and encounter are fictional."
+    },
+    "ENC-C01-B": {
+      "name": "Permission to spin",
+      "desc": "At a roadside repair co-op, a mechanic shows you Oregon’s law limiting software locks on spare parts. Volunteers need some food and help salvaging switches. A washing machine rejects a working replacement. It accepts dirty underwear without checking the manufacturer.",
+      "choice_0": "Share some food; salvage switches",
+      "log_0": "You share lunch and wrench out switches until your wrists ache. The drum can spin. The company’s permission is still buffering.",
+      "choice_1": "Photograph the lockout and Oregon law",
+      "log_1": "You save the error and Oregon’s rule for D.C. The replacement fits perfectly. Ownership seems to be the incompatible part.",
+      "overlay_0": "PART NOT RECOGNIZED",
+      "fact": "Oregon limits parts pairing that blocks functional replacement parts in qualifying consumer equipment. The law has scope limits and exceptions; it is not a nationwide repair right. This repair co-op and washing machine are fictional."
+    },
+    "ENC-C01-C": {
+      "name": "Dignity, by the pound",
+      "desc": "Rubio ordered State Department letters back to Times New Roman. A roadside printer is copying him, binning Calibri leaflets before the community lunch. Volunteers need some food and help shifting the bins. The shredder has agreed to accept both sides.",
+      "choice_0": "Share some food; haul the bins",
+      "log_0": "You share lunch and haul the bins, back aching. The leaflets say exactly the same thing. American diplomacy has simply decided the letters need feet.",
+      "choice_1": "Photograph the font purge",
+      "log_1": "You photograph both versions and Rubio’s order. Every sentence survives. The nation’s dignity apparently rests on tiny legs underneath the alphabet.",
+      "overlay_0": "CALIBRI",
+      "overlay_1": "TIMES NEW ROMAN",
+      "fact": "Marco Rubio ordered State Department correspondence back to Times New Roman in December 2025. The order did not require private printers to change fonts; this printer is fictional."
     }
   },
   "play": {

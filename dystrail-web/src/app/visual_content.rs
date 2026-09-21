@@ -12,10 +12,47 @@ fn hash(seed: u64, family: &str, occurrence: u32) -> u64 {
         })
 }
 
+static C01: std::sync::LazyLock<crate::game::data::Encounter> = std::sync::LazyLock::new(|| {
+    serde_json::from_str::<Vec<crate::game::data::Encounter>>(include_str!(
+        "../../static/assets/data/game.json"
+    ))
+    .expect("shipped encounters are valid")
+    .into_iter()
+    .find(|event| event.id == "classic_bridge_crews")
+    .expect("C01 runtime encounter exists")
+});
+
 fn family(gs: &GameState) -> Option<&'static str> {
     let encounter = gs.current_encounter.as_ref()?;
-    // Imported custom encounters with different mechanics must keep their own copy.
-    (encounter.id == "classic_bridge_crews" && encounter.choices.len() == 2).then_some("ENC-C01")
+    // A reused runtime ID alone is not proof that an imported custom event has
+    // the same choices. Authored labels must match the complete shipped effects.
+    (encounter.id == C01.id
+        && encounter.choices.len() == C01.choices.len()
+        && encounter
+            .choices
+            .iter()
+            .zip(&C01.choices)
+            .all(|(a, b)| a.effects == b.effects))
+    .then_some("ENC-C01")
+}
+
+pub fn record_outcome(before: &GameState, after: &mut GameState, choice: usize) {
+    let Some(family) = family(before) else {
+        return;
+    };
+    if encounter_unit(before).is_none()
+        || choice >= C01.choices.len()
+        || after.current_encounter.is_some()
+    {
+        return;
+    }
+    let (key, _) = selection_key(before, family);
+    after
+        .continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(choice);
 }
 
 fn selection_key(gs: &GameState, family: &str) -> (String, u32) {
@@ -79,25 +116,30 @@ mod tests {
         };
         gs.continuity.visual_content.edition = EDITION;
         gs.continuity.last_encounter_driving_minutes = Some(300);
-        gs.current_encounter = Some(crate::game::data::Encounter {
-            id: "classic_bridge_crews".into(),
-            name: "legacy".into(),
-            desc: "legacy".into(),
-            weight: 1,
-            regions: vec![],
-            modes: vec![],
-            hard_stop: false,
-            major_repair: false,
-            chainable: false,
-            choices: vec![
-                crate::game::data::Choice {
-                    label: "choice".into(),
-                    effects: Default::default()
-                };
-                2
-            ],
-        });
+        gs.current_encounter = Some(C01.clone());
         gs
+    }
+    #[test]
+    fn committed_choice_survives_save_and_cannot_be_overwritten() {
+        let mut before = run();
+        seal_encounter(&mut before);
+        let mut after = before.clone();
+        after.current_encounter = None;
+        record_outcome(&before, &mut after, 1);
+        let mut restored: GameState =
+            serde_json::from_str(&serde_json::to_string(&after).unwrap()).unwrap();
+        record_outcome(&before, &mut restored, 0);
+        assert_eq!(
+            restored
+                .continuity
+                .visual_content
+                .outcomes
+                .get("ENC-C01/road/300"),
+            Some(&1)
+        );
+        let mut pending = before.clone();
+        record_outcome(&before, &mut pending, 0);
+        assert!(pending.continuity.visual_content.outcomes.is_empty());
     }
     #[test]
     fn selection_survives_reload_without_changing_mechanics_or_other_state() {
@@ -126,6 +168,12 @@ mod tests {
         let mut legacy: GameState = serde_json::from_value(json).unwrap();
         seal_encounter(&mut legacy);
         assert_eq!(encounter_unit(&legacy), None);
+        let mut custom = gs.clone();
+        custom.current_encounter.as_mut().unwrap().choices[0]
+            .effects
+            .supplies = 99;
+        seal_encounter(&mut custom);
+        assert_eq!(encounter_unit(&custom), None);
         gs.current_encounter.as_mut().unwrap().choices.pop();
         seal_encounter(&mut gs);
         assert_eq!(encounter_unit(&gs), None);

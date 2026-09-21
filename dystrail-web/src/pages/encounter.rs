@@ -26,7 +26,10 @@ pub fn encounter_page(props: &EncounterPageProps) -> Html {
         || {
             html! { <p class="muted" role="status">{ crate::i18n::t("ui.loading_encounters") }</p> }
         },
-        |enc| {
+        |mut enc| {
+            if let Some(unit) = crate::app::visual_content::encounter_unit(&props.state) {
+                enc.id = unit.to_owned(); // presentation clone; engine keeps runtime identity/effects
+            }
             html! {
                 <>
                     <crate::components::ui::world_view::WorldView state={props.state.clone()} title={crate::i18n::encounter_text(&enc.id,"name",&enc.name)} stage={Some(SceneStage::Encounter(enc.id.clone()))} decision={html! {

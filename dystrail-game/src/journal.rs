@@ -10,6 +10,8 @@ pub struct VisualContent {
     pub edition: u16,
     #[serde(default)]
     pub selections: std::collections::BTreeMap<String, String>,
+    #[serde(default)]
+    pub outcomes: std::collections::BTreeMap<String, usize>,
 }
 
 /// The saved player-facing account of the journey, including its route checkpoint.

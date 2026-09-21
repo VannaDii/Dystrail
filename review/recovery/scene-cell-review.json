@@ -4909,7 +4909,22 @@
         333
       ],
       "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "72261cd9db9252710c97",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_bridge_crews",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved selection and committed outcome; no engine RNG changes",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
+        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+      }
     },
     {
       "unit": "ENC-C01-B",
@@ -4944,7 +4959,22 @@
         307
       ],
       "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "72261cd9db9252710c97",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_bridge_crews",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved selection and committed outcome; no engine RNG changes",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
+        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+      }
     },
     {
       "unit": "ENC-C01-C",
@@ -4979,7 +5009,22 @@
         360
       ],
       "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "build": "72261cd9db9252710c97",
+        "status": "integrated_pending_final_visual_and_localization_acceptance",
+        "runtime_family": "classic_bridge_crews",
+        "eligibility": "edition1 and exact canonical choice effects",
+        "persistence": "saved selection and committed outcome; no engine RNG changes",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "checks": "4 selector tests; 2 desktop/mobile browser tests cover all six actions, save/reload and offline",
+        "remaining": "16 locales; 320px and RTL caption placement; phone prop wording currently in info popup; caption overlaps lower-left prop area"
+      }
     },
     {
       "unit": "ENC-C02-A",
