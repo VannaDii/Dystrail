@@ -51,34 +51,24 @@ pub struct PortraitAsset {
 
 #[must_use]
 pub fn asset(persona: &str, expression: Expression) -> PortraitAsset {
-    let persona = match persona {
-        "organizer" | "whistleblower" | "lobbyist" | "staffer" | "satirist" => persona,
-        _ => "journalist",
-    };
     PortraitAsset {
-        path: format!(
-            "static/img/journey/occupant-{persona}{}.png",
-            if expression == Expression::Standard {
-                ""
-            } else {
-                "-expressions-v1"
-            }
-        ),
-        cell: match expression {
-            Expression::Standard => None,
-            Expression::Happy => Some(0),
-            Expression::Defeated => Some(1),
-        },
+        path: super::cast_art::path(persona),
+        cell: Some(match expression {
+            Expression::Standard => 0,
+            Expression::Happy => 1,
+            Expression::Defeated => 2,
+        }),
     }
 }
 
 pub fn art(persona: &str, expression: Expression) -> Html {
-    let portrait = asset(persona, expression);
-    let path = crate::paths::asset_path(&portrait.path);
+    let pose = match expression {
+        Expression::Standard => super::cast_art::Pose::Standard,
+        Expression::Happy => super::cast_art::Pose::Happy,
+        Expression::Defeated => super::cast_art::Pose::Defeated,
+    };
     html! {<span class="character-art" data-expression={expression.key()} aria-hidden="true">
-        if let Some(cell) = portrait.cell {
-            <svg viewBox={format!("{} 0 512 512", u16::from(cell)*512)} focusable="false"><image href={path} width="1024" height="512"/></svg>
-        } else {<img src={path} alt="" decoding="sync"/>}
+        {super::cast_art::art(persona, pose)}
     </span>}
 }
 

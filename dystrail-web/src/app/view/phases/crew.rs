@@ -59,7 +59,7 @@ fn crew_names(p: &Props) -> Html {
             let persona=member.persona.clone();let player=p.player.clone();let party=p.party.clone();let on=p.on_change.clone();
             let change=Callback::from(move |event:InputEvent|{let mut party=party.clone();if let Some(m)=party.members.iter_mut().find(|m|m.persona==persona){m.name=event.target_unchecked_into::<web_sys::HtmlInputElement>().value();}party.sync_names(&player);on.emit(party);});
             let id=format!("crew-name-{}",member.persona);
-            html!{<div class="crew-name-card"><span class="crew-portrait-slot"><img class="crew-portrait" src={crate::paths::asset_path(&format!("static/img/journey/occupant-{}.png",member.persona))} alt="" decoding="sync" /></span><label for={id.clone()}>{if member.persona==p.player{i18n::t("crew.player")}else{i18n::t(&format!("persona.{}.name",member.persona))}}</label><input {id} type="text" value={member.name.clone()} oninput={change} autocomplete="off" /></div>}
+            html!{<div class="crew-name-card"><span class="crew-portrait-slot">{crate::components::ui::cast_art::art(&member.persona, crate::components::ui::cast_art::Pose::Standard)}</span><label for={id.clone()}>{if member.persona==p.player{i18n::t("crew.player")}else{i18n::t(&format!("persona.{}.name",member.persona))}}</label><input {id} type="text" value={member.name.clone()} oninput={change} autocomplete="off" /></div>}
         })}</div>
         <div class="controls crew-actions setup-actions">
             <button type="button" class="retro-btn-secondary setup-back-desktop" onclick={p.on_back.clone()}>{i18n::t("store.menu.back")}</button>

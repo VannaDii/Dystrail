@@ -111,18 +111,17 @@ fn draw_header(
     fill(ctx, &theme.accent, 56.0, 99.0, 330.0, 4.0);
     let portrait_x = if post.rtl { 840.0 } else { 56.0 };
     fill(ctx, &theme.inset, portrait_x, 156.0, 304.0, 304.0);
-    let avatar_width =
-        f64::from(avatar.natural_width()) / if post.avatar.cell.is_some() { 2.0 } else { 1.0 };
+    let avatar_width = f64::from(avatar.natural_width()) / 4.0;
     ctx.draw_image_with_html_image_element_and_sw_and_sh_and_dx_and_dy_and_dw_and_dh(
         avatar,
         f64::from(post.avatar.cell.unwrap_or(0)) * avatar_width,
         0.0,
         avatar_width,
-        f64::from(avatar.natural_height()),
+        f64::from(avatar.natural_height()) * 470.0 / 1024.0,
         portrait_x + 10.0,
         166.0,
         284.0,
-        284.0,
+        284.0 * 470.0 / 512.0,
     )?;
     ctx.set_stroke_style_str(&theme.accent);
     ctx.set_line_width(2.0);

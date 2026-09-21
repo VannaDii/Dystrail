@@ -113,7 +113,6 @@ pub fn journey_scene(p: &Props) -> Html {
             if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-prairie")))} alt="" decoding="sync" width="1536" height="1024" />})}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
             if stopped {{parked::render(p.party.as_ref())}} else if road {<van::CrewVan party={p.party.clone()} />}
             if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-prairie")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
-            if !road && p.show_cast {{composition::cast(p,name.unwrap_or("scene"))}}
             <div class="scene-light"></div>
             <div class="weather-atmosphere"></div>
         </div>

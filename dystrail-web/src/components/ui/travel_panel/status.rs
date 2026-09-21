@@ -22,7 +22,7 @@ fn crew(gs: &GameState) -> Html {
                 MemberStatus::Dead=>"crew.dead",MemberStatus::Departed=>"crew.departed",
             };
             html! {<li class={classes!("van-crew-member",(status!="crew.active").then_some("van-crew-attention"))}>
-                <img src={crate::paths::asset_path(&format!("static/img/journey/occupant-{}.png",m.persona))} alt="" width="56" height="64" decoding="sync" />
+                <span class="van-roster-art">{super::super::cast_art::art(&m.persona, if status == "journey.struggling" { super::super::cast_art::Pose::Unwell } else { super::super::cast_art::Pose::Standard })}</span>
                 <div><h3>{&m.name}</h3><p>{i18n::t(&format!("persona.{}.name",m.persona))}</p><span>{i18n::t(status)}</span></div>
             </li>}
         })}</ul>

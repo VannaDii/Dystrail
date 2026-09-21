@@ -116,12 +116,6 @@ input[type=text],input[type=number],textarea{cursor:text}
 .van-row-0{left:23%;width:15%;border-radius:24% 9% 10% 6%}
 .van-row-1{left:40.5%;width:15%;border-radius:8%}
 .van-row-2{left:58.7%;width:23.3%;clip-path:polygon(0 0,64% 0,100% 87%,100% 100%,0 100%)}
-.crew-van .van-occupant{position:absolute;width:82%;height:124%;object-fit:contain;object-position:center bottom}
-.crew-van .van-occupant.far-seat{left:26%;top:-11%;z-index:1;filter:brightness(.86)}
-.crew-van .van-occupant.near-seat{left:-5%;top:2%;z-index:2}
-.van-row-2 .van-occupant{width:60%}
-.van-row-2 .van-occupant.far-seat{left:30%}
-.van-row-2 .van-occupant.near-seat{left:0}
 .scene-moving .crew-van img{animation:none}
 @media(max-width:700px){.crew-names-grid{grid-template-columns:1fr 1fr;gap:10px}.crew-name-card{grid-template-columns:42px 1fr;padding:10px;column-gap:8px}.crew-name-card .portrait-art{width:42px;height:60px}.crew-name-form,.crew-intro{padding:20px}.crew-name-card label{font-size:12px}.crew-roster .inventory-list{grid-template-columns:1fr}}
 /* Route briefings retain map scale on small screens; the text itinerary stays readable. */

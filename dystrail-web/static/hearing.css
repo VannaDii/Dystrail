@@ -113,3 +113,35 @@
  .hearing-round-stats.resource-changes { grid-template-columns:repeat(2,minmax(0,1fr)); }
  .hearing-round-stats>.stat-card:last-child { grid-column:1/-1; }
 }
+
+/* One retained identity sheet serves every portrait surface. */
+.cast-art { display:block; width:100%; height:100%; image-rendering:pixelated; overflow:hidden; }
+.portrait-art.cast-portrait { background:none; }
+.van-roster-art { display:block; width:56px; height:64px; flex-shrink:0; }
+
+/* Occupants are clipped in native van coordinates, then move with the complete van. */
+.crew-van .van-seating { position:absolute; inset:0; display:block; width:100%; height:100%; overflow:visible; }
+.crew-van .van-seating .van-occupant { position:static; overflow:hidden; }
+
+/* The standing sheet is square, so retain its native ratio inside each existing slot. */
+.standing-member .cast-art { width:160%; max-width:none; margin-left:-30%; }
+
+/* Native 1536x1024 world coordinates are shared at every viewport. */
+.world-view .journey-scene.scene-road,
+.travel-screen .world-view .journey-scene.scene-road { display:flex; flex-direction:column; height:auto; min-height:0; aspect-ratio:auto; }
+.world-view .scene-road > .conditions-hud { position:relative; inset:auto; order:0; }
+.world-view .scene-road > .scene-art { position:relative; inset:auto; order:1; flex-shrink:0; width:100%; aspect-ratio:1.5; }
+.world-view .scene-road .scene-background { object-fit:fill; object-position:center; }
+.world-view .scene-road .crew-van,
+.world-view .scene-road .parked-crew .crew-van { width:38%; height:38%; left:13.020833%; top:43.390625%; bottom:auto; }
+.world-view .scene-road .standing-crew { inset:0; width:100%; height:100%; }
+.world-view .scene-road .standing-member { width:12.109375%; height:18.1640625%; top:59.9609375%; bottom:auto; left:calc(49.4140625% + var(--slot) * 5.9895833%); transform:none; }
+.world-view .scene-road .standing-member .cast-art { width:100%; height:100%; margin:0; }
+.world-view .scene-road .standing-member:nth-child(1) { --slot:0; }
+.world-view .scene-road .standing-member:nth-child(2) { --slot:1; }
+.world-view .scene-road .standing-member:nth-child(3) { --slot:2; }
+.world-view .scene-road .standing-member:nth-child(4) { --slot:3; }
+.world-view .scene-road .standing-member:nth-child(5) { --slot:4; }
+.world-view .scene-road .standing-member:nth-child(6) { --slot:5; }
+.world-view .scene-road .road-foreground .scene-background { mask-size:100% 100%; mask-position:center; }
+@keyframes van-drive { from { left:13.020833%; } to { left:58.59375%; } }

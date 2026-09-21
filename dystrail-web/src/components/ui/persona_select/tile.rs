@@ -18,7 +18,7 @@ pub fn persona_tile(p: &PersonaTileProps) -> Html {
     let on_click = Callback::from(move |_| cb.emit(index));
     html! { <button type="button" role="radio" class={classes!("persona-tile", p.selected.then_some("selected"))}
         aria-checked={p.selected.to_string()} onclick={on_click} data-key={(index+1).to_string()}>
-        <span class={classes!("portrait-art", format!("portrait-{}", p.persona.id))} aria-hidden="true"></span>
+        <span class="portrait-art cast-portrait" aria-hidden="true">{crate::components::ui::cast_art::art(&p.persona.id, crate::components::ui::cast_art::Pose::Standard)}</span>
         <span class="persona-name">{localized_name(&p.persona)}</span>
     </button> }
 }

@@ -146,28 +146,6 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
     )
 }
 
-pub fn cast(p: &Props, name: &str) -> Html {
-    let Some(party) = &p.party else {
-        return Html::default();
-    };
-    cast_members(party, p.subject.as_deref(), p.day, name, p.local_npc)
-}
-
-pub fn cast_members(
-    party: &Party,
-    preferred: Option<&str>,
-    day: u32,
-    name: &str,
-    local_npc: Option<u8>,
-) -> Html {
-    let Some(member) = subject(party, preferred, day, name) else {
-        return Html::default();
-    };
-    html! {<><div class={classes!("scene-speaker",local_npc.is_some().then_some("conversation-player"))} data-subject={member.persona.clone()}><img src={crate::paths::asset_path(&format!("static/img/journey/occupant-{}.png",member.persona))} alt="" decoding="sync" /><span>{&member.name}</span></div>
-        if let Some(npc)=local_npc {<div class="scene-speaker scene-npc" data-npc={npc.to_string()}><svg viewBox={format!("{} {} 512 512",u32::from(npc%3)*512,u32::from(npc/3)*512)} aria-hidden="true"><image href={crate::paths::asset_path("static/img/journey/town-npcs-v1.png")} width="1536" height="1024"/></svg><span>{crate::i18n::t("trail.local")}</span></div>}
-    </>}
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -16774,7 +16774,7 @@
   },
   "production_proposal": {
     "status": "proposed_for_approval",
-    "production_authorized": false,
+    "production_authorized": true,
     "scope": "52 selected compositions in 13 fixed atlas sheets, plus retained reuse and explicit review holds. Exact per-panel rigs and actions are recorded below. No production is authorized until user approval.",
     "rig_coordinate_space": [
       768,
@@ -16954,7 +16954,7 @@
             "essential_action": "Disproportionate safe around an ordinary public-comment box; phone stays ordinary and separate.",
             "source_direction_reference": "ENC-C09-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C10-B",
@@ -16969,7 +16969,7 @@
             "essential_action": "Oversized pillow on a shortened empty demonstration mattress; no patient or implied injury.",
             "source_direction_reference": "ENC-C10-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C10-C",
@@ -16984,7 +16984,7 @@
             "essential_action": "Cardboard aircraft made from forms with a modest tip jar; visibly a stationary display, not a real aircraft.",
             "source_direction_reference": "ENC-C10-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C11-C",
@@ -16999,12 +16999,12 @@
             "essential_action": "Phone and pie warmer compete for one socket; keep plugs, hands and appliances coherent.",
             "source_direction_reference": "ENC-C11-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-02",
@@ -17036,7 +17036,7 @@
             "essential_action": "Large honesty sign partly hides a smaller charge panel; both labels are localized live text, not baked pixels.",
             "source_direction_reference": "ENC-C12-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C14-A",
@@ -17051,7 +17051,7 @@
             "essential_action": "Cardboard politician gets a dedicated umbrella while real volunteers share a canopy; all stay on one ground plane.",
             "source_direction_reference": "ENC-C14-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C16-B",
@@ -17066,7 +17066,7 @@
             "essential_action": "Bright paint around an unrepaired rust hole, with daylight visibly passing through it.",
             "source_direction_reference": "ENC-C16-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-C16-C",
@@ -17081,12 +17081,12 @@
             "essential_action": "Luxurious small phone pouches contrast with heavy books in a battered wheelbarrow; no phones or books granted to crew.",
             "source_direction_reference": "ENC-C16-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-03",
@@ -17118,7 +17118,7 @@
             "essential_action": "Envelope with a biscuit-shaped bulge beside a reserved lift and working stairs; stage the offer, not an already completed passage.",
             "source_direction_reference": "ENC-C18-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-D01-C",
@@ -17133,7 +17133,7 @@
             "essential_action": "Phone gets a full menu/place setting while the nurse’s breakfast waits; do not replace the nurse with a traveler.",
             "source_direction_reference": "ENC-D01-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-D04-C",
@@ -17148,7 +17148,7 @@
             "essential_action": "Whole sandwich positioned over the blank photo field of a catering form; no invented approval or food reward.",
             "source_direction_reference": "ENC-D04-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-D06-B",
@@ -17163,12 +17163,12 @@
             "essential_action": "One filter has a clean sales-facing side and dirty reverse, both legible in a single view.",
             "source_direction_reference": "ENC-D06-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-04",
@@ -17200,7 +17200,7 @@
             "essential_action": "Decorated empty new-mother parking space faces the closed former maternity entrance; no patient or denial of treatment depicted.",
             "source_direction_reference": "ENC-D09-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-D12-C",
@@ -17215,7 +17215,7 @@
             "essential_action": "Fan disperses demonstration glitter beyond a small dustpan at a repair kiosk; use fictional blank data cues.",
             "source_direction_reference": "ENC-D12-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-D13-A",
@@ -17230,7 +17230,7 @@
             "essential_action": "Promoter shrinks dots on a fabricated abstract map while privacy remains visibly unresolved; never map real clinic visitors.",
             "source_direction_reference": "ENC-D13-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S03-B",
@@ -17245,12 +17245,12 @@
             "essential_action": "Prestigious cushion held above safe disassembled chair parts, with intact seats elsewhere; nobody sits on the broken display.",
             "source_direction_reference": "ENC-S03-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-05",
@@ -17282,7 +17282,7 @@
             "essential_action": "Built-up blank price stickers visibly thicken the shelf edge; readable localized pricing remains a UI overlay.",
             "source_direction_reference": "ENC-S05-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S09-A",
@@ -17297,7 +17297,7 @@
             "essential_action": "Cooled trailer exhaust reaches the worker outside; show separate air paths and a plausible shared scale.",
             "source_direction_reference": "ENC-S09-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S09-C",
@@ -17312,7 +17312,7 @@
             "essential_action": "One large fan serves the premium area rather than equal-access seating; preserve usable unoccupied rest space.",
             "source_direction_reference": "ENC-S09-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S10-A",
@@ -17327,12 +17327,12 @@
             "essential_action": "Owner offers a small flag while water pools over a clogged drain; distinguish the prop from an actual repair tool.",
             "source_direction_reference": "ENC-S10-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-06",
@@ -17364,7 +17364,7 @@
             "essential_action": "Raccoon tangled in a picnic cloth among overflowing waste; reuse retained park context if suitable, not a new full landscape by default.",
             "source_direction_reference": "ENC-S11-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S13-A",
@@ -17379,7 +17379,7 @@
             "essential_action": "Cashier presents a tiny Chinese flag to a card reader while the traveler still holds their wallet; payment has not happened.",
             "source_direction_reference": "ENC-S13-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S14-A",
@@ -17394,7 +17394,7 @@
             "essential_action": "Ceremonial cheque on stands is too wide for the ordinary doorway; people and doorway retain normal proportions.",
             "source_direction_reference": "ENC-S14-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S16-B",
@@ -17409,12 +17409,12 @@
             "essential_action": "A flimsy voucher held over real cash compartments; no refund or cash transfer is implied before resolution.",
             "source_direction_reference": "ENC-S16-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-07",
@@ -17446,7 +17446,7 @@
             "essential_action": "An oversized donor balloon obstructs the loading door above normal balloons; other scenery stays normal scale.",
             "source_direction_reference": "ENC-S16-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S17-A",
@@ -17461,7 +17461,7 @@
             "essential_action": "Wrapped sandwiches drift in a spraying demonstration tray; retain separation from the remaining food and no completed cleanup.",
             "source_direction_reference": "ENC-S17-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S17-B",
@@ -17476,7 +17476,7 @@
             "essential_action": "Heavy unassembled fan bases are offered as work while the contractor has iced drinks; do not depict travelers already working.",
             "source_direction_reference": "ENC-S17-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S18-A",
@@ -17491,12 +17491,12 @@
             "essential_action": "Folded department-closure leaflet props the shelf holding educational books; label remains live localized text.",
             "source_direction_reference": "ENC-S18-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-08",
@@ -17528,7 +17528,7 @@
             "essential_action": "Bucket catches a fictional leak threatening a funding display; reuse inspected room/leak components when consistent.",
             "source_direction_reference": "ENC-S19-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S20-B",
@@ -17543,7 +17543,7 @@
             "essential_action": "Policy leaflet held over an empty bowl fails to supply food; avoid magical rewards or a completed meal.",
             "source_direction_reference": "ENC-S20-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S21-B",
@@ -17558,7 +17558,7 @@
             "essential_action": "One mug and an unattached second-name sleeve; never duplicate the mug to illustrate two institutions.",
             "source_direction_reference": "ENC-S21-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S22-B",
@@ -17573,12 +17573,12 @@
             "essential_action": "Two destination pins overlap on one fictional building outline; both destinations remain readable live text.",
             "source_direction_reference": "ENC-S22-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-09",
@@ -17610,7 +17610,7 @@
             "essential_action": "Ordinary drink/straw dwarfed by inspection equipment; props, not human proportions, carry the exaggeration.",
             "source_direction_reference": "ENC-S23-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S24-A",
@@ -17625,7 +17625,7 @@
             "essential_action": "Loose wig drifts away from a spraying display/mannequin; no actual traveler loses hair or is injured.",
             "source_direction_reference": "ENC-S24-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S24-B",
@@ -17640,7 +17640,7 @@
             "essential_action": "Small flag marks the edge of a spreading lobby fountain puddle; no invented flooding outside this demonstration.",
             "source_direction_reference": "ENC-S24-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S24-C",
@@ -17655,12 +17655,12 @@
             "essential_action": "Decorative gateway melts toward unused cleaning tools while guests approach its dry side; no completed cleanup.",
             "source_direction_reference": "ENC-S24-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-10",
@@ -17692,7 +17692,7 @@
             "essential_action": "Organizer uses a phone to photograph the empty phone-storage tray; no crew phone confiscation is implied.",
             "source_direction_reference": "ENC-S26-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S27-B",
@@ -17707,7 +17707,7 @@
             "essential_action": "Folded towels fill the cupboard advertised as a luxury room; keep the cupboard visibly distinct from an occupied hotel room.",
             "source_direction_reference": "ENC-S27-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S30-C",
@@ -17722,7 +17722,7 @@
             "essential_action": "Wind moves an anti-wind banner while boxes remain unopened; wind direction agrees with other scene effects.",
             "source_direction_reference": "ENC-S30-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S32-B",
@@ -17737,12 +17737,12 @@
             "essential_action": "Visible cable connects a solar panel to the presentation criticizing it; preserve a continuous plausible connection.",
             "source_direction_reference": "ENC-S32-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-11",
@@ -17774,7 +17774,7 @@
             "essential_action": "A spraying display drains toward a low tank while its owner studies a freedom banner; no false water refill for travelers.",
             "source_direction_reference": "ENC-S33-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S33-B",
@@ -17789,7 +17789,7 @@
             "essential_action": "Giant display straw physically blocks access to drinking water; ordinary people and fixtures retain consistent scale.",
             "source_direction_reference": "ENC-S33-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "ENC-S34-B",
@@ -17804,7 +17804,7 @@
             "essential_action": "Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.",
             "source_direction_reference": "ENC-S34-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-01-A",
@@ -17819,12 +17819,12 @@
             "essential_action": "A small license-plate-shaped scrap held over ordinary shoes is the visual premise. Keep both at plausible hand/foot scale; no actual plate installation, visible identifier, or invented road hazard.",
             "source_direction_reference": "TOWN-01-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-12",
@@ -17856,7 +17856,7 @@
             "essential_action": "A person feeding a parking meter before eating is the visible contrast. Show coin approaching the slot and lunch bag in the other hand; ordinary meter height, no human face or mouth added to the pole.",
             "source_direction_reference": "TOWN-03-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-14-A",
@@ -17871,7 +17871,7 @@
             "essential_action": "The uncertain fare-card approach to a free streetcar is the core gesture. Card at normal hand scale, open level doorway and clerk welcoming the visitor; do not depict a literal horse or charge a fare.",
             "source_direction_reference": "TOWN-14-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-14-B",
@@ -17886,7 +17886,7 @@
             "essential_action": "The owner dressing a refrigerator in a necktie is the central visible action. Keep refrigerator, tie and owner hand contact readable in one repair-shop composition; recover compatible props/poses before specifying generation.",
             "source_direction_reference": "TOWN-14-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-23-C",
@@ -17901,12 +17901,12 @@
             "essential_action": "The ID nearly entering the wash is the visible action. Keep a small blank portrait card in the cook’s hand above the open washer; no readable personal data or false loss of voting eligibility.",
             "source_direction_reference": "TOWN-23-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       },
       {
         "asset_id": "selected-satire-13",
@@ -17938,7 +17938,7 @@
             "essential_action": "Shoes fitting into a bus-stop pole’s narrow shade make the waiting-for-trees joke visible. One coherent sunlight direction; do not use a lush existing canopy that contradicts the scene.",
             "source_direction_reference": "TOWN-29-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-34-C",
@@ -17953,7 +17953,7 @@
             "essential_action": "Inspection of the wallet is the central visual contrast. Show the mechanic aiming a small inspection mirror into an open wallet, with the vehicle untouched. This requires a compatible hand/prop composition, not an oversized wallet or miniature van.",
             "source_direction_reference": "TOWN-34-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-35-B",
@@ -17968,7 +17968,7 @@
             "essential_action": "The long receipt occupying dinner space is the central visual personification. Keep it physically supported at the grocery counter beside a small food bag; no giant person or fictional tax payment animation.",
             "source_direction_reference": "TOWN-35-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           },
           {
             "unit": "TOWN-44-A",
@@ -17983,18 +17983,18 @@
             "essential_action": "One sandwich cut into two equal halves makes the accounting joke tangible. Same total food before and after; plain clean plate, no newly awarded food or duplicated sandwich.",
             "source_direction_reference": "TOWN-44-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": false
+            "production_authorized": true
           }
         ],
         "attempt_limit_if_approved": 1,
         "attempts_in_this_recovery": 0,
-        "production_authorized": false
+        "production_authorized": true
       }
     ]
   },
   "core_layout_spec": {
-    "status": "approval_draft",
-    "production_authorized": false,
+    "status": "approved_for_integration",
+    "production_authorized": true,
     "new_image_generations": 0,
     "van": {
       "body_asset": "dystrail-web/static/img/journey/van-empty.png",
@@ -18173,7 +18173,7 @@
       ],
       "portrait_crop_logical": [
         512,
-        486
+        470
       ],
       "pose_order": [
         "Standard",
@@ -18186,7 +18186,8 @@
         "Driver"
       ],
       "placement": "Existing selection/naming/result slots use portraits. World scenes use appropriate body poses only. Caption-side bust is removed. All images scale uniformly; retain stable persona IDs and identities.",
-      "remaining_check": "Fractional native cell edges and alpha masking must be inspected in the rendered build; no image regeneration for CSS/crop issues."
+      "remaining_check": "Fractional native cell edges and alpha masking must be inspected in the rendered build; no image regeneration for CSS/crop issues.",
+      "integration_note": "Retained original bytes unchanged; rendered review found a stray atlas edge at 486 logical pixels. Tightened portrait crop to 470 in renderer and share output. Desktop/mobile crew, driver reassignment and offline regression passed; full expression/share/Hearing acceptance remains pending."
     },
     "billboards": {
       "decision": "native_sign_geometry_live_localized_text",
@@ -18506,8 +18507,8 @@
     "Beltway": "route-beltway"
   },
   "approval_package": {
-    "status": "ready_for_scope_and_production_review",
-    "approved": false,
+    "status": "approved_for_bounded_production",
+    "approved": true,
     "max_new_image_calls": 13,
     "new_image_attempts_used": 0,
     "new_images": [
@@ -18535,6 +18536,7 @@
       "Hearing mechanics changes",
       "new UI/stat designs"
     ],
-    "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate."
+    "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate.",
+    "approval_source": "User: The production package is approved (2026-09-21)"
   }
 }

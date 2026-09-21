@@ -451,3 +451,13 @@ September 14 — standing crew transparency repair:
 - Supplied game client road/arrival captures inspected; strict Wasm lint, format, whitespace and 128 offline hashes pass. No engine changes.
 - Refreshed both local previews to a9965b9895e256c1042c. The user's 62524 tab now shows clean sprites at its existing 638 px width and resumes Day 2 10:02 with the same six crew and stats. No console errors.
 - Evidence: docs/ux/enhancement-review-2026-09-13/implementation/hearing/crew-transparency-2026-09-14/. No commit or publication.
+
+2026-09-21 — approved visual-world production, first integration checkpoint:
+- User explicitly approved the bounded production package. At most 13 atlas calls; zero used. No automatic image retries. One agent.
+- Workshop revision unchanged on live readback; Hearing task completed, main source still f1ed4fe. Hearing engine/report behavior left unchanged.
+- Reused six byte-verified retained cast sheets. Integrated selection, naming, roster, standard/happy/defeated portraits, share crop, standing and seated/driver poses. Removed fallback invented passengers and detached caption busts.
+- Unified native road geometry across desktop/phone; fixed observed driver clipping and inherited fixed-height distortion. Original images unchanged. Portrait crop tightened from 486 to 470 logical pixels to exclude a visible stray atlas edge.
+- Rust Wasm check and Trunk build passed. Focused desktop/mobile import/absent-crew/replacement-driver/offline regression: 2 passed. Six cast sheets included among 134 offline assets (build d24c02b4bcd459bae878). Supplied game client run and screenshots inspected; it required existing installed Chromium 1208 and dependencies.
+- Evidence: docs/ux/image-production-review-2026-09-21/cast-checkpoint/{desktop,mobile}.png. This is partial integration, not final feature acceptance.
+- Next: source-compatible retained scene bindings, time/weather and billboards, approved one-attempt satire sheets, locale/content integration; then full Hearing/share/replay/offline and 320px/RTL checks plus final preview sheets. Recheck remaining old surface references; no completion inferred from this focused check.
+- Local preview: 127.0.0.1:62527/play, serve-build.py. Trunk needs NO_COLOR=true, DEVELOPER_DIR=/Library/Developer/CommandLineTools, PUBLIC_URL=/play; do not use Trunk --offline (it fails to select cached wasm-bindgen 0.2.106).

@@ -1,6 +1,6 @@
 # Visual-world image production — approval package
 
-**Status: ready for your review; production is not approved.**
+**Status: approved by the user on 2026-09-21 for the bounded production and integration scope below.**
 
 Worktree: `/Users/vanna/Source/Dystrail-worktrees/visual-world-recovery`. Local commits and standalone recovery bundles are retained outside temporary storage.
 
@@ -82,4 +82,4 @@ These rules implement the user's existing constraints. Numerical staging proposa
 
 Recover and integrate preserved code before rebuilding it. Validate real scene rendering and surviving-crew continuity; preserve Hearing, localization, qualitative options, save/import, replay and offline updates. Run relevant checks after changes, not repeated broad tests on unchanged code. Deliver a committed release candidate, desktop/mobile preview sheets and an accurate report of every remaining issue. Do not deploy without separate approval.
 
-**Approval requested:** this bounded reuse/layout plan and up to 13 one-attempt atlas images. Existing holds and any new failures remain for your review; approving production does not waive the quality requirements.
+**Approval received:** this bounded reuse/layout plan and up to 13 one-attempt atlas images. Existing holds and any new failures remain for your review; approving production does not waive the quality requirements.
