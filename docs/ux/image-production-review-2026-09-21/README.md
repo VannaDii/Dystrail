@@ -1,50 +1,64 @@
-# Image production specification — review draft
+# Visual-world image production — approval package
 
-September 21, 2026. Planning only. No game files changed and no images generated in this resumption.
+**Status: ready for your review; production is not approved.**
 
-## Current decision gate
+Worktree: `/Users/vanna/Source/Dystrail-worktrees/visual-world-recovery`. Local commits and standalone recovery bundles are retained outside temporary storage.
 
-Recovery is now in the durable worktree `/Users/vanna/Source/Dystrail-worktrees/visual-world-recovery`, with local commits and verified standalone bundles under `/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21`. The historical missing temporary worktree below describes the recovery incident, not the current workspace location.
+## Proposed scope
 
-All **644 source records** remain accounted for, including **36 inactive dependencies**. The necessary-image list is **not yet production-ready**. The ledger distinguishes inspected candidates, incomplete compositions, staging classifications and unresolved asset selection.
+- Reuse the six retained feminine/neutral cast sheets, vehicle body/mask, suitable regional backgrounds and inspected scene cells.
+- Correct seating, proportions, captions, lighting/weather, localized billboards and scene composition in code. Preserve approved UI/stat designs, actual crew, and Hearing reports/mechanics.
+- Generate **at most 13 atlas images**, each **1536×1024**, four **768×512** scenes per atlas. These cover 52 selected visual compositions. One attempt per approved image; skip any image that becomes unnecessary. No automatic retries, renamed retries, separate mobile versions or per-locale paintings.
+- Keep existing failed/mismatched candidates unused for personal review. The recovered freezer scene avoids a new attempt; the earlier freezer/leaflet mismatch is explicitly held, not regenerated.
+- Preserve all 644 source records, with all 36 mechanics-dependent records inactive. Shared settings carry dialogue-led jokes; the selected visual compositions carry their essential actions.
 
-**Staging approach approved by the user:** illustrate the visual joke when central to understanding the encounter; reuse appropriate settings when dialogue carries the joke. Give departures, major events and the Hearing distinctive presentation. Preserve smaller prop suggestions without automatically making them production requirements.
+Approval is for this bounded production and integration work. It does not authorize deployment, extra generations, new mechanics or a redesigned interface.
 
-This resolves the staging-choice blocker. It does not approve image production, activate mechanics, discard compatible satire, or relax quality rules. Complete the finite necessary-image list and obtain approval before production. Reuse suitable images; at most one generation attempt per necessary image, with failures left for user review.
+## Exact new-image list
 
-The first six applications distinguish two essential visual compositions (the refrigerator wearing a tie and inspection of a wallet) from four dialogue-led town scenes. Asset selection remains pending; no new generation is yet specified or authorized.
+| Image | Top left | Top right | Bottom left | Bottom right |
+| --- | --- | --- | --- | --- |
+| selected-satire-01 | ENC-C09-C / counter | ENC-C10-B / room | ENC-C10-C / room | ENC-C11-C / counter |
+| selected-satire-02 | ENC-C12-C / counter | ENC-C14-A / outdoor | ENC-C16-B / outdoor | ENC-C16-C / room |
+| selected-satire-03 | ENC-C18-B / outdoor | ENC-D01-C / counter | ENC-D04-C / counter | ENC-D06-B / counter |
+| selected-satire-04 | ENC-D09-A / outdoor | ENC-D12-C / counter | ENC-D13-A / counter | ENC-S03-B / room |
+| selected-satire-05 | ENC-S05-A / counter | ENC-S09-A / outdoor | ENC-S09-C / outdoor | ENC-S10-A / outdoor |
+| selected-satire-06 | ENC-S11-A / outdoor | ENC-S13-A / counter | ENC-S14-A / doorway | ENC-S16-B / counter |
+| selected-satire-07 | ENC-S16-C / doorway | ENC-S17-A / room | ENC-S17-B / outdoor | ENC-S18-A / room |
+| selected-satire-08 | ENC-S19-B / room | ENC-S20-B / counter | ENC-S21-B / counter | ENC-S22-B / counter |
+| selected-satire-09 | ENC-S23-A / outdoor | ENC-S24-A / room | ENC-S24-B / room | ENC-S24-C / room |
+| selected-satire-10 | ENC-S26-B / counter | ENC-S27-B / room | ENC-S30-C / outdoor | ENC-S32-B / outdoor |
+| selected-satire-11 | ENC-S33-A / outdoor | ENC-S33-B / doorway | ENC-S34-B / room | TOWN-01-A / outdoor |
+| selected-satire-12 | TOWN-03-C / outdoor | TOWN-14-A / outdoor | TOWN-14-B / room | TOWN-23-C / room |
+| selected-satire-13 | TOWN-29-C / outdoor | TOWN-34-C / counter | TOWN-35-B / counter | TOWN-44-A / counter |
 
-## Production limit
+Each panel’s source action, camera, principal subject/prop rectangles, contact line and caption reserve are specified in [scene specifications](scene-cell-review.md), under “Draft new-art portion,” and in `review/recovery/scene-cell-review.json` → `production_proposal`. Cells are independent scenes in reading order, with no gutters or art crossing their boundaries. A failed cell does not authorize a second attempt on another sheet.
 
-- Reuse suitable existing images unchanged. A narrative variant, locale, outcome, time of day, or viewport does not by itself justify another image.
-- Generate only an individually specified, necessary image. At most one attempt for that image; zero attempts when existing material suffices.
-- No automatic correction passes, retries, alternate versions, or renamed replacements for a failed attempt. Preserve it for the user's review and continue independent work.
-- Do not generate from this draft. First finish the asset decisions and review the specification with the user. Work remains single-agent.
+## Reuse, dimensions and placement
 
-## Current evidence and recovery issue
+| Surface | Dimensions and placement | Work required |
+| --- | --- | --- |
+| Six crew sheets | Each 1774×887; 4×2 cells; uniform logical rendering at 2048×1024 | Reuse expressions and body poses; preserve identities and actual roster |
+| Van | 1536×1024 original with existing mask; six disjoint seat areas and explicit head/hand targets | Layout only; no new van or seating image |
+| Regional roads | 1536×1024; coherent side-view van/crew composition | Reuse actual route region; exclude fixed old crew, religious imagery and incompatible baked lighting |
+| Shared interiors | Exact 512-square or 512×256 atlas crops, contained at native aspect | Reuse only for a compatible setting; do not stretch to 3:2 |
+| Hearing room | Retained 768×512 courtroom cell | Consume existing report/phases; actual arrivals only; no probability/round changes |
+| Billboards | Native sign geometry; master face `[944,344,448,176]`, live text safe area `[968,360,400,144]` | Editable localized copy; zero generated sign images |
+| Time/weather | Actual saved clock, shared presentation layers | No new time-of-day paintings, no indoor rain, UI above tints |
 
-The registered feature worktree `/private/tmp/dystrail-art-satire` is absent. Git reports its registration as prunable. Its branch still points to `c56bc90`; this does not preserve the uncommitted integration work. The main checkout remains at `f1ed4fe` with Hearing changes and other existing modifications; those were not changed by this inventory.
+[Core layout specification](core-surface-review.md) supplies original paths, exact seat masks, pixel/camera/proportion rules and desktop/mobile placement. The JSON `shared_context_catalog` lists exact retained image paths and crop rectangles; `records` records every source disposition and explicit hold. These numerical specifications are proposals to validate in the running build, not a claim of visual acceptance.
 
-There are **176 retained generated PNGs** in the thread's generated-images directory. [The inventory](retained-images.csv) records every original path, exact source dimensions, SHA-256, candidate filename mapping, disposition, and generation count. It neither transforms nor copies the art. Recorded history now yields filename information for 123 images, including 89 with explicit structured mapping evidence; 53 lack a recovered filename mapping. All 176 original generation briefs have been recovered. Some filenames have multiple historical versions. A recovered filename is not evidence of acceptance or current use.
+## Desktop and mobile rules
 
-Open the [browsable inventory](image-inventory.html) for every retained original, its exact dimensions, hash, original composition brief, filename evidence, and current review hold. Images are unchanged and loaded only for inspection.
+Use the same composition and camera at every viewport. Scale whole scenes uniformly; no phone-only giant van or NPC. Preserve the crop’s native aspect. Keep captions over the image at bottom-left, with no supplementary bust. Verify at 1440px desktop and 390px/320px phones, including long/RTL text and reduced motion. Existing UI/stat components remain authoritative.
 
-All 176 are held for reuse/review, with **zero new generation requests**. This is an inventory of retained files, not a completed list of necessary production assets. Recovery has extracted 262 historical file candidates, including briefs and source metadata, without executing the old commands. Of the recorded file events, 166 could not be applied with an exact known base/context. These are not restored current source. The missing final integration catalog and unresolved scene bindings still prevent a complete necessary-production list. Do not replace the missing worktree by regenerating its images.
+For the 3:2 new panels, a 390px-wide scene is 260px tall and a 320px-wide scene is about 213px tall. Essential action must remain readable above its caption. If composition or text fails review, fix layout where possible; do not automatically regenerate artwork.
 
-The surviving content checklist contains 644 editorial records. It is not a request for 644 illustrations. The 36 records depending on unapproved encounter mechanics remain outside active image production.
+## Held images and failures
 
-## Required fields for each necessary image
+The [retained-original gallery](image-inventory.html) contains all 176 originals for inspection. Its historical labels are not production approval; current decisions live in the linked specifications and JSON ledger.
 
-No image enters production without a row containing:
-
-1. Stable asset ID and exact scene/state IDs it serves; the essential visual action or joke.
-2. Existing original/reference and a concrete reason reuse cannot satisfy the scene.
-3. Disposition: **reuse unchanged**, **layout/code correction**, **user review**, or **one generation needed**.
-4. Exact output width and height; aspect ratio; transparency; any atlas cell dimensions and safe gutters. Retain suitable originals at their current dimensions.
-5. Camera type, horizon/vanishing point if applicable, ground-contact line, depth planes, and bounding boxes for all principal figures, vehicle, props, and caption exclusion area.
-6. Cast identities and allowed poses; which actors must be runtime layers because they can be absent.
-7. Desktop and phone fit/crop rules; the focal action must survive both. No separate phone painting unless the existing image demonstrably cannot serve both.
-8. Forbidden elements, state-specific differences, localized text surfaces, source reference, and maximum one attempt. Record the result without silently changing the brief.
+Do not bind a candidate carrying religious symbols, wrong cast, incompatible staging, painterly style or broken proportions simply because it exists. A dialogue-led scene can use a suitable shared setting. A missing essential visual remains a visible acceptance issue for your review. No future generation is silently added to this list.
 
 ## Hard visual rules
 
@@ -63,72 +77,9 @@ These rules implement the user's existing constraints. Numerical staging proposa
 - **Responsive layout preserves geometry.** Scale a coherent composition together. Do not independently alter the van, people, or booth at phone breakpoints. Do not mirror editable lettering or a vehicle whose handedness matters.
 - **One review, no image rescue loop.** Inspect the generated result once against its brief, record defects, and leave failed output for the user. Layout bugs are not permission to generate another image.
 
-## Proposed measurable staging baseline
 
-This is a proposed reference for new or genuinely replacement roadside scenes, not permission to resize existing accepted art or redesign the UI.
+## Acceptance after approval
 
-| Item | Proposed requirement |
-| --- | --- |
-| Single roadside/checkpoint scene master | 1536 × 1024 px, 3:2; no atlas unless individually specified |
-| Pixel construction | Coherent 384 × 256 logical grid at 4× master size; match references before accepting |
-| Camera | Level side view for the road and van; verticals upright; no wide-angle distortion |
-| Human/van anchor | Representative adult 1.70 m; van body 4.80 m long × 2.10 m tall, excluding luggage |
-| Same-depth size ratios | Adult height about 35% of van body length and 81% of body height; varied adult heights 1.55–1.90 m; within 10% of the declared scene projection |
-| Architecture anchors | Counter 0.9–1.1 m; door 2.0–2.2 m; booth interior tall enough for its actual occupant; no giant clerk in a tiny building |
-| Body construction | Preserve the approved cast’s stylized body/head proportions; do not impose realistic anatomy or alter identity. Occupants’ heads fit within windows at the same vehicle scale |
-| Scene planning coordinates | Every principal object gets an explicit rectangle and contact point in the 1536 × 1024 master; depth offsets documented before generation |
-| Caption reserve | Initial planning reserve x=48–1056, y=820–992, kept quiet; confirm against actual localized caption height before approving the image brief |
-| Desktop/phone | Same image and camera. Validate 1440 px desktop and 390/320 px phone layouts, plus long/RTL and enlarged text; fit the scene before considering crops |
+Recover and integrate preserved code before rebuilding it. Validate real scene rendering and surviving-crew continuity; preserve Hearing, localization, qualitative options, save/import, replay and offline updates. Run relevant checks after changes, not repeated broad tests on unchanged code. Deliver a committed release candidate, desktop/mobile preview sheets and an accurate report of every remaining issue. Do not deploy without separate approval.
 
-Do not use a single forced horizon or van position across interiors, close-ups, portraits, and outdoor scenes. Those need their own declared camera and dimensions. Never apply the physical size ratios to a headshot; they apply to people and vehicles sharing a world scene.
-
-## Reuse decisions by game surface
-
-| Surface | Default decision | What could justify a new image |
-| --- | --- | --- |
-| Six main characters and existing expression sheets | Recover selected originals; preserve identity and atlas geometry | A specific missing required pose or a user-rejected identity after the retained alternatives are checked |
-| Van and seating | Reuse vehicle; correct seat positions, masks, and surviving roster in code | Vehicle art itself cannot support physically separate seats; specify the exact missing asset first |
-| Road, stopped-road, regional scenery | Reuse route scenery with shared time/weather layers | A required region lacks suitable art, not merely a different hour or outcome |
-| Billboards | Reuse/create simple native sign geometry and live localized copy | A necessary illustrated joke cannot be expressed with existing art or sign treatment |
-| Encounter/town/activity satire | Reuse the correct setting and props across compatible variants | The narrative requires a genuinely different visible action/setting; bind it to exact source units |
-| Crossing passage/diversion/failure | Reuse setting; preserve vehicle scale and animate/move actual layers | A necessary prop/pose is missing; a new entire image for each outcome is not the default |
-| Policy announcements | Reuse retained bulletin art and approved presentation | A specific order lacks a suitable illustration after existing sheets are reconciled |
-| Care, repairs, ally departures | Reuse settings and state-aware cast/props | A distinct necessary action cannot be represented faithfully by those layers |
-| Hearing and endings | Preserve Hearing work, chamber, expression selection, and actual report/state | A confirmed missing visual beat; copy variants alone do not justify separate endings art |
-| Logos, item icons, utility/reference records | Keep suitable existing assets | An identified defect within this feature's scope |
-
-## Known last-batch crossing originals
-
-All nine are retained at **1536 × 1024**. All are **user-review/reuse candidates**, not approved replacements and not requests to generate again. The original filenames and hashes are in the retained inventory; UUIDs identify those originals even while the worktree is absent.
-
-| Intended asset | Source UUID | Required composition/meaning |
-| --- | --- | --- |
-| crossing-map-v2 | e463d6a5-198d-4845-8d09-ad0cac4babd7 | Official holds the map visibly at arm's length; map stays a hand-sized prop, with no oversized official |
-| crossing-map-folded-v2 | 459b161a-18eb-4e55-a8c7-ea0a57bedc54 | Same official/camera/booth; folded-map passage state |
-| crossing-folder-v2 | 1ed732d3-1461-4659-ab01-af50f58e54f7 | Official compares thick folder and thin booklet; both fit hands/counter |
-| crossing-bucket-v2 | cf2c4074-98d7-4275-8943-2b9bc6b42287 | Official works on papers on an inverted bucket; plausible crouch and reachable writing surface |
-| crossing-concrete-v2 | af8f24ed-5993-42d7-82c7-a552bbec470d | Official indicates actual foundation crack; hands, crack, and counter remain unobscured |
-| crossing-documents-v2 | f22b37bf-1f12-44c9-b8df-27a64fc0c363 | Two external figures, matching portrait documents and monitor; human-scale cards, no crew substitution |
-| crossing-clinic-v2 | a1b7c12f-d43a-443d-b8b2-749e6824a718 | Official indicates empty chair; second official handles form; no religious/medical cross symbols |
-| crossing-inspection-v2 | ef63ae16-fd09-4151-9c52-54fee85d7a51 | Crouched inspector reaches the actual van plate; one coherent ground plane and scale |
-| crossing-slots-v2 | bed315bd-0090-46d1-ae5d-eb9774fe3c74 | Wide payment slot and narrow objection slit; separate readable live labels; no overlap on phones |
-
-Previous review reported phone caption/van overlap and slot-label layout problems. Those are not evidence that replacement painting is necessary. The restored candidate must be inspected before choosing layout correction or user review.
-
-## Next decision
-
-Recover the missing worktree/catalog from a retained copy if available. Otherwise reconstruct only the needed asset bindings from recorded evidence, preserving ambiguous files for review. Then replace each unresolved item with a concrete reuse decision or a complete individual image brief. Present the finite list and numerical composition rules for review before any generation or resuming game implementation.
-
-This draft does not claim the full image specification, feature, or release is complete. No generation budget is committed while the required image list remains unresolved.
-
-## Verification for this planning pass
-
-- `sonar analyze secrets docs/content-hit-list.json docs/content-requirements.md progress.md` ran successfully using existing keychain access and reported no issues before those workspace files were read.
-- Original PNG headers provide dimensions; hashes identify unchanged originals. No visual acceptance inferred from headers, filenames, or historical test results.
-- Main-checkout Hearing/game files were not edited. No builds, browser campaigns, generation calls, subagents, commits, or deployment in this planning pass.
-
-## Inspected reuse decisions
-
-[Inspected cast and road decisions](core-surface-review.md) records the first concrete reuse/exclusion batch. These are proposals for approval, not accepted production bindings.
-
-[Scene and shared-surface decisions](scene-cell-review.md) and the machine-readable `review/recovery/scene-cell-review.json` now account for all 644 source records, distinguishing actual inspections, proposals, inactive dependencies, and unresolved staging. Exact selected-candidate crops are recorded where verified; unresolved records deliberately have no invented dimensions or production authorization.
+**Approval requested:** this bounded reuse/layout plan and up to 13 one-attempt atlas images. Existing holds and any new failures remain for your review; approving production does not waive the quality requirements.
