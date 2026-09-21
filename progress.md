@@ -480,3 +480,8 @@ September 14 — standing crew transparency repair:
 
 ## 2026-09-21 — third production sheet
 - selected-satire-03 generated once, original bytes/hash/prompt preserved. Three of thirteen maximum attempts consumed. All four panels held for user review: solid caption bands and mismatched staging; biscuit resembles seal, sandwich misses photo field, filter reflection/proportions need review. No retries and no runtime bindings.
+
+## 2026-09-21 — recovered corrected town/camp atlas
+- Restored unchanged retained original96 (SHA256 813fedcd913da2356e6364561b217490fb550691bb73c0751bb3806b743f1de7) over stale journey-settings-v1. Market sign and camp bag are unmarked on visual inspection. No generation.
+- Corrected overly restrictive road allowlist: inventory explicitly approves suburbs and Great Basin; restored suburbs alternation and both valid overrides. Prairie/foundry remain excluded.
+- Ten journey tests passed; Trunk build7b8ac4f5867c83cc8002 includes137 files. New desktop/mobile camp browser checks passed, verifying exact corrected asset bytes and offline reload. Captures inspected and preserved in settings-checkpoint. This does not accept baked sunset ending cell, all town/camp content, numeric subtitles, or full feature.

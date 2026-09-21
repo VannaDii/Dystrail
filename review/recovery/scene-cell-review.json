@@ -16622,15 +16622,16 @@
   "shared_context_assets": [
     {
       "path": "dystrail-web/static/img/journey/journey-settings-v1.png",
-      "sha256": "6d023c4e0ca2db447a05be3c26ba550482024d8cdd38151804b830d02291d655",
+      "sha256": "813fedcd913da2356e6364561b217490fb550691bb73c0751bb3806b743f1de7",
       "native_canvas": [
         1536,
         1024
       ],
-      "decision": "partial_reuse_only",
-      "finding": "1536×1024, 2 columns × 3 rows. Exclude cell 0 (red cross on booth) and cell 3 (white cross on red kit). Cells 1 and 2 are regional context candidates. Cell 4 contains baked sunset and ballot-box staging, unsuitable for arbitrary arrival time. Cell 5 is a real rest-area candidate only; not a universal failed-ending location.",
-      "production_authorized": false,
-      "generation_attempts_authorized": 0
+      "decision": "reuse_corrected_retained_atlas",
+      "finding": "Restored retained correction index96 without generation. Visual inspection: cell0 market sign blank, cell3 camp bag plain red; no religious symbols observed. Cells0-3 and5 remain contextual candidates. Cell4 baked sunset/ballot still unsuitable for arbitrary arrival time. Existing equal-grid crop requires rendered divider review.",
+      "production_authorized": true,
+      "generation_attempts_authorized": 0,
+      "retained_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a08221a6-a499-44be-a0eb-d0d342341cb2.png"
     },
     {
       "path": "dystrail-web/static/img/journey/western-settings-v1.png",

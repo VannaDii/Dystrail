@@ -70,13 +70,14 @@ pub fn asset_name(deep: bool, stage: &SceneStage) -> Option<&'static str> {
 mod encounters;
 
 #[must_use]
-pub const fn road_asset(region: Region, _day: u32) -> &'static str {
+pub const fn road_asset(region: Region, day: u32) -> &'static str {
     match region {
         Region::PacificCoast => "open-pacific-northwest",
         Region::MountainWest => "open-mountain-west",
         Region::Southwest => "open-southwest-desert",
         Region::Heartland => "open-heartland-orchard",
         Region::RustBelt => "open-rustbelt-lakeside",
+        Region::Beltway if day % 2 == 0 => "open-beltway-suburbs",
         Region::Beltway => "open-beltway-parkway",
     }
 }
@@ -91,6 +92,8 @@ fn reviewed_road(region: Region, day: u32, requested: Option<&str>) -> &'static 
         Some("open-heartland-orchard") => "open-heartland-orchard",
         Some("open-rustbelt-lakeside") => "open-rustbelt-lakeside",
         Some("open-beltway-parkway") => "open-beltway-parkway",
+        Some("open-beltway-suburbs") => "open-beltway-suburbs",
+        Some("open-great-basin") => "open-great-basin",
         _ => road_asset(region, day),
     }
 }
@@ -144,11 +147,6 @@ mod tests {
                     "open-rustbelt-foundry",
                     "open-rustbelt-lakeside",
                 ),
-                (
-                    Region::Beltway,
-                    "open-beltway-suburbs",
-                    "open-beltway-parkway",
-                ),
             ] {
                 assert_eq!(reviewed_road(region, day, Some(excluded)), expected);
                 assert_eq!(reviewed_road(region, day, Some("unknown")), expected);
@@ -166,10 +164,22 @@ mod tests {
 
     #[test]
     fn roads_use_reviewed_regional_art_without_rng() {
-        for region in [Region::Heartland, Region::RustBelt, Region::Beltway] {
+        for region in [Region::Heartland, Region::RustBelt] {
             assert_eq!(road_asset(region, 1), road_asset(region, 2));
             assert_eq!(road_asset(region, 1), road_asset(region, 3));
         }
+        assert_ne!(
+            road_asset(Region::Beltway, 1),
+            road_asset(Region::Beltway, 2)
+        );
+        assert_eq!(
+            reviewed_road(Region::MountainWest, 1, Some("open-great-basin")),
+            "open-great-basin"
+        );
+        assert_eq!(
+            reviewed_road(Region::Beltway, 1, Some("open-beltway-suburbs")),
+            "open-beltway-suburbs"
+        );
         assert_ne!(
             road_asset(Region::Heartland, 1),
             road_asset(Region::RustBelt, 1)
