@@ -1754,5 +1754,68 @@
     "preparation_cash": "Antes de entrar, el grupo comprará algo de comer. Al parecer, testificar da hambre.",
     "no_questions_title": "No hay más preguntas",
     "odds": "Probabilidades"
+  },
+  "road_ad": {
+    "label": "Anuncio de carretera",
+    "clean_air": {
+      "headline": "CLUB DEL AIRE LIMPIO",
+      "copy": "Aire fresco. Tarifa prémium.",
+      "compact": "AIRE LIMPIO"
+    },
+    "public_land": {
+      "headline": "TUS TIERRAS PÚBLICAS",
+      "copy": "Aceptamos ofertas privadas.",
+      "compact": "TU TIERRA"
+    },
+    "energy": {
+      "headline": "INDEPENDENCIA ENERGÉTICA",
+      "copy": "Cables de arranque aparte.",
+      "compact": "ENERGÍA"
+    },
+    "weather": {
+      "headline": "PRONÓSTICO: TRANQUILIDAD",
+      "copy": "Despedimos al termómetro.",
+      "compact": "BUEN CLIMA"
+    },
+    "water": {
+      "headline": "FUTUROS DEL AGUA",
+      "copy": "Tu sed. Nuestra cartera.",
+      "compact": "EL AGUA"
+    },
+    "wellness": {
+      "headline": "BIENESTAR SIN PUBLICAR",
+      "copy": "Las pruebas arruinarían el misterio.",
+      "compact": "BIENESTAR"
+    },
+    "tariffs": {
+      "headline": "PAGAN LOS OTROS PAÍSES",
+      "copy": "Tú pasas por caja.",
+      "compact": "ARANCELES"
+    },
+    "farm": {
+      "headline": "AYUDA AGRÍCOLA",
+      "copy": "Siga esperando. Su cosecha importa.",
+      "compact": "AL CAMPO"
+    },
+    "jobs": {
+      "headline": "LLEGARÁN EMPLEOS",
+      "copy": "El cartel ya tiene puesto fijo.",
+      "compact": "EMPLEOS"
+    },
+    "repair": {
+      "headline": "DERECHO A REPARAR",
+      "copy": "Requiere suscripción.",
+      "compact": "REPARAR"
+    },
+    "access": {
+      "headline": "ACCESO PÚBLICO",
+      "copy": "Pregunte por la entrada de donantes.",
+      "compact": "ACCESO"
+    },
+    "transparency": {
+      "headline": "TRANSPARENCIA TOTAL",
+      "copy": "Ahora en negro opaco.",
+      "compact": "SIN SECRETOS"
+    }
   }
 }

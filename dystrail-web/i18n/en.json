@@ -1754,5 +1754,68 @@
     "preparation_cash": "Before you go in, the crew will buy a bite to eat. Apparently testimony is hungry work.",
     "no_questions_title": "No further questions",
     "odds": "Odds"
+  },
+  "road_ad": {
+    "label": "Roadside advertisement",
+    "clean_air": {
+      "headline": "CLEAN AIR CLUB",
+      "copy": "Fresh air. Premium tier.",
+      "compact": "CLEAN AIR"
+    },
+    "public_land": {
+      "headline": "YOUR PUBLIC LANDS",
+      "copy": "Now accepting private offers.",
+      "compact": "PUBLIC LAND"
+    },
+    "energy": {
+      "headline": "ENERGY INDEPENDENCE",
+      "copy": "Jumper cables sold separately.",
+      "compact": "OUR ENERGY"
+    },
+    "weather": {
+      "headline": "FORECAST: REASSURING",
+      "copy": "We fired the thermometer.",
+      "compact": "GOOD NEWS"
+    },
+    "water": {
+      "headline": "WATER FUTURES",
+      "copy": "Your thirst. Our portfolio.",
+      "compact": "WATER DEALS"
+    },
+    "wellness": {
+      "headline": "UNPUBLISHED WELLNESS",
+      "copy": "Evidence would spoil the mystery.",
+      "compact": "WELLNESS"
+    },
+    "tariffs": {
+      "headline": "FOREIGN COUNTRIES PAY",
+      "copy": "You handle the checkout.",
+      "compact": "TARIFFS"
+    },
+    "farm": {
+      "headline": "FARM RELIEF",
+      "copy": "Please hold. Your crops matter.",
+      "compact": "FARM RELIEF"
+    },
+    "jobs": {
+      "headline": "JOBS ARE COMING",
+      "copy": "The sign has a permanent position.",
+      "compact": "JOBS SOON"
+    },
+    "repair": {
+      "headline": "RIGHT TO REPAIR",
+      "copy": "Subscription required.",
+      "compact": "REPAIR"
+    },
+    "access": {
+      "headline": "PUBLIC ACCESS",
+      "copy": "Ask about our donor entrance.",
+      "compact": "PUBLIC WAY"
+    },
+    "transparency": {
+      "headline": "TOTAL TRANSPARENCY",
+      "copy": "Now in opaque black.",
+      "compact": "OPEN BOOKS"
+    }
   }
 }

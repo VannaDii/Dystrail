@@ -1,7 +1,9 @@
 //! Stage-specific presentation; artwork never participates in the simulation.
 use crate::game::Region;
 use yew::prelude::*;
+pub mod billboard;
 pub mod composition;
+mod lighting;
 pub(crate) mod parked;
 mod van;
 
@@ -36,6 +38,8 @@ pub struct Props {
     pub moving: bool,
     #[prop_or(1)]
     pub day: u32,
+    #[prop_or_default]
+    pub seed: u64,
     #[prop_or_default]
     pub road_asset: Option<String>,
     #[prop_or(12)]
@@ -101,16 +105,12 @@ pub fn journey_scene(p: &Props) -> Html {
         crate::game::weather::Weather::HeatWave => "heat",
         crate::game::weather::Weather::Smoke => "smoke",
     });
-    let light = match p.hour {
-        0..=5 | 21..=23 => "night",
-        6..=9 => "morning",
-        17..=20 => "dusk",
-        _ => "day",
-    };
+    let light = lighting::profile(p.hour);
     let indoors = name.is_some_and(composition::is_indoors);
     html! { <figure data-weather={weather} data-time={light} data-hour={p.hour.to_string()} data-indoors={indoors.to_string()} data-scene={name.unwrap_or("unillustrated").to_owned()} class={classes!("journey-scene",road.then_some("scene-road"),p.moving.then_some("scene-moving"))}>
         <div class="scene-art" aria-hidden="true">
             if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-prairie")))} alt="" decoding="sync" width="1536" height="1024" />})}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
+            if let SceneStage::Travel(region) = p.stage {{billboard::render(billboard::selected(region, p.seed, p.day), p.day)}}
             if stopped {{parked::render(p.party.as_ref())}} else if road {<van::CrewVan party={p.party.clone()} />}
             if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-prairie")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
             <div class="scene-light"></div>

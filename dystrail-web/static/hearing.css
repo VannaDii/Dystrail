@@ -145,3 +145,20 @@
 .world-view .scene-road .standing-member:nth-child(6) { --slot:5; }
 .world-view .scene-road .road-foreground .scene-background { mask-size:100% 100%; mask-position:center; }
 @keyframes van-drive { from { left:13.020833%; } to { left:58.59375%; } }
+
+/* Billboard geometry follows the approved native road coordinates. */
+.road-billboard { position:absolute; left:61.458333%; top:33.59375%; width:29.166667%; height:30.46875%; z-index:0; container-type:inline-size; color:#18252b; }
+.billboard-panel { position:absolute; inset:0 0 auto; height:56.410256%; box-sizing:border-box; border:4px solid #354149; background:#f2dfb1; box-shadow:3px 3px 0 #0c1c29; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:2% 5%; gap:3px; overflow:hidden; }
+.billboard-panel strong { font:800 clamp(12px,5.2cqw,24px)/1.12 var(--title-font); overflow-wrap:anywhere; }
+.billboard-label { display:none; }
+.billboard-copy { font:600 clamp(12px,4.2cqw,19px)/1.2 var(--body-font); }
+.billboard-post { position:absolute; top:56.410256%; width:4.464286%; height:43.589744%; background:#59636a; border-inline:2px solid #263641; box-sizing:border-box; }
+.billboard-post.post-left { left:8.928571%; }
+.billboard-post.post-right { left:86.607143%; }
+.billboard-timber .billboard-post { background:#876343; border-color:#4b382b; }
+@media(max-width:700px) { .billboard-copy { display:none; } .billboard-panel { border-width:2px; padding:0 3%; } .billboard-panel strong { font-size:12px; } }
+.journey-scene[data-time=afternoon] .scene-light { background:linear-gradient(110deg,#f4bc4b18,transparent 75%); }
+.journey-scene[data-weather=heat] .weather-atmosphere { backdrop-filter:none; }
+
+.billboard-headline-compact { display:none; }
+@media(max-width:700px) { .billboard-headline-full { display:none; } .billboard-headline-compact { display:block; } }
