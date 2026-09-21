@@ -119,4 +119,4 @@ This draft does not claim the full image specification, feature, or release is c
 
 [Inspected cast and road decisions](core-surface-review.md) records the first concrete reuse/exclusion batch. These are proposals for approval, not accepted production bindings.
 
-[Ally and care cell reconciliation](scene-cell-review.md) covers all 42 records, including exact native crop rectangles and current-source mismatches. These decisions remain subject to production approval.
+[Scene and shared-surface decisions](scene-cell-review.md) now covers 149 records: 42 ally/care scenes, 18 policy scenes, 12 repair component recipes, and 77 functional-surface proposals. It includes native crop rectangles, source mismatches and explicit religious-art exclusions. These are approval proposals, not finished runtime coverage.

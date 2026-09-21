@@ -10335,8 +10335,13 @@
         "Editable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it; “Peace through strength” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-DEREGULATE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-DEREGULATE-B",
@@ -10359,8 +10364,13 @@
         "Editable overlays: “Reorganization” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-DEREGULATE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-DEREGULATE-C",
@@ -10383,8 +10393,13 @@
         "Editable overlays: “Department of War” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-DEREGULATE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-GAG-A",
@@ -10407,8 +10422,13 @@
         "Editable overlays: “Approved free thinking” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Anti-indoctrination and patriotic education"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-GAG-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-GAG-B",
@@ -10431,8 +10451,13 @@
         "Editable overlays: “CLASSICAL GRANDEUR” — Blank homemade pediment",
         "Source: Executive Order 14344: Making Federal Architecture Beautiful Again (2025-08-28)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-GAG-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-GAG-C",
@@ -10455,8 +10480,13 @@
         "Editable overlays: “Emergency guidance” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Anti-indoctrination and patriotic education"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-GAG-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-MILITARIZE-A",
@@ -10479,8 +10509,13 @@
         "Editable overlays: “Security inspection” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: 2025 entry restrictions and extreme vetting"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-MILITARIZE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-MILITARIZE-B",
@@ -10503,8 +10538,13 @@
         "Editable overlays: “Travel restriction” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: 2025 entry restrictions and extreme vetting"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_change",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-MILITARIZE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-MILITARIZE-C",
@@ -10527,8 +10567,13 @@
         "Editable overlays: “Extreme vetting” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: 2025 entry restrictions and extreme vetting"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-MILITARIZE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-SHUTDOWN-A",
@@ -10551,8 +10596,13 @@
         "Editable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-SHUTDOWN-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-SHUTDOWN-B",
@@ -10575,8 +10625,13 @@
         "Editable overlays: “Government closed” — Separate editable overlay on the indicated blank prop or beside it; “Donate” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-SHUTDOWN-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-SHUTDOWN-C",
@@ -10599,8 +10654,13 @@
         "Editable overlays: “Government shutdown” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-SHUTDOWN-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TARIFFS-A",
@@ -10623,8 +10683,13 @@
         "Editable overlays: “Foreign countries pay” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TARIFFS-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TARIFFS-B",
@@ -10647,8 +10712,13 @@
         "Editable overlays: “Tariff surcharge” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TARIFFS-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TARIFFS-C",
@@ -10671,8 +10741,13 @@
         "Editable overlays: “Protected market” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TARIFFS-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TAXCUTS-A",
@@ -10695,8 +10770,13 @@
         "Editable overlays: “Department closed” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Education Department dismantling direction"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TAXCUTS-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TAXCUTS-B",
@@ -10719,8 +10799,13 @@
         "Editable overlays: “School of hard knocks” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Education Department dismantling direction"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TAXCUTS-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-TAXCUTS-C",
@@ -10745,8 +10830,13 @@
         "Breakdowns & repairs",
         "12 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ORDER-TAXCUTS-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-ALTERNATOR-A",
@@ -10775,8 +10865,13 @@
         "Scene: Traveler calls a mechanic beside the stopped van; a blank part quote and a small wallet lie by the exposed alternator.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-ALTERNATOR-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-ALTERNATOR-B",
@@ -10805,8 +10900,13 @@
         "Scene: Failed alternator framed beneath the open hood; multiple unlettered cables lead from it toward the van’s devices.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-ALTERNATOR-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-ALTERNATOR-C",
@@ -10835,8 +10935,13 @@
         "Scene: Travelers study the failed alternator beside a radio carrying an unseen fundraiser announcement; no invented dinner attendance.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-ALTERNATOR-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-BATTERY-A",
@@ -10865,8 +10970,13 @@
         "Scene: Open hood above the dead battery; a traveler holds a blank notepad like an absurd performance appraisal. Do not show a fitted replacement yet.",
         "Source: DOGE five-accomplishments emails"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-BATTERY-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-BATTERY-B",
@@ -10895,8 +11005,13 @@
         "Scene: Dark dashboard, silent radio and a phone still playing a speech beside an open hood. All displays blank for overlays.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-BATTERY-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-BATTERY-C",
@@ -10925,8 +11040,13 @@
         "Scene: Two clearly visible battery terminals beneath the van’s open hood, with a traveler glancing from them toward a blank radio.",
         "Source: Trump anti-DEI actions"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-BATTERY-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-FUELPUMP-A",
@@ -10955,8 +11075,13 @@
         "Scene: Stopped van with a fuel-pump diagram on a blank repair sheet; traveler points between the actual tank area and engine. No spilling fuel.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-FUELPUMP-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-FUELPUMP-B",
@@ -10985,8 +11110,13 @@
         "Scene: Traveler holds a blank pump quote beside the stopped van, with the empty tool position and closed wallet making the unresolved repair clear.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-FUELPUMP-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-FUELPUMP-C",
@@ -11015,8 +11145,13 @@
         "Scene: Traveler peers skeptically at the harmless tailpipe before returning to a blank fuel-system diagram; the van is safely stopped, with no leak or explosion.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-FUELPUMP-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-TIRE-A",
@@ -11045,8 +11180,13 @@
         "Scene: Stopped van with a failed tire below a blank luxury political billboard. A strip of tread lies beneath the smiling suited figure.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-TIRE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-TIRE-B",
@@ -11075,8 +11215,13 @@
         "Scene: Traveler compares a blown tire with a blank quote on a phone; tire, wallet and waiting van form the scene.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-TIRE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "REPAIR-TIRE-C",
@@ -11107,8 +11252,13 @@
         "Gather, work, barter, rest",
         "24 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "inspected_reuse_component_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "REPAIR-TIRE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERBATTERY-A",
@@ -13548,8 +13698,13 @@
         "Source: D.C. context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-D-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-LOS-ANGELES",
@@ -13568,8 +13723,13 @@
         "Source: Los Angeles context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-LOS-ANGELES",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-PORTLAND",
@@ -13588,8 +13748,13 @@
         "Source: Portland context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-PORTLAND",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-SACRAMENTO",
@@ -13608,8 +13773,13 @@
         "Source: Sacramento context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-SACRAMENTO",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-SAN-DIEGO",
@@ -13628,8 +13798,13 @@
         "Source: San Diego context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-SAN-DIEGO",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-SAN-FRANCISCO",
@@ -13648,8 +13823,13 @@
         "Source: San Francisco context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-SAN-FRANCISCO",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-SEATTLE",
@@ -13668,8 +13848,13 @@
         "Source: Seattle context source (2026-09-11)",
         "documented"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_regional_context",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CONTEXT-SEATTLE",
+        "production_authorized": false
+      }
     },
     {
       "id": "MODE-C",
@@ -13686,8 +13871,13 @@
         "Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity.",
         "Scene: The familiar ordinary van on a readable road with a modest supply stop and open horizon; political absurdity suggested through an oversized empty official sign."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_mode_composition",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "MODE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "MODE-D",
@@ -13704,8 +13894,13 @@
         "The same road, a worse reality. Darker satire about attacks on trans rights, abortion restrictions, surveillance abuse, detention, and denied care. Choose this trail to opt in to those themes.",
         "Scene: The familiar van and road in the Deep End palette, with a recognizably stranger accumulation of official barriers and distorted civic scenery; no promise of a specific event."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_mode_composition",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "MODE-D",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-JOURNALIST",
@@ -13722,8 +13917,13 @@
         "Resourceful and credible, with a better chance of finding Receipts. Starts in Seattle.",
         "Scene: An ordinary road traveler with a notebook and practical shoulder bag; blank press credential optional."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-JOURNALIST",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-LOBBYIST",
@@ -13740,8 +13940,13 @@
         "Receives shop and bribe discounts through contacts. Starts in Los Angeles; this does not grant staff or official authority.",
         "Scene: An ordinary traveler with a battered portfolio and a plain contacts notebook; no bodyguard, aide, private car or luxury office."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-LOBBYIST",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-ORGANIZER",
@@ -13758,8 +13963,13 @@
         "Starts with stronger morale and more outside allies; also receives a small bribe discount. Starts in Portland.",
         "Scene: An ordinary traveler arranging a small stack of unlettered contact cards beside communal supplies."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-ORGANIZER",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-SATIRIST",
@@ -13776,8 +13986,13 @@
         "Humor helps sustain sanity. Starts in San Diego.",
         "Scene: An ordinary traveler with a blank notebook and amused expression beside the modest van."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-SATIRIST",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-STAFFER",
@@ -13794,8 +14009,13 @@
         "A balanced start without special bonuses or penalties. Starts in Sacramento.",
         "Scene: An ordinary traveler with a blank checklist and tangled charger, ready to do practical work."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-STAFFER",
+        "production_authorized": false
+      }
     },
     {
       "id": "PERSONA-WHISTLEBLOWER",
@@ -13812,8 +14032,13 @@
         "Finds more Receipts but draws extra executive-order pressure. Starts in San Francisco.",
         "Scene: An ordinary traveler holding a plain evidence folder close, with backup folders in a practical bag."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_inspected_cast",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PERSONA-WHISTLEBLOWER",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-01",
@@ -13834,8 +14059,13 @@
         "Source: Albuquerque attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-01",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-02",
@@ -13856,8 +14086,13 @@
         "Source: Amarillo attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-02",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-03",
@@ -13878,8 +14113,13 @@
         "Source: Austin attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-03",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-04",
@@ -13900,8 +14140,13 @@
         "Source: Billings attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-04",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-05",
@@ -13922,8 +14167,13 @@
         "Source: Boise attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-05",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-06",
@@ -13944,8 +14194,13 @@
         "Source: Cheyenne attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-06",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-07",
@@ -13966,8 +14221,13 @@
         "Source: Chicago attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-07",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-08",
@@ -13988,8 +14248,13 @@
         "Source: Cleveland attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-08",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-09",
@@ -14010,8 +14275,13 @@
         "Source: Columbia attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-09",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-10",
@@ -14032,8 +14302,13 @@
         "Source: Cumberland attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-10",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-11",
@@ -14054,8 +14329,13 @@
         "Source: D.C. attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-11",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-12",
@@ -14076,8 +14356,13 @@
         "Source: Dallas attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-12",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-13",
@@ -14098,8 +14383,13 @@
         "Source: Denver attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-13",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-14",
@@ -14120,8 +14410,13 @@
         "Source: Des Moines attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-14",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-15",
@@ -14142,8 +14437,13 @@
         "Source: El Paso attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-15",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-16",
@@ -14164,8 +14464,13 @@
         "Source: Flagstaff attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-16",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-17",
@@ -14186,8 +14491,13 @@
         "Source: Frederick attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-17",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-18",
@@ -14208,8 +14518,13 @@
         "Source: Hagerstown attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-18",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-19",
@@ -14230,8 +14545,13 @@
         "Source: Iowa City attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-19",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-20",
@@ -14252,8 +14572,13 @@
         "Source: Joplin attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-20",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-21",
@@ -14274,8 +14599,13 @@
         "Source: Kansas City attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-21",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-22",
@@ -14296,8 +14626,13 @@
         "Source: La Crosse attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-22",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-23",
@@ -14318,8 +14653,13 @@
         "Source: Las Vegas attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-23",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-24",
@@ -14340,8 +14680,13 @@
         "Source: Los Angeles attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-24",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-25",
@@ -14362,8 +14707,13 @@
         "Source: Madison attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-25",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-26",
@@ -14384,8 +14734,13 @@
         "Source: Minneapolis attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-26",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-27",
@@ -14406,8 +14761,13 @@
         "Source: Missoula attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-27",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-28",
@@ -14428,8 +14788,13 @@
         "Source: North Platte attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-28",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-29",
@@ -14450,8 +14815,13 @@
         "Source: Oklahoma City attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-29",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-30",
@@ -14472,8 +14842,13 @@
         "Source: Omaha attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-30",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-31",
@@ -14494,8 +14869,13 @@
         "Source: Phoenix attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-31",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-32",
@@ -14516,8 +14896,13 @@
         "Source: Pittsburgh attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-32",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-33",
@@ -14538,8 +14923,13 @@
         "Source: Portland attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-33",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-34",
@@ -14560,8 +14950,13 @@
         "Source: Rapid City attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-34",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-35",
@@ -14582,8 +14977,13 @@
         "Source: Reno attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-35",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-36",
@@ -14604,8 +15004,13 @@
         "Source: Sacramento attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-36",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-37",
@@ -14626,8 +15031,13 @@
         "Source: Salt Lake City attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-37",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-38",
@@ -14648,8 +15058,13 @@
         "Source: San Antonio attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-38",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-39",
@@ -14670,8 +15085,13 @@
         "Source: San Diego attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-39",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-40",
@@ -14692,8 +15112,13 @@
         "Source: San Francisco attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-40",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-41",
@@ -14714,8 +15139,13 @@
         "Source: Seattle attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-41",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-42",
@@ -14736,8 +15166,13 @@
         "Source: Sioux Falls attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-42",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-43",
@@ -14758,8 +15193,13 @@
         "Source: South Bend attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-43",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-44",
@@ -14780,8 +15220,13 @@
         "Source: Spokane attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-44",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-45",
@@ -14802,8 +15247,13 @@
         "Source: Springfield, IL attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-45",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-46",
@@ -14824,8 +15274,13 @@
         "Source: Springfield, MO attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-46",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-47",
@@ -14846,8 +15301,13 @@
         "Source: St. Louis attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-47",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-48",
@@ -14868,8 +15328,13 @@
         "Source: Toledo attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-48",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-49",
@@ -14890,8 +15355,13 @@
         "Source: Tucson attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-49",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-50",
@@ -14912,8 +15382,13 @@
         "Source: Tulsa attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-50",
+        "production_authorized": false
+      }
     },
     {
       "id": "PROFILE-51",
@@ -14934,8 +15409,13 @@
         "Source: Waco attraction reference",
         "Attraction description retained from the sourced project profile."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_existing_text_profile_no_new_illustration",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "PROFILE-51",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-ALTERNATOR",
@@ -14952,8 +15432,13 @@
         "One spare alternator. Restores the failed charging component when fitted during its matching breakdown.",
         "Scene: Clean inventory cutout of Alternator on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-ALTERNATOR",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-BATTERY",
@@ -14970,8 +15455,13 @@
         "One spare battery. Can be fitted when the battery fails; it is not an alternator.",
         "Scene: Clean inventory cutout of Battery on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-BATTERY",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-COATS",
@@ -14988,8 +15478,13 @@
         "Warm coats protect against cold’s sanity cost and health damage from prolonged cold exposure.",
         "Scene: Clean inventory cutout of Warm Coats on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-COATS",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-FUEL_PUMP",
@@ -15006,8 +15501,13 @@
         "One spare fuel pump. Fits a fuel-pump breakdown; it does not add fuel or repair unrelated faults.",
         "Scene: Clean inventory cutout of Fuel Pump on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-FUEL_PUMP",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-LEGAL_FUND",
@@ -15024,8 +15524,13 @@
         "Adds one credibility. Protection from a tariff bulletin depends on the game actually carrying its legal-fund protection tag.",
         "Scene: Clean inventory cutout of Legal Fund on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-LEGAL_FUND",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-MASKS",
@@ -15042,8 +15547,13 @@
         "Carried masks protect against the smoke sanity cost and provide the game’s illness-resistance tag. Other smoke costs still apply.",
         "Scene: Clean inventory cutout of Masks on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-MASKS",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-PONCHOS",
@@ -15060,8 +15570,13 @@
         "Ponchos protect against storm sanity loss. Other storm costs still apply.",
         "Scene: Clean inventory cutout of Ponchos on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-PONCHOS",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-PRESS_PASS",
@@ -15078,8 +15593,13 @@
         "A unique permit item. Where the crossing accepts its tag, it can authorize passage without consuming a Receipt.",
         "Scene: Clean inventory cutout of Press Pass on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-PRESS_PASS",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-RATIONS",
@@ -15096,8 +15616,13 @@
         "Adds three supplies per pack. A practical contribution to the argument that people need to eat.",
         "Scene: Clean inventory cutout of Rations Pack on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-RATIONS",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-SPARE_TIRE",
@@ -15114,8 +15639,13 @@
         "One spare tire. Can be fitted for a tire breakdown; fitting consumes the spare.",
         "Scene: Clean inventory cutout of Spare Tire on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-SPARE_TIRE",
+        "production_authorized": false
+      }
     },
     {
       "id": "SHOP-WATER",
@@ -15132,8 +15662,13 @@
         "Adds two supplies and carries the water-jug protection tag. Water prevents the extra sanity and health costs of prolonged heat.",
         "Scene: Clean inventory cutout of Water Jugs on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_reuse_existing_item_cutout",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "SHOP-WATER",
+        "production_authorized": false
+      }
     }
   ]
 }

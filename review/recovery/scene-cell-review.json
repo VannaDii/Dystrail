@@ -1134,6 +1134,2456 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CONTEXT-D-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for D.C., using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-LOS-ANGELES",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for Los Angeles, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-PORTLAND",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for Portland, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-SACRAMENTO",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for Sacramento, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-SAN-DIEGO",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for San Diego, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-SAN-FRANCISCO",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for San Francisco, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "CONTEXT-SEATTLE",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A restrained origin or destination establishing shot for Seattle, using its sourced town-profile attraction where appropriate. An origin shows the six departing travelers; D.C. shows only actual arrivals. Keep all lettering separate."
+      ],
+      "decision": "propose_reuse_regional_context",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Shared regional road camera. No claimed depiction of a specific attraction unless an appropriate reviewed asset exists.",
+      "proportions": "Use the shared road/van/cast scale anchors; no independently enlarged person.",
+      "desktop_mobile": "One regional source and actual-party composition, uniformly scaled; bottom-left caption. Optional attraction vignette remains a review suggestion, not delivered art.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Keep endpoint copy in the existing origin/arrival surface with the current route-appropriate scene, van and actual party. Do not commission a separate landmark illustration merely for this functional record. Six departing travelers at origin; actual survivors at D.C."
+    },
+    {
+      "unit": "MODE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The familiar ordinary van on a readable road with a modest supply stop and open horizon; political absurdity suggested through an oversized empty official sign."
+      ],
+      "decision": "propose_reuse_mode_composition",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Use the same side-on road camera across mode previews; keep van and roadside props on coherent ground planes.",
+      "proportions": "Same van/person ratios in both modes. Deep End styling does not permit giant NPCs or a miniature van.",
+      "desktop_mobile": "Same existing mode-selection surface and uniformly scaled preview, not a redesigned selector or a per-device generation.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Use the ordinary van and crew-free road with editable sign and mode presentation. Exclude old road-classic/road-deep images with baked old crew; preserve existing mode-selection controls."
+    },
+    {
+      "unit": "MODE-D",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The familiar van and road in the Deep End palette, with a recognizably stranger accumulation of official barriers and distorted civic scenery; no promise of a specific event."
+      ],
+      "decision": "propose_reuse_mode_composition",
+      "candidate_original": null,
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Use the same side-on road camera across mode previews; keep van and roadside props on coherent ground planes.",
+      "proportions": "Same van/person ratios in both modes. Deep End styling does not permit giant NPCs or a miniature van.",
+      "desktop_mobile": "Same existing mode-selection surface and uniformly scaled preview, not a redesigned selector or a per-device generation.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Use the ordinary van and crew-free road with editable sign and mode presentation. Exclude old road-classic/road-deep images with baked old crew; preserve existing mode-selection controls."
+    },
+    {
+      "unit": "ORDER-DEREGULATE-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Official renaming ceremony on a roadside screen; the van’s hood sits open in the foreground."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Renaming ceremony on roadside display matches; actual stopped van/open hood still needs composition at coherent scale.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-DEREGULATE-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A pristine blank sign is delivered beside neglected machinery while a traveler listens to the van."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Pristine delivered sign and neglected machinery match; add actual traveler and van only if full composition fits.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-DEREGULATE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Travelers glance at their battered van beside a grand military-name unveiling shown on an unlettered display."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Military-name unveiling on display matches; add actual crew beside their current van, not baked placeholder occupants.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-GAG-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Librarian stands beside a locked book cart and a large blank approved-reading sheet."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse",
+      "finding": "Corrected gray-haired librarian, locked cart and reading sheet match. Use latest retained correction, not earlier head-covering version.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-GAG-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The owner points at cardboard columns around the snack machine while currently present travelers look on; no purchase or attempt to retrieve change is shown. A grand cardboard column stands directly in front of the machine’s small coin-return opening."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Later retained correction moves the extra cardboard column from the snack pickup opening to the small coin-return area. Add only actual present travelers, with no purchase/retrieval action.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-GAG-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A classroom hallway has two buckets beneath roof leaks while a huge blank policy binder sits dry on a shelf."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse",
+      "finding": "Leaking hallway, two buckets and dry oversized binder match.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-MILITARIZE-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Van waits behind a new portable barrier while an officer consults a blank checklist."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Barrier, officer and checklist match; actual van must wait behind the barrier with compatible road perspective. Assembled camera remains unverified.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-MILITARIZE-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler holds blank documents at a checkpoint; the van waits behind them with luggage visible."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        0,
+        768,
+        341
+      ],
+      "decision": "change",
+      "finding": "Retained cell is an indoor service counter, not the specified traveler/documents/van checkpoint. Existing A/C checkpoint cells are alternatives only if exact composition fits.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-MILITARIZE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary domestic road is split by a portable inspection booth; a traveler points toward the same landscape on both sides."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Domestic road, booth and barrier match; add actual traveler pointing across the same landscape without changing scale or stage.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-SHUTDOWN-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Closed public-service windows below a warmly lit political fundraiser; an ordinary worker waits with a lunch bag."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse",
+      "finding": "Closed counters, worker lunch bag and lit fundraiser match. Worker is an external NPC, not a substitute crew member.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-SHUTDOWN-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Dark public-service monitors beside one brightly glowing, blank campaign-donation screen."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Dark monitors and one bright donation screen match; replace baked heart/progress graphic with editable localized presentation.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-SHUTDOWN-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary empty dinner plate sits below oversized negotiation chairs in an illustrative cutaway; no claim of an actual meeting."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse",
+      "finding": "Empty plate and oversized chairs match an editorial cutaway. Do not imply actual crew attendance. Inspect small flag finials during final symbol review.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TARIFFS-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Plain grocery bag sits between an empty wallet and a blank customs invoice."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Grocery bag, empty wallet and invoice match; make any identifying customs copy an editable overlay.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TARIFFS-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Cashier shows a blank receipt long enough to curl around one modest loaf."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse",
+      "finding": "Cashier, long receipt and modest loaf match; keep receipt wording editable.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TARIFFS-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler stretches toward groceries while a tall blank price card visually stands between them."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Groceries and tall blank price panel match; add actual traveler reaching, with the panel visibly intervening.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TAXCUTS-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Empty education office with a lone illuminated, unlettered exit-sign panel above a tiny lectern."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a197569b-2e91-4720-81d0-47072ff12f03.png",
+      "candidate_sha256": "cbc4279998ef1c4eb1ef435b92c76f20c5ae6521767730683b062e25e9b18d61",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Empty education room, small lectern and illuminated blank exit panel match; localize any sign text.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TAXCUTS-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An office door is closed while a student-facing service counter has a blank fee jar and no staff."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png",
+      "candidate_sha256": "921de850db5cd0c818dfeea6ca303f5eb2d439be203cab3cba55a08a25ffa368",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Closed education office, unstaffed counter and blank jar match; localize fee label.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "ORDER-TAXCUTS-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Teacher holds half a pencil before a large empty board; a blank closure notice is pinned beside the door."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png",
+      "candidate_sha256": "678f20d47ce3d502136c3b273ce5a93a04e9dfaa73464570f39e310338f5e48b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Teacher, short pencil, empty board and blank notice match; keep notice editable.",
+      "camera": "Preserve native wide-cell camera and aspect ratio. Added crew/van must share its perspective; if they cannot fit, return the composition to review rather than shrink the van or enlarge people.",
+      "proportions": "Scale by shared scene depth. Screen presenters stay inside the physical display; large editorial negotiation chairs are an explicit cutaway, not ordinary furniture scale.",
+      "desktop_mobile": "Use the same complete native wide cell at both sizes without stretching to 3:2. Preserve required props, editable lettering and bottom-left overlay caption; no new stat layout or portrait bust.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval."
+    },
+    {
+      "unit": "PERSONA-JOURNALIST",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary road traveler with a notebook and practical shoulder bag; blank press credential optional."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-e440f529-aa7b-4569-9619-2407985c6da2.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "8f444641b88b392f3881aa7225b92f0b77abdc705dbd3777cb6683c852e1cb56",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PERSONA-LOBBYIST",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary traveler with a battered portfolio and a plain contacts notebook; no bodyguard, aide, private car or luxury office."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-10125800-62e6-441f-b4bf-ea30e41b6c95.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "1b8c0a56ddd2d991a3f73d7bdda3799a4635353214be70dd38097b5ec3a07fa2",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PERSONA-ORGANIZER",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary traveler arranging a small stack of unlettered contact cards beside communal supplies."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-da782290-9aa5-40d5-92fc-bb2f6fcebe28.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "aded6e6564aac67eb382a230a36b0db8c395380152780c501e060afa638044c9",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PERSONA-SATIRIST",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary traveler with a blank notebook and amused expression beside the modest van."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1d76e05d-3e0d-40e9-a42e-8acd86646638.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "30dc3e5b10d11d1f41bdd3aff81ee5533d0d99dceb5f7305b2e8d6a01bcacfd9",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PERSONA-STAFFER",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary traveler with a blank checklist and tangled charger, ready to do practical work."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-294e7ae1-5c1c-4d85-b956-f5828aeeef84.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "ab376a05428a5d9b159ea5bb154a546fb55ae6b596971a881976a900a0ba7bf3",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PERSONA-WHISTLEBLOWER",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An ordinary traveler holding a plain evidence folder close, with backup folders in a practical bag."
+      ],
+      "decision": "propose_reuse_inspected_cast",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-3cac2b7c-f572-4890-b980-b718cdf93e88.png",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        443.5,
+        443.5
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "a10d0ef4df09adf4f900af7843e020191e2ce92c293dbf021bd3f023433d053f",
+      "finding": "Use the inspected role sheet in the established persona selector. Full cast/pose inventory is in core-surface-review.md; do not create a separate persona painting."
+    },
+    {
+      "unit": "PROFILE-01",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Albuquerque place vignette based on the profile’s sourced attraction: Albuquerque Museum — art and history near Old Town. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-02",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Amarillo place vignette based on the profile’s sourced attraction: Nearby Palo Duro Canyon State Park — red-rock canyon trails. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-03",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Austin place vignette based on the profile’s sourced attraction: The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-04",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Billings place vignette based on the profile’s sourced attraction: Moss Mansion — a historic house museum. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-05",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Boise place vignette based on the profile’s sourced attraction: Idaho State Capitol — the state’s historic seat of government. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-06",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Cheyenne place vignette based on the profile’s sourced attraction: Cheyenne Depot Museum — railroad history in the restored Union Pacific depot. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-07",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Chicago place vignette based on the profile’s sourced attraction: Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-08",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Cleveland place vignette based on the profile’s sourced attraction: The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-09",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Columbia place vignette based on the profile’s sourced attraction: The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-10",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Cumberland place vignette based on the profile’s sourced attraction: The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-11",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact D.C. place vignette based on the profile’s sourced attraction: The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-12",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Dallas place vignette based on the profile’s sourced attraction: Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-13",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Denver place vignette based on the profile’s sourced attraction: Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-14",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Des Moines place vignette based on the profile’s sourced attraction: The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-15",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact El Paso place vignette based on the profile’s sourced attraction: Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-16",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Flagstaff place vignette based on the profile’s sourced attraction: Lowell Observatory — the observatory where Pluto was discovered. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-17",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Frederick place vignette based on the profile’s sourced attraction: Downtown Frederick is known for its clustered church spires. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork.",
+      "source_art_conflict": "Source suggests religious architecture. User explicitly prohibits religious symbols/identifying religious architecture in art; exclude that visual suggestion. Factual text references are not image endorsements."
+    },
+    {
+      "unit": "PROFILE-18",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Hagerstown place vignette based on the profile’s sourced attraction: Jonathan Hager founded the settlement in 1762. His house survives as a city museum. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-19",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Iowa City place vignette based on the profile’s sourced attraction: Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-20",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Joplin place vignette based on the profile’s sourced attraction: Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-21",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Kansas City place vignette based on the profile’s sourced attraction: Kansas City’s many public fountains gave it the nickname City of Fountains. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-22",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact La Crosse place vignette based on the profile’s sourced attraction: Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-23",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Las Vegas place vignette based on the profile’s sourced attraction: The Neon Museum — rescued signs from Las Vegas history. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-24",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Los Angeles place vignette based on the profile’s sourced attraction: Griffith Observatory — astronomy and views across the city. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-25",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Madison place vignette based on the profile’s sourced attraction: Downtown Madison occupies an isthmus between Lakes Mendota and Monona. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-26",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Minneapolis place vignette based on the profile’s sourced attraction: The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-27",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Missoula place vignette based on the profile’s sourced attraction: A Carousel for Missoula — a community-built, hand-carved carousel. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-28",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact North Platte place vignette based on the profile’s sourced attraction: Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-29",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Oklahoma City place vignette based on the profile’s sourced attraction: The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-30",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Omaha place vignette based on the profile’s sourced attraction: The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-31",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Phoenix place vignette based on the profile’s sourced attraction: Heard Museum — American Indian art and culture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-32",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Pittsburgh place vignette based on the profile’s sourced attraction: Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-33",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Portland place vignette based on the profile’s sourced attraction: Washington Park — gardens, museums and wooded trails. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-34",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Rapid City place vignette based on the profile’s sourced attraction: Nearby Mount Rushmore — the carved granite memorial in the Black Hills. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-35",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Reno place vignette based on the profile’s sourced attraction: National Automobile Museum — historic cars and recreated street scenes. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-36",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Sacramento place vignette based on the profile’s sourced attraction: California State Railroad Museum — locomotives and the story of western rail. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-37",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Salt Lake City place vignette based on the profile’s sourced attraction: Natural History Museum of Utah — fossils and the landscapes of the Intermountain West. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-38",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact San Antonio place vignette based on the profile’s sourced attraction: San Antonio Missions — historic mission sites along the river. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork.",
+      "source_art_conflict": "Source suggests religious architecture. User explicitly prohibits religious symbols/identifying religious architecture in art; exclude that visual suggestion. Factual text references are not image endorsements."
+    },
+    {
+      "unit": "PROFILE-39",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact San Diego place vignette based on the profile’s sourced attraction: Balboa Park — museums, gardens and Spanish Colonial Revival architecture. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-40",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact San Francisco place vignette based on the profile’s sourced attraction: The Presidio — a former military post turned national park site. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-41",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Seattle place vignette based on the profile’s sourced attraction: Pike Place Market — the waterfront public market. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-42",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Sioux Falls place vignette based on the profile’s sourced attraction: Falls Park — the waterfalls of the Big Sioux River. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-43",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact South Bend place vignette based on the profile’s sourced attraction: South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-44",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Spokane place vignette based on the profile’s sourced attraction: Riverfront Park — Spokane Falls and the former world’s fair grounds. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-45",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Springfield, IL place vignette based on the profile’s sourced attraction: Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-46",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Springfield, MO place vignette based on the profile’s sourced attraction: The name Route 66 was proposed from Springfield on April 30, 1926. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-47",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact St. Louis place vignette based on the profile’s sourced attraction: The Gateway Arch is 630 feet tall and equally wide at ground level. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-48",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Toledo place vignette based on the profile’s sourced attraction: Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-49",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Tucson place vignette based on the profile’s sourced attraction: Saguaro National Park — giant cacti on both sides of Tucson. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-50",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Tulsa place vignette based on the profile’s sourced attraction: Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "PROFILE-51",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A compact Waco place vignette based on the profile’s sourced attraction: Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young. Keep signs, maps, plaques and building lettering blank for overlays. Do not invent a disaster or closure."
+      ],
+      "decision": "propose_existing_text_profile_no_new_illustration",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Not applicable to text-only records. Existing art retains its original camera.",
+      "proportions": "Preserve established interface and art proportions.",
+      "desktop_mobile": "Keep the same approved responsive surface; do not add a new illustration card or alter stats.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "finding": "Account for this town fact in the existing profile interface. The source vignette suggestion is not a reason to invent a new illustrated UI or commission another painting; retain the source direction for approval review, not as fulfilled artwork."
+    },
+    {
+      "unit": "REPAIR-ALTERNATOR-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler calls a mechanic beside the stopped van; a blank part quote and a small wallet lie by the exposed alternator."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        512,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-ALTERNATOR-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Failed alternator framed beneath the open hood; multiple unlettered cables lead from it toward the van’s devices."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        512,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-ALTERNATOR-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Travelers study the failed alternator beside a radio carrying an unseen fundraiser announcement; no invented dinner attendance."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        512,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-BATTERY-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Open hood above the dead battery; a traveler holds a blank notepad like an absurd performance appraisal. Do not show a fitted replacement yet."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-BATTERY-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Dark dashboard, silent radio and a phone still playing a speech beside an open hood. All displays blank for overlays."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-BATTERY-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Two clearly visible battery terminals beneath the van’s open hood, with a traveler glancing from them toward a blank radio."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-FUELPUMP-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Stopped van with a fuel-pump diagram on a blank repair sheet; traveler points between the actual tank area and engine. No spilling fuel."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        768,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        768,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-FUELPUMP-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler holds a blank pump quote beside the stopped van, with the empty tool position and closed wallet making the unresolved repair clear."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        768,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        768,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-FUELPUMP-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler peers skeptically at the harmless tailpipe before returning to a blank fuel-system diagram; the van is safely stopped, with no leak or explosion."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        768,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        768,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-TIRE-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Stopped van with a failed tire below a blank luxury political billboard. A strip of tread lies beneath the smiling suited figure."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-TIRE-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler compares a blown tire with a blank quote on a phone; tire, wallet and waiting van form the scene."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "REPAIR-TIRE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler points to the good side of the van’s visibly failed tire. The tire remains attached and the repair unresolved."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
+      "candidate_sha256": "d84eb8f0eab312487afd32db81dc396324a398a360c998204813b6d42842daf1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "repaired_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ],
+      "decision": "reuse_component_composition_incomplete",
+      "finding": "Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded.",
+      "camera": "Component is a clearly framed detail inset, not an oversized object placed on the road. Main scene uses the actual regional background and stopped van with one coherent camera.",
+      "proportions": "Preserve native 3:1 detail crop. Full-scene van and traveler share scale; no tiny van beside giant component. Detail inset must not obscure the caption or imply an unfitted replacement is already installed.",
+      "desktop_mobile": "Same original detail cells and actual-crew composition on desktop/mobile; retain approved interface/stat components. Do not fill mobile frame by enlarging the inspector independently.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Recover/approve needed props and suitable cast poses. Current surviving app/repair.rs publishes aftermath only after choose_repair returns true; preserve that guard before selecting repaired art. Missing historical caller integration is not proven by renderer tests."
+    },
+    {
+      "unit": "SHOP-ALTERNATOR",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Alternator on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/alternator-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "ad0534884a9fd646b9d75e1b35f7f7a4f3c13794075c7aeae6a15ff09f3b78f7",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-BATTERY",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Battery on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/battery-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "4416ffe9739f306b4b5518341980d1b256c52432f4157ab12ee12e3fa4cda18b",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-COATS",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Warm Coats on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/coats-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "c27c7ed434b301e160b80cd733ba814010f78a2d7a4ca211ef5e056fa5e902a7",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-FUEL_PUMP",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Fuel Pump on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/fuel_pump-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "856bb886ed76cd16dff01c35d8d38f1c3a694bf4e2b37d4195cd711f40144916",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-LEGAL_FUND",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Legal Fund on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/legal_fund-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "cb7dd0b14c62341adc382a7543e3d2b74e7070ef1aaa9b1e83594159dbf57814",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-MASKS",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Masks on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/masks-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "adbf2c42283108dc94fd6a64b4fdc19447f4dbace147f18982c58a9356c12cce",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-PONCHOS",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Ponchos on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/ponchos-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "8fcf9e307aede6f1b34aa729f6f22e872cce56c747ef393bad9f834aa7264157",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-PRESS_PASS",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Press Pass on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/press_pass-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "48edfc69f197fab86c10e1acd53028c012647e19a605766cea09b0f757db02fb",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-RATIONS",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Rations Pack on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/rations-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "25e23d9b208bf9d5f977901803445e7660672653b66c51b4ef045e0f5ebd291d",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-SPARE_TIRE",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Spare Tire on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/spare_tire-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "6908f6a859f68c51b368b054039c312d0ab6f7b81f93fba7d62ade2d5c708673",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "SHOP-WATER",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clean inventory cutout of Water Jugs on a plain background, matching the game’s pixel-art inventory style. No purchase, installation or consumption is implied; labels and quantity are editable overlays."
+      ],
+      "decision": "propose_reuse_existing_item_cutout",
+      "candidate_original": "dystrail-web/static/img/items/water-v1.png",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "camera": "Existing isolated three-quarter inventory cutout, no scene camera.",
+      "proportions": "Contain the full square source uniformly within existing icon bounds; no stretched silhouette.",
+      "desktop_mobile": "Use the same 1254 x 1254 source in the existing desktop/mobile item card; no additional generated variants.",
+      "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
+      "candidate_sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e",
+      "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
     }
   ],
   "requirements": {
@@ -1145,14 +3595,27 @@
   },
   "summary": {
     "ALLY": {
+      "change": 12,
       "reuse": 4,
-      "reuse_with_layers": 2,
-      "change": 12
+      "reuse_with_layers": 2
     },
     "CARE": {
-      "reuse": 0,
-      "reuse_with_layers": 13,
-      "change": 11
+      "change": 11,
+      "reuse_with_layers": 13
+    },
+    "ORDER": {
+      "change": 1,
+      "reuse": 5,
+      "reuse_with_layers": 12
+    },
+    "REPAIR": {
+      "reuse_component_composition_incomplete": 12
     }
+  },
+  "functional_scope_proposal": {
+    "count": 77,
+    "approval": "pending",
+    "new_generations": 0,
+    "principle": "Preserve approved interfaces; account for source text and existing art without treating every functional vignette suggestion as an authorized new illustration."
   }
 }

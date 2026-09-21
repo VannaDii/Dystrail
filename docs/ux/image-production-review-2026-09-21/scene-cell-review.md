@@ -1,4 +1,4 @@
-# Ally and care cells — source reconciliation
+# Scene and shared-surface image decisions
 
 Direct inspection of six retained atlases against the current workshop. These are proposed image decisions, not accepted scenes. Runtime is unchanged. All changes still require a search of other retained art before a new image is declared necessary. No generation is authorized.
 
@@ -56,3 +56,64 @@ Direct inspection of six retained atlases against the current workshop. These ar
 The JSON companion at `review/recovery/scene-cell-review.json` records each exact original path, hash, source direction, crop rectangle, camera/proportion constraint and remaining gate. The later retained B/C ally corrections were inspected; older similarly named outputs are not interchangeable.
 
 **Result:** 6 ally cells are reuse candidates (2 need overlay work); 12 need changed artwork or another suitable retained source. Thirteen care cells are reuse-with-composition candidates; 11 need changed artwork or another suitable retained source. These counts are inspection decisions, not production coverage.
+
+## Policy announcements and repair components
+
+Policy originals are **1536 × 1024**, with 2 columns and 3 rows. Native row bounds are 0, 341, 682, 1024; each cell is 768 pixels wide. Preserve these wide cells without stretching them into the 3:2 care/ally format. Repair component originals are **1536 × 1024**, 2 columns × 4 rows, each **768 × 256**: failed left, repaired right. These are detail insets, not scene-sized physical objects.
+
+The policy candidate set uses A `exec-a197569b-2e91-4720-81d0-47072ff12f03.png`, B `exec-8b1f64a8-a928-4926-af4b-6382ee788b26.png`, C `exec-f37982a1-f430-41ce-b7d4-85a1c55e3d5d.png`. B is the inspected coin-return correction, regardless of its misleading historical filename. Repair details use `exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png`.
+
+The retained inspection-pose sheet is **not accepted** merely because historical metadata says it has alpha. Its smooth shading/glow needs visual review against the required pixel-art standard. Reuse the established cast poses where appropriate before proposing a replacement. No generation authorized.
+
+| Record | Decision | Inspection finding |
+|---|---|---|
+| ORDER-DEREGULATE-A | reuse with layers | Renaming ceremony on roadside display matches; actual stopped van/open hood still needs composition at coherent scale. |
+| ORDER-DEREGULATE-B | reuse with layers | Pristine delivered sign and neglected machinery match; add actual traveler and van only if full composition fits. |
+| ORDER-DEREGULATE-C | reuse with layers | Military-name unveiling on display matches; add actual crew beside their current van, not baked placeholder occupants. |
+| ORDER-GAG-A | reuse | Corrected gray-haired librarian, locked cart and reading sheet match. Use latest retained correction, not earlier head-covering version. |
+| ORDER-GAG-B | reuse with layers | Later retained correction moves the extra cardboard column from the snack pickup opening to the small coin-return area. Add only actual present travelers, with no purchase/retrieval action. |
+| ORDER-GAG-C | reuse | Leaking hallway, two buckets and dry oversized binder match. |
+| ORDER-MILITARIZE-A | reuse with layers | Barrier, officer and checklist match; actual van must wait behind the barrier with compatible road perspective. Assembled camera remains unverified. |
+| ORDER-MILITARIZE-B | change | Retained cell is an indoor service counter, not the specified traveler/documents/van checkpoint. Existing A/C checkpoint cells are alternatives only if exact composition fits. |
+| ORDER-MILITARIZE-C | reuse with layers | Domestic road, booth and barrier match; add actual traveler pointing across the same landscape without changing scale or stage. |
+| ORDER-SHUTDOWN-A | reuse | Closed counters, worker lunch bag and lit fundraiser match. Worker is an external NPC, not a substitute crew member. |
+| ORDER-SHUTDOWN-B | reuse with layers | Dark monitors and one bright donation screen match; replace baked heart/progress graphic with editable localized presentation. |
+| ORDER-SHUTDOWN-C | reuse | Empty plate and oversized chairs match an editorial cutaway. Do not imply actual crew attendance. Inspect small flag finials during final symbol review. |
+| ORDER-TARIFFS-A | reuse with layers | Grocery bag, empty wallet and invoice match; make any identifying customs copy an editable overlay. |
+| ORDER-TARIFFS-B | reuse | Cashier, long receipt and modest loaf match; keep receipt wording editable. |
+| ORDER-TARIFFS-C | reuse with layers | Groceries and tall blank price panel match; add actual traveler reaching, with the panel visibly intervening. |
+| ORDER-TAXCUTS-A | reuse with layers | Empty education room, small lectern and illuminated blank exit panel match; localize any sign text. |
+| ORDER-TAXCUTS-B | reuse with layers | Closed education office, unstaffed counter and blank jar match; localize fee label. |
+| ORDER-TAXCUTS-C | reuse with layers | Teacher, short pencil, empty board and blank notice match; keep notice editable. |
+| REPAIR-ALTERNATOR-A | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-ALTERNATOR-B | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-ALTERNATOR-C | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-BATTERY-A | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-BATTERY-B | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-BATTERY-C | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-FUELPUMP-A | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-FUELPUMP-B | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-FUELPUMP-C | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-TIRE-A | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-TIRE-B | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+| REPAIR-TIRE-C | reuse component composition incomplete | Failed and repaired component close-ups are available. They do not by themselves fulfill the source-specific traveler, van and prop staging. Previously rejected opaque/checkerboard prop and vehicle sheets remain excluded. |
+
+Repair guard checked against surviving code: `choose_repair` must return true before the app publishes aftermath. The historical renderer tests only establish ID/choice mapping and cannot independently prove a successful repair. Restore the caller guard with the renderer; preserve current simulation behavior.
+
+This adds 18 policy decisions and 12 component/recipe decisions. It does not certify the composed scenes, authorize image production, or complete the full inventory.
+
+## Functional references: preserve existing surfaces
+
+This **approval proposal** accounts for all 77 functional records without commissioning 77 illustrations. It preserves the user's approved interface and avoids adding a new illustrated town-profile design. The source vignette suggestions remain preserved in the ledger; they are not represented as completed art.
+
+| Records | Count | Proposed image decision |
+|---|---:|---|
+| PROFILE-01 through PROFILE-51 | 51 | Existing town-profile text surface; no new landmark painting or illustration card. |
+| SHOP-* | 11 | Existing `items/*-v1.png` cutouts, each exactly 1254 × 1254; same icon/card layout on desktop and mobile. |
+| PERSONA-* | 6 | Previously inspected 1774 × 887 cast sheets in existing selector. |
+| CONTEXT-* | 7 | Existing origin/arrival surface, actual regional background and actual party; no extra landmark painting. |
+| MODE-C / MODE-D | 2 | Existing selector with shared road/van and mode presentation; exclude old baked-crew images. |
+
+PROFILE-17 proposes Frederick church spires and PROFILE-38 proposes San Antonio mission architecture. Those visual suggestions conflict with the user's explicit no-religious-symbols rule and are excluded; the factual text remains independently reviewable.
+
+Additional road originals inspected for reuse: `open-california-hills.png`, `open-southwest-desert.png`, and `open-beltway-parkway.png`, each 1536 × 1024. Preserve their geography: a desert mesa landscape is not an interchangeable coastal-city establishing shot. No religious symbols were observed in these three inspected images. Final scene composition and localization still require review.
