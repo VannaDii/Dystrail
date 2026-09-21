@@ -228,3 +228,19 @@ All 36 proposed-mechanics records now have an explicit **inactive / no productio
 ## Remaining source coverage — unresolved, not production-ready
 
 All remaining 171 active road and 129 town records now explicitly retain their scene directions and mark staging unresolved. No matching inspected binding is asserted and no production request is created. Shared-context versus per-variant essential-gag coverage is awaiting the user’s staging decision. This completes source accounting, not the necessary-image inventory, artwork, or feature.
+
+## Approved middle-ground policy applied to all remaining town records
+
+The 129 town records outside the three already inspected TOWN-41 scenes are now classified: **120 dialogue-led shared-context scenes** and **9 essential visual compositions**. These are composition requirements, not nine automatic image-generation requests. Candidate selection, exact source dimensions/placement and production approval remain outstanding.
+
+- **TOWN-14-B:** The owner dressing a refrigerator in a necktie is the central visible action. Keep refrigerator, tie and owner hand contact readable in one repair-shop composition; recover compatible props/poses before specifying generation.
+- **TOWN-34-C:** Inspection of the wallet is the central visual contrast. Show the mechanic aiming a small inspection mirror into an open wallet, with the vehicle untouched. This requires a compatible hand/prop composition, not an oversized wallet or miniature van.
+- **TOWN-01-A:** A small license-plate-shaped scrap held over ordinary shoes is the visual premise. Keep both at plausible hand/foot scale; no actual plate installation, visible identifier, or invented road hazard.
+- **TOWN-03-C:** A person feeding a parking meter before eating is the visible contrast. Show coin approaching the slot and lunch bag in the other hand; ordinary meter height, no human face or mouth added to the pole.
+- **TOWN-14-A:** The uncertain fare-card approach to a free streetcar is the core gesture. Card at normal hand scale, open level doorway and clerk welcoming the visitor; do not depict a literal horse or charge a fare.
+- **TOWN-23-C:** The ID nearly entering the wash is the visible action. Keep a small blank portrait card in the cook’s hand above the open washer; no readable personal data or false loss of voting eligibility.
+- **TOWN-29-C:** Shoes fitting into a bus-stop pole’s narrow shade make the waiting-for-trees joke visible. One coherent sunlight direction; do not use a lush existing canopy that contradicts the scene.
+- **TOWN-35-B:** The long receipt occupying dinner space is the central visual personification. Keep it physically supported at the grocery counter beside a small food bag; no giant person or fictional tax payment animation.
+- **TOWN-44-A:** One sandwich cut into two equal halves makes the accounting joke tangible. Same total food before and after; plain clean plate, no newly awarded food or duplicated sandwich.
+
+Minor props and source directions remain retained for optional reuse; omitting an optional prop does not remove the dialogue. Religious references remain text-only, with no corresponding religious symbols or devotional art. The next classification batch is the 171 remaining active road records.
