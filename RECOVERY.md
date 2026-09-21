@@ -63,3 +63,7 @@ The user supplied the updated completion goal and authorized resumption with one
 - The browsable inventory is `docs/ux/image-production-review-2026-09-21/image-inventory.html`; current proposed rules remain in the adjacent README. Its new-generation queue is empty. Existing suitable images will be reused; failed/uncertain images remain for personal review, with no automatic correction or new generation.
 - The runtime/game, Hearing implementation, localization, and original PNGs are unchanged. The earlier native/browser-target baseline checks therefore remain applicable to that unchanged code, not to the historical candidate files. No production acceptance is claimed.
 - Secret scans passed for the recovery utilities and extracted evidence before inspection. Full scene-binding recovery and a final necessary-image list remain open; approval for image production has not been requested prematurely.
+
+### Current authoritative satire source recovered
+
+A read-only live read confirmed the workshop revision matches the last recorded authoritative revision. The refreshed paragraphs are preserved in `review/recovery/current-workshop-paragraphs.json`; all 644 IDs were reconciled against the retained checklist into `review/recovery/current-source-records.json`. Every record has an explicit scene direction. Counts verify 531 compatible narrative records, 77 functional/reference records, and 36 inactive mechanics dependencies. This restores source requirements, not final image bindings or implementation acceptance.
