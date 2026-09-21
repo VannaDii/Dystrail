@@ -224,3 +224,7 @@ The existing Hearing implementation consumes a committed report during animation
 - **Shared context — retained original 170:** 1536×1024, twelve 512×256 cells (3 columns × 4 rows). Media workshop, community garden, bridge, service workshop, civic chamber, checkpoint, clinic, radio room, civic street, convoy/rest stop, dairy barn, night picnic. Previously targeted crosses/steeples are absent on visual inspection. Candidate contextual atlas only; it does not illustrate the remaining satire gags. Cell 11 has baked night and must not appear during daytime; bridge perspective differs from side-on travel van.
 
 All 36 proposed-mechanics records now have an explicit **inactive / no production** decision. Their dimensions and placement are intentionally unset because no runtime scene is authorized. The remaining 300 active road/town records need a staging-scope decision and candidate reconciliation; source coverage is not finished artwork.
+
+## Remaining source coverage — unresolved, not production-ready
+
+All remaining 171 active road and 129 town records now explicitly retain their scene directions and mark staging unresolved. No matching inspected binding is asserted and no production request is created. Shared-context versus per-variant essential-gag coverage is awaiting the user’s staging decision. This completes source accounting, not the necessary-image inventory, artwork, or feature.

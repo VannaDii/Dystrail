@@ -2,6 +2,16 @@
 
 September 21, 2026. Planning only. No game files changed and no images generated in this resumption.
 
+## Current decision gate
+
+Recovery is now in the durable worktree `/Users/vanna/Source/Dystrail-worktrees/visual-world-recovery`, with local commits and verified standalone bundles under `/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21`. The historical missing temporary worktree below describes the recovery incident, not the current workspace location.
+
+All **644 source records** now have explicit inventory dispositions: **36 inactive**, **300 unresolved source-specific staging decisions** (171 road, 129 town), and **308 reviewed candidates or shared-surface proposals**. The 308 include exclusions and incomplete compositions; they are not accepted finished scenes. The necessary-image list is **not yet production-ready**.
+
+The pending user choice is whether remaining satire uses shared regional scenes with selected illustrated jokes, or requires the essential visual joke in every variant. This choice changes which images are necessary. It does not approve production, discard copy, activate mechanics, or relax any quality rule. No answer is assumed. Existing source directions remain preserved in full.
+
+No additional images are requested by the unresolved rows. Once staging scope is settled, resolve each necessary image to a retained asset/layout fix, explicit user-review hold, or an individual one-attempt production brief. Avoid generating a separate image merely because a content record exists.
+
 ## Production limit
 
 - Reuse suitable existing images unchanged. A narrative variant, locale, outcome, time of day, or viewport does not by itself justify another image.
@@ -119,4 +129,4 @@ This draft does not claim the full image specification, feature, or release is c
 
 [Inspected cast and road decisions](core-surface-review.md) records the first concrete reuse/exclusion batch. These are proposals for approval, not accepted production bindings.
 
-[Scene and shared-surface decisions](scene-cell-review.md) now covers 149 records: 42 ally/care scenes, 18 policy scenes, 12 repair component recipes, and 77 functional-surface proposals. It includes native crop rectangles, source mismatches and explicit religious-art exclusions. These are approval proposals, not finished runtime coverage.
+[Scene and shared-surface decisions](scene-cell-review.md) and the machine-readable `review/recovery/scene-cell-review.json` now account for all 644 source records, distinguishing actual inspections, proposals, inactive dependencies, and unresolved staging. Exact selected-candidate crops are recorded where verified; unresolved records deliberately have no invented dimensions or production authorization.

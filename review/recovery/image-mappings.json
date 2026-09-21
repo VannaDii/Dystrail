@@ -3448,7 +3448,13 @@
     "recorded_composition_brief": "Edit only the older woman in bottom-right portrait in this existing game atlas. Replace head-covering scarf with visible gray hair in a bun and a plain burgundy cardigan collar. Remove embroidered scarf motifs. Keep her same face, skin tone, glasses, age, book, hands, clothes and portrait frame. Preserve all other panels, frame dimensions, positions, expressions, palette and existing pixel-art style. Use ordinary secular clothing with no religious symbols or identifiers, no crosses, sacred emblems, devotional objects or religious accessories. Do not change the character's ethnicity or identity, add people, change any outcome props, or generate text.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "Six feminine/neutral supporting portraits in 1536×1024, six 512×512 cells. The corrected lower-right figure has visible gray hair and plain cardigan. No obvious religious symbols, but smooth skin, fine texture and shaded backdrop are too painterly relative to the coarse cast/scene requirement. Hold for user review; do not automatically use as world actors or regenerate. These are waist-up portraits, not standing/seated body sprites.",
+      "decision": "user_review_style_mismatch",
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-df4e831a-3f24-43d4-bf48-b3c988e907ad.png",

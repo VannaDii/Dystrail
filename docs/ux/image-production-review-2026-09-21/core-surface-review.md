@@ -60,3 +60,9 @@ Bind the remaining source-specific scenes/props to retained originals and atlas 
 - **camp.png — exclude_fixed_cast_and_time:** 1536×1024. Baked old journalist/organizer, van, orange sunset and stars conflict with actual surviving cast and clock. Do not restore as the general camp scene.
 
 All decisions remain inventory proposals. Reusing an eligible background does not complete a source gag or authorize image production.
+
+## Remaining town context and supporting-cast constraints
+
+- **encounter-settings-v3.png:** 1536×1024, 3×2 grid of 512×512 cells: motel desk, cafe, library, museum, farm office, public-service counter. No obvious religious symbols in direct inspection. Existing perspective/room props can be reused only when the source setting fits. Square cells cannot be stretched into 3:2 scenes; contain at native aspect or approve another composition. Fine background texture needs comparison with the final cast at actual display size.
+- **town-npcs-v1.png:** 1536×1024, 3×2 grid of 512×512 portraits. Cells 1 and 2 have masculine presentation inconsistent with the requested cast direction; exclude those designs. Other cells are reuse candidates only where a portrait is an approved existing interface element. No supplementary caption busts; no portrait-as-full-body substitution.
+- **Corrected supporting-cast original `exec-dddd7915-51c6-4bf4-a93e-b2b1e680a9b6.png`:** six 512×512 portrait cells on a 1536×1024 canvas. Hold for user review: no obvious religious symbols, but painterly detail and portrait-only poses do not satisfy the in-world cast requirement. No automatic replacement generation.
