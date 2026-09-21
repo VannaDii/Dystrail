@@ -16703,5 +16703,290 @@
         "production_authorized": false
       }
     ]
+  },
+  "core_layout_spec": {
+    "status": "approval_draft",
+    "production_authorized": false,
+    "new_image_generations": 0,
+    "van": {
+      "body_asset": "dystrail-web/static/img/journey/van-empty.png",
+      "mask_asset": "dystrail-web/static/img/journey/van-crew.png",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "decision": "reuse_body_and_mask_correct_layout",
+      "camera": "Preserve the body’s existing side view and road contact; do not skew or warp it into a perspective road.",
+      "visible_body_reference_xywh": [
+        108,
+        328,
+        1308,
+        608
+      ],
+      "tire_ground_y": 936,
+      "seat_coordinate_space": [
+        1536,
+        1024
+      ],
+      "seats": [
+        {
+          "seat": 0,
+          "row": "rear",
+          "pose": "PassengerNear",
+          "mask_xywh": [
+            352,
+            384,
+            116,
+            216
+          ],
+          "head_center": [
+            408,
+            440
+          ],
+          "head_box_wh": [
+            80,
+            96
+          ],
+          "scale_relative_to_near": 1.0
+        },
+        {
+          "seat": 1,
+          "row": "rear",
+          "pose": "PassengerFar",
+          "mask_xywh": [
+            468,
+            384,
+            116,
+            216
+          ],
+          "head_center": [
+            508,
+            428
+          ],
+          "head_box_wh": [
+            74,
+            88
+          ],
+          "scale_relative_to_near": 0.92
+        },
+        {
+          "seat": 2,
+          "row": "middle",
+          "pose": "PassengerNear",
+          "mask_xywh": [
+            620,
+            384,
+            116,
+            216
+          ],
+          "head_center": [
+            676,
+            440
+          ],
+          "head_box_wh": [
+            80,
+            96
+          ],
+          "scale_relative_to_near": 1.0
+        },
+        {
+          "seat": 3,
+          "row": "middle",
+          "pose": "PassengerFar",
+          "mask_xywh": [
+            736,
+            384,
+            116,
+            216
+          ],
+          "head_center": [
+            776,
+            428
+          ],
+          "head_box_wh": [
+            74,
+            88
+          ],
+          "scale_relative_to_near": 0.92
+        },
+        {
+          "seat": 4,
+          "row": "front",
+          "pose": "Driver",
+          "mask_xywh": [
+            1024,
+            384,
+            244,
+            216
+          ],
+          "head_center": [
+            1096,
+            444
+          ],
+          "head_box_wh": [
+            80,
+            96
+          ],
+          "scale_relative_to_near": 1.0,
+          "hand_contact": [
+            1156,
+            548
+          ]
+        },
+        {
+          "seat": 5,
+          "row": "front",
+          "pose": "PassengerFar",
+          "mask_xywh": [
+            904,
+            384,
+            120,
+            216
+          ],
+          "head_center": [
+            968,
+            428
+          ],
+          "head_box_wh": [
+            74,
+            88
+          ],
+          "scale_relative_to_near": 0.92
+        }
+      ],
+      "window_rule": "Intersect each seat mask with the corresponding actual window polygon and the door/dashboard foreground. The driver front mask must also follow the sloped windshield; these rectangles are not permission to paint over bodywork.",
+      "sprite_rule": "Position retained seated poses by visible head/shoulder landmarks, not by their transparent cell bounds. Uniformly scale the complete pose; do not stretch to the head rectangle. Head boxes are placement targets, not replacements for the original anatomy. Adjust masks/contact alignment in code after rendered review, without changing artwork.",
+      "identity_rule": "Consume existing party occupancy and active status; preserve stable identity and any existing driver selection. These are display slots, not a change to party mechanics. No preview/fallback crew in an actual run with missing/empty party data.",
+      "motion_rule": "Move van, occupants, masks and shadows as one group. No separate passenger bounce or phone-only vehicle enlargement.",
+      "proportion_rule": "At the same world depth, standing adult height is about 0.35 of visible van body length; far occupants remain 92% of near scale, not child-sized. No visible interpenetration of torsos or one traveler appearing to sit in another lap.",
+      "responsive_rule": "One coherent world transform for road, van and crew on desktop and phones. Preserve native aspect and relative scale; viewport framing may reveal less irrelevant scenery but must preserve the van and required story subject."
+    },
+    "cast": {
+      "decision": "reuse_six_retained_sheets",
+      "native_canvas": [
+        1774,
+        887
+      ],
+      "logical_canvas": [
+        2048,
+        1024
+      ],
+      "logical_grid": [
+        4,
+        2
+      ],
+      "logical_cell": [
+        512,
+        512
+      ],
+      "native_cell": [
+        443.5,
+        443.5
+      ],
+      "portrait_crop_logical": [
+        512,
+        486
+      ],
+      "pose_order": [
+        "Standard",
+        "Happy",
+        "Defeated",
+        "Unwell",
+        "Standing",
+        "PassengerNear",
+        "PassengerFar",
+        "Driver"
+      ],
+      "placement": "Existing selection/naming/result slots use portraits. World scenes use appropriate body poses only. Caption-side bust is removed. All images scale uniformly; retain stable persona IDs and identities.",
+      "remaining_check": "Fractional native cell edges and alpha masking must be inspected in the rendered build; no image regeneration for CSS/crop issues."
+    },
+    "billboards": {
+      "decision": "native_sign_geometry_live_localized_text",
+      "new_images": 0,
+      "road_master": [
+        1536,
+        1024
+      ],
+      "sign_face_xywh": [
+        944,
+        344,
+        448,
+        176
+      ],
+      "post_rectangles": [
+        [
+          984,
+          520,
+          20,
+          136
+        ],
+        [
+          1332,
+          520,
+          20,
+          136
+        ]
+      ],
+      "text_safe_xywh": [
+        968,
+        360,
+        400,
+        144
+      ],
+      "placement": "Far roadside shoulder, behind the active road/van layers; no sign face over the sky focal point or caption. Omit the sign when required scene action uses this area; do not shift or scale it arbitrarily.",
+      "text": "Live localized text, including RTL, in the approved font treatment. Word-wrap and fit verified at desktop/390/320 widths; never rasterize lettering or shrink below an approved readable size. Billboard copy that cannot fit needs shorter copy or a wider contextual view, not a new painting.",
+      "state": "Deterministic selection from saved seed/day/region without consuming simulation RNG. No billboard asset per locale."
+    },
+    "lighting": {
+      "decision": "shared_runtime_layers",
+      "new_images": 0,
+      "clock_source": "Actual saved game day/hour; menus and animations do not independently advance it.",
+      "time_bands": {
+        "night": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          21,
+          22,
+          23
+        ],
+        "morning": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "day": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "afternoon": [
+          15,
+          16,
+          17
+        ],
+        "dusk": [
+          18,
+          19,
+          20
+        ]
+      },
+      "weather": "Layer rain/smoke/cold/heat over outdoor worlds only. Interior illumination stays readable; no precipitation through ceilings. Preserve pixel edges rather than blurring faces or text.",
+      "caption": "Render captions and approved UI above lighting/weather layers."
+    },
+    "crossings": {
+      "decision": "retained_candidate_or_user_review_no_automatic_replacement",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "rule": "Use only a candidate whose road camera and human/booth scale support the same projected van. Otherwise use an approved wider regional-road composition or leave the candidate on review hold. No miniature van over a close-up booth, no giant official, no automatic corrective generation."
+    }
   }
 }

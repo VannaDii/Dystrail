@@ -66,3 +66,28 @@ All decisions remain inventory proposals. Reusing an eligible background does no
 - **encounter-settings-v3.png:** 1536×1024, 3×2 grid of 512×512 cells: motel desk, cafe, library, museum, farm office, public-service counter. No obvious religious symbols in direct inspection. Existing perspective/room props can be reused only when the source setting fits. Square cells cannot be stretched into 3:2 scenes; contain at native aspect or approve another composition. Fine background texture needs comparison with the final cast at actual display size.
 - **town-npcs-v1.png:** 1536×1024, 3×2 grid of 512×512 portraits. Cells 1 and 2 have masculine presentation inconsistent with the requested cast direction; exclude those designs. Other cells are reuse candidates only where a portrait is an approved existing interface element. No supplementary caption busts; no portrait-as-full-body substitution.
 - **Corrected supporting-cast original `exec-dddd7915-51c6-4bf4-a93e-b2b1e680a9b6.png`:** six 512×512 portrait cells on a 1536×1024 canvas. Hold for user review: no obvious religious symbols, but painterly detail and portrait-only poses do not satisfy the in-world cast requirement. No automatic replacement generation.
+
+## Consolidated core layout specification — zero new images
+
+**Van:** reuse the 1536×1024 body and existing mask. Visible body reference `[108,328,1308,608]`, tire baseline y=936. The current CSS overlaps 82%-wide sprites in each window and enlarges the vehicle separately on phones; replace that placement with the following proposed source-coordinate targets. These are code/layout changes, not image edits or new generation requests.
+
+| Seat | Pose | Mask x,y,w,h | Head center | Head target w,h |
+| --- | --- | --- | --- | --- |
+| 0 | PassengerNear | [352, 384, 116, 216] | [408, 440] | [80, 96] |
+| 1 | PassengerFar | [468, 384, 116, 216] | [508, 428] | [74, 88] |
+| 2 | PassengerNear | [620, 384, 116, 216] | [676, 440] | [80, 96] |
+| 3 | PassengerFar | [736, 384, 116, 216] | [776, 428] | [74, 88] |
+| 4 | Driver | [1024, 384, 244, 216] | [1096, 444] | [80, 96] |
+| 5 | PassengerFar | [904, 384, 120, 216] | [968, 428] | [74, 88] |
+
+Intersect masks with real window contours; keep bodies behind doors/dashboard. Driver hands meet steering wheel near `[1156,548]`. Fit by visible pose landmarks with uniform scale, not transparent atlas cell bounds; the boxes do not authorize stretching heads. Preserve party/driver rules and actual survivors. Adjust layout after rendered checks without regeneration.
+
+**Cast:** retain six 1774×887 originals, logical 2048×1024 grid, eight 512-square logical cells. Preserve pose mapping and approved UI slots; no caption bust.
+
+**Billboards:** on a 1536×1024 road master, proposed face `[944,344,448,176]`, text safe area `[968,360,400,144]`, two posts `[984,520,20,136]` and `[1332,520,20,136]`. Place behind the road/van on the shoulder; omit when it collides with required action. Use live localized text and native sign geometry, no generated billboard images.
+
+**Time/weather:** reuse clock-driven layers: night 00–05/21–23, morning 06–09, day 10–14, afternoon 15–17, dusk 18–20. These presentation bands do not change simulation time. Indoor scenes receive no outdoor precipitation; UI and captions remain above scene tint.
+
+**Responsive composition:** the complete road/van/crew scales together. Preserve original scene aspect and person/vehicle ratios at desktop, 390px and 320px review widths. Recheck all six, three, one and zero present crew; every possible driver; long/RTL captions; reduced motion. These are acceptance cases, not claims already verified.
+
+**Crossings:** retained scenes whose camera or proportions cannot accommodate the actual van remain review holds; no corrective generation is automatically authorized.
