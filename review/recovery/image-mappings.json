@@ -519,7 +519,13 @@
     "recorded_composition_brief": "Use case: illustration-story. Create ONE full 1536x1024 Dystrail pixel-art game background for CARE-07-A. Reference 1 is a scene atlas: use only its bottom LEFT cell, the roadside shelter table with laptop and five objects, as the story reference. Reference 2 defines bold, stepped game pixel-art style. Recompose for a tired traveler that will be added by game code on the left, leaning forward on folded arms. Keep the LEFT 42% completely clear of furniture/props/people, with visible flat paved floor. A wooden work table begins around x=46% and runs to the right edge; tabletop at y=54%, with a straight left side. A laptop at the LEFT END of the tabletop faces toward the empty left actor slot, seen three-quarter from its keyboard side so the lit screen is visible, not the closed/back surface. Reserve a clear little forearm resting area immediately to the laptop's left, around x=43-53%, y=54%. On the RIGHT side of the tabletop show five separate objects: vehicle keys, a worn work glove, a broad paintbrush, a folded road map, and a handheld two-way radio. No router or broadband label in this scene. Background: simple roadside picnic-shelter posts, fence, trees and hills, usable daylight for runtime time/weather overlays. Absolutely no people, stools, chairs, religious symbols, crosses, flags, religious architecture, text or logos. No photorealism, soft focus, painterly detail or smooth gradients: crisp stepped pixel clusters and limited game palette consistent with the character reference. One continuous scene, not a collage.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "1536×1024 roadside laptop/table with keys, glove, brush, map and radio. No baked traveler; left actor area is empty. Reuse candidate. Table left edge about x660, top about y545; fit the affected actual traveler to its depth and contact surface. Laptop and props must remain visible; composition is not yet verified.",
+      "source_unit": "CARE-07-A",
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-1ed732d3-1461-4659-ab01-af50f58e54f7.png",
@@ -2376,7 +2382,13 @@
     "recorded_composition_brief": "Repair this pixel-art atlas without changing its four scenes. IMPORTANT output must be fully OPAQUE RGB or alpha255 EVERYWHERE. Existing background has partially transparent pixels causing ugly mottled room walls in game. Paint solid flat opaque room wall/ceiling/floor colors under all pixels so NOTHING is transparent or semi-transparent. Preserve EXACT1536x1024 with four768x512cells, all people, faces, poses, clothing, objects, signs, story differences and camera. Keep coarse square pixel-art contours, flat color clusters; no photographic or smooth-rendered surfaces. Remove any white inter-panel separator, extend each room's opaque colors to cell edge. No text, letters, logos, flags, religious symbols or crosses. Do not add or remove props. OPAQUE full-scene background, NOT a transparent sprite sheet.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "Classroom desks/dolly atlas, not shelf scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Two baked local adults must remain external NPCs, not substituted for actual crew.",
+      "source_unit": "ENC-C07-B",
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-a26e7156-7383-497f-b41f-1514f38b14bd.png",
@@ -3338,7 +3350,13 @@
     "recorded_composition_brief": "Edit target image 1 is the community care room. Image 2 is the REQUIRED Dystrail character-style reference. Keep the room's layout, clear left staging space, ordinary furnishings, windowless interior and plain navy medic outfit. Redraw the medic and room in the same chunky illustrated PIXEL-GAME style as image 2: bold dark contour, larger expressive head and face, simplified body proportions, stepped limited-color shading, visibly square pixel clusters. The current medic is too anatomically realistic and painterly; change that. Keep her as a feminine middle-aged Black medic with short natural curls and welcoming empty hand, separate from the six crew identities. Feet stay at80% ofcanvas and onrightside; preserve blank left45% for runtime patient. No text, no logos, no badges, no medical or religious symbols/crosses. No additional people, no patient, no extra props. No photorealism, blur, smooth detail or painted textures. Single1536x1024 opaque scene.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "1536×1024 care-room candidate with a feminine Black medic on the right and empty patient staging on the left. Plain outfit and room have no observed religious symbols. Medic visible extent approximately x895..1300,y110..900; actual traveler should share the floor plane near y900 with comparable adult scale. Do not auto-bind this room to outdoor or source-specific care incidents.",
+      "source_unit": null,
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-dbcddc6d-3c8d-43f0-b90b-c23f17916fb3.png",
@@ -3622,7 +3640,13 @@
     "recorded_composition_brief": "Use case: illustration-story. Produce ONE full 1536x1024 pixel-art game background, Dystrail CARE-05-A. Reference 1 is an atlas; use only third-row LEFT roadside map table cell for its setting and story. Reference 2 is the game's cast style; match clear pixel clusters, stepped outlines, limited colors and chunky readable game art, never realism. At a roadside rest area, a wide wooden map table runs across the foreground. TWO paper maps display exactly the SAME roads and gulf coastline; one map is on the LEFT third of the tabletop and the other on the RIGHT third. Both map label plaques are blank; several small loose removable blank labels and a pen are nearby. Put a thermos and duffel at far right without covering either map. Reserve an EMPTY central place between the two maps for an exhausted traveler that the game will render separately. Composition: table BACK edge horizontal at y=48%, table front at y=75%, wooden front apron down to y=90%; maps occupy x=8-33% and x=70-95% from y=49-72%. Keep center x=36-67% above y=58% completely empty of props so a person can lean folded arms there. Camera eye level with the scene, table surface visible in perspective. Behind: roadside trees, low wooden fence, parked generic cars and distant hills. No people, stools or chairs: added dynamically. No text, logos, religious symbols, crosses, flags or religious architecture. No photorealism, lens blur, painterly grain or smooth rendering. One continuous scene, not a collage.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "1536×1024 map table with central actor space; blank loose labels, thermos and duffel. Reuse candidate subject to comparison of both printed map routes: the source requires identical geography, which broad visual similarity alone does not prove. Table top spans roughly y510..820; mask the traveler behind its foreground, never float a portrait above it.",
+      "source_unit": "CARE-05-A",
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-e597e2e7-cafc-4d13-87e8-97a419c20e47.png",
@@ -3760,7 +3784,13 @@
     "recorded_composition_brief": "Repair this pixel-art atlas without changing its four scenes. IMPORTANT output must be fully OPAQUE RGB or alpha255 EVERYWHERE. Existing background has partially transparent pixels causing ugly mottled room walls in game. Paint solid flat opaque room wall/ceiling/floor colors under all pixels so NOTHING is transparent or semi-transparent. Preserve EXACT1536x1024 with four768x512cells, all people, faces, poses, clothing, objects, signs, story differences and camera. Keep coarse square pixel-art contours, flat color clusters; no photographic or smooth-rendered surfaces. Remove any white inter-panel separator, extend each room's opaque colors to cell edge. No text, letters, logos, flags, religious symbols or crosses. Do not add or remove props. OPAQUE full-scene background, NOT a transparent sprite sheet.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "Shelf/trophy atlas, not classroom scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Use completed shelf only after actual successful work; the single shopkeeper is an external NPC.",
+      "source_unit": "ENC-C07-A",
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-eb9166b9-1d9f-4601-bd1a-d23df160c101.png",
@@ -4015,7 +4045,13 @@
     "recorded_composition_brief": "Edit this existing 1536x1024 twelve-cell pixel-art atlas without changing its 3 columns by 4 rows layout or any frame boundaries. Remove all religious identifiers: top-middle community garden panel, replace distant church and steeple near x950 y75 with a plain low rectangular civic building and ordinary trees, no tower/spire/cross; third-row-middle radio panel, replace distant church in window near x800 y580 with low ordinary houses and trees, no tower/spire/cross; third-row-left clinic panel, remove white cross on red medical case at x60 y675 and leave case completely plain red, no replacement emblem. Third-row-right distant brick civic building should have an ordinary flat-topped clock tower with no pointed steeple or cross. All other contents, scale, frame geometry, empty scenes, props, colors and pixel-art style remain unchanged. No new religious emblems, crosses, flags, writing or people.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "recovery_visual_inspection": {
+      "finding": "1536×1024, twelve 512×256 cells (3 columns × 4 rows). Media workshop, community garden, bridge, service workshop, civic chamber, checkpoint, clinic, radio room, civic street, convoy/rest stop, dairy barn, night picnic. Previously targeted crosses/steeples are absent on visual inspection. Candidate contextual atlas only; it does not illustrate the remaining satire gags. Cell 11 has baked night and must not appear during daytime; bridge perspective differs from side-on travel van.",
+      "source_unit": null,
+      "production_authorized": false,
+      "new_generation_authorized": false
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-f62ac138-aabd-4bb5-960a-9da33db3058f.png",

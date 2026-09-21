@@ -817,26 +817,26 @@
       "source_direction": [
         "Traveler slumps between two otherwise identical blank maps; the route lines match precisely while removable label boxes sit in different piles."
       ],
-      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
-      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-e5038cf2-cd27-4783-8c19-911b2bfdce8b.png",
+      "candidate_sha256": "9519d9932f46ff80fd1ba0443d3ff10ab1285a74cc7b82515f15191d3e238f75",
       "native_canvas": [
-        1086,
-        1448
+        1536,
+        1024
       ],
       "native_cell_xywh": [
         0,
-        724,
-        543,
-        362
+        0,
+        1536,
+        1024
       ],
-      "decision": "reuse_with_layers",
-      "finding": "Matching route maps and loose labels match; add actual exhausted traveler and editable label text.",
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "1536×1024 map table with central actor space; blank loose labels, thermos and duffel. Reuse candidate subject to comparison of both printed map routes: the source requires identical geography, which broad visual similarity alone does not prove. Table top spans roughly y510..820; mask the traveler behind its foreground, never float a portrait above it.",
       "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
       "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+      "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized."
     },
     {
       "unit": "CARE-05-B",
@@ -979,26 +979,26 @@
       "source_direction": [
         "Traveler nods over a plain laptop while five physical work objects—keys, gloves, brush, map and radio—line the table."
       ],
-      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
-      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1ec7d843-de83-4fcd-85dd-538d89873ab1.png",
+      "candidate_sha256": "83ad96b2f07099bcdb271288d2b4f3ca40218f82a027b253ab2f9393f4643e86",
       "native_canvas": [
-        1086,
-        1448
+        1536,
+        1024
       ],
       "native_cell_xywh": [
         0,
-        1086,
-        543,
-        362
+        0,
+        1536,
+        1024
       ],
-      "decision": "reuse_with_layers",
-      "finding": "Laptop and all five required work objects match; add affected traveler without covering the objects.",
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "1536×1024 roadside laptop/table with keys, glove, brush, map and radio. No baked traveler; left actor area is empty. Reuse candidate. Table left edge about x660, top about y545; fit the affected actual traveler to its depth and contact surface. Laptop and props must remain visible; composition is not yet verified.",
       "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
       "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+      "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized."
     },
     {
       "unit": "CARE-07-B",
@@ -5229,8 +5229,8 @@
       "source_direction": [
         "A repairer indicates a stationary trophy display and loose shelf brackets between bowling and dart trophies. A newly polished peace-themed cup has nowhere to stand between two crowded sports shelves."
       ],
-      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-b8e5d63f-6471-4070-ae6c-1cc37cf2d836.png",
-      "candidate_sha256": "e0ecb5c2716e8a3b1d7322c37d6b9bbbbc45f6b51a0dde89e514cb6658cc53ca",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-eaf6f981-a81a-4846-8ae6-639dd88e5899.png",
+      "candidate_sha256": "f8039910dfed6f2505ef65d270970e2050ceef6245dfa3ac75621c3c7582ee89",
       "native_canvas": [
         1536,
         1024
@@ -5241,14 +5241,14 @@
         760,
         504
       ],
-      "decision": "reuse_with_outcome_bindings",
-      "finding": "Unplaced trophy, loose shelf and brackets between sports shelves match. Assembly, installed shelf/paid work and recorded conversation are separate outcomes.",
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "Shelf/trophy atlas, not classroom scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Use completed shelf only after actual successful work; the single shopkeeper is an external NPC.",
       "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
       "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
       "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
     },
     {
@@ -5257,8 +5257,8 @@
       "source_direction": [
         "Parents assess desks awaiting relocation and show the travelers a blank job board. A large stack of desks sits beside a conspicuously absent dolly, represented only by an empty storage hook."
       ],
-      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-5b1e765d-910b-48e2-8e06-e2d2b0f58b78.png",
-      "candidate_sha256": "f1ea05c94e62f3f09041047f89adaa47478b544ae711017648b5810ae55c1972",
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a1c47c1e-86a4-45ca-98a9-4101f6b3f853.png",
+      "candidate_sha256": "ca46df5d94bd965cc1da00cbe6eade08a48dd72f8f5391d161767d5f9488663b",
       "native_canvas": [
         1536,
         1024
@@ -5269,14 +5269,14 @@
         760,
         504
       ],
-      "decision": "reuse_with_outcome_bindings",
-      "finding": "Desks, absent dolly hook and blank job board match. Retained later opaque-correction candidates must be compared before selecting final bytes; source reference alone does not prove this atlas alpha is sound.",
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "Classroom desks/dolly atlas, not shelf scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Two baked local adults must remain external NPCs, not substituted for actual crew.",
       "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
       "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
       "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
     },
     {
@@ -7682,6 +7682,654 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Select and approve the exact source background, prop coverage and composition for this record before production. Reuse proposal is not a claim that every source direction is illustrated.",
       "shared_group": "ENDING"
+    },
+    {
+      "unit": "ENC-W-MW-C01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A worker holds an eraser poised above a blank broker invoice beside unopened food and water for sale. The large eraser is worn down while the untouched invoice remains substantial."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-C01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Promoter arranges unused velvet posts while travelers pause at a food table. An empty gold lane consumes most of the floor space; ordinary visitors wrap around its outside."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-C01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Grower offers carrots and water while pointing to old order and cancellation sheets. A farmers-first campaign placard serves as the lid on unsold produce."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-C02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Manager points to movable components; booster holds a powerless microphone beside disconnected parts. A celebration of energy independence trails an extension cable toward a locked socket."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-C02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Contractor points from visible panels to space behind the tent; crew observes the cable route. An anti-solar display is visibly powered by the solar equipment it wants concealed."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-C02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Contractor indicates an untouched sculpture base; volunteers hold unused straws beside a cup-free cooler. A giant straw sculpture blocks access to a water cooler while no cups are available."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A worker holds an ornate blank sleeve beside unopened stock and plain supplier-information cards. The empty decorative sleeve is caught fluttering on a display pole while the real flag remains folded below."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A grocer adjusts one display clock beside another showing a different hour; identical clock cartons await unloading and unopened food is for sale. Two identical working display clocks disagree because the grocer keeps turning their hands in opposite directions."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The farmer points toward unopened harvest crates while holding the two documents; travelers consider the unloading job or supplies. The enormous owned tractor sits beside two tiny documents that disagree over how complete its ownership feels."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A worker compares a blank report with a blank local collection guide while holding an unused pod above the counter. The report is poised neatly over the recycling bin while the pod remains undecided between two bins."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A mover holds an old blank invoice beside unopened moving boxes and an untouched lunch. A bill-shaped envelope tries to occupy its own oversized moving box among the mover’s modest possessions."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-C02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Parent indicates diaper shelf; promoter holds an unopened brochure; crew considers the situation. A grand investment display towers over an urgently needed diaper."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Owner points to untouched linen bins as demonstration water creeps under a closed bathroom door. The owner holds a pristine laminated freedom announcement above spreading water."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Contractor points to sealed water crates while booster guards a straw under a blank glass display. A single straw receives theatrical protection beside an empty cup stack and untouched water."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A clerk indicates unopened water crates beside a planning board with two opposing blank destination arrows. The elaborate two-arrow plan sits behind a simple clear path from the food counter to the parked van."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Coordinator offers unfilled grocery boxes and blank delivery-slip stacks beside surplus produce. A political farm-support banner serves as a low divider between unwanted school-order vegetables."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A caterer offers work beside unloaded lunch crates while a tractor blocks the lane beyond the parked catering van. A sleek blank model jet sits on the dashboard of a van stuck behind a bulky tractor."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-C02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The owner polishes a labeling machine beneath a blank framed notice while a worker indicates empty boxes and unsorted dispatch labels; travelers consider the offers. An idle machine receives a framed tribute while the human work waits beside it without ceremony."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The dealer pinches upholstery while the researcher holds a public court ruling and the travelers consider the unsorted chairs. The dealer gives the empty chair a close professional examination while overlooking the expert standing beside it."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clerk offers unsorted blank receipt rolls while couple compare public individual and couple limits beside a wedding card. A cheerful paired-heart wedding card sits between two mismatched savings-limit figures."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The printer indicates two unsorted leaflet stacks with blank covers and generic hand illustrations while the volunteer holds the public rule and travelers consider the offer. Two cheerful illustrated helping hands point away from each other across the same counter."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The dispatcher holds the public audit beside unused empty shipping coolers while travelers stand at the depot entrance considering the moving job. The conspicuously empty coolers are protected by an extravagant amount of clean packing material."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The manager points to disassembled bed frames while the volunteer compares a blank public proposal with blank assembly instructions and travelers consider the offer. Two neatly separated halves of a bed frame face a single intact pillow."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-MW-D02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Dealer gestures toward unmoved spare wheels while buyer holds a redacted letter beside a visibly repaired display car. The patched car wears a grand certification ribbon while the living applicant faces more questions."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Clerk offers unfolded public guides while customer stands beside the idle camera; all personal documents remain closed. The camera sees the present customer while the public form requests evidence from the past."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The shopkeeper gestures toward unsorted boots while the technician holds public guidance beneath a blank recruiting poster; the travelers consider the offer. The recruitment poster’s reaching silhouette seems to beckon the skilled technician whom the policy may separate."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The coordinator gestures toward scattered empty chairs while the visiting organizer holds a public ruling beside a blank welcome mat; travelers consider the offer. The enormous framed public ruling the visitor carries nearly covers the ordinary welcome mat beneath it."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The campaigner turns his phone face down beside a stack of unposted blank flyers while the teacher offers a public ruling to the observing travelers. The campaigner’s hands conceal his own phone as his other elbow pins down a pile of total-disclosure flyers."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Owner holds a complete public folder and indicates the page he wants removed; crew has touched nothing. A glossy gratitude sheet shares a folder with the plain restriction page marked for removal."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-PC-D02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The owner reaches toward a microphone mixer while looking at a blank television; the comic holds public letters beside unposted flyers, and travelers consider the job. The owner’s large protective hand hovers over the tiny mute control while the oversized free-expression flyers lie silent beside it."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The contractor points to unmoved barriers while adjusting a camera away from distant tents; the resident holds a covered ticket and the public ruling as travelers consider the offer. The camera’s carefully narrow angle excludes the tents but includes the contractor’s large empty presentation board."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The resident checks empty personal water containers beside a public court printout while the contractor points toward unmoved depot jugs and a blank banner; travelers consider the offers. An enormous congratulatory banner towers above one modest working tap and a queue of ordinary containers."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Demonstrator points to an unmoved portable ramp while customer holds a public report; crew has not begun lifting. A practical ramp waits below an outsized obstacle-free-care promise and a closed approval-information stand."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The printer indicates separate stacks while the carrier taps a blank public letter; the travelers have not touched the papers. An oversized stack of benefit explanations towers over one small unopened lunch bag."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Owner offers unused cutlery and napkins while relative waits beside a blank phone and closed public report. A large diner clock sits above a reassuring care slogan while a silent phone waits below."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
+    },
+    {
+      "unit": "ENC-W-SW-D02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The clerk gestures toward unsorted blank valve labels while the bookkeeper holds a public contract clause beside an uninstalled demonstration toilet; travelers consider the job. The silent demonstration toilet occupies the head of a table covered by foreign-policy certification paperwork."
+      ],
+      "decision": "inactive_no_production",
+      "candidate_original": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "finding": "Proposed encounter mechanics are not implemented. Retain source copy and directions as a dependency; do not activate or commission art in this feature.",
+      "camera": null,
+      "proportions": null,
+      "desktop_mobile": "No runtime placement while inactive.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Separate mechanics approval and implementation before any image-production brief."
     }
   ],
   "requirements": {
@@ -7698,8 +8346,9 @@
       "reuse_with_layers": 2
     },
     "CARE": {
+      "reuse_with_layers": 11,
       "change": 11,
-      "reuse_with_layers": 13
+      "reuse_candidate_composition_incomplete": 2
     },
     "ORDER": {
       "change": 1,
@@ -7723,8 +8372,9 @@
       "candidate_context_mismatch": 1
     },
     "ROAD_C01_C08": {
-      "reuse_with_outcome_bindings": 20,
+      "reuse_with_outcome_bindings": 18,
       "candidate_gag_review_hold": 3,
+      "reuse_candidate_composition_incomplete": 2,
       "exclude_symbol_review": 1
     },
     "TOWN_41": {
@@ -7742,6 +8392,9 @@
     },
     "ENDING": {
       "propose_shared_context_composition_incomplete": 45
+    },
+    "INACTIVE_DEPENDENCIES": {
+      "inactive_no_production": 36
     }
   },
   "functional_scope_proposal": {
@@ -7849,5 +8502,43 @@
       "generation_attempts_authorized": 0
     }
   ],
-  "shared_context_review_note": "96 source records now have explicit shared-context proposals, not 96 accepted finished compositions. Art production remains unapproved. All source directions retained."
+  "shared_context_review_note": "96 source records now have explicit shared-context proposals, not 96 accepted finished compositions. Art production remains unapproved. All source directions retained.",
+  "additional_retained_candidate_inspections": [
+    {
+      "image_mapping_index": 100,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a1c47c1e-86a4-45ca-98a9-4101f6b3f853.png",
+      "finding": "Classroom desks/dolly atlas, not shelf scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Two baked local adults must remain external NPCs, not substituted for actual crew.",
+      "production_authorized": false
+    },
+    {
+      "image_mapping_index": 159,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-eaf6f981-a81a-4846-8ae6-639dd88e5899.png",
+      "finding": "Shelf/trophy atlas, not classroom scene. Four 768×512 cells in 1536×1024; decoded PNG is RGB, hence fully opaque. Matching family correction recovered. Use completed shelf only after actual successful work; the single shopkeeper is an external NPC.",
+      "production_authorized": false
+    },
+    {
+      "image_mapping_index": 21,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1ec7d843-de83-4fcd-85dd-538d89873ab1.png",
+      "finding": "1536×1024 roadside laptop/table with keys, glove, brush, map and radio. No baked traveler; left actor area is empty. Reuse candidate. Table left edge about x660, top about y545; fit the affected actual traveler to its depth and contact surface. Laptop and props must remain visible; composition is not yet verified.",
+      "production_authorized": false
+    },
+    {
+      "image_mapping_index": 153,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-e5038cf2-cd27-4783-8c19-911b2bfdce8b.png",
+      "finding": "1536×1024 map table with central actor space; blank loose labels, thermos and duffel. Reuse candidate subject to comparison of both printed map routes: the source requires identical geography, which broad visual similarity alone does not prove. Table top spans roughly y510..820; mask the traveler behind its foreground, never float a portrait above it.",
+      "production_authorized": false
+    },
+    {
+      "image_mapping_index": 141,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-dbb3692e-5fd0-4ecd-8f2b-d780065e61f3.png",
+      "finding": "1536×1024 care-room candidate with a feminine Black medic on the right and empty patient staging on the left. Plain outfit and room have no observed religious symbols. Medic visible extent approximately x895..1300,y110..900; actual traveler should share the floor plane near y900 with comparable adult scale. Do not auto-bind this room to outdoor or source-specific care incidents.",
+      "production_authorized": false
+    },
+    {
+      "image_mapping_index": 170,
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f465d38d-fcb8-4870-84b7-145f71916622.png",
+      "finding": "1536×1024, twelve 512×256 cells (3 columns × 4 rows). Media workshop, community garden, bridge, service workshop, civic chamber, checkpoint, clinic, radio room, civic street, convoy/rest stop, dairy barn, night picnic. Previously targeted crosses/steeples are absent on visual inspection. Candidate contextual atlas only; it does not illustrate the remaining satire gags. Cell 11 has baked night and must not appear during daytime; bridge perspective differs from side-on travel van.",
+      "production_authorized": false
+    }
+  ]
 }

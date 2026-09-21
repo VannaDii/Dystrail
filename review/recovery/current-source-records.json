@@ -550,7 +550,7 @@
         "Scene: A repairer indicates a stationary trophy display and loose shelf brackets between bowling and dart trophies. A newly polished peace-themed cup has nowhere to stand between two crowded sports shelves.",
         "Source: FIFA: President Donald J. Trump awarded inaugural FIFA Peace Prize (2025-12-05)"
       ],
-      "asset_decision": "reuse_with_outcome_bindings",
+      "asset_decision": "reuse_candidate_composition_incomplete",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -580,7 +580,7 @@
         "Editable overlays: “DESK MOVING: $10 + FOOD” — Blank job-offer board",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "reuse_with_outcome_bindings",
+      "asset_decision": "reuse_candidate_composition_incomplete",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1435,8 +1435,13 @@
         "Scene: A worker holds an eraser poised above a blank broker invoice beside unopened food and water for sale. The large eraser is worn down while the untouched invoice remains substantial.",
         "Source: DCWP: The FARE Act Is Now in Effect (2025-06-11)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-C01-B",
@@ -1460,8 +1465,13 @@
         "Editable overlays: “GOLD CARD INFORMATION” — gold-lane header; “$1 MILLION GIFT” — editable program card; “$8 food + water” — volunteer table",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-C01-C",
@@ -1485,8 +1495,13 @@
         "Editable overlays: “AMERICAN FARMERS FIRST” — crate-lid placard; “$8 food + water” — sale card; “SCHOOL ORDER” — paper tab; “CANCELED” — separate paper overlay",
         "Source: USDA terminated Local Food for Schools and Local Food Purchase Assistance funding in 2025; Massachusetts documented cancellatio…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-C02-A",
@@ -1510,8 +1525,13 @@
         "Editable overlays: “ENERGY INDEPENDENCE” — booster display; “$14 moving work” — yard card; “SOCKET?” — editable cable tag",
         "Source: January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. Th…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-C02-B",
@@ -1535,8 +1555,13 @@
         "Editable overlays: “END SOLAR HANDOUTS” — booth banner; “$14 panel-moving job” — offer card",
         "Source: July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable a…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-C02-C",
@@ -1560,8 +1585,13 @@
         "Editable overlays: “PLASTIC IS BACK” — sculpture placard; “$14 moving job” — contractor card",
         "Source: February 2025 order directed agencies to end paper-straw procurement and develop a broader strategy. It did not prohibit custom…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-C02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C01-A",
@@ -1583,8 +1613,13 @@
         "Source: FTC Announces Made in the USA Sweep (2026-04-14)",
         "Source: Americana Liberty FTC case timeline: April 14, 2026"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C01-B",
@@ -1605,8 +1640,13 @@
         "Scene: A grocer adjusts one display clock beside another showing a different hour; identical clock cartons await unloading and unopened food is for sale. Two identical working display clocks disagree because the grocer keeps turning their hands in opposite directions.",
         "Source: AP: Trump Calls for More Daylight as Debate over Clock Changes Continues (2025-04-11)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C01-C",
@@ -1630,8 +1670,13 @@
         "Editable overlays: “$14: UNLOAD HARVEST” — Blank offer card; “$8: FOOD AND WATER” — Blank counter card",
         "Source: FTC and states announce Deere right-to-repair settlement (2026-07-08)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C02-A",
@@ -1652,8 +1697,13 @@
         "Scene: A worker compares a blank report with a blank local collection guide while holding an unused pod above the counter. The report is poised neatly over the recycling bin while the pod remains undecided between two bins.",
         "Source: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C02-B",
@@ -1674,8 +1724,13 @@
         "Scene: A mover holds an old blank invoice beside unopened moving boxes and an untouched lunch. A bill-shaped envelope tries to occupy its own oversized moving box among the mover’s modest possessions.",
         "Source: DCWP: The FARE Act Is Now in Effect (2025-06-11)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-C02-C",
@@ -1699,8 +1754,13 @@
         "Editable overlays: “$1,000 FOR ELIGIBLE NEWBORNS” — promotion header; “ORDINARY WITHDRAWALS: YEAR CHILD TURNS 18” — brochure callout; “DIAPERS” — shelf overlay",
         "Source: Eligible US-citizen children born in 2025-2028 can receive a $1000 pilot contribution in a Trump Account. Ordinary distribution…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-C02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C01-A",
@@ -1724,8 +1784,13 @@
         "Editable overlays: “FREEDOM FLOWS” — demonstration card; “$12 linen-moving job” — offer card; “$6 food + water” — reception card",
         "Source: April 2025 Executive Order 14264 directed rescission of the 2021 showerhead definition; it framed the action as restoring freed…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C01-B",
@@ -1749,8 +1814,13 @@
         "Editable overlays: “PAPER STRAW EVIDENCE” — case placard; “$12 crate-moving job” — offer card; “$6 food + water” — counter card",
         "Source: February 2025 order directed agencies to end paper-straw procurement and develop a broader strategy. It did not prohibit custom…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C01-C",
@@ -1773,8 +1843,13 @@
         "Source: AP reporting on court blocking FBI headquarters move",
         "Source: FBI: New FBI Headquarters in Washington, DC"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C02-A",
@@ -1798,8 +1873,13 @@
         "Editable overlays: “AMERICAN FARMERS FIRST” — produce divider; “FOOD FOR BOXING HELP” — offer card; “$10 delivery-slip assembly” — separate work card",
         "Source: USDA terminated Local Food for Schools and Local Food Purchase Assistance funding in 2025; Massachusetts documented cancellatio…"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C02-B",
@@ -1820,8 +1900,13 @@
         "Scene: A caterer offers work beside unloaded lunch crates while a tractor blocks the lane beyond the parked catering van. A sleek blank model jet sits on the dashboard of a van stuck behind a bulky tractor.",
         "Source: Executive Order 14304: Leading the World in Supersonic Flight (2025-06-06)"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-C02-C",
@@ -1848,8 +1933,13 @@
         "Road — Deep End",
         "57 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-C02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-D01-A",
@@ -2858,8 +2948,13 @@
         "Editable overlays: “SORT CHAIRS · $14” — Blank offer card; “PUBLIC RULING · AUGUST 2025” — Blank document caption",
         "Source: NIH terminates research over gender-identity priorities — www.supremecourt.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-D01-B",
@@ -2883,8 +2978,13 @@
         "Editable overlays: “$2,000 INDIVIDUAL” — public rule column; “$3,000 COUPLE” — public rule column; “TWO BECOME ONE” — wedding-card message; “$14 SORTING JOB” — work card",
         "Source: SSI countable-resource limits"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-D01-C",
@@ -2909,8 +3009,13 @@
         "Source: Public-charge rule broadens benefit scrutiny for immigration decisions — www.govinfo.gov",
         "Source: Public-charge rule broadens benefit scrutiny for immigration decisions — www.axios.com"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-D02-A",
@@ -2934,8 +3039,13 @@
         "Editable overlays: “SHIFT EMPTY COOLERS · $12” — Blank offer card; “USAID AUDIT · BELGIUM · JUNE 2026” — Blank public audit cover",
         "Source: Cancelled USAID contraception distribution produces storage bills and unusable stock — oig.usaid.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-D02-B",
@@ -2960,8 +3070,13 @@
         "Source: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov",
         "Source: HUD proposes ending indefinite prorated assistance for mixed-status households — www.govinfo.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-MW-D02-C",
@@ -2985,8 +3100,13 @@
         "Editable overlays: “CERTIFIED SURVIVOR” — car ribbon; “$12 WHEEL-MOVING JOB” — work card; “PUBLIC CREDIT TERMS” — desk booklet",
         "Source: Federal medical-debt reporting rule vacated"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-MW-D02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D01-A",
@@ -3010,8 +3130,13 @@
         "Editable overlays: “$16 GUIDE FOLDING” — work card; “PASSPORT SEX-MARKER POLICY” — public guide heading; “CURRENT PHOTO” — camera-area placard",
         "Source: Passport sex-marker restrictions"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D01-B",
@@ -3036,8 +3161,13 @@
         "Source: Military discharge and loss of transition-to-work assistance — www.mynavyhr.navy.mil",
         "Source: Military discharge and loss of transition-to-work assistance — law.justia.com"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D01-C",
@@ -3061,8 +3191,13 @@
         "Editable overlays: “WELCOME” — Blank doorway mat; “STACK CHAIRS · $16” — Blank offer card",
         "Source: Protected-area immigration enforcement guidance rescinded; some churches regain protection — law.justia.com"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D02-A",
@@ -3086,8 +3221,13 @@
         "Editable overlays: “PARENTS MUST KNOW EVERYTHING” — Blank flyer stack; “HANG FLYERS · $8” — Blank offer slip",
         "Source: School disclosure orders override student confidentiality policies — www.supremecourt.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D02-B",
@@ -3111,8 +3251,13 @@
         "Editable overlays: “THANK YOU FOR YOUR SERVICE” — glossy sheet; “HORMONE-CARE RESTRICTIONS” — public policy-page heading; “$8 FOLDER JOB” — work card",
         "Source: VA gender-affirming care cutoff"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-PC-D02-C",
@@ -3137,8 +3282,13 @@
         "Source: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov",
         "Source: FCC pressure preceding the temporary Kimmel suspension — docs.fcc.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-PC-D02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D01-A",
@@ -3162,8 +3312,13 @@
         "Editable overlays: “ARRANGE BARRIERS · $10” — Blank offer card; “PROBLEM SOLVED” — Blank presentation board",
         "Source: Public-camping penalties survive an Eighth Amendment challenge — www.supremecourt.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D01-B",
@@ -3187,8 +3342,13 @@
         "Editable overlays: “PROBLEM SOLVED” — Blank contractor banner; “LOAD JUGS · $10” — Blank offer card",
         "Source: Navajo water rights without an affirmative treaty duty to secure water — www.supremecourt.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D01-C",
@@ -3212,8 +3372,13 @@
         "Editable overlays: “CARE WITHOUT OBSTACLES” — display banner; “$10 RAMP-MOVING JOB” — offer card; “2022 FEDERAL AUDIT” — public report cover",
         "Source: Medicare Advantage denial of qualifying care"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D02-A",
@@ -3237,8 +3402,13 @@
         "Editable overlays: “COLLATING JOB · $16” — Blank counter offer card; “2027 BENEFITS” — Blank cover sheet",
         "Source: Federal employee insurance removes mid-treatment exceptions — www.opm.gov"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D02-B",
@@ -3262,8 +3432,13 @@
         "Editable overlays: “ROUND-THE-CLOCK CARE” — television advertisement overlay; “$16 CUTLERY-ROLLING JOB” — offer card; “GAO PUBLIC REPORT” — report cover",
         "Source: Missing chronic-care plans in immigration detention"
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-W-SW-D02-C",
@@ -3290,8 +3465,13 @@
         "Road — Shared",
         "102 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "excluded_from_production",
-      "new_generation_authorized": false
+      "asset_decision": "inactive_no_production",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-W-SW-D02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-S01-A",
@@ -9244,7 +9424,7 @@
         "Editable overlays: “Gulf of Mexico” — Separate editable overlay on the indicated blank prop or beside it; “Gulf of America” — Separate editable overlay on the indicated blank prop or beside it",
         "Source: Gulf renaming"
       ],
-      "asset_decision": "inspected_reuse_with_layers",
+      "asset_decision": "reuse_candidate_composition_incomplete",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -9445,7 +9625,7 @@
         "Scene: Traveler nods over a plain laptop while five physical work objects—keys, gloves, brush, map and radio—line the table.",
         "Source: DOGE five-accomplishments emails"
       ],
-      "asset_decision": "inspected_reuse_with_layers",
+      "asset_decision": "reuse_candidate_composition_incomplete",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
