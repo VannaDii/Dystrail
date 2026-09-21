@@ -117,3 +117,48 @@ This **approval proposal** accounts for all 77 functional records without commis
 PROFILE-17 proposes Frederick church spires and PROFILE-38 proposes San Antonio mission architecture. Those visual suggestions conflict with the user's explicit no-religious-symbols rule and are excluded; the factual text remains independently reviewable.
 
 Additional road originals inspected for reuse: `open-california-hills.png`, `open-southwest-desert.png`, and `open-beltway-parkway.png`, each 1536 × 1024. Preserve their geography: a desert mesa landscape is not an interchangeable coastal-city establishing shot. No religious symbols were observed in these three inspected images. Final scene composition and localization still require review.
+
+## Activities and crossings
+
+36 further source-to-image proposals. Earlier barter sheets preserve all three item families; the newer refresh is tire-only. Crossing originals have improved wide framing but remain on style, geography and composition review hold. No new image is authorized.
+
+Native canvases are 1536 × 1024. Barter uses two columns with 760px content widths and recorded nonuniform row bounds; gathering/work candidates use 768 × 256 cells, subject to final cell-edge inspection. Rest props use 768 × 341/342 cells. Crossings use the whole 3:2 source. Exact coordinates, hashes and source directions are in the JSON ledger. Preserve actual crew, bottom-left captions and approved stats.
+
+| Record | Decision | Inspection finding |
+|---|---|---|
+| ACT-BARTERTIRE-A | reuse with layers | Intact tire, grocery bundle and radio match the essential trade. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERBATTERY-A | reuse with layers | Battery, groceries and radio match; resident is behind the table rather than holding the battery. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERSUPPLIES-A | reuse with layers | Groceries opposite intact spare, radio nearby. Before-cell goods remain unexchanged. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERTIRE-B | reuse with layers | Intact tire and groceries match. Add actual negotiating traveler, not a fixed crew portrait. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERBATTERY-B | reuse with layers | Battery and groceries match; an unopened envelope can represent the shop quote without generated lettering. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERSUPPLIES-B | reuse with layers | Tire and groceries match. Two current travelers must be composed only if they fit the native camera. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERTIRE-C | reuse with layers | Flat spare tire conveys the practical conference-table joke. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERBATTERY-C | reuse with layers | Battery, radio and blank leaflets match the essential trade. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-BARTERSUPPLIES-C | reuse with layers | Intact tire, groceries and radio match the essential trade. Use the right cell only after a successful completed trade, not merely after a click. |
+| ACT-CASHWORK-A | candidate missing gag | Dirty dishes match the job; empty tip jar and owner offer are absent. Do not show clean completed dishes before accepting work. |
+| ACT-CASHWORK-B | candidate context mismatch | Memoir donor/podium scene may supply context, but stage crates and untouched lifting job are not verified. Avoid substituting book selling for paid setup work. |
+| ACT-CASHWORK-C | retained candidate unresolved | No verified retained delivery truck, damaged access road and untouched crates composition. |
+| ACT-FOODWORK-A | reuse with layers | Pantry coordinator, unsorted donations and sorted outgoing groceries match broad staging. Verify suspicious plus-like carton-top marks against the no-symbol rule at final size; do not assume approval. |
+| ACT-FOODWORK-B | candidate missing gag | Kitchen and takeaway container match broadly; source specifies untouched catering trays, while candidate emphasizes dishwashing. |
+| ACT-FOODWORK-C | candidate context mismatch | Dirty-pan job does not depict an empty cash drawer, sorting bench or grocery invoices. |
+| ACT-FORAGE-A | reuse with layers | Guide, berries and empty basket fit the activity. Required blank phone-form prop is absent; actual travelers remain runtime layers. |
+| ACT-FORAGE-B | candidate missing gag | Botanist context fits, but two clearly different plants are not established by the retained cell. |
+| ACT-FORAGE-C | candidate missing gag | Foraging setting lacks the distant fenced catered reception central to this contrast. |
+| ACT-GLEAN-A | reuse with layers | Farmer, tractor and unharvested carrots match. Machinery invoice still needs a coherent prop placement. |
+| ACT-GLEAN-B | candidate context mismatch | Labeled crate does not establish the required radio and benefits notice. |
+| ACT-GLEAN-C | candidate context mismatch | Corn and baseball substitute a different joke for the conspicuously bent carrot. |
+| ACT-REST-A | reuse props composition incomplete | Keys and radio can supplement actual crew at the parked van; source calls for keys in a traveler hand, not merely on a table. Check alpha and colored edge halo on the real backdrop; no automatic image edits. |
+| ACT-REST-B | reuse props composition incomplete | Radio and blanket can supplement actual crew at a modest rest stop. Localized donor broadcast stays separate editable content. Check alpha and colored edge halo on the real backdrop; no automatic image edits. |
+| ACT-REST-C | reuse props composition incomplete | Use the face-down phone cell (right), add wrapped food and actual resting crew. Do not display a face-up phone as the final state. Check alpha and colored edge halo on the real backdrop; no automatic image edits. |
+| CROSS-01-A | retained candidate unresolved | No verified officer/open hood/ordinary alternator scene. The crouching inspection image is a different vehicle-plate story. |
+| CROSS-01-B | reuse candidate review hold | Folded blank narrow map fits; use retained unfolded map as an existing alternate only if state warrants it. |
+| CROSS-01-C | reuse candidate composition incomplete | Crouching officer and towering forms fit; actual van plate must meet the pointing/inspection position without inconsistent scale. |
+| CROSS-02C-A | reuse candidate composition incomplete | Workers physically hold raised beam with a large blank roof sign. Beam is parallel to the road behind its shoulder, not a functioning cross-lane barrier. Do not animate the van underneath it as rendered. |
+| CROSS-02C-B | reuse candidate review hold | Official with inspection sheet points to a concrete crack. Keep waiting van safely separate at plausible foreground scale. |
+| CROSS-02C-C | retained candidate unresolved | No verified worker/steel quote/solitary cone/unfinished repair composition. |
+| CROSS-02D-A | reuse candidate review hold | Separate woman asks the guard pointing toward a second camera. Both remain external to crew. |
+| CROSS-02D-B | reuse candidate review hold | Separate traveler presents two matching portrait cards to monitor-facing guard. No readable private data or crew substitution. |
+| CROSS-02D-C | reuse candidate review hold | Separate adult, unused chair and clipboard guard match; no treatment or distress depicted. |
+| CROSS-03-A | candidate context mismatch | Two payment/document slots do not depict an official peering into the actual van or the required cash tray and case folder. |
+| CROSS-03-B | reuse candidate review hold | Thick folder held beside thin booklet matches; crew van must wait without hiding the documents. |
+| CROSS-03-C | reuse candidate composition incomplete | Papers on bucket in desk-less booth match. Waiting vehicle and any actual road barrier need coherent placement. |

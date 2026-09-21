@@ -10020,8 +10020,13 @@
         "Scene: Officer peers suspiciously into the open hood of the stopped van; an ordinary alternator becomes the focal point. No dismantling or damage.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "retained_candidate_unresolved",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-01-B",
@@ -10046,8 +10051,13 @@
         "Scene: Officer holds a folded blank map at arm’s length beside the waiting van. The tiny coastal area, not any human ethnicity, is the visual target.",
         "Source: Gulf renaming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-01-C",
@@ -10072,8 +10082,13 @@
         "Scene: An officer bends toward a blank manufacturer plate while the travelers wait beside the van; a towering stack of blank forms dwarfs the tiny plate.",
         "Source: 2025 entry restrictions and extreme vetting"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02C-A",
@@ -10098,8 +10113,13 @@
         "Scene: Two tired crossing workers physically support a raised barrier beside an oversized blank office nameplate; the van remains on the approach.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02C-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02C-B",
@@ -10124,8 +10144,13 @@
         "Scene: Boss proudly displays a blank inspection sheet beside an obvious concrete crack, with the waiting van safely before the crossing.",
         "Source: Trump anti-DEI actions"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02C-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02C-C",
@@ -10150,8 +10175,13 @@
         "Scene: Crossing worker holds a blank steel quote beside a solitary cone and an unfinished repair area. Keep the van safely on the approach.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "retained_candidate_unresolved",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02C-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02D-A",
@@ -10177,8 +10207,13 @@
         "Scene: Waiting van before a checkpoint camera. A separate woman questions a guard who points toward another camera instead of answering. Blank plates and screens; no private location data.",
         "Source: Flock database misuse to stalk women"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02D-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02D-B",
@@ -10204,8 +10239,13 @@
         "Scene: A separate trans traveler holds two blank identity cards with matching portraits while a guard stares at a blank monitor. Current crew and van wait behind; no body inspection or readable personal data.",
         "Source: Federal passport sex-marker policy"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02D-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-02D-C",
@@ -10231,8 +10271,13 @@
         "Scene: A separate adult at a checkpoint clinic gestures toward an unused treatment chair while a guard displays a blank completed intake form. No medical procedure, distress spectacle or new crew passenger.",
         "Source: Detention medical care beyond intake"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-02D-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-03-A",
@@ -10257,8 +10302,13 @@
         "Scene: Official peers into the ordinary van, then gestures toward a cash tray. The travelers’ case folder sits plainly in view.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-03-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-03-B",
@@ -10283,8 +10333,13 @@
         "Scene: Officer weighs a thick, unlettered case folder beside a conspicuously thin blank official-history booklet, with the van waiting behind.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-03-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "CROSS-03-C",
@@ -10311,8 +10366,13 @@
         "Executive orders",
         "18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_candidate_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "CROSS-03-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ORDER-DEREGULATE-A",
@@ -11277,8 +11337,13 @@
         "Scene: Resident holds a replacement battery beside a small grocery bundle; a radio sits nearby.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERBATTERY-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERBATTERY-B",
@@ -11297,8 +11362,13 @@
         "Scene: Exchange table holds a plain battery, groceries and an unopened printed shop quote.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERBATTERY-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERBATTERY-C",
@@ -11317,8 +11387,13 @@
         "Scene: Resident taps a real battery while an unlettered radio display glows beside empty political leaflets.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERBATTERY-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERSUPPLIES-A",
@@ -11337,8 +11412,13 @@
         "Scene: Resident sets plain groceries opposite an intact spare; no money or goods have changed hands yet.",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERSUPPLIES-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERSUPPLIES-B",
@@ -11357,8 +11437,13 @@
         "Scene: Two travelers and a local regard a tire and groceries arranged like a modest negotiating table.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERSUPPLIES-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERSUPPLIES-C",
@@ -11377,8 +11462,13 @@
         "Scene: Simple swap table in front of a radio; groceries are unmistakably practical, the spare visibly intact.",
         "Source: 2025 health spending law"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERSUPPLIES-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERTIRE-A",
@@ -11397,8 +11487,13 @@
         "Scene: Resident presents an intact spare beside a modest grocery bundle and an ordinary radio.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERTIRE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERTIRE-B",
@@ -11417,8 +11512,13 @@
         "Scene: Two ordinary people compare an intact tire and plain groceries across a community swap table.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERTIRE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-BARTERTIRE-C",
@@ -11437,8 +11537,13 @@
         "Scene: A spare tire lies flat on a swap table like an oddly practical conference table.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-BARTERTIRE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-CASHWORK-A",
@@ -11457,8 +11562,13 @@
         "Scene: Owner gestures to an empty tip jar beside dishes waiting to be cleared; travelers are still considering the job.",
         "Source: No tax on tips and overtime"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_missing_gag",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-CASHWORK-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-CASHWORK-B",
@@ -11477,8 +11587,13 @@
         "Scene: Large blank banner and stage crates await lifting while a wealthy donor rehearses near an assembled podium.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-CASHWORK-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-CASHWORK-C",
@@ -11497,8 +11612,13 @@
         "Scene: Delivery truck waits by a damaged access road; shop owner offers work beside untouched crates.",
         "Source: Federal attempts to withdraw Albuquerque walk/bike funding"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "retained_candidate_unresolved",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-CASHWORK-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FOODWORK-A",
@@ -11517,8 +11637,13 @@
         "Scene: Pantry coordinator offers a sorting station beside clearly separated incoming donations and outgoing groceries.",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FOODWORK-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FOODWORK-B",
@@ -11537,8 +11662,13 @@
         "Scene: Kitchen worker stands between untouched catered trays and plain takeaway containers; travelers have not started work.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_missing_gag",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FOODWORK-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FOODWORK-C",
@@ -11557,8 +11687,13 @@
         "Scene: Volunteer displays an empty cash drawer beside a sorting bench and plain grocery invoices.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FOODWORK-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FORAGE-A",
@@ -11577,8 +11712,13 @@
         "Scene: Guide points out familiar edible berries to current travelers; a blank phone form sits unused beside a basket.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FORAGE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FORAGE-B",
@@ -11597,8 +11737,13 @@
         "Scene: Former public botanist shows travelers two clearly different plants without a harvesting tutorial or readable labels.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_missing_gag",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FORAGE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-FORAGE-C",
@@ -11617,8 +11762,13 @@
         "Scene: Ordinary travelers gather with a guide while a distant, elegant catered reception is glimpsed beyond a venue fence.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_missing_gag",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-FORAGE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-GLEAN-A",
@@ -11637,8 +11787,13 @@
         "Scene: Farmer holds a blank machinery invoice beside a tractor while travelers consider a row of leftover produce.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_layers",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-GLEAN-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-GLEAN-B",
@@ -11657,8 +11812,13 @@
         "Scene: Farmer gestures to unharvested produce beside an ordinary radio and an unlettered benefits notice.",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-GLEAN-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-GLEAN-C",
@@ -11677,8 +11837,13 @@
         "Scene: One conspicuously bent carrot sits atop a crate beside a row the crew may glean.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-GLEAN-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-REST-A",
@@ -11697,8 +11862,13 @@
         "Scene: Current crew rests in or beside the parked van; one traveler holds the keys while a muted radio sits aside.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_props_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-REST-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-REST-B",
@@ -11717,8 +11887,13 @@
         "Scene: Travelers settle at a modest rest stop while a blank radio display shows a distant donor broadcast through a separate overlay.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_props_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-REST-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ACT-REST-C",
@@ -11739,8 +11914,13 @@
         "Weather & health",
         "27 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_props_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ACT-REST-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-CLEAR-A",

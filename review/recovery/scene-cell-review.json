@@ -3584,6 +3584,1098 @@
       "remaining_gate": "Inventory proposal requires approval; verify retained content/localization in the final build.",
       "candidate_sha256": "4340bbb443f22ab5890d522a90b00417090f9a92029ce1dc0713e460dd6f654e",
       "finding": "Retain the existing inventory item art and approved item-card layout. Editable localized label and quantity remain UI text; no purchase or repair outcome is illustrated."
+    },
+    {
+      "unit": "ACT-BARTERTIRE-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Resident presents an intact spare beside a modest grocery bundle and an ordinary radio."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-2ee893b9-c350-48b1-96f6-f853dfb41b9f.png",
+      "candidate_sha256": "3aad03dd771831411075c1c37446894eeef09b007580fab9e66a1b0d17392813",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        0,
+        760,
+        340
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Intact tire, grocery bundle and radio match the essential trade. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        0,
+        760,
+        340
+      ]
+    },
+    {
+      "unit": "ACT-BARTERBATTERY-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Resident holds a replacement battery beside a small grocery bundle; a radio sits nearby."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-2ee893b9-c350-48b1-96f6-f853dfb41b9f.png",
+      "candidate_sha256": "3aad03dd771831411075c1c37446894eeef09b007580fab9e66a1b0d17392813",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        340,
+        760,
+        343
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Battery, groceries and radio match; resident is behind the table rather than holding the battery. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        340,
+        760,
+        343
+      ]
+    },
+    {
+      "unit": "ACT-BARTERSUPPLIES-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Resident sets plain groceries opposite an intact spare; no money or goods have changed hands yet."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-2ee893b9-c350-48b1-96f6-f853dfb41b9f.png",
+      "candidate_sha256": "3aad03dd771831411075c1c37446894eeef09b007580fab9e66a1b0d17392813",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        683,
+        760,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Groceries opposite intact spare, radio nearby. Before-cell goods remain unexchanged. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        683,
+        760,
+        341
+      ]
+    },
+    {
+      "unit": "ACT-BARTERTIRE-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Two ordinary people compare an intact tire and plain groceries across a community swap table."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-4e1f8743-51df-43dc-abad-95b885927611.png",
+      "candidate_sha256": "4ac20c9cac9fdba600cd279ee81f08c4f633ac481c192ffdc9c183b3f2b0d2b6",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        0,
+        760,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Intact tire and groceries match. Add actual negotiating traveler, not a fixed crew portrait. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        0,
+        760,
+        341
+      ]
+    },
+    {
+      "unit": "ACT-BARTERBATTERY-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Exchange table holds a plain battery, groceries and an unopened printed shop quote."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-4e1f8743-51df-43dc-abad-95b885927611.png",
+      "candidate_sha256": "4ac20c9cac9fdba600cd279ee81f08c4f633ac481c192ffdc9c183b3f2b0d2b6",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        341,
+        760,
+        339
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Battery and groceries match; an unopened envelope can represent the shop quote without generated lettering. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        341,
+        760,
+        339
+      ]
+    },
+    {
+      "unit": "ACT-BARTERSUPPLIES-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Two travelers and a local regard a tire and groceries arranged like a modest negotiating table."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-4e1f8743-51df-43dc-abad-95b885927611.png",
+      "candidate_sha256": "4ac20c9cac9fdba600cd279ee81f08c4f633ac481c192ffdc9c183b3f2b0d2b6",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        680,
+        760,
+        344
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Tire and groceries match. Two current travelers must be composed only if they fit the native camera. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        680,
+        760,
+        344
+      ]
+    },
+    {
+      "unit": "ACT-BARTERTIRE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A spare tire lies flat on a swap table like an oddly practical conference table."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-b59ce8e8-c10c-4aac-aae2-7a0e501f6fa1.png",
+      "candidate_sha256": "6c51fabf793a074c14aee3511bda44002245fb4bb7e63d15d7a16fd1a3e7db6a",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        0,
+        760,
+        341
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Flat spare tire conveys the practical conference-table joke. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        0,
+        760,
+        341
+      ]
+    },
+    {
+      "unit": "ACT-BARTERBATTERY-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Resident taps a real battery while an unlettered radio display glows beside empty political leaflets."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-b59ce8e8-c10c-4aac-aae2-7a0e501f6fa1.png",
+      "candidate_sha256": "6c51fabf793a074c14aee3511bda44002245fb4bb7e63d15d7a16fd1a3e7db6a",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        341,
+        760,
+        343
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Battery, radio and blank leaflets match the essential trade. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        341,
+        760,
+        343
+      ]
+    },
+    {
+      "unit": "ACT-BARTERSUPPLIES-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Simple swap table in front of a radio; groceries are unmistakably practical, the spare visibly intact."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-b59ce8e8-c10c-4aac-aae2-7a0e501f6fa1.png",
+      "candidate_sha256": "6c51fabf793a074c14aee3511bda44002245fb4bb7e63d15d7a16fd1a3e7db6a",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        684,
+        760,
+        340
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Intact tire, groceries and radio match the essential trade. Use the right cell only after a successful completed trade, not merely after a click.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        772,
+        684,
+        760,
+        340
+      ]
+    },
+    {
+      "unit": "ACT-CASHWORK-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Owner gestures to an empty tip jar beside dishes waiting to be cleared; travelers are still considering the job."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b3811f6-c1f3-46b5-b586-6f837119cac5.png",
+      "candidate_sha256": "e3ddba7c478a62f68f272e80da078935aad2a910e157df7598c96e863fae6ec2",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "decision": "candidate_missing_gag",
+      "finding": "Dirty dishes match the job; empty tip jar and owner offer are absent. Do not show clean completed dishes before accepting work.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-CASHWORK-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Large blank banner and stage crates await lifting while a wealthy donor rehearses near an assembled podium."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0d54fec5-b7f0-4d99-8dac-3e51e574ab39.png",
+      "candidate_sha256": "6a2d6d2544b713d1f02eda493b649f356267487c3f811cbf6e6c89b60fd60a39",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Memoir donor/podium scene may supply context, but stage crates and untouched lifting job are not verified. Avoid substituting book selling for paid setup work.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation."
+    },
+    {
+      "unit": "ACT-CASHWORK-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Delivery truck waits by a damaged access road; shop owner offers work beside untouched crates."
+      ],
+      "candidate_original": null,
+      "candidate_sha256": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "decision": "retained_candidate_unresolved",
+      "finding": "No verified retained delivery truck, damaged access road and untouched crates composition.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation."
+    },
+    {
+      "unit": "ACT-FOODWORK-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Pantry coordinator offers a sorting station beside clearly separated incoming donations and outgoing groceries."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b3811f6-c1f3-46b5-b586-6f837119cac5.png",
+      "candidate_sha256": "e3ddba7c478a62f68f272e80da078935aad2a910e157df7598c96e863fae6ec2",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Pantry coordinator, unsorted donations and sorted outgoing groceries match broad staging. Verify suspicious plus-like carton-top marks against the no-symbol rule at final size; do not assume approval.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-FOODWORK-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Kitchen worker stands between untouched catered trays and plain takeaway containers; travelers have not started work."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b3811f6-c1f3-46b5-b586-6f837119cac5.png",
+      "candidate_sha256": "e3ddba7c478a62f68f272e80da078935aad2a910e157df7598c96e863fae6ec2",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "decision": "candidate_missing_gag",
+      "finding": "Kitchen and takeaway container match broadly; source specifies untouched catering trays, while candidate emphasizes dishwashing.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-FOODWORK-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Volunteer displays an empty cash drawer beside a sorting bench and plain grocery invoices."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8b3811f6-c1f3-46b5-b586-6f837119cac5.png",
+      "candidate_sha256": "e3ddba7c478a62f68f272e80da078935aad2a910e157df7598c96e863fae6ec2",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        256
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Dirty-pan job does not depict an empty cash drawer, sorting bench or grocery invoices.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        512,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-FORAGE-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Guide points out familiar edible berries to current travelers; a blank phone form sits unused beside a basket."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Guide, berries and empty basket fit the activity. Required blank phone-form prop is absent; actual travelers remain runtime layers.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-FORAGE-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Former public botanist shows travelers two clearly different plants without a harvesting tutorial or readable labels."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "decision": "candidate_missing_gag",
+      "finding": "Botanist context fits, but two clearly different plants are not established by the retained cell.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-FORAGE-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Ordinary travelers gather with a guide while a distant, elegant catered reception is glimpsed beyond a venue fence."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        256
+      ],
+      "decision": "candidate_missing_gag",
+      "finding": "Foraging setting lacks the distant fenced catered reception central to this contrast.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        0,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-GLEAN-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Farmer holds a blank machinery invoice beside a tractor while travelers consider a row of leftover produce."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        256,
+        768,
+        256
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Farmer, tractor and unharvested carrots match. Machinery invoice still needs a coherent prop placement.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        256,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-GLEAN-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Farmer gestures to unharvested produce beside an ordinary radio and an unlettered benefits notice."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        256
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Labeled crate does not establish the required radio and benefits notice.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        512,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-GLEAN-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "One conspicuously bent carrot sits atop a crate beside a row the crew may glean."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97994eb1-95b4-4131-9815-a42bc038f0b8.png",
+      "candidate_sha256": "69a7a6153641f7f5dd529cf2bbac913b18fef81f38f0ad55cde7824b3ed17706",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        768,
+        768,
+        256
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Corn and baseball substitute a different joke for the conspicuously bent carrot.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        768,
+        768,
+        256
+      ]
+    },
+    {
+      "unit": "ACT-REST-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Current crew rests in or beside the parked van; one traveler holds the keys while a muted radio sits aside."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-00b0df69-235a-4f52-bf9a-7830de31eee6.png",
+      "candidate_sha256": "f3f9cc16ff8ad628947e5b38d289a42f3debf0acb481256b3d74e3b5a156957b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        341
+      ],
+      "decision": "reuse_props_composition_incomplete",
+      "finding": "Keys and radio can supplement actual crew at the parked van; source calls for keys in a traveler hand, not merely on a table. Check alpha and colored edge halo on the real backdrop; no automatic image edits.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        0,
+        768,
+        341
+      ]
+    },
+    {
+      "unit": "ACT-REST-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Travelers settle at a modest rest stop while a blank radio display shows a distant donor broadcast through a separate overlay."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-00b0df69-235a-4f52-bf9a-7830de31eee6.png",
+      "candidate_sha256": "f3f9cc16ff8ad628947e5b38d289a42f3debf0acb481256b3d74e3b5a156957b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        341,
+        768,
+        341
+      ],
+      "decision": "reuse_props_composition_incomplete",
+      "finding": "Radio and blanket can supplement actual crew at a modest rest stop. Localized donor broadcast stays separate editable content. Check alpha and colored edge halo on the real backdrop; no automatic image edits.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        341,
+        768,
+        341
+      ]
+    },
+    {
+      "unit": "ACT-REST-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Phones face down beside wrapped food while current crew rests by the van; no content embedded on screens."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-00b0df69-235a-4f52-bf9a-7830de31eee6.png",
+      "candidate_sha256": "f3f9cc16ff8ad628947e5b38d289a42f3debf0acb481256b3d74e3b5a156957b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        682,
+        768,
+        342
+      ],
+      "decision": "reuse_props_composition_incomplete",
+      "finding": "Use the face-down phone cell (right), add wrapped food and actual resting crew. Do not display a face-up phone as the final state. Check alpha and colored edge halo on the real backdrop; no automatic image edits.",
+      "camera": "Preserve native cell eye-level three-quarter camera and counter/ground contact. Insert actual travelers only at the same depth and projection.",
+      "proportions": "Adult-sized residents and actual crew, plausible waist-height tables. No miniature substitute travelers. Scale the assembled cell uniformly.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "native_completed_cell_xywh": [
+        768,
+        682,
+        768,
+        342
+      ]
+    },
+    {
+      "unit": "CROSS-01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Officer peers suspiciously into the open hood of the stopped van; an ordinary alternator becomes the focal point. No dismantling or damage."
+      ],
+      "candidate_original": null,
+      "candidate_sha256": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "decision": "retained_candidate_unresolved",
+      "finding": "No verified officer/open hood/ordinary alternator scene. The crouching inspection image is a different vehicle-plate story.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Officer holds a folded blank map at arm’s length beside the waiting van. The tiny coastal area, not any human ethnicity, is the visual target."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-459b161a-18eb-4e55-a8c7-ea0a57bedc54.png",
+      "candidate_sha256": "083da279b38a6bfc4f0365ff60226b59aabb8bfcb12c2412911c748362081cca",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Folded blank narrow map fits; use retained unfolded map as an existing alternate only if state warrants it.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An officer bends toward a blank manufacturer plate while the travelers wait beside the van; a towering stack of blank forms dwarfs the tiny plate."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-ef63ae16-fd09-4151-9c52-54fee85d7a51.png",
+      "candidate_sha256": "3c3139ad064143497380dc657da7414f9cc730cb49c19363f11325bc58a0f83a",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "Crouching officer and towering forms fit; actual van plate must meet the pointing/inspection position without inconsistent scale.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02C-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Two tired crossing workers physically support a raised barrier beside an oversized blank office nameplate; the van remains on the approach."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-6eb71a7f-36f9-41e8-9940-5bcbbc920897.png",
+      "candidate_sha256": "3a7b398f70f82d62b16090f5c521975d2d5b86e1708f86200cb3ee61f00e78ba",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "Workers physically hold raised beam with a large blank roof sign. Beam is parallel to the road behind its shoulder, not a functioning cross-lane barrier. Do not animate the van underneath it as rendered.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02C-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Boss proudly displays a blank inspection sheet beside an obvious concrete crack, with the waiting van safely before the crossing."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-af8f24ed-5993-42d7-82c7-a552bbec470d.png",
+      "candidate_sha256": "325b17b653894788d8e31475696c65aa0accc94904c69a0edb5b85189b5e4b23",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Official with inspection sheet points to a concrete crack. Keep waiting van safely separate at plausible foreground scale.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02C-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Crossing worker holds a blank steel quote beside a solitary cone and an unfinished repair area. Keep the van safely on the approach."
+      ],
+      "candidate_original": null,
+      "candidate_sha256": null,
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "decision": "retained_candidate_unresolved",
+      "finding": "No verified worker/steel quote/solitary cone/unfinished repair composition.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02D-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Waiting van before a checkpoint camera. A separate woman questions a guard who points toward another camera instead of answering. Blank plates and screens; no private location data."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-2f59d6be-ebb8-4f62-a808-404cc9f737ee.png",
+      "candidate_sha256": "c11fa4ef58f2f58f3bb5e1cbdbafb91e436ba0529fe16b49de53ca3ef1b26245",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Separate woman asks the guard pointing toward a second camera. Both remain external to crew.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02D-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A separate trans traveler holds two blank identity cards with matching portraits while a guard stares at a blank monitor. Current crew and van wait behind; no body inspection or readable personal data."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f22b37bf-1f12-44c9-b8df-27a64fc0c363.png",
+      "candidate_sha256": "9255b8530e5d937364ab9748b5c777760fdbe2db7615e1a7591a7591e15b822c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Separate traveler presents two matching portrait cards to monitor-facing guard. No readable private data or crew substitution.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-02D-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A separate adult at a checkpoint clinic gestures toward an unused treatment chair while a guard displays a blank completed intake form. No medical procedure, distress spectacle or new crew passenger."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a1b7c12f-d43a-443d-b8b2-749e6824a718.png",
+      "candidate_sha256": "720ba638aac58aebebae2a20b20467aef6387edcba823e3b2d877afd3c1bdc50",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Separate adult, unused chair and clipboard guard match; no treatment or distress depicted.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-03-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Official peers into the ordinary van, then gestures toward a cash tray. The travelers’ case folder sits plainly in view."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-bed315bd-0090-46d1-ae5d-eb9774fe3c74.png",
+      "candidate_sha256": "b52347d454fed715c50869c16b0e1e5a44ac21996b208204f0019b17bc032446",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Two payment/document slots do not depict an official peering into the actual van or the required cash tray and case folder.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-03-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Officer weighs a thick, unlettered case folder beside a conspicuously thin blank official-history booklet, with the van waiting behind."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1ed732d3-1461-4659-ab01-af50f58e54f7.png",
+      "candidate_sha256": "936d820603e77300356913e35def07aa6b8bcf7cb5a2156a7dd05963a55dff8f",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_review_hold",
+      "finding": "Thick folder held beside thin booklet matches; crew van must wait without hiding the documents.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "CROSS-03-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "An official balances blank appointment papers on an upturned bucket where a desk used to stand. Keep the van before the barrier."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-cf2c4074-98d7-4275-8943-2b9bc6b42287.png",
+      "candidate_sha256": "586e466800fd3ef500677863c7bcda2583cbab5d6b5d073d3bcb3737045a88fe",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_candidate_composition_incomplete",
+      "finding": "Papers on bucket in desk-less booth match. Waiting vehicle and any actual road barrier need coherent placement.",
+      "camera": "Retain the original level wide road view, horizontal road and upright booth. Keep foreground vehicle separate from the distant booth plane.",
+      "proportions": "Do not enlarge the official or shrink the van for visibility. Match a 1.70 m adult to a 4.80 m van body at equal depth; document depth scale before composition.",
+      "desktop_mobile": "Same source and composition at 1440px desktop and 390/320px phone. Contain without stretching; preserve key props and lower-left scene caption. No caption bust or altered stats.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
+      "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
     }
   ],
   "requirements": {
@@ -3610,6 +4702,19 @@
     },
     "REPAIR": {
       "reuse_component_composition_incomplete": 12
+    },
+    "ACT": {
+      "reuse_with_layers": 12,
+      "candidate_missing_gag": 4,
+      "candidate_context_mismatch": 4,
+      "retained_candidate_unresolved": 1,
+      "reuse_props_composition_incomplete": 3
+    },
+    "CROSS": {
+      "retained_candidate_unresolved": 2,
+      "reuse_candidate_review_hold": 6,
+      "reuse_candidate_composition_incomplete": 3,
+      "candidate_context_mismatch": 1
     }
   },
   "functional_scope_proposal": {
@@ -3617,5 +4722,6 @@
     "approval": "pending",
     "new_generations": 0,
     "principle": "Preserve approved interfaces; account for source text and existing art without treating every functional vignette suggestion as an authorized new illustration."
-  }
+  },
+  "activity_crossing_review_note": "Earlier barter A/B/C originals were inspected directly; the later refresh has tire trades only and is not a replacement for all barter families. Before/after artwork must follow actual completed outcomes. No production authorized."
 }
