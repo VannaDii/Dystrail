@@ -17176,7 +17176,9 @@
             "essential_action": "Envelope with a biscuit-shaped bulge beside a reserved lift and working stairs; stage the offer, not an already completed passage.",
             "source_direction_reference": "ENC-C18-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Envelope biscuit reads as an external seal rather than a bulge inside sealed paper. Adult framing differs from outdoor rig; held."
           },
           {
             "unit": "ENC-D01-C",
@@ -17191,7 +17193,9 @@
             "essential_action": "Phone gets a full menu/place setting while the nurse’s breakfast waits; do not replace the nurse with a traveler.",
             "source_direction_reference": "ENC-D01-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Phone place setting and nurse breakfast readable, but black caption band and oversized framing need user review."
           },
           {
             "unit": "ENC-D04-C",
@@ -17206,7 +17210,9 @@
             "essential_action": "Whole sandwich positioned over the blank photo field of a catering form; no invented approval or food reward.",
             "source_direction_reference": "ENC-D04-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Sandwich sits above heading instead of over photo field; form held upright instead of resting on counter. Essential staging not met."
           },
           {
             "unit": "ENC-D06-B",
@@ -17221,12 +17227,23 @@
             "essential_action": "One filter has a clean sales-facing side and dirty reverse, both legible in a single view.",
             "source_direction_reference": "ENC-D06-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Clean filter and dirty mirror image readable, but reflection geometry and oversized filter need user review; black band not approved scene treatment."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "attempt_status": "completed_reviewed_once",
+        "production_prompt": "Dystrail production asset selected-satire-03. Create ONE opaque 1536x1024 PNG atlas with exactly four independent 768x512 scenes in a 2x2 grid, no gutters, frames or cross-panel objects. Strict late-16-bit pixel art with clearly visible chunky 4px pixel clusters, hard stepped outlines and limited flat shading. Not realistic, painterly or smooth. All signs, papers and menus BLANK for later localized overlays. No lettering, logos, religious symbols, crosses, religious jewelry or devotional architecture. Racially diverse feminine or gender-neutral external adults only; no player crew, van or player hands. Normal anatomy and consistent scale; all are offers/demonstrations BEFORE a player's choice.\n\nEach panel: 16px safe border; reserve x24..520,y424..488 as quiet low-detail dark ground or counter-front for bottom-left caption. Essential action above y400. One coherent level three-quarter camera, vanishing point about(384,160). Counter scenes have surface at y320/front below352, main objects x208..512,y168..352, right adult x520..696,y72..392. Outdoor foreground adults about224px high with feet y416 and horizon208. No giant people next to small architecture.\n\nTOP LEFT: Hotel workers' meeting at an open entrance court. A feminine Black hotel worker at left invites the unseen travelers toward real stairs leading upstairs. On the right a feminine East Asian manager waits beside the lift holding a sealed blank official envelope with a conspicuous small ROUND BISCUIT-SHAPED BULGE in its paper. The envelope remains sealed, no biscuit handed out. The lift has a blank wide management notice. Show the stairs and lift as parallel plausible routes in one modest building, with adults on the same ground plane. The ordinary biscuit in its pompous envelope is the only emphasized prop, not an enormous cookie. No royal or religious imagery.\n\nTOP RIGHT: Diner table, off-duty feminine brown-skinned adult nurse in plain everyday clothes on the right. An ordinary smartphone on speaker occupies its OWN full place setting: full plate, cutlery, glass and upright blank menu placed beside it by a feminine waitress at left. Nurse's untouched toast and cold breakfast crowd the small remaining space by her elbow. Phone stays small and ordinary, no face or anthropomorphic body. Leave a small separate blank caption card by phone. Full human-scale setting; no medical symbols.\n\nBOTTOM LEFT: Roadside cafe counter. Feminine Latina owner on right holds ONE WHOLE uncut sandwich just over the rectangular PHOTO field of an oversized blank catering application lying tilted toward viewer. Form has simple blank boxes and a wide empty heading space; sandwich resembles an applicant at its photo box. A gender-neutral Black adult volunteer at left offers a separate plain public-source sheet to unseen visitors. No stamps, approval marks, gifts, extra sandwiches or completed meal. Contact and fingers plausible; paper rests flat on counter.\n\nBOTTOM RIGHT: Hardware counter. Feminine South Asian salesperson on right holds ONE rectangular pleated air-filter panel turned obliquely, clean face toward counter; a small plain inspection MIRROR behind reveals that SAME filter's soot-dark reverse. No second filter. Reflection and physical object align in a coherent single camera view; one clean face, one dirty reflected reverse. A feminine/neutral older brown-skinned neighbor at left holds a blank public notice with a wide empty heading field. No letters or symbols. Ordinary hardware shelving, counter and hands; avoid oversized filter or duplicate hands.",
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-03.png",
+        "output_sha256": "1e664ce324a2e1bc72d5944d635d12896b9822f01dd686a9b54e0799a88645c0",
+        "actual_dimensions": [
+          1536,
+          1024
+        ],
+        "review": "Held for user review: rigid blank bands replace quiet scene frontage; proportions differ from specified rigs. No religious symbols observed; no automatic retries."
       },
       {
         "asset_id": "selected-satire-04",
@@ -18568,7 +18585,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 2,
+    "new_image_attempts_used": 3,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",

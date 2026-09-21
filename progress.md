@@ -477,3 +477,6 @@ September 14 — standing crew transparency repair:
 ## 2026-09-21 — reviewed road routing
 - Removed daily routing to excluded prairie/foundry and unreviewed suburbs; setup and fallback use approved orchard. Explicit saved road overrides now pass a reviewed seven-road allowlist, preserving California geography. No RNG, save schema, or Hearing changes.
 - Two targeted route regression tests passed; browser-target cargo check passed. No new image calls. Town/camp cells previously identified as containing religious symbols remain a separate outstanding correction; this checkpoint does not claim all scene bindings are accepted.
+
+## 2026-09-21 — third production sheet
+- selected-satire-03 generated once, original bytes/hash/prompt preserved. Three of thirteen maximum attempts consumed. All four panels held for user review: solid caption bands and mismatched staging; biscuit resembles seal, sandwich misses photo field, filter reflection/proportions need review. No retries and no runtime bindings.
