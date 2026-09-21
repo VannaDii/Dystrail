@@ -473,3 +473,7 @@ September 14 — standing crew transparency repair:
 - Generated selected-satire-01 and selected-satire-02 exactly once each; preserved original bytes, dimensions and SHA256 in production ledger. Two of thirteen maximum calls consumed.
 - Six panels are candidates for composed review, not accepted game art. ENC-C11-C held because an extra free outlet undermines its joke; ENC-C16-C held because phone pouches resemble jewelry cases. No retries.
 - Neither atlas is bound to runtime yet. Recovered visual_content.rs is only a partial C01 implementation; persistent variant selection and compatible source bindings need deliberate integration before new variant art is used. Hearing mechanics untouched.
+
+## 2026-09-21 — reviewed road routing
+- Removed daily routing to excluded prairie/foundry and unreviewed suburbs; setup and fallback use approved orchard. Explicit saved road overrides now pass a reviewed seven-road allowlist, preserving California geography. No RNG, save schema, or Hearing changes.
+- Two targeted route regression tests passed; browser-target cargo check passed. No new image calls. Town/camp cells previously identified as containing religious symbols remain a separate outstanding correction; this checkpoint does not claim all scene bindings are accepted.
