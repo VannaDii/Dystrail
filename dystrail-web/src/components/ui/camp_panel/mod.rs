@@ -31,18 +31,6 @@ pub fn cooldown(days: u32, total: u32, key: &str) -> Html {
     html! {<div class="cooldown-status"><p>{if days==0{i18n::t("journey.ready")}else{i18n::tr(key,Some(&BTreeMap::from([("days",days.to_string().as_str())])))}}</p><progress max={total.max(1).to_string()} value={(total.saturating_sub(days)).to_string()} aria-label={i18n::t("ux.camp_cooldown")} /></div>}
 }
 
-fn action_label(key: &str, values: &[(&str, i64)]) -> String {
-    let values: Vec<_> = values
-        .iter()
-        .map(|(key, value)| (*key, value.to_string()))
-        .collect();
-    let vars: BTreeMap<_, _> = values
-        .iter()
-        .map(|(key, value)| (*key, value.as_str()))
-        .collect();
-    i18n::tr(key, Some(&vars))
-}
-
 #[function_component(CampPanel)]
 pub fn camp_panel(p: &Props) -> Html {
     crate::i18n::use_language();
@@ -69,31 +57,23 @@ pub fn camp_panel(p: &Props) -> Html {
         Callback::from(move |_| cb.emit(()))
     };
     let cfg = &p.camp_config;
-    let rest_label = action_label(
+    let effects = super::choice_effects::describe(
+        &crate::game::data::Effects {
+            sanity: cfg.rest.sanity,
+            hp: cfg.rest.hp,
+            supplies: cfg.rest.supplies,
+            ..crate::game::data::Effects::default()
+        },
+        &p.game_state.stats,
+    )
+    .join(" · ");
+    let days = i18n::fmt_number(f64::from(cfg.rest.day));
+    let rest_label = i18n::tr(
         "ux.rest",
-        &[
-            (
-                "sanity",
-                i64::from(
-                    (p.game_state.stats.sanity + cfg.rest.sanity).clamp(0, 10)
-                        - p.game_state.stats.sanity,
-                ),
-            ),
-            (
-                "hp",
-                i64::from(
-                    (p.game_state.stats.hp + cfg.rest.hp).clamp(0, 10) - p.game_state.stats.hp,
-                ),
-            ),
-            (
-                "supplies",
-                i64::from(
-                    (p.game_state.stats.supplies + cfg.rest.supplies).clamp(0, 20)
-                        - p.game_state.stats.supplies,
-                ),
-            ),
-            ("days", i64::from(cfg.rest.day)),
-        ],
+        Some(&BTreeMap::from([
+            ("effects", effects.as_str()),
+            ("days", days.as_str()),
+        ])),
     );
     html! { <section class="camp-modal" aria-labelledby="camp-title">
         <h2 id="camp-title" class="sr-only">{i18n::t("camp.title")}</h2>

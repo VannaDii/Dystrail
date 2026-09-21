@@ -669,7 +669,7 @@
     "sanity": "Cordura",
     "resolve_vehicle": "Resolver la avería",
     "repair_help": "Elige la reparación y revisa el coste antes de instalar una pieza o pedir ayuda.",
-    "rest": "Descansar · Cordura +{sanity}, Salud +{hp}, Provisiones {supplies} · {days} día",
+    "rest": "Descansar · {effects} · {days} día",
     "camp_cooldown": "Algunas acciones no están disponibles durante su período de recuperación.",
     "rested": "Un poco de descanso. El país seguirá roto por la mañana.",
     "continue_today": "Continuar el día",
@@ -1547,10 +1547,10 @@
     "crew_stop": "Alguien necesita atención",
     "care_body": "El sanitario ofrece tratamiento a {name} antes de preguntar por el pago. Por un momento sospechas que es una trampa elaborada.",
     "care_critical": "{name} está en estado crítico. Continuar sin atención le causará la muerte. Dale atención o toma un día completo de recuperación.",
-    "care_action": "Dar tratamiento · Provisiones −2 · Moral +{morale}",
-    "shelter_action": "Dejar a un acompañante con los sanitarios · Sale del grupo · Moral −{morale}",
-    "defer_action": "Seguir conduciendo sin atención · Cordura −{sanity} · La enfermedad puede empeorar",
-    "fatal_action": "Continuar sin atención · Mortal · Cordura −{sanity} · Moral −{morale}",
+    "care_action": "Dar tratamiento · {effects}",
+    "shelter_action": "Dejar a un acompañante con los sanitarios · Sale del grupo · {effects}",
+    "defer_action": "Seguir conduciendo sin atención · {effects} · La enfermedad puede empeorar",
+    "fatal_action": "Continuar sin atención · Mortal · {effects}",
     "care_hint": "Cada opción lleva una hora. La atención cuesta dos provisiones. Solo los acompañantes pueden quedarse con los sanitarios. Un día completo de recuperación elimina la enfermedad.",
     "care_helped": "{name} puede volver a viajar. Dos provisiones: la factura médica menos insultante de Estados Unidos.",
     "care_sheltered": "{name} se queda para recibir atención. El sistema de salud funciona; el coche compartido, no.",
@@ -1825,6 +1825,7 @@
     "empty": "{stat} ya está agotado",
     "evidence": "Recoge pruebas",
     "use_evidence": "Usa una prueba",
-    "bonus_evidence": "Puede descubrir pruebas adicionales"
+    "bonus_evidence": "Puede descubrir pruebas adicionales",
+    "hours": "{hours} horas"
   }
 }

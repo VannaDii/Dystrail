@@ -676,7 +676,7 @@
     "sanity": "Sanity",
     "resolve_vehicle": "Handle breakdown",
     "repair_help": "Choose a repair and review its cost before fitting a part or calling for help.",
-    "rest": "Rest · Sanity +{sanity}, Health +{hp}, Supplies {supplies} · {days} day",
+    "rest": "Rest · {effects} · {days} day",
     "camp_cooldown": "An action is unavailable while its recovery cooldown is active.",
     "rested": "A little rest. The country will still be broken in the morning.",
     "continue_today": "Continue today",
@@ -1554,10 +1554,10 @@
     "crew_stop": "Someone needs care",
     "care_body": "The medic offers {name} treatment before asking about payment. You briefly suspect an elaborate sting.",
     "care_critical": "{name} is critically ill. Continuing without care will kill them. Provide care or take a full recovery day.",
-    "care_action": "Treat them · Supplies −2 · Morale +{morale}",
-    "shelter_action": "Leave a companion with the medics · Crew member leaves · Morale −{morale}",
-    "defer_action": "Keep driving without care · Sanity −{sanity} · Illness may worsen",
-    "fatal_action": "Continue without care · Fatal · Sanity −{sanity} · Morale −{morale}",
+    "care_action": "Treat them · {effects}",
+    "shelter_action": "Leave a companion with the medics · Crew member leaves · {effects}",
+    "defer_action": "Keep driving without care · {effects} · Illness may worsen",
+    "fatal_action": "Continue without care · Fatal · {effects}",
     "care_hint": "Each choice takes one hour. Care costs two supplies. Only companions can leave with the medics. A full recovery day clears illness.",
     "care_helped": "{name} is fit to travel. Two supplies: the least insulting medical bill in America.",
     "care_sheltered": "{name} stays for care. The health system works; the carpool doesn’t.",
@@ -1769,6 +1769,7 @@
     "empty": "{stat} पहले से समाप्त है",
     "evidence": "सबूत जुटाता है",
     "use_evidence": "एक सबूत का उपयोग",
-    "bonus_evidence": "अतिरिक्त सबूत मिल सकता है"
+    "bonus_evidence": "अतिरिक्त सबूत मिल सकता है",
+    "hours": "{hours} घंटे"
   }
 }

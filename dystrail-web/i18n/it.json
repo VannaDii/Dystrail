@@ -669,7 +669,7 @@
     "sanity": "Lucidità",
     "resolve_vehicle": "Gestisci il guasto",
     "repair_help": "Scegli la riparazione e controlla il costo prima di montare un pezzo o chiedere aiuto.",
-    "rest": "Riposo · Lucidità +{sanity}, Salute +{hp}, Scorte {supplies} · {days} giorno",
+    "rest": "Riposo · {effects} · {days} giorno",
     "camp_cooldown": "Alcune azioni non sono disponibili durante il recupero.",
     "rested": "Un po’ di riposo. Il paese sarà ancora a pezzi domattina.",
     "continue_today": "Prosegui la giornata",
@@ -1547,10 +1547,10 @@
     "crew_stop": "Qualcuno ha bisogno di cure",
     "care_body": "Il sanitario offre cure a {name} prima di chiedere del pagamento. Per un attimo sospetti una trappola elaborata.",
     "care_critical": "{name} è in condizioni critiche. Proseguire senza cure ne causerà la morte. Fornisci cure o prendi un'intera giornata di recupero.",
-    "care_action": "Fornisci cure · Provviste −2 · Morale +{morale}",
-    "shelter_action": "Lascia una persona del gruppo con i sanitari · Lascia il gruppo · Morale −{morale}",
-    "defer_action": "Continua a guidare senza cure · Sanità mentale −{sanity} · La malattia può peggiorare",
-    "fatal_action": "Prosegui senza cure · Fatale · Sanità mentale −{sanity} · Morale −{morale}",
+    "care_action": "Fornisci cure · {effects}",
+    "shelter_action": "Lascia una persona del gruppo con i sanitari · Lascia il gruppo · {effects}",
+    "defer_action": "Continua a guidare senza cure · {effects} · La malattia può peggiorare",
+    "fatal_action": "Prosegui senza cure · Fatale · {effects}",
     "care_hint": "Ogni scelta richiede un'ora. Le cure costano due provviste. Solo i compagni possono restare con i sanitari. Un'intera giornata di recupero risolve la malattia.",
     "care_helped": "{name} può riprendere il viaggio. Due provviste: il conto medico meno offensivo d'America.",
     "care_sheltered": "{name} resta per le cure. Il sistema sanitario funziona; il viaggio condiviso no.",
@@ -1825,6 +1825,7 @@
     "empty": "{stat} già esaurito",
     "evidence": "Raccogli prove",
     "use_evidence": "Usa una prova",
-    "bonus_evidence": "Potrebbe rivelare altre prove"
+    "bonus_evidence": "Potrebbe rivelare altre prove",
+    "hours": "{hours} ore"
   }
 }
