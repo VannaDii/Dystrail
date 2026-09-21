@@ -25,8 +25,13 @@
         "Scene: A tired ranger offers unused gloves toward the watching travelers; nobody has accepted them. Overflowing bins crowd out the picnic furniture; flies hover over the only busy department.",
         "Source: The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not pr…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C01-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C01-B",
@@ -49,8 +54,13 @@
         "Editable overlays: “PART NOT RECOGNIZED” — Blank washing-machine display",
         "Source: Oregon Revised Statutes: Right to Repair Consumer Equipment (2025 codification)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C01-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C01-C",
@@ -73,8 +83,13 @@
         "Editable overlays: “CALIBRI” — Blank card on left bin; “TIMES NEW ROMAN” — Blank card on right bin",
         "Source: AP: Rubio orders return to Times New Roman (2025-12-10)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C01-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C02-A",
@@ -98,8 +113,13 @@
         "Editable overlays: “TAX CUTS” — Blank folded leaflet beneath the table leg",
         "Source: 2025 reconciliation law contains SNAP spending reductions and eligibility changes alongside tax provisions. Describe the law/fo…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_gag_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C02-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C02-B",
@@ -123,8 +143,13 @@
         "Editable overlays: “PROOF OF WORK” — Editable heading above the blank paperwork tray",
         "Source: 2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. Medicaid federal roll…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C02-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C02-C",
@@ -148,8 +173,13 @@
         "Editable overlays: “UNLIMITED SPEECH” — Blank donor invitation propped beside the catering tray",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C02-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C03-A",
@@ -173,8 +203,13 @@
         "Editable overlays: “POWER RETURNED TO PARENTS” — Blank desk sale tag",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C03-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C03-B",
@@ -198,8 +233,13 @@
         "Editable overlays: “NAME THE NEW WING” — Blank benefit placard",
         "Source: White House announces ballroom construction (2025-07-31)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C03-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C03-C",
@@ -223,8 +263,13 @@
         "Editable overlays: “PLEASE CONTINUE HOLDING” — Editable caption above the blank phone screen",
         "Source: AP: Appeals court vacates FTC click-to-cancel rule (2025-07-09)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C03-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C04-A",
@@ -246,8 +291,13 @@
         "Source: NASA Planetary Data System: CLPS TO PRIME-1 Athena (2025-03-06)",
         "Source: NASA Intuitive Machines CLPS mission press kit"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_gag_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C04-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C04-B",
@@ -269,8 +319,13 @@
         "Source: FTC Announces Made in the USA Sweep (2026-04-14)",
         "Source: Americana Liberty FTC case timeline: April 14, 2026"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C04-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C04-C",
@@ -294,8 +349,13 @@
         "Editable overlays: “LOCAL HEAT RULES BLOCKED” — Blank display panel beside the canopy",
         "Source: DeSantis signed Florida 2024 law barring local government heat/water-break mandates. This does not make drinking water illegal …"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C04-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C05-A",
@@ -319,8 +379,13 @@
         "Editable overlays: “ADDRESS UNKNOWN” — Blank envelope front",
         "Source: May 2025 reporting identified nonexistent studies and other citation problems in the initial MAHA report. HHS said citation and…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C05-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C05-B",
@@ -344,8 +409,13 @@
         "Editable overlays: “GIFT DECLARATION” — Blank heading area on the muffin form",
         "Source: The Pentagon announced on May 21, 2025 that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance prompted l…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C05-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C05-C",
@@ -369,8 +439,13 @@
         "Editable overlays: “REQUEST FOR A HEARING” — Blank invitation panel",
         "Source: Trump hosted top investors in his meme coin at his Virginia golf club on May 22, 2025; roughly 220 were invited. This establish…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C05-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C06-A",
@@ -393,8 +468,13 @@
         "Editable overlays: “TAXPAYER” — Blank tag attached to bottom ladder support",
         "Source: P.L.119-21 reduces projected federal Medicaid spending and changes eligibility. Projected insurance losses are projections, not…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C06-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C06-B",
@@ -414,8 +494,13 @@
         "Scene: A host presents a talking toy beside a blank job board and invites the waiting travelers toward an empty interview chair. The tiny talking toy sits behind an enormous desk while the human interview chair is a folding stool.",
         "Source: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C06-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C06-C",
@@ -438,8 +523,13 @@
         "Editable overlays: “AIR SUPERIORITY” — Blank proposed name card beside the bucket",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C06-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C07-A",
@@ -460,8 +550,13 @@
         "Scene: A repairer indicates a stationary trophy display and loose shelf brackets between bowling and dart trophies. A newly polished peace-themed cup has nowhere to stand between two crowded sports shelves.",
         "Source: FIFA: President Donald J. Trump awarded inaugural FIFA Peace Prize (2025-12-05)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C07-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C07-B",
@@ -485,8 +580,13 @@
         "Editable overlays: “DESK MOVING: $10 + FOOD” — Blank job-offer board",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C07-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C07-C",
@@ -510,8 +610,13 @@
         "Editable overlays: “OVERHEAD • MOVING WORK $10 + FOOD” — Blank display board beside the empty freezer",
         "Source: UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or propos…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_gag_review_hold",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C07-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C08-A",
@@ -535,8 +640,13 @@
         "Editable overlays: “SAME COAST. NEW FEDERAL NAME.” — Editable header above the two blank charts",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "exclude_symbol_review",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C08-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C08-B",
@@ -560,8 +670,13 @@
         "Editable overlays: “ORDINARY VOTER” — Blank place card on the outside chair",
         "Source: Trump hosted top investors in his meme coin at his Virginia golf club on May 22, 2025; roughly 220 were invited. This establish…"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C08-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C08-C",
@@ -586,8 +701,13 @@
         "Source: New York governor’s transcript on the federal congestion-pricing reversal attempt (2025-02-19)",
         "Source: Southern District of New York: Congestion-pricing opinion (2026-03-03)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_outcome_bindings",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "ENC-C08-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "ENC-C09-A",
@@ -8421,8 +8541,13 @@
         "Scene: A print worker places a plain envelope beside a blank supplier invoice while a traveler buys one unlettered postcard; paper trimmings sit in a nearby bin.",
         "Source: Local businesses brace for tariffs (2025-04-04)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "candidate_context_mismatch",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "TOWN-41-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "TOWN-41-B",
@@ -8443,8 +8568,13 @@
         "Scene: A cleaner searches an old coat pocket beside a diner booth while travelers eat; the television shows only a blank football-field graphic with no teams or scores.",
         "Source: AP: Ohio Budget Includes Stadium Funding (2025-07-01)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_crew_composition",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "TOWN-41-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "TOWN-41-C",
@@ -8465,8 +8595,13 @@
         "Scene: A groundskeeper sits beside travelers where young grasses meet an older industrial wall; a plain sediment sample jar is closed on the worker’s cart.",
         "Source: Removal Recommendation: Restrictions on Navigational Dredging Activities in the Maumee Area of Concern (2024-08-20)"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "reuse_with_crew_composition",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "TOWN-41-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "TOWN-42-A",

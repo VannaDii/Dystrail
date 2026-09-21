@@ -162,3 +162,39 @@ Native canvases are 1536 × 1024. Barter uses two columns with 760px content wid
 | CROSS-03-A | candidate context mismatch | Two payment/document slots do not depict an official peering into the actual van or the required cash tray and case folder. |
 | CROSS-03-B | reuse candidate review hold | Thick folder held beside thin booklet matches; crew van must wait without hiding the documents. |
 | CROSS-03-C | reuse candidate composition incomplete | Papers on bucket in desk-less booth match. Waiting vehicle and any actual road barrier need coherent placement. |
+
+## Road families C01–C08 and town 41
+
+27 source-to-image decisions following direct inspection. All listed originals remain unchanged. Source revisions can invalidate historical filenames: town 41A is a concrete mismatch. Cross-like jewelry in the coast-chart atlas and a separate ally correction is excluded for user review, without an automatic correction attempt.
+
+Exact native canvases, crops, hashes and outcome constraints are in the JSON ledger. C01 and C02 use nonuniform three-row atlases. C03–C08 use four-panel atlases; C08C needs its unequal row boundary corrected in layout. Every reuse decision still requires the assembled view to pass pixel style, surviving-crew, proportions, caption and localized-text review.
+
+| Record | Decision | Inspection finding |
+|---|---|---|
+| ENC-C01-A | reuse with outcome bindings | Unused gloves and full bins match the offer; the right frame depicts cleaned bins, packed bags and food. |
+| ENC-C01-B | reuse with outcome bindings | Switch, socks and salvage bin match. Localized machine rejection belongs on the blank display, not baked lettering. |
+| ENC-C01-C | reuse with outcome bindings | Two identical blank sheets, opposing bins and shared shredder match; bin typography stays localized and editable. |
+| ENC-C02-A | candidate gag review hold | The large political leaflet is at floor level but does not clearly read as folded beneath the short table leg. Preserve for user review rather than claiming the core physical gag is resolved. |
+| ENC-C02-B | reuse with outcome bindings | Employment paperwork occupies a chair in the offer. The meal frame still leaves the chair occupied by papers, so its source-described cleared-chair result is not fully represented. |
+| ENC-C02-C | reuse with outcome bindings | Ornate blank donor cards, large leftover meat portions and ordinary plates convey the source contrast. |
+| ENC-C03-A | reuse with outcome bindings | Heavy desk, two parents at opposite ends, food and quiet corner match. Outcome cells distinguish donated groceries, recording the assembly diagram, and quiet reading. |
+| ENC-C03-B | reuse with outcome bindings | Wet tent, elaborate ribbon, modest chair and collecting pots match broadly. In the offer the chair stands outside the roped dry area; do not describe that pose as already occupying the privileged dry corner. |
+| ENC-C03-C | reuse with outcome bindings | Phone between two depleted casseroles, fresh casserole behind and open quiet-room door match. Driver and hosts are locals; never substitute them for crew. |
+| ENC-C04-A | candidate gag review hold | Tilted lander and drill are present, but the drill rests separately rather than touching the table beneath the lander. Fine textured shading also needs pixel-standard review. |
+| ENC-C04-B | reuse with outcome bindings | Lavish blank packaging surrounds disassembled ordinary stand parts. Four states distinguish untouched offer, hauling, assembly after donation, and recording with claim card turned down. |
+| ENC-C04-C | reuse with outcome bindings | Canopy monopolized by sponsor, workers outside shade and cooler match. Corrected green roadside geography avoids the older desert mismatch. Outcome shade/donation/recording changes are distinct. |
+| ENC-C05-A | reuse with outcome bindings | Held empty envelope and abundant correspondence match. Outcome cut-through envelope, record/food offer and shared reading must follow their actual action. |
+| ENC-C05-B | reuse with outcome bindings | Muffin, oversized paperwork and paper airplane match. Keep drawn muffin-on-wheels outcome separate from the initial blank form. |
+| ENC-C05-C | reuse with outcome bindings | Elaborate invitation clipped to bill and glove of coins match. Baked locals remain locals; payment envelope or food does not authorize a mechanical reward by itself. |
+| ENC-C06-A | reuse with outcome bindings | Missing rung, loose rung and separate sturdy step stool match. Repaired-ladder and stool-demonstration cells represent different choices. |
+| ENC-C06-B | reuse with outcome bindings | Small talking toy behind oversized desk, job board and folding interview stool match. No real traveler occupies the stool before the chosen scene calls for it. |
+| ENC-C06-C | reuse with outcome bindings | Leak aligned with bucket, ambitious blank name card and mop match. Outcome tipped bucket is deliberately a puddle, not a completed roof repair. |
+| ENC-C07-A | reuse with outcome bindings | Unplaced trophy, loose shelf and brackets between sports shelves match. Assembly, installed shelf/paid work and recorded conversation are separate outcomes. |
+| ENC-C07-B | reuse with outcome bindings | Desks, absent dolly hook and blank job board match. Retained later opaque-correction candidates must be compared before selecting final bytes; source reference alone does not prove this atlas alpha is sound. |
+| ENC-C07-C | candidate gag review hold | Freezer, demonstration ice, tray and puddle match the general job. Ice is on a separate stool beside the freezer, not underneath it as the source describes. Later opaque correction remains to be matched. |
+| ENC-C08-A | exclude symbol review | Matching coast charts convey the unchanged-shoreline gag. A small pale pendant is cross-like and conflicts with the no-religious-symbol constraint; keep this candidate excluded pending user review, no automated retry. |
+| ENC-C08-B | reuse with outcome bindings | Empty outdoor folding chair facing elaborate indoor place setting matches. Only outcomes move/unlock chair or collect evidence. |
+| ENC-C08-C | reuse with outcome bindings | Toy paper crown, ordinary toll bill and two matching route maps match. Horizontal divider is near y=492 rather than 512; recovered equal-half renderer risks mixing neighboring cells. |
+| TOWN-41-A | candidate context mismatch | Historical alias is stale: bus-stop worker with boot catalogue does not depict current print worker, postcard, envelope or supplier invoice. Do not restore this binding. |
+| TOWN-41-B | reuse with crew composition | Cleaner searching old coat pocket, diner booth, meal plates and unlettered football TV match. Insert only actual surviving travelers behind the table edge; empty places may remain empty. |
+| TOWN-41-C | reuse with crew composition | Groundskeeper, young vegetation, older industrial backdrop and closed sediment jar match. Keep actual travelers at the table; the worker remains a local. |

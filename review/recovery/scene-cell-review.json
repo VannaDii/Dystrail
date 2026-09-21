@@ -4676,6 +4676,804 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration."
+    },
+    {
+      "unit": "ENC-C01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A tired ranger offers unused gloves toward the watching travelers; nobody has accepted them. Overflowing bins crowd out the picnic furniture; flies hover over the only busy department."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f0870b73-32b8-4f43-9478-b716aef62922.png",
+      "candidate_sha256": "b9e5980c2b361160dfd736fd8a75f8104c8230c67a232a0d97801b5b1d2e5b2e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        333
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Unused gloves and full bins match the offer; the right frame depicts cleaned bins, packed bags and food.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        4,
+        760,
+        333
+      ],
+      "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged."
+    },
+    {
+      "unit": "ENC-C01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The mechanic holds a replacement switch beside an unlettered machine display while a volunteer indicates the unopened salvage bin; travelers consider helping. A machine full of mismatched socks accepts the laundry while its screen rejects the neatly fitting replacement control."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f0870b73-32b8-4f43-9478-b716aef62922.png",
+      "candidate_sha256": "b9e5980c2b361160dfd736fd8a75f8104c8230c67a232a0d97801b5b1d2e5b2e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        345,
+        760,
+        307
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Switch, socks and salvage bin match. Localized machine rejection belongs on the blank display, not baked lettering.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        345,
+        760,
+        307
+      ],
+      "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged."
+    },
+    {
+      "unit": "ENC-C01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The printer holds two unlettered sample sheets over overflowing recycling bins; a volunteer indicates bins awaiting movement. Travelers watch from the yard entrance. Identical-looking sheets have been separated into ceremonially opposed bins that empty into one shredder."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f0870b73-32b8-4f43-9478-b716aef62922.png",
+      "candidate_sha256": "b9e5980c2b361160dfd736fd8a75f8104c8230c67a232a0d97801b5b1d2e5b2e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        660,
+        760,
+        360
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Two identical blank sheets, opposing bins and shared shredder match; bin typography stays localized and editable.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        660,
+        760,
+        360
+      ],
+      "outcome_rule": "Historical renderer uses completed frame only for choice 0; verify the current committed action before restoring that mapping. Photographing alone leaves the site unchanged."
+    },
+    {
+      "unit": "ENC-C02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The cook offers empty plates while a volunteer indicates the food available for travelers and the donation table. A glossy politician leaflet is folded under a short table leg supporting the serving dishes."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-02d32e40-f42b-43d3-ab82-f37ab421beef.png",
+      "candidate_sha256": "b9cb4c8ac23018ae51898fa8abaac015a83ba1b276f89fdb087485bba88b918c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        366
+      ],
+      "decision": "candidate_gag_review_hold",
+      "finding": "The large political leaflet is at floor level but does not clearly read as folded beneath the short table leg. Preserve for user review rather than claiming the core physical gag is resolved.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        4,
+        760,
+        366
+      ],
+      "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
+      "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
+      "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone."
+    },
+    {
+      "unit": "ENC-C02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A cleaner gathers her blank payslip sheets from a chair while a volunteer offers the arriving travelers a place at supper. A stack of employment paperwork has its own place at the table while its owner stands."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-02d32e40-f42b-43d3-ab82-f37ab421beef.png",
+      "candidate_sha256": "b9cb4c8ac23018ae51898fa8abaac015a83ba1b276f89fdb087485bba88b918c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        378,
+        760,
+        308
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Employment paperwork occupies a chair in the offer. The meal frame still leaves the chair occupied by papers, so its source-described cleared-chair result is not fully represented.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        378,
+        760,
+        308
+      ],
+      "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
+      "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
+      "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone."
+    },
+    {
+      "unit": "ENC-C02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The cook opens a catering tray while travelers consider the offered meal; the donation table remains untouched by the crew. Ornate donor place cards surround enormous leftover steaks above ordinary chipped plates."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-02d32e40-f42b-43d3-ab82-f37ab421beef.png",
+      "candidate_sha256": "b9cb4c8ac23018ae51898fa8abaac015a83ba1b276f89fdb087485bba88b918c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        694,
+        760,
+        326
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Ornate blank donor cards, large leftover meat portions and ordinary plates convey the source contrast.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "native_completed_cell_xywh": [
+        772,
+        694,
+        760,
+        326
+      ],
+      "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
+      "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
+      "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone."
+    },
+    {
+      "unit": "ENC-C03-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Parents examine a heavy desk while volunteers invite the travelers toward the food and recording tables. Two parents study opposite ends of a large desk supposedly transferring power to them."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-fb76cf3e-1712-477f-8504-958cf1369e3f.png",
+      "candidate_sha256": "1378cab382fd693a013bbb4f82e5b1509236544be0b2241a745a264ba9dea779",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Heavy desk, two parents at opposite ends, food and quiet corner match. Outcome cells distinguish donated groceries, recording the assembly diagram, and quiet reading.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C03-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A member points at the single dry corner while another holds a food-donation bowl; travelers stand outside the tent considering the invitation. An elaborate ribbon encloses one dry folding chair while rain drips into cooking pots elsewhere."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-ee24ddbd-b62e-4865-b83d-7b2f68f5ba90.png",
+      "candidate_sha256": "1d51b6b12932fd168abb5af863a8db67857033f502cf82a3ca7bab85ae9fac3e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Wet tent, elaborate ribbon, modest chair and collecting pots match broadly. In the offer the chair stands outside the roped dry area; do not describe that pose as already occupying the privileged dry corner.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C03-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The driver holds his phone over the table while a host indicates the food table and open quiet-room door; travelers consider the invitation. Two nearly empty casserole dishes flank a phone still playing hold music, with a fresh casserole waiting behind them."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1d20cc22-b0bb-4c73-9171-b2541d2412d0.png",
+      "candidate_sha256": "965256b14db73da66309ef171596f8931783b235c245da575a9123df2d833b6b",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Phone between two depleted casseroles, fresh casserole behind and open quiet-room door match. Driver and hosts are locals; never substitute them for crew.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C04-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A volunteer indicates a homemade lander platform awaiting help, with a hand drill resting beside it. A modest drill bit already touches the picnic table beneath a tilted lunar-lander model."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a26e7156-7383-497f-b41f-1514f38b14bd.png",
+      "candidate_sha256": "ec153e3d4f84c4921c7375592943e332c99836451a6c336946c17605b93976de",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "candidate_gag_review_hold",
+      "finding": "Tilted lander and drill are present, but the drill rests separately rather than touching the table beneath the lander. Fine textured shading also needs pixel-standard review.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C04-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A worker offers help with a stationary disassembled display stand beside unopened repair materials. A lavish blank patriotic product sleeve surrounds a pile of visibly mismatched ordinary components."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-31d3d99e-fbab-4118-a3ca-42e9176b24a8.png",
+      "candidate_sha256": "be1f8171958bbdb36481e7745124511ebb570a3b49b841b5c61acd71ee93c6e1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Lavish blank packaging surrounds disassembled ordinary stand parts. Four states distinguish untouched offer, hauling, assembly after donation, and recording with claim card turned down.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C04-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Roofers point to a canopy awaiting repositioning while a sponsor sits beneath it and travelers watch. The anti-regulation sponsor's chair monopolizes the shade around the workers' cooler."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-357a6b82-e148-4793-88a1-29d4b95f5b70.png",
+      "candidate_sha256": "25a02d8acb1d651bb3af5a24907c67ed5a1f96107e018351fd04c21cfc19bcc4",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Canopy monopolized by sponsor, workers outside shade and cooler match. Corrected green roadside geography avoids the older desert mismatch. Outcome shade/donation/recording changes are distinct.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C05-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A retired postman holds an empty envelope open while a volunteer shows the travelers letters and available food. The prominently held envelope contains absolutely nothing; large stacks of actual correspondence surround it."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-3bdb1239-ac37-4d2a-927b-9615688d6ab9.png",
+      "candidate_sha256": "4121d7770513346b87bd975517adb50773b4e5131f56129844547b3118aedb05",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Held empty envelope and abundant correspondence match. Outcome cut-through envelope, record/food offer and shared reading must follow their actual action.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C05-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A volunteer displays a blank gift form beside a plain muffin and gestures to letters for the crew. The modest muffin is surrounded by oversized paperwork and a small paper airplane."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-37a54b78-3ec7-47ff-b3d4-ef3e95e27fb2.png",
+      "candidate_sha256": "eff7de5bd2a17a5fffa114c0df00ff7ec84e3ab327bf87b04cf76440cc203b15",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Muffin, oversized paperwork and paper airplane match. Keep drawn muffin-on-wheels outcome separate from the initial blank form.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C05-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Regulars show the travelers their invitation and blank letters while the cook indicates food available for the road. An elaborate homemade invitation is clipped to an ordinary unpaid bill beside a glove full of coins."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a40f46a9-04be-4a91-b62f-f3a5b9746183.png",
+      "candidate_sha256": "75d4e2141a87d8eb326642dc61fb397b1acfdad99e0f09e50de61fda8ff74ed9",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Elaborate invitation clipped to bill and glove of coins match. Baked locals remain locals; payment envelope or food does not authorize a mechanical reward by itself.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C06-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Volunteers point to the missing rung of an unoccupied display ladder while travelers observe. A separate sturdy stepladder stands behind the person praising the damaged model."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-38c0ff1b-5bf7-4215-a4f6-3dfdb321836a.png",
+      "candidate_sha256": "fd285921b5b4917ed5d179f5d953c058b95d367a1d25c2c695777e57f4b05d25",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Missing rung, loose rung and separate sturdy step stool match. Repaired-ladder and stool-demonstration cells represent different choices.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C06-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A host presents a talking toy beside a blank job board and invites the waiting travelers toward an empty interview chair. The tiny talking toy sits behind an enormous desk while the human interview chair is a folding stool."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-5e9d79aa-7e06-45f7-91c7-78efd8807d2d.png",
+      "candidate_sha256": "348373301c5fbde07e7e11a948cdc919319c230e28605746b0754ff193a4c980",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Small talking toy behind oversized desk, job board and folding interview stool match. No real traveler occupies the stool before the chosen scene calls for it.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C06-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Volunteers show a proposed blank roof-name card while a bucket catches an existing leak and travelers watch. A humble bucket occupies the exact territory claimed by an ambitious new title."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-8936c08b-4fdb-4b1c-bea4-427abc30b59a.png",
+      "candidate_sha256": "4982accc65c76989f884c6c1b7fbb859508841adcfab36aed9c6206be862fbea",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Leak aligned with bucket, ambitious blank name card and mop match. Outcome tipped bucket is deliberately a puddle, not a completed roof repair.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C07-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A repairer indicates a stationary trophy display and loose shelf brackets between bowling and dart trophies. A newly polished peace-themed cup has nowhere to stand between two crowded sports shelves."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-b8e5d63f-6471-4070-ae6c-1cc37cf2d836.png",
+      "candidate_sha256": "e0ecb5c2716e8a3b1d7322c37d6b9bbbbc45f6b51a0dde89e514cb6658cc53ca",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Unplaced trophy, loose shelf and brackets between sports shelves match. Assembly, installed shelf/paid work and recorded conversation are separate outcomes.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C07-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Parents assess desks awaiting relocation and show the travelers a blank job board. A large stack of desks sits beside a conspicuously absent dolly, represented only by an empty storage hook."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-5b1e765d-910b-48e2-8e06-e2d2b0f58b78.png",
+      "candidate_sha256": "f1ea05c94e62f3f09041047f89adaa47478b544ae711017648b5810ae55c1972",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Desks, absent dolly hook and blank job board match. Retained later opaque-correction candidates must be compared before selecting final bytes; source reference alone does not prove this atlas alpha is sound.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C07-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A scientist points to a tray beneath a safe demonstration freezer while volunteers offer the travelers a moving job. A freezer classified as overhead stands above a puddle from melting demonstration ice."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-6451c026-83ac-4534-9f34-ee8b25edee54.png",
+      "candidate_sha256": "5db31859440c6d848df79e11b1302f25944021cc114cbc7785beef8566a652a3",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        4,
+        4,
+        760,
+        504
+      ],
+      "decision": "candidate_gag_review_hold",
+      "finding": "Freezer, demonstration ice, tray and puddle match the general job. Ice is on a separate stool beside the freezer, not underneath it as the source describes. Later opaque correction remains to be matched.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C08-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A volunteer aligns two matching blank coast charts while travelers consider helping. Both charts share precisely the same shoreline beneath differently positioned blank title cards."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-96751556-73d7-431e-993b-2e579728f4c2.png",
+      "candidate_sha256": "5c07461b689e18145f7e5e8d3fa254d94eeb6eb431771d49f243092785153eff",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        8,
+        8,
+        752,
+        496
+      ],
+      "decision": "exclude_symbol_review",
+      "finding": "Matching coast charts convey the unchanged-shoreline gag. A small pale pendant is cross-like and conflicts with the no-religious-symbol constraint; keep this candidate excluded pending user review, no automated retry.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C08-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A volunteer arranges an unoccupied folding chair outside the window opposite an ornate table inside. The ordinary voter's empty place is outside, facing an elaborate indoor dinner table."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-9b04cc62-1588-4fcc-ad50-57bb152fe95f.png",
+      "candidate_sha256": "6c4d1b79dd63beb907c5a809079a812e50dd29e027e7181c51fdc786f3dc0d70",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        8,
+        8,
+        752,
+        496
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Empty outdoor folding chair facing elaborate indoor place setting matches. Only outcomes move/unlock chair or collect evidence.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art."
+    },
+    {
+      "unit": "ENC-C08-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The courier displays a toll bill beside two maps while the host indicates the donation table; travelers stand listening. A toy crown sits beside a toll bill that continues to look completely ordinary and payable."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-da8ac17f-17cb-485a-a0a4-47b4adf7c595.png",
+      "candidate_sha256": "896f8a4c37803d45f9384531ba785fb13baa7975009433219ecb923de8fd6c38",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        8,
+        8,
+        752,
+        476
+      ],
+      "decision": "reuse_with_outcome_bindings",
+      "finding": "Toy paper crown, ordinary toll bill and two matching route maps match. Horizontal divider is near y=492 rather than 512; recovered equal-half renderer risks mixing neighboring cells.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
+      "crop_status": "Proposed y boundaries 0/492/1024 from direct inspection; confirm divider pixels before production. Do not reuse the historical equal-half crop."
+    },
+    {
+      "unit": "TOWN-41-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A print worker places a plain envelope beside a blank supplier invoice while a traveler buys one unlettered postcard; paper trimmings sit in a nearby bin."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-a70cac80-5cba-45cf-82e2-61615965589e.png",
+      "candidate_sha256": "1c191c8505bd74bdaf4ac21617764c5a74d89140e70d5d53375eb0e95aa3541e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "candidate_context_mismatch",
+      "finding": "Historical alias is stale: bus-stop worker with boot catalogue does not depict current print worker, postcard, envelope or supplier invoice. Do not restore this binding.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized."
+    },
+    {
+      "unit": "TOWN-41-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A cleaner searches an old coat pocket beside a diner booth while travelers eat; the television shows only a blank football-field graphic with no teams or scores."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-99c1a968-232a-4dbe-b48b-a11679f0a72b.png",
+      "candidate_sha256": "32030c094a24b8d477e67ac7da6c32833e5a266cc6cc591c19459a1e207084f1",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_with_crew_composition",
+      "finding": "Cleaner searching old coat pocket, diner booth, meal plates and unlettered football TV match. Insert only actual surviving travelers behind the table edge; empty places may remain empty.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "crew_composition_reference": "Recovered town_art.rs uses two seated crops, foreground table starts y=726. Treat coordinates as a starting proposal; validate adult scale against the cleaner rather than accepting the old measurements."
+    },
+    {
+      "unit": "TOWN-41-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A groundskeeper sits beside travelers where young grasses meet an older industrial wall; a plain sediment sample jar is closed on the worker’s cart."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-9040df58-ae56-4844-9a66-61b9de6b4a9e.png",
+      "candidate_sha256": "60c6a3ca3e8107a360bd4067395c039661788a0fb6f7315edf0fb2ec9bcd11e0",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "decision": "reuse_with_crew_composition",
+      "finding": "Groundskeeper, young vegetation, older industrial backdrop and closed sediment jar match. Keep actual travelers at the table; the worker remains a local.",
+      "camera": "Retain native eye-level or modest elevated three-quarter view. Counter/table foreground remains an occlusion layer; never insert a side-on road vehicle into these interior or tabletop cameras.",
+      "proportions": "Use scene furniture and residents as adult-scale anchors. Do not enlarge cast heads or shrink figures to fit available gaps. Locals remain external to the actual surviving crew.",
+      "desktop_mobile": "One native crop on desktop and phone; uniform fit, no stretching. Bottom-left caption stays over a quiet part of the scene. Keep key props clear; localized lettering must be readable at 390/320px. Approved stat UI remains unchanged.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
+      "crew_composition_reference": "Recovered town_art.rs uses two seated crops, foreground table starts y=710. Validate seating height and shared scale in the assembled scene."
     }
   ],
   "requirements": {
@@ -4715,6 +5513,15 @@
       "reuse_candidate_review_hold": 6,
       "reuse_candidate_composition_incomplete": 3,
       "candidate_context_mismatch": 1
+    },
+    "ROAD_C01_C08": {
+      "reuse_with_outcome_bindings": 20,
+      "candidate_gag_review_hold": 3,
+      "exclude_symbol_review": 1
+    },
+    "TOWN_41": {
+      "candidate_context_mismatch": 1,
+      "reuse_with_crew_composition": 2
     }
   },
   "functional_scope_proposal": {
