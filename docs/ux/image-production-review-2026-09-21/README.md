@@ -118,3 +118,5 @@ This draft does not claim the full image specification, feature, or release is c
 ## Inspected reuse decisions
 
 [Inspected cast and road decisions](core-surface-review.md) records the first concrete reuse/exclusion batch. These are proposals for approval, not accepted production bindings.
+
+[Ally and care cell reconciliation](scene-cell-review.md) covers all 42 records, including exact native crop rectangles and current-source mismatches. These decisions remain subject to production approval.

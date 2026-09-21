@@ -1,0 +1,1158 @@
+{
+  "status": "inspection_evidence_not_production_approval",
+  "records": [
+    {
+      "unit": "ALLY-01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact photographs red hats beside a ring light while a blank goodbye message appears in an inset."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        627,
+        418
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Red hats and ring light match. Replace the inset hat/heart graphic with the localized goodbye-message presentation.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact stands beside plain cartons of hats and a customs bill; the traveling crew sees the request on a blank phone."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Straw-hat stall replaces plain hat cartons, customs bill and crew phone request.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact adjusts an enormous donor-event microphone while a small, unconnected microphone sits aside."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Route map and lunch replace enormous donor microphone and disconnected small microphone.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact carries a box of desk belongings past an empty public-service counter; blank forms overflow the box."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        0,
+        627,
+        418
+      ],
+      "decision": "reuse",
+      "finding": "Contact carries belongings past an empty service counter; keep external to traveling party.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact holds a disconnected office headset beside a cardboard box; the same extension appears only as an editable overlay."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        0,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Opposing arrow sheets replace disconnected headset and packed belongings.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact packs an office desk while the owner’s adult son occupies a larger desk behind them."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        0,
+        627,
+        418
+      ],
+      "decision": "reuse",
+      "finding": "Packed belongings and a second occupied desk match broad staging; source copy establishes the relationship.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-03-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact checks a garage invoice beside a work apron and an overnight shift alarm."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        418,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Bank/mailbox lobby replaces required garage invoice, apron and overnight-shift alarm.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-03-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact puts a medical bill under a second job’s timecard; no dollar figures embedded."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        418,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Cash-register scene lacks the medical bill under a second-job timecard.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-03-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact pulls on a second work apron beside a sparsely filled grocery bag."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        418,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Apron is present but groceries look abundant, contradicting sparse food budget. Preserve identity; revise bag/second-job context.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-04-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact sets up rival-color merchandise tables, with an identical blank card reader on each."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        418,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Gaming classroom replaces rival-color merchandise tables and paired card readers.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-04-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact flips reversible blank souvenir tags on identical coastal trinkets."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        418,
+        627,
+        418
+      ],
+      "decision": "reuse",
+      "finding": "Identical coastal souvenirs with reversible blank tags match.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-04-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact works at a laptop beside a monthly calendar and a theatrical countdown clock, all text as overlays."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        418,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Miniature objects replace laptop, monthly calendar and theatrical countdown.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-05-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact closes a blank group-chat screen with a physical padlock lying uselessly beside the phone."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        836,
+        627,
+        418
+      ],
+      "decision": "reuse",
+      "finding": "Phone and useless physical padlock match; localize any visible message.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-05-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact shields blank milk bottles from a phone displaying an unanswered crew message."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        836,
+        627,
+        418
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Milk bottles and ignored phone match; cover baked notification symbols with the actual localized message.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-05-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact pushes an unlettered receipt away while blocking a message on a blank phone."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        0,
+        836,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Football trophy and award replace discarded receipt and blocked phone message.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-06-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact rests an injured ankle beside a closed ramp; well-dressed guests use a nearby unobstructed entry."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-d0e59d72-b516-4d5a-9dec-313519fcb736.png",
+      "candidate_sha256": "624ca54a0715045e9b5b5682d9c686230571b9fafc80824b205348c8353fbb9a",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        836,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Industrial shoulder injury replaces injured ankle, closed ramp and privileged entry.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-06-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact sits with a sore back beside cleaning equipment and an empty service desk."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-0b37fd82-fb4f-4967-8ee9-6ac15758028c.png",
+      "candidate_sha256": "3ed561dfdf07a4127bca82691c3eb52328594783f52377d1a1a3374380d9f13f",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        836,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Machine-shop consultation replaces cleaning equipment and empty service desk.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "ALLY-06-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Outside contact rests a sore shoulder beside speakers on a handcart; a distant donor event has professional stagehands."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-97b1bdd2-dcb7-40d5-99b5-c066702446cb.png",
+      "candidate_sha256": "937549a8e720d7ca09434acc693a1467790061ed5096264cfd3cfc4d09189759",
+      "native_canvas": [
+        1254,
+        1254
+      ],
+      "native_cell_xywh": [
+        627,
+        836,
+        627,
+        418
+      ],
+      "decision": "change",
+      "finding": "Sore back and ice pack replace sore shoulder, speaker handcart and distant donor stagehands.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-01-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "The affected traveler heads toward a portable toilet while a raw-milk vendor proudly presents an unlettered bottle. A small knife-shaped shadow falls from the bottle; no violence."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Vendor, bottle and portable toilet match; add actual affected traveler and small nonviolent knife-shaped bottle shadow.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-01-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Unplugged mini-fridge behind a MAHA vendor; affected traveler leaning near a wash station. The unplugged cable is the focal gag."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Unplugged fridge and wash station match; preserve clearly visible cable and add affected traveler.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-01-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Vendor offers another blank milk bottle while the ill traveler sits beside the van. Keep the second bottle sealed and conspicuously separate."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Milk stall partly matches, but second sealed bottle is not distinctly separated and baked vehicle does not establish the actual ill crew member beside their van.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-02-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Dehydrated traveler rests beside unloaded crates. A boss stands with a marker beside a blank warning board; heat shimmers beyond his small patch of shade."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        0,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Shaded boss, blank board, crates and heat match; add actual dehydrated traveler at compatible scale.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-02-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A boss blocks a shaded water cooler while the affected traveler sits among delivery crates. His own full glass has condensation."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        0,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Shaded cooler, supervisor glass and crates match; add affected traveler and preserve denied access staging.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-02-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Rally-stage crates on hot asphalt, traveler in shade, organizer leaning protectively over a private ice cooler. No baked-in rally lettering."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        0,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Rally equipment and private ice cooler match; add actual heat-exhausted traveler in shade.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-03-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Exhausted traveler at a late-night diner table with a small mountain of blank forms and a crumpled work glove."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        362,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Diner/forms/glove match. Prefer standalone diner original; actual traveler behind table and night lighting limited to the window/exterior as source requires.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-03-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler nods over a laptop beside a former public worker holding a plain résumé; repetitive empty form boxes remain blank for overlays."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        362,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Former worker with blank paper and laptop match; layer affected traveler at the same table, not over the worker.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-03-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Exhausted adult traveler faces a blank application while a contractor’s family portrait prominently displays a child in an oversized executive chair."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        362,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Application desk and child in executive-chair portrait match; add affected adult traveler across the desk.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-04-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Wellness stall with unlettered tonic bottles and a bucket beneath the counter; affected traveler turned away, vendor holding a blank loyalty card."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        362,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Giant drink and fruit replace tonic bottles, under-counter bucket and loyalty card.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-04-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Ill traveler beside a wellness display; vendor scrutinizes an unmarked powder sachet through a magnifying glass as though it were a suspicious ballot."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        362,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Cafe and pointing vendor replace wellness display, powder sachet and magnifying glass.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-04-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Vendor gestures away from an unlettered supplement bottle toward the affected traveler; a second stall worker quietly flips a blank guarantee card."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        362,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Snack table with pamphlet replaces supplement blame gesture and flipped guarantee card.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-05-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler slumps between two otherwise identical blank maps; the route lines match precisely while removable label boxes sit in different piles."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        724,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Matching route maps and loose labels match; add actual exhausted traveler and editable label text.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-05-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Exhausted traveler compares an old folded guide with a blank digital map, both showing the same unmistakable mountain silhouette."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        724,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Wallet/cards at bus shelter replace paper and digital maps with matching mountain silhouette.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-05-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "A traveler studies a route loop on a blank phone beside the van; the same distinctive gas-station statue appears through both windows."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        724,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Electronics recycling scene replaces phone route loop and repeated gas-station statue.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-06-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Exhausted traveler at a garage counter holding a white napkin near a blank card reader; an unlettered parts box sits between them and the cashier."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        724,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Laptop/router in picnic shelter replaces garage cashier, card reader, napkin and parts box.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-06-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler draws arrows between an unlettered invoice and a nearly empty wallet; every arrow returns to the wallet."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        724,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Hand-print forms replace invoice, empty wallet and returning arrows.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-06-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Sleep-deprived traveler holds a phone while another handset in the van visibly vibrates beside a blank parts invoice."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        724,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Long office forms replace two vibrating handsets and parts invoice inside crew van.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-07-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler nods over a plain laptop while five physical work objects—keys, gloves, brush, map and radio—line the table."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        1086,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Laptop and all five required work objects match; add affected traveler without covering the objects.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-07-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Traveler in the van faces an overflowing blank chat screen; nearby delivery driver holds a pizza box and a phone with the same notification shapes."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        1086,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Delivery worker, pizza and phone match; needs actual crew-in-van composition and matching editable notifications. Baked delivery vehicle must not impersonate crew van.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-07-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Sleep-deprived traveler turns down a blank phone screen showing only an oversized padlock icon; generic notification tiles pile behind it."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        0,
+        1086,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Van/checklist scene replaces oversized phone padlock and piled notification tiles.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-08-A",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Injured traveler beside crates of blank memoir covers; an affluent fundraiser guest steps around the crates toward a podium. Other crew remain by the van."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-655bff94-bcea-4bed-aead-9a88139782ed.png",
+      "candidate_sha256": "40cac2e4c8bf645daf043270773d19fd1a74fdf9abff950f15aa6a21b2d7dde0",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        1086,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Memoir crates, donor guest and podium match. Prefer standalone original; treat baked cargo van as vendor vehicle and place actual traveling crew/van only if coherent scale fits. Otherwise return composition to review.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-08-B",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Affected traveler sits beside heavy donated groceries; fictional politician comfortably lifts an obviously empty open-bottomed box for a photographer."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-7b074a4f-6559-4f71-9d23-6804ff4c4b72.png",
+      "candidate_sha256": "5366f4db8fad2b72e6db485a626d392916795297cdb58eebbe79e0afffd91f17",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        1086,
+        543,
+        362
+      ],
+      "decision": "reuse_with_layers",
+      "finding": "Open-bottomed box, photographer and groceries match; place affected traveler visibly next to heavy groceries.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    },
+    {
+      "unit": "CARE-08-C",
+      "source_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+      "source_direction": [
+        "Strained traveler beside sacks and an unused hand truck; a volunteer looks up at a completely ordinary dry ceiling."
+      ],
+      "candidate_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-65df1650-503f-4d15-a219-43b7686fb17f.png",
+      "candidate_sha256": "2d68e1d01b7cfa76624b8b175c0cb171f68ea5d2802d21159c0090b1b59eebed",
+      "native_canvas": [
+        1086,
+        1448
+      ],
+      "native_cell_xywh": [
+        543,
+        1086,
+        543,
+        362
+      ],
+      "decision": "change",
+      "finding": "Museum exhibit and active hand truck replace sacks, unused hand truck and volunteer inspecting ordinary dry ceiling.",
+      "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
+      "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
+      "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
+      "production_authorized": false,
+      "generation_attempts_authorized": 0,
+      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval."
+    }
+  ],
+  "requirements": {
+    "no_religious_symbols": true,
+    "no_baked_localized_text": true,
+    "preserve_actual_crew": true,
+    "preserve_hearing": true,
+    "inactive_records": 36
+  },
+  "summary": {
+    "ALLY": {
+      "reuse": 4,
+      "reuse_with_layers": 2,
+      "change": 12
+    },
+    "CARE": {
+      "reuse": 0,
+      "reuse_with_layers": 13,
+      "change": 11
+    }
+  }
+}
