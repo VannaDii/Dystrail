@@ -1,0 +1,68 @@
+{
+  "es": {
+    "ENC-C01-B": {
+      "name": "Permiso para centrifugar",
+      "desc": "En una cooperativa de reparaciones junto a la carretera, una persona del taller te muestra la ley de Oregón que limita los bloqueos de software en las piezas de repuesto. El voluntariado necesita comida y ayuda para recuperar interruptores. Una lavadora rechaza un repuesto que funciona. Acepta ropa interior sucia sin comprobar el fabricante.",
+      "choice_0": "Compartir comida y recuperar interruptores",
+      "log_0": "Compartís el almuerzo y sacáis interruptores hasta que os duelen las muñecas. El tambor puede girar. El permiso de la empresa sigue cargando.",
+      "choice_1": "Fotografiar el bloqueo y la ley de Oregón",
+      "log_1": "Guardáis el error y la norma de Oregón para D.C. El repuesto encaja perfectamente. Parece que la pieza incompatible es ser su propietario.",
+      "overlay_0": "PIEZA NO RECONOCIDA",
+      "fact": "Oregón exige un acceso justo a materiales de reparación para determinados aparatos electrónicos y limita la vinculación de piezas que bloquea repuestos funcionales en equipos que reúnen los requisitos, fabricados y vendidos o usados por primera vez en Oregón después del 1 de enero de 2025. Existen excepciones, entre ellas los vehículos de motor. Es una norma de Oregón, no un derecho nacional; la lavadora de esta escena es ficticia."
+    },
+    "ENC-C01-C": {
+      "name": "Dignidad al peso",
+      "desc": "Rubio ordenó que las cartas del Departamento de Estado volvieran a Times New Roman. Una imprenta de carretera lo imita y tira los folletos en Calibri antes del almuerzo comunitario. El voluntariado necesita comida y ayuda para mover los contenedores. La trituradora ha aceptado admitir a ambos bandos.",
+      "choice_0": "Compartir comida y mover los contenedores",
+      "log_0": "Compartís el almuerzo y movéis los contenedores con dolor de espalda. Los folletos dicen exactamente lo mismo. La diplomacia estadounidense simplemente ha decidido que las letras necesitan pies.",
+      "choice_1": "Fotografiar la purga tipográfica",
+      "log_1": "Fotografiáis ambas versiones y la orden de Rubio. Todas las frases sobreviven. Por lo visto, la dignidad nacional descansa sobre las patitas del alfabeto.",
+      "overlay_0": "CALIBRI", "overlay_1": "TIMES NEW ROMAN",
+      "fact": "El secretario de Estado Marco Rubio ordenó que la correspondencia diplomática volviera de Calibri a Times New Roman a partir del 10 de diciembre de 2025, revirtiendo el cambio de la era Biden. La instrucción afectaba al Departamento de Estado; no exigía que las imprentas privadas cambiaran de tipografía."
+    }
+  },
+  "it": {
+    "ENC-C01-B": {
+      "name": "Permesso di centrifugare",
+      "desc": "In una cooperativa di riparazioni lungo la strada, una persona dell’officina vi mostra la legge dell’Oregon che limita i blocchi software sui ricambi. Chi fa volontariato ha bisogno di cibo e aiuto per recuperare interruttori. Una lavatrice rifiuta un ricambio funzionante. Accetta biancheria sporca senza controllare il produttore.",
+      "choice_0": "Condividere cibo e recuperare interruttori",
+      "log_0": "Condividete il pranzo e smontate interruttori finché vi fanno male i polsi. Il cestello può girare. Il permesso dell’azienda è ancora in caricamento.",
+      "choice_1": "Fotografare il blocco e la legge dell’Oregon",
+      "log_1": "Salvate l’errore e la norma dell’Oregon per D.C. Il ricambio si adatta perfettamente. La parte incompatibile sembra essere la proprietà.",
+      "overlay_0": "RICAMBIO NON RICONOSCIUTO",
+      "fact": "L’Oregon richiede un accesso equo ai materiali di riparazione per determinati dispositivi elettronici e limita l’abbinamento dei componenti che blocca ricambi funzionanti nelle apparecchiature ammesse, prodotte e vendute o usate per la prima volta in Oregon dopo il 1° gennaio 2025. Sono previste eccezioni, tra cui i veicoli a motore. È una norma dell’Oregon, non un diritto nazionale; la lavatrice della scena è inventata."
+    },
+    "ENC-C01-C": {
+      "name": "Dignità al chilo",
+      "desc": "Rubio ha ordinato di riportare le lettere del Dipartimento di Stato al Times New Roman. Una tipografia lungo la strada lo imita, buttando i volantini in Calibri prima del pranzo comunitario. Chi fa volontariato ha bisogno di cibo e aiuto per spostare i bidoni. Il tritadocumenti ha accettato entrambe le fazioni.",
+      "choice_0": "Condividere cibo e spostare i bidoni",
+      "log_0": "Condividete il pranzo e trascinate i bidoni, con la schiena dolorante. I volantini dicono esattamente la stessa cosa. La diplomazia americana ha semplicemente deciso che le lettere hanno bisogno di piedi.",
+      "choice_1": "Fotografare l’epurazione tipografica",
+      "log_1": "Fotografate entrambe le versioni e l’ordine di Rubio. Ogni frase sopravvive. A quanto pare, la dignità della nazione poggia sulle zampette sotto l’alfabeto.",
+      "overlay_0": "CALIBRI", "overlay_1": "TIMES NEW ROMAN",
+      "fact": "Il segretario di Stato Marco Rubio ha ordinato il ritorno della corrispondenza diplomatica dal Calibri al Times New Roman dal 10 dicembre 2025, annullando il cambiamento dell’era Biden. L’istruzione riguardava il Dipartimento di Stato; non imponeva alle tipografie private di cambiare carattere."
+    }
+  },
+  "ar": {
+    "ENC-C01-B": {
+      "name": "إذن بالدوران",
+      "desc": "في تعاونية إصلاح على جانب الطريق، يعرض عليكم أحد العاملين قانون أوريغون الذي يحد من أقفال البرمجيات على قطع الغيار. يحتاج المتطوعون إلى طعام ومساعدة في إنقاذ المفاتيح الكهربائية. ترفض غسالة قطعة بديلة صالحة. لكنها تقبل الملابس الداخلية المتسخة دون التحقق من الشركة المصنّعة.",
+      "choice_0": "شاركوا الطعام وأنقذوا المفاتيح الكهربائية",
+      "log_0": "تشاركون الغداء وتفكون المفاتيح حتى تؤلمكم معاصمكم. حوض الغسالة قادر على الدوران. أما إذن الشركة فلا يزال قيد التحميل.",
+      "choice_1": "صوّروا القفل وقانون أوريغون",
+      "log_1": "تحفظون رسالة الخطأ وقاعدة أوريغون لقضيتكم في واشنطن. القطعة البديلة ملائمة تمامًا. يبدو أن الملكية هي الجزء غير المتوافق.",
+      "overlay_0": "قطعة غير معترف بها",
+      "fact": "تُلزم أوريغون بإتاحة عادلة لمواد إصلاح أجهزة إلكترونية محددة، وتحد من ربط القطع الذي يمنع بدائل صالحة في الأجهزة المشمولة التي صُنعت وبيعت أو استُخدمت لأول مرة في أوريغون بعد 1 يناير 2025. توجد استثناءات، منها المركبات الآلية. هذه قاعدة في أوريغون وليست حقًا على مستوى البلاد؛ والغسالة في المشهد خيالية."
+    },
+    "ENC-C01-C": {
+      "name": "الكرامة بالوزن",
+      "desc": "أمر روبيو بإعادة رسائل وزارة الخارجية إلى خط Times New Roman. تقلّده مطبعة على جانب الطريق، فتلقي منشورات Calibri في الحاويات قبل الغداء المجتمعي. يحتاج المتطوعون إلى طعام ومساعدة في نقل الحاويات. وافقت آلة تمزيق الورق على قبول الطرفين.",
+      "choice_0": "شاركوا الطعام وانقلوا الحاويات",
+      "log_0": "تشاركون الغداء وتسحبون الحاويات حتى تؤلمكم ظهوركم. تقول المنشورات الشيء نفسه تمامًا. قررت الدبلوماسية الأمريكية ببساطة أن الحروف تحتاج إلى أقدام.",
+      "choice_1": "صوّروا حملة تطهير الخطوط",
+      "log_1": "تصوّرون النسختين وأمر روبيو. تنجو كل جملة. يبدو أن كرامة الأمة تستند إلى الأرجل الصغيرة أسفل الحروف.",
+      "overlay_0": "CALIBRI", "overlay_1": "TIMES NEW ROMAN",
+      "fact": "أمر وزير الخارجية ماركو روبيو بإعادة المراسلات الدبلوماسية من Calibri إلى Times New Roman اعتبارًا من 10 ديسمبر 2025، متراجعًا عن التغيير في عهد بايدن. تخص التعليمات مراسلات وزارة الخارجية، ولا تُلزم المطابع الخاصة بتغيير خطوطها."
+    }
+  }
+}

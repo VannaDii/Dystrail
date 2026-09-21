@@ -1,0 +1,116 @@
+{
+  "es": {
+    "ENC-C04-A": {
+      "name": "Contacto con el suelo",
+      "desc": "La NASA dice que Athena aterrizó de lado y su taladro no pudo alcanzar el suelo lunar. En un pícnic astronómico junto a la carretera, el voluntariado necesita ayuda con una maqueta casera del módulo. Su taladro ya ha completado la fase de contacto con el suelo.",
+      "choice_0": "Ayudar a trasladar la plataforma",
+      "log_0": "Arrastráis la plataforma hasta que os duelen los hombros. El grupo celebra su aterrizaje al otro extremo de la mesa.",
+      "choice_1": "Donar materiales para la exposición",
+      "log_1": "Vuestras provisiones aseguran la plataforma y os ganan el respaldo del voluntariado. Su programa de compras ya incluye comprobar qué lado va arriba.",
+      "choice_2": "Registrar el resultado real de la misión",
+      "log_2": "Registráis el fallo del taladro y los instrumentos que sí enviaron datos. La voluntaria retira un chiste sobre el desastre mucho más sencillo y bastante menos exacto.",
+      "fact": "La documentación de la NASA sobre Athena indica que su posición casi horizontal impidió que el taladro TRIDENT alcanzara el suelo lunar y cumpliera sus objetivos. Era una misión comercial sin tripulación; otros instrumentos sí enviaron datos."
+    },
+    "ENC-C04-B": {
+      "name": "Adjetivos nacionales",
+      "desc": "La FTC acusó a vendedores de artículos patrióticos de usar falsas afirmaciones de «Made in USA» y propuso un acuerdo. En una ferretería, una trabajadora reconstruye un soporte de bandera devuelto e invita a ayudar o aportar materiales. La publicidad llegó completamente estadounidense. Al parecer, varias piezas tomaron un camino más largo.",
+      "choice_0": "Ayudar a trasladar las piezas",
+      "log_0": "Movéis las piezas hasta que os duelen los hombros y disfrutáis de la compañía. La bandera necesita una base firme más que otro adjetivo.",
+      "choice_1": "Donar materiales para la reparación",
+      "log_1": "Vuestros materiales afianzan el soporte y generan confianza. La trabajadora anota su procedencia real: una forma inesperadamente radical de describir un producto.",
+      "choice_2": "Registrar la distinción sobre el origen",
+      "log_2": "Registráis con precisión la acusación y el acuerdo propuesto. La trabajadora retira una afirmación sin fundamento sin tener que bajar la bandera.",
+      "fact": "En abril de 2026, la FTC anunció una denuncia y un acuerdo propuesto sobre afirmaciones falsas de origen estadounidense en productos de exposición de banderas. El anuncio describía acusaciones y una orden pendiente de aprobación judicial, no una conclusión de que todos los productos patrióticos fueran importados."
+    },
+    "ENC-C04-C": {
+      "name": "Libertad frente a la sombra",
+      "desc": "En una feria itinerante de trabajadores, unas techadoras de Florida enseñan a vuestra tripulación la ley que bloquea las protecciones locales frente al calor. Su toldo de protesta cubre la nevera del agua. Una patrocinadora que elogia la desregulación ha puesto su silla debajo. Las techadoras necesitan ayuda para mover la exposición.",
+      "choice_0": "Ayudar a mover el toldo",
+      "log_0": "Arrastráis el toldo hasta que os duelen los brazos. Las techadoras se ríen al ver a la patrocinadora seguir su sombra sin apoyar en ningún momento la política.",
+      "choice_1": "Donar agua para las trabajadoras",
+      "log_1": "Donáis agua y las techadoras anotan vuestra ayuda. La patrocinadora llama a la hidratación una responsabilidad personal y luego pregunta de quién es esta nevera.",
+      "choice_2": "Grabar la demostración de las techadoras",
+      "log_2": "Grabáis a las techadoras explicando la ley de Florida. La patrocinadora no deja de colarse en el encuadre, concretamente en la parte con sombra.",
+      "fact": "Una ley de Florida de 2024 impide que los gobiernos locales impongan ciertas protecciones laborales frente al calor y pausas para beber agua. No prohíbe beber agua ni elimina todas las obligaciones federales.",
+      "overlay_0": "NORMAS LOCALES CONTRA EL CALOR BLOQUEADAS",
+      "overlay_line1": "NORMAS LOCALES CONTRA EL CALOR",
+      "overlay_line2": "BLOQUEADAS"
+    }
+  },
+  "it": {
+    "ENC-C04-A": {
+      "name": "Contatto con il suolo",
+      "desc": "La NASA dice che l'atterraggio su un fianco di Athena ha impedito alla trivella di raggiungere il suolo lunare. A un picnic astronomico lungo la strada, i volontari chiedono aiuto con un modello artigianale del lander. Il loro trapano ha già completato la fase di contatto con il suolo.",
+      "choice_0": "Aiuta a spostare la piattaforma",
+      "log_0": "Trascinate la piattaforma finché vi fanno male le spalle. Il gruppo festeggia il suo atterraggio all'altra estremità del tavolo.",
+      "choice_1": "Dona materiali per l'esposizione",
+      "log_1": "Le vostre scorte fissano la piattaforma e vi valgono il sostegno dei volontari. Il loro programma acquisti ora prevede di controllare quale lato vada in alto.",
+      "choice_2": "Documenta il vero esito della missione",
+      "log_2": "Documentate il fallimento della trivella e gli strumenti che hanno trasmesso dati. La volontaria ritira una battuta sul disastro molto più semplice e meno accurata.",
+      "fact": "La documentazione NASA su Athena indica che la posizione quasi orizzontale impedì alla trivella TRIDENT di raggiungere il suolo lunare e completare i suoi obiettivi. Era una missione commerciale senza equipaggio; altri strumenti trasmisero dati."
+    },
+    "ENC-C04-B": {
+      "name": "Aggettivi nazionali",
+      "desc": "La FTC ha accusato alcuni venditori di articoli patriottici di false dichiarazioni «Made in USA» e ha proposto un accordo. In un negozio di ferramenta, un'addetta sta ricostruendo un supporto per bandiere restituito e invita a dare una mano o a fornire materiali. La pubblicità è arrivata interamente americana. Diverse componenti sembrano aver fatto un giro più lungo.",
+      "choice_0": "Aiuta a spostare le sezioni",
+      "log_0": "Spostate le sezioni finché vi fanno male le spalle, godendovi la compagnia. Alla bandiera serve una base solida più che un altro aggettivo.",
+      "choice_1": "Dona materiali per la riparazione",
+      "log_1": "I vostri materiali fissano il supporto e guadagnano fiducia. L'addetta ne annota la vera provenienza: un modo insospettabilmente radicale di descrivere un prodotto.",
+      "choice_2": "Documenta la distinzione sull'origine",
+      "log_2": "Documentate con precisione le accuse e l'accordo proposto. L'addetta rimuove un'affermazione infondata senza dover abbassare la bandiera.",
+      "fact": "Nell'aprile 2026 la FTC annunciò una denuncia e un accordo proposto su false dichiarazioni di origine statunitense per prodotti da esposizione di bandiere. L'annuncio descriveva accuse e un provvedimento soggetto ad approvazione giudiziaria, non una conclusione secondo cui tutti i prodotti patriottici fossero importati."
+    },
+    "ENC-C04-C": {
+      "name": "Liberi dall'ombra",
+      "desc": "A una fiera itinerante dei lavoratori, alcune operaie dei tetti della Florida mostrano al vostro gruppo la legge che blocca le tutele locali dal caldo. Il loro gazebo di protesta copre il contenitore dell'acqua. Una sponsor che elogia la deregolamentazione ci ha sistemato sotto la sedia. Le operaie chiedono aiuto per spostare l'esposizione.",
+      "choice_0": "Aiuta a spostare il gazebo",
+      "log_0": "Trascinate il gazebo finché vi fanno male le braccia. Le operaie ridono mentre la sponsor ne segue l'ombra senza mai sostenere la tutela.",
+      "choice_1": "Dona acqua alle lavoratrici",
+      "log_1": "Donate acqua e le operaie registrano il vostro aiuto. La sponsor definisce l'idratazione una responsabilità personale, poi chiede di chi sia quel contenitore.",
+      "choice_2": "Riprendi la dimostrazione delle operaie",
+      "log_2": "Riprendete le operaie mentre spiegano la legge della Florida. La sponsor continua a infilarsi nell'inquadratura, precisamente nella parte in ombra.",
+      "fact": "Una legge della Florida del 2024 impedisce ai governi locali di imporre determinate protezioni dal caldo sul lavoro e pause per bere. Non vieta di bere acqua né elimina tutti gli obblighi federali.",
+      "overlay_0": "TUTELE LOCALI DAL CALDO BLOCCATE",
+      "overlay_line1": "TUTELE LOCALI DAL CALDO",
+      "overlay_line2": "BLOCCATE"
+    }
+  },
+  "ar": {
+    "ENC-C04-A": {
+      "name": "ملامسة الأرض",
+      "desc": "تقول ناسا إن هبوط أثينا على جانبها منع مثقابها من بلوغ سطح القمر. في نزهة فلكية بجانب الطريق، يحتاج متطوعون إلى مساعدة في عرض نموذج يدوي لمركبة الهبوط. مثقابهم أنهى بالفعل مرحلة ملامسة الأرض.",
+      "choice_0": "المساعدة في نقل منصة النموذج",
+      "log_0": "تجرون المنصة حتى تؤلمكم أكتافكم. يحتفل الحاضرون بهبوطها الناجح عند الطرف الآخر من الطاولة.",
+      "choice_1": "التبرع بمواد للعرض",
+      "log_1": "تثبت مؤنكم المنصة وتكسبكم تأييد المتطوعين. أصبح برنامج مشترياتهم يشمل التحقق من الجهة التي ينبغي أن تكون إلى الأعلى.",
+      "choice_2": "توثيق النتيجة الفعلية للمهمة",
+      "log_2": "توثقون إخفاق المثقاب والأجهزة التي أرسلت بيانات. تتخلى المتطوعة عن نكتة حول الكارثة كانت أبسط بكثير وأقل دقة.",
+      "fact": "توضح وثائق ناسا عن أثينا أن وضعها شبه الأفقي منع مثقاب ترايدنت من بلوغ سطح القمر وتحقيق أهدافه. كانت مهمة تجارية غير مأهولة؛ وأرسلت أجهزة أخرى بيانات."
+    },
+    "ENC-C04-B": {
+      "name": "صفات محلية الصنع",
+      "desc": "اتهمت لجنة التجارة الفدرالية بائعي سلع وطنية بادعاءات كاذبة بأنها مصنوعة في الولايات المتحدة، واقترحت تسوية. في متجر أدوات، تعيد عاملة بناء حامل علم أُعيد إلى المتجر وتدعوكم للمساعدة أو تقديم مواد. وصلت الدعاية أمريكية بالكامل. يبدو أن بعض القطع سلكت طريقا أطول.",
+      "choice_0": "المساعدة في نقل أجزاء الحامل",
+      "log_0": "تنقلون الأجزاء حتى تؤلمكم أكتافكم وتستمتعون بالصحبة. العلم يحتاج إلى قاعدة متينة أكثر مما يحتاج إلى صفة إضافية.",
+      "choice_1": "التبرع بمواد للإصلاح",
+      "log_1": "تثبت موادكم الحامل وتكسب الثقة. تسجل العاملة مصدرها الفعلي، وهو نهج جذري على نحو غير متوقع في وصف المنتجات.",
+      "choice_2": "توثيق الفرق بين ادعاءات المنشأ",
+      "log_2": "توثقون الاتهام والتسوية المقترحة بدقة. تزيل العاملة ادعاء بلا سند دون الحاجة إلى إنزال العلم.",
+      "fact": "أعلنت لجنة التجارة الفدرالية في أبريل 2026 شكوى وتسوية مقترحة بشأن ادعاءات كاذبة عن المنشأ الأمريكي لمنتجات عرض الأعلام. وصف الإعلان اتهامات وأمرا يحتاج إلى موافقة قضائية، ولم يقرر أن جميع المنتجات الوطنية مستوردة."
+    },
+    "ENC-C04-C": {
+      "name": "التحرر من الظل",
+      "desc": "في معرض عمالي متنقل، تعرض عاملات أسقف من فلوريدا على طاقمكم القانون الذي يمنع تدابير الحماية المحلية من الحر. تغطي مظلة احتجاجهن مبرد الماء. وضعت راعية تمدح رفع القيود كرسيها تحته. تحتاج العاملات إلى مساعدة في نقل العرض.",
+      "choice_0": "المساعدة في نقل مظلة العرض",
+      "log_0": "تجرون المظلة حتى تؤلمكم أذرعكم. تضحك العاملات بينما تتبع الراعية ظلها دون أن تؤيد تدابير الحماية ولو مرة.",
+      "choice_1": "التبرع بالماء للعاملات",
+      "log_1": "تتبرعون بالماء وتسجل العاملات مساعدتكم. تصف الراعية شرب الماء بأنه مسؤولية شخصية، ثم تسأل لمن هذا المبرد.",
+      "choice_2": "تسجيل عرض العاملات",
+      "log_2": "تسجلون العاملات وهن يشرحن قانون فلوريدا. تواصل الراعية التسلل إلى الصورة، وتحديدا إلى الجزء المظلل منها.",
+      "fact": "يمنع قانون أقرته فلوريدا عام 2024 الحكومات المحلية من فرض بعض تدابير حماية العمال من الحر وفترات الاستراحة لشرب الماء. لا يجعل شرب الماء غير قانوني ولا يلغي جميع الالتزامات الفدرالية.",
+      "overlay_0": "حُظرت قواعد الحماية المحلية من الحر",
+      "overlay_line1": "قواعد الحماية المحلية من الحر",
+      "overlay_line2": "محظورة"
+    }
+  }
+}

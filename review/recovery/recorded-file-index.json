@@ -1,0 +1,3555 @@
+{
+  "files": [
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/activity-scenes.md",
+      "sha256": "203c710a282694689c1cd06e2a3bc0cb2f247260020a28083652ed9d59612d9e",
+      "records": [
+        2769
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/ally-scenes.md",
+      "sha256": "1334161d2d28f9be359d87b8e694f3c26134a1a65332e9ad77ad6519f22f2052",
+      "records": [
+        15818,
+        16989
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/barter-scenes.md",
+      "sha256": "cdc3bb47496cd59d69fa38baa63f9139f0407ebd16c57f6dce773c6e9cbf5299",
+      "records": [
+        3607
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/cast-roster.md",
+      "sha256": "9cbdf183af4dd825e1de72c35144b2cdf53d006458a92bf63868c40bd187b751",
+      "records": [
+        1262
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/character-picker.md",
+      "sha256": "c154821ceec9724ffb7a6412562b285c2660b27bd1d915d562afc0f41223cab1",
+      "records": [
+        8096
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/completion-checklist.md",
+      "sha256": "ad45032fea9290dcffbae97c32c17b26b3cbf946ae6f3bb3554ab954e4cef5f1",
+      "records": [
+        9706
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/dispatch-scenes.md",
+      "sha256": "72f6b1a0ee8eb3e60335ab9624dd63bc17b40466f36c336d7f49a45080cca0cc",
+      "records": [
+        9644
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/display-scenes.md",
+      "sha256": "013bd6494323b013a0ae95d66ccc331d4804dff522d89e3673be8f4f3b222b84",
+      "records": [
+        7804
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/fundraiser-scenes.md",
+      "sha256": "d93731f7fa09a1dac3fc34d9ce3d0034e97fa75e493ad0ef3eb41a4336107942",
+      "records": [
+        7008
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/hearing-integration.md",
+      "sha256": "f9d34d4314ae848e1cdd499890af3c71dc101f1de0ca9ddcff672bd848b3e7c6",
+      "records": [
+        2119
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/hearing-integration.md",
+          "record": 3839,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/letter-scenes.md",
+      "sha256": "daf5c16b61c7bfe699ea5ada6afebfd111132a30cfd64217aa80822e12e786cb",
+      "records": [
+        8210,
+        8257
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/mutual-scenes.md",
+      "sha256": "6b52717a22d29ed07086ebf9a044c0e9bbaaacb034066bb3cf56d25757dd52a1",
+      "records": [
+        9404
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/pantry-scenes.md",
+      "sha256": "6ec355c12e093eae71dd4b826284d7433f58d6ef5edca33b3082a234d8666a68",
+      "records": [
+        6428
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/policy-bulletins.md",
+      "sha256": "82d5d17376b2518f2255ef1f840f5e5026feb59a9f3b1f7220ee3af06042b02b",
+      "records": [
+        1741,
+        2275
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/religious-symbol-audit.md",
+      "sha256": "bf9fd1c7192aa4a5f0e6814913013dcfaea1fad2922d9b1ce75721d48065c0e7",
+      "records": [
+        6412,
+        6462
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/repair-scenes.md",
+      "sha256": "dc1a79a4e292ff8aaadc708449a5ead530e629c923defad496fddec2bd6195d6",
+      "records": [
+        14100
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/road-scenes.md",
+      "sha256": "ac5c00ee543d3a8a2fcaa423677ad77273a5a99c98395119d851fb98de66ca58",
+      "records": [
+        5391
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/scene-refresh.md",
+      "sha256": "6ec7e7d7bcf69d9068d85d4eb8664cd76941c97efce166d47aabc234d832a40a",
+      "records": [
+        5100
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/source-refresh.md",
+      "sha256": "d326ab16ba22533879e6db6b380e57cf7d671c1d960b51d6bfbc91d7dc074f28",
+      "records": [
+        4462
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/teachin-scenes.md",
+      "sha256": "d2ac16f0ea1dad1d4028198723aa1ae511f355962d1d899d96c155b464288357",
+      "records": [
+        8843
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/text-reflow.md",
+      "sha256": "f79f725bd1c25d4cdecce43ee2c47afb04e859f94c3888021d6e464d8d8db05f",
+      "records": [
+        7511
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/visual-standard.md",
+      "sha256": "ea7e52283cbb2c2e2f0dd2b112d18b690c901407117ef07e1c39a5f809a0ea96",
+      "records": [
+        1201
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/dystrail-web/tests-e2e/road-scenes.spec.ts",
+      "sha256": "955274b167d5eb4bb314eceefd2ae4092ef0731879a7cac7127c18204649b535",
+      "records": [
+        5357
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/dystrail-web/tests-e2e/scene-caption.spec.ts",
+      "sha256": "f863acfd43f322e95412a76412f6ef31bf9399b733c8626ce332e314be17e378",
+      "records": [
+        9248
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/dystrail-web/tests-e2e/town-presentation.spec.ts",
+      "sha256": "ac7e38498bc83f38afcb0d5f762d6570e3ff7af7ee982e111f8796104976755c",
+      "records": [
+        9857
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/playwright.art-review.config.ts",
+      "sha256": "9ec50017290c79a1d21a7f7c65c2f55424b092677b1f5e0b0c656b6a1b371566",
+      "records": [
+        6840,
+        6893,
+        6948
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/app/activity_content.rs",
+      "sha256": "869e61cb86192f139e1a5a8dd0dae74c9313de473273fdce84d086b3a6cdc706",
+      "records": [
+        2409,
+        2555,
+        3416,
+        4153,
+        4219
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/app/activity_content.rs",
+          "record": 3373,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/activity_content.rs",
+          "record": 3947,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/app/crossing_presentation.rs",
+      "sha256": "65fd8c423ed28156d15657bb1a9ce11c97dd97055dae46518ad912c78a5d39b6",
+      "records": [
+        17182
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/app/crossing_presentation.rs",
+          "record": 17723,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/crossing_presentation.rs",
+          "record": 17755,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/crossing_presentation.rs",
+          "record": 17916,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/crossing_presentation.rs",
+          "record": 18000,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "sha256": "f104855047773f6b42268487a8d779cc25ce73e6aff64d460799564b2e019462",
+      "records": [
+        1466,
+        1486,
+        1505,
+        2225
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1540,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1607,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1720,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1924,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1963,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1967,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/policy_bulletin.rs",
+          "record": 1989,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/app/town_content.rs",
+      "sha256": "0fa55131dcb4bd4d9f3d047375ce94607f675eda6341d2ae15c4b4545c7dd4f1",
+      "records": [
+        12088,
+        12373
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "sha256": "59214c26f2b3d55e3f5eee82760ce4665982d505bb8eec36531afc04521df16c",
+      "records": [
+        919,
+        1199,
+        9797
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 1924,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 3374,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 3947,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 6767,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 8146,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 13450,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 15300,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/app/visual_content.rs",
+          "record": 16774,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/cast_art.rs",
+      "sha256": "073808c2836c16bc35c68865982d02854d48811c929651add7a82f9903256291",
+      "records": [
+        196
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/cast_art.rs",
+          "record": 12554,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/cast_art.rs",
+          "record": 13369,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/cast_art.rs",
+          "record": 13417,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/consequences.rs",
+      "sha256": "42924dbae65cb6b5c605ddf8c53a2122698e4642cf21467e141f8a7f43b84d4a",
+      "records": [
+        751,
+        768
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+      "sha256": "5723ccf50067a82ee12967f3c2f1a4bfc4b49d63168b3483b2557b52cf336dc3",
+      "records": [
+        2459,
+        2641,
+        3390,
+        3948
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+          "record": 4704,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+          "record": 4833,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+          "record": 5049,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/ally_art.rs",
+      "sha256": "dfbc4c61aee54e47fb9ee7714e820f7b29e059cfe1b70ac29d8ce7c8502acbf6",
+      "records": [
+        15547
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/ally_art.rs",
+          "record": 16652,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/ally_art.rs",
+          "record": 16774,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/annotations.rs",
+      "sha256": "d9c9bda45d4f004c1b2a21da6147af4034856d07a695d8e76ca22ef9fe39c8a5",
+      "records": [
+        1015
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/billboard.rs",
+      "sha256": "d78be0a84ae190313be5cd81439eb669dfa54e8dc5c522e2362536c97642a581",
+      "records": [
+        264
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "sha256": "009690b9365588286fab7a8713e2cfc9f36fd7ae2b36f0d9afeed4403b251c18",
+      "records": [
+        11228,
+        14246
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 14957,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 15036,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 15060,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 15104,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 15162,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+          "record": 15283,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+      "sha256": "f199b27c4fbff1fda35e2a886ffed9b9116ec19ec8085f63a70b74da1c623818",
+      "records": [
+        17182
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+          "record": 17916,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+          "record": 18099,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+          "record": 18259,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/crossing_layers.rs",
+      "sha256": "e2ea64ab177e8450bb7d9788a31091dc9d54134d0ff8e1402a82ece3ff29ba2a",
+      "records": [
+        18640
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/dispatch_art.rs",
+      "sha256": "bc137c977ea3ce1b0df5e3ecdaf5bc3bce061e01a656968df692673fe50555ba",
+      "records": [
+        9473
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/display_art.rs",
+      "sha256": "0c5a02f0a0ab605380efa7595be8a01667388a566de0a3265437fd2695c938ed",
+      "records": [
+        7711
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/fundraiser_art.rs",
+      "sha256": "94e37def1ddbb6b11f78d13f474d7913941ff54cc5ecdecd71d899b673e2968b",
+      "records": [
+        6767,
+        6893
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/letter_art.rs",
+      "sha256": "32e4264e71d8ddc8f4693d3ef8501bec947c8e9ca0ac262a1433c37ea6760e1f",
+      "records": [
+        8146,
+        8257
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/letter_art.rs",
+          "record": 8311,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/letter_art.rs",
+          "record": 8380,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/lighting.rs",
+      "sha256": "fa8d35f6d8f5c0e1ffa1fea267816c90295bbf54711b65c088196898b2399a66",
+      "records": [
+        264
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/pantry_art.rs",
+      "sha256": "38ca5acf606e12d771ca0d3c6c34cff2fa46d572deded8ade4ff4a5cccf7d4ee",
+      "records": [
+        5936,
+        6313
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/repair_art.rs",
+      "sha256": "a79baff51ba644f7283e7f3f36a4941770412950d9ef58f021f439ecb8abb50d",
+      "records": [
+        10021
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/repair_art.rs",
+          "record": 13606,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/rest_art.rs",
+      "sha256": "31932ecdd9ff2bf598fbe1e38de9408863e9a4d86d7a6bc5264b6fc5b34c6e3c",
+      "records": [
+        3948
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/rest_art.rs",
+          "record": 4119,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/rest_art.rs",
+          "record": 4311,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/road_art.rs",
+      "sha256": "d2f1531c5a1dd1def5814099b104d05f6e8cb5efc8957946301e91429e33b8fc",
+      "records": [
+        5327
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/road_art.rs",
+          "record": 6767,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/road_art.rs",
+          "record": 8146,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/teachin_art.rs",
+      "sha256": "03bd5bc40bcaa69a1cbbe7173152449e54967edf0e3607f00d4919af068498cb",
+      "records": [
+        8658
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+      "sha256": "af525e827f216050142f6c188943809dedf46a9ec63b68467c617d12d196fbbc",
+      "records": [
+        12344
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+          "record": 12554,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+          "record": 13288,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+          "record": 13442,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/tests-e2e/activity-debug.spec.ts",
+      "sha256": "bc6e35896204ae1a263e3dfbc23433351b10c21b2f81a153b739c719aed42213",
+      "records": [
+        3002
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/activity-scenes.spec.ts",
+      "sha256": "ad6ddc2e46706d23c5113589dd49f6abcc46d108ddc862bf563871976f5c373e",
+      "records": [
+        2572
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/tests-e2e/activity-scenes.spec.ts",
+          "record": 2834,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/tests-e2e/ally-presentation.spec.ts",
+      "sha256": "cc356642921e874bd1320efe92b6d18791a3f4cd368337c9514765839d0b08af",
+      "records": [
+        15603
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+      "sha256": "acb5f8d96a526c5c1507b55650b4e6be2b4d96e4a6f208b51bd5bf3f88b2f82e",
+      "records": [
+        3436,
+        3563,
+        3599
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+          "record": 3635,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+          "record": 3671,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+          "record": 3686,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+          "record": 3694,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/tests-e2e/care-presentation.spec.ts",
+      "sha256": "fc561cfc6aa2facb12bbefd0108d14787c8ef8ba8018371db0080657dc4556e6",
+      "records": [
+        10965
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/tests-e2e/care-presentation.spec.ts",
+          "record": 14972,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/care-presentation.spec.ts",
+          "record": 15311,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "dystrail-web/tests-e2e/cast-picker-layout.spec.ts",
+      "sha256": "34a5514b277a1f44c952471ef706b1a0bf715ee47b9616f24f3059ba46aa6fe2",
+      "records": [
+        7945,
+        8023
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/crossing-presentation.spec.ts",
+      "sha256": "b4722a6f4c49d0c6e3ab87897cdc64223caf5f59e0830b7161d6f7c53453b353",
+      "records": [
+        17267
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/pantry-scenes.spec.ts",
+      "sha256": "c37ee0d3cd503225a359203a4701bbba1e5a841fd40a4d5040c5408ca6926aba",
+      "records": [
+        6054
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/policy-bulletin.spec.ts",
+      "sha256": "d464b56701832361cdccad061895359e374ce45cd6a5cbbeac6494a314f042b0",
+      "records": [
+        1543
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/policy-travel.spec.ts",
+      "sha256": "0997870a6dab7a182b9242a8b55401be0e37aafde4fb06b9062f00b82f3dcd34",
+      "records": [
+        1662,
+        1730
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/policy-variants.spec.ts",
+      "sha256": "09ed91f5b104b3d73e36897bba2f8fb2776dc7fc5a09927465ab52598e6f43c1",
+      "records": [
+        1990,
+        2055
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/repair-presentation.spec.ts",
+      "sha256": "79f06b08578dad7c5f3e91e98b50307169a67dc71cebf700033acd71f6d30542",
+      "records": [
+        10429
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/rest-scenes.spec.ts",
+      "sha256": "b0b3096c6425a38ece024495a1bb8da50e9651fb0f8a07f1fc5b484bece1dced",
+      "records": [
+        4178,
+        4320,
+        4486
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/scene-caption.spec.ts",
+      "sha256": "071d611d8bf7bfda923141f8d9503b19d39addbfc18bda2956a5fbe5a9068215",
+      "records": [
+        9259
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/text-reflow.spec.ts",
+      "sha256": "138e500929514cd286d61d4e6504cec58ac814d0cda2f4d3dd33d3206bdb965c",
+      "records": [
+        7247
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/town-art.spec.ts",
+      "sha256": "45b6186ae9cfad6a04ddee2e82dfa0e3fd3cfb238075131a4bd4371b83a2d4ea",
+      "records": [
+        12382
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/town-content.spec.ts",
+      "sha256": "fe5b45d8bef2c3970d9c0e6d27c5fc76f37d9d3bc21c2e3c46ec44cdcaf2a036",
+      "records": [
+        12154
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/town-presentation.spec.ts",
+      "sha256": "3a3b106fff3fa627a1f54cce14352d4447ac39f7c044417611a923d28ba9b94b",
+      "records": [
+        9860
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+      "sha256": "f238aa7fe2b3eebee3171fab6063ae2ab1458ca7e62bee2b4ae6d15615b4f0f6",
+      "records": [
+        328
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+          "record": 892,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+          "record": 958,
+          "reason": "Patch context is absent or ambiguous"
+        },
+        {
+          "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+          "record": 1023,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "output/playwright/preview-sheets-current/build-previews.mjs",
+      "sha256": "8aa5a232f094a690e029085af024e9bc69f92062968d400c4693109c89dfabd8",
+      "records": [
+        7858
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "output/playwright/preview-sheets/build-previews.mjs",
+      "sha256": "aea914a7985c93fc4f0a02f859cb9350b04d807152a58f5634be7a906702b00b",
+      "records": [
+        6602
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "output/playwright/text-reflow-probe.mjs",
+      "sha256": "5409a09d0fac31a1004b940958c86a55640b998d1dddac64616bc81ed7978f52",
+      "records": [
+        7064,
+        7079
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/accept-road-c03.py",
+      "sha256": "b5443eb2b70b81283430b5c71d2b0aa47fb7137df1e5794d8194425f62a582b9",
+      "records": [
+        7000
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/accept-road-c06.py",
+      "sha256": "0dc59ff2dbb3aa3add30c6bf39c066d7ef2ce208e0975d5a74007086af0cc6bf",
+      "records": [
+        8853
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/accept-road-c07.py",
+      "sha256": "bb5d94d4258bf92e6b1c19aa56d15b9991f1654ca34ad7a5f354fe403642e1fc",
+      "records": [
+        9390
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/accept-road-c08.py",
+      "sha256": "dcc118e9b9c2b4d4949b8d5050f6a1c6ee7de111632962e36998f00f6e62387b",
+      "records": [
+        9644
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/activity-a-revisions.json",
+      "sha256": "a15d3d93fa97984050cdf1a2db92daf2c3eea727af893e456c3ee8d18931610b",
+      "records": [
+        2901
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/activity-bc-translations.json",
+      "sha256": "0b904ac2e27e8abb96bef9414a572a63885d0bc86db0553b2d275a1f7b8e02e8",
+      "records": [
+        2486
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-anatomy-symbol-correction-prompt.txt",
+      "sha256": "4d50825c3cc1b57d1cdf4505b06069e6513d10bc84951d78031873689bebff99",
+      "records": [
+        16362
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-labels-final-six.json",
+      "sha256": "eea7f9378bf31cf5db7b0f12e91ce14dfd35851f4cba3bb8c0655d41aea9edb2",
+      "records": [
+        16636
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-shared-labels.json",
+      "sha256": "b4cc7797291647d23067c4acee85d0fb2f48573cbcda94fb36c32340dbba3f87",
+      "records": [
+        16285
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-source-note-translations.json",
+      "sha256": "ecacd4e13cdd753e05528641e4fda1bcd9504c398d77c02b9628eeae37137a2b",
+      "records": [
+        15884
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-source-notes-ar-fr.json",
+      "sha256": "bcddc19c7a40c5fe73fc9705fe746485453c8d3ee31b0cf40c66f08083937ce8",
+      "records": [
+        15891
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-source-notes-de-pt.json",
+      "sha256": "e4cc4fe4966e08e552159c6ff858f2f0e945cd7af6b7042edaf5b470a44bd032",
+      "records": [
+        15891
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-ar.json",
+      "sha256": "ba11c7f06bc9b4efaa1e4ea888b459e6e4698baf99815f106307e74761e799be",
+      "records": [
+        15857
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-bn.json",
+      "sha256": "7cb7dbba0898870cbaadf93e79f203999a8e7090b5a7038c034010f93888d554",
+      "records": [
+        16529
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-de.json",
+      "sha256": "657e03e10459fb2dc1ea08404c01fdc6b08eaa45bc29e81ede1963502a017653",
+      "records": [
+        15864
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-es.json",
+      "sha256": "1866dfd9d1583fd73b67c37ed4ffbd4cfc1ab6623d1cf9e49fa96817533ffdd1",
+      "records": [
+        15848
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-fr.json",
+      "sha256": "b2b9dd467245ef4624485d8b9c653dd19bfaff8745e51e84f48217e28e1b1149",
+      "records": [
+        15857
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-hi.json",
+      "sha256": "d2c3fe0d8b14c2eab568078b29b6e896eb1a0abfb816fd917f78301b66324b9f",
+      "records": [
+        16513
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-id.json",
+      "sha256": "4a0658c03a20c1f4072212911225ab90429151735992c4c22aa69188a07ed91d",
+      "records": [
+        16116
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-it.json",
+      "sha256": "f79d8eb19ae8bb2386f594bb4d74a440313da649c8a0761c279f9232a4fdf434",
+      "records": [
+        15848
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-ja.json",
+      "sha256": "65e14305380b43f1991d64fb82d9a321ed358fe7fe116bf003ffc3adda7e632b",
+      "records": [
+        16125
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-jv.json",
+      "sha256": "e9656a99fbaa13c4f14596250f4d65a04e800cfd428b0255c1c93a61cfda6986",
+      "records": [
+        16116
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-ko.json",
+      "sha256": "5449955ceaff7154f4877c1e5200b19c194194a2e8c6b910f905fe7bcff7c1af",
+      "records": [
+        16132
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-mr.json",
+      "sha256": "6d97cbba6881b3073f3376bdcfbcbd8fd53684b2d7bde313c2996db57aaf3406",
+      "records": [
+        16522
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-pa.json",
+      "sha256": "25e2eb8b1b7c1ac3c343d5a6f48f910c99eaed5c5b00a0cc621fbd6ae6b44ecb",
+      "records": [
+        16536
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-pt.json",
+      "sha256": "f65ec171ad332978ca716b80e3f935af33de286a24bd5dca4d5870cc5113f9d7",
+      "records": [
+        15864
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-ru.json",
+      "sha256": "9d76c73647435690c5c3a6632405ca494f265e1b995182efb0b408fa77397c55",
+      "records": [
+        16109
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-ta.json",
+      "sha256": "d4076fab291448deea5e6562ce7568c44236b3290f76cf0842724c318762b3c6",
+      "records": [
+        16545
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-te.json",
+      "sha256": "7f5ca24ab72ccb03d53c9130b77d1b9ccf3cf9ac6956149274606210f61dd371",
+      "records": [
+        16602
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-tr.json",
+      "sha256": "56549a7fb733f9d8cac3eaeec61143772b46e47881d350e1066af74cea0fb0f6",
+      "records": [
+        16109
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-translation-zh.json",
+      "sha256": "07370f81551184cecf1a3b8b7db44a603bb1f9399e28fbe24440f433521dac46",
+      "records": [
+        16125
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/ally-trophy-correction-prompt.txt",
+      "sha256": "50af0b703ed48110b7d6e42ad2a72cfe63828531e9a520429b57cd959832a71d",
+      "records": [
+        15820
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/barter-bc-translations.json",
+      "sha256": "e3516ebc30307104823e1d6ab6f6bae89531f06f4887e2f82606bb18a56d7c1c",
+      "records": [
+        3391
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/barter-refresh-translations.json",
+      "sha256": "2ac83d8807c6e5a426300f476cd241b74849e954c967154e4434ac0fced3f2db",
+      "records": [
+        4694
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/billboards.json",
+      "sha256": "1189fad418d3e97a48772a5eac9d34f2140b50100073188ef138f8662de837e2",
+      "records": [
+        287
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/capture-current-previews.py",
+      "sha256": "c709480e553f452e12890357a3f144c530a475cd0aa642cfd4a0b2a6da8a7d67",
+      "records": [
+        12724
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-character-prompts-20260915.json",
+      "sha256": "7a6a73c6b193443107bb4c7a108e7462eb2b68cf0bc99c6f8b72f29ca265a7c7",
+      "records": [
+        14224
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-complete-review.json",
+      "sha256": "1250fb9d4891cb3c430241d797938a8825db811c4f2f27a4caca7d5d0a8a6805",
+      "records": [
+        15386
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-generation-prompts.json",
+      "sha256": "e603f94480269130adfc9bf441a2210427ee15b3cb9dafcd806968558a673833",
+      "records": [
+        11272
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-layout-prompts-20260915.json",
+      "sha256": "98e48dbe691c76f86a3fe3b8dce413a08356756a6dd0341712cde10ecffe2f6e",
+      "records": [
+        14804
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-translations-ar.json",
+      "sha256": "6591c070b9a510ed68d0d434f69ca9210920c9467047be37d696c1fc068a0ce4",
+      "records": [
+        11527
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-translations-es.json",
+      "sha256": "8fda7c513374cc668a5bc769e70a76de1bef0dc780e528a27f46ea5778fe39b4",
+      "records": [
+        11510
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/care-translations-it.json",
+      "sha256": "ab78e1360cbd2bee7d4935802caf24a90b1bfbb38d82ad90e7d116a23803b4f3",
+      "records": [
+        11518
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/check-png-opacity.py",
+      "sha256": "b6f9463c751c7bebe50dee617644e3feb0e6cb18936ab2de32862c0fbd907f48",
+      "records": [
+        9112
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/client-loader.mjs",
+      "sha256": "199ba58e6a7bdaf0ab1e06003fcf7927dc561fcf6dcdd5c34674c42a4d4046c3",
+      "records": [
+        403
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/client-playwright.mjs",
+      "sha256": "ccc3258062ee359882b1c2fca7eee308949a212683c68ef871610cb0d6d2dc20",
+      "records": [
+        403,
+        1038
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-ar-20260915.json",
+      "sha256": "5038de9327952b5f145c6396689b4e45596c4f2e733eacb4ceac9dd86810969e",
+      "records": [
+        17772
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-bc-proportion-prompts.json",
+      "sha256": "e4a169c9241c13c46e2f51fec119117f763113a3ad096f1eecae9e5a267dc008",
+      "records": [
+        19327
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-bc-source-assets-20260915.json",
+      "sha256": "2f9e7c55ca3ef0fd87dbe2865780e2fe12b81146e06f8fd54a37b78c7b53dfb0",
+      "records": [
+        17594
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-es-20260915.json",
+      "sha256": "68981bfac404b459d937adefe0ee3231a39bd51eeaaf397d7cafc7ca7d75b7c1",
+      "records": [
+        17765
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-layers-prompts.json",
+      "sha256": "27262a04d26dfd7fd0e67760cbe3b1c0164e3e1dd232de6d4c0b4e863cf90dbd",
+      "records": [
+        18826
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-outcome-source-20260915.json",
+      "sha256": "3e1d9bdb49ac194e03938410fdb7be27a179f7e55a8dfad96b23b4acbefac1ab",
+      "records": [
+        17917
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-proportion-prompt.txt",
+      "sha256": "2e63b6467983faafa22a97715dd704751d1fa9f37757949e59d6a4634fc61751",
+      "records": [
+        18266
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-proportion-prompts.json",
+      "sha256": "81b23548b9b409a56f67c6c713a2101afbff198def75c158764002a8c72b6174",
+      "records": [
+        18347
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-source-assets-20260915.json",
+      "sha256": "60779f03487d39f32398f8b5ae7e05a4858367290aacacbfae4a7f45416ff597",
+      "records": [
+        17312
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/crossing-source-display-20260915.json",
+      "sha256": "faf5ff9046561a03f0294eeb17796a6385f0d388853e18e98aec202beb6eea3c",
+      "records": [
+        17779
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/enc-c01-translations.json",
+      "sha256": "6f81de3f7ce61ef5958b377ba40154bea6b77890036bc037f2a3f306d96fd8c6",
+      "records": [
+        973
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/gather-refresh-translations.json",
+      "sha256": "c6ce96b853728a41993d8fe64fd29086dab4baa5922c3f8ddd248bca04885c88",
+      "records": [
+        4871
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/inspect-activity.mjs",
+      "sha256": "33e764dbe9b2d16ecd3c3e5a33b3780ff746fed5e3df9a14c4d76fc5d407c40d",
+      "records": [
+        2657
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/inspect-care-edge.mjs",
+      "sha256": "b59e57ef01ae7ced4955a7106279f8f3efb63367d5bcc95de2d6da41cc901de1",
+      "records": [
+        14854,
+        15086
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-activities.py",
+      "sha256": "5cb0947ff1100864a14a6a08584001293305febfb88855265694f53fdf91bb6d",
+      "records": [
+        2500
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-barter-refresh.py",
+      "sha256": "abbb36f299f50d0e8fb835557ac7deed9fb52ad390d93dda6c242fe94afc08bf",
+      "records": [
+        4703
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-barter.py",
+      "sha256": "90b39ebd00fb9975b52e96c5d9b94eff874e97ca7e4d18ea18ebb9f1a49664aa",
+      "records": [
+        3406,
+        3597
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-care-translations.py",
+      "sha256": "6616d4ce93b302068f4a6efa284bb349bc9b9928e2ed3643e979ad3e124a55a8",
+      "records": [
+        11534
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-gather-refresh.py",
+      "sha256": "e38709e1f5ba199d00cbd98abb2c3190c2ac9c352ce93df99ce50247e5c4878a",
+      "records": [
+        4906
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-policy-variants.py",
+      "sha256": "0f678a9558b4d52fe4f09c8769b2cbfe49c1d04824192f4d6eb2dbc4af343d61",
+      "records": [
+        1902,
+        1963,
+        2006
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-rest.py",
+      "sha256": "010519a0fb834b9d7318281d88627d4372d035968147714717a50777d39b2f8f",
+      "records": [
+        4143,
+        4401
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-road-c02-copy.py",
+      "sha256": "0133605fd73da9477efc80f2b24ed3325bb21a029a82cdca69e8c36742ac9bd3",
+      "records": [
+        5746
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-road-c03-copy.py",
+      "sha256": "c59da3ffbf8d6cd260e9cd8b012b913b65ebd8e3030c9c24bc6d10f6bae76343",
+      "records": [
+        6724,
+        6767
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-road-c04-copy.py",
+      "sha256": "6fd54ca4ad38d33dc29ab03e2957998a622f84d26119210b4559f8c8c2621fbe",
+      "records": [
+        7665
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-road-c08-copy.py",
+      "sha256": "9480dccfce1495d103de3865cf1f98b2378c169b99d78c7920cef3256a9fe03b",
+      "records": [
+        9430
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/integrate-work-refresh.py",
+      "sha256": "e0b20c891cac5b0b5504d0dae4973beb963cd60fcb058db0d1b12290d9ebf113",
+      "records": [
+        4832
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/map-shared-surfaces.py",
+      "sha256": "dd0bc79c56fd9780856ef04f4d75b25df0ef3d6721a4d20f4a21839ba4cec41c",
+      "records": [
+        9822
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/meal-pose-generation-prompts.json",
+      "sha256": "10f8d25c3f8ee006857faa0a5687652415f9080ebeaaea25e2bc7dea8b036a21",
+      "records": [
+        12546
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/meal-pose-individual-prompt.json",
+      "sha256": "5c82a699462901b9e8d98a001d81e68cdb938b602de5850b86a12fd4359e496a",
+      "records": [
+        13063
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/meal-pose-mask-prompt.json",
+      "sha256": "793d06a1aec6b95a7a0ea549f6c12a6895e454124780cd737398b42fbdcba93c",
+      "records": [
+        13386
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/policy-a-overlay-copy.json",
+      "sha256": "c89582d13c402fc2aff57887bf1134b65ab6ab8e3d3ffbef687e707943c67636",
+      "records": [
+        1489
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/policy-art-review.mjs",
+      "sha256": "7150156882ab7beaf20e1a13e253e67e00c4cefb250f82385d967f32810a2524",
+      "records": [
+        2175,
+        2226
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/policy-bc-translations.json",
+      "sha256": "4a2ed82f97210149c4797e291c830ee3a12ecdfb3ac824eb4a61a1267bf178d4",
+      "records": [
+        1883
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/policy-functional-copy.json",
+      "sha256": "0e3290255089ad70609b241287f027cc9fdf1521d15a0043ccee9abce8d17520",
+      "records": [
+        1489
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/policy-source-overrides.json",
+      "sha256": "d6cb9c02294db362b1d6aaed2b15d0f02485e4cd66fa0640859720ec59886413",
+      "records": [
+        1901
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/activities-a.txt",
+      "sha256": "804aafc40322869bb0ae5eb74d86f5b196a67b9ea8aea030c40fe133b8f4916f",
+      "records": [
+        2456
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/activities-b.txt",
+      "sha256": "0d63c63c3c67c7f6825ada7da87237aa44e66597bd6ffd19fe5eedb071f46221",
+      "records": [
+        2457
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/activities-c.txt",
+      "sha256": "b143d558eb4e6346f1801e36bcb9815f4488f41a1baa8cf3c6cce15fe301ce01",
+      "records": [
+        2458
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/barter-a.txt",
+      "sha256": "00c0e53a46674b4dad7768d9b188da5740339e2056687f552e7aa4aad7675656",
+      "records": [
+        3337
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/barter-b.txt",
+      "sha256": "79e9493c39193e5468d4325929e6f7020a0542c5dca056fb39e8a0c8d9f9e0b5",
+      "records": [
+        3338
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/barter-c.txt",
+      "sha256": "bf9501fcba9f19a184eb424d3a62ef668bf5795f61b39c97756697440c6b0dd8",
+      "records": [
+        3339
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/barter-refresh-20260914.txt",
+      "sha256": "9579b202084c4d1354d3db473a55dab4846d0c0211622083ffe8ac4df1b3e943",
+      "records": [
+        4657
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/barter-refresh-closed-bags.txt",
+      "sha256": "0b957332b1ce9ff981f6245ec990c4261fdb17853083bc9cd95074eecaa177ea",
+      "records": [
+        5057
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/gather-refresh-20260914.txt",
+      "sha256": "0e88a2d51a2de66fb6909919ddb0bd0444d1eb4cf29b191f4615190809c23425",
+      "records": [
+        4788
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/gather-refresh-crate-label.txt",
+      "sha256": "db123ba736d6d20616ec107fdd9d84206d4903bcac0325f9a62b81af45b6039f",
+      "records": [
+        5057
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/hearing-officials.txt",
+      "sha256": "ba143376f42a40ef1175ee145025af446e929f768efe7be99a87625ef58bdcf4",
+      "records": [
+        544
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/journalist-refined.txt",
+      "sha256": "67d772324d2b49b9c4463cecfaf4c248d20340241f645dcb27ac33701852df83",
+      "records": [
+        510
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/journalist.txt",
+      "sha256": "1f9f1077bc7573392f9f1e1a74a0564180dae6a54940354dba32f3b664b12b27",
+      "records": [
+        162
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/lobbyist.txt",
+      "sha256": "6928dcc70b062b9ecb812ebb19399332a953c7fd0766850f1be40964a4551d94",
+      "records": [
+        252
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-activities-a-prompt.txt",
+      "sha256": "fd1b292c89b044ef37fa9964c6efcf1039de590160a39584c036aa38e9971bba",
+      "records": [
+        6080
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-barter-b-prompt.txt",
+      "sha256": "6366ba185697bda15455e8c3353d6226d028b5dec1e787fdae128ac0cd1583a1",
+      "records": [
+        6085
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-barter-refresh-prompt.txt",
+      "sha256": "239900746a558de817b4791c317a41805f6f73278f7806e3e1edeb0f173e4c6f",
+      "records": [
+        6086
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-enc-media-workshop.txt",
+      "sha256": "58325f3fecad31b8f146ffd208982bb76d3fabc6532d13bb5151b1948da70615",
+      "records": [
+        6281
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-milk-deep.txt",
+      "sha256": "b3279c94400217f14ca91687e28f3db009fbf11269a15b6573a7a4a75633f60f",
+      "records": [
+        6282
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-open-appalachian-ridge.txt",
+      "sha256": "f045d34501cb451699fd2f40632c6990e5eca611c55f2ea610f371ee350519c4",
+      "records": [
+        6279
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-open-rustbelt-foundry.txt",
+      "sha256": "6c6c9db341af1cd5b1e568f50d90ed49fcefd6fbd64b3a15b651a3345ee28bed",
+      "records": [
+        6280
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-policy-bulletins-a-prompt.txt",
+      "sha256": "ebe0ee61e2a240d46416a7a6134b259ed1433fbe5cba133b10a4752110b0b29b",
+      "records": [
+        6078
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-road-c01-prompt.txt",
+      "sha256": "cce187cd124d3042c554d6244d189aff019f6f4589019eaf72ad9f9d2bfdda1d",
+      "records": [
+        6079
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-road-classic-prompt.txt",
+      "sha256": "48ae7973640dc094f9f198259eaece61773d6d862a8d7328cc12486191f96e3c",
+      "records": [
+        6087
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-rustbelt.txt",
+      "sha256": "abe08adfe76c711e84361f1dafeede7af2b0f3c187ac965467ddac7da0466bdd",
+      "records": [
+        6283
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-supporting-cast-prompt.txt",
+      "sha256": "6eb434b6d15b6950c9affad805862fa4e4a0101139e225c20d6d161b0b0f36b2",
+      "records": [
+        6081
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-work-refresh-final-prompt.txt",
+      "sha256": "b74a9acc957db33d1d08ad0932db44b61a1b70a41061d065b2094673b2a54121",
+      "records": [
+        6088
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutral-work-refresh-prompt.txt",
+      "sha256": "51cb23406cda36e373647ce5c9403f7d9e167a31c90cdc2de028e1b58f408a14",
+      "records": [
+        6082
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutralClinicPrompt.txt",
+      "sha256": "d4c42e8596c5376c60121739ea92b0680db6a9007ad18d4eb97ce3a74c52d474",
+      "records": [
+        6077
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutralEncounterPrompt.txt",
+      "sha256": "e7f251aefda02de495423031552c34fe2872cb4c78af318484763f021dc83101",
+      "records": [
+        6075
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/neutralJourneyPrompt.txt",
+      "sha256": "574bedd7f8040598b14fa83b29ec269534695b0d98f7ac4ae720c6d05b26ba08",
+      "records": [
+        6076
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/organizer.txt",
+      "sha256": "ace99ae9ef3e569b0775c25a97ad6a09e76d8ea0f2a04df3e332e86a3c53f908",
+      "records": [
+        164
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/policy-bulletins-a-cast-correction.txt",
+      "sha256": "c0e487c2822d25ce8d8a76c236d66b4a55770728e43041c2e604d236c7a24bc2",
+      "records": [
+        1558
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/policy-bulletins-a.txt",
+      "sha256": "10cd237c5fd411075b4d7b0986ad28a7bccf5e368d07c3573ebbd19b409a4bc1",
+      "records": [
+        1558
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/policy-bulletins-b-coin-return-correction.txt",
+      "sha256": "b9be333eaca53ac6aa2391faeb87e15791d3a2c4ce38f6daa6714a16ed964329",
+      "records": [
+        2166
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/policy-bulletins-b.txt",
+      "sha256": "0792c682e54d67fb549e9ff740fd50e6e4f2d490ac6aca122da3351e959b85c2",
+      "records": [
+        1874
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/policy-bulletins-c.txt",
+      "sha256": "f4f0e08e8f7e0e17e74b6eec229470f0d0019cd88632cb565fe4e7b975a08292",
+      "records": [
+        1875
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/rest-clock-faces.txt",
+      "sha256": "a0117a86725fe81f3d64d9c0458f9a900c10574d9b5c658bd93465e64ff80d72",
+      "records": [
+        4311
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/rest-props-latest.txt",
+      "sha256": "3a06f6e5747ebcf62e280e7bce5937e55bab44d784485dd16a574cbff5777c9b",
+      "records": [
+        4117
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/rest-props.txt",
+      "sha256": "809d7bc6f2577b5c4b5b56ce3edb8de07231a50613d546dd4559c18a5b4c6531",
+      "records": [
+        3882
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c01-20260914.txt",
+      "sha256": "8bda292a1d975d4437c5bfae83c306dd5bd03849a1638012a95b034d91314389",
+      "records": [
+        5288
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-leaflet-correction.txt",
+      "sha256": "344d6e9494c0070304807d064dfddc7f6afdbb8b278f276d36256fcc7327f29a",
+      "records": [
+        5733
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-leaflet-height-correction.txt",
+      "sha256": "fe82ba3d466fc5dc7eb61f4aeef14191006466866c2006ab75e8d9cf9098c09e",
+      "records": [
+        5823
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-leaflet-width-correction.txt",
+      "sha256": "49add98cdc7da1ba252cda4ca279154cc5464f3f898bb84b1dec8fafa5d5d04b",
+      "records": [
+        5768
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-neutral-pixel-correction.txt",
+      "sha256": "424775843fda40ce1fcf32dba607e81c7375341e624835ef336756f042e84146",
+      "records": [
+        5820
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-offer-meal-20260914.txt",
+      "sha256": "eb609870acd0d5258509a3fe915689ad469ad71f85dc41cb576c92e782a19fea",
+      "records": [
+        5699
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-record-donate-20260914.txt",
+      "sha256": "8974a279f94f5d60523638a2212da06cfe7781dea1fa2f0ea5e95e56fec3ca40",
+      "records": [
+        5865
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/road-c02-window-correction.txt",
+      "sha256": "1a01eeb00a0c4ed4ed72d75777251fd8b0e8cddce37ab1e7a794e19fec5cb685",
+      "records": [
+        5849
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/satire-settings-01-pixel-revision.txt",
+      "sha256": "cacbf9767311072268aa59480ceb5d8e87e009dd46f9184909d84b78b15961a7",
+      "records": [
+        1224
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/satire-settings-01.txt",
+      "sha256": "102c5dcddfe605f02a6436b02a3da490e886125d71446f85fbe0850f8bf022f2",
+      "records": [
+        648
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/satirist.txt",
+      "sha256": "11b7147bf599e578ceb426133ec32f456df815c487bcf63f412d95c691fc715c",
+      "records": [
+        256
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/staffer.txt",
+      "sha256": "84b8f87b8effa610c129e1f2efefeeb435a869cd9f4de221cb2a82d9170625fc",
+      "records": [
+        254
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/supporting-cast.txt",
+      "sha256": "8520a6df9067473286d62304a7ae1905a4e5c9298f290199084e34682b05c60a",
+      "records": [
+        718
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/whistleblower.txt",
+      "sha256": "30c3b4b56c39c15c9510f12dd88cb1e3e81959dfd463ffe1c4ab2620cafd3a37",
+      "records": [
+        166
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/prompts/work-refresh-20260914.txt",
+      "sha256": "2d8d072e6721b58194cb64f4ac716c8f9b615053faea53d5eaa768af27513c1c",
+      "records": [
+        4770
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/qualitative-copy.json",
+      "sha256": "5dc3e17d18d1c9e2631eaf228e7f19cfce5e0764c70e40b8acd047e9c0d8e41a",
+      "records": [
+        759
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/reconcile-hearing.py",
+      "sha256": "f76213ccec3f14675a2f27736c12723449d678698f0f13591d0e3e185cd8ab5c",
+      "records": [
+        528
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/reconcile-latest-source.py",
+      "sha256": "a9e47527bb1c622f4cde597683643424101991d60b88069b270d8fd737a995a6",
+      "records": [
+        4109
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/reconcile-workshop-thread.py",
+      "sha256": "0c9ecd9e3998d3d00ff0732d279e7a2b47536a82c97d40e357cd9819b08aead6",
+      "records": [
+        4579
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/record-activity-refresh.py",
+      "sha256": "443b81b007da3317a121ee2b40fa4c6a8dc6305ff9fc4ab6d487e96bdefbafbf",
+      "records": [
+        5074
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/record-barter-review.py",
+      "sha256": "d7d71cc63ea84ed3ca156f23570b42b9dc47dd09d93a690c78d5ec2d2db54c06",
+      "records": [
+        3727
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": [
+        {
+          "path": "review/art-satire/record-barter-review.py",
+          "record": 3846,
+          "reason": "Patch context is absent or ambiguous"
+        }
+      ]
+    },
+    {
+      "path": "review/art-satire/record-rest-review.py",
+      "sha256": "fd0231ca274f44f75379892a4cc1ab9427c861851a8133628ca65699fa60d8d3",
+      "records": [
+        4497
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/render-care-review.mjs",
+      "sha256": "765454d908315c23cbb4cc243defb258dac38d11e978bbad2870724d23a5ec35",
+      "records": [
+        14457
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/render-crossing-review.mjs",
+      "sha256": "97d9d50b7c91a4868c927b21d24071498918b74d5c090896a123bf3a58d9ae17",
+      "records": [
+        17952
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/render-preview-sheets.mjs",
+      "sha256": "0df227e764440d2151cdeff0f8088c033dd9a74adeca0c746e576e27ae59611c",
+      "records": [
+        12805
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/render-repair-review.mjs",
+      "sha256": "d5018f89d24aaaf6fd9a88da250f99c97cae3059477c6812d1899c0931a3c2e0",
+      "records": [
+        13946
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-ar.txt",
+      "sha256": "ba15fce1684fbafc00672f0ec1d019bc9985bbd91ede9daacf644ffbedb03830",
+      "records": [
+        10218
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-es.txt",
+      "sha256": "330b6762184626ae932a464e717251c5b7db9cd1a00a5e7896a42ae6742d3ed6",
+      "records": [
+        10125
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-hooks.txt",
+      "sha256": "ff4e182c44996b5bb17cf141e6fff3fa2d396208b9de54ce6f70545114511732",
+      "records": [
+        10283
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-it.txt",
+      "sha256": "610a1cfe1e9f2dd4518393a6c92527ff5c0ace94eeee5bc28a8a97ee811e2ffb",
+      "records": [
+        10211
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-mask-prompts.json",
+      "sha256": "aa56d7b72b4dc90e614292ba4162d026354206b3d00c9bfaddaac80d22effb62",
+      "records": [
+        13607
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-source-assets.json",
+      "sha256": "5999de6167c0b5c3d49ceac7d2f59cd203bc555dc093f3f2a22805cafe197e30",
+      "records": [
+        10516
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/repair-workshop-prompt.json",
+      "sha256": "f7aaf413c5b059d031440995eac9cb6035360b4cc75b038340681f54f8f3e998",
+      "records": [
+        13821
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/rest-translations.json",
+      "sha256": "f7f10d86385974c5c0d6c8a9256496a71ba94decfc5b0dbeecde689a873fe878",
+      "records": [
+        4143
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/rest-workshop-native.json",
+      "sha256": "4e26547706b7d28c8f34a9a27d94ce3b500d409aa1858a2ff785a385abd378cc",
+      "records": [
+        3982
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c02-translations.json",
+      "sha256": "25063f2d7306557b9c6dfadb92208316c0b4bf0bbfcbd634a534612bc4eed21f",
+      "records": [
+        5720
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c03-corrections.json",
+      "sha256": "982257480097aaf856221e61aa265b00951d6b3a7ad4c713860efbafbb296d5c",
+      "records": [
+        6894
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c03-generation-draft.json",
+      "sha256": "e671bd876df15c02fb1cf7ff61563631e42af6875c457b68dd4e2a18a0aa5e55",
+      "records": [
+        6592
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c03-source-refresh.json",
+      "sha256": "39109c1541ca101b4e30a179c3235d5e580cfb9c033482b74416757a8012b97b",
+      "records": [
+        6726
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c03-translations.json",
+      "sha256": "2474c4389f418c641d90e5750c6e8fc5895e16646a5943111f61411618fc698f",
+      "records": [
+        6725
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c04-corrections.json",
+      "sha256": "cc4ca5fb8811585acdf4d97d336a30aaec34c909dd22244760bff0bc1c1ec1ee",
+      "records": [
+        7703
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c04-draft-review.json",
+      "sha256": "6fc823fc2125d5b1e15874fff48a9b30d2c0906675ccd2513dbba1857988c761",
+      "records": [
+        7645
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c04-generation-prompts.json",
+      "sha256": "c8cbcc303f7b40fd196effa0bea9c863278c26afacb7ff0dea302771afeaf737",
+      "records": [
+        7588
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c04-source-refresh.json",
+      "sha256": "9b87b734b3f2f2b72ae493be478bb106f2faeccc3ca80ab80bcb21a80f6ade65",
+      "records": [
+        7575
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c04-translations.json",
+      "sha256": "12d5be26fecd0edd0f3e22100787e6485c736a951276a3e023c3fd33706e33b6",
+      "records": [
+        7626
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c05-correction-prompt.txt",
+      "sha256": "25dc3071ffb225234c4c0802e80d05c0533bf2101f1f7a40510323b851a8064f",
+      "records": [
+        8195
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c05-generation-prompts.json",
+      "sha256": "37e223228941835a3394678e14c885569e22f4c8eab6dc979dd7493b0071924e",
+      "records": [
+        8033
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c05-source-refresh.json",
+      "sha256": "9a60eab1ee083e1e7c406f78bd9e9d44968d2ea3bc677f97506924d0c5c55077",
+      "records": [
+        8009
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c05-translations.json",
+      "sha256": "e0e1d09aa0122c3bcbf8260068628aadbde4db7026f9bef8aac7b745859f01bf",
+      "records": [
+        8120
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c06-corrections.json",
+      "sha256": "95ce3f69594789ed6029f4a9ef4f72388bf50ba94a4cc867174bb21f58ad1cb3",
+      "records": [
+        8726
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c06-generation-prompts.json",
+      "sha256": "c0019552c38a4fc5f371c02cd707f33acc12f666b24a6730b1b56c7a6d7bfd39",
+      "records": [
+        8588
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c06-source-refresh.json",
+      "sha256": "7f955d1dd3f3358f0409540be6797b23cc36e33292ffcc5f0b47f5f5cf9640e5",
+      "records": [
+        8587
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c06-translations.json",
+      "sha256": "4a65f4aad4a951f214df1f4b92f87fe928ce012bfbd150062b8f92c430095314",
+      "records": [
+        8614
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c07-corrections.json",
+      "sha256": "0b44642ccc9ef82bdcb50f7cfcd8fafcefdf8e14265a50b35685610cc24287e6",
+      "records": [
+        9000
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c07-generation-prompts.json",
+      "sha256": "91013e42ed432000b3a8797665f9d8a918c1816d296a55ba372eddac3bb626c9",
+      "records": [
+        8908
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c07-opacity-correction-prompt.txt",
+      "sha256": "c4e846d05cb8caece9fd6cff91a367b5a7a9807af236005718a95d90c8791364",
+      "records": [
+        9141
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c07-source-refresh.json",
+      "sha256": "e820488a37d8b3adf02f35d5751ae104e604af294a59026f3f1359cbb31a87ce",
+      "records": [
+        8907
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c07-translations.json",
+      "sha256": "d3c8f938e3d34662605db5b2249ab37ed91df6674034b079c27d34ecf2430137",
+      "records": [
+        8920
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c08-correction-prompts.json",
+      "sha256": "4b169eba7230872ea5419f9aa888b89a985a962621c707b5fbf1be5b00418f29",
+      "records": [
+        9495
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/road-c08-generation-prompts.json",
+      "sha256": "939a1c1bf026ebb2629d81f50ecaac433ea67c57810182e70f15fd7639d73121",
+      "records": [
+        9443
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/text-reflow-candidate.css",
+      "sha256": "d26d33835ae90c5ffc56bfd346dfd226b4bb7e7be1f19d34ef15d311180b5d5f",
+      "records": [
+        7064,
+        7079
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/town-01-02-translations.json",
+      "sha256": "b181bae1f4c0f7eb3c427e4356dcde7f19298c848122dfad7340416d14350c39",
+      "records": [
+        13056
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/town-01-generation-prompts.json",
+      "sha256": "b89f28e729aaa4e1ddd9455a00b4b568ade23d8855832019ce1399c86d65b0c5",
+      "records": [
+        13209
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/town-41-generation-prompts.json",
+      "sha256": "2b7e1b16e9fa5601d3c5f86809497194f463d0929eb2be616d99db34a4d35542",
+      "records": [
+        12342
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/verify-activity-candidate.py",
+      "sha256": "c4ec5a41f7f964a818645cf32f79d4e89fe4e7a5335fc050482399923db09d40",
+      "records": [
+        3207
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/work-refresh-translations.json",
+      "sha256": "09d3b26bbf26a81e7430455c830f9d6473780ce817b6673a2de9b3c5d3e8c872",
+      "records": [
+        4796
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/workshop-native.json",
+      "sha256": "5e71f5a972f9fd7a9f7e1d6f77d9107c8f5d1b5e52a4836a9cf50f996e54b7e6",
+      "records": [
+        102
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    },
+    {
+      "path": "review/art-satire/write-road-c08-translations.py",
+      "sha256": "f0edbba37dc81986f2e955e179e83335460b2b5cf136b7619b5c1137f97cdc8c",
+      "records": [
+        9430
+      ],
+      "status": "historical_candidate_not_current_source",
+      "failed_patches": []
+    }
+  ],
+  "gaps": [
+    {
+      "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+      "record": 892,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-game/src/journal.rs",
+      "record": 918,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/mod.rs",
+      "record": 927,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 948,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+      "record": 958,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/i18n/encounters.rs",
+      "record": 981,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/satire_context.rs",
+      "record": 989,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/visual-world.spec.ts",
+      "record": 1023,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 1115,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/feature.md",
+      "record": 1199,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/view/mod.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/mod.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/flow.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/mod.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/travel.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/turn.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-game/src/journal.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/history.rs",
+      "record": 1452,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1540,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1607,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 1680,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1720,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/satire_context.rs",
+      "record": 1924,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/history.rs",
+      "record": 1924,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1924,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 1924,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/travel.rs",
+      "record": 1924,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/feature.md",
+      "record": 1949,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/view/handlers/travel.rs",
+      "record": 1963,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1963,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/history.rs",
+      "record": 1963,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1967,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/policy_bulletin.rs",
+      "record": 1989,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/policy.rs",
+      "record": 2225,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/policy.rs",
+      "record": 2235,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/stats_bar/policy.rs",
+      "record": 2243,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 2409,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/mod.rs",
+      "record": 2409,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 2409,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 2409,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/activity-scenes.spec.ts",
+      "record": 2834,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/activities.rs",
+      "record": 3372,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/activity_content.rs",
+      "record": 3373,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 3374,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/trading.rs",
+      "record": 3374,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 3374,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 3425,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/trading.rs",
+      "record": 3597,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/feature.md",
+      "record": 3627,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+      "record": 3635,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+      "record": 3671,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+      "record": 3686,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/barter-scenes.spec.ts",
+      "record": 3694,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "progress.md",
+      "record": 3839,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "docs/ux/enhancement-review-2026-09-13/features/art-and-satire/hearing-integration.md",
+      "record": 3839,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "review/art-satire/record-barter-review.py",
+      "record": 3846,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/pages/camp.rs",
+      "record": 3947,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/camp_panel/mod.rs",
+      "record": 3947,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 3947,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/view/phases/camp.rs",
+      "record": 3947,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/activity_content.rs",
+      "record": 3947,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 3948,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 4119,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/rest_art.rs",
+      "record": 4119,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/van.rs",
+      "record": 4119,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 4119,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/camp_panel/tests.rs",
+      "record": 4153,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/world_view.rs",
+      "record": 4186,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 4276,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/world_view.rs",
+      "record": 4311,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 4311,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/rest_art.rs",
+      "record": 4311,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 4390,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "review/art-satire/verify-rest-candidate.py",
+      "record": 4401,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+      "record": 4704,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+      "record": 4833,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/activity_art.rs",
+      "record": 5049,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 6336,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "progress.md",
+      "record": 6462,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "progress.md",
+      "record": 6637,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/road_art.rs",
+      "record": 6767,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 6767,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 6767,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 6767,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 6767,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 6791,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/fundraiser-scenes.spec.ts",
+      "record": 6893,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/fundraiser-scenes.spec.ts",
+      "record": 6948,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "progress.md",
+      "record": 7019,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 7928,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 8023,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 8146,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 8146,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 8146,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 8146,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/road_art.rs",
+      "record": 8146,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 8257,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/letter-scenes.spec.ts",
+      "record": 8267,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/letter_art.rs",
+      "record": 8311,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/letter_art.rs",
+      "record": 8380,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 8380,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/teachin-scenes.spec.ts",
+      "record": 8684,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/mutual-scenes.spec.ts",
+      "record": 8975,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/town.rs",
+      "record": 9797,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 10868,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-game/src/crew_care.rs",
+      "record": 10868,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/world_view.rs",
+      "record": 10868,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 10868,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/history.rs",
+      "record": 10911,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/world_view.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/mod.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/town.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/town_facts.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 12096,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 12123,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/town_facts.rs",
+      "record": 12373,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/cast_art.rs",
+      "record": 12554,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+      "record": 12554,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+      "record": 13288,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/cast_art.rs",
+      "record": 13369,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/cast_art.rs",
+      "record": 13417,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/town_art.rs",
+      "record": 13442,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 13450,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/journey.css",
+      "record": 13520,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/repair_art.rs",
+      "record": 13606,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 14957,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 14957,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 14965,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/care-presentation.spec.ts",
+      "record": 14972,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 15036,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 15036,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 15060,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 15060,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 15104,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 15162,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 15236,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/care_art.rs",
+      "record": 15283,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 15300,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/tests-e2e/care-presentation.spec.ts",
+      "record": 15311,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_icon.rs",
+      "record": 15522,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 15522,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-game/src/journal.rs",
+      "record": 15522,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "record": 15522,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/composition.rs",
+      "record": 15522,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 15581,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "record": 15581,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/journey_panel.rs",
+      "record": 15730,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "record": 15946,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/ally_art.rs",
+      "record": 16652,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 16652,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/ally_art.rs",
+      "record": 16774,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 16774,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "record": 16774,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/visual_content.rs",
+      "record": 16774,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 16908,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/ally_loss.rs",
+      "record": 16964,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/crossing_presentation.rs",
+      "record": 17723,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/static/continuity.css",
+      "record": 17723,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/crossing_presentation.rs",
+      "record": 17755,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/app/crossing_presentation.rs",
+      "record": 17916,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+      "record": 17916,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/mod.rs",
+      "record": 17916,
+      "reason": "No recovered full-file base"
+    },
+    {
+      "path": "dystrail-web/src/app/crossing_presentation.rs",
+      "record": 18000,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+      "record": 18099,
+      "reason": "Patch context is absent or ambiguous"
+    },
+    {
+      "path": "dystrail-web/src/components/ui/journey_scene/crossing_art.rs",
+      "record": 18259,
+      "reason": "Patch context is absent or ambiguous"
+    }
+  ]
+}

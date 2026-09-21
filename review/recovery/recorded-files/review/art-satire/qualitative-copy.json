@@ -1,0 +1,38 @@
+{
+  "en": {
+    "gain": "Improves {stat}", "cost": "Costs {stat}", "full": "{stat} already full", "empty": "{stat} already depleted",
+    "evidence": "Collect evidence", "use_evidence": "Uses a Receipt", "bonus_evidence": "May uncover extra evidence",
+    "illness": "Illness may worsen", "fatal": "Fatal without care", "leaves": "Crew member leaves",
+    "repair": "Restores the vehicle", "repair_full": "Vehicle condition already full",
+    "rest": "Rest", "days": "{days} day(s)", "slower": "Fewer encounters", "riskier": "More encounters", "risk_same": "Usual encounter risk",
+    "less_evidence": "Fewer chances to find evidence", "more_evidence": "More chances to find evidence", "evidence_same": "Usual evidence opportunities",
+    "forage": "Adds supplies · 2 hours", "glean": "Adds supplies · Tiring work · 4 hours", "work_food": "Earns supplies · Tiring work · 4 hours", "work_cash": "Earns $10 · Tiring work · 4 hours"
+  },
+  "es": {
+    "gain": "Mejora {stat}", "cost": "Reduce {stat}", "full": "{stat} ya está al máximo", "empty": "{stat} ya está agotado",
+    "evidence": "Recoge pruebas", "use_evidence": "Usa una prueba", "bonus_evidence": "Puede descubrir pruebas adicionales",
+    "illness": "La enfermedad puede empeorar", "fatal": "Mortal sin atención", "leaves": "Un integrante deja el grupo",
+    "repair": "Recupera el estado del vehículo", "repair_full": "El vehículo ya está en perfecto estado",
+    "rest": "Descansar", "days": "{days} día(s)", "slower": "Menos encuentros", "riskier": "Más encuentros", "risk_same": "Riesgo habitual de encuentros",
+    "less_evidence": "Menos oportunidades de encontrar pruebas", "more_evidence": "Más oportunidades de encontrar pruebas", "evidence_same": "Oportunidades habituales de encontrar pruebas",
+    "forage": "Consigue provisiones · 2 horas", "glean": "Consigue provisiones · Trabajo agotador · 4 horas", "work_food": "Gana provisiones · Trabajo agotador · 4 horas", "work_cash": "Gana $10 · Trabajo agotador · 4 horas"
+  },
+  "it": {
+    "gain": "Migliora {stat}", "cost": "Riduce {stat}", "full": "{stat} già al massimo", "empty": "{stat} già esaurito",
+    "evidence": "Raccogli prove", "use_evidence": "Usa una prova", "bonus_evidence": "Potrebbe rivelare altre prove",
+    "illness": "La malattia potrebbe peggiorare", "fatal": "Fatale senza cure", "leaves": "Un membro lascia il gruppo",
+    "repair": "Migliora le condizioni del veicolo", "repair_full": "Veicolo già in perfette condizioni",
+    "rest": "Riposa", "days": "{days} giorno/i", "slower": "Meno incontri", "riskier": "Più incontri", "risk_same": "Rischio abituale di incontri",
+    "less_evidence": "Meno occasioni di trovare prove", "more_evidence": "Più occasioni di trovare prove", "evidence_same": "Occasioni abituali di trovare prove",
+    "forage": "Trova provviste · 2 ore", "glean": "Trova provviste · Lavoro faticoso · 4 ore", "work_food": "Guadagna provviste · Lavoro faticoso · 4 ore", "work_cash": "Guadagna $10 · Lavoro faticoso · 4 ore"
+  },
+  "ar": {
+    "gain": "يحسّن {stat}", "cost": "يقلّل {stat}", "full": "{stat} عند الحد الأقصى بالفعل", "empty": "{stat} مستنفد بالفعل",
+    "evidence": "اجمع أدلة", "use_evidence": "يستخدم دليلًا", "bonus_evidence": "قد يكشف أدلة إضافية",
+    "illness": "قد تتفاقم الحالة المرضية", "fatal": "مميت دون رعاية", "leaves": "يغادر أحد أفراد الطاقم",
+    "repair": "يحسّن حالة المركبة", "repair_full": "المركبة في أفضل حالة بالفعل",
+    "rest": "استرح", "days": "{days} يوم", "slower": "لقاءات أقل", "riskier": "لقاءات أكثر", "risk_same": "المعدل المعتاد للقاءات",
+    "less_evidence": "فرص أقل للعثور على أدلة", "more_evidence": "فرص أكثر للعثور على أدلة", "evidence_same": "الفرص المعتادة للعثور على أدلة",
+    "forage": "يضيف مؤنًا · ساعتان", "glean": "يضيف مؤنًا · عمل مرهق · 4 ساعات", "work_food": "يكسب مؤنًا · عمل مرهق · 4 ساعات", "work_cash": "يكسب 10 دولارات · عمل مرهق · 4 ساعات"
+  }
+}

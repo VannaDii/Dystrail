@@ -53,3 +53,13 @@ The retained images, historical edits, and source material may support further r
 ## Stop boundary
 
 Stop at this checkpoint and wait for the user's approval before further work. In particular: no reconstruction campaign, game changes, image generation, or expansion of the image inventory. After approval, finalize the required image list and composition rules first. Reuse suitable existing images, allow at most one generation attempt for a genuinely necessary image, and leave unsuccessful output for the user's review without automatic retries or replacement variants.
+
+## Authorized recovery and inventory continuation — September 21
+
+The user supplied the updated completion goal and authorized resumption with one agent and no subagents. Production remains subject to approval of the image inventory/specifications; this entry supersedes the earlier stop boundary only for the authorized recovery and planning work.
+
+- `review/recovery/recorded-files/` contains 262 historical file candidates recovered from recorded complete additions, whole-file writes, and exactly matching patches. No recorded commands were executed. 303 file events applied; 166 could not apply because their base/context is missing or ambiguous. Do not promote these candidates to the working game without reconciliation.
+- All 176 retained originals now have recovered original generation briefs, exact dimensions, and hashes. 123 have filename information; 53 lack final binding information. Structured source mapping evidence exists for 89. These counts do not imply visual acceptance.
+- The browsable inventory is `docs/ux/image-production-review-2026-09-21/image-inventory.html`; current proposed rules remain in the adjacent README. Its new-generation queue is empty. Existing suitable images will be reused; failed/uncertain images remain for personal review, with no automatic correction or new generation.
+- The runtime/game, Hearing implementation, localization, and original PNGs are unchanged. The earlier native/browser-target baseline checks therefore remain applicable to that unchanged code, not to the historical candidate files. No production acceptance is claimed.
+- Secret scans passed for the recovery utilities and extracted evidence before inspection. Full scene-binding recovery and a final necessary-image list remain open; approval for image production has not been requested prematurely.

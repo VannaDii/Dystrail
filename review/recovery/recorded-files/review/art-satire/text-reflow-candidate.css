@@ -1,0 +1,12 @@
+/* Text-sized tracks preserve compact readouts and reflow when fonts grow. */
+.resource-hud .critical-stats { font-size:12px; grid-template-columns:repeat(auto-fit,minmax(min(7.5em,100%),1fr)); }
+.resource-hud .hud-stat,.resource-hud .hud-stat:nth-child(n+5) { grid-column:auto; }
+.resource-hud .hud-stat dt { flex-wrap:wrap; overflow-wrap:anywhere; }
+.journal .trail-log .resource-changes,.turn-receipt .resource-changes { display:flex; flex-wrap:wrap; width:max-content; }
+.journal .trail-log .resource-changes>.stat-card,.turn-receipt .resource-changes>.stat-card { flex:0 0 110px; width:110px; min-width:min-content; max-width:100%; }
+.journal .stat-card>span,.turn-receipt .stat-card>span,.journal .stat-card>small,.turn-receipt .stat-card>small { max-width:100%; overflow-wrap:anywhere; }
+.conditions-hud .hud-primary-row { flex-wrap:wrap; }
+@media(max-width:620px) {
+ .journal .trail-log .resource-changes,.turn-receipt .resource-changes { width:100%; }
+ .journal .trail-log .resource-changes>.stat-card,.turn-receipt .resource-changes>.stat-card { flex:1 1 110px; width:auto; }
+}

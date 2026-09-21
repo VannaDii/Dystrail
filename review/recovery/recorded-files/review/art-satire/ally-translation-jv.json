@@ -1,0 +1,49 @@
+{
+  "final": {
+    "A": "Kuwi kontak njaba sing pungkasan. Rombongan lelungan isih ana; jaringan panyengkuyungmu saiki kosong.",
+    "B": "Ora ana sekutu njaba sing kari. Ora ana wong ing van sing lunga amarga pesen iki.",
+    "C": "Panyengkuyung njaba pungkasan wis mundur. Wong sing isih melu lelungan kudu nerusake tanpa jaringan kuwi."
+  },
+  "notice": "Ana panyengkuyung njaba sing mundur",
+  "back_road": "Bali menyang dalan",
+  "rows": [
+    ["Rujukan Topi Abang", "Kontak njabamu, {name}, mandheg mbantu lan melu dodolan barang MAGA. Pesen pamite ana kode diskon. Ganti haluan politik saiki nganggo pelacakan afiliasi.", "MAGA · Pranala afiliasi"],
+    ["Mlebu Gratis, Ayom Didol", "Kontakmu, {name}, mandheg mbantu kanggo dodolan topi srengenge nalika taman menehi mlebu gratis ing ulang taune Trump. Pengunjung sing nyukupi syarat ora mbayar tiket mlebu. Ngayomi sirahe saka panas isih dadi usaha sing saya ngrembaka.", ""],
+    ["Sarapan kanggo Kothak Sangu", "Kontakmu, {name}, oleh gawe adoh lan ora bisa terus mbantu. FTC mundur saka banding aturan nasional larangan saingan; juragan lawas isih ngancam nganggo klausul kuwi. Laku menyang gawe anyar adoh banget nganti kothak sangune butuh sarapan.", ""],
+    ["Efisiensi Wis Teka", "Pangurangan DOGE nggawe kontak njabamu, {name}, kelangan gawe. Dheweke mundur kanggo golek gawe anyar. Tugas pungkasane yaiku nyathet regane nyathet regane awake dhewe.", "Jabatan dibusak"],
+    ["Tombol Batal Butuh Pegawai", "Kontakmu, {name}, mandheg mbantu sawise kelangan gawe ing papan nuklir amarga pemecatan Trump-DOGE. Keputusan dibatalake nalika dheweke wis oleh gawe liya. Washington lagi ngerti yen mbatalake keputusan dudu paket tunjangan.", ""],
+    ["Lowongan Adhedhasar Prestasi", "Kontakmu, {name}, kelangan gawe amarga kontraktor mbusak pakaryan babagan keragaman, kesetaraan, lan inklusi, mula kudu mundur. Sing duwe usaha ngumumake jaman anyar meritokrasi. Anake ngumumake yen nedha awan wis siap.", "Kesempatan adhedhasar prestasi"],
+    ["Tagih Sing Pesen", "Kontakmu ing New York, {name}, njupuk gawe tambahan nagih tagihan makelar lan ora bisa terus mbantu. Undhang-undhang FARE mrentah makelare sing duwe omah supaya nagih sing duwe omah. Sawetara juragan omah dumadakan kepengin dadi wong sing angel ditemokake.", ""],
+    ["Lembur sing Netes Mudhun", "Kontakmu, {name}, butuh giliran gawe tambahan kanggo mbayar biaya medis lan banjur mundur. Kongres ngedol potongan anggaran kesehatan minangka pengiritan. Dheweke kepengin ngerti dhuwit iritane mlebu rekening sapa.", "Pengiritan"],
+    ["Anggaran Pangan", "Kontakmu, {name}, njupuk giliran gawe maneh kanggo blanja pangan lan mandheg mbantu. Dheweke ndeleng Kongres ngedol potongan bantuan pangan minangka kamardikan. Saiki dheweke nyambut gawe dina Setu kanthi mandiri.", "Giliran dina Setu"],
+    ["Tombol Balekake", "Kontakmu, {name}, njupuk gawe layanan pelanggan sawise pengembalian dhuwit Fortnite dening FTC lan mandheg mbantu lelungan. Saiki dheweke nerangake carane mbatalake tuku sing ora dikarepake. Jebul tombol balekake butuh perkara federal lan swara manungsa.", ""],
+    ["Aturan Retur Patriotik", "Kontakmu, {name}, mandheg mbantu kanggo dodolan oleh-oleh Teluk Amerika. Stok Teluk Meksiko lawas disimpen ing ngisore. Samodra durung njaluk dhuwite dibalekake.", "Teluk Amerika · Teluk Meksiko"],
+    ["Mandiri Ora Kecukupan", "Kontakmu, {name}, mandheg mbantu kanggo nulis iklan sewan. Usulan persetujuan perkara RealPage saka Departemen Kehakiman nggawe juragan omah rembugan rega mandiri. Tugas anyare golek tembung sipat beda kanggo angka gedhe sing padha.", ""],
+    ["Grup Obrolan Negara Bayangan", "Kontakmu, {name}, ngirim video sing nuduh wartawan ngarang skandal Signal, banjur mblokir rombongan. Katrangane saiki luwih aman tinimbang obrolan pengeboman.", "Kontak diblokir"],
+    ["Weteng Rahasia Negara", "Kontakmu, {name}, nganggep kritikmu marang susu MAHA minangka bukti yen kowe kerja kanggo FDA, banjur medhot kontak. Karier federal anyarmu ora ana gajine, nanging ana weteng mules pirang-pirang.", "Saka FDA?"],
+    ["Salah Olahraga", "Kontakmu, {name}, ngeyel yen hadiah perdamaian FIFA kanggo Trump kuwi Nobel. Kowe nerangake yen FIFA menehi hadiahe dhewe. Dheweke mblokirmu. Iki sepisanan kowe kalah bal-balan amarga ngerti jeneng olahragane.", ""],
+    ["Selehake, Angkat Maneh", "Kontakmu, {name}, keseleo pundhake nalika mindhah piranti sajrone mandheg lan diwiwitine maneh Empire Wind ing 2025, mula ora bisa mbantu. Departemen Dalam Negeri ngowahi prentah gawe. Kothak piranti isih njaluk digawa menyang loro arah.", ""],
+    ["Luwih Entheng ing Kertas", "Kontakmu ing Texas, {name}, lara gegere nalika mindhah piranti bengkel lan kudu mandheg mbantu. Sing duwe bengkel ngrayakake mundhake pembebasan pajeg barang usaha ing negara bagean kuwi. Bebane luwih entheng, yen dietung nganggo dhuwit.", ""],
+    ["Geger Oleh Giliran Ngomong", "Kontakmu sing kerja ing sepur, {name}, keseleo gegere lan ora bisa terus mbantu. Dheweke kelingan Kongres meksa persetujuan 2022 supaya ora ana mogok. Gegere nolak ditimbali bali gawe nganggo resolusi.", ""]
+  ],
+  "facts": [
+    "Citizens United lan SpeechNow dadi dhasar belanja independen tanpa wates lan sumbangan marang panitia sing mung nindakake belanja kuwi. Sumbangan langsung marang calon nduweni wates dhewe.",
+    "Jadwal gratis mlebu Taman Nasional Badlands taun 2026 kalebu 14 Juni, disebut Dina Gendera lan ulang taune Presiden Trump, kanggo warga negara lan warga sing manggon ing AS.",
+    "Ing September 2025, FTC mutusake nyabut banding lan nampa pambatalan aturan nasional klausul larangan saingan. Iki ora ateges kabeh klausul bisa dileksanakake: wates negara bagean lan penegakan saben kasus isih bisa ditrapake.",
+    "Pamrentah mecat kira-kira 1.000 pegawai anyar Dinas Taman Nasional ing Februari 2025, kalebu petugas pangopènan lan reresik. Pemecatan kuwi wae ora mbuktekake sebab saben taman sing ditutup sabanjure.",
+    "Pemecatan dadakan ing Administrasi Keamanan Nuklir Nasional disusul pambatalan keputusan. Pantex kalebu papan sing kena pengaruh.",
+    "Tumindak eksekutif Januari 2025 nyasar program federal keragaman, kesetaraan, lan inklusi sarta syarat kontraktor. Juragan lan kedadeyan ing adegan iki fiksi.",
+    "Undhang-undhang FARE Kutha New York wiwit lumaku 11 Juni 2025. Makelar sing disewa utawa makili juragan omah ora kena nagih beayane marang calon penyewa. Penyewa isih bisa mbayar makelar sing disewa dhewe. Aturan iki nemtokake sing nanggung beaya, dudu wates rega sewa utawa larangan kabeh makelar, lan ora lumaku ing yurisdiksi liya.",
+    "Public Law 119-21 nyuda prakiraan belanja federal Medicaid lan ngowahi syarat kelayakan. Prakiraan wong kelangan asuransi kuwi proyeksi, dudu kelangan sing wis diamati.",
+    "Undhang-undhang rekonsiliasi 2025 ngemot pangurangan belanja SNAP lan owah-owahan kelayakan bebarengan karo aturan pajeg. Iki ora ateges kabeh papan bantuan pangan kelangan danane.",
+    "FTC ngumumake pengembalian tambahan luwih saka 126 yuta dolar kanggo pemain Fortnite sing ditagih tuku tanpa karep, sawise persetujuan perkara penagihan Epic. Perkara iki kapisah saka tuntutan privasi bocah. Sing bisa nampa diwatesi; pengumuman kuwi ora mbuktekake yen wektu ngajokake klaim isih mbukak.",
+    "Prentah eksekutif Januari 2025 mrentah panggunaan federal jeneng Teluk Amerika lan mbalekake jeneng Gunung McKinley. Iki ora ngowahi geografi utawa ndadekake jeneng kuwi diakoni kabeh negara.",
+    "Departemen Kehakiman ngumumake usulan persetujuan RealPage sing matesi data pesaing sing ora umum lan sawetara fitur panyelarasan rega ing piranti lunak rega sewa. Usulan kuwi butuh idin pengadilan. Tuduhan ora mbuktekake saben juragan omah utawa rega sewa lokal melu atur rega bebarengan; iki dudu larangan kabeh piranti lunak sewa.",
+    "Ing Maret 2025, pejabat senior Trump nuduhake rincian serangan Yaman ing obrolan Signal sing tanpa sengaja nglebokake wartawan. Wong lan pacelathon ing adegan iki fiksi.",
+    "FDA nerangake patogen lan risiko penyakit saka susu sing ora dipasteurisasi. Slogan MAHA bakul kuwi pemasaran fiksi, dudu pitutur medis resmi utawa nemtokake sebab wabah tartamtu.",
+    "FIFA menehi Donald Trump Hadiah Perdamaian FIFA kapisan ing undian final Piala Donya ing Washington, 5 Desember 2025. Kuwi hadiah FIFA dhewe, dudu Nobel Perdamaian. Pangalembana kuwi pambiji FIFA, dudu bukti prestasi perdamaian tartamtu. Sumber iki ora mbuktekake suap, ijol-ijolan pitulungan, utawa tumindak ilegal.",
+    "Cathetan proyek federal kandha Departemen Dalam Negeri mandhegake pembangunan Empire Wind tanggal 16 April 2025 lan nyabut mandhege tanggal 19 Mei. Iki nyritakake episode kuwi, dudu pambatalan salawase utawa gawe tanpa kendhat sabanjure. Ana mandheg lan perkara pengadilan maneh ing wektu sabanjure.",
+    "Pandhuan Pengawas Keuangan Texas kandha barang obah usaha kanthi total nilai kena pajeg 125.000 dolar utawa kurang ing sawijining unit pajeg dibebasake ing kana. Iki pembebasan nilai barang, dudu bayaran awis 125.000 dolar utawa pembebasan kabeh barang usaha.",
+    "Kongres lan Presiden Biden meksa persetujuan kerja nasional sepur barang ing Desember 2022, nyegah mogok. Rembugan cuti lara sabanjure kuwi perkembangan sing kapisah."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "A": {
+    "draft": "exec-634a11f3-d3f8-45ff-93c9-8b2641a15a8b.png",
+    "finding": "Offer showed a gap spanning more than one missing rung; restored ladder spacing drifted.",
+    "prompt": "Edit this pixel-art atlas. Keep exact1536x1024 grid, all four panels, people, style, camera, blank tags and everything else. Correct ONLY central wooden ladder rung continuity. In EVERY panel central wooden ladder must have same physical side rails and SIX rung positions at panel-local y=65,112,160,208,255,302. Top-left OFFER, bottom-left REHEARSAL and bottom-right spare OFFER: rung at y255 is MISSING, all other FIVE rungs present (65,112,160,208,302). This makes ONE double-height gap, not two missing rungs. One loose wooden rung stays on floor. Top-right CHECK outcome: all SIX rungs present at65,112,160,208,255,302, with same even spacing, no loose rung on floor. Blank cream tag below bottom rung aroundy350 must stay. All local coordinates restart within each768x512cell. Do not change safe separate stepladder or person standing on it in bottom-left. No text, symbols, crosses, logos or new objects. Strong square chunky pixel clusters.",
+    "corrected": "exec-38c0ff1b-5bf7-4215-a4f6-3dfdb321836a.png",
+    "review": "Offer/rehearsal retain one enlarged gap and loose rung. Checking fills the gap and removes the loose rung. Separate safe stepladder used only during rehearsal."
+  },
+  "C": {
+    "draft": "exec-0cfa9f58-a888-43e8-9493-c18709e1080c.png",
+    "finding": "Top and bottom water drops were misaligned; leak would miss bucket.",
+    "prompt": "Edit this1536x1024 four-panel pixel atlas. Correct ONLY leak alignment: in all four768x512panels, ceiling damp patch and ALL descending water droplets must be at panel-local x=450, EXACTLY vertically above the upright bucket's center in the offered and rehearsal frames. Current top drip is atx390 while bottom droplet at450; that impossible sideways fall must be removed. Move ceiling damp patch and top falling drops to450, align every drop in vertical straight line at450. Top-right poured-bucket outcome still has the leak at samex450 continuing toward floor; keep woman pouring and puddle. Keep people, identity, poses, blank sign, mop, buckets, carpet, four-cell camera layout and chunky pixel art unchanged. No text, symbols, emblems, crosses, religious imagery or new objects. Do not change any other staging.",
+    "corrected": "exec-8936c08b-4fdb-4b1c-bea4-427abc30b59a.png",
+    "review": "Descending drops now reach the open bucket; tipped bucket and puddle belong only to checking. Rehearsal retains upright bucket and ongoing leak."
+  },
+  "status": "Source corrections inspected; runtime acceptance pending."
+}

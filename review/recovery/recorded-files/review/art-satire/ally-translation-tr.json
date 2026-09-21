@@ -1,0 +1,49 @@
+{
+  "final": {
+    "A": "Bu, dışarıdaki son bağlantınızdı. Yolculuk ekibi hâlâ burada; destek ağınız artık boş.",
+    "B": "Dışarıda müttefik kalmadı. Bu mesaj yüzünden minibüsten kimse ayrılmadı.",
+    "C": "Dışarıdaki son desteğiniz çekildi. Kalan yolcular bu ağ olmadan devam etmek zorunda."
+  },
+  "notice": "Dışarıdaki bir destekçi ayrıldı",
+  "back_road": "Yola dön",
+  "rows": [
+    ["Kırmızı Şapka Tavsiyesi", "Dışarıdaki bağlantınız {name} yardımı bırakıp MAGA ürünleri satışına katılıyor. Veda mesajında indirim kodu var. Siyasi dönüşümün artık satış ortaklığı takibi de var.", "MAGA · Satış ortaklığı bağlantısı"],
+    ["Giriş Bedava, Gölge Satılık", "Bağlantınız {name}, parkın Trump'ın doğum günü için ücretsiz giriş gününde güneş şapkası satmak üzere yardımı bırakıyor. Koşulları sağlayan ziyaretçiler giriş ücreti ödemiyor. Başlarını güneşten korumak hâlâ büyüyen bir sektör.", ""],
+    ["Sefer Tasına Kahvaltı", "Bağlantınız {name} uzakta bir işe giriyor ve artık yardım edemiyor. FTC, ülke çapındaki rekabet yasağı kuralıyla ilgili temyizlerinden vazgeçti; eski işveren hâlâ sözleşmedeki maddeyle tehdit ediyor. Yeni işe gidiş o kadar uzun ki sefer tasının kahvaltıya ihtiyacı var.", ""],
+    ["Verimlilik Geldi", "DOGE kesintileri dışarıdaki bağlantınız {name}'i işsiz bırakıyor. İş aramak için desteğini çekiyor. Son görevi, kendi değerini belgelemenin değerini belgelemekti.", "Pozisyon kaldırıldı"],
+    ["Geri Al Düğmesine Personel Lazım", "Bağlantınız {name}, Trump-DOGE işten çıkarmalarında nükleer tesisteki işini kaybedince yardımı bırakıyor. Karardan dönüldüğünde başka iş bulmuş oluyor. Washington, geri almanın yan hak paketi olmadığını keşfetti.", ""],
+    ["Liyakat Kadrosu", "Bağlantınız {name}, yüklenici şirket çeşitlilik, hakkaniyet ve kapsayıcılık çalışmalarını kaldırınca işini kaybedip desteğini çekiyor. Patron yeni bir liyakat çağı ilan ediyor. Patronun çocuğu yemeğin hazır olduğunu ilan ediyor.", "Liyakata dayalı fırsat"],
+    ["Sipariş Verene Fatura Kes", "New York'taki bağlantınız {name}, emlak komisyonu faturalarını tahsil etmek için ek iş alıyor ve artık yardım edemiyor. FARE Yasası, ev sahibinin tuttuğu komisyoncunun ev sahibine fatura kesmesini gerektiriyor. Birkaç ev sahibi birden bulunması zor biri olmaya merak sardı.", ""],
+    ["Aşağıya Sızan Fazla Mesai", "Bağlantınız {name}, sağlık faturaları için ek vardiyalara ihtiyaç duyup desteğini çekiyor. Kongre sağlık bütçesi kesintilerini tasarruf diye satıyor. Bu tasarrufun hangi hesaba yattığı merak konusu.", "Tasarruf"],
+    ["Gıda Bütçesi", "Bağlantınız {name}, market masrafı için bir vardiya daha alıp yardımı bırakıyor. Kongrenin gıda yardımı kesintilerini bağımsızlık diye sattığını izledi. Şimdi cumartesi bağımsız biçimde çalışıyor.", "Cumartesi vardiyası"],
+    ["İade Düğmesi", "Bağlantınız {name}, FTC'nin Fortnite iadelerinin ardından müşteri hizmetlerinde işe girip yolculuğa yardımı bırakıyor. Artık istenmeyen alışverişlerin nasıl geri alındığını anlatıyor. Meğer iade düğmesinin federal bir davaya ve insan sesine ihtiyacı varmış.", ""],
+    ["Vatansever İade Politikası", "Bağlantınız {name}, Amerika Körfezi hediyelikleri satmak için yardımı bırakıyor. Eski Meksika Körfezi stokunu altta tutuyor. Okyanus henüz para iadesi istemedi.", "Amerika Körfezi · Meksika Körfezi"],
+    ["Bağımsızca Karşılanamaz", "Bağlantınız {name}, kiralık ev ilanları yazmak için yardımı bırakıyor. Adalet Bakanlığının önerdiği RealPage uzlaşması, ev sahiplerini bağımsız fiyatlandırma konuşmaya yöneltti. Yeni görevi, aynı devasa rakama farklı sıfatlar bulmak.", ""],
+    ["Derin Devlet Grup Sohbeti", "Bağlantınız {name}, Signal skandalını gazetecilerin uydurduğunu iddia eden bir video gönderip ekibi engelliyor. Açıklama artık bombardıman sohbetinden daha iyi korunuyor.", "Bağlantı engellendi"],
+    ["Gizli Mide", "Bağlantınız {name}, MAHA sütünü eleştirmenizin FDA için çalıştığınızı kanıtladığına karar verip iletişimi kesiyor. Yeni federal kariyeriniz maaş getirmiyor ama birkaç mide krampı getiriyor.", "FDA'dan mı?"],
+    ["Yanlış Spor", "Bağlantınız {name}, Trump'ın FIFA barış ödülünün Nobel olduğunda ısrar ediyor. FIFA'nın kendi ödülünü verdiğini söylüyorsunuz. Sizi engelliyor. Sporun adını doğru söylediğiniz için kaybettiğiniz ilk futbol maçı bu.", ""],
+    ["Bırak, Tekrar Kaldır", "Bağlantınız {name}, Empire Wind'in 2025'te durdurulup yeniden başlatıldığı dönemde alet taşırken omzunu incitiyor ve yardımı bırakmak zorunda kalıyor. İçişleri Bakanlığı iş emrini değiştirdi. Alet çantası iki yönde de taşınmakta ısrar ediyor.", ""],
+    ["Kâğıt Üzerinde Hafif", "Teksas'taki bağlantınız {name}, atölye ekipmanı taşırken belini incitip yardımı bırakıyor. İşletme sahibi, eyaletin büyüyen işletme malı vergi muafiyetini kutluyor. Yük artık çok daha hafif. Mali açıdan.", ""],
+    ["Söz Belin", "Demiryolu çalışanı bağlantınız {name}, belini incitiyor ve artık yardım edemiyor. Kongrenin grevi önlemek için 2022 sözleşmesini dayatmasını hatırlıyor. Beli, kararla işe geri çağrılmayı reddetti.", ""]
+  ],
+  "facts": [
+    "Citizens United ve SpeechNow, sınırsız bağımsız harcamaların ve yalnızca bu tür harcamalar yapan komitelere katkıların temelini oluşturur. Adaylara doğrudan katkılar ayrı sınırlara tabidir.",
+    "Badlands Ulusal Parkı'nın 2026 ücretsiz giriş takviminde, ABD vatandaşları ve sakinleri için Bayrak Günü ve Başkan Trump'ın doğum günü olarak belirtilen 14 Haziran yer alır.",
+    "FTC, Eylül 2025'te ülke çapındaki rekabet yasağı kuralının iptalini kabul edip temyizlerinden vazgeçme kararı aldı. Bu, her rekabet yasağını uygulanabilir yapmadı; eyalet kısıtlamaları ve vakaya özgü uygulamalar geçerli kalabilir.",
+    "Yönetim, Şubat 2025'te bakım ve temizlik çalışanları dahil yaklaşık 1.000 yeni işe alınmış Ulusal Park Hizmeti çalışanını işten çıkardı. Bu çıkarmalar tek başına daha sonraki her park kapanışının nedenini kanıtlamaz.",
+    "Ulusal Nükleer Güvenlik İdaresindeki ani işten çıkarmaların ardından karardan dönüldü. Pantex etkilenen tesisler arasındaydı.",
+    "Ocak 2025'teki yürütme işlemleri, federal çeşitlilik, hakkaniyet ve kapsayıcılık programlarıyla yüklenici koşullarını hedef aldı. Bu sahnedeki işverenler ve olaylar kurgudur.",
+    "New York şehrinin FARE Yasası 11 Haziran 2025'te yürürlüğe girdi. Ev sahibinin tuttuğu veya onu temsil eden komisyoncular, ücretlerini kiracı adaylarından alamaz. Kiracılar bağımsız olarak tuttukları komisyonculara ödeme yapabilir. Yasa ücretleri paylaştırır; kira tavanı ya da bütün komisyonculara yasak değildir ve başka yargı alanlarında uygulanmaz.",
+    "Public Law 119-21, öngörülen federal Medicaid harcamalarını azaltır ve yararlanma koşullarını değiştirir. Sigortasını kaybedecek kişi tahminleri projeksiyondur, hâlihazırda gözlenen kayıplar değildir.",
+    "2025 bütçe uzlaştırma yasası, vergi hükümlerinin yanında SNAP harcama kesintileri ve yararlanma koşulu değişiklikleri içerir. Bu, her gıda yardım merkezinin fonunu kaybettiği anlamına gelmez.",
+    "FTC, Epic'in faturalandırma uygulamalarıyla ilgili uzlaşmanın ardından istenmeyen alışverişler için ücretlendirilen Fortnite oyuncularına 126 milyon doları aşan ek iadeler açıkladı. Bu dava çocukların mahremiyeti iddialarından ayrıdır. Hak sahipliği sınırlıdır; açıklama, başvuru süresinin hâlâ açık olduğunu göstermez.",
+    "Ocak 2025 tarihli yürütme emri, federal kullanımda Amerika Körfezi adını emretti ve McKinley Dağı adını geri getirdi. Coğrafyayı değiştirmedi veya bu adların uluslararası alanda herkesçe tanınmasını sağlamadı.",
+    "Adalet Bakanlığı, kira fiyatlandırma yazılımında rakiplerin kamuya açık olmayan verilerini ve bazı fiyat eşleme işlevlerini sınırlayan bir RealPage uzlaşması önerdi. Öneri mahkeme onayı gerektiriyordu. İddialar her ev sahibinin ya da yerel kiranın fiyat anlaşmasına dahil olduğunu kanıtlamaz; tüm kira yazılımlarına yasak söz konusu değildi.",
+    "Mart 2025'te üst düzey Trump yetkilileri, yanlışlıkla bir gazetecinin de eklendiği Signal sohbetinde Yemen saldırılarının ayrıntılarını paylaştı. Bu sahnedeki kişiler ve konuşmalar kurgudur.",
+    "FDA, pastörize edilmemiş sütle ilişkili patojenleri ve hastalık risklerini açıklar. Satıcının MAHA sloganları kurgusal pazarlamadır; resmî tıbbi tavsiye veya belirli bir salgının nedenine dair atıf değildir.",
+    "FIFA, 5 Aralık 2025'te Washington'daki Dünya Kupası final kura çekiminde Donald Trump'a ilk FIFA Barış Ödülü'nü verdi. Bu FIFA'nın kendi ödülüydü, Nobel Barış Ödülü değildi. Övgü FIFA'nın değerlendirmesidir, belirli bir barış iddiasının kanıtı değildir. Kaynak rüşvet, karşılıklı çıkar alışverişi veya hukuka aykırılık ortaya koymaz.",
+    "Federal proje kaydı, İçişleri Bakanlığının Empire Wind inşaatını 16 Nisan 2025'te durdurduğunu ve 19 Mayıs'ta durdurmayı kaldırdığını söyler. Bu, o belirli dönemi anlatır; kalıcı iptal ya da sonrasında kesintisiz çalışma anlamına gelmez. Daha sonra yeni durdurmalar ve davalar oldu.",
+    "Teksas Mali Denetçisinin rehberine göre bir vergi birimi içindeki toplam vergiye tabi değeri 125.000 dolar veya altındaki işletme taşınır malları orada muaftır. Bu, mal değeri muafiyetidir; 125.000 dolar nakit ödeme ya da tüm işletme mallarına muafiyet değildir.",
+    "Kongre ve Başkan Biden, Aralık 2022'de ulusal yük demiryolu iş sözleşmesini dayatarak grevi engelledi. Sonraki hastalık izni görüşmeleri ayrı bir gelişmedir."
+  ]
+}

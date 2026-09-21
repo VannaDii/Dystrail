@@ -1,0 +1,58 @@
+{
+  "en": {
+    "clean_air": ["CLEAN AIR CLUB", "Fresh air. Premium tier."],
+    "public_land": ["YOUR PUBLIC LANDS", "Now accepting private offers."],
+    "energy": ["ENERGY INDEPENDENCE", "Jumper cables sold separately."],
+    "weather": ["FORECAST: REASSURING", "We fired the thermometer."],
+    "water": ["WATER FUTURES", "Your thirst. Our portfolio."],
+    "wellness": ["UNPUBLISHED WELLNESS", "Evidence would spoil the mystery."],
+    "tariffs": ["FOREIGN COUNTRIES PAY", "You handle the checkout."],
+    "farm": ["FARM RELIEF", "Please hold. Your crops matter."],
+    "jobs": ["JOBS ARE COMING", "The sign has a permanent position."],
+    "repair": ["RIGHT TO REPAIR", "Subscription required."],
+    "access": ["PUBLIC ACCESS", "Ask about our donor entrance."],
+    "transparency": ["TOTAL TRANSPARENCY", "Now in opaque black."]
+  },
+  "es": {
+    "clean_air": ["CLUB DEL AIRE LIMPIO", "Aire fresco. Tarifa prémium."],
+    "public_land": ["TUS TIERRAS PÚBLICAS", "Aceptamos ofertas privadas."],
+    "energy": ["INDEPENDENCIA ENERGÉTICA", "Cables de arranque aparte."],
+    "weather": ["PRONÓSTICO: TRANQUILIDAD", "Despedimos al termómetro."],
+    "water": ["FUTUROS DEL AGUA", "Tu sed. Nuestra cartera."],
+    "wellness": ["BIENESTAR SIN PUBLICAR", "Las pruebas arruinarían el misterio."],
+    "tariffs": ["PAGAN LOS OTROS PAÍSES", "Tú pasas por caja."],
+    "farm": ["AYUDA AGRÍCOLA", "Siga esperando. Su cosecha importa."],
+    "jobs": ["LLEGARÁN EMPLEOS", "El cartel ya tiene puesto fijo."],
+    "repair": ["DERECHO A REPARAR", "Requiere suscripción."],
+    "access": ["ACCESO PÚBLICO", "Pregunte por la entrada de donantes."],
+    "transparency": ["TRANSPARENCIA TOTAL", "Ahora en negro opaco."]
+  },
+  "it": {
+    "clean_air": ["CLUB DELL’ARIA PULITA", "Aria fresca. Piano premium."],
+    "public_land": ["LE TUE TERRE PUBBLICHE", "Si accettano offerte private."],
+    "energy": ["INDIPENDENZA ENERGETICA", "Cavi di avviamento a parte."],
+    "weather": ["PREVISIONI: TRANQUILLITÀ", "Abbiamo licenziato il termometro."],
+    "water": ["FUTURES SULL’ACQUA", "La tua sete. Il nostro portafoglio."],
+    "wellness": ["BENESSERE INEDITO", "Le prove rovinerebbero il mistero."],
+    "tariffs": ["PAGANO I PAESI ESTERI", "Tu passi alla cassa."],
+    "farm": ["AIUTI AGRICOLI", "Resti in linea. Il raccolto conta."],
+    "jobs": ["ARRIVANO POSTI DI LAVORO", "Il cartello ha già un posto fisso."],
+    "repair": ["DIRITTO ALLA RIPARAZIONE", "Abbonamento obbligatorio."],
+    "access": ["ACCESSO PUBBLICO", "Chiedete dell’ingresso donatori."],
+    "transparency": ["TRASPARENZA TOTALE", "Ora in nero opaco."]
+  },
+  "ar": {
+    "clean_air": ["نادي الهواء النقي", "هواء منعش. باشتراك مميز."],
+    "public_land": ["أراضيكم العامة", "نقبل الآن عروضًا خاصة."],
+    "energy": ["استقلال الطاقة", "كابلات تشغيل البطارية تباع منفصلة."],
+    "weather": ["التوقعات: مطمئنة", "لقد فصلنا مقياس الحرارة."],
+    "water": ["عقود المياه الآجلة", "عطشك. محفظتنا الاستثمارية."],
+    "wellness": ["عافية غير منشورة", "الأدلة ستفسد اللغز."],
+    "tariffs": ["الدول الأجنبية تدفع", "وأنت تتولى الحساب عند الصندوق."],
+    "farm": ["إغاثة المزارعين", "يرجى الانتظار. محصولك يهمنا."],
+    "jobs": ["الوظائف قادمة", "اللافتة حصلت على وظيفة دائمة."],
+    "repair": ["الحق في الإصلاح", "يشترط الاشتراك."],
+    "access": ["دخول للجميع", "اسأل عن مدخل المتبرعين."],
+    "transparency": ["شفافية تامة", "متوفرة الآن بالأسود المعتم."]
+  }
+}

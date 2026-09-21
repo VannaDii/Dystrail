@@ -1,0 +1,38 @@
+{
+  "es": {
+    "ACT-FORAGE-A": {
+      "title": "No hace falta nómina",
+      "setup": "Una guía local organiza una salida de recolección mientras el vecindario habla de los requisitos laborales de la ayuda alimentaria del Congreso. El arbusto de zarzamoras no ha instalado un portal para subir documentos.",
+      "outcome": "Recogéis algo de comida. El arbusto acepta como prueba que tenéis hambre. Puede que Washington quiera auditarlo."
+    },
+    "ACT-FOODWORK-A": {
+      "title": "Vuestra cena, vuestra tarea",
+      "setup": "Un banco de alimentos ofrece comida por un turno de clasificación de tres horas. El Congreso ha recortado el gasto previsto en ayuda alimentaria. La voluntaria llama a vuestra caja «el plan de aplicación local».",
+      "outcome": "Termináis cansados y os lleváis la comida. El Congreso puede llamarlo autosuficiencia; vosotros habéis visto las etiquetas de donación."
+    }
+  },
+  "it": {
+    "ACT-FORAGE-A": {
+      "title": "Nessuna busta paga richiesta",
+      "setup": "Una guida locale conduce una passeggiata di raccolta mentre il vicinato discute dei requisiti lavorativi imposti dal Congresso per gli aiuti alimentari. Il cespuglio di more non ha installato un portale per caricare documenti.",
+      "outcome": "Raccogliete del cibo. Il cespuglio accetta come prova che avete fame. Washington potrebbe volerlo sottoporre a un controllo."
+    },
+    "ACT-FOODWORK-A": {
+      "title": "La vostra cena, il vostro incarico",
+      "setup": "Un banco alimentare offre cibo per un turno di smistamento di tre ore. Il Congresso ha tagliato la spesa prevista per gli aiuti alimentari. La volontaria chiama la vostra cassa «il piano di attuazione locale».",
+      "outcome": "Finite stanchi e prendete il cibo. Il Congresso può chiamarla autosufficienza; voi avete visto le etichette delle donazioni."
+    }
+  },
+  "ar": {
+    "ACT-FORAGE-A": {
+      "title": "لا حاجة إلى كشف راتب",
+      "setup": "تقود مرشدة محلية جولة لجمع الطعام، بينما يناقش الجيران شروط العمل التي أقرها الكونغرس للمساعدات الغذائية. لم تثبّت شجيرة التوت الأسود بوابة لرفع المستندات.",
+      "outcome": "تجمعون بعض الطعام. تقبل الشجيرة دليلكم بأنكم جائعون. قد ترغب واشنطن في تدقيق حساباتها."
+    },
+    "ACT-FOODWORK-A": {
+      "title": "عشاؤكم، مهمتكم",
+      "setup": "يقدم مركز توزيع غذاء طعامًا مقابل وردية فرز مدتها ثلاث ساعات. خفّض الكونغرس الإنفاق المتوقع على المساعدات الغذائية. تسمي المتطوعة صندوقكم «خطة التنفيذ المحلية».",
+      "outcome": "تنهون العمل متعبين وتأخذون الطعام. يمكن للكونغرس أن يسميه اكتفاءً ذاتيًا؛ فقد رأيتم ملصقات التبرعات."
+    }
+  }
+}

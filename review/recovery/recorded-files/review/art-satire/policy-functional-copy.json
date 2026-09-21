@@ -1,0 +1,22 @@
+{
+"en":["Roadside bulletin","Received on day {day} · {time}","This event has already ended."],
+"es":["Boletín de carretera","Recibido el día {day} · {time}","Este evento ya ha terminado."],
+"it":["Bollettino lungo la strada","Ricevuto il giorno {day} · {time}","Questo evento è già terminato."],
+"ar":["نشرة على الطريق","وردت في اليوم {day} · {time}","انتهى هذا الحدث بالفعل."],
+"bn":["পথের বুলেটিন","দিন {day} · {time}-এ পাওয়া গেছে","এই ঘটনাটি ইতিমধ্যে শেষ হয়েছে।"],
+"de":["Meldung unterwegs","Erhalten an Tag {day} · {time}","Dieses Ereignis ist bereits beendet."],
+"fr":["Bulletin sur la route","Reçu le jour {day} · {time}","Cet événement est déjà terminé."],
+"hi":["रास्ते का बुलेटिन","दिन {day} · {time} पर प्राप्त","यह घटना पहले ही समाप्त हो चुकी है।"],
+"id":["Buletin perjalanan","Diterima pada hari {day} · {time}","Peristiwa ini sudah berakhir."],
+"ja":["道中のニュース","{day}日目 · {time}に受信","このイベントはすでに終了しています。"],
+"jv":["Buletin ing dalan","Ditampa ing dina {day} · {time}","Kedadeyan iki wis rampung."],
+"ko":["여행 중 소식","{day}일째 · {time} 수신","이 사건은 이미 종료되었습니다."],
+"mr":["प्रवासातील बातमीपत्र","दिवस {day} · {time} वाजता प्राप्त","ही घटना आधीच संपली आहे."],
+"pa":["ਰਸਤੇ ਦਾ ਬੁਲੇਟਿਨ","ਦਿਨ {day} · {time} ਵਜੇ ਪ੍ਰਾਪਤ","ਇਹ ਘਟਨਾ ਪਹਿਲਾਂ ਹੀ ਖ਼ਤਮ ਹੋ ਚੁੱਕੀ ਹੈ।"],
+"pt":["Boletim da estrada","Recebido no dia {day} · {time}","Este evento já terminou."],
+"ru":["Дорожный бюллетень","Получен в день {day} · {time}","Это событие уже завершилось."],
+"ta":["வழியோரச் செய்தி","நாள் {day} · {time} அன்று பெறப்பட்டது","இந்த நிகழ்வு ஏற்கனவே முடிந்துவிட்டது."],
+"te":["దారిలో వార్తా బులెటిన్","{day}వ రోజు · {time}కి అందింది","ఈ సంఘటన ఇప్పటికే ముగిసింది."],
+"tr":["Yol bülteni","{day}. gün · {time} alındı","Bu olay zaten sona erdi."],
+"zh":["沿途快讯","第{day}天 · {time}收到","此事件已经结束。"]
+}

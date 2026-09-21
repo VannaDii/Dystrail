@@ -1,0 +1,24 @@
+{
+  "ORDER-GAG-B": {
+    "source": "https://www.whitehouse.gov/presidential-actions/2025/08/making-federal-architecture-beautiful-again/",
+    "date": "2025-08-28",
+    "checked": "2026-09-14",
+    "fact": "The August 28, 2025 order prefers classical/traditional designs for covered federal buildings, with classical the D.C. default. It does not govern private rest stops. The columns and temporary sanity effect are fiction.",
+    "translations": {
+      "es": "La orden del 28 de agosto de 2025 prefiere diseños clásicos o tradicionales para los edificios federales incluidos, con el clásico como opción predeterminada en D. C. No regula las áreas de descanso privadas. Las columnas y el efecto temporal sobre la cordura son ficción.",
+      "it": "L’ordine del 28 agosto 2025 preferisce progetti classici o tradizionali per gli edifici federali interessati, con il classico come scelta predefinita a Washington. Non disciplina le aree di sosta private. Le colonne e l’effetto temporaneo sulla lucidità sono inventati.",
+      "ar": "يفضّل أمر 28 أغسطس 2025 التصاميم الكلاسيكية أو التقليدية للمباني الفيدرالية المشمولة، والكلاسيكية هي الخيار الافتراضي في واشنطن. لا ينظم الاستراحات الخاصة. الأعمدة والتأثير المؤقت على الاتزان خيال."
+    }
+  },
+  "ORDER-SHUTDOWN-C": {
+    "source": "https://www.congress.gov/crs_external_products/R/PDF/R48552/R48552.7.pdf",
+    "date": "2025-07-04",
+    "checked": "2026-09-14",
+    "fact": "The July 4, 2025 reconciliation law changed SNAP eligibility and financing, with lower federal spending projected. Those changes are distinct from a government shutdown. The dinner negotiations and temporary game effects are fiction.",
+    "translations": {
+      "es": "La ley de reconciliación del 4 de julio de 2025 cambió la elegibilidad y financiación de SNAP, con una reducción prevista del gasto federal. Esos cambios son distintos de un cierre del Gobierno. Las negociaciones sobre la cena y los efectos temporales del juego son ficción.",
+      "it": "La legge di riconciliazione del 4 luglio 2025 ha cambiato requisiti e finanziamento di SNAP, con una riduzione prevista della spesa federale. Questi cambiamenti sono distinti da una chiusura del governo. Le trattative sulla cena e gli effetti temporanei del gioco sono inventati.",
+      "ar": "غيّر قانون المصالحة الصادر في 4 يوليو 2025 أهلية برنامج SNAP وتمويله، مع انخفاض متوقع في الإنفاق الفيدرالي. هذه التغييرات منفصلة عن إغلاق الحكومة. مفاوضات العشاء وتأثيرات اللعبة المؤقتة خيالية."
+    }
+  }
+}

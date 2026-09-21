@@ -1,0 +1,17 @@
+{
+  "es": {
+    "ACT-REST-A": ["Motivo de ausencia", "Illinois permite que quienes cumplen los requisitos acumulen permiso remunerado por cualquier motivo. El grupo puede descansar aquí un día, sin sueldo. El motivo es que nadie tiene fuerzas para inventar uno más profesional.", "Tomarse un día de descanso", "El día recupera lo que puede. Vuestra explicación ha quedado reducida a una posición horizontal."],
+    "ACT-REST-B": ["Que el reloj discuta solo", "Trump pidió acabar con el horario de verano y luego tener más luz al final del día. Ninguna declaración cambió los relojes. El grupo puede descansar un día. Aceptáis cualquier hora que incluya una almohada.", "Descansar un día", "El descanso hace lo que puede. Cerráis las cortinas y dejáis que Washington discuta con la luz de fuera."],
+    "ACT-REST-C": ["Seguridad nacional, modo avión", "El grupo puede pasar un día fuera de la carretera. Silenciáis los teléfonos antes de otro titular sobre los chats de Signal del gabinete. Que otra persona dirija el Pentágono por accidente.", "Descansar y silenciar los teléfonos", "El grupo descansa. En el pedido de bocadillos no aparece ningún plan de ataque aéreo. Un discreto éxito diplomático."]
+  },
+  "it": {
+    "ACT-REST-A": ["Motivo dell’assenza", "L’Illinois permette a chi rientra nei requisiti di maturare permessi retribuiti per qualsiasi motivo. Il gruppo può riposare qui per un giorno, senza stipendio. Il motivo è che nessuno ha la forza di inventarne uno più professionale.", "Prendervi un giorno di riposo", "La giornata recupera quel che può. La vostra spiegazione si è ridotta a una posizione orizzontale."],
+    "ACT-REST-B": ["Che l’orologio discuta da solo", "Trump ha chiesto di abolire l’ora legale, poi di avere più luce la sera. Nessuna dichiarazione ha cambiato gli orologi. Il gruppo può riposare per un giorno. Riconoscerete qualsiasi ora contenga un cuscino.", "Riposare per un giorno", "Il riposo fa quel che può. Chiudete le tende e lasciate Washington a discutere con la luce di fuori."],
+    "ACT-REST-C": ["Sicurezza nazionale, modalità aereo", "Il gruppo può prendersi un giorno lontano dalla strada. Silenziate i telefoni prima dell’ennesimo titolo sulle chat Signal del governo. Che sia qualcun altro a dirigere il Pentagono per sbaglio.", "Riposare e silenziare i telefoni", "Il gruppo riposa. Nell’ordine dei panini non compaiono piani di attacchi aerei. Un tranquillo successo diplomatico."]
+  },
+  "ar": {
+    "ACT-REST-A": ["سبب الغياب", "تتيح إلينوي لمن تشملهم الشروط اكتساب إجازة مدفوعة لأي سبب. يمكن للمجموعة أن تستريح هنا يومًا، بلا راتب. والسبب أن لا أحد يملك طاقة لاختراع سبب أكثر مهنية.", "أخذ يوم للراحة", "يعيد اليوم ما يستطيع من العافية. صار تفسيركم مجرد وضع أفقي."],
+    "ACT-REST-B": ["لتجادل الساعة وحدها", "دعا ترامب إلى إنهاء التوقيت الصيفي، ثم إلى مزيد من ضوء النهار مساءً. لم يغيّر أي تصريح عقارب الساعات. يمكن للمجموعة أن تستريح يومًا. أنتم مستعدون للاعتراف بأي توقيت يتضمن وسادة.", "الراحة ليوم واحد", "تفعل الراحة ما تستطيع. تغلقون الستائر وتتركون واشنطن تجادل ضوء النهار في الخارج."],
+    "ACT-REST-C": ["الأمن القومي، وضع الطيران", "يمكن للمجموعة أن تأخذ يومًا بعيدًا عن الطريق. تكتمون الهواتف قبل عنوان آخر عن محادثات الحكومة على سيغنال. دعوا شخصًا آخر يدير البنتاغون بالخطأ.", "الراحة وكتم الهواتف", "تستريح المجموعة. لا تظهر خطط لغارات جوية في طلب السندويشات. نجاح دبلوماسي هادئ."]
+  }
+}

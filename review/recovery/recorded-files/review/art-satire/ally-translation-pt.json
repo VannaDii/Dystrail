@@ -1,0 +1,27 @@
+{
+  "final": {
+    "A": "Esse era seu último contato externo. O grupo continua na van; sua rede de apoio agora está vazia.",
+    "B": "Não restam aliados externos. Ninguém saiu da van por causa desta mensagem.",
+    "C": "Seu último apoio externo se retirou. Quem continua na viagem terá de seguir sem essa rede."
+  },
+  "rows": [
+    ["A indicação do boné vermelho", "Seu contato externo {name} deixa de ajudar e entra numa campanha de venda de produtos MAGA. A despedida inclui um código de desconto. A conversão política agora tem rastreamento de afiliados.", "MAGA · Link de afiliado"],
+    ["Entrada grátis, sombra à venda", "Seu contato {name} se retira para vender chapéus no dia de entrada gratuita no parque pelo aniversário de Trump. Visitantes que cumprem os requisitos passam sem pagar ingresso. Proteger suas cabeças do sol continua sendo um setor em expansão.", ""],
+    ["Café da manhã na marmita", "Seu contato {name} aceita um emprego distante e não pode mais ajudar. A FTC abandonou os recursos sobre sua regra nacional de não concorrência; a antiga empresa ainda ameaça aplicar a cláusula. O trajeto é tão longo que a marmita precisa de café da manhã.", ""],
+    ["A eficiência chegou", "Os cortes do DOGE fazem seu contato externo {name} perder o emprego e se retirar para procurar trabalho. Sua última tarefa era documentar o valor de documentar seu valor.", "Cargo eliminado"],
+    ["Desfazer precisa de pessoal", "Seu contato {name} para de ajudar após perder um emprego no setor nuclear nas demissões de Trump e DOGE. A reversão chega depois de encontrar outro trabalho. Washington descobriu que desfazer não é um pacote de benefícios.", ""],
+    ["A vaga do mérito", "Seu contato {name} perde o emprego quando uma empresa contratada elimina suas atividades de diversidade, equidade e inclusão, e precisa se retirar. O chefe anuncia uma nova era do mérito. O filho dele anuncia que o almoço está pronto.", "Oportunidade por mérito"],
+    ["A conta para quem contratou", "Seu contato de Nova York {name} aceita trabalho extra cobrando faturas de corretagem e não pode mais ajudar. A lei FARE exige que o corretor contratado pelo proprietário cobre do proprietário. Vários proprietários descobriram um interesse repentino em ser difíceis de localizar.", ""],
+    ["Horas extras em cascata", "Seu contato {name} precisa de turnos extras para pagar contas médicas e se retira. O Congresso vende cortes no orçamento da saúde como economia. Seu contato quer saber em qual conta ela é depositada.", "Economia"],
+    ["O orçamento da comida", "Seu contato {name} pega mais um turno para pagar as compras e deixa de ajudar. Viu o Congresso vender cortes na assistência alimentar como independência. Agora trabalha no sábado de forma independente.", "Turno de sábado"],
+    ["O botão de desfazer", "Seu contato {name} aceita um emprego de suporte depois dos reembolsos de Fortnite promovidos pela FTC e deixa de ajudar a viagem. Agora explica como desfazer compras indesejadas. Pelo visto, o botão de desfazer precisava de um processo federal e de uma voz humana.", ""],
+    ["A política de devolução patriótica", "Seu contato {name} deixa de ajudar para vender lembranças do Golfo da América. Guarda embaixo o estoque antigo do Golfo do México. O oceano ainda não pediu reembolso.", "Golfo da América · Golfo do México"],
+    ["Impagável de forma independente", "Seu contato {name} deixa de ajudar para escrever anúncios de aluguel. O acordo proposto pelo Departamento de Justiça com a RealPage faz os proprietários falarem em preços independentes. Sua nova tarefa é encontrar adjetivos diferentes para o mesmo número enorme.", ""],
+    ["O grupo do Estado profundo", "Seu contato {name} manda um vídeo dizendo que jornalistas inventaram o escândalo do Signal e depois bloqueia o grupo. A explicação agora está mais protegida que a conversa sobre os bombardeios.", "Contato bloqueado"],
+    ["O estômago sigiloso", "Seu contato {name} decide que suas críticas ao leite MAHA provam que você trabalha para a FDA e corta o contato. Sua nova carreira federal vem sem salário e com várias cólicas estomacais.", "Agente da FDA?"],
+    ["Esporte errado", "Seu contato {name} insiste que o prêmio da paz da FIFA para Trump era o Nobel. Você explica que a FIFA entregou seu próprio prêmio. Seu contato bloqueia você. É a primeira partida de futebol que você perde por identificar o esporte.", ""],
+    ["Ponha no chão, pegue de novo", "Seu contato {name} machuca um ombro ao carregar ferramentas durante a paralisação e retomada do Empire Wind em 2025 e precisa parar de ajudar. O Departamento do Interior mudou a ordem de trabalho. A caixa de ferramentas insiste em ser carregada nos dois sentidos.", ""],
+    ["Mais leve no papel", "Seu contato do Texas {name} machuca as costas movendo equipamentos da oficina e precisa parar de ajudar. A proprietária comemora a ampliação estadual da isenção tributária sobre bens empresariais. A carga está muito mais leve, financeiramente.", ""],
+    ["As costas têm a palavra", "Seu contato ferroviário {name} sofre uma lesão nas costas e não pode mais ajudar. Lembra do Congresso impondo o acordo de 2022 para impedir uma greve. As costas se recusaram a voltar ao trabalho por resolução.", ""]
+  ]
+}

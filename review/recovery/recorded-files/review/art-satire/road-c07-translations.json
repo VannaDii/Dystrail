@@ -1,0 +1,125 @@
+{
+ "es": {
+  "ENC-C07-A": {
+   "name": "La división de la paz",
+   "desc": "La FIFA concedió a Trump su primer premio de la paz. Una reparadora de trofeos está creando una división de paz entre los bolos y los dardos. Ofrece 10 dólares y algo de comida por levantar el expositor; también agradece materiales y compañía para comer. Al nuevo departamento aún le faltan soportes para la estantería.",
+   "choice_0": "Donar materiales de reparación",
+   "log_0": "Tus materiales te ganan el respaldo de la reparadora. La división de la paz consigue el modesto apoyo estructural que no podía darle un discurso de aceptación.",
+   "choice_1": "Levantar el expositor por 10 dólares y comida",
+   "log_1": "Ganas dinero, comida y agujetas, entre risas, mientras la paz mundial ocupa su sitio entre una bola de bolos y unos dardos.",
+   "choice_2": "Compartir comida; registrar el origen del premio",
+   "log_2": "Compartes el almuerzo y registras que la FIFA creó su propio premio. La reparadora guarda la etiqueta del Nobel en otro cajón.",
+   "fact": "La FIFA entregó a Donald Trump su primer Premio de la Paz en el sorteo final del Mundial en Washington el 5 de diciembre de 2025. Era un premio propio de la FIFA, no el Nobel de la Paz. Sus elogios expresan la valoración de la organización; no prueban un logro de paz concreto ni un soborno. La tienda y la reparadora son ficticias."
+  },
+  "ENC-C07-B": {
+   "name": "Devuelto a los padres",
+   "desc": "La orden de Trump de facilitar el cierre del Departamento de Educación inspiró una recaudación de fondos de una asociación de padres: «lo hacemos nosotros». Ofrecen a vuestro grupo 10 dólares y comida por mover pupitres donados. Los voluntarios han recibido el control local. Llegó sin carretilla para muebles.",
+   "choice_0": "Donar suministros para la recaudación",
+   "log_0": "Donas suministros; la asociación registra tu ayuda. Una madre coloca fieltro en las patas de un pupitre. El control local deja de rayar el suelo.",
+   "choice_1": "Aceptar el trabajo de mover pupitres",
+   "log_1": "Ganas 10 dólares y comida, con dolor de espalda. Una madre aplaude. «Excelente. Ya puedes dirigir el departamento de mobiliario».",
+   "choice_2": "Compartir comida; registrar inquietudes",
+   "log_2": "Compartes comida y registras las preguntas de los padres. Quieren saber qué parte de cerrar un departamento hace que pese menos el pupitre.",
+   "overlay_0": "MOVER PUPITRES: 10 DÓLARES Y COMIDA",
+   "overlay_line1": "MOVER PUPITRES",
+   "overlay_line2": "10 DÓLARES Y COMIDA",
+   "fact": "La orden ejecutiva de marzo de 2025 indicó a la secretaria que facilitara el cierre del Departamento de Educación en la medida permitida por la ley. No significa que el Congreso aboliera el departamento. La recaudación y sus voluntarios son ficticios."
+  },
+  "ENC-C07-C": {
+   "name": "Al parecer, gastos indirectos",
+   "desc": "En una recaudación científica contra el límite propuesto por la administración Trump a los gastos indirectos de los NIH, los voluntarios ofrecen a vuestro grupo 10 dólares y comida por mover equipos. También necesitan suministros. El expositor llama «gastos indirectos» al congelador. Una científica demuestra qué ocurre cuando esos gastos se derriten sobre tus zapatos.",
+   "choice_0": "Donar suministros para la demostración",
+   "log_0": "Donas suministros; los voluntarios registran tu aportación. La científica coloca por fin la demostración que se descongela en una bandeja. El despilfarro ha dejado de gotear.",
+   "choice_1": "Aceptar el trabajo de mover equipos",
+   "log_1": "Ganas 10 dólares y comida, con los brazos doloridos. Mover el congelador vacío demuestra que los gastos indirectos pesan bastante más que el discurso contra ellos.",
+   "choice_2": "Compartir comida; registrar el testimonio",
+   "log_2": "Compartes comida y registras las inquietudes de la científica. Señala el enchufe del congelador. «El avance está dentro. Necesita electricidad».",
+   "overlay_0": "GASTOS INDIRECTOS · MOVER EQUIPOS: 10 DÓLARES Y COMIDA",
+   "overlay_line1": "GASTOS INDIRECTOS",
+   "overlay_line2": "10 DÓLARES Y COMIDA",
+   "fact": "En febrero de 2025, UT Southwestern estimó que el límite propuesto a los gastos indirectos de los NIH ponía en riesgo más de 100 millones de dólares anuales. Era una estimación del riesgo de una propuesta, no una pérdida local ya observada. La recaudación y sus personajes son ficticios."
+  }
+ },
+ "it": {
+  "ENC-C07-A": {
+   "name": "La divisione della pace",
+   "desc": "La FIFA ha assegnato a Trump il suo primo premio per la pace. Una riparatrice di trofei sta aggiungendo una divisione pace tra bowling e freccette. Offre 10 dollari e del cibo per sollevare l'espositore; sono benvenuti anche materiali e compagnia a pranzo. Al nuovo dipartimento mancano ancora le staffe per il ripiano.",
+   "choice_0": "Dona materiali per le riparazioni",
+   "log_0": "I tuoi materiali ti valgono il sostegno della riparatrice. La divisione della pace ottiene il modesto supporto strutturale che un discorso di ringraziamento non poteva darle.",
+   "choice_1": "Solleva l'espositore per 10 dollari e cibo",
+   "log_1": "Guadagni denaro, cibo e muscoli indolenziti, ridendo mentre la pace mondiale prende posto fra una palla da bowling e le freccette.",
+   "choice_2": "Condividi cibo; documenta l'origine del premio",
+   "log_2": "Condividi il pranzo e documenti che la FIFA ha creato un premio proprio. La riparatrice tiene l'etichetta del Nobel in un altro cassetto.",
+   "fact": "La FIFA ha consegnato a Donald Trump il suo primo Premio per la Pace al sorteggio finale dei Mondiali a Washington il 5 dicembre 2025. Era un premio della FIFA, non il Nobel per la Pace. Gli elogi esprimono il giudizio dell'organizzazione, non provano uno specifico risultato di pace né un caso di corruzione. Il negozio e la riparatrice sono inventati."
+  },
+  "ENC-C07-B": {
+   "name": "Restituito ai genitori",
+   "desc": "L'ordine di Trump di agevolare la chiusura del Dipartimento dell'Istruzione ha ispirato una raccolta fondi dei genitori: «facciamo da soli». Offrono al vostro gruppo 10 dollari e cibo per spostare banchi donati. I volontari hanno ricevuto il controllo locale. È arrivato senza un carrello per mobili.",
+   "choice_0": "Dona provviste per la raccolta fondi",
+   "log_0": "Doni delle provviste; l'associazione registra il tuo aiuto. Una madre applica feltrini ai piedi di un banco. Il controllo locale smette di graffiare il pavimento.",
+   "choice_1": "Accetta il lavoro di spostare i banchi",
+   "log_1": "Guadagni 10 dollari e del cibo, con la schiena dolorante. Una madre applaude. «Ottimo. Ora puoi dirigere il dipartimento dei mobili».",
+   "choice_2": "Condividi cibo; registra le preoccupazioni",
+   "log_2": "Condividi del cibo e registri le domande dei genitori. Vogliono sapere quale parte della chiusura di un dipartimento renda il banco più leggero.",
+   "overlay_0": "SPOSTARE BANCHI: 10 DOLLARI E CIBO",
+   "overlay_line1": "SPOSTARE BANCHI",
+   "overlay_line2": "10 DOLLARI E CIBO",
+   "fact": "L'ordine esecutivo del marzo 2025 incaricava la segretaria di agevolare la chiusura del Dipartimento dell'Istruzione nei limiti consentiti dalla legge. Non significa che il Congresso abbia abolito il dipartimento. La raccolta fondi e i volontari sono inventati."
+  },
+  "ENC-C07-C": {
+   "name": "A quanto pare, costi indiretti",
+   "desc": "A una raccolta fondi per la ricerca contro il tetto ai costi indiretti dei NIH proposto dall'amministrazione Trump, i volontari offrono al vostro gruppo 10 dollari e cibo per spostare attrezzature. Servono anche provviste. L'esposizione definisce il congelatore «costi indiretti». Una scienziata mostra che cosa succede quando i costi indiretti si sciolgono sulle scarpe.",
+   "choice_0": "Dona provviste per la dimostrazione",
+   "log_0": "Doni delle provviste; i volontari registrano il contributo. La scienziata mette finalmente la dimostrazione che si scioglie in un vassoio. Lo spreco ha smesso di perdere acqua.",
+   "choice_1": "Accetta il lavoro di spostare l'attrezzatura",
+   "log_1": "Guadagni 10 dollari e cibo, con le braccia indolenzite. Spostare il congelatore vuoto dimostra che i costi indiretti pesano molto più del discorso contro di loro.",
+   "choice_2": "Condividi cibo; registra la testimonianza",
+   "log_2": "Condividi del cibo e registri le preoccupazioni della scienziata. Indica la spina del congelatore. «La scoperta è dentro. Ha bisogno di elettricità».",
+   "overlay_0": "COSTI INDIRETTI · TRASLOCO: 10 DOLLARI E CIBO",
+   "overlay_line1": "COSTI INDIRETTI",
+   "overlay_line2": "10 DOLLARI E CIBO",
+   "fact": "Nel febbraio 2025 UT Southwestern stimava che il tetto proposto ai costi indiretti dei NIH mettesse a rischio oltre 100 milioni di dollari l'anno. Era una stima del rischio di una proposta, non una perdita locale già osservata. La raccolta fondi e i personaggi sono inventati."
+  }
+ },
+ "ar": {
+  "ENC-C07-A": {
+   "name": "قسم السلام",
+   "desc": "منح فيفا ترامب أول جائزة سلام يصدرها. تضيف مصلحة كؤوس قسما للسلام بين البولينغ والسهام. تعرض عشرة دولارات وبعض الطعام مقابل رفع منصة العرض، وترحب بمواد الإصلاح وصحبة الغداء أيضا. القسم الجديد ما زال يحتاج إلى حوامل للرف.",
+   "choice_0": "تبرّع بمواد للإصلاح",
+   "log_0": "تكسبك موادك تأييد المصلحة. يحصل قسم السلام على دعم إنشائي متواضع لم يكن خطاب تسلّم الجائزة قادرا على توفيره.",
+   "choice_1": "ارفع المنصة مقابل 10 دولارات وطعام",
+   "log_1": "تكسب مالا وطعاما وآلاما في العضلات، وتضحك بينما يأخذ السلام العالمي مكانه بين كرة بولينغ وسهام.",
+   "choice_2": "شارك الطعام؛ وثّق أصل الجائزة",
+   "log_2": "تشارك الغداء وتوثّق أن فيفا أنشأ جائزته الخاصة. تحتفظ المصلحة بملصق نوبل في درج آخر.",
+   "fact": "قدّم فيفا إلى دونالد ترامب أول جائزة سلام يصدرها خلال القرعة النهائية لكأس العالم في واشنطن في 5 ديسمبر 2025. إنها جائزة فيفا الخاصة وليست جائزة نوبل للسلام. المديح يعبر عن تقييم المنظمة، ولا يثبت إنجاز سلام محددا أو واقعة رشوة. المحل والمصلحة خياليان."
+  },
+  "ENC-C07-B": {
+   "name": "أُعيد إلى الأهالي",
+   "desc": "ألهم أمر ترامب بتسهيل إغلاق وزارة التعليم جمعية أولياء أمور لإقامة حملة تبرعات بعنوان «سنفعلها بأنفسنا». يعرضون على فريقك عشرة دولارات وطعاما لنقل مكاتب مدرسية متبرع بها. حصل المتطوعون على السيطرة المحلية. وصلت من دون عربة لنقل الأثاث.",
+   "choice_0": "تبرّع بمؤن لحملة التبرعات",
+   "log_0": "تتبرّع ببعض المؤن وتسجّل الجمعية مساعدتك. تلصق أمّ قطع لباد أسفل أرجل مكتب. تتوقف السيطرة المحلية عن خدش الأرض.",
+   "choice_1": "اقبل مهمة نقل المكاتب",
+   "log_1": "تكسب عشرة دولارات وبعض الطعام مع وجع في الظهر. تصفّق أمّ وتقول: «ممتاز. أصبحت مؤهلا لإدارة قسم الأثاث».",
+   "choice_2": "شارك الطعام؛ سجّل المخاوف",
+   "log_2": "تشارك بعض الطعام وتسجّل أسئلة الأهالي. يريدون معرفة أي جزء من إغلاق وزارة يجعل المكتب أخف وزنا.",
+   "overlay_0": "نقل المكاتب: 10 دولارات وطعام",
+   "overlay_line1": "نقل المكاتب",
+   "overlay_line2": "10 دولارات وطعام",
+   "fact": "وجّه الأمر التنفيذي في مارس 2025 الوزيرة إلى تسهيل إغلاق وزارة التعليم بالقدر الذي يسمح به القانون. ولا يعني ذلك أن الكونغرس ألغى الوزارة. حملة التبرعات والمتطوعون خياليون."
+  },
+  "ENC-C07-C": {
+   "name": "يبدو أنها نفقات غير مباشرة",
+   "desc": "في حملة لدعم الأبحاث تعارض سقف النفقات غير المباشرة للمعاهد الوطنية للصحة الذي اقترحته إدارة ترامب، يعرض المتطوعون على فريقك عشرة دولارات وطعاما لنقل المعدات. يحتاجون إلى مؤن أيضا. يصف العرض المجمّد بأنه «نفقات غير مباشرة». تبيّن عالمة ما يحدث حين تذوب تلك النفقات على حذائك.",
+   "choice_0": "تبرّع بمؤن للعرض",
+   "log_0": "تتبرّع ببعض المؤن ويسجّل المتطوعون مساهمتك. تضع العالمة التجربة الذائبة أخيرا في صينية. توقف الهدر عن التسرّب.",
+   "choice_1": "اقبل مهمة نقل المعدات",
+   "log_1": "تكسب عشرة دولارات وبعض الطعام مع ألم في الذراعين. يثبت نقل المجمّد الفارغ أن النفقات غير المباشرة أثقل بكثير من الخطاب ضدها.",
+   "choice_2": "شارك الطعام؛ سجّل الشهادة",
+   "log_2": "تشارك بعض الطعام وتسجّل مخاوف العالمة. تشير إلى قابس المجمّد وتقول: «الإنجاز في الداخل. يحتاج إلى كهرباء».",
+   "overlay_0": "نفقات غير مباشرة · نقل المعدات: 10 دولارات وطعام",
+   "overlay_line1": "نفقات غير مباشرة",
+   "overlay_line2": "10 دولارات وطعام",
+   "fact": "في فبراير 2025، قدّرت جامعة تكساس ساوثويسترن أن السقف المقترح للنفقات غير المباشرة للمعاهد الوطنية للصحة يهدد أكثر من مئة مليون دولار سنويا. كان ذلك تقديرا لمخاطر اقتراح، لا خسارة محلية حدثت بالفعل. الحملة وشخصياتها خيالية."
+  }
+ }
+}

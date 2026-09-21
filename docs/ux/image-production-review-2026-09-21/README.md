@@ -13,9 +13,11 @@ September 21, 2026. Planning only. No game files changed and no images generated
 
 The registered feature worktree `/private/tmp/dystrail-art-satire` is absent. Git reports its registration as prunable. Its branch still points to `c56bc90`; this does not preserve the uncommitted integration work. The main checkout remains at `f1ed4fe` with Hearing changes and other existing modifications; those were not changed by this inventory.
 
-There are **176 retained generated PNGs** in the thread's generated-images directory. [The inventory](retained-images.csv) records every original path, exact source dimensions, SHA-256, candidate filename mapping, disposition, and generation count. It neither transforms nor copies the art. Recorded command history yields filename candidates for 76 images; 100 remain unmapped. Some filenames have multiple historical versions. A recovered filename is not evidence of acceptance or current use.
+There are **176 retained generated PNGs** in the thread's generated-images directory. [The inventory](retained-images.csv) records every original path, exact source dimensions, SHA-256, candidate filename mapping, disposition, and generation count. It neither transforms nor copies the art. Recorded history now yields filename information for 123 images, including 89 with explicit structured mapping evidence; 53 lack a recovered filename mapping. All 176 original generation briefs have been recovered. Some filenames have multiple historical versions. A recovered filename is not evidence of acceptance or current use.
 
-All 176 are held for reuse/review, with **zero new generation requests**. This is an inventory of retained files, not a completed list of necessary production assets. The missing integration catalog must be recovered or reconstructed before we can honestly identify every remaining gap. Do not replace the missing worktree by regenerating its images.
+Open the [browsable inventory](image-inventory.html) for every retained original, its exact dimensions, hash, original composition brief, filename evidence, and current review hold. Images are unchanged and loaded only for inspection.
+
+All 176 are held for reuse/review, with **zero new generation requests**. This is an inventory of retained files, not a completed list of necessary production assets. Recovery has extracted 262 historical file candidates, including briefs and source metadata, without executing the old commands. Of the recorded file events, 166 could not be applied with an exact known base/context. These are not restored current source. The missing final integration catalog and unresolved scene bindings still prevent a complete necessary-production list. Do not replace the missing worktree by regenerating its images.
 
 The surviving content checklist contains 644 editorial records. It is not a request for 644 illustrations. The 36 records depending on unapproved encounter mechanics remain outside active image production.
 
@@ -61,7 +63,7 @@ This is a proposed reference for new or genuinely replacement roadside scenes, n
 | Human/van anchor | Representative adult 1.70 m; van body 4.80 m long × 2.10 m tall, excluding luggage |
 | Same-depth size ratios | Adult height about 35% of van body length and 81% of body height; varied adult heights 1.55–1.90 m; within 10% of the declared scene projection |
 | Architecture anchors | Counter 0.9–1.1 m; door 2.0–2.2 m; booth interior tall enough for its actual occupant; no giant clerk in a tiny building |
-| Body construction | Adults about 6.5–7.5 heads tall; preserve the selected character reference; occupants' heads fit within windows at the same vehicle scale |
+| Body construction | Preserve the approved cast’s stylized body/head proportions; do not impose realistic anatomy or alter identity. Occupants’ heads fit within windows at the same vehicle scale |
 | Scene planning coordinates | Every principal object gets an explicit rectangle and contact point in the 1536 × 1024 master; depth offsets documented before generation |
 | Caption reserve | Initial planning reserve x=48–1056, y=820–992, kept quiet; confirm against actual localized caption height before approving the image brief |
 | Desktop/phone | Same image and camera. Validate 1440 px desktop and 390/320 px phone layouts, plus long/RTL and enlarged text; fit the scene before considering crops |

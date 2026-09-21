@@ -1,0 +1,15 @@
+{
+  "keys": ["ux.supplies", "ux.health", "ux.sanity", "play.credibility", "play.morale", "play.allies", "journey.fast", "journey.conditions", "journey.van", "journey.journal", "ux.menu", "ux.camp", "play.steady", "play.mixed", "play2.clock"],
+  "locales": {
+    "fr": ["Provisions", "Santé", "Équilibre mental", "Crédibilité", "Moral", "Alliés", "Rapide", "Conditions", "Le van", "Journal", "Menu", "Camper", "Régulier", "Mixte", "Jour {day} · {time}"],
+    "de": ["Vorräte", "Gesundheit", "Nerven", "Glaubwürdigkeit", "Moral", "Verbündete", "Schnell", "Bedingungen", "Der Van", "Tagebuch", "Menü", "Campen", "Gleichmäßig", "Gemischt", "Tag {day} · {time}"],
+    "pt": ["Suprimentos", "Saúde", "Sanidade", "Credibilidade", "Moral", "Aliados", "Rápido", "Condições", "A van", "Diário", "Menu", "Acampar", "Constante", "Mista", "Dia {day} · {time}"],
+    "ru": ["Припасы", "Здоровье", "Рассудок", "Репутация", "Боевой дух", "Союзники", "Быстро", "Условия", "Фургон", "Журнал", "Меню", "Лагерь", "Ровно", "Смешанно", "День {day} · {time}"],
+    "tr": ["Erzak", "Sağlık", "Akıl sağlığı", "İtibar", "Moral", "Müttefikler", "Hızlı", "Koşullar", "Minibüs", "Günlük", "Menü", "Kamp", "Düzenli", "Karma", "Gün {day} · {time}"],
+    "id": ["Persediaan", "Kesehatan", "Kewarasan", "Kredibilitas", "Semangat", "Sekutu", "Cepat", "Kondisi", "Van", "Jurnal", "Menu", "Berkemah", "Stabil", "Campuran", "Hari {day} · {time}"],
+    "jv": ["Pranata bekal", "Kesehatan", "Kewarasan", "Kapercayan", "Semangat", "Sekutu", "Cepet", "Kahanan", "Van", "Cathetan", "Menu", "Kemah", "Ajeg", "Campuran", "Dina {day} · {time}"],
+    "ja": ["物資", "健康", "正気", "信用", "士気", "味方", "高速", "状況", "バン", "日誌", "メニュー", "キャンプ", "一定", "混合", "{day}日目 · {time}"],
+    "zh": ["物资", "健康", "理智", "公信力", "士气", "盟友", "快速", "状况", "厢式车", "日志", "菜单", "扎营", "平稳", "混合", "第{day}天 · {time}"],
+    "ko": ["보급품", "건강", "정신력", "신뢰도", "사기", "동맹", "빠르게", "상황", "밴", "일지", "메뉴", "야영", "꾸준히", "혼합", "{day}일째 · {time}"]
+  }
+}

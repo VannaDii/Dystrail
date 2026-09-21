@@ -1,0 +1,19 @@
+{
+  "status": "Source frames reviewed; runtime render review pending",
+  "acceptedSources": {
+    "A": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-a26e7156-7383-497f-b41f-1514f38b14bd.png",
+    "B": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-31d3d99e-fbab-4118-a3ca-42e9176b24a8.png",
+    "C": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-357a6b82-e148-4793-88a1-29d4b95f5b70.png"
+  },
+  "prompts": {
+    "A": "Edit only the small hand drill and its holder in all FOUR panels of this exact 1536x1024 pixel atlas. Preserve every other scene, character, model, platform, camera, outcome prop and panel boundary. Remove the drill's little rectangular gray support base/holder. In its place, show the SAME modest cordless hand drill resting stably on its side at a slight forward-down angle on the bare wooden tabletop: its dark handle rests on the wood and the tip of its thin metal bit visibly touches the bare wood. The bit must NOT end above a steel base. Keep drill position left/right consistent with each existing panel. The visual joke is that this little hand tool can actually contact the ground while the sideways model cannot. Retain deliberately square stepped pixels, limited palette and dark outlines. No photographic detail, lettering, logos, religious symbols, crosses or flags; no new props.",
+    "B": "Edit ONLY the BOTTOM RIGHT panel's small cream upright product claim card on the rear-right workbench, beside the open blank notebook. Put that SAME card flat FACE-DOWN on the workbench instead of propped upright: a small flat cream rectangle viewed in perspective. The worker has removed the unsupported claim. Preserve the upright claim card in the top-left and bottom-left panels, all tools, the recorder, all component positions, character identity, shadows and the exact 2x2 1536x1024 layout. No other changes. Keep coarse pixel art, no photorealism, no added text, logos, flags or religious symbols.",
+    "C": "Correct background geography in ALL FOUR panels of this exact 1536x1024 pixel-art atlas. Replace the distant orange/red desert mesas, exposed canyon cliffs and dry scrub hills with a low, ordinary green deciduous tree line and gently rolling green hills appropriate to a generic Rust Belt highway rest area in the US. No distinct landmarks, flags, architecture or religious symbols. Keep the blue sky, foreground fair, four exact canopy/people/props arrangements, highway, parked unrelated pickup, sign board positions, colors, pixel scale and panel boundaries unchanged. Do not add text. Also keep ALL written surfaces blank. This is a visiting worker demonstration, not a Southwest desert stop."
+  },
+  "review": [
+    "All twelve source frames inspected for pixel style, consistent locals, deliberate outcome props and religious-symbol exclusion.",
+    "A hand-drill bit now contacts the table; the tilted model remains a model rather than falsely repaired mission equipment.",
+    "B recording card is face-down; repaired stand occurs only for materials donation. No flag image or emblem.",
+    "C landscape now generic green Rust Belt surroundings; shifted canopy, extra donated water and recorder remain separate outcomes."
+  ]
+}

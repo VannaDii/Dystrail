@@ -1,0 +1,16 @@
+{
+  "C": {
+    "draft": "exec-3280de0b-03a0-4c4b-8ed8-6d22123365e8.png",
+    "prompt": "Edit this1536x1024 four-panel pixel-art atlas only to remove the white grid separators. Preserve every person, object, pose and scene outcome. Exactly four768x512cells must meet edge-to-edge atx768andy512. No white border or gutter anywhere; extend each room's existing background colors to its exact cell edges. No cross-shaped sheet separator. Keep chunky stepped pixel style. No religious symbols, text, logos or new objects. Do not change freezer, ice/tray states, payment envelope, food or plug.",
+    "corrected": "exec-6451c026-83ac-4534-9f34-ee8b25edee54.png",
+    "review": "Removed white sheet separators without changing the ice/tray, moved freezer, paid reward or shared meal/recording states."
+  },
+  "staging": {
+    "A": "Plain unmarked golden cup, bowling and parallel darts. Donation attaches brackets on low board; only paid work mounts the shelf. Sharing keeps it uninstalled.",
+    "B": "Desk cluster, empty dolly hook and blank job sign. Donation applies felt feet; paid work clears center floor; sharing retains cluster.",
+    "C": "Empty unplugged freezer and safe ice demo. Tray waits offset before donation; donation contains ice. Work moves freezer and earns envelope/food; sharing records testimony without claiming a fix."
+  },
+  "source_inset": 8,
+  "reason_for_inset": "Exclude panel-edge separators from runtime without altering source raster bytes.",
+  "status": "Source frames inspected; runtime acceptance pending."
+}

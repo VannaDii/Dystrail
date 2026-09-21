@@ -1,0 +1,104 @@
+{
+  "es": {
+    "ENC-C06-A": {
+      "name": "La escalera de la cobertura",
+      "desc": "En una charla sobre financiación sanitaria, el voluntariado explica a vuestro grupo cómo la ley de Medicaid de 2025 cambia los requisitos y el gasto. Han construido una escalera de demostración. El peldaño inferior dice «contribuyente». Han quitado el primer peldaño al alcance de la mano para que el modelo sea asequible.",
+      "choice_0": "Comprobar la ley y la demostración",
+      "log_0": "Compruebas las fuentes y entiendes los cambios. La voluntaria vuelve a colocar el peldaño que falta antes de guardar la escalera. Hasta la demostración lo necesita para funcionar.",
+      "choice_1": "Ver el ensayo del voluntariado",
+      "log_1": "Disfrutas del ensayo. La voluntaria que interpreta a una senadora elogia la escalera desde otra escalera de mano que ha traído alguien más.",
+      "overlay_0": "CONTRIBUYENTE",
+      "overlay_line1": "CONTRIBUYENTE",
+      "fact": "La Ley Pública 119-21 reduce el gasto federal previsto en Medicaid y cambia los requisitos de acceso. Las pérdidas de cobertura citadas son proyecciones, no cifras ya observadas. La charla y sus personajes son ficticios."
+    },
+    "ENC-C06-B": {
+      "name": "Precio por departamento",
+      "desc": "Washington ofreció a las agencias federales acceso a Grok, la IA de Musk, por cuarenta y dos centavos. En una feria de empleo junto a la carretera, una anfitriona ensaya entrevistas con un juguete que habla y te invita a probar. Pregunta si un salario humano también puede cubrir un departamento entero.",
+      "choice_0": "Comprobar qué incluye la oferta",
+      "log_0": "Explicas el precio del acceso por agencia y ganas confianza y claridad. La anfitriona repone la columna del salario. El juguete sigue disponible al por mayor.",
+      "choice_1": "Probar la entrevista de práctica",
+      "log_1": "Das tu salario por departamento entero. El grupo se ríe; la anfitriona admite que una persona sigue esperando una nómina de verdad.",
+      "fact": "El 25 de septiembre de 2025, la GSA anunció acceso a Grok por 0,42 dólares por organización federal durante 18 meses, hasta marzo de 2027. Era una oferta promocional, no un precio permanente ni capacidad de cómputo ilimitada; más funciones y límites superiores requieren una ampliación. La entrevista es ficticia."
+    },
+    "ENC-C06-C": {
+      "name": "El título secundario",
+      "desc": "Trump autorizó «Departamento de Guerra» como título secundario. En una parada en un local de veteranos, el voluntariado invita a vuestro grupo a examinar su respuesta: llamar «Superioridad Aérea» al techo con goteras. Un cubo ya controla el espacio de debajo.",
+      "choice_0": "Registrar la propuesta y la gotera",
+      "log_0": "Compruebas el anuncio del nombre y registras la respuesta del local. La veterana vuelca el cubo. La superioridad aérea ha llegado a la moqueta.",
+      "choice_1": "Unirse al ensayo del nuevo nombre",
+      "log_1": "Disfrutas del ensayo. La persona voluntaria bautiza la fregona como «Disuasión Estratégica». La gotera suelta otra gota antes de que termine el saludo.",
+      "overlay_0": "SUPERIORIDAD AÉREA",
+      "overlay_line1": "SUPERIORIDAD",
+      "overlay_line2": "AÉREA",
+      "fact": "La medida de septiembre de 2025 autorizó «Departamento de Guerra» como título secundario. No abolió el nombre legal de Departamento de Defensa establecido por el Congreso. El local, sus voluntarios y la propuesta sobre el techo son ficticios."
+    }
+  },
+  "it": {
+    "ENC-C06-A": {
+      "name": "La scala della copertura",
+      "desc": "A un incontro sui fondi sanitari, i volontari mostrano al vostro gruppo come la legge Medicaid del 2025 modifica requisiti e spesa. Hanno costruito una scala dimostrativa. Il piolo in basso porta la scritta «contribuente». Il primo piolo raggiungibile è stato rimosso per rendere il modello accessibile.",
+      "choice_0": "Verifica la legge e la dimostrazione",
+      "log_0": "Controlli le fonti e comprendi i cambiamenti. La volontaria rimette il piolo mancante prima di riporre la scala. Anche la dimostrazione ne ha bisogno per funzionare.",
+      "choice_1": "Guarda le prove dei volontari",
+      "log_1": "Ti godi le prove. La volontaria che interpreta una senatrice elogia la scala da uno sgabello a gradini portato da qualcun altro.",
+      "overlay_0": "CONTRIBUENTE",
+      "overlay_line1": "CONTRIBUENTE",
+      "fact": "La legge pubblica 119-21 riduce la spesa federale prevista per Medicaid e modifica i requisiti di accesso. Le perdite di copertura citate sono proiezioni, non dati già osservati. L'incontro e i suoi personaggi sono inventati."
+    },
+    "ENC-C06-B": {
+      "name": "Il prezzo per dipartimento",
+      "desc": "Washington ha offerto alle agenzie federali l'accesso a Grok, l'IA di Musk, per quarantadue centesimi. A una fiera del lavoro lungo la strada, una presentatrice prova i colloqui con un giocattolo parlante e ti invita a tentare. Chiede se anche uno stipendio umano possa coprire un intero dipartimento.",
+      "choice_0": "Verifica che cosa comprende l'offerta",
+      "log_0": "Spieghi il prezzo dell'accesso per agenzia, guadagnando fiducia e chiarezza. La presentatrice ripristina la colonna dello stipendio. Il giocattolo resta disponibile all'ingrosso.",
+      "choice_1": "Prova il colloquio simulato",
+      "log_1": "Indichi il tuo stipendio per dipartimento intero. Il gruppo ride; la presentatrice ammette che una persona si aspetta ancora una busta paga vera.",
+      "fact": "Il 25 settembre 2025 la GSA ha annunciato l'accesso a Grok a 0,42 dollari per organizzazione federale per 18 mesi, fino a marzo 2027. Era un'offerta promozionale, non un prezzo permanente né potenza di calcolo illimitata; funzioni aggiuntive e limiti più alti prevedono un upgrade. Il colloquio è inventato."
+    },
+    "ENC-C06-C": {
+      "name": "Il titolo secondario",
+      "desc": "Trump ha autorizzato «Dipartimento della Guerra» come titolo secondario. Durante una sosta in una sede di veterani, i volontari invitano il vostro gruppo a esaminare la loro risposta: ribattezzare il tetto che perde «Superiorità Aerea». Un secchio controlla già lo spazio sottostante.",
+      "choice_0": "Documenta la proposta e la perdita",
+      "log_0": "Verifichi l'annuncio del nome e documenti la risposta della sede. La veterana rovescia il secchio. La superiorità aerea ha raggiunto la moquette.",
+      "choice_1": "Partecipa alle prove del nuovo nome",
+      "log_1": "Ti godi le prove. Una persona del gruppo battezza il mocio «Deterrenza Strategica». La perdita lascia cadere un'altra goccia prima che finisca il saluto.",
+      "overlay_0": "SUPERIORITÀ AEREA",
+      "overlay_line1": "SUPERIORITÀ",
+      "overlay_line2": "AEREA",
+      "fact": "Il provvedimento del settembre 2025 ha autorizzato «Dipartimento della Guerra» come titolo secondario. Non ha abolito il nome legale Dipartimento della Difesa stabilito dal Congresso. La sede, i volontari e la proposta sul tetto sono inventati."
+    }
+  },
+  "ar": {
+    "ENC-C06-A": {
+      "name": "سلّم التغطية الصحية",
+      "desc": "في لقاء عن تمويل الصحة، يشرح المتطوعون لفريقك كيف يغيّر قانون ميديكيد لعام 2025 شروط الأهلية والإنفاق. صنعوا سلّما توضيحيا، وكتبوا على درجته السفلية «دافع الضرائب». أزالوا أول درجة يمكن بلوغها حتى تبقى كلفة النموذج معقولة.",
+      "choice_0": "تحقّق من القانون والنموذج",
+      "log_0": "تراجع المصادر وتفهم التغييرات. تعيد المتطوعة الدرجة المفقودة قبل توضيب السلّم. حتى النموذج التوضيحي يحتاج إليها كي يعمل.",
+      "choice_1": "شاهد تدريب المتطوعين",
+      "log_1": "تستمتع بالتدريب. المتطوعة التي تؤدي دور عضوة في مجلس الشيوخ تمدح السلّم وهي تقف على سلّم قصير أحضره شخص آخر.",
+      "overlay_0": "دافع الضرائب",
+      "overlay_line1": "دافع الضرائب",
+      "fact": "يخفض القانون العام 119-21 الإنفاق الفيدرالي المتوقع على ميديكيد ويغيّر شروط الأهلية. أعداد من قد يفقدون التغطية هي توقعات وليست أعدادا مرصودة بالفعل. اللقاء وشخصياته خياليون."
+    },
+    "ENC-C06-B": {
+      "name": "السعر للقسم بأكمله",
+      "desc": "عرضت واشنطن على الوكالات الفيدرالية الوصول إلى غروك، ذكاء ماسك الاصطناعي، مقابل اثنين وأربعين سنتا. في معرض توظيف بجانب الطريق، تتدرّب مضيفة على المقابلات مع لعبة ناطقة وتدعوك للتجربة. تسأل إن كان راتب إنسان واحد يمكن أن يغطي قسما كاملا أيضا.",
+      "choice_0": "تحقّق مما يشتريه هذا العرض",
+      "log_0": "تشرح سعر الوصول لكل وكالة، فتزداد الثقة والوضوح. تعيد المضيفة خانة الراتب. وتبقى اللعبة متاحة بسعر الجملة.",
+      "choice_1": "جرّب المقابلة التدريبية",
+      "log_1": "تذكر راتبك للقسم بأكمله. يضحك الحاضرون؛ وتقرّ المضيفة بأن الشخص الواحد ما زال يتوقع راتبا حقيقيا.",
+      "fact": "في 25 سبتمبر 2025، أعلنت إدارة الخدمات العامة إتاحة غروك مقابل 0.42 دولار لكل مؤسسة فيدرالية لمدة 18 شهرا، حتى مارس 2027. كان عرضا ترويجيا، لا سعرا دائما ولا قدرة حوسبة غير محدودة؛ وتوجد ترقية للمزايا الإضافية وحدود الاستخدام الأعلى. المقابلة خيالية."
+    },
+    "ENC-C06-C": {
+      "name": "المسمّى الثانوي",
+      "desc": "أجاز ترامب استخدام «وزارة الحرب» مسمّى ثانويا. في استراحة بقاعة للمحاربين القدامى، يدعو المتطوعون فريقك لفحص ردّهم المقترح: تسمية السقف الذي يسرّب الماء «التفوّق الجوي». هناك دلو يسيطر بالفعل على المساحة تحته.",
+      "choice_0": "وثّق الاقتراح والتسرّب",
+      "log_0": "تتحقّق من إعلان التسمية وتوثّق ردّ القاعة. تميل المحاربة السابقة الدلو وتفرغه. لقد وصل التفوّق الجوي إلى السجادة.",
+      "choice_1": "انضم إلى تدريب التسمية",
+      "log_1": "تستمتع بالتدريب. تُمنح الممسحة اسم «الردع الاستراتيجي». تسقط قطرة أخرى من السقف قبل انتهاء التحية.",
+      "overlay_0": "التفوّق الجوي",
+      "overlay_line1": "التفوّق",
+      "overlay_line2": "الجوي",
+      "fact": "أجاز قرار سبتمبر 2025 استخدام «وزارة الحرب» مسمّى ثانويا. ولم يُلغ الاسم القانوني «وزارة الدفاع» الذي حدده الكونغرس. القاعة والمتطوعون واقتراح تسمية السقف عناصر خيالية."
+    }
+  }
+}

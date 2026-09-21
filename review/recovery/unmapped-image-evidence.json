@@ -1,0 +1,182 @@
+{
+  "exec-af66aca9-4082-4c51-8932-e835f081e1ed": [
+    {
+      "record": 4102,
+      "text": "p='/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-af66aca9-4082-4c51-8932-e835f081e1ed.png'"
+    },
+    {
+      "record": 4118,
+      "text": "shutil.copy2('/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-af66aca9-4082-4c51-8932-e835f081e1ed.png',a)"
+    }
+  ],
+  "exec-828e93de-281c-498d-b344-508e3f74ef50": [],
+  "exec-53686776-473f-42dd-b40a-fc50190d75b0": [
+    {
+      "record": 181,
+      "text": "p='/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-53686776-473f-42dd-b40a-fc50190d75b0.png'"
+    }
+  ],
+  "exec-634a11f3-d3f8-45ff-93c9-8b2641a15a8b": [],
+  "exec-231c296d-ba76-4db6-a619-7e5e6493b10f": [],
+  "exec-75d7870c-bee2-48f6-9461-ce8a9e960e41": [],
+  "exec-a6cc2f22-18f7-4ed0-8393-061681a0af93": [],
+  "exec-a26e7156-7383-497f-b41f-1514f38b14bd": [],
+  "exec-2c90230e-9f95-4644-ad7a-74ae71cf5e15": [
+    {
+      "record": 3895,
+      "text": "p='/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-2c90230e-9f95-4644-ad7a-74ae71cf5e15.png'"
+    }
+  ],
+  "exec-51c3d5b4-bc2e-4bfa-a369-2ab959f53ff1": [],
+  "exec-e3c53ef3-49d5-40ad-8e92-73b5033de6d5": [],
+  "exec-3280de0b-03a0-4c4b-8ed8-6d22123365e8": [],
+  "exec-9e3486c1-cb0b-49ce-a022-4702f9f8837e": [],
+  "exec-3b9446fc-fdeb-452c-914a-0df511feac3a": [
+    {
+      "record": 10619,
+      "text": "tures/art-and-satire/feature-brief.md; python3 review/art-satire/check-png-opacity.py /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-3b9446fc-fdeb-452c-914a-0df511feac3a.png /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-6525768d-0310-4821-9cee-714d9f492af3.png"
+    },
+    {
+      "record": 10748,
+      "text": " {'source':'exec-3b9446fc-fdeb-452c-914a-0df511feac3a.png','reason':'Pure extraction retry remains fully opaque and incorrectly inflated the failed tire.'},"
+    }
+  ],
+  "exec-dbcddc6d-3c8d-43f0-b90b-c23f17916fb3": [],
+  "exec-d2c3e580-4d23-4c92-bbe5-ab7bf870e567": [],
+  "exec-ec65a006-1591-45cb-a25a-4d94d2d2281c": [],
+  "exec-e6f1e386-b256-4099-a3b0-475e16c1313f": [],
+  "exec-91e019b7-30b4-4806-8489-2d9dbbc1a137": [],
+  "exec-31d3d99e-fbab-4118-a3ca-42e9176b24a8": [],
+  "exec-e7b46e58-ab9c-40a4-bb3b-8393db8a3353": [
+    {
+      "record": 14395,
+      "text": "source=Path('/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-e7b46e58-ab9c-40a4-bb3b-8393db8a3353.png')"
+    }
+  ],
+  "exec-a1c47c1e-86a4-45ca-98a9-4101f6b3f853": [
+    {
+      "record": 9134,
+      "text": "for v,f in {'A':'exec-eaf6f981-a81a-4846-8ae6-639dd88e5899.png','B':'exec-a1c47c1e-86a4-45ca-98a9-4101f6b3f853.png'}.items():"
+    }
+  ],
+  "exec-4e1f8743-51df-43dc-abad-95b885927611": [],
+  "exec-2ee893b9-c350-48b1-96f6-f853dfb41b9f": [],
+  "exec-ad45bf24-597a-4212-9047-90aa87a11490": [
+    {
+      "record": 11217,
+      "text": "python3 review/art-satire/check-png-opacity.py /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-ad45bf24-597a-4212-9047-90aa87a11490.png; python3 - <<'PY'"
+    },
+    {
+      "record": 11228,
+      "text": "record['pose_alpha_retry']={'source':str(src/'exec-ad45bf24-597a-4212-9047-90aa87a11490.png'),'opaque':True,'alpha_min':255,'status':'rejected; not packaged; no repeat extraction without changed conditions'}"
+    }
+  ],
+  "exec-03fd835a-42ea-4b0a-b6a6-75e4a2604378": [],
+  "exec-eaf6f981-a81a-4846-8ae6-639dd88e5899": [
+    {
+      "record": 9134,
+      "text": "for v,f in {'A':'exec-eaf6f981-a81a-4846-8ae6-639dd88e5899.png','B':'exec-a1c47c1e-86a4-45ca-98a9-4101f6b3f853.png'}.items():"
+    }
+  ],
+  "exec-e453cecf-81cf-4794-abed-33fc3b0f1a4e": [],
+  "exec-b59ce8e8-c10c-4aac-aae2-7a0e501f6fa1": [],
+  "exec-d75e7359-d46a-4562-b513-1a7563409ea5": [],
+  "exec-d40d6a47-2274-4dc8-9e74-0fcc5a357e42": [
+    {
+      "record": 1229,
+      "text": "source=Path('/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-d40d6a47-2274-4dc8-9e74-0fcc5a357e42.png')"
+    },
+    {
+      "record": 1232,
+      "text": "source=Path('/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-d40d6a47-2274-4dc8-9e74-0fcc5a357e42.png')"
+    }
+  ],
+  "exec-0cfa9f58-a888-43e8-9493-c18709e1080c": [],
+  "exec-3655f57c-2a9e-48db-9bb1-5edf13681559": [],
+  "exec-4a8c3700-599a-4cb1-ae43-9221585d2690": [],
+  "exec-6525768d-0310-4821-9cee-714d9f492af3": [
+    {
+      "record": 10619,
+      "text": "es/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-3b9446fc-fdeb-452c-914a-0df511feac3a.png /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-6525768d-0310-4821-9cee-714d9f492af3.png"
+    },
+    {
+      "record": 10748,
+      "text": " {'source':'exec-6525768d-0310-4821-9cee-714d9f492af3.png','reason':'Pure extraction retry remains fully opaque with baked checkerboard.'}]);d['pure_extraction_retry_prompt']='Remove the checkerboard background from this image. Make the backg"
+    }
+  ],
+  "exec-dc0da6db-a9b5-4235-9c9e-7fbcf3e0ce4c": [],
+  "exec-fc5f0cf2-5c22-45d9-bfce-88ed12e3fbb3": [],
+  "exec-956bb6b0-2543-49c3-8831-0f9bdeb2c17b": [
+    {
+      "record": 8185,
+      "text": "r={'status':'Source frames reviewed; runtime review pending','acceptedSources':{v:str(folder/n) for v,n in names.items()},'draftC':str(folder/'exec-956bb6b0-2543-49c3-8831-0f9bdeb2c17b.png'),'review':['All twelve frames inspected for pixel style, feminine/neutral locals and religious exclusion.','A empty envelope offer, saved letters/torn window, recorder/food reward and"
+    }
+  ],
+  "exec-eb9166b9-1d9f-4601-bd1a-d23df160c101": [
+    {
+      "record": 12547,
+      "text": "python3 review/art-satire/check-png-opacity.py /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-eb9166b9-1d9f-4601-bd1a-d23df160c101.png"
+    },
+    {
+      "record": 12796,
+      "text": "r checkerboard background; alpha extraction not successful'} for n in ['exec-d6216344-24d7-4fdb-90fd-3adf48ef7e18','exec-b91781ac-7c06-4c80-a4b6-2f1d9843a57b','exec-eb9166b9-1d9f-4601-bd1a-d23df160c101']], 'raster_processing':'No local raster edits; only byte copies and native SVG layout/crops','automatic_variant_gate':'unchanged, disabled','whole_feature_complete':False}"
+    }
+  ],
+  "exec-e6eca144-cefe-48a4-97c0-08b4770da46c": [],
+  "exec-f1b935b7-62f4-401b-8c8a-6dba7b85f287": [
+    {
+      "record": 10098,
+      "text": "es/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-b27090c2-f84b-41d3-93a1-07f1b4f5c224.png /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-f1b935b7-62f4-401b-8c8a-6dba7b85f287.png"
+    }
+  ],
+  "exec-07b0c48a-17ba-41bc-83c7-379cbbacc51e": [],
+  "exec-5ff2a5a2-acbe-4b07-86b9-3fd566a6f59e": [
+    {
+      "record": 3910,
+      "text": "p='/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-5ff2a5a2-acbe-4b07-86b9-3fd566a6f59e.png'"
+    }
+  ],
+  "exec-c3fefcd1-cc25-4f10-9add-cc479292dd21": [],
+  "exec-66f652c0-b1b4-4278-8866-f1c13ceb587f": [],
+  "exec-357a6b82-e148-4793-88a1-29d4b95f5b70": [],
+  "exec-25fc500a-dbd8-497a-a97b-f3012993ece6": [],
+  "exec-6132ea3c-8607-4935-b916-dfbe3c9e5794": [],
+  "exec-86ea23d0-6e76-42f2-88cf-1c866dcc09b9": [
+    {
+      "record": 13039,
+      "text": "python3 review/art-satire/check-png-opacity.py /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-86ea23d0-6e76-42f2-88cf-1c866dcc09b9.png"
+    },
+    {
+      "record": 13055,
+      "text": "t(json.dumps({'status':'rejected, not packaged','mode':'built-in image_gen','source':'/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-86ea23d0-6e76-42f2-88cf-1c866dcc09b9.png','reason':'1254x1254 PNG has all alpha values 255; visible checkerboard is painted content. No extraction retry or local raster edit performed.','next':'Continue independent town local"
+    }
+  ],
+  "exec-03b68693-35b4-447a-ac1a-664d9040cb70": [
+    {
+      "record": 13813,
+      "text": "s=Path('/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-03b68693-35b4-447a-ac1a-664d9040cb70.png')"
+    }
+  ],
+  "exec-c8828c11-b355-40b6-9e33-924867c8f668": [
+    {
+      "record": 17882,
+      "text": "sips -g pixelWidth -g pixelHeight /Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-c8828c11-b355-40b6-9e33-924867c8f668.png"
+    }
+  ],
+  "exec-01ae6e81-6d36-4c3f-92aa-aef5a37f22fc": [
+    {
+      "record": 4703,
+      "text": "entry=dict(id=asset,path=assetpath,source_image='exec-18183f97-b069-45a4-ba09-db8d5cdf6b6b.png',initial_image='exec-01ae6e81-6d36-4c3f-92aa-aef5a37f22fc.png',prompt=f'review/art-satire/prompts/{asset}.txt',sha256=hashlib.sha256((root/assetpath).read_bytes()).hexdigest(),method='built-in image generation and edit',background='opaque',status"
+    },
+    {
+      "record": 5057,
+      "text": "Built-in follow-up edit to exec-01ae6e81-6d36-4c3f-92aa-aef5a37f22fc.png: close all six brown provisions bags with folded opaque paper tops. No bread, tins or vegetables peeking out. Preserve each bag's position, all wheels, people, blank papers, scene fram"
+    }
+  ],
+  "exec-3e6d6438-2d1c-4d0e-93bb-47ecf0a38b89": [
+    {
+      "record": 1559,
+      "text": "igest(),'method':'built-in image generation','background':'opaque illustrative bulletin panels; no embedded player crew','previous_revisions':[{'source_image':'exec-3e6d6438-2d1c-4d0e-93bb-47ecf0a38b89.png','status':'rejected masculine official and background guests'}],'staging_notes':'Bulletin illustrations are shown separately from the traveled location. Military branding does not open"
+    }
+  ]
+}

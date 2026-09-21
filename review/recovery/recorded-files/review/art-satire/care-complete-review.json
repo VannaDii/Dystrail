@@ -1,0 +1,109 @@
+{
+  "status": "24 care variants integrated and render-reviewed; whole feature incomplete",
+  "revision": "b89290cb7543444d887c",
+  "offline_assets": 202,
+  "offline_bytes": 267805365,
+  "source_refresh": {
+    "workshop_revision": "ANLCKQkyizYb62evWCLjNrPTeuAdByG6v-5V11ZsqvXJrPx9w1XbiqBQ0DyylZHcefm86l5xILIYZU1I-4sR1R99m4Ico25tHi_QWAYR4Bo",
+    "hearing_last_completed_turn": "01a0a129-1151-7fe2-b388-5d12eb524449",
+    "changed": false
+  },
+  "completed": [
+    "Diner floor/table staging, matching maps, laptop work objects and memoir surviving crew",
+    "All six affected identities across six poses; native mask and foreground corrections",
+    "Actual living shelter departure, recovery and empty fatal outcome",
+    "Normal 3:2 frames and bottom-left route/title; enlarged captions clear signs and affected person",
+    "Exterior window clock/weather and outdoor character lighting",
+    "Automatic A/B/C for all eight families, preserving legacy/sealed choices"
+  ],
+  "verification": [
+    {
+      "log": "care-enabled-native.log",
+      "result": "116 passed",
+      "revision": "b89290cb7543444d887c",
+      "scope": "Final code; eight care families across sixty seeds, legacy and sealed choices, unchanged simulation state"
+    },
+    {
+      "log": "care-enabled-clippy.log",
+      "result": "strict Wasm Clippy passed",
+      "revision": "b89290cb7543444d887c"
+    },
+    {
+      "log": "care-acceptance-tests.log",
+      "result": "18 passed in 5.2m",
+      "revision": "4b5d88d54b142efd55bd",
+      "scope": "All sources/outcomes, six roles/poses, four languages, reload/costs/RNG/hearing, disabled actions, windows, crew absence, 200% text and keyboard; before final normal-caption correction and native hair contour"
+    },
+    {
+      "log": "care-final-tests.log",
+      "result": "4 passed in 1.2m",
+      "revision": "79434c44389f824c8dd6",
+      "scope": "All 24 normal settings and 24 double-size Arabic settings on both devices, text separation, keyboard treatment; final CSS, before allowlist and final hair contour"
+    },
+    {
+      "log": "care-enabled-tests.log",
+      "result": "2 passed in 2.4m",
+      "revision": "b89290cb7543444d887c",
+      "scope": "All eight care families automatically select A/B/C; same source through treatment/reload; unchanged simulation RNG and hearing"
+    },
+    {
+      "record": "care-normal-frame-review.json",
+      "result": "48 normal-text frames retain 3:2 proportions",
+      "scope": "Read-only PNG dimensions of actual desktop/mobile captures; no raster edits"
+    },
+    {
+      "client": "care-enabled-client-desktop",
+      "revision": "b89290cb7543444d887c",
+      "result": "supplied client completed; screenshot and state inspected",
+      "scope": "Final map scene and native hair contour"
+    },
+    {
+      "client": "care-enabled-client-mobile",
+      "revision": "b89290cb7543444d887c",
+      "result": "supplied client completed; screenshot and state inspected",
+      "scope": "Arabic memoir scene, surviving cast, normal caption overlay and controls"
+    }
+  ],
+  "render_review": {
+    "settings": "care-acceptance-results/{chromium,mobile}-settings-1..4.png",
+    "poses": "care-acceptance-results/chromium-poses-1..6.png",
+    "normal_final": [
+      "care-final-results/care-presentation-authored-f7597-ain-readable-editable-signs-mobile/CARE-05-A-scene.png",
+      "care-final-results/care-presentation-authored-f7597-ain-readable-editable-signs-mobile/CARE-08-A-scene.png"
+    ],
+    "limits": "Sheets retain their actual prior candidate. Later caption correction has final checks/captures; final contour/current integration have supplied-client review. No claim of user approval or whole-feature acceptance."
+  },
+  "religious_symbol_review": "No religious symbols observed in reviewed care cast/settings. Original generated raster bytes preserved; no religious emblems or medical crosses added.",
+  "preservation": [
+    "care-enabled-offline-integrity.json",
+    "care-enabled-hearing-preservation.json",
+    "care-enabled-source-integrity.json"
+  ],
+  "localization": {
+    "complete": [
+      "en",
+      "es",
+      "it",
+      "ar"
+    ],
+    "remaining": "Sixteen offered locales retain English narrative fallback; whole-feature localization acceptance incomplete."
+  },
+  "catalog": {
+    "integrated_render_reviewed": 90,
+    "reviewed_announcements": 18,
+    "pending_records": 536,
+    "inactive_mechanics_dependencies": 36,
+    "note": "Counts include reference/dependency records and do not equal required paintings."
+  },
+  "remaining": [
+    "Other mapped narrative and shared surfaces",
+    "Supporting-cast and narrative localization completion",
+    "Dependent homepage/share imagery",
+    "Initial download size and combined update/storage acceptance",
+    "Final combined route/mode/hearing/save/import/replay/offline and desktop/mobile review"
+  ],
+  "deployment": false,
+  "main_checkout_modified": false,
+  "new_mechanics": false,
+  "subagents": false
+}

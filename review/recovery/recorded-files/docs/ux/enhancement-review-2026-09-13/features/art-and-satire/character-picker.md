@@ -1,0 +1,5 @@
+The character picker keeps all six portraits and the selected profile in the page flow, followed by Continue and Back. On a narrow screen, its former sticky actions could cover the lower portrait row. Starting city and budget now wrap into one column when the available width or enlarged text requires it.
+
+The old build failed the new overlap check at 390px. Candidate `f07db29d33e4e1c939a0` passes 24 browser cases across desktop/mobile projects, three widths (320, 390 and 1280px), four languages (English, Spanish, Italian and Arabic), and normal/doubled text. Each case checks all six hit targets, keyboard selection, matching profile, text bounds and continuation to crew setup. Manual review caught and corrected the starting-field issue after the initial tests passed.
+
+Evidence: `review/art-satire/cast-picker-review.json`, `cast-picker-reflow-tests.log`, `cast-picker-reflow-results/` and the supplied game client's `cast-picker-reflow-client/` screenshot/state. This is scoped character-picker acceptance, not a claim that whole-game accessibility is complete.

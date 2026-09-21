@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "key": "A",
+      "path": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-51c3d5b4-bc2e-4bfa-a369-2ab959f53ff1.png",
+      "prompt": "Edit this exact 2x2 pixel-art atlas. Preserve all four panels, characters, poses, furniture, square pixel art, dimensions and all blank cards. Only replace the entire view through the windows in ALL FOUR panels: ordinary leafy green trees and pale neutral daylight sky, no buildings or skyline whatsoever. Remove every tower, spire, roof, ruin, landmark and silhouette from the window views. Absolutely no religious symbols, crosses, religious architecture or clothing anywhere; no flags or geographical identifiers. No text or numbers. Keep desk label blank. Four equal 768x512 panels in a1536x1024 image, no gutters."
+    },
+    {
+      "key": "C",
+      "path": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-9e3486c1-cb0b-49ce-a022-4702f9f8837e.png",
+      "prompt": "Edit this exact 2x2 pixel-art atlas, preserving overall1536x1024 size and four768x512 panels, square pixels, consistent local characters, environment and actions. Correct BOTTOM RIGHT panel only: there are currently TWO phones showing the same call. Remove the phone standing on the foreground table between the casserole dishes, seamlessly continue the table surface there. Keep the ONE phone at the seated driver's background table. Move the big cream blank card so it sits directly above that remaining background phone with a short stand; preserve the empty quiet-room chair and open doorway at right and two donated bags at left. TOP LEFT and TOP RIGHT offer/food panels retain exactly one phone each. BOTTOM LEFT record panel retains the one call phone PLUS separate tripod recorder. ALL four phone screens should be blank dark teal screens without colored call buttons or face/avatar icons so editable UI can be rendered by game. No readable text, numbers, brands or logos. No religious symbols, crosses, religious buildings or religious clothing. No flags or geographically identifying landmarks. Preserve current feminine/gender-neutral diverse locals."
+    }
+  ],
+  "acceptedSources": {
+    "A": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-fb76cf3e-1712-477f-8504-958cf1369e3f.png",
+    "B": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-ee24ddbd-b62e-4865-b83d-7b2f68f5ba90.png",
+    "C": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-1d20cc22-b0bb-4c73-9171-b2541d2412d0.png"
+  },
+  "review": "All twelve source frames inspected. Generic trees replace the distinctive A skyline; C quiet outcome now has one phone and visible inside door handle. No religious symbols found; ordinary clothing, no flags or logos. Source raster bytes are copied unchanged; atlas cropping and localized lettering are native SVG. Final rendered acceptance pending label correction."
+}

@@ -1,0 +1,27 @@
+{
+  "final": {
+    "A": "Ese era tu último contacto externo. El grupo sigue en la furgoneta; tu red de apoyo está vacía.",
+    "B": "Ya no quedan aliados externos. Nadie de la furgoneta se ha marchado por este mensaje.",
+    "C": "Tu último apoyo externo se ha retirado. Quienes siguen viajando tendrán que continuar sin esa red."
+  },
+  "rows": [
+    ["La recomendación de la gorra roja", "Tu contacto externo {name} deja de ayudar y se suma a una campaña de venta de artículos MAGA. Su despedida incluye un código de descuento. La conversión política ya tiene seguimiento de afiliados.", "MAGA · Enlace de afiliado"],
+    ["Entrada gratis, sombra en venta", "Tu contacto {name} deja de ayudar para vender sombreros durante la jornada de entrada gratuita al parque por el cumpleaños de Trump. Quienes cumplen los requisitos pasan sin pagar entrada. Proteger sus cabezas del sol sigue siendo un sector en expansión.", ""],
+    ["Desayuno para la fiambrera", "Tu contacto {name} acepta un empleo lejano y ya no puede ayudar. La FTC abandonó las apelaciones de su norma nacional sobre cláusulas de no competencia; su antigua empresa sigue amenazando con aplicar la cláusula. El trayecto es tan largo que la fiambrera necesita desayuno.", ""],
+    ["Ha llegado la eficiencia", "Los recortes de DOGE dejan sin empleo a tu contacto externo {name}, que se retira para buscar trabajo. Su última tarea fue documentar el valor de documentar su valor.", "Puesto eliminado"],
+    ["Deshacer necesita personal", "Tu contacto {name} deja de ayudar tras perder un empleo del sector nuclear en los despidos de Trump y DOGE. La rectificación llega después de encontrar otro trabajo. Washington ha descubierto que deshacer no es un paquete de prestaciones.", ""],
+    ["La vacante del mérito", "Tu contacto {name} pierde su empleo cuando una contratista elimina su trabajo de diversidad, equidad e inclusión, y debe retirarse. El jefe anuncia una nueva era del mérito. Su hijo anuncia que la comida está lista.", "Oportunidad por mérito"],
+    ["Que pague quien lo encargó", "Tu contacto de Nueva York {name} acepta trabajo extra reclamando facturas de intermediación y ya no puede ayudar. La ley FARE obliga al agente contratado por la propiedad a facturar a la propiedad. Varias personas propietarias han descubierto un repentino interés por ser difíciles de localizar.", ""],
+    ["Horas extra por goteo", "Tu contacto {name} necesita más turnos para pagar facturas médicas y se retira. El Congreso vende los recortes sanitarios como ahorro. Tu contacto quiere saber en qué cuenta lo ingresan.", "Ahorro"],
+    ["El presupuesto de comida", "Tu contacto {name} acepta otro turno para pagar la compra y deja de ayudar. Vio al Congreso vender los recortes de ayudas alimentarias como independencia. Ahora trabaja el sábado de forma independiente.", "Turno del sábado"],
+    ["El botón de deshacer", "Tu contacto {name} acepta un empleo de atención al cliente tras los reembolsos de Fortnite impulsados por la FTC y deja de ayudar al viaje. Ahora explica cómo deshacer compras no deseadas. Al parecer, el botón de deshacer necesitaba un caso federal y una voz humana.", ""],
+    ["La política de devoluciones patriótica", "Tu contacto {name} deja de ayudar para vender recuerdos del Golfo de América. Guarda debajo las existencias del Golfo de México. El océano aún no ha pedido un reembolso.", "Golfo de América · Golfo de México"],
+    ["Inasequible por cuenta propia", "Tu contacto {name} deja de ayudar para redactar anuncios de alquiler. El acuerdo propuesto por el Departamento de Justicia con RealPage hace que la propiedad hable de fijar precios de forma independiente. Su nueva tarea es buscar adjetivos distintos para la misma cifra descomunal.", ""],
+    ["El chat del Estado profundo", "Tu contacto {name} envía un vídeo que acusa a periodistas de inventarse el escándalo de Signal y después bloquea al grupo. La explicación ya está más protegida que el chat sobre los bombardeos.", "Contacto bloqueado"],
+    ["El estómago clasificado", "Tu contacto {name} decide que criticar la leche MAHA demuestra que trabajas para la FDA y corta el contacto. Tu nueva carrera federal no trae sueldo, pero sí varios retortijones.", "¿Agente de la FDA?"],
+    ["Deporte equivocado", "Tu contacto {name} insiste en que el premio de la paz de la FIFA a Trump era el Nobel. Señalas que la FIFA entregó su propio premio. Te bloquea. Es el primer partido de fútbol que pierdes por identificar el deporte.", ""],
+    ["Déjalo, recógelo", "Tu contacto {name} se lesiona un hombro al trasladar herramientas durante el episodio de paralización y reanudación de Empire Wind en 2025 y debe dejar de ayudar. Interior cambió la orden de trabajo. La caja de herramientas insiste en que la lleven en ambas direcciones.", ""],
+    ["Más ligero sobre el papel", "Tu contacto de Texas {name} se lastima la espalda moviendo maquinaria del taller y debe dejar de ayudar. La propiedad celebra la ampliación estatal de la exención fiscal sobre bienes empresariales. La carga pesa mucho menos, financieramente.", ""],
+    ["La espalda tiene la palabra", "Tu contacto ferroviario {name} se lesiona la espalda y ya no puede ayudar. Recuerda que el Congreso impuso el acuerdo de 2022 para impedir una huelga. Su espalda ha rechazado volver al trabajo por resolución.", ""]
+  ]
+}

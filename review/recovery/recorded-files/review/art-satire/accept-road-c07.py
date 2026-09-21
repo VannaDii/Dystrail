@@ -1,0 +1,29 @@
+"""Record C07 integration from source, runtime and render evidence; goal remains open."""
+import csv,hashlib,json
+from collections import Counter
+from pathlib import Path
+root=Path(__file__).resolve().parents[2];r=root/'review/art-satire'
+manifest=json.loads(Path('/private/tmp/dystrail-art-satire-build/offline-manifest.json').read_text());assert manifest['revision']=='50c01300d3a41d4f53ac'
+for name,result in [('road-c07-final-tests.log','4 passed'),('scene-caption-tests.log','2 passed'),('scene-caption-regression-tests.log','10 passed'),('road-c07-native.log','100 passed; 0 failed')]:assert result in (r/name).read_text()
+assets=json.loads((r/'road-c07-source-assets.json').read_text());c=json.loads((r/'asset-catalog.json').read_text());audit=json.loads((r/'religious-symbol-audit/source-review.json').read_text())
+for v,s in assets.items():
+ raw=(root/s['packaged']).read_bytes();assert raw==Path(s['source']).read_bytes();digest=hashlib.sha256(raw).hexdigest();assert digest==s['sha256'];id=f'road-c07-{v.lower()}-20260914'
+ entry={'id':id,'path':s['packaged'],'source_image':s['source'],'sha256':digest,'method':'built-in image generation','background':'opaque','status':'integrated_render_reviewed','source_revision':'source-refresh-20260914','prompt':'review/art-satire/road-c07-generation-prompts.json','correction_prompts':'review/art-satire/road-c07-corrections.json','row_boundaries':[0,512,1024],'column_boundaries':[0,768,1536],'source_inset':8,'runtime_cells':[0,1,2,3],'religious_symbol_review':'All source frames and representative desktop/mobile runtime compositions inspected. No religious imagery observed.'}
+ c['assets']=[a for a in c['assets'] if a['id']!=id]+[entry]
+ name=f'scenes-v2/{id}.png';audit=[a for a in audit if a['asset']!=name]+[{'asset':name,'sha256':digest,'source_review':'All four frames inspected; plain trophies/parallel darts, classroom desks, unplugged empty freezer and safe ice demonstration. No religious identifiers observed.','render_review':'scene-caption-results, scene-caption-regression-results, scene-caption-client and road-c07-final-results. Bottom-left caption restored; no supplemental bust.'}]
+for u in c['units']:
+ if u['id'].startswith('ENC-C07-'):
+  u['production_status']='integrated_render_reviewed';u['asset']={'atlas':f"road-c07-{u['variant'].lower()}-20260914",'offer_cell':0,'choice_cells':[1,2,3]}
+  u['art_constraint']='Feminine/neutral diverse fictional locals. No religious identifiers or emblems. A shelf is mounted only by paid work. B desks move only in paid-work outcome. C safe demonstration ice reaches tray only after donation; freezer is empty and unplugged. Native localized B/C offer labels. Title overlays image bottom-left; no supplemental crew bust.'
+assert len(c['units'])==644
+(r/'asset-catalog.json').write_text(json.dumps(c,ensure_ascii=False,indent=2)+'\n');(r/'religious-symbol-audit/source-review.json').write_text(json.dumps(audit,indent=2)+'\n')
+p=root/'docs/ux/enhancement-review-2026-09-13/features/art-and-satire/satire-art-coverage.csv'
+with p.open(newline='') as f:reader=csv.DictReader(f);fields=reader.fieldnames;rows=list(reader)
+lookup={u['id']:u for u in c['units']};assert len(rows)==644
+for row in rows:row['asset_mapping_status']=lookup[row['unit_id']]['production_status']
+with p.open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
+counts=dict(Counter(u['production_status'] for u in c['units']))
+record={'status':'integrated_render_reviewed','build':manifest['revision'],'units':['ENC-C07-'+v for v in 'ABC'],'runtime':'classic_mutual_aid','gameplay_frames':12,'locales':['en','es','it','ar'],'other_locales':'Explicit English narrative fallback; unrelated values preserved.','source_refresh':'road-c07-source-refresh.json','evidence':{'native_tests':100,'strict_native_and_wasm_clippy':'road-c07-clippy.log, road-c07-wasm-clippy.log','variant_matrix':'road-c07-final-tests.log: 36 C07 variant/language/choice actions per platform plus C06 label recheck on pre-opacity candidate; identical gameplay/copy on final candidate.','final_scene_and_hearing_layout':'scene-caption-tests.log and scene-caption-regression-tests.log, 12 cases passed','supplied_client':'scene-caption-client: C07B donation correct effects and saved aftermath','offline_integrity':'road-c07-offline-integrity.json','preservation':'road-c07-hearing-preservation.json'},'render_review':['Source frames and final desktop/mobile A paid-work, B offer/donation and C offer/donation inspected.','Current C07 translucent drafts replaced by opaque originals with unchanged staging; read-only alpha audit confirms full opacity.','Editable offered B/C labels, qualitative forecasts, long Arabic and keyboard controls verified.','Source facts distinguish FIFA award from Nobel, closure direction from abolition, proposed-cap risk from realized loss.'],'catalog_counts':counts,'source_audit_images':len(audit),'remaining':['36 proposed-mechanics records inactive.','Most scene families and derived cast coverage incomplete.','Combined release/update, route, accessibility and performance acceptance pending.']}
+(r/'road-c07-review.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+p=r/'road-c07-corrections.json';d=json.loads(p.read_text());d['opacity']={'A':{'rejected':'exec-b8e5d63f-6471-4070-ae6c-1cc37cf2d836.png','replacement':Path(assets['A']['source']).name},'B':{'rejected':'exec-5b1e765d-910b-48e2-8e06-e2d2b0f58b78.png','replacement':Path(assets['B']['source']).name},'prompt':'road-c07-opacity-correction-prompt.txt','verification':'road-c07-opacity-final.json'};d['status']='Final source and representative runtime compositions inspected; integrated and verified.';p.write_text(json.dumps(d,indent=2)+'\n')
+print(json.dumps({'counts':counts,'source_audit_images':len(audit)}))
