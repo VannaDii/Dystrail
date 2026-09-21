@@ -47,3 +47,16 @@ For each reusable road, preserve the full 3:2 source and shared world coordinate
 ## Remaining inventory work
 
 Bind the remaining source-specific scenes/props to retained originals and atlas cells; inspect those selected for use. The 644 source records remain accounted for separately, with 36 mechanics-dependent records inactive. This batch does not convert source counts into art coverage. Do not ask for production approval until the complete necessary-image list and unresolved exceptions are reviewable.
+
+## Additional shared-background inspection
+
+- **journey-settings-v1.png — partial_reuse_only:** 1536×1024, 2 columns × 3 rows. Exclude cell 0 (red cross on booth) and cell 3 (white cross on red kit). Cells 1 and 2 are regional context candidates. Cell 4 contains baked sunset and ballot-box staging, unsuitable for arbitrary arrival time. Cell 5 is a real rest-area candidate only; not a universal failed-ending location.
+- **western-settings-v1.png — reuse_region_matched_candidate:** 1536×1024, 2×3. Cells 0–3: Pacific Northwest, California, mountain, desert towns; 4–5: desert and mountain camp. No religious symbols observed in inspection. Confirm divider pixels before cropping; current equal-third logical rows do not prove exact painted gutter boundaries.
+- **open-heartland-prairie.png — hold_symbol_ambiguity:** 1536×1024. Tiny white background tower may read as a steeple. Leave held for user review; orchard is an existing regional alternative.
+- **open-heartland-orchard.png — reuse_candidate:** 1536×1024. Horizontal road, orchards, lake and low bridge. No religious symbols observed. Regional context only.
+- **open-rustbelt-lakeside.png — reuse_candidate:** 1536×1024. Horizontal road and industrial waterfront; no religious symbols observed. Existing alternative to held foundry where route geography fits.
+- **open-beltway-suburbs.png — reuse_candidate:** 1536×1024. Horizontal road, houses and offices; no religious symbols observed.
+- **open-great-basin.png — reuse_candidate:** 1536×1024. Horizontal road and open basin; no religious symbols observed. Use only for matching route geography.
+- **camp.png — exclude_fixed_cast_and_time:** 1536×1024. Baked old journalist/organizer, van, orange sunset and stars conflict with actual surviving cast and clock. Do not restore as the general camp scene.
+
+All decisions remain inventory proposals. Reusing an eligible background does not complete a source gag or authorize image production.

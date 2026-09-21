@@ -12075,8 +12075,13 @@
         "Scene: Clear sky over the van; a radio inside carries a boastful announcement through a separate overlay.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-CLEAR-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-CLEAR-B",
@@ -12096,8 +12101,13 @@
         "Scene: Open road beneath clear sky, with an unused marker lying beside a folded weather map.",
         "Source: Sharpiegate"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-CLEAR-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-CLEAR-C",
@@ -12118,8 +12128,13 @@
         "Source: DOGE-era weather-service firings",
         "Source: DOGE five-accomplishments emails"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-CLEAR-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLD-A",
@@ -12139,8 +12154,13 @@
         "Scene: Travelers bundle up by the van while a warmly lit donor-dinner image appears on a blank display.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLD-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLD-B",
@@ -12160,8 +12180,13 @@
         "Scene: Cold travelers outside a visibly closed visitor center, with a blank reduced-hours notice on the locked door.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLD-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLD-C",
@@ -12181,8 +12206,13 @@
         "Scene: Crew shares appropriate blankets beside the van under a blank luxury-donor billboard.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLD-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLDEXPOSURE-A",
@@ -12202,8 +12232,13 @@
         "Scene: Cold travelers seek real shelter while one keeps a stiff, blank donor leaflet folded inside a bag, never portrayed as adequate care.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLDEXPOSURE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLDEXPOSURE-B",
@@ -12223,8 +12258,13 @@
         "Scene: Crew reaches an available sheltered spot beside a locked, unstaffed public building with a blank hours notice.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLDEXPOSURE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-COLDEXPOSURE-C",
@@ -12244,8 +12284,13 @@
         "Scene: Affected traveler holds a hand near a radio before turning toward real shelter offered by the scene.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-COLDEXPOSURE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEAT-A",
@@ -12265,8 +12310,13 @@
         "Scene: Travelers sit in shade beside the van, with visibly hot upholstery and an ordinary water bottle.",
         "Source: State bans on local heat protections"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEAT-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEAT-B",
@@ -12286,8 +12336,13 @@
         "Scene: Heat haze bends the road; a traveler cautiously hovers a hand above the hot steering wheel.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEAT-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEAT-C",
@@ -12307,8 +12362,13 @@
         "Scene: Crew seeks shade outside the van; a distant broadcast image shows a suited official beside visible cooling vents, with no text.",
         "Source: State bans on local heat protections"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEAT-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEATEXPOSURE-A",
@@ -12328,8 +12388,13 @@
         "Scene: Affected travelers sit in available shade with water and clear heat distress, never a comic corpse.",
         "Source: State bans on local heat protections"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEATEXPOSURE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEATEXPOSURE-B",
@@ -12349,8 +12414,13 @@
         "Scene: Traveler avoids a hot steering wheel while a capped marker rests on an unaltered blank forecast map.",
         "Source: Sharpiegate"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEATEXPOSURE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HEATEXPOSURE-C",
@@ -12370,8 +12440,13 @@
         "Scene: Travelers shelter beneath the shade of a large blank energy-event banner; no graphic injury.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HEATEXPOSURE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HUNGER-A",
@@ -12391,8 +12466,13 @@
         "Scene: Empty bowl held below an ordinary radio inside the van; no magic food or actual benefit enrollment implied.",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HUNGER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HUNGER-B",
@@ -12412,8 +12492,13 @@
         "Scene: Travelers look from a sparse food bag toward a shop window filled with unreachable groceries and blank price tags.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HUNGER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-HUNGER-C",
@@ -12433,8 +12518,13 @@
         "Scene: Hungry travelers compare a modest food bag with a blank donor-dinner leaflet showing an extravagant plate.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-HUNGER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-ILLNESS-A",
@@ -12454,8 +12544,13 @@
         "Scene: An unwell current traveler rests beside plain care supplies and a muted budget-news broadcast.",
         "Source: 2025 health spending law"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-ILLNESS-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-ILLNESS-B",
@@ -12475,8 +12570,13 @@
         "Scene: Affected traveler rests in a modest chair while a glossy, unlettered wellness poster hangs far behind.",
         "Source: MAHA marketed raw milk and food safety"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-ILLNESS-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-ILLNESS-C",
@@ -12496,8 +12596,13 @@
         "Scene: Unwell traveler under a blanket with a blank work-requirements form deliberately set aside.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-ILLNESS-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-SMOKE-A",
@@ -12517,8 +12622,13 @@
         "Scene: Smoky road beyond tightly closed van windows; travelers check conditions on a blank phone.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-SMOKE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-SMOKE-B",
@@ -12538,8 +12648,13 @@
         "Scene: The van faces a road fading into smoke, with the next road sign only a silhouette and no legible text.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-SMOKE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-SMOKE-C",
@@ -12559,8 +12674,13 @@
         "Scene: Smoky air surrounds an industrial-history display outside a closed van window; the panel remains blank for overlays.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-SMOKE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-STORM-A",
@@ -12580,8 +12700,13 @@
         "Scene: Rain beats against the van while a traveler holds a small marker beneath an enormous storm front.",
         "Source: Sharpiegate"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-STORM-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-STORM-B",
@@ -12601,8 +12726,13 @@
         "Scene: Travelers catch a roof drip in a cup while moving a radio out of its path.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-STORM-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "COND-STORM-C",
@@ -12624,8 +12754,13 @@
         "Departure introductions",
         "18 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "COND-STORM-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-JOURNALIST-A",
@@ -12644,8 +12779,13 @@
         "Scene: Journalist checks a blank map beside the Seattle departure van while five companions load ordinary luggage. A phone stays firmly face down.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-JOURNALIST-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-JOURNALIST-B",
@@ -12664,8 +12804,13 @@
         "Scene: Seattle departure with a journalist opening an unlettered notebook while five companions arrange visibly worn belongings in the van.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-JOURNALIST-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-JOURNALIST-C",
@@ -12684,8 +12829,13 @@
         "Scene: Journalist and five companions stand by a fueled departure van, counting ordinary shared travel money rather than a new reward.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-JOURNALIST-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-LOBBYIST-A",
@@ -12704,8 +12854,13 @@
         "Scene: Lobbyist and five companions board an ordinary Los Angeles departure van; a few existing coins lie in the open glove box.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-LOBBYIST-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-LOBBYIST-B",
@@ -12724,8 +12879,13 @@
         "Scene: Lobbyist shows five companions an ordinary unlettered shop receipt beside groceries being loaded into the departure van.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-LOBBYIST-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-LOBBYIST-C",
@@ -12744,8 +12904,13 @@
         "Scene: Lobbyist and five companions share a modest takeaway meal beside the Los Angeles departure van; no elite venue or hired help.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-LOBBYIST-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-ORGANIZER-A",
@@ -12764,8 +12929,13 @@
         "Scene: Portland organizer coordinates five companions fitting luggage and a modest cooler into the van without extra staff.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-ORGANIZER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-ORGANIZER-B",
@@ -12784,8 +12954,13 @@
         "Scene: Organizer and five companions gather around a modest gas-money jar beside the departure van; no implied new funds.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-ORGANIZER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-ORGANIZER-C",
@@ -12804,8 +12979,13 @@
         "Scene: Portland organizer places blank work and expense papers in an existing case folder while five companions finish loading the van.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-ORGANIZER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-SATIRIST-A",
@@ -12824,8 +13004,13 @@
         "Scene: Satirist and five companions examine a blank map and their existing travel money beside a San Diego departure van.",
         "Source: Gulf renaming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-SATIRIST-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-SATIRIST-B",
@@ -12844,8 +13029,13 @@
         "Scene: Satirist gathers five companions around a blank route map outside the San Diego departure van; one ordinary phone is deliberately put away.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-SATIRIST-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-SATIRIST-C",
@@ -12864,8 +13054,13 @@
         "Scene: Satirist and five companions pack a modest breakfast beside a blank naming-ceremony image on a phone at the San Diego departure point.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-SATIRIST-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-STAFFER-A",
@@ -12884,8 +13079,13 @@
         "Scene: Staffer holds a small blank van nameplate while five companions load the Sacramento departure vehicle; its actual mechanical state stays unchanged.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-STAFFER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-STAFFER-B",
@@ -12904,8 +13104,13 @@
         "Scene: Staffer and five companions carefully fit into the departure van in Sacramento, with every seat occupant visibly real and no extra staff.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-STAFFER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-STAFFER-C",
@@ -12924,8 +13129,13 @@
         "Scene: Staffer puts an unlettered policy folder beside ordinary food in the Sacramento departure van while five companions finish packing.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-STAFFER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-WHISTLEBLOWER-A",
@@ -12944,8 +13154,13 @@
         "Scene: Whistleblower and five companions inspect the ordinary departure van in San Francisco; the brake pedal is visible through an open door.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-WHISTLEBLOWER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-WHISTLEBLOWER-B",
@@ -12964,8 +13179,13 @@
         "Scene: Whistleblower closes an unlettered case folder in the San Francisco departure van while five companions load luggage.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-WHISTLEBLOWER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "OPEN-WHISTLEBLOWER-C",
@@ -12986,8 +13206,13 @@
         "The hearing",
         "6 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "OPEN-WHISTLEBLOWER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-C-A",
@@ -13010,8 +13235,13 @@
         "Scene: Actual arriving travelers at a small public microphone; the chair keeps a blank case folder beneath an elaborate, unlettered dinner menu.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-C-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-C-B",
@@ -13034,8 +13264,13 @@
         "Scene: Hearing chair opens a folder containing a neatly wrapped lunch while the actual arriving travelers wait with their case.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-C-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-C-C",
@@ -13058,8 +13293,13 @@
         "Scene: Actual arriving travelers face a hearing chair who tries covering an ordinary blank bill with an ornate, blank patriotic brochure.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-C-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-D-A",
@@ -13084,8 +13324,13 @@
         "Source: Emergency-abortion guidance and medical exceptions",
         "Source: Texas SB31 medical-exception clarification"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-D-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-D-B",
@@ -13109,8 +13354,13 @@
         "Scene: Hearing chair hurriedly closes a folder as a clerk points to a harmless sandwich-shop icon on a blank map. Actual arriving travelers remain at the microphone; no real addresses or private routes.",
         "Source: Flock database misuse to stalk women"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-D-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "HEARING-D-C",
@@ -13136,8 +13386,13 @@
         "Endings",
         "45 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "HEARING-D-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLD-A",
@@ -13155,8 +13410,13 @@
         "Scene: Cold at the recorded stopping place; an explicitly editorial inset contrasts a catered potato beneath a silver cloche. No invented death tableau.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLD-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLD-B",
@@ -13174,8 +13434,13 @@
         "Scene: Recorded cold stopping place, with a separate illustrative cutaway of an unstaffed public entrance; do not imply a particular denied service caused the ending.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLD-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLD-C",
@@ -13193,8 +13458,13 @@
         "Scene: Actual cold conditions at the stopping place, with a small editorial inset of a foam-covered microphone in a heated briefing room.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLD-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-BREAKDOWN-A",
@@ -13212,8 +13482,13 @@
         "Scene: Actual broken van with an unresolved blank repair quote; do not show a replacement fitted or money paid.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-BREAKDOWN-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-BREAKDOWN-B",
@@ -13231,8 +13506,13 @@
         "Scene: Actual unresolved mechanical failure with a pristine blank nameplate beside the tools; no invented successful repair.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-BREAKDOWN-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-BREAKDOWN-C",
@@ -13250,8 +13530,13 @@
         "Scene: Actual broken vehicle at its recorded stopping place, with an unlettered efficiency brochure deliberately outside the repair tools.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-BREAKDOWN-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-CROSSING-A",
@@ -13269,8 +13554,13 @@
         "Scene: Actual failed crossing and present travelers, with a sealed donor envelope in a clearly editorial inset; no fall, collision or death unless recorded.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-CROSSING-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-CROSSING-B",
@@ -13288,8 +13578,13 @@
         "Scene: Actual crossing barrier and failed journey state, with an oversized blank official nameplate as the visual focal point.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-CROSSING-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-CROSSING-C",
@@ -13307,8 +13602,13 @@
         "Scene: Actual failed crossing, paired with an editorially oversized blank official-history book and a tiny inset page; no invented catastrophe.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-CROSSING-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-DISEASE-A",
@@ -13326,8 +13626,13 @@
         "Scene: Unlettered work-requirements form sits unused beside the actual health-care belongings at the stopping place; no invented benefit enrollment or death.",
         "Source: Medicaid and SNAP work requirements"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-DISEASE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-DISEASE-B",
@@ -13345,8 +13650,13 @@
         "Scene: Actual journey health belongings contrasted with a clean blank budget chart in an editorial inset; no invented diagnosis or casualty.",
         "Source: 2025 health spending law"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-DISEASE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-DISEASE-C",
@@ -13364,8 +13674,13 @@
         "Scene: Actual care belongings and stopped vehicle; a separate editorial image of an unlettered raw-milk stall makes no claim that milk caused this particular illness.",
         "Source: MAHA marketed raw milk and food safety"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-DISEASE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-HUNGER-A",
@@ -13383,8 +13698,13 @@
         "Scene: Empty food container at the actual stopping point beside a blank government budget chart; no invented fatality or benefit denial.",
         "Source: Food assistance cuts"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-HUNGER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-HUNGER-B",
@@ -13402,8 +13722,13 @@
         "Scene: Empty ordinary plate in the actual van, with a clearly editorial inset of an elaborate donor dinner place setting.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-HUNGER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-HUNGER-C",
@@ -13421,8 +13746,13 @@
         "Scene: Sparse food storage in the actual stopped van; a separate illustrative shop shelf remains full behind blank price cards.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-HUNGER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-PANIC-A",
@@ -13440,8 +13770,13 @@
         "Scene: Radio switched off at the actual stopping point, with the present travelers shown without invented medical intervention or death.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-PANIC-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-PANIC-B",
@@ -13459,8 +13794,13 @@
         "Scene: Actual stopped vehicle and set-aside radio; editorial inset of an overbuilt blank reassurance podium, without armed threats toward travelers.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-PANIC-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-PANIC-C",
@@ -13478,8 +13818,13 @@
         "Scene: Actual stopping place, with an illustrative cutaway of a school bucket catching a roof leak beside a thick blank policy binder.",
         "Source: Anti-indoctrination and patriotic education"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-PANIC-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-VEHICLE-A",
@@ -13497,8 +13842,13 @@
         "Scene: Actual stopped and damaged vehicle at the recorded location; blank grandiose name card kept separate from the body, with no invented destruction.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-VEHICLE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-VEHICLE-B",
@@ -13516,8 +13866,13 @@
         "Scene: Actual damaged vehicle beside a blank repair quote and the travelers’ existing work notes; no invented bill paid.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-VEHICLE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-VEHICLE-C",
@@ -13535,8 +13890,13 @@
         "Scene: Actual stopped vehicle at the recorded location with visibly worn components appropriate to its state; no invented crash or fixed road position.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-VEHICLE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-WEATHER-A",
@@ -13554,8 +13914,13 @@
         "Scene: Actual recorded weather and stopping place with a blank route map and small capped marker inside the van.",
         "Source: Sharpiegate"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-WEATHER-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-WEATHER-B",
@@ -13573,8 +13938,13 @@
         "Scene: Actual weather at the recorded stopping point, with a blank map folded beside the window; no invented coastal location.",
         "Source: Gulf renaming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-WEATHER-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-COLLAPSE-WEATHER-C",
@@ -13592,8 +13962,13 @@
         "Scene: Actual obstructing weather seen from the stopped van; a radio remains on the dashboard with no readable lettering.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-COLLAPSE-WEATHER-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-DESTROYED-A",
@@ -13611,8 +13986,13 @@
         "Scene: Actual destroyed vehicle at the recorded location; no added collision, fire or casualties. A blank repair quote lies among ordinary belongings.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-DESTROYED-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-DESTROYED-B",
@@ -13630,8 +14010,13 @@
         "Scene: Recorded destroyed vehicle shown honestly, with a grand blank nameplate lying incongruously nearby; no invented tow or scrapyard arrival.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-DESTROYED-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-DESTROYED-C",
@@ -13649,8 +14034,13 @@
         "Scene: Recorded destroyed van beside an editorially juxtaposed blank upward-arrow efficiency chart, with no invented victims.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-DESTROYED-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-FALLBACK-A",
@@ -13668,8 +14058,13 @@
         "Scene: Unlettered journey notebook missing its final entry; a blank misdirected-message screen appears as an editorial gag, without asserting any traveler’s location or fate.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-FALLBACK-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-FALLBACK-B",
@@ -13687,8 +14082,13 @@
         "Scene: Open blank final page of a journey notebook with an absurdly ornate blank official-history cover beside it; neutral background, no invented ending.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-FALLBACK-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-FALLBACK-C",
@@ -13706,8 +14106,13 @@
         "Scene: Incomplete unlettered journey log beside a nearly unused pen and blank efficiency chart; no implied victory, defeat, death or D.C. arrival.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-FALLBACK-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-HEAT-A",
@@ -13725,8 +14130,13 @@
         "Scene: Recorded hot stopping place contrasted with a plainly editorial inset of an indoor politician beside an unlettered thermostat.",
         "Source: State bans on local heat protections"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-HEAT-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-HEAT-B",
@@ -13744,8 +14154,13 @@
         "Scene: Recorded heat at the stopping place; a capped marker beside a blank weather map in the van, without altered temperature or invented death.",
         "Source: Sharpiegate"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-HEAT-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-HEAT-C",
@@ -13763,8 +14178,13 @@
         "Scene: Actual heat at the stopping point; a broadcast image of a cooled studio appears only as an illustrative inset, with no embedded words.",
         "Source: Trump energy and climate rollback"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-HEAT-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-INCOMPLETE-A",
@@ -13782,8 +14202,13 @@
         "Scene: Open route notebook at the actual current location, with an explicitly editorial donor-dinner place setting inset; no implied arrival or terminal loss.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-INCOMPLETE-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-INCOMPLETE-B",
@@ -13801,8 +14226,13 @@
         "Scene: Open, unlettered journey notebook beside the actual vehicle at its recorded location; no completed hearing or invented fate.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-INCOMPLETE-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-INCOMPLETE-C",
@@ -13820,8 +14250,13 @@
         "Scene: Actual current vehicle and open route map, with only the currently present roster; no new driver or asserted terminal outcome.",
         "Source: Trump tariffs passed to Americans"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-INCOMPLETE-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-SANITY-A",
@@ -13839,8 +14274,13 @@
         "Scene: Journey case and a safely set-aside radio beside the actual stopped vehicle; show only recorded present travelers, without depicting invented injuries.",
         "Source: Signal airstrike chat"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-SANITY-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-SANITY-B",
@@ -13858,8 +14298,13 @@
         "Scene: Unlettered journey notebook beside the actual vehicle at its recorded stopping point; an oversized blank official-name card appears in a clearly editorial inset.",
         "Source: Department of War naming"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-SANITY-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-SANITY-C",
@@ -13877,8 +14322,13 @@
         "Scene: Travel radio is switched off beside an unlettered five-line note in the actual stopped van. No suicide imagery or invented death.",
         "Source: DOGE five-accomplishments emails"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-SANITY-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VICTORY-A",
@@ -13896,8 +14346,13 @@
         "Scene: Recorded surviving arrivals celebrate modestly at the hearing while a fictional lobbyist studies a few ordinary coins; no new law-signing ceremony.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VICTORY-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VICTORY-B",
@@ -13915,8 +14370,13 @@
         "Scene: Hearing chair tries to take the foreground while actual surviving arrivals exchange a knowing look beside their case folder.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VICTORY-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VICTORY-C",
@@ -13934,8 +14394,13 @@
         "Scene: Actual surviving arrivals share relief at the hearing; a fictional efficiency enthusiast studies the public microphone cable suspiciously.",
         "Source: DOGE and national park staffing"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VICTORY-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VOTEFAIL-A",
@@ -13953,8 +14418,13 @@
         "Scene: Recorded surviving arrivals collect their case after the failed vote; a clerk carries a sealed blank donor envelope toward a catered side room.",
         "Source: Unlimited independent political money"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VOTEFAIL-A",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VOTEFAIL-B",
@@ -13972,8 +14442,13 @@
         "Scene: Hearing chair arranges a flattering photo while the actual arriving travelers’ blank case folder is moved just outside its frame.",
         "Source: White House history intervention"
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VOTEFAIL-B",
+        "production_authorized": false
+      }
     },
     {
       "id": "END-VOTEFAIL-C",
@@ -13993,8 +14468,13 @@
         "Facts & functional copy",
         "77 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "requires_scene_to_asset_reconciliation",
-      "new_generation_authorized": false
+      "asset_decision": "propose_shared_context_composition_incomplete",
+      "new_generation_authorized": false,
+      "image_review": {
+        "file": "review/recovery/scene-cell-review.json",
+        "unit": "END-VOTEFAIL-C",
+        "production_authorized": false
+      }
     },
     {
       "id": "CONTEXT-D-C",
