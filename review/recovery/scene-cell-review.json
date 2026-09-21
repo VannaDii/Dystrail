@@ -8962,6 +8962,12 @@
         ],
         "rig": "counter",
         "approval": "pending"
+      },
+      "production_review": {
+        "image": "selected-satire-01",
+        "cell": 0,
+        "status": "candidate_for_rendered_review",
+        "finding": "Safe and small public-comment box are distinct, with separate ordinary phone and blank label. Validate live label and mobile framing."
       }
     },
     {
@@ -9022,6 +9028,12 @@
         ],
         "rig": "room",
         "approval": "pending"
+      },
+      "production_review": {
+        "image": "selected-satire-01",
+        "cell": 1,
+        "status": "candidate_for_rendered_review",
+        "finding": "Empty shortened bed with oversized pillow; two external nurses, no medical emblems observed. Validate crop/contact and mobile proportions."
       }
     },
     {
@@ -9059,6 +9071,12 @@
         ],
         "rig": "room",
         "approval": "pending"
+      },
+      "production_review": {
+        "image": "selected-satire-01",
+        "cell": 2,
+        "status": "candidate_for_rendered_review",
+        "finding": "Clearly handmade cardboard plane, blank forms, trolley and modest tip jar. Validate crop and mobile joke readability."
       }
     },
     {
@@ -9149,6 +9167,12 @@
         ],
         "rig": "counter",
         "approval": "pending"
+      },
+      "production_review": {
+        "image": "selected-satire-01",
+        "cell": 3,
+        "status": "held_for_user_review",
+        "finding": "Duplex wall outlet visibly leaves another socket available. This undermines competition for the sole socket. Do not bind this panel as accepted art; no automatic retry."
       }
     },
     {
@@ -16954,7 +16978,9 @@
             "essential_action": "Disproportionate safe around an ordinary public-comment box; phone stays ordinary and separate.",
             "source_direction_reference": "ENC-C09-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Safe and small public-comment box are distinct, with separate ordinary phone and blank label. Validate live label and mobile framing."
           },
           {
             "unit": "ENC-C10-B",
@@ -16969,7 +16995,9 @@
             "essential_action": "Oversized pillow on a shortened empty demonstration mattress; no patient or implied injury.",
             "source_direction_reference": "ENC-C10-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Empty shortened bed with oversized pillow; two external nurses, no medical emblems observed. Validate crop/contact and mobile proportions."
           },
           {
             "unit": "ENC-C10-C",
@@ -16984,7 +17012,9 @@
             "essential_action": "Cardboard aircraft made from forms with a modest tip jar; visibly a stationary display, not a real aircraft.",
             "source_direction_reference": "ENC-C10-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Clearly handmade cardboard plane, blank forms, trolley and modest tip jar. Validate crop and mobile joke readability."
           },
           {
             "unit": "ENC-C11-C",
@@ -16999,12 +17029,23 @@
             "essential_action": "Phone and pie warmer compete for one socket; keep plugs, hands and appliances coherent.",
             "source_direction_reference": "ENC-C11-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Duplex wall outlet visibly leaves another socket available. This undermines competition for the sole socket. Do not bind this panel as accepted art; no automatic retry."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "attempt_status": "completed_reviewed_once",
+        "production_prompt": "Use case: stylized-concept. Asset selected-satire-01 for Dystrail. Make ONE opaque 1536x1024 PNG atlas, EXACT 2x2 equal grid of independent 768x512 scenes. No borders, gutters, lettering, panel labels, cross-panel objects or transparent pixels. Each panel uses deliberate coarse pixel art: logical 192x128 pixels enlarged 4x, sharp stepped outlines, limited flat color clusters, late-16-bit game aesthetics. Absolutely no photorealism, painterly textures, blur, smooth airbrushing or realistic photographic shading. Consistent adult anatomy, one coherent eye-level camera per scene. No religious symbols anywhere: no crosses, religious jewelry, insignia or devotional buildings. No real logos. All required text surfaces stay blank for localized live labels. No player crew, player hands or van; only the explicitly listed diverse feminine or gender-neutral adult external NPCs. Scenes show the offer/demonstration BEFORE the player's choice, never the reward or completed work.\n\nPanel-local geometry: 16px edge safety. Reserve x24..520,y424..488 as quiet dark low-detail floor/counter frontage for the later caption; draw no text there. Primary storytelling action must be above y400. Counter scenes: level three-quarter camera, vanishing point about (384,160); main props in x208..512,y168..352; counter front begins y352; right NPC in x520..696,y72..392; hands make physical contact with objects. Room scenes: level three-quarter camera, horizon/vanishing point (384,160), floor contact y416; adults about296px high, doors about344px, standard objects in human proportion. Only the named satirical props may be exaggerated.\n\nTOP LEFT: Library public-security demonstration. A feminine Black adult librarian on the right opens an excessively heavy steel safe on the counter. Inside the safe is a small ordinary empty public-comment box with a conspicuous blank rectangular label. The safe's excessive locks and thick open door contrast with a plain ordinary phone lying separately to the left. Library shelves behind, no readable print. This is the safe protecting the modest comment box, not a phone safe.\n\nTOP RIGHT: Nurses' demonstration of a shrinking hospital bed, in a plain civic fundraising room. A feminine brown-skinned adult nurse at the right adjusts an EMPTY, conspicuously short display bed; a second gender-neutral adult nurse at the far left indicates the doorway for its later move. Nurses in plain scrubs, NO medical crosses or emblems. A comically huge plump pillow occupies most of the little mattress and has a blank label tag. Bed supports and wheels contact the floor at y416; nurses remain normal adult size, no patient, suffering or injury.\n\nBOTTOM LEFT: A stationary waist-high cardboard model passenger jet assembled from visibly overlapping BLANK paper forms, in a workers' community room. Whole recognizable wings and fuselage fit in the central prop area and rest on a low display trolley contacting the floor. An exposed elaborate front cabin contains a single ordinary modest tip jar. A feminine Latina adult worker on the right presents the display. Blank label area on wing forms, no print. This is obviously a handmade cardboard protest prop, NOT a real plane or a vehicle carrying people.\n\nBOTTOM RIGHT: Diner counter. A feminine East Asian adult cook on the right holds TWO blank payment leaflets and gestures toward an empty chair at left. Center: an ordinary phone charges from the sole wall socket. Next to it is a small pie warmer with a clearly disconnected plug resting on the counter beside that same occupied socket. Coherent separate cables make the competition for one outlet unmistakable. Normal-sized appliances, plausible hands and chairs, no additional outlets or power strip, no writing. Quiet caption area below.",
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-01.png",
+        "output_sha256": "8911f8f53823ede47a8e1b5d1ce029889e7a7a26321ba877d8d5b5e0b038e502",
+        "actual_dimensions": [
+          1536,
+          1024
+        ],
+        "review": "Three panels eligible for composed review; fourth held for user review. No religious symbols observed. No retries authorized."
       },
       {
         "asset_id": "selected-satire-02",
@@ -17036,7 +17077,9 @@
             "essential_action": "Large honesty sign partly hides a smaller charge panel; both labels are localized live text, not baked pixels.",
             "source_direction_reference": "ENC-C12-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Large blank honesty sign conceals smaller panel; verify localized text fits visible surcharge strip and primary price field."
           },
           {
             "unit": "ENC-C14-A",
@@ -17051,7 +17094,9 @@
             "essential_action": "Cardboard politician gets a dedicated umbrella while real volunteers share a canopy; all stay on one ground plane.",
             "source_direction_reference": "ENC-C14-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Flat cardboard politician has dedicated umbrella; two real volunteers share canopy. Verify comparable adult scale and source joke readability in game."
           },
           {
             "unit": "ENC-C16-B",
@@ -17066,7 +17111,9 @@
             "essential_action": "Bright paint around an unrepaired rust hole, with daylight visibly passing through it.",
             "source_direction_reference": "ENC-C16-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Rust hole visibly shows lake through fresh-painted sign; blank upper field allows live lettering. Verify mobile text and scene crop."
           },
           {
             "unit": "ENC-C16-C",
@@ -17081,12 +17128,23 @@
             "essential_action": "Luxurious small phone pouches contrast with heavy books in a battered wheelbarrow; no phones or books granted to crew.",
             "source_direction_reference": "ENC-C16-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Open plush containers resemble rigid jewelry cases rather than fabric phone pouches. Essential prop identity not met; do not bind as accepted art and do not regenerate."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "attempt_status": "completed_reviewed_once",
+        "production_prompt": "Use case: stylized-concept. Production atlas selected-satire-02 for the Dystrail pixel-art game. ONE opaque PNG, EXACTLY 1536x1024, with 2x2 independent 768x512 panels in reading order. NO gutter, frame, lettering, watermark, logos or cross-panel objects. Coarse crisp late-16-bit pixel art, deliberate visible 4px pixel clusters, hard stepped dark outlines, flat limited palette, stepped shading; no photographic realism, painterly gradients, depth-of-field, smooth rendering or tiny grain. Normal adult anatomy and believable scale. No religious symbols, crosses, religious jewelry, emblems or devotional architecture. All signs and label spaces are BLANK; text is added live later. No player crew, player hands or van. Only the external feminine/gender-neutral adults specified. All scenes are BEFORE a player choice: no completed donation, lifting or earned food.\n\nIn each panel reserve x24..520,y424..488 as quiet low-detail dark frontage/ground for later bottom-left caption. Essential joke above y400. Keep 16px edge margin. Counter panel camera level three-quarter, vanishing point about(384,160); counter contact y320, counter front begins y352; right NPC x520..696,y72..392, main objects x208..512,y168..352. Outdoor panels eye-level medium-wide, horizon y208 and ground contact y416; foreground adults about224px tall, doors if any about260px. Depth and scale consistent; don't enlarge adults to advertise jokes. Room panel eye-level three-quarter, floor contact y416, adults around296px high and doors344px. Exaggerate only the specified comic props.\n\nTOP LEFT: Roadside motel reception. An older feminine South Asian owner on the right presents a quote on the desk: a large blank main-price field and a tiny blank extra-charge field. A conspicuously enormous blank rectangular honesty placard almost conceals a smaller blank mandatory-charge placard beneath it, leaving a clear small horizontal lower portion for live text. Three separate blank label areas: big honesty placard, main price box, tiny surcharge box. The owner hasn't booked a room or accepted payment. Ordinary counter, keys behind, no printed words.\n\nTOP RIGHT: Roofers' outdoor heat-rule protest, beside a plain worksite. An unmistakably FLAT CARDBOARD politician cutout in an ordinary suit has a dedicated umbrella on a slim stand all to itself. On the same ground plane, TWO real adult feminine/neutral volunteers of varied skin tones crowd under ONE small canopy beside unused folded towels, an empty bucket and a shaded bench. One volunteer indicates the towels. Cardboard cutout and volunteers comparable adult height; show visible cardboard edge and flat wooden brace, not a real politician. Blank wide protest-caption board on the display. Avoid national/religious emblems, don't paint sweat droplets as letters. No player crew.\n\nBOTTOM LEFT: Small lakeside boat club volunteer demonstration. A feminine Black adult volunteer on the right holds a normal large visitor sign across the central area and indicates other signs awaiting movement. The sign has fresh bright blue paint surrounding a conspicuous ragged rusty HOLE THROUGH IT: actual distant sky/water is visibly seen through the hole, not a dark spot. Large blank painted area across the sign reserved for live lettering, keep the hole below this area. A few unused boards lean nearby. No repair completed, no supplies or food exchanged. Upright adult, correct hands gripping sign edges, feet on ground.\n\nBOTTOM RIGHT: Library supply drive. On a plain table, several small individual EMPTY phone-sized pouches are open, each with absurdly luxurious plush padding, obviously soft fitted fabric cases rather than jewelry boxes. Beside the table stands a battered stationary wheelbarrow full of heavy dictionaries and books with BLANK spines. A gender-neutral feminine-presenting brown-skinned adult volunteer on the right gestures between pampered pouches and the overburdened wheelbarrow. Wheel and legs contact floor, table and books remain normal human scale. No phones being given away, nobody lifting or receiving a reward. Background library shelves stay simple with blank spines.",
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-02.png",
+        "output_sha256": "56a25a0fe8d13d52b954b6cf57132edf5f8c89cc21858aff7fce7853fd9da693",
+        "actual_dimensions": [
+          1536,
+          1024
+        ],
+        "review": "Three panels candidates for composed review; library pouch panel held. Detailed pixel treatment needs comparison at actual game size. No religious symbols observed. No retries."
       },
       {
         "asset_id": "selected-satire-03",
@@ -18510,7 +18568,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 0,
+    "new_image_attempts_used": 2,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
