@@ -354,18 +354,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-10125800-62e6-441f-b4bf-ea30e41b6c95.png",
     "explicit_historical_aliases": "lobbyist",
     "mapping_evidence": "[{\"alias\": \"lobbyist\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 223,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original LOBBYIST character: an older feminine Latina person around 60, warm medium-brown skin, silver chin-length bob tucked behind one ear, thin rectangular dark glasses, visible smile lines and mature face, plum tailored trouser suit, cream blouse, low brown shoes, phone carried at their side in the standing pose. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding phone at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond phone and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Deliver true transparent-background RGBA PNG sprite assets, no opaque background. Preserve an older adult appearance, not a teenager.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "lobbyist",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-1085a886-8684-43ae-8cd0-a82cc594c7e4.png",
@@ -469,18 +476,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-1d76e05d-3e0d-40e9-a42e-8acd86646638.png",
     "explicit_historical_aliases": "satirist",
     "mapping_evidence": "[{\"alias\": \"satirist\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 246,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original SATIRIST character: an adult gender-neutral Indigenous American person in their forties, warm brown skin, long black hair gathered in one practical braid, red knit beanie, dark rounded glasses, expressive mature face with a mischievous smile and NO beard, olive casual jacket over a mustard shirt, dark blue jeans and worn brown boots, a small folded newspaper held only in the standing pose. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding newspaper at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond newspaper and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Deliver true transparent-background RGBA PNG sprite assets, no opaque background. Contemporary everyday clothing, no ceremonial or stereotypical decorations, adult proportions.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "satirist",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-1ec7d843-de83-4fcd-85dd-538d89873ab1.png",
@@ -607,18 +621,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-294e7ae1-5c1c-4d85-b956-f5828aeeef84.png",
     "explicit_historical_aliases": "staffer",
     "mapping_evidence": "[{\"alias\": \"staffer\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 230,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original STAFFER character: an adult feminine Arab person in their thirties, light olive skin, strong nose and brows, curly dark auburn hair in a loose bun, cream shirt with rolled sleeves, muted teal cardigan, charcoal trousers, brown loafers, small stack of plain papers held at their side only in the standing pose. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding papers at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond papers and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Deliver true transparent-background RGBA PNG sprite assets, no opaque background. Adult proportions and grounded facial features.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "staffer",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-2c90230e-9f95-4644-ad7a-74ae71cf5e15.png",
@@ -929,18 +950,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-3cac2b7c-f572-4890-b980-b718cdf93e88.png",
     "explicit_historical_aliases": "whistleblower",
     "mapping_evidence": "[{\"alias\": \"whistleblower\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 204,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original WHISTLEBLOWER character: an adult gender-neutral South Asian person, medium-brown skin, short dark undercut, angular attentive face, navy hooded jacket worn with hood down so the hair silhouette stays clear, plum shirt, charcoal trousers and teal sneakers, plain document folder carried only in standing pose. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding role prop at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond role prop and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Deliver transparent-background sprite assets as an RGBA PNG. Do not include any opaque background.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "whistleblower",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-3e6d6438-2d1c-4d0e-93bb-47ecf0a38b89.png",
@@ -1485,14 +1513,20 @@
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-69ac49e0-724b-49f6-85c8-bb41cc09ffe5.png",
     "explicit_historical_aliases": "",
     "mapping_evidence": "[]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_subject_to_composition_review",
     "new_generation": "none",
     "dimensions": "retain 1536 x 1024; do not stretch",
     "recorded_generation_event": 18243,
     "recorded_composition_brief": "Use case: stylized-concept. Asset type: production pixel-art game environment, single landscape image 1536x1024, no panels.\nCreate a wide roadside checkpoint in a Pacific Northwest mountain valley, midday. Important: this is a WIDE ENVIRONMENT SHOT, not a close-up portrait. Believable human/vehicle architecture scale is the highest priority. The small toll booth occupies only x=630..1010, y=285..635 of this 1536x1024 canvas (about one quarter of image width and one third of its height), on the far shoulder of a wide asphalt road. Its window/counter is at y=485. An older feminine South Asian clerk with grey hair, plum blouse and cream apron bends her head down to inspect a blank cream permit, wearing a simple crooked paper crown. Clerk's HEAD must be SMALL, about 42 pixels wide and 50 pixels tall on the full canvas, her visible upper body about 115 pixels tall. Do NOT make her a giant or chibi. Human adult proportions, head about one seventh of hypothetical standing body height. The booth roof is 2.5 meters high, counter 1.1 meters high. A little kettle sits on counter. Plain wooden booth, low lintel, unlettered narrow sign. No tower or giant pillar behind booth.\nForeground roadway runs LEFT TO RIGHT, parallel to image plane, open uninterrupted asphalt from y=650 to bottom. Road far edge horizontal at y=640. The game will separately composite a 4.7 meter blue van at x=830..1500, wheel ground line y=825, height around 300 pixels including luggage. DO NOT DRAW ANY VAN OR VEHICLE. These coordinates are only composition guidance. Leave that foreground clear, including no bollards, barrier arm, people or obstacles. Distant booth official should have comparable or slightly smaller head than foreground van passengers, never larger. Keep lower-left foreground dark asphalt for a text overlay. Small patchy grass shoulder, medium trees to sides, distant layered blue mountains and blocky clouds. Environmental depth and consistent horizontal side-on camera, no extreme perspective.\nStyle: handcrafted crisp COARSE PIXEL ART with discrete squared pixel clusters, like a 384x256 retro adventure background enlarged 4x with nearest-neighbor edges. Restrained 32-color palette, dark pixel outlines, flat stepped 2-3 tone shadows. No photorealism, no painterly texture, no smooth gradients, no blur, no antialiasing. Avoid overly detailed tiny texture. No words or letters, no watermark. Absolutely NO religious symbols, crosses, religious jewelry, flags, emblems, or religious architecture.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "finding": "Wide checkpoint retains a small clerk and open foreground road. Better scale candidate than the user-rejected enlarged booth. Must verify the assembled van/booth scale and exact source outcome before acceptance.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Original inspected; assembled desktop/mobile scene has not been approved."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-6b664c91-4d81-497d-85b8-52a9fd7f2171.png",
@@ -1991,14 +2025,20 @@
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-9230d055-c943-44d4-bc45-53da1100bcc3.png",
     "explicit_historical_aliases": "open-appalachian-ridge",
     "mapping_evidence": "[{\"alias\": \"open-appalachian-ridge\", \"evidence\": \"session record 6278\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1536 x 1024; do not stretch",
     "recorded_generation_event": 6114,
     "recorded_composition_brief": "Edit only the distant white church steeple near x1118 y515. Remove the whole steeple and any religious building silhouette; replace it with an ordinary low rectangular town building, blue sky and trees matching this pixel-art landscape. Keep the complete road, horizon, vegetation, factories, fences, colors, scale and 1536x1024 dimensions unchanged. Do not change functional utility poles with wires. No religious symbols, crosses, spires or new text.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "finding": "Corrected Appalachian road visually inspected: empty road, no baked crew, no religious symbol observed at inspected scale. Preserve regional context and aspect ratio.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Original inspected; assembled desktop/mobile scene has not been approved."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-93f38f07-11f3-402c-bdf7-b9bee6608428.png",
@@ -2980,14 +3020,20 @@
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-cdd7f444-9720-419d-a646-1a479613eb69.png",
     "explicit_historical_aliases": "open-rustbelt-foundry",
     "mapping_evidence": "[{\"alias\": \"open-rustbelt-foundry\", \"evidence\": \"session record 6278\"}]",
-    "decision": "user_review_existing",
+    "decision": "exclude_pending_user_review",
     "new_generation": "none",
     "dimensions": "retain 1536 x 1024; do not stretch",
     "recorded_generation_event": 6117,
     "recorded_composition_brief": "Edit only the distant pointed church steeple near x259 y465. Remove the whole steeple and any religious building silhouette; replace it with an ordinary low rectangular town building, blue sky and trees matching this pixel-art landscape. Keep the complete road, horizon, vegetation, factories, fences, colors, scale and 1536x1024 dimensions unchanged. Do not change functional utility poles with wires. No religious symbols, crosses, spires or new text.",
     "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
     "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "finding": "Purported Foundry symbol-removal output still appears to contain a church-like building/cupola near the far-left skyline. Do not accept the generation prompt as proof of removal. No automatic retry.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Original inspected; assembled desktop/mobile scene has not been approved."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-ce5c957e-6708-4d7e-8932-2289c3be7018.png",
@@ -3206,18 +3252,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-da782290-9aa5-40d5-92fc-bb2f6fcebe28.png",
     "explicit_historical_aliases": "organizer",
     "mapping_evidence": "[{\"alias\": \"organizer\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 189,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original ORGANIZER character: an adult feminine Black person, deep brown skin, natural dark curls gathered high with a plum headwrap, small gold hoop earrings, confident expressive face, olive field jacket over a cream shirt, dark jeans, ochre boots, small closed megaphone carried only in standing pose. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding role prop at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond role prop and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Deliver transparent-background sprite assets as an RGBA PNG. Do not include any opaque background.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "organizer",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-da8ac17f-17cb-485a-a0a4-47b4adf7c595.png",
@@ -3459,18 +3512,25 @@
     "generation_requested": "no",
     "future_attempts": "0",
     "mapping_status": "candidate_only",
-    "composition_status": "recover_accepted_brief_before_change",
+    "composition_status": "original_visually_inspected_2026-09-21; composed_surface_unverified",
     "durable_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-e440f529-aa7b-4569-9619-2407985c6da2.png",
     "explicit_historical_aliases": "journalist",
     "mapping_evidence": "[{\"alias\": \"journalist\", \"evidence\": \"session record 842\"}]",
-    "decision": "user_review_existing",
+    "decision": "propose_reuse_without_generation",
     "new_generation": "none",
     "dimensions": "retain 1774 x 887; do not stretch",
     "recorded_generation_event": 501,
     "recorded_composition_brief": "Use case: stylized-concept. Production asset: a TRANSPARENT PNG sprite sheet for Dystrail, a satirical pixel-art road-trip game. Create ONE consistent original JOURNALIST character: an adult feminine East Asian person, short tousled black hair with a small teal hair clip, round dark glasses, warm light-medium skin, cream shirt, teal utility vest, navy trousers, brown shoes, small notebook. Crisp hand-placed-looking pixel art with dark navy outlines, restrained warm cream/teal palette and stepped highlights. Approachable expressive adult, not childlike. EXACT 4-column by 2-row grid, canvas 2048x1024, eight equal 512x512 cells, invisible grid, generous transparent margins inside each cell, NO overlap between cells. Top row left to right: (1) standard neutral attentive head-and-shoulders portrait; (2) same portrait happy relieved smile; (3) same portrait disappointed tired but not injured; (4) same portrait worried/unwell. Bottom row left to right: (5) full body standing relaxed holding notebook at side, feet visible; (6) seated passenger waist-up, upright side/three-quarter profile FACING RIGHT, hands resting in lap, seatbelt; (7) slightly farther seated passenger waist-up, FACING RIGHT, upright, hands in lap, seatbelt; (8) driver waist-up side/three-quarter FACING RIGHT with both arms extended toward an implied steering wheel at the right edge, seatbelt. Keep face, hair, clothes and proportions identical in all cells; top-row heads large enough for expressions, bottom-row full standing character centered. Only this single character repeated, no seat, wheel, vehicle, props beyond notebook and seatbelt, background, shadows outside silhouette, writing, labels, watermark, dividers or decorative frame. Actual transparent alpha outside every sprite, never checkerboard painted into artwork. Refine the character to read clearly as a mature adult journalist around 35, with normal-sized almond-shaped eyes, subtle cheekbones and an observant face. Grounded late-16-bit portrait proportions, not anime/chibi or large childlike eyes. Maintain the teal vest, cream shirt, round glasses, short tousled black hair and teal clip across all eight views. Actual transparent RGBA output.",
-    "camera_and_proportions": "Preserve suitable original geometry; original brief is evidence only. Proposed hard rules in README govern review. No unverified resizing or restaging authorized.",
-    "desktop_and_mobile": "One source for both; preserve aspect ratio and coherent scene scale; reserve lower-left overlay caption; no separate mobile generation.",
-    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration."
+    "camera_and_proportions": "Portraits frontal/slight three-quarter; standing and seated poses face right. Keep native 2:1 atlas ratio. Eight cells in 4 columns x 2 rows; native nominal cell 443.5 x 443.5 pixels. Use the recovered proportional SVG viewBox; scale uniformly. All occupants share a body/head scale; far-seat depth does not turn an adult into a child.",
+    "desktop_and_mobile": "Same original on both. Portrait only in existing persona/crew/scorecard slots; no supplementary scene bust. Standing/seated/driver poses appear inside the scene using shared world coordinates and actual surviving party. Mobile scales the complete composition, not individual people.",
+    "production_gate": "Not approved for new generation; suitability and scene binding must be verified before integration.",
+    "visual_review": {
+      "date": "2026-09-21",
+      "role": "journalist",
+      "finding": "Eight reusable poses: four expressions, standing, near passenger, far passenger, driver. No religious symbol observed. Retain existing identity and pixel-art treatment.",
+      "approval": "pending_user_inventory_approval",
+      "render_caveat": "Verify atlas boundaries and colored edge pixels on actual dark/light scene backgrounds; preserve original bytes. No automatic regeneration."
+    }
   },
   {
     "source_file": "/Users/vanna/.codex/generated_images/01a0a0f7-a4be-7852-a652-0b497de9fbea/exec-e453cecf-81cf-4794-abed-33fc3b0f1a4e.png",

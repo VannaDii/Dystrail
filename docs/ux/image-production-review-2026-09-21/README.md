@@ -114,3 +114,7 @@ This draft does not claim the full image specification, feature, or release is c
 - `sonar analyze secrets docs/content-hit-list.json docs/content-requirements.md progress.md` ran successfully using existing keychain access and reported no issues before those workspace files were read.
 - Original PNG headers provide dimensions; hashes identify unchanged originals. No visual acceptance inferred from headers, filenames, or historical test results.
 - Main-checkout Hearing/game files were not edited. No builds, browser campaigns, generation calls, subagents, commits, or deployment in this planning pass.
+
+## Inspected reuse decisions
+
+[Inspected cast and road decisions](core-surface-review.md) records the first concrete reuse/exclusion batch. These are proposals for approval, not accepted production bindings.
