@@ -6,11 +6,13 @@ September 21, 2026. Planning only. No game files changed and no images generated
 
 Recovery is now in the durable worktree `/Users/vanna/Source/Dystrail-worktrees/visual-world-recovery`, with local commits and verified standalone bundles under `/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21`. The historical missing temporary worktree below describes the recovery incident, not the current workspace location.
 
-All **644 source records** now have explicit inventory dispositions: **36 inactive**, **300 unresolved source-specific staging decisions** (171 road, 129 town), and **308 reviewed candidates or shared-surface proposals**. The 308 include exclusions and incomplete compositions; they are not accepted finished scenes. The necessary-image list is **not yet production-ready**.
+All **644 source records** remain accounted for, including **36 inactive dependencies**. The necessary-image list is **not yet production-ready**. The ledger distinguishes inspected candidates, incomplete compositions, staging classifications and unresolved asset selection.
 
-The pending user choice is whether remaining satire uses shared regional scenes with selected illustrated jokes, or requires the essential visual joke in every variant. This choice changes which images are necessary. It does not approve production, discard copy, activate mechanics, or relax any quality rule. No answer is assumed. Existing source directions remain preserved in full.
+**Staging approach approved by the user:** illustrate the visual joke when central to understanding the encounter; reuse appropriate settings when dialogue carries the joke. Give departures, major events and the Hearing distinctive presentation. Preserve smaller prop suggestions without automatically making them production requirements.
 
-No additional images are requested by the unresolved rows. Once staging scope is settled, resolve each necessary image to a retained asset/layout fix, explicit user-review hold, or an individual one-attempt production brief. Avoid generating a separate image merely because a content record exists.
+This resolves the staging-choice blocker. It does not approve image production, activate mechanics, discard compatible satire, or relax quality rules. Complete the finite necessary-image list and obtain approval before production. Reuse suitable images; at most one generation attempt per necessary image, with failures left for user review.
+
+The first six applications distinguish two essential visual compositions (the refrigerator wearing a tie and inspection of a wallet) from four dialogue-led town scenes. Asset selection remains pending; no new generation is yet specified or authorized.
 
 ## Production limit
 

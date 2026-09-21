@@ -7365,7 +7365,7 @@
         "Scene: Cleaner traces a route on a blank transit map beside the station entrance; the travelers stand with their small bags.",
         "Source: CTA Sues Over Paused Red Line Extension and Modernization Funding (2026-03-20)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -7974,7 +7974,7 @@
         "Editable overlays: “Meta deal: 80% city property-tax rebate” — Detached callout above the refrigerator.; “Conditions apply” — Beneath the rebate callout.",
         "Source: City of El Paso: Data Centers (undated)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -8364,7 +8364,7 @@
         "Editable overlays: “Average annual sewer increase: 4%” — Beside the blank bill.",
         "Source: Sewer rate adjustment begins for Joplin residents with April 2025 billing (2025-01-08)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -8527,7 +8527,7 @@
         "Scene: A bait-shop worker rests a small tackle box beside a traveler’s water jug; the river fills the background and a damp blank receipt curls at the table edge.",
         "Source: Closure of Upper Midwest Environmental Sciences Center possible under proposed budget (2025-11-21)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -8611,7 +8611,7 @@
         "Scene: A hotel housekeeper waits at a public bus stop beside travelers while a sparsely occupied shuttle passes; distant hotel façades have blank signage.",
         "Source: Las Vegas tourism is down. Some blame Trump’s tariffs and immigration crackdown (2025-08-19)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -9651,7 +9651,7 @@
         "Editable overlays: “Inspection replacement fee: $7.50” — Beside the blank registration receipt.",
         "Source: Texas DPS: Vehicle Safety Inspection Changes Take Effect January 2025 (undated)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
