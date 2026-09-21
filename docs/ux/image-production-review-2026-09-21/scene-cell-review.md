@@ -244,3 +244,55 @@ The 129 town records outside the three already inspected TOWN-41 scenes are now 
 - **TOWN-44-A:** One sandwich cut into two equal halves makes the accounting joke tangible. Same total food before and after; plain clean plate, no newly awarded food or duplicated sandwich.
 
 Minor props and source directions remain retained for optional reuse; omitting an optional prop does not remove the dialogue. Religious references remain text-only, with no corresponding religious symbols or devotional art. The next classification batch is the 171 remaining active road records.
+
+## Remaining road staging classified
+
+All 171 remaining compatible road records are classified under the approved approach: 126 shared-context records and 45 essential visual compositions. These are not generation counts. Shared settings must still communicate the actual offer/task; first-choice artwork must never depict completed payment, work or rewards.
+
+- **ENC-C09-C / secured_comment_box:** Disproportionate safe around an ordinary public-comment box; phone stays ordinary and separate.
+- **ENC-C10-B / shortened_bed:** Oversized pillow on a shortened empty demonstration mattress; no patient or implied injury.
+- **ENC-C10-C / paper_aircraft:** Cardboard aircraft made from forms with a modest tip jar; visibly a stationary display, not a real aircraft.
+- **ENC-C11-A / overhead_freezer:** Unplugged demonstration freezer and melting ice contrasted with a powered fan; visible safe cable relationships.
+- **ENC-C11-C / competing_socket:** Phone and pie warmer compete for one socket; keep plugs, hands and appliances coherent.
+- **ENC-C12-C / hidden_fee_panel:** Large honesty sign partly hides a smaller charge panel; both labels are localized live text, not baked pixels.
+- **ENC-C14-A / unequal_shade:** Cardboard politician gets a dedicated umbrella while real volunteers share a canopy; all stay on one ground plane.
+- **ENC-C16-B / paint_over_rust:** Bright paint around an unrepaired rust hole, with daylight visibly passing through it.
+- **ENC-C16-C / padded_phones_books:** Luxurious small phone pouches contrast with heavy books in a battered wheelbarrow; no phones or books granted to crew.
+- **ENC-C18-B / biscuit_lift:** Envelope with a biscuit-shaped bulge beside a reserved lift and working stairs; stage the offer, not an already completed passage.
+- **ENC-D01-C / phone_place_setting:** Phone gets a full menu/place setting while the nurse’s breakfast waits; do not replace the nurse with a traveler.
+- **ENC-D04-C / sandwich_application:** Whole sandwich positioned over the blank photo field of a catering form; no invented approval or food reward.
+- **ENC-D06-B / two_sided_filter:** One filter has a clean sales-facing side and dirty reverse, both legible in a single view.
+- **ENC-D09-A / parking_without_service:** Decorated empty new-mother parking space faces the closed former maternity entrance; no patient or denial of treatment depicted.
+- **ENC-D12-C / scattered_data:** Fan disperses demonstration glitter beyond a small dustpan at a repair kiosk; use fictional blank data cues.
+- **ENC-D13-A / smaller_map_dots:** Promoter shrinks dots on a fabricated abstract map while privacy remains visibly unresolved; never map real clinic visitors.
+- **ENC-S03-B / unsupported_cushion:** Prestigious cushion held above safe disassembled chair parts, with intact seats elsewhere; nobody sits on the broken display.
+- **ENC-S05-A / layered_price_labels:** Built-up blank price stickers visibly thicken the shelf edge; readable localized pricing remains a UI overlay.
+- **ENC-S07-C / freezer_leaflet:** Political leaflet offered as a shim for a worn freezer wheel. Compare retained freezer art first; do not claim a wheel repaired before the choice.
+- **ENC-S09-A / unequal_cooling:** Cooled trailer exhaust reaches the worker outside; show separate air paths and a plausible shared scale.
+- **ENC-S09-C / donor_fan:** One large fan serves the premium area rather than equal-access seating; preserve usable unoccupied rest space.
+- **ENC-S10-A / flag_instead_of_tool:** Owner offers a small flag while water pools over a clogged drain; distinguish the prop from an actual repair tool.
+- **ENC-S11-A / raccoon_cleanup:** Raccoon tangled in a picnic cloth among overflowing waste; reuse retained park context if suitable, not a new full landscape by default.
+- **ENC-S13-A / flag_card_reader:** Cashier presents a tiny Chinese flag to a card reader while the traveler still holds their wallet; payment has not happened.
+- **ENC-S14-A / cheque_doorway:** Ceremonial cheque on stands is too wide for the ordinary doorway; people and doorway retain normal proportions.
+- **ENC-S16-B / voucher_cash_drawer:** A flimsy voucher held over real cash compartments; no refund or cash transfer is implied before resolution.
+- **ENC-S16-C / balloon_doorway:** An oversized donor balloon obstructs the loading door above normal balloons; other scenery stays normal scale.
+- **ENC-S17-A / flooded_food_display:** Wrapped sandwiches drift in a spraying demonstration tray; retain separation from the remaining food and no completed cleanup.
+- **ENC-S17-B / premium_fan_work:** Heavy unassembled fan bases are offered as work while the contractor has iced drinks; do not depict travelers already working.
+- **ENC-S18-A / flyer_supports_books:** Folded department-closure leaflet props the shelf holding educational books; label remains live localized text.
+- **ENC-S19-B / overhead_leak:** Bucket catches a fictional leak threatening a funding display; reuse inspected room/leak components when consistent.
+- **ENC-S20-B / leaflet_not_food:** Policy leaflet held over an empty bowl fails to supply food; avoid magical rewards or a completed meal.
+- **ENC-S21-B / one_mug_two_names:** One mug and an unattached second-name sleeve; never duplicate the mug to illustrate two institutions.
+- **ENC-S22-B / two_pins_one_building:** Two destination pins overlap on one fictional building outline; both destinations remain readable live text.
+- **ENC-S23-A / straw_inspection:** Ordinary drink/straw dwarfed by inspection equipment; props, not human proportions, carry the exaggeration.
+- **ENC-S24-A / wig_in_shower:** Loose wig drifts away from a spraying display/mannequin; no actual traveler loses hair or is injured.
+- **ENC-S24-B / puddle_border:** Small flag marks the edge of a spreading lobby fountain puddle; no invented flooding outside this demonstration.
+- **ENC-S24-C / melting_gateway:** Decorative gateway melts toward unused cleaning tools while guests approach its dry side; no completed cleanup.
+- **ENC-S26-B / phone_free_photo:** Organizer uses a phone to photograph the empty phone-storage tray; no crew phone confiscation is implied.
+- **ENC-S27-B / towels_as_room:** Folded towels fill the cupboard advertised as a luxury room; keep the cupboard visibly distinct from an occupied hotel room.
+- **ENC-S30-C / anti_wind_banner:** Wind moves an anti-wind banner while boxes remain unopened; wind direction agrees with other scene effects.
+- **ENC-S32-B / solar_powers_criticism:** Visible cable connects a solar panel to the presentation criticizing it; preserve a continuous plausible connection.
+- **ENC-S33-A / water_tank_display:** A spraying display drains toward a low tank while its owner studies a freedom banner; no false water refill for travelers.
+- **ENC-S33-B / straw_blocks_water:** Giant display straw physically blocks access to drinking water; ordinary people and fixtures retain consistent scale.
+- **ENC-S34-B / folding_instructions:** Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.
+
+The 300 previously unresolved road/town records are now staging-classified. Next consolidate reusable components and exact asset selections across all groups into the finite production specification; the older 308 proposals must also follow the approved selective-staging rule. No production authorization follows from this classification.

@@ -731,7 +731,7 @@
         "Editable overlays: “SORRY I’M LATE” — Editable text on the blank birthday card",
         "Source: USPS announces refined service standards and cost reductions (2025-02-26)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -758,7 +758,7 @@
         "Scene: A worker holds a floppy disk above an unopened scrap carton and offers a stock-hauling job. A tiny floppy disk receives a pristine display cushion while larger old computers wait in battered boxes.",
         "Source: Secretary Duffy: July 2025 transportation oversight testimony (2025-07-16)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -788,7 +788,7 @@
         "Editable overlays: “PUBLIC COMMENTS” — Blank card visible on the box inside the open safe",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -814,7 +814,7 @@
         "Scene: An owner gestures between rows of empty chairs and a loaded, stationary chair trolley. A grand opening arrangement has lavish seating and no arriving diners.",
         "Source: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -843,7 +843,7 @@
         "Editable overlays: “PATIENT CHOICE” — Blank pillow tag",
         "Source: P.L.119-21 reduces projected federal Medicaid spending and changes eligibility. Projected insurance losses are projections, not…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -872,7 +872,7 @@
         "Editable overlays: “GIFT DECLARATION” — Editable label over the blank wing forms",
         "Source: The Pentagon announced on May 21, 2025 that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance prompted l…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -902,7 +902,7 @@
         "Editable overlays: “OVERHEAD” — Blank board beside the demonstration freezer",
         "Source: UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or propos…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -932,7 +932,7 @@
         "Editable overlays: “45 dollars: ConfirmID attempt” — Blank fee notice",
         "Source: Travelers Without REAL ID Could Pay $45 Fee for TSA’s ConfirmID Beginning February 1 (2026-02-01)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -959,7 +959,7 @@
         "Scene: The cook holds two unlettered payment leaflets beside a charging phone and gestures to an empty chair; travelers stand at the booth edge. The phone competes with a pie warmer for the wall socket, turning a refund inquiry into an appliance arrangement.",
         "Source: IRS: Modernizing payments to and from America’s bank account (Current guidance checked 2026-09-14)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -990,7 +990,7 @@
         "Source: Coca-Cola reports second-quarter 2025 results (2025-07-22)",
         "Source: AP: Coca-Cola confirms a cane-sugar option after Trump’s claim (2025-07-22)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1017,7 +1017,7 @@
         "Scene: An attendant places a blank broadband label beside a coffee tin and gestures toward an unused quiet chair. The coffee tin and internet label have matching blank information panels, but only the coffee pot is visibly steaming.",
         "Source: FCC Announces Broadband Consumer Labels Compliance Dates (2024-04-10)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1047,7 +1047,7 @@
         "Editable overlays: “HONEST PRICE” — Large blank placard; “$79” — Main blank price field; “MANDATORY SERVICE: $40” — Small blank price field",
         "Source: FTC: Rule on Unfair or Deceptive Fees FAQ (Effective 2025-05-12)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1077,7 +1077,7 @@
         "Editable overlays: “AIRPORT READY” — Blank sale-table placard; “$8: CHECK SIZE TAGS” — Blank job card",
         "Source: AP: TSA ends routine shoes-off airport screening (2025-07-08)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1107,7 +1107,7 @@
         "Editable overlays: “PRACTICE LIST CHECK: $8” — Blank work-offer board",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1135,7 +1135,7 @@
         "Source: FTC Noncompete Rule (2025-09-05)",
         "Source: FTC Files to Accede to Vacatur of Non-Compete Clause Rule"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1165,7 +1165,7 @@
         "Editable overlays: “FREEDOM FROM LOCAL HEAT RULES” — Blank protest-display caption",
         "Source: DeSantis signed Florida 2024 law barring local government heat/water-break mandates. This does not make drinking water illegal …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1192,7 +1192,7 @@
         "Scene: A first-aider gestures with both hands beside an unopened kit and unused treatment chair. Ten small work gloves lie in a row with one conspicuously empty place at the end.",
         "Source: Nebraska Department of Labor: Paid Sick Time Effective October 1 (2025-09-25)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1219,7 +1219,7 @@
         "Scene: An attendant holds a blank refund notice beside a controller and gestures toward an empty booth. A single oversized controller button sits beside a much larger sheaf of blank refund paperwork.",
         "Source: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1247,7 +1247,7 @@
         "Source: California AB 660: Food and Beverage Date Labeling (2026-07-01)",
         "Source: California Department of Food and Agriculture: Food Date Labeling"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1277,7 +1277,7 @@
         "Editable overlays: “PROUD / VERY PROUD / EXTREMELY PROUD / SEE THE PRINCIPAL” — Editable options on the blank sample-quiz board",
         "Source: January 2025 EO targets gender/equity ideology in K12 and promotes patriotic education. Fictional local boards, books and incid…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1307,7 +1307,7 @@
         "Editable overlays: “AUTHOR NOT FOUND” — Blank reserved place card",
         "Source: May 2025 reporting identified nonexistent studies and other citation problems in the initial MAHA report. HHS said citation and…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1333,7 +1333,7 @@
         "Scene: A worker indicates closed boxes of obsolete blank display material and an empty collection-guide holder. A confident-looking green display arrow points toward a recycling bin with a visibly blocked opening.",
         "Source: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1362,7 +1362,7 @@
         "Editable overlays: “AMERICA” — Editable word across the blank painted area around the hole",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1388,7 +1388,7 @@
         "Scene: A volunteer indicates a loaded stationary wheelbarrow beside individually padded empty phone pouches. Each tiny phone pouch has luxurious padding while the heavy books share one battered wheelbarrow.",
         "Source: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1415,7 +1415,7 @@
         "Source: California AB 660: Food and Beverage Date Labeling (2026-07-01)",
         "Source: California Department of Food and Agriculture: Food Date Labeling"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1441,7 +1441,7 @@
         "Scene: A cleaner indicates an empty chair beside a small model house and an oversized branching corporate-family diagram with blank nodes. The little model house is almost hidden behind an enormous blank corporate-family tree.",
         "Source: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1468,7 +1468,7 @@
         "Source: NIH Public Access Policy Overview (2025-07-01)",
         "Source: NIH Notice: Accelerated Implementation of 2024 Public Access Policy"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1498,7 +1498,7 @@
         "Editable overlays: “COMPLAINTS WEAKEN THE NATION” — Blank proposed-lesson poster",
         "Source: January 2025 EO targets gender/equity ideology in K12 and promotes patriotic education. Fictional local boards, books and incid…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1528,7 +1528,7 @@
         "Editable overlays: “MANAGEMENT USE” — Blank lift notice",
         "Source: The Pentagon announced on May 21, 2025 that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance prompted l…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -1558,7 +1558,7 @@
         "Editable overlays: “QUESTIONS MUST BE CHECKED” — Blank submission-desk notice",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2113,7 +2113,7 @@
         "Editable overlays: “MAY 2026 COUNTERTERRORISM STRATEGY” — Editable caption beside the blank public document",
         "Source: Counterterrorism framing of trans advocacy — www.whitehouse.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2143,7 +2143,7 @@
         "Editable overlays: “REVISED PRESS MEMO · MARCH 23, 2026” — Blank public memo",
         "Source: Pentagon press-credential policy and judicial correction — media.defense.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2175,7 +2175,7 @@
         "Source: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov",
         "Source: Emergency abortion exceptions and federal guidance withdrawal — capitol.texas.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2206,7 +2206,7 @@
         "Source: Georgia miscarriage arrest followed by dismissal — themarshallproject.org",
         "Source: Georgia miscarriage arrest followed by dismissal — walb.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2236,7 +2236,7 @@
         "Editable overlays: “PUBLIC EQUIPMENT SALE” — Blank entrance board; “FEDERAL SCHOOL-SPORTS ORDER” — Blank public notice",
         "Source: Women's sports restrictions enforced through federal funding — www.whitehouse.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2266,7 +2266,7 @@
         "Editable overlays: “PUBLIC RUMMAGE SALE” — Blank entrance board; “FEDERAL STAFFING REPEAL · FEBRUARY 2026” — Blank public notice",
         "Source: New nursing-home staffing minimums repealed — regulations.justia.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2297,7 +2297,7 @@
         "Source: Kansas links bathroom enforcement to invalidated identity documents — www.kslegislature.gov",
         "Source: Kansas links bathroom enforcement to invalidated identity documents — www.ksrevenue.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2328,7 +2328,7 @@
         "Source: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — regulations.justia.com",
         "Source: Federal phaseout of disabled-worker subminimum-wage certificates abandoned — www.dol.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2359,7 +2359,7 @@
         "Source: Idaho restrictions on abortion assistance to minors — cdn.ca9.uscourts.gov",
         "Source: Idaho restrictions on abortion assistance to minors — litigationtracker.law.georgetown.edu"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2389,7 +2389,7 @@
         "Editable overlays: “ATF PROPOSED RULE · MAY 2026” — Editable caption above the blank public notice",
         "Source: Gun-rights promises and ATF identity paperwork — www.atf.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2419,7 +2419,7 @@
         "Editable overlays: “DISPLAY TENT” — Blank retail card; “FEDERAL ORDER · JULY 2025” — Blank public policy sheet",
         "Source: Homelessness order promotes expanded civil commitment — www.whitehouse.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2450,7 +2450,7 @@
         "Source: Texas restrictions on public abortion-travel assistance — capitol.texas.gov",
         "Source: Texas restrictions on public abortion-travel assistance — texasattorneygeneral.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2482,7 +2482,7 @@
         "Source: Louisiana controls on mifepristone and misoprostol — nola.gov",
         "Source: Louisiana controls on mifepristone and misoprostol — lawyeringproject.org"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2512,7 +2512,7 @@
         "Editable overlays: “FEDERAL FUNDING RULE · EFFECTIVE OCTOBER 13, 2026” — Blank public policy sheet; “PLAN RENEWED” — Blank phone screen; no account or personal details",
         "Source: Upcoming Medicaid and CHIP treatment-payment exclusion — www.govinfo.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2542,7 +2542,7 @@
         "Editable overlays: “ALWAYS PART OF THE FAMILY” — Blank retirement brochure; “SUPREME COURT · JUNE 2025” — Blank public ruling",
         "Source: Disabled retirees' employment-discrimination claim meets the job-holding requirement — www.supremecourt.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2573,7 +2573,7 @@
         "Source: Federal prison care and personal-item restrictions — law.justia.com",
         "Source: Federal prison care and personal-item restrictions — www.markey.senate.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2603,7 +2603,7 @@
         "Editable overlays: “EPA RULE · FEBRUARY 2026” — Blank public notice",
         "Source: Stronger coal-plant mercury and toxic-metal standards repealed — www.federalregister.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2634,7 +2634,7 @@
         "Source: Alabama frozen-embryo wrongful-death ruling and IVF immunity — law.justia.com",
         "Source: Alabama frozen-embryo wrongful-death ruling and IVF immunity — apnews.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2664,7 +2664,7 @@
         "Editable overlays: “LOYALTY REWARDS” — Blank promotional card heading",
         "Source: Arizona conscience refusal for emergency contraception"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2694,7 +2694,7 @@
         "Editable overlays: “SSA RECORDS RULE · JUNE 2026” — Blank public instruction sheet",
         "Source: Social Security's invisible sex field is frozen to birth records — secure.ssa.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2725,7 +2725,7 @@
         "Source: Government website accessibility deadlines extended — www.ada.gov",
         "Source: Government website accessibility deadlines extended — www.ada.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2756,7 +2756,7 @@
         "Source: Pregnancy-center advertising and service mismatch — mass.gov",
         "Source: Pregnancy-center advertising and service mismatch — mass.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2787,7 +2787,7 @@
         "Source: Workplace abortion accommodations removed from the PWFA regulation — cases.justia.com",
         "Source: Workplace abortion accommodations removed from the PWFA regulation — apnews.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2818,7 +2818,7 @@
         "Source: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov",
         "Source: EPA proposes removing some PFAS drinking-water limits and delaying others — www.epa.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2849,7 +2849,7 @@
         "Source: Maternity-care deserts and loss of local birth services — marchofdimes.org",
         "Source: Maternity-care deserts and loss of local birth services — www2.marchofdimes.org"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2880,7 +2880,7 @@
         "Source: Closure of specialized LGBTQ+ youth crisis-line service — www.samhsa.gov",
         "Source: Closure of specialized LGBTQ+ youth crisis-line service — 988lifeline.org"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2910,7 +2910,7 @@
         "Editable overlays: “APRIL 2025: NONRENEWAL” — First blank public notice; “MAY 2025: REVERSED; STUDY CONTINUES” — Second blank public notice",
         "Source: Women's Health Initiative funding cancellation reversed — www.whi.org"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2940,7 +2940,7 @@
         "Editable overlays: “EEOC NOTICE · JANUARY 2026” — Blank public notice",
         "Source: EEOC rescinds workplace harassment guidance — www.eeoc.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -2970,7 +2970,7 @@
         "Editable overlays: “HEAD START RESTRICTION BLOCKED · SEPTEMBER 2025” — Blank public notice",
         "Source: Head Start recast as an immigration-restricted federal benefit — www.hhs.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3000,7 +3000,7 @@
         "Editable overlays: “MORE SECURITY” — lock-display header; “PUBLIC INVESTIGATION” — closed report cover; “CAMERA WARRANTY” — brochure back",
         "Source: Police misuse of Flock to monitor former partners"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3029,7 +3029,7 @@
         "Editable overlays: “WHIPPLE ORDER · MARCH 2026” — Blank public document",
         "Source: Rapid detention transfers obstruct access to lawyers — clearinghouse-umich-production.s3.amazonaws.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3058,7 +3058,7 @@
         "Editable overlays: “ROAD MAPS” — map rack; “PUBLIC INVESTIGATION SUMMARY” — closed public folder; “WELFARE CHECK” — promoter card",
         "Source: ALPR searches in an abortion investigation"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3087,7 +3087,7 @@
         "Editable overlays: “COVERAGE PROPOSAL WITHDRAWN · JANUARY 2025” — Blank public notice",
         "Source: Proposed insurance coverage for over-the-counter contraception withdrawn — public-inspection.federalregister.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3117,7 +3117,7 @@
         "Source: Appearing at immigration court becomes an arrest opportunity — www.govinfo.gov",
         "Source: Appearing at immigration court becomes an arrest opportunity — caselaw.findlaw.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3147,7 +3147,7 @@
         "Source: Third-country deportations without a meaningful chance to contest the destination — apnews.com",
         "Source: Third-country deportations without a meaningful chance to contest the destination — dockets.justia.com"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3176,7 +3176,7 @@
         "Editable overlays: “PREMOM: FTC SETTLEMENT” — public notice; “LOCAL ROADS” — map heading",
         "Source: Premom reproductive-health data disclosures"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3205,7 +3205,7 @@
         "Editable overlays: “ANONYMOUS INSIGHTS” — promoter board; “FTC SENSITIVE-LOCATION ORDER” — public notice; “HIGHWAY” — road sign",
         "Source: Broker sale of sensitive clinic-location data"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3234,7 +3234,7 @@
         "Editable overlays: “DETOUR” — Blank roadworks sign; “AP ACCESS DISPUTE · NOVEMBER 2025” — Blank public article caption",
         "Source: White House retaliation against Associated Press access — www.ap.org"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3263,7 +3263,7 @@
         "Editable overlays: “LOWNDES COUNTY SETTLEMENT ENDED · APRIL 2025” — Blank public notice",
         "Source: Lowndes County sewage agreement terminated as environmental-justice policy — www.justice.gov"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3837,7 +3837,7 @@
         "Scene: A volunteer indicates stock awaiting sorting and donated food while a ranger stands beside a rack of empty uniforms. A rack of unworn uniforms displays more blank name-badge holders than the live service desk.",
         "Source: The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not pr…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3867,7 +3867,7 @@
         "Editable overlays: “RESERVED” — Blank card on the component's chair",
         "Source: 2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3897,7 +3897,7 @@
         "Editable overlays: “DEFENSE / SECONDARY TITLE: WAR” — Editable names on the two blank title stands",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3927,7 +3927,7 @@
         "Editable overlays: “CHINA PAID” — Blank promoter slogan board",
         "Source: 2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3957,7 +3957,7 @@
         "Editable overlays: “ERROR-FREE” — Blank promoter claim card",
         "Source: May 2025 reporting identified nonexistent studies and other citation problems in the initial MAHA report. HHS said citation and…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -3987,7 +3987,7 @@
         "Editable overlays: “SUPER PAC / DIRECT CANDIDATE GIFT” — Editable labels on the two blank folders",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4017,7 +4017,7 @@
         "Editable overlays: “WHY ARE YOU NOT WORKING?” — Editable prompt on the blank practice form",
         "Source: 2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. Medicaid federal roll…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4047,7 +4047,7 @@
         "Editable overlays: “DISCOVERY” — Blank cushion display card",
         "Source: UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or propos…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4077,7 +4077,7 @@
         "Editable overlays: “PENTAGON ACCEPTED QATAR JET • MAY 2025” — Editable headline in blank news-display frame",
         "Source: The Pentagon announced on May 21, 2025 that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance prompted l…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4107,7 +4107,7 @@
         "Editable overlays: “PUBLIC REST-AREA DIRECTIONS” — Editable heading on the blank misaddressed sheet",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4137,7 +4137,7 @@
         "Editable overlays: “PERSONAL ATTENTION” — Blank service brochure header",
         "Source: The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not pr…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4167,7 +4167,7 @@
         "Editable overlays: “AMERICA’S GREAT REST” — Blank visitor-area sign",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4197,7 +4197,7 @@
         "Editable overlays: “FOOD $6 • PRICE-LABELLING WORK $10” — Blank counter offer board",
         "Source: 2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4227,7 +4227,7 @@
         "Editable overlays: “FOOD $6 • INVENTORY WORK $10 • PENTAGON ACCEPTED QATAR JET” — Editable copy split between blank offer board and blank news frame",
         "Source: The Pentagon announced on May 21, 2025 that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance prompted l…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4257,7 +4257,7 @@
         "Editable overlays: “OPERATIONAL READINESS • FOOD $6 • LABEL CHECK $10” — Editable caption on blank café offer board",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4287,7 +4287,7 @@
         "Editable overlays: “DISPLAY-CARD CORRECTIONS: $8” — Blank work-offer board",
         "Source: May 2025 reporting identified nonexistent studies and other citation problems in the initial MAHA report. HHS said citation and…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4317,7 +4317,7 @@
         "Editable overlays: “ARROW REARRANGING: $8” — Blank work-offer board",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4347,7 +4347,7 @@
         "Editable overlays: “POWER RETURNED TO PARENTS • SORTING WORK $8” — Editable copy on blank crate panel and job board",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4377,7 +4377,7 @@
         "Editable overlays: “DESK MOVING: $12” — Blank work-offer board",
         "Source: The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not pr…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4407,7 +4407,7 @@
         "Editable overlays: “STEEL UNLOADING: $12” — Blank work-offer board",
         "Source: 2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4437,7 +4437,7 @@
         "Editable overlays: “FREEZER MOVING: $12” — Blank fundraiser work-offer board",
         "Source: 2025 reconciliation law contains SNAP spending reductions and eligibility changes alongside tax provisions. Describe the law/fo…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4467,7 +4467,7 @@
         "Editable overlays: “PUBLIC GUIDE • FOOD $5” — Blank café information board",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4497,7 +4497,7 @@
         "Editable overlays: “SIMPLE • FOOD $5” — Editable text split between blank window poster and counter price card",
         "Source: P.L.119-21 reduces projected federal Medicaid spending and changes eligibility. Projected insurance losses are projections, not…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4527,7 +4527,7 @@
         "Editable overlays: “WAR / SECONDARY TITLE / FOOD $5” — Editable text on separate blank banner, qualification card and food-price card",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4557,7 +4557,7 @@
         "Editable overlays: “COPY FLORIDA: FEWER HEAT RULES” — Blank trade-fair placard",
         "Source: DeSantis signed Florida 2024 law barring local government heat/water-break mandates. This does not make drinking water illegal …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4587,7 +4587,7 @@
         "Editable overlays: “EVIDENCE TOO SUPPRESSED TO DISPLAY” — Editable caption beside blank certificate",
         "Source: May 2025 reporting identified nonexistent studies and other citation errors in the MAHA report; corrected versions followed. Do…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4617,7 +4617,7 @@
         "Editable overlays: “EVERY VOICE MATTERS” — Blank picnic banner",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4647,7 +4647,7 @@
         "Editable overlays: “GULF OF AMERICA” — Editable proposed wording beside the unpainted sign",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4677,7 +4677,7 @@
         "Editable overlays: “DENALI” — Editable old-label sample; “MOUNT McKINLEY” — Editable proposed-label sample",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4707,7 +4707,7 @@
         "Editable overlays: “DEFENSE” — Editable first proposed sign; “WAR” — Editable second proposed sign",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4737,7 +4737,7 @@
         "Editable overlays: “AMERICA THE BEAUTIFUL” — Blank park-side sign",
         "Source: The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not pr…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4767,7 +4767,7 @@
         "Editable overlays: “PATRIOTIC READING REVIEW” — Blank discussion poster",
         "Source: January 2025 EO targets gender/equity ideology in K12 and promotes patriotic education. Fictional local boards, books and incid…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4797,7 +4797,7 @@
         "Editable overlays: “SIMPLER EDUCATION” — Blank campaign flyer",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4828,7 +4828,7 @@
         "Source: USDA approves Nebraska SNAP food-restriction waiver (2025-05-19)",
         "Source: Nebraska DHHS: New SNAP purchase restrictions (Effective 2026-01-01)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4858,7 +4858,7 @@
         "Editable overlays: “$1,000 FOR THE FUTURE” — Editable account-notice heading",
         "Source: Eligible US-citizen children born in 2025-2028 can receive a $1000 pilot contribution in a Trump Account. Ordinary distribution…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4888,7 +4888,7 @@
         "Editable overlays: “NATIONAL STRAW STRATEGY” — Blank dispatch board; “CANCELLED” — Editable stamp on fictional food order",
         "Source: February 2025 order directed agencies to end paper-straw procurement and develop a broader strategy. It did not prohibit custom…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4918,7 +4918,7 @@
         "Editable overlays: “DECLINED” — Blank card-reader display",
         "Source: 2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4948,7 +4948,7 @@
         "Editable overlays: “$12: FOOD AND WATER” — Blank quote card; “STILL LEGAL TENDER” — Blank card beside penny jar",
         "Source: United States Mint: Penny information (Current guidance checked 2026-09-14)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -4978,7 +4978,7 @@
         "Editable overlays: “$12: FOOD AND WATER” — Blank quote; “LOST PROPERTY” — Blank box label",
         "Source: AP: Ohio budget allocates unclaimed funds toward Browns stadium (2025-07-01)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5008,7 +5008,7 @@
         "Editable overlays: “EVERY CITIZEN HAS A VOICE” — Blank entrance sign; “INDEPENDENT COMMITTEE” — Editable cheque heading",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5038,7 +5038,7 @@
         "Editable overlays: “CELEBRATING SAVINGS” — Blank display heading",
         "Source: P.L.119-21 reduces projected federal Medicaid spending and changes eligibility. Projected insurance losses are projections, not…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5068,7 +5068,7 @@
         "Editable overlays: “$1 MILLION GIFT” — Blank promotional placard",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5098,7 +5098,7 @@
         "Editable overlays: “PREPARING FOR 2027” — Blank workshop heading",
         "Source: 2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. Medicaid federal roll…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5128,7 +5128,7 @@
         "Editable overlays: “INDUSTRIAL GREATNESS” — Editable proposed caption on blank cover strip",
         "Source: March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restorin…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5158,7 +5158,7 @@
         "Editable overlays: “PERSONAL RESPONSIBILITY” — Editable leaflet heading",
         "Source: 2025 reconciliation law contains SNAP spending reductions and eligibility changes alongside tax provisions. Describe the law/fo…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5188,7 +5188,7 @@
         "Editable overlays: “JOURNALIST INCLUDED IN STRIKE CHAT” — Editable headline beside blank news screen; “MANAGER PIN REQUIRED” — Blank refund terminal",
         "Source: In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fict…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5218,7 +5218,7 @@
         "Editable overlays: “TRAVEL VOUCHER” — Blank voucher; “$8: SORT RETURN LABELS” — Blank offer card",
         "Source: DOT: What passengers need to know about the automatic refund rule (2024-11-18)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5248,7 +5248,7 @@
         "Editable overlays: “INDEPENDENT VOICES” — Blank event-plan heading; “DECORATIVE FILLER” — Blank small-balloon bag",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5278,7 +5278,7 @@
         "Editable overlays: “SHOWER FREEDOM” — Blank promotional banner",
         "Source: April 2025 Executive Order 14264 directed rescission of the 2021 showerhead definition; it framed the action as restoring freed…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5308,7 +5308,7 @@
         "Editable overlays: “COPY FLORIDA’S APPROACH” — Blank policy-stall sign",
         "Source: DeSantis signed Florida 2024 law barring local government heat/water-break mandates. This does not make drinking water illegal …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5338,7 +5338,7 @@
         "Editable overlays: “AMERICAN WATERS” — Blank proposed washroom sign",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5368,7 +5368,7 @@
         "Editable overlays: “CLOSE THE DEPARTMENT” — Editable flyer heading",
         "Source: March 2025 EO directs the secretary to facilitate closure to extent permitted by law. Do not claim Congress actually abolished …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5398,7 +5398,7 @@
         "Editable overlays: “NATIONAL GREATNESS” — Editable proposed postcard heading",
         "Source: March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restorin…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5428,7 +5428,7 @@
         "Editable overlays: “ACHIEVEMENTS” — Editable large heading; “MISTAKES” — Editable tiny heading, never embedded",
         "Source: January 2025 EO targets gender/equity ideology in K12 and promotes patriotic education. Fictional local boards, books and incid…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5458,7 +5458,7 @@
         "Editable overlays: “PUBLIC DISCUSSION: MAHA REPORT” — Blank booklet cover",
         "Source: May 2025 reporting identified nonexistent studies and other citation errors in the MAHA report; corrected versions followed. Do…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5488,7 +5488,7 @@
         "Editable overlays: “PROPOSED OVERHEAD SAVINGS” — Blank summary board",
         "Source: UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or propos…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5518,7 +5518,7 @@
         "Editable overlays: “INDEPENDENT EXPENDITURE COMMITTEE” — Editable disclosure heading",
         "Source: Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committ…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5548,7 +5548,7 @@
         "Editable overlays: “CANCELLED” — Editable notice stamp",
         "Source: USDA terminated Local Food for Schools and Local Food Purchase Assistance funding in 2025; Massachusetts documented cancellatio…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5578,7 +5578,7 @@
         "Editable overlays: “AN INCENTIVE TO WORK” — Editable fictional campaign-leaflet heading",
         "Source: 2025 reconciliation law contains SNAP spending reductions and eligibility changes alongside tax provisions. Describe the law/fo…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5608,7 +5608,7 @@
         "Editable overlays: “WELCOME BACK TO SCHOOL LUNCH” — Blank celebratory card; “$10: SORT PICKUP SLIPS” — Blank job offer",
         "Source: Public Law 119-69: Whole Milk for Healthy Kids Act of 2025 (2026-01-14)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5638,7 +5638,7 @@
         "Editable overlays: “GULF OF MEXICO” — Editable old chart label; “GULF OF AMERICA” — Editable new label",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5668,7 +5668,7 @@
         "Editable overlays: “DEFENSE” — Editable mug-area label; “WAR” — Editable loose-sleeve label",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5698,7 +5698,7 @@
         "Editable overlays: “GOLD CARD” — Editable brochure heading; “$1 MILLION GIFT” — Editable price callout",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5728,7 +5728,7 @@
         "Editable overlays: “ALBUQUERQUE RAIL TRAIL” — Editable print title; “WITHDRAWAL ATTEMPT” — Editable notice heading",
         "Source: City reported a September 2025 attempt to withdraw 11.5m Rail Trail grant amid car-focused priorities. Attempt, not proof of fi…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5758,7 +5758,7 @@
         "Editable overlays: “DEFENSE” — Editable first map pin; “WAR” — Editable second map pin",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5788,7 +5788,7 @@
         "Editable overlays: “NEW HERITAGE ROUTE” — Editable revised-guide heading",
         "Source: March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restorin…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5818,7 +5818,7 @@
         "Editable overlays: “PATRIOTIC STRAW INSPECTION” — Blank filming placard",
         "Source: February 2025 order directed agencies to end paper-straw procurement and develop a broader strategy. It did not prohibit custom…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5848,7 +5848,7 @@
         "Editable overlays: “PREPARING FOR 2027” — Blank workshop sign",
         "Source: 2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. Medicaid federal roll…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5878,7 +5878,7 @@
         "Editable overlays: “RESTORED TRUTH” — Blank display plaque",
         "Source: March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restorin…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5908,7 +5908,7 @@
         "Editable overlays: “SHOWER FREEDOM” — Blank launch banner",
         "Source: April 2025 Executive Order 14264 directed rescission of the 2021 showerhead definition; it framed the action as restoring freed…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5938,7 +5938,7 @@
         "Editable overlays: “GULF OF AMERICA” — Blank fountain plaque",
         "Source: January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography o…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5968,7 +5968,7 @@
         "Editable overlays: “GOLD CARD WELCOME” — Blank event sign",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -5998,7 +5998,7 @@
         "Editable overlays: “DEPARTMENT OF DEFENSE” — Editable heading on first blank sample; “DEPARTMENT OF WAR” — Editable heading on second blank sample",
         "Source: September 2025 action authorized Department of War as a secondary title. Do not claim Congress abolished the statutory Departme…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6028,7 +6028,7 @@
         "Editable overlays: “A TOWER OF EVIDENCE” — Editable poster heading",
         "Source: May 2025 reporting identified nonexistent studies and other citation errors in the MAHA report; corrected versions followed. Do…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6058,7 +6058,7 @@
         "Editable overlays: “ORIGINAL” — Blank oversized promotional heading",
         "Source: Copyright Office Releases Part 2 of Artificial Intelligence Report (2025-01-29)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6088,7 +6088,7 @@
         "Editable overlays: “ALBUQUERQUE RAIL TRAIL” — Editable display heading",
         "Source: City reported a September 2025 attempt to withdraw 11.5m Rail Trail grant amid car-focused priorities. Attempt, not proof of fi…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6115,7 +6115,7 @@
         "Scene: An organizer holds a phone poised for a photograph of an empty phone-storage tray; unfolded blank leaflets await help. The demonstration’s only visible phone is the organizer’s camera.",
         "Source: Virginia Department of Education Releases Executive Order 33 Enhanced Cell Phone-Free Education Guidance (2025-01-01)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6145,7 +6145,7 @@
         "Editable overlays: “$1,000 FOR THE FUTURE” — Editable notice heading",
         "Source: Eligible US-citizen children born in 2025-2028 can receive a $1000 pilot contribution in a Trump Account. Ordinary distribution…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6175,7 +6175,7 @@
         "Editable overlays: “42 cents per federal agency” — Blank offer sheet header; “EVERYONE GETS THE DEAL” — Blank proposed banner visible in the owner’s hands",
         "Source: GSA and xAI Partner on $0.42 per Agency Agreement to Accelerate Federal AI Adoption (2025-09-25)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6205,7 +6205,7 @@
         "Editable overlays: “A WONDERFUL ROMANTIC SUITE” — Blank proposed review banner",
         "Source: Consumer Reviews and Testimonials Rule: Questions and Answers (2024-10-21)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6235,7 +6235,7 @@
         "Editable overlays: “WASHINGTON APPROVED FIFTY-YEAR LOANS” — Blank proposed banner",
         "Source: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6262,7 +6262,7 @@
         "Scene: An agent holds a comically undersized briefcase beside unsorted blank visitor cards and an empty chair. A thick stack of blank corporate stationery protrudes from a briefcase far too small to close.",
         "Source: Stopping Wall Street from Competing with Main Street Homebuyers (2026-01-20)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6292,7 +6292,7 @@
         "Editable overlays: “2 dollars” — Blank basket price card",
         "Source: Secretary Duffy: July 2025 transportation oversight testimony (2025-07-16)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6319,7 +6319,7 @@
         "Scene: An organizer presents unassembled calendar sheets stretching across tables; the first-aider waits beside an unused chair. A tiny two-room model house faces a sprawling chain of blank calendar pages.",
         "Source: AP reporting on Trump’s proposed 50-year mortgage (2025-11-11)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6347,7 +6347,7 @@
         "Source: NIH Public Access Policy Overview (2025-07-01)",
         "Source: NIH Notice: Accelerated Implementation of 2024 Public Access Policy"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6377,7 +6377,7 @@
         "Editable overlays: “DIRECT FILE” — Editable old kiosk label; “OTHER FILING OPTIONS” — Editable replacement label; “$12: SORT LABELS” — Blank offer card",
         "Source: GAO B-337954: Suspension of IRS Direct File (2026-05-12)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6407,7 +6407,7 @@
         "Editable overlays: “WELCOME” — Editable gold cover; “REQUIREMENTS” — Editable plain leaflet heading",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6437,7 +6437,7 @@
         "Editable overlays: “ALBUQUERQUE RAIL TRAIL” — Editable carton placard",
         "Source: City reported a September 2025 attempt to withdraw 11.5m Rail Trail grant amid car-focused priorities. Attempt, not proof of fi…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6467,7 +6467,7 @@
         "Editable overlays: “GOLD CARD WELCOME” — Editable box label",
         "Source: September 2025 order created an expedited immigrant-visa pathway associated with $1 million individual or $2 million corporate …"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6497,7 +6497,7 @@
         "Editable overlays: “STOP NEW WIND PROJECTS” — Editable banner text",
         "Source: January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. Th…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6527,7 +6527,7 @@
         "Editable overlays: “2425” — Blank end-date card",
         "Source: AP report on the upheld Wisconsin school revenue-limit veto (2025)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6554,7 +6554,7 @@
         "Scene: A seller presents unlabelled demo controls beside untouched food and an empty rest chair. A large plain purchase button dwarfs a tiny recessed confirmation control; both are clearly display props.",
         "Source: FTC Sends $126 Million in Refunds to Fortnite Players Charged for Unwanted Items (2025-06-25)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6581,7 +6581,7 @@
         "Scene: A worker indicates untouched sample pods and blank local collection guides spread across a workbench beside an unused lunch seat. The coffee machine occupies a small corner while the after-use sorting materials cover most of the bench.",
         "Source: SEC Charges Keurig with Inaccurate Statements Regarding K-Cup Recyclability (2024-09-10)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6611,7 +6611,7 @@
         "Editable overlays: “WIND APPROVAL PAUSE” — Editable order heading",
         "Source: January 2025 memorandum paused new or renewed federal approvals, permits, leases and loans for wind projects pending review. Th…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6641,7 +6641,7 @@
         "Editable overlays: “UNRELIABLE ENERGY” — Editable slide heading",
         "Source: July 2025 order directed strict enforcement of the 2025 law’s termination of specified wind and solar tax credits. Unreliable a…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6668,7 +6668,7 @@
         "Scene: A refurbisher presents an unfinished keyboard beside loose unlettered keycaps and a blank ruling summary. Four identical oversized keys sit beside one ordinary spare key in a contrasting color, with no embedded lettering.",
         "Source: Justice Department Wins Significant Remedies Against Google (2025-09-02)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6698,7 +6698,7 @@
         "Editable overlays: “SHOWER FREEDOM” — Editable banner",
         "Source: April 2025 Executive Order 14264 directed rescission of the 2021 showerhead definition; it framed the action as restoring freed…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6728,7 +6728,7 @@
         "Editable overlays: “BACK TO PLASTIC” — Editable promotion heading",
         "Source: February 2025 order directed agencies to end paper-straw procurement and develop a broader strategy. It did not prohibit custom…"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6758,7 +6758,7 @@
         "Editable overlays: “7.50 dollars replacement fee” — Blank notice at bay entrance",
         "Source: Texas DPS: Vehicle Safety Inspection Changes Take Effect January 2025 (undated)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6786,7 +6786,7 @@
         "Source: Public Law 119-10: Disapproval of CFPB Overdraft Lending Rule (2025-05-09)",
         "Source: CFPB: Closes Overdraft Loophole"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6816,7 +6816,7 @@
         "Editable overlays: “ONE NEW RULE: TEN OUT” — Blank management notice; “$16: SORT LINEN LABELS” — Blank offer card",
         "Source: Executive order: Unleashing Prosperity Through Deregulation (2025-01-31)"
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "visual_gag_component_required",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
@@ -6849,7 +6849,7 @@
         "Town conversations",
         "132 draft packages. Images have no embedded text; wording listed as an overlay is rendered separately."
       ],
-      "asset_decision": "source_staging_unresolved",
+      "asset_decision": "shared_context_candidate_unselected",
       "new_generation_authorized": false,
       "image_review": {
         "file": "review/recovery/scene-cell-review.json",
