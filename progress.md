@@ -530,3 +530,7 @@ September 14 — standing crew transparency repair:
 - Build a1859fcb7dec6e3b6836,142 offline assets. New browser matrix covers all12 ads×20languages on1440px desktop and320px phone: exact own-locale strings, headline font>=12px/fit, no horizontal overflow, accessible complete copy for every language, and Tamil offline reload. Both tests pass; Tamil desktop/mobile captures visually inspected.
 - First matrix correctly failed its coverage assertion (only2uniqueads) because import derives region from route, ignoring an isolated region fixture override. Corrected fixture uses authoritative route ID and mileage, asserts the resulting region, and now reaches all12. No production change was needed for that test failure.
 - No new image calls, simulation changes or Hearing changes. Four of13generation attempts consumed. Remaining content/scene integration, other locale gaps, held art review and full acceptance continue.
+
+### Briefing clock alignment — 2026-09-21
+- Roadside briefing art now follows the shared lighting profile: regional daytime art through afternoon/dusk, baked night setting only during night (21:00–05:59). Previously switched at 17:00. No generation or mechanics changes.
+- Updated hourly regression covers all 24 hours; focused native test passed. git diff --check passed. Composed browser review remains outstanding; this is not full feature acceptance.

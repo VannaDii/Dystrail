@@ -51,7 +51,7 @@ pub(super) fn encounter_setting(
     if let Some(cell) = interior {
         return Some(("encounter-settings-v3", 3, 2, cell));
     }
-    if name == "enc-rest-area" || (name == "enc-night-briefing" && (6..17).contains(&hour)) {
+    if name == "enc-rest-area" || (name == "enc-night-briefing" && super::lighting::profile(hour) != "night") {
         return Some(match region {
             Some(Region::Southwest) => ("western-settings-v1", 2, 3, 4),
             Some(Region::MountainWest) => ("western-settings-v1", 2, 3, 5),
@@ -176,7 +176,7 @@ mod tests {
     #[test]
     fn roadside_briefing_stays_outdoors_through_day_and_night() {
         for hour in 0..24 {
-            let expected = if (6..17).contains(&hour) {
+            let expected = if (6..21).contains(&hour) {
                 ("journey-settings-v1", 2, 3, 5)
             } else {
                 ("encounter-settings-v2", 3, 4, 11)
