@@ -18625,7 +18625,7 @@
       ]
     },
     "workshop": {
-      "path": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f465d38d-fcb8-4870-84b7-145f71916622.png",
+      "path": "dystrail-web/static/img/journey/encounter-settings-v2.png",
       "canvas": [
         1536,
         1024
@@ -18638,7 +18638,7 @@
       ]
     },
     "community": {
-      "path": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-f465d38d-fcb8-4870-84b7-145f71916622.png",
+      "path": "dystrail-web/static/img/journey/encounter-settings-v2.png",
       "canvas": [
         1536,
         1024
@@ -18704,5 +18704,12 @@
     ],
     "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate.",
     "approval_source": "User: The production package is approved (2026-09-21)"
+  },
+  "shared_atlas_checkpoint": {
+    "build": "f26020f7d8e2099037a5",
+    "atlas": "encounter-settings-v2",
+    "sha256": "f68bceb4a4644feff2823bc903fe32e12e0f7f2e09c28c0d8bd290fa4f12837c",
+    "source": "exec-f465d38d-fcb8-4870-84b7-145f71916622.png",
+    "validation": "Inspected all12 retained cells; no visible religious symbols. Desktop/mobile browser checks cover11 reachable runtime cells and exact offline bytes; clinic phone and civic-street desktop captures inspected. No claim that all game assets have passed the final symbol/scene audit."
   }
 }
