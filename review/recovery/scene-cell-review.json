@@ -17366,7 +17366,9 @@
             "essential_action": "Decorated empty new-mother parking space faces the closed former maternity entrance; no patient or denial of treatment depicted.",
             "source_direction_reference": "ENC-D09-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Empty reserved bay and closed entrance are present, but adults are roughly350px tall rather than the approved224px outdoor scale and dominate the scene. Do not bind without user review; no retry."
           },
           {
             "unit": "ENC-D12-C",
@@ -17381,7 +17383,9 @@
             "essential_action": "Fan disperses demonstration glitter beyond a small dustpan at a repair kiosk; use fictional blank data cues.",
             "source_direction_reference": "ENC-D12-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Fan scatters glitter well beyond a small dustpan; customer and technician are distinct external adults. Counter has natural occlusion. Review close foreground crop, live notice and phone composition before acceptance."
           },
           {
             "unit": "ENC-D13-A",
@@ -17396,7 +17400,9 @@
             "essential_action": "Promoter shrinks dots on a fabricated abstract map while privacy remains visibly unresolved; never map real clinic visitors.",
             "source_direction_reference": "ENC-D13-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "candidate_for_rendered_review",
+            "review_finding": "Paired fictional diagrams retain positions while dots shrink; waitress indicates empty civic/clinic facade. No real visitor data. Review sign placement and foreground counter crop before acceptance."
           },
           {
             "unit": "ENC-S03-B",
@@ -17411,12 +17417,25 @@
             "essential_action": "Prestigious cushion held above safe disassembled chair parts, with intact seats elsewhere; nobody sits on the broken display.",
             "source_direction_reference": "ENC-S03-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Four detached legs, seat, intact background chairs and cushion are present, but scientist holds cushion beside rather than directly above seat, weakening the unsupported-chair demonstration. No retry."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "attempt_status": "completed_single_attempt",
+        "generation_prompt": "Create ONE production-ready game-art atlas, exactly 1536 x 1024 pixels, fully opaque. Four independent rectangular scenes in a precise 2 by 2 grid, each 768 x 512. No gutters, frames, titles, labels, captions, UI, black strips or empty borders. Each scene fills its entire cell with continuous illustrated scenery. No scenery crosses a cell boundary.\n\nART STANDARD: genuine crisp pixel art, as if each panel is drawn at 192 x 128 logical pixels then enlarged exactly 4x. Visible square pixel clusters, clean stepped contours, restrained palette, 3-4 flat shade steps. NOT photography, realistic painting, airbrush, gradients, smooth vector illustration or fine grain. Consistent warm comic-adventure game style. Believable adult anatomy, furniture scale and perspective. Human heads about one seventh of full height. Cast only external local adults, feminine or gender-neutral, racially diverse. No player crew, no traveler hands, no vehicle or miniature van. No religious symbols of any kind anywhere: no crosses, medical crosses, devotional jewelry, religious buildings or insignia. All paper, signs, cards and screen headings must be completely blank for live text later. Abstract diagrams/dots are allowed, letters and words are not.\n\nCOMPOSITION RULES within every 768x512 cell: essential objects stay at least16px from edges. Lower-left x24..520,y424..488 stays visually quiet but is CONTINUOUS SCENERY, never a painted caption box or band. Keep all important actions above y416. Camera level, no wide-angle distortion. Maintain shared object scale; never a giant person beside tiny furniture.\n\nTOP LEFT — decorated empty parking space outside former maternity entrance. Level medium-wide outdoor camera; horizon y208. An ordinary unmarked civic hospital building, no emblems. Closed double doors with blank rectangular notice behind a clearly visible EMPTY reserved parking bay decorated with ribbons. One commissioner, a dark-skinned feminine adult in modest blazer, stands at right, full body approximately224px tall, feet y416. She holds a ceremonial ribbon across the empty bay, not across a patient. A gender-neutral East Asian volunteer nearby holds a simple broad service map without any real locations. A blank parking placard stands beside the bay. Both adults at the same ground depth, same realistic scale. No patient, pregnant visitor or denial-of-care incident. The joke is elaborate celebration of an empty parking bay facing a closed service entrance. Ground continues naturally to bottom edge.\n\nTOP RIGHT — phone-repair kiosk glitter demonstration. Eye-level three-quarter view across counter, vanishing point about384,160. Counter front begins y352, countertop contact plane y320. A gender-neutral South Asian technician stands behind right side, natural scale, upper head aroundy80; counter naturally hides lower torso. At center-left an ordinary small desk FAN visibly blows loose glitter in a widening trail far past a TINY DUSTPAN held by a separate feminine Black adult customer at far left. Glitter clearly streams from fan into air across the counter; dustpan cannot catch most of it. Technician gestures to the escaping glitter. A modest phone undergoing repair lies on the counter; blank small public notice on rear wall and blank route map sheet, no real personal data. All objects ordinary scale compared with hands and adults. Natural dark wood counter front continues to bottom edge; absolutely no black caption band.\n\nBOTTOM LEFT — shrinking dots does not solve privacy. Same level three-quarter counter camera, vanishing point384,160; countertop y320, front fromy352. A feminine Latina waitress stands at left indicating an ordinary clinic facade visible through a cafe window, no symbol, no visitors or identities shown. A gender-neutral East Asian promoter at right holds a fabricated abstract diagram board above the counter. On the board, two simple schematic panels depict the SAME three imaginary square blocks and SAME curved abstract line. One panel has large colored dots; the other has tiny dots at exactly the same relative positions. The promoter proudly points at the tiny dots. This is a fictional graphic demonstration, NOT a real geographic map and no clinic visitors tracked. Blank heading area on the board, blank public notice on wall, blank direction sign outside. Ordinary paper board and adult proportions, no oversized head or giant arm. Cafe counter front continues naturally to bottom.\n\nBOTTOM RIGHT — unsupported discovery cushion. Level three-quarter research teach-in room, vanishing point384,160, floor contact y416. An older feminine Black scientist at right is296px tall with feet y416; a background door344px tall at matching depth. She holds an ordinary attractive cushion with both hands at waist height DIRECTLY ABOVE a safely disassembled chair seat at center. All four detached chair legs lie visibly beside the seat on the floor. The cushion has no support underneath and nobody sits on anything broken. A small blank display card sits beside the cushion display. Intact plain chairs stand elsewhere in the room, correct chair-to-adult scale. No lab emblems, crosses or hazard theatrics. Empty left foreground and quiet floor continue to bottom; no player characters. Show the setup before any player choice: no donation box already supporting the cushion.",
+        "generated_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-9f860e34-af6e-4ee8-873e-c9e9bb833ecb.png",
+        "runtime_candidate_path": "dystrail-web/static/img/satire-v2/selected-satire-04.png",
+        "candidate_sha256": "b26f066f03dd0344220ae8473140f3719b640dc56d3cf22d519708c6e7ec9b05",
+        "actual_canvas": [
+          1536,
+          1024
+        ],
+        "runtime_binding": "none_pending_panel_review",
+        "review_note": "Native atlas inspected. Four exact cells, no black caption strips. No religious symbols observed. Pixel clusters are visible, but fine ground texture and perspective/proportion still require composed review; no panel is accepted solely from generation."
       },
       {
         "asset_id": "selected-satire-05",
@@ -18676,7 +18695,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 3,
+    "new_image_attempts_used": 4,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
