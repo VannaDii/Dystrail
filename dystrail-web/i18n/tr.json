@@ -1764,5 +1764,68 @@
     "use_evidence": "Bir kanıt kullanır",
     "bonus_evidence": "Ek kanıt bulunabilir",
     "hours": "{hours} saat"
+  },
+  "road_ad": {
+    "label": "Yol kenarı reklamı",
+    "clean_air": {
+      "headline": "TEMİZ HAVA KULÜBÜ",
+      "copy": "Taze hava. Premium pakette.",
+      "compact": "TEMİZ HAVA"
+    },
+    "public_land": {
+      "headline": "SİZİN KAMU ARAZİLERİNİZ",
+      "copy": "Artık özel tekliflere açık.",
+      "compact": "KAMU ARAZİSİ"
+    },
+    "energy": {
+      "headline": "ENERJİ BAĞIMSIZLIĞI",
+      "copy": "Takviye kabloları ayrı satılır.",
+      "compact": "ENERJİ"
+    },
+    "weather": {
+      "headline": "TAHMİN: İÇİNİZ RAHAT OLSUN",
+      "copy": "Termometreyi işten çıkardık.",
+      "compact": "İYİ HABER"
+    },
+    "water": {
+      "headline": "SU VADELİ İŞLEMLERİ",
+      "copy": "Sizin susuzluğunuz. Bizim portföyümüz.",
+      "compact": "SU TİCARETİ"
+    },
+    "wellness": {
+      "headline": "YAYIMLANMAMIŞ SAĞLIK",
+      "copy": "Kanıtlar gizemi bozardı.",
+      "compact": "SAĞLIK"
+    },
+    "tariffs": {
+      "headline": "YABANCI ÜLKELER ÖDER",
+      "copy": "Kasayla siz ilgilenirsiniz.",
+      "compact": "GÜMRÜK"
+    },
+    "farm": {
+      "headline": "ÇİFTÇİ DESTEĞİ",
+      "copy": "Lütfen bekleyin. Ürününüz önemli.",
+      "compact": "ÇİFTÇİ DESTEĞİ"
+    },
+    "jobs": {
+      "headline": "İŞLER GELİYOR",
+      "copy": "Bu tabelanın kadrosu kalıcı.",
+      "compact": "YAKINDA İŞ"
+    },
+    "repair": {
+      "headline": "TAMİR HAKKI",
+      "copy": "Abonelik gerekir.",
+      "compact": "TAMİR"
+    },
+    "access": {
+      "headline": "HALKA AÇIK GİRİŞ",
+      "copy": "Bağışçı girişimizi sorun.",
+      "compact": "HALKA AÇIK"
+    },
+    "transparency": {
+      "headline": "TAM ŞEFFAFLIK",
+      "copy": "Şimdi opak siyah renkte.",
+      "compact": "AÇIK HESAPLAR"
+    }
   }
 }

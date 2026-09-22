@@ -1764,5 +1764,68 @@
     "use_evidence": "Verbraucht einen Beleg",
     "bonus_evidence": "Kann zusätzliche Belege aufdecken",
     "hours": "{hours} Stunden"
+  },
+  "road_ad": {
+    "label": "Werbung am Straßenrand",
+    "clean_air": {
+      "headline": "KLUB DER SAUBEREN LUFT",
+      "copy": "Frische Luft. Im Premiumtarif.",
+      "compact": "SAUBERE LUFT"
+    },
+    "public_land": {
+      "headline": "EUER ÖFFENTLICHES LAND",
+      "copy": "Private Angebote willkommen.",
+      "compact": "ÖFFENTLICH"
+    },
+    "energy": {
+      "headline": "ENERGIEUNABHÄNGIGKEIT",
+      "copy": "Starthilfekabel separat erhältlich.",
+      "compact": "ENERGIE"
+    },
+    "weather": {
+      "headline": "PROGNOSE: BERUHIGEND",
+      "copy": "Wir haben das Thermometer entlassen.",
+      "compact": "GUTE NEWS"
+    },
+    "water": {
+      "headline": "WASSERTERMINGESCHÄFTE",
+      "copy": "Euer Durst. Unser Portfolio.",
+      "compact": "WASSER"
+    },
+    "wellness": {
+      "headline": "UNVERÖFFENTLICHTES WOHLBEFINDEN",
+      "copy": "Belege würden das Geheimnis verderben.",
+      "compact": "WOHLBEFINDEN"
+    },
+    "tariffs": {
+      "headline": "DAS AUSLAND ZAHLT",
+      "copy": "Ihr übernehmt die Kasse.",
+      "compact": "ZÖLLE"
+    },
+    "farm": {
+      "headline": "HILFE FÜR HÖFE",
+      "copy": "Bitte warten. Eure Ernte ist uns wichtig.",
+      "compact": "AGRARHILFE"
+    },
+    "jobs": {
+      "headline": "JOBS KOMMEN",
+      "copy": "Das Schild hat eine Dauerstelle.",
+      "compact": "BALD JOBS"
+    },
+    "repair": {
+      "headline": "RECHT AUF REPARATUR",
+      "copy": "Abo erforderlich.",
+      "compact": "REPARATUR"
+    },
+    "access": {
+      "headline": "ÖFFENTLICHER ZUGANG",
+      "copy": "Fragt nach unserem Spendereingang.",
+      "compact": "ZUGANG"
+    },
+    "transparency": {
+      "headline": "TOTALE TRANSPARENZ",
+      "copy": "Jetzt in undurchsichtigem Schwarz.",
+      "compact": "OFFENE AKTEN"
+    }
   }
 }

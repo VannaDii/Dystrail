@@ -1764,5 +1764,68 @@
     "use_evidence": "Nggunakake siji bukti",
     "bonus_evidence": "Bisa nemokake bukti tambahan",
     "hours": "{hours} jam"
+  },
+  "road_ad": {
+    "label": "Iklan pinggir dalan",
+    "clean_air": {
+      "headline": "KLUB HAWA RESIK",
+      "copy": "Hawa seger. Paket premium.",
+      "compact": "HAWA RESIK"
+    },
+    "public_land": {
+      "headline": "LEMAH UMUM PANJENENGAN",
+      "copy": "Saiki nampa tawaran swasta.",
+      "compact": "LEMAH UMUM"
+    },
+    "energy": {
+      "headline": "ENERGI MANDHIRI",
+      "copy": "Kabel jumper didol dhewe.",
+      "compact": "ENERGI"
+    },
+    "weather": {
+      "headline": "PRAKIRAAN: AJA KUWATIR",
+      "copy": "Termometere wis dipecat.",
+      "compact": "KABAR APIK"
+    },
+    "water": {
+      "headline": "DAGANG KONTRAK BANYU",
+      "copy": "Ngelakmu. Investasi kita.",
+      "compact": "PASAR BANYU"
+    },
+    "wellness": {
+      "headline": "SEHAT DURUNG DITERBITAKE",
+      "copy": "Bukti malah ngrusak misterine.",
+      "compact": "KESEHATAN"
+    },
+    "tariffs": {
+      "headline": "NEGARA LIYA SING MBAYAR",
+      "copy": "Ing kasir, panjenengan sing mbayar.",
+      "compact": "TARIF"
+    },
+    "farm": {
+      "headline": "PITULUNGAN TANI",
+      "copy": "Mangga ngenteni. Panen sampeyan penting.",
+      "compact": "BANTUAN TANI"
+    },
+    "jobs": {
+      "headline": "GAWEAN BAKAL TEKA",
+      "copy": "Papan iki wis nduwe panggonan tetep.",
+      "compact": "GAWEAN ENGGAL"
+    },
+    "repair": {
+      "headline": "HAK NDANDANI",
+      "copy": "Kudu langganan.",
+      "compact": "NDANDANI"
+    },
+    "access": {
+      "headline": "AKSES UMUM",
+      "copy": "Takon lawang mlebu kanggo donatur.",
+      "compact": "DALAN UMUM"
+    },
+    "transparency": {
+      "headline": "KABEH TRANSPARAN",
+      "copy": "Saiki ireng ora tembus pandang.",
+      "compact": "BUKU MBUKAK"
+    }
   }
 }

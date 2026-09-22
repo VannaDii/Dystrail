@@ -1764,5 +1764,68 @@
     "use_evidence": "Menggunakan satu bukti",
     "bonus_evidence": "Mungkin menemukan bukti tambahan",
     "hours": "{hours} jam"
+  },
+  "road_ad": {
+    "label": "Iklan tepi jalan",
+    "clean_air": {
+      "headline": "KLUB UDARA BERSIH",
+      "copy": "Udara segar. Paket premium.",
+      "compact": "UDARA BERSIH"
+    },
+    "public_land": {
+      "headline": "TANAH PUBLIK ANDA",
+      "copy": "Kini menerima tawaran swasta.",
+      "compact": "TANAH PUBLIK"
+    },
+    "energy": {
+      "headline": "KEMANDIRIAN ENERGI",
+      "copy": "Kabel jumper dijual terpisah.",
+      "compact": "ENERGI"
+    },
+    "weather": {
+      "headline": "PRAKIRAAN: TENANG SAJA",
+      "copy": "Termometernya sudah kami pecat.",
+      "compact": "KABAR BAIK"
+    },
+    "water": {
+      "headline": "KONTRAK BERJANGKA AIR",
+      "copy": "Dahaga Anda. Portofolio kami.",
+      "compact": "BURSA AIR"
+    },
+    "wellness": {
+      "headline": "KEBUGARAN BELUM TERBIT",
+      "copy": "Bukti akan merusak misterinya.",
+      "compact": "KEBUGARAN"
+    },
+    "tariffs": {
+      "headline": "NEGARA ASING MEMBAYAR",
+      "copy": "Anda yang urus kasirnya.",
+      "compact": "TARIF"
+    },
+    "farm": {
+      "headline": "BANTUAN TANI",
+      "copy": "Mohon tunggu. Panen Anda penting.",
+      "compact": "BANTUAN TANI"
+    },
+    "jobs": {
+      "headline": "PEKERJAAN SEGERA HADIR",
+      "copy": "Papan ini sudah punya posisi tetap.",
+      "compact": "LOWONGAN SEGERA"
+    },
+    "repair": {
+      "headline": "HAK MEMPERBAIKI",
+      "copy": "Wajib berlangganan.",
+      "compact": "PERBAIKAN"
+    },
+    "access": {
+      "headline": "AKSES PUBLIK",
+      "copy": "Tanyakan pintu masuk khusus donatur.",
+      "compact": "AKSES PUBLIK"
+    },
+    "transparency": {
+      "headline": "TRANSPARANSI TOTAL",
+      "copy": "Kini dalam hitam tak tembus pandang.",
+      "compact": "BUKU TERBUKA"
+    }
   }
 }

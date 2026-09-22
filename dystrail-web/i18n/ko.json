@@ -1764,5 +1764,68 @@
     "use_evidence": "증거 사용",
     "bonus_evidence": "추가 증거를 발견할 수 있음",
     "hours": "{hours}시간"
+  },
+  "road_ad": {
+    "label": "길가 광고",
+    "clean_air": {
+      "headline": "맑은 공기 클럽",
+      "copy": "신선한 공기. 프리미엄 요금제.",
+      "compact": "맑은 공기"
+    },
+    "public_land": {
+      "headline": "여러분의 공공 토지",
+      "copy": "민간 매입 제안을 받습니다.",
+      "compact": "공공 토지"
+    },
+    "energy": {
+      "headline": "에너지 독립",
+      "copy": "점프 케이블은 별도 판매.",
+      "compact": "에너지"
+    },
+    "weather": {
+      "headline": "예보: 안심하세요",
+      "copy": "온도계를 해고했습니다.",
+      "compact": "좋은 소식"
+    },
+    "water": {
+      "headline": "물 선물 거래",
+      "copy": "당신의 갈증. 우리의 자산.",
+      "compact": "물 거래"
+    },
+    "wellness": {
+      "headline": "미발표 건강법",
+      "copy": "증거가 있으면 신비가 깨지니까요.",
+      "compact": "건강법"
+    },
+    "tariffs": {
+      "headline": "외국이 냅니다",
+      "copy": "계산대는 당신 차례.",
+      "compact": "관세"
+    },
+    "farm": {
+      "headline": "농가 지원",
+      "copy": "기다려 주세요. 농작물은 소중합니다.",
+      "compact": "농가 지원"
+    },
+    "jobs": {
+      "headline": "일자리가 옵니다",
+      "copy": "이 간판은 정규직입니다.",
+      "compact": "일자리 곧"
+    },
+    "repair": {
+      "headline": "수리할 권리",
+      "copy": "구독이 필요합니다.",
+      "compact": "수리"
+    },
+    "access": {
+      "headline": "공공 출입구",
+      "copy": "기부자 전용 입구를 문의하세요.",
+      "compact": "공공 출입구"
+    },
+    "transparency": {
+      "headline": "완전한 투명성",
+      "copy": "이제 불투명한 검정으로.",
+      "compact": "장부 공개"
+    }
   }
 }

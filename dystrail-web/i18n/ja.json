@@ -1772,5 +1772,68 @@
     "use_evidence": "証拠を使う",
     "bonus_evidence": "追加の証拠が見つかる可能性",
     "hours": "{hours}時間"
+  },
+  "road_ad": {
+    "label": "道路沿いの広告",
+    "clean_air": {
+      "headline": "きれいな空気クラブ",
+      "copy": "新鮮な空気。プレミアム会員向け。",
+      "compact": "きれいな空気"
+    },
+    "public_land": {
+      "headline": "みんなの公有地",
+      "copy": "民間からの買い取り提案、受付中。",
+      "compact": "みんなの土地"
+    },
+    "energy": {
+      "headline": "エネルギー自立",
+      "copy": "ブースターケーブルは別売り。",
+      "compact": "エネルギー"
+    },
+    "weather": {
+      "headline": "予報：ご安心ください",
+      "copy": "温度計は解雇しました。",
+      "compact": "よい知らせ"
+    },
+    "water": {
+      "headline": "水の先物取引",
+      "copy": "あなたの渇き。私たちの資産。",
+      "compact": "水の取引"
+    },
+    "wellness": {
+      "headline": "未発表の健康法",
+      "copy": "証拠があっては謎が台無し。",
+      "compact": "健康法"
+    },
+    "tariffs": {
+      "headline": "外国が払います",
+      "copy": "レジでの支払いはあなたに。",
+      "compact": "関税"
+    },
+    "farm": {
+      "headline": "農家支援",
+      "copy": "そのままお待ちください。収穫は大切です。",
+      "compact": "農家支援"
+    },
+    "jobs": {
+      "headline": "仕事がやって来る",
+      "copy": "この看板には定職があります。",
+      "compact": "仕事は近日"
+    },
+    "repair": {
+      "headline": "修理する権利",
+      "copy": "定期契約が必要です。",
+      "compact": "修理"
+    },
+    "access": {
+      "headline": "一般の方はこちら",
+      "copy": "寄付者専用入口もございます。",
+      "compact": "一般入口"
+    },
+    "transparency": {
+      "headline": "完全な透明性",
+      "copy": "不透明な黒で新登場。",
+      "compact": "帳簿公開"
+    }
   }
 }

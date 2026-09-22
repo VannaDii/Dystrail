@@ -1771,5 +1771,68 @@
     "use_evidence": "Utilise une preuve",
     "bonus_evidence": "Peut révéler des preuves supplémentaires",
     "hours": "{hours} heures"
+  },
+  "road_ad": {
+    "label": "Publicité routière",
+    "clean_air": {
+      "headline": "CLUB DE L’AIR PUR",
+      "copy": "L’air frais. Formule premium.",
+      "compact": "AIR PUR"
+    },
+    "public_land": {
+      "headline": "VOS TERRES PUBLIQUES",
+      "copy": "Les offres privées sont les bienvenues.",
+      "compact": "TERRES PUBLIQUES"
+    },
+    "energy": {
+      "headline": "INDÉPENDANCE ÉNERGÉTIQUE",
+      "copy": "Câbles de démarrage vendus séparément.",
+      "compact": "ÉNERGIE"
+    },
+    "weather": {
+      "headline": "PRÉVISIONS RASSURANTES",
+      "copy": "Nous avons licencié le thermomètre.",
+      "compact": "BONNES NOUVELLES"
+    },
+    "water": {
+      "headline": "L’EAU À TERME",
+      "copy": "Votre soif. Notre portefeuille.",
+      "compact": "MARCHÉ DE L’EAU"
+    },
+    "wellness": {
+      "headline": "BIEN-ÊTRE NON PUBLIÉ",
+      "copy": "Des preuves gâcheraient le mystère.",
+      "compact": "BIEN-ÊTRE"
+    },
+    "tariffs": {
+      "headline": "L’ÉTRANGER PAIE",
+      "copy": "Vous vous occupez du passage en caisse.",
+      "compact": "DROITS DE DOUANE"
+    },
+    "farm": {
+      "headline": "AIDE AGRICOLE",
+      "copy": "Veuillez patienter. Vos récoltes comptent.",
+      "compact": "AIDE AGRICOLE"
+    },
+    "jobs": {
+      "headline": "LES EMPLOIS ARRIVENT",
+      "copy": "Le panneau a un poste permanent.",
+      "compact": "EMPLOIS BIENTÔT"
+    },
+    "repair": {
+      "headline": "DROIT À LA RÉPARATION",
+      "copy": "Abonnement obligatoire.",
+      "compact": "RÉPARATION"
+    },
+    "access": {
+      "headline": "ACCÈS PUBLIC",
+      "copy": "Demandez notre entrée réservée aux donateurs.",
+      "compact": "ACCÈS PUBLIC"
+    },
+    "transparency": {
+      "headline": "TRANSPARENCE TOTALE",
+      "copy": "Désormais en noir opaque.",
+      "compact": "LIVRES OUVERTS"
+    }
   }
 }

@@ -1771,5 +1771,68 @@
     "use_evidence": "Usa uma prova",
     "bonus_evidence": "Pode revelar provas adicionais",
     "hours": "{hours} horas"
+  },
+  "road_ad": {
+    "label": "Publicidade à beira da estrada",
+    "clean_air": {
+      "headline": "CLUBE DO AR LIMPO",
+      "copy": "Ar fresco. Plano premium.",
+      "compact": "AR LIMPO"
+    },
+    "public_land": {
+      "headline": "SUAS TERRAS PÚBLICAS",
+      "copy": "Agora aceitamos ofertas privadas.",
+      "compact": "TERRAS PÚBLICAS"
+    },
+    "energy": {
+      "headline": "INDEPENDÊNCIA ENERGÉTICA",
+      "copy": "Cabos de partida vendidos separadamente.",
+      "compact": "ENERGIA"
+    },
+    "weather": {
+      "headline": "PREVISÃO: TRANQUILA",
+      "copy": "Demitimos o termômetro.",
+      "compact": "BOAS NOTÍCIAS"
+    },
+    "water": {
+      "headline": "FUTUROS DA ÁGUA",
+      "copy": "Sua sede. Nossa carteira.",
+      "compact": "ÁGUA À VENDA"
+    },
+    "wellness": {
+      "headline": "BEM-ESTAR NÃO PUBLICADO",
+      "copy": "Provas estragariam o mistério.",
+      "compact": "BEM-ESTAR"
+    },
+    "tariffs": {
+      "headline": "O EXTERIOR PAGA",
+      "copy": "Você cuida do caixa.",
+      "compact": "TARIFAS"
+    },
+    "farm": {
+      "headline": "AJUDA AO CAMPO",
+      "copy": "Aguarde. Sua colheita importa.",
+      "compact": "AJUDA RURAL"
+    },
+    "jobs": {
+      "headline": "OS EMPREGOS VÊM AÍ",
+      "copy": "A placa tem emprego permanente.",
+      "compact": "VAGAS EM BREVE"
+    },
+    "repair": {
+      "headline": "DIREITO AO REPARO",
+      "copy": "Assinatura obrigatória.",
+      "compact": "REPARO"
+    },
+    "access": {
+      "headline": "ACESSO PÚBLICO",
+      "copy": "Pergunte pela entrada dos doadores.",
+      "compact": "ACESSO PÚBLICO"
+    },
+    "transparency": {
+      "headline": "TRANSPARÊNCIA TOTAL",
+      "copy": "Agora em preto opaco.",
+      "compact": "CONTAS ABERTAS"
+    }
   }
 }

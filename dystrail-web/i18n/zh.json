@@ -1771,5 +1771,68 @@
     "use_evidence": "使用一份证据",
     "bonus_evidence": "可能发现额外证据",
     "hours": "{hours}小时"
+  },
+  "road_ad": {
+    "label": "路边广告",
+    "clean_air": {
+      "headline": "清新空气俱乐部",
+      "copy": "新鲜空气，尊享会员专享。",
+      "compact": "清新空气"
+    },
+    "public_land": {
+      "headline": "你们的公共土地",
+      "copy": "现接受私人报价。",
+      "compact": "公共土地"
+    },
+    "energy": {
+      "headline": "能源独立",
+      "copy": "搭电线另售。",
+      "compact": "能源独立"
+    },
+    "weather": {
+      "headline": "预报：请放心",
+      "copy": "我们解雇了温度计。",
+      "compact": "好消息"
+    },
+    "water": {
+      "headline": "水资源期货",
+      "copy": "你的口渴，我们的投资组合。",
+      "compact": "水资源交易"
+    },
+    "wellness": {
+      "headline": "未发表的养生研究",
+      "copy": "证据会破坏神秘感。",
+      "compact": "养生"
+    },
+    "tariffs": {
+      "headline": "外国买单",
+      "copy": "结账交给你。",
+      "compact": "关税"
+    },
+    "farm": {
+      "headline": "农业援助",
+      "copy": "请稍候，您的庄稼很重要。",
+      "compact": "农业援助"
+    },
+    "jobs": {
+      "headline": "工作岗位即将到来",
+      "copy": "这块广告牌已经有固定岗位了。",
+      "compact": "岗位将至"
+    },
+    "repair": {
+      "headline": "维修权",
+      "copy": "须先订阅。",
+      "compact": "维修"
+    },
+    "access": {
+      "headline": "公众通道",
+      "copy": "欢迎咨询捐款人专用入口。",
+      "compact": "公众通道"
+    },
+    "transparency": {
+      "headline": "完全透明",
+      "copy": "现推出不透明黑色款。",
+      "compact": "账目公开"
+    }
   }
 }
