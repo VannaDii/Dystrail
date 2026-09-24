@@ -62,7 +62,10 @@ pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
         "sat_museum_grant" | "sat_receipt_museum" => "enc-museum",
         "sat_corn_bullets" => "enc-farm-office",
         "beltway_briefing" | "sat_name_infrastructure" => "enc-service-counter",
-        _ => return None,
+        _ => {
+            return crate::app::visual_content::runtime_for_unit(id)
+                .and_then(|runtime| asset(runtime, _deep));
+        }
     })
 }
 

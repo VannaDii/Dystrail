@@ -1731,6 +1731,1680 @@
       "desc": "The crew can take a day off the road. You silence the phones before another headline about the cabinet’s Signal chats. Let someone else accidentally run the Pentagon.",
       "choice_0": "Rest and mute the phones",
       "log_0": "The crew rests. No airstrike plans are found in the sandwich order. A quiet diplomatic success."
+    },
+    "ENC-C09-A": {
+      "name": "Delivered, according to the calendar",
+      "desc": "USPS changed delivery targets in 2025: some faster, some slower. At a picnic beside the post office, a retired carrier offers his new guide and some food for hauling display boards. His birthday card says “Sorry I’m late” in pencil. He’s waiting for the target to decide.",
+      "choice_0": "Record the carrier’s guide",
+      "log_0": "You save the guide with the USPS announcement. He erases “late” from the card. The envelope hasn’t moved, but its performance has improved.",
+      "choice_1": "Haul the boards for some food",
+      "log_1": "You earn some food and a sore shoulder. He calls it same-day delivery. You ask him not to tell management what they can get for a sandwich.",
+      "choice_2": "Listen to the carrier’s tour",
+      "log_2": "He walks you through the changed targets. Then he opens the card: “Happy birthday, approximately.” You laugh hard enough to need the picnic bench."
+    },
+    "ENC-C09-B": {
+      "name": "Still employed by the tower",
+      "desc": "Transportation Secretary Duffy told Congress in July 2025 that parts of air-traffic infrastructure still used floppy disks. At an electronics recycler, a worker offers food for hauling stock. He nearly recycled one of those disks. Apparently it still has a federal day job.",
+      "choice_0": "Record what the testimony actually said",
+      "log_0": "You record the limited infrastructure claim and earn trust. The worker keeps one obsolete disk out of the box marked by age alone.",
+      "choice_1": "Haul the stock for some food",
+      "log_1": "You earn food and sore muscles. Yesterday’s home-computer junk travels across the yard with more ceremony than it expected.",
+      "choice_2": "Hear the recycler’s sales pitch",
+      "log_2": "His pitch cheers you up: vintage storage, mature technology, references available from Congress. He almost sounds like a procurement brochure."
+    },
+    "ENC-C09-C": {
+      "name": "Messages for the public",
+      "desc": "A library’s public security demonstration follows the Trump officials’ Signal leak. They invite your stopped crew to record it, or shift cabinets for some food. The librarian has placed the public-comment box inside a safe. “We can’t get anything into their chat.”",
+      "choice_0": "Record the security demonstration",
+      "log_0": "You record the demonstration accurately. The librarian opens the safe for a comment about potholes. It needs more steps than joining that chat.",
+      "choice_1": "Shift cabinets for some food",
+      "log_1": "You move cabinets until your back aches and collect some food. Public opinion is now secure against anyone attempting to hear it.",
+      "choice_2": "Watch the comment-box demonstration",
+      "log_2": "You laugh when the librarian tries feeding the safe a postcard. It accepts national-security concerns but jams on a missing bus shelter."
+    },
+    "ENC-C10-A": {
+      "name": "Customers sold separately",
+      "desc": "The FTC’s rule bars fabricated consumer reviews. A café’s opening party has a practical problem: its marketing contractor invented the delighted diners, then ordered chairs for them. The owner asks you to record the mismatch or help move the furniture. The reviews require less seating.",
+      "choice_0": "Record the empty-seat comparison",
+      "log_0": "You record what you actually see and earn trust. The invented diners remain enthusiastic, punctual, and remarkably easy to interview simultaneously.",
+      "choice_1": "Help push the chair trolley outside",
+      "log_1": "You strain your muscles and enjoy the ridiculous procession. A whole crowd of imaginary customers leaves without anyone needing a doggy bag."
+    },
+    "ENC-C10-B": {
+      "name": "The shrinking bed",
+      "desc": "Nurses at a roadside fundraiser demonstrate the 2025 law’s projected Medicaid cuts with an adjustable display bed. They ask your crew to add testimony or move it. A volunteer shortens the mattress while keeping the pillow labelled “patient choice” impressively plump.",
+      "choice_0": "Add testimony to the nurses’ record",
+      "log_0": "You add your experience to the nurses’ record. The volunteer asks whether you prefer your feet or head outside the model’s coverage.",
+      "choice_1": "Help move the demonstration bed",
+      "log_1": "You haul the bed until your arms ache. Everyone laughs when the pillow slides off. Patient choice has left the building first."
+    },
+    "ENC-C10-C": {
+      "name": "Please declare your aircraft",
+      "desc": "Workers protesting their employer’s no-tip rule have built a cardboard jet after the Pentagon accepted Qatar’s plane. They flag your crew down for testimony or a hand pushing it. The wings are made from rejected gift declarations. One used to be about a biscuit.",
+      "choice_0": "Record the workers’ account",
+      "log_0": "You record the employer’s rule and the workers’ account. The biscuit declaration includes its approximate value. Nobody has filled in cruising altitude.",
+      "choice_1": "Help push the cardboard jet",
+      "log_1": "You push until your shoulder aches and the crowd cheers. A tip jar rolls down the runway in business class."
+    },
+    "ENC-C11-A": {
+      "name": "The cost of the plug",
+      "desc": "Your crew stops at a public briefing on the Trump administration’s proposed NIH overhead cap. A researcher has brought itemized costs, chairs, and an unplugged freezer to explain what “overhead” pays for. The demonstration ice is providing a floor-level impact assessment.",
+      "choice_0": "Check the cost breakdown",
+      "log_0": "You verify the figures with a headache. The researcher adds electricity to the example. The ice has already submitted its objection.",
+      "choice_1": "Sit while the researcher presents",
+      "log_1": "You sit and ease your sore legs. The researcher quietly plugs in a fan. Overhead immediately improves conditions for the taxpayer.",
+      "choice_2": "Save the researcher’s sourced estimate",
+      "log_2": "You save the dated estimate and its proposal status. The researcher sets the papers above the puddle. That shelf is overhead too."
+    },
+    "ENC-C11-B": {
+      "name": "The passport objection",
+      "desc": "At an airport print kiosk, an attendant’s demonstration distinguishes REAL ID from other acceptable identification. TSA’s $45 ConfirmID option is for travelers lacking acceptable ID, not everyone without REAL ID. A passport keeps interrupting the expensive version of the story.",
+      "choice_0": "Check the demonstration’s examples",
+      "log_0": "You check the examples through tired eyes and earn trust. The passport succeeds without being promoted into a state driver’s license.",
+      "choice_1": "Sit through the short demonstration",
+      "log_1": "You sit and recover while the attendant explains accepted IDs. The chair conducts no additional verification of its occupant.",
+      "choice_2": "Save the accepted-ID distinction",
+      "log_2": "You save the official distinction accurately. The attendant sets the passport beside the fee notice, giving the expensive misunderstanding a proper rival."
+    },
+    "ENC-C11-C": {
+      "name": "Plug in your refund",
+      "desc": "The IRS is phasing out paper refund checks under Trump’s order, with limited exceptions. At a diner, a cook compares payment leaflets beside a phone charging from the last socket. “My refund used to arrive with its own power supply. None.” She offers you the other chair.",
+      "choice_0": "Check the changed payment instructions",
+      "log_0": "You check the instructions until your head hurts. Her bank details are correct. Finding her federal refund still requires borrowing electricity from the pie warmer.",
+      "choice_1": "Sit while she compares the leaflets",
+      "log_1": "You sit and rest your legs while her phone charges. She checks the plug twice. Her federal refund has become a small appliance.",
+      "choice_2": "Save the order and useful locations",
+      "log_2": "You save the order, exceptions and nearby help locations. She adds the diner’s socket to the map. Apparently this is a Treasury branch now."
+    },
+    "ENC-C12-A": {
+      "name": "Additional greatness",
+      "desc": "Trump said he got Coca-Cola to use cane sugar. The company announced an additional option, keeping its existing lineup. At a roadside cafe, the owner declares the whole soda shelf presidentially reformulated. His clerk points to the old bottles. They appear to have missed the inauguration.",
+      "choice_0": "Challenge the claim with the announcement",
+      "log_0": "You read “additional” from the company announcement until your head aches. The owner moves a new bottle in front of an old one. Reform complete.",
+      "choice_1": "Repeat the owner’s reassuring version",
+      "log_1": "You repeat the claim and stop arguing. The clerk reads the old bottle’s corn-syrup ingredient. Apparently the original recipe didn’t receive the presidential memo.",
+      "choice_2": "Rest outside during the debate",
+      "log_2": "You rest outside and enjoy the quiet. Through the window, the owner poses with one new bottle blocking the shelf. National reform has a very precise camera angle."
+    },
+    "ENC-C12-B": {
+      "name": "Serving suggestion",
+      "desc": "The FCC made broadband companies display prices, speeds, and data allowances. At a truck-stop Wi-Fi desk, an attendant puts the provider’s label beside a coffee tin and invites your comparison. Both list contents. Only one currently delivers a hot product.",
+      "choice_0": "Compare the terms with the attendant",
+      "log_0": "You untangle the introductory rate and earn trust, mentally tired. The cheap price has a shorter shelf life than the coffee.",
+      "choice_1": "Agree the label guarantees fast service",
+      "log_1": "The simple answer comforts you but costs credibility. The attendant points out that listing speed does not manufacture it.",
+      "choice_2": "Rest by the quiet coatroom",
+      "log_2": "You rest and feel better. The coatroom supplies exactly the silence advertised, with no introductory period."
+    },
+    "ENC-C12-C": {
+      "name": "Total, plus the rest",
+      "desc": "The FTC now requires mandatory lodging fees in the upfront price. At a roadside motel, the owner shows you his “honest” quote: $79 for the room, plus a mandatory $40 service charge. He has made the word honest enormous. The total is still hiding.",
+      "choice_0": "Explain the quote to the lobby",
+      "log_0": "You explain that the required upfront total is $119. Your head aches. The owner asks whether the FTC will accept $79 in a more sincere font.",
+      "choice_1": "Repeat that the room is only $79",
+      "log_1": "You praise the price and stop arguing. He announces that an independent traveler has verified it. Your endorsement is the first thing he hasn’t charged extra for.",
+      "choice_2": "Rest in the van",
+      "log_2": "You rest in the van. It has no resort fee. It apologizes for the missing resort."
+    },
+    "ENC-C13-A": {
+      "name": "Airport-ready feet",
+      "desc": "TSA ended routine shoes-off screening in July 2025. At a roadside shoe shop, a cobbler is labeling every pair “Airport Ready.” He offers $8 to check the size tags, or the announcement to read. His entire stock has achieved federal reform without moving a sole.",
+      "choice_0": "Hear the cobbler’s comparison",
+      "log_0": "He compares the old routine with the announcement. You learn the change and laugh. Washington has finally approved keeping the shoe around the foot.",
+      "choice_1": "Use your paper; record the change",
+      "log_1": "You use some paper to record the rule and its screening exceptions. No special shoe is required. You underline that before the cobbler invents a surcharge.",
+      "choice_2": "Check the labels for $8",
+      "log_2": "You check the sizes, settle the labels and collect $8. The cobbler unveils his airport-ready slippers. Their security upgrade appears to be remaining slippers."
+    },
+    "ENC-C13-B": {
+      "name": "A very exclusive lunch",
+      "desc": "After Trump’s Signal scandal, a catering depot offers your crew $8 to check a practice delivery list. The depot is holding a public demonstration of its new recipient checks. The boss has three forms for a sandwich. A defence secretary apparently needed fewer.",
+      "choice_0": "Hear the delivery demonstration",
+      "log_0": "You learn the checking process, laughing when the dispatcher verifies the pickle’s recipient. Nobody can accuse lunch of operating without oversight.",
+      "choice_1": "Use your paper; record the checks",
+      "log_1": "You spend some supplies recording the demonstration. Every sandwich reaches its intended recipient. The dispatcher is available for national emergencies after lunch.",
+      "choice_2": "Check the practice list for $8",
+      "log_2": "You earn $8 and clear up the list. The unknown recipient is removed before receiving anything more explosive than mustard."
+    },
+    "ENC-C13-C": {
+      "name": "A larger territory than the bread",
+      "desc": "The FTC dropped its appeals defending a nationwide noncompete rule. At a bakery, a clerk compares the boss’s proposed job restriction with the delivery map and offers $8 to check address markers. The bread travels a modest distance. The boss’s ambitions for former workers go farther.",
+      "choice_0": "Hear how the proposed restriction works",
+      "log_0": "You learn the distinction and enjoy the clerk’s comparison. The bakery’s market area is apparently smaller than its desired authority over people.",
+      "choice_1": "Use your paper; document the two maps",
+      "log_1": "You record the proposed restriction and surviving legal limits accurately. The clerk keeps the delivery route separate from the boss’s territorial aspirations.",
+      "choice_2": "Check the address markers for $8",
+      "log_2": "You earn $8 and enjoy sorting out the map. The bread’s route becomes clear without inventing a legal claim over everyone nearby."
+    },
+    "ENC-C14-A": {
+      "name": "Break-room government",
+      "desc": "Your hot, aching crew stops beside a travelling roofers’ protest against Florida’s ban on local heat mandates. Volunteers have shade and towels but need water. Their display shows a politician praising freedom from regulation beneath an umbrella held by somebody else.",
+      "choice_0": "Use some water; cool down",
+      "log_0": "You use some water and recover in the shade. The volunteer wrings out a towel. Individual responsibility has soaked the bucket.",
+      "choice_1": "Record the roofers’ account",
+      "log_1": "You record the Florida rule and the roofers’ account. The display’s politician has a permanent parasol; everyone else has a shift rota.",
+      "choice_2": "Leave some water for workers",
+      "log_2": "You leave some water for the workers. A roofer pours it into the cooler without first checking whether the county approved compassion."
+    },
+    "ENC-C14-B": {
+      "name": "Count the fingers",
+      "desc": "A volunteer first-aider from Nebraska tends a roadside repair fair. Her state’s paid-sick-time mandate starts at eleven employees; her garage has ten. She offers basic care using your supplies. The boss likes a workforce he can count without taking off a shoe.",
+      "choice_0": "Use your supplies for basic first aid",
+      "log_0": "You provide supplies and recover. The first-aider treats your ache without asking whether enough coworkers are standing beside you.",
+      "choice_1": "Ask about the workplace threshold",
+      "log_1": "You record the state threshold accurately. The first-aider counts ten coworkers on her fingers, then points at the conspicuously missing eleventh.",
+      "choice_2": "Leave supplies at the first-aid table",
+      "log_2": "You leave some supplies. She adds them to the kit without demanding that the kit first acquire a larger workforce."
+    },
+    "ENC-C14-C": {
+      "name": "The reverse button",
+      "desc": "At a game café, an attendant reads the FTC’s 2025 Fortnite refund announcement for unwanted purchases. She offers your tired crew a quiet booth and accepts refreshment donations. Buying the costume took one button; undoing it required Washington.",
+      "choice_0": "Use your food; take a proper break",
+      "log_0": "You eat and recover in the booth. The attendant points out that resting still works without buying a decorative chair.",
+      "choice_1": "Record what the refunds cover",
+      "log_1": "You record the unwanted-purchase case accurately. The attendant approves: imaginary armor should at least require real permission to buy.",
+      "choice_2": "Leave some food for the break table",
+      "log_2": "You leave some food. The attendant keeps it beside the controllers, where taking a biscuit requires a deliberate human movement."
+    },
+    "ENC-C15-A": {
+      "name": "Bread without a secretary",
+      "desc": "At a roadside food swap, a baker explains California’s ban on consumer-facing sell-by dates for covered new products. She offers fresh bread and welcomes shared lunch. Her old labels advised the store manager. The person buying the food was expected to overhear.",
+      "choice_0": "Record the date-wording distinction",
+      "log_0": "You record which dates concern quality and which concern safety. The baker retires a label that spent its whole career talking to management.",
+      "choice_1": "Take some fresh food for the road",
+      "log_1": "You accept the fresh food. For once, its information is intended for the person who will actually eat it.",
+      "choice_2": "Share some food; join the lunch",
+      "log_2": "You share food and enjoy lunch. The baker turns the old store-facing label around so it can finally join a conversation with customers."
+    },
+    "ENC-C15-B": {
+      "name": "Multiple-choice patriotism",
+      "desc": "A PTA picnic is discussing a local board’s response to Trump’s anti-indoctrination order. Parents welcome your crew and your D.C. story. The board’s sample history quiz gives four answers: proud, very proud, extremely proud, and see the principal.",
+      "choice_0": "Record the parents’ objections",
+      "log_0": "You record the parents’ examples and laugh at the quiz. A history teacher writes the date in the margin. It wasn’t an option.",
+      "choice_1": "Accept some food for the road",
+      "log_1": "You take some food. The volunteer asks whether you enjoyed it. For the first time today, “could use salt” is an acceptable answer.",
+      "choice_2": "Share some food with the parents",
+      "log_2": "You share some food and join the table. Someone quizzes the potato salad on national greatness. It declines to commit without a spoon."
+    },
+    "ENC-C15-C": {
+      "name": "Food for the footnotes",
+      "desc": "A library supper is checking the nonexistent citations from the first MAHA report. Volunteers welcome your crew’s D.C. account and offer food for the road. The librarian has left empty chairs for the imaginary authors. They’ve shown more restraint at the buffet than anyone.",
+      "choice_0": "Record the checked corrections",
+      "log_0": "You save the corrected account and enjoy the librarian’s presentation. She thanks the absent authors. Their contribution takes exactly as long as expected.",
+      "choice_1": "Take some food for the road",
+      "log_1": "You collect some food. The librarian cancels the imaginary authors’ reservations. At last, the missing research produces something you can use.",
+      "choice_2": "Share some food at the supper",
+      "log_2": "You share some food and join the laughter. Someone sets a place for the peer reviewer. It’s an untouched pair of glasses."
+    },
+    "ENC-C16-A": {
+      "name": "The bin was not consulted",
+      "desc": "After the SEC’s Keurig recyclability case, a café worker is checking the claims on old display material before clearing a cupboard. Materials are welcome; hauling boxes earns food. The corporate report approved the pod’s journey. The recycling company had other plans.",
+      "choice_0": "Donate supplies for the cleanup",
+      "log_0": "Your supplies earn the worker’s endorsement. The replacement display leaves room for the inconvenient detail of what local collectors actually accept.",
+      "choice_1": "Haul the boxes for some food",
+      "log_1": "You earn food and sore shoulders. The old sales display reaches its proper destination without relying on the claims printed on it."
+    },
+    "ENC-C16-B": {
+      "name": "A fresh coat of America",
+      "desc": "A boat club following Trump’s Gulf renaming needs supplies or hands to move its new visitor signs. They flag down your van and offer some food for lifting. The volunteer has painted the word “America” over a rust hole. Daylight is still getting through.",
+      "choice_0": "Donate materials for the signs",
+      "log_0": "You donate some supplies; the club records your help. The volunteer patches the hole. America finally stops whistling in the wind.",
+      "choice_1": "Move the signs for some food",
+      "log_1": "You earn some food and aching arms moving the signs. The old name underneath is doing most of the structural work."
+    },
+    "ENC-C16-C": {
+      "name": "Special custody for phones",
+      "desc": "Virginia’s bell-to-bell school-phone guidance has inspired a library supply drive. A volunteer welcomes donated materials or offers food for hauling books before her demonstration. Phones get individual soft pouches. The dictionaries are sharing a wheelbarrow with a squeaky wheel.",
+      "choice_0": "Donate materials to the supply drive",
+      "log_0": "Your contribution earns the volunteer’s endorsement. She pads the book cart too, briefly extending the dignity already available to every phone.",
+      "choice_1": "Haul the books for some food",
+      "log_1": "You earn food and sore shoulders. The dictionaries arrive together without individual pouches, somehow retaining all their distracting information."
+    },
+    "ENC-C17-A": {
+      "name": "The bread has appointments",
+      "desc": "A grocer shows you California’s new law separating food quality dates from safety dates. Her picnic table welcomes travelers and donated supplies. A loaf carries three old date phrases. Apparently bread used to need a personal secretary.",
+      "choice_0": "Donate some supplies to the picnic",
+      "log_0": "Your contribution earns a grateful endorsement. The grocer adds a simple description: food, available now, no appointment necessary.",
+      "choice_1": "Rest at the picnic table",
+      "log_1": "You settle into the quiet shade. The loaf may have a complicated schedule; for once, you do not."
+    },
+    "ENC-C17-B": {
+      "name": "A house, actual size",
+      "desc": "Trump ordered limits on federal support for big investors buying single-family homes, with definitions still to come. At a neighborhood open-house picnic, a cleaner offers a quiet seat and accepts food donations. The house is smaller than the bidder’s corporate family.",
+      "choice_0": "Donate some food to the picnic",
+      "log_0": "Your food earns the neighbors’ endorsement. A tray fits through the doorway without requiring anyone to define a large institutional sandwich.",
+      "choice_1": "Sit quietly beside the kitchen",
+      "log_1": "You sit and clear your head. For ten minutes, the kitchen serves a person who has no acquisition strategy."
+    },
+    "ENC-C17-C": {
+      "name": "Already paid to know",
+      "desc": "At a library rest stop, a volunteer opens a newly accessible NIH-funded manuscript. Since July 2025, covered new manuscripts no longer wait through a publication embargo. Supplies help maintain the reading nook. Taxpayers financed the research; the second entrance fee has finally disappeared.",
+      "choice_0": "Donate supplies to the reading nook",
+      "log_0": "Your supplies earn the volunteer’s endorsement. Someone can now read publicly funded work while sitting on a chair supplied by the public.",
+      "choice_1": "Read quietly in the corner",
+      "log_1": "You read and clear your head. The paper opens without asking whether your curiosity has a premium subscription."
+    },
+    "ENC-C18-A": {
+      "name": "The approved stairs",
+      "desc": "Parents invite your crew to a fourth-floor meeting about their board’s response to Trump’s anti-indoctrination order. The lift is broken. The proposed lesson teaches that complaining weakens the nation. The staircase offers several opportunities to test the curriculum.",
+      "choice_0": "Climb up; challenge the lesson",
+      "log_0": "You climb and argue the sourced case, legs and head aching. The board asks for a more positive account of the stairs.",
+      "choice_1": "Walk with parents to their picnic",
+      "log_1": "You take the hilly route, legs sore but spirits lifted. A parent marks the broken lift absent. It receives full credit for patriotism.",
+      "choice_2": "Leave before the meeting",
+      "log_2": "You leave with a quieter head and no testimony to offer. The board’s attendance sheet has discovered another supporter of the current arrangement."
+    },
+    "ENC-C18-B": {
+      "name": "One biscuit, four flights",
+      "desc": "Hotel workers invite your stopped crew to an upstairs meeting about their employer’s ban on guest gifts. They’re comparing a confiscated biscuit with the Pentagon’s Qatari jet. The lift is reserved for management. The biscuit has been allowed to use it as evidence.",
+      "choice_0": "Climb up; record their complaint",
+      "log_0": "You climb and record the gift rule, legs and head aching. The biscuit arrives by lift in a sealed management envelope.",
+      "choice_1": "Walk with workers to their picnic",
+      "log_1": "You hike to the workers’ picnic, sore but laughing. Someone offers you a biscuit. It completes the journey without diplomatic clearance.",
+      "choice_2": "Leave without taking their account",
+      "log_2": "You leave with a quieter head but no worker account. The gift comparison continues upstairs. The biscuit is apparently an excellent witness."
+    },
+    "ENC-C18-C": {
+      "name": "Publicly excluded",
+      "desc": "At a roadside hall, residents invite your crew to a standing-room meeting about officials sharing Yemen strike details in Signal. Public questions must be handwritten, checked, and submitted upstairs. A volunteer has already lost the pencil. It has better access than the audience.",
+      "choice_0": "Wait; submit the checked question",
+      "log_0": "You stand and argue through the procedure, feet and head aching. Your question reaches the table. They announce it needs a second copy.",
+      "choice_1": "Walk with residents around the lake",
+      "log_1": "You walk the long lakeside path, legs sore but spirits lifted. A resident reads the question to a duck. It acknowledges receipt immediately.",
+      "choice_2": "Leave before submitting the question",
+      "log_2": "You leave with a clearer head and no public question recorded. The blank submission tray is praised for its responsible handling of information."
+    },
+    "ENC-D01-A": {
+      "name": "The lunch threat",
+      "desc": "At a diner, a trans driver reads May 2026’s counterterrorism strategy targeting violent groups described as “radically pro-transgender.” On TV, a pundit drops “violent.” The driver closes his lunch cooler. “There goes my weapons inspection.”",
+      "choice_0": "Use paper; save the actual wording",
+      "log_0": "You use some paper to save the wording, head pounding. The driver opens lunch slowly. Apparently mayonnaise now needs witnesses.",
+      "choice_1": "Take the quick TV version",
+      "log_1": "The simple version clears your head and gets the facts wrong. The driver’s lunch has somehow become a summit.",
+      "choice_2": "Say all trans people were designated",
+      "log_2": "He says no: the strategy does not designate all trans people. The pundit has already booked a second expert on sandwiches."
+    },
+    "ENC-D01-B": {
+      "name": "White, rye, or counsel",
+      "desc": "At a Pentagon-adjacent sandwich counter, a reporter shows March 2026’s revised press rules after a court struck parts down. The memo says asking questions isn’t criminal. The cashier asks white or rye. Three people check whether he’s credentialed.",
+      "choice_0": "Use paper; save the actual memo",
+      "log_0": "You use paper to save the memo, head pounding. The cashier repeats the bread options slowly, as though negotiating access to a submarine.",
+      "choice_1": "Accept that the dispute is settled",
+      "log_1": "You relax at the reassurance. The reporter corrects you: revised rules don’t settle every dispute. The sandwich still awaits clearance.",
+      "choice_2": "Say ingredient questions are forbidden",
+      "log_2": "The reporter corrects you: the memo expressly says asking questions isn’t criminal. The cashier courageously reveals the existence of mustard."
+    },
+    "ENC-D01-C": {
+      "name": "Your call is medically important",
+      "desc": "At a diner, an off-duty nurse asks your crew to document her hospital's response to CMS withdrawing emergency-abortion guidance: a legal hotline. She's testing it over breakfast. The waitress brings the phone its own menu. It's been here longer than anyone.",
+      "choice_0": "Use your paper; document the delay",
+      "log_0": "You use some supplies to save the timed account, head aching. The waitress clears breakfast around the phone. It has qualified for lunch.",
+      "choice_1": "Accept the hotline's reassuring greeting",
+      "log_1": "The recorded reassurance settles your head until the nurse explains it approves nothing. The waitress asks whether the recording wants its usual.",
+      "choice_2": "Say federal law requires this hotline",
+      "log_2": "The nurse corrects you: the hospital invented the hotline. The waitress takes back its menu. House guests aren't federal officials."
+    },
+    "ENC-D02-A": {
+      "name": "The house is still at large",
+      "desc": "Outside a courthouse, a volunteer asks your crew to help carry returned belongings. Her client was arrested after a miscarriage; the charges were dropped. Police kept the woman's house keys as evidence. Apparently her front door was an accessory.",
+      "choice_0": "Use some water; rest in shade",
+      "log_0": "You drink some water and recover in the shade. The volunteer checks the returned keys. The house is still at large.",
+      "choice_1": "Help carry the returned-property box",
+      "log_1": "You scrape your arms carrying the box. The volunteer checks its contents twice. An apology wasn't among the items police returned.",
+      "choice_2": "Share water; record the property delay",
+      "log_2": "You share some water and record the arrest, dismissal and property delay. The volunteer turns the key. The door declines to resist release."
+    },
+    "ENC-D02-B": {
+      "name": "The roof remains eligible",
+      "desc": "A school gym’s equipment sale draws you inside. The coach explains Trump’s sports order uses federal funding to exclude trans girls from girls’ teams. A leak drips onto the basketballs. Washington located the girl. Nobody located a roofer.",
+      "choice_0": "Use food and water; take a break",
+      "log_0": "You use some food and water for a break, recovering. The coach moves a bucket. The roof remains eligible for every team.",
+      "choice_1": "Shift equipment away from the leak",
+      "log_1": "You strain yourself shifting equipment out of the leak. The coach adds another bucket. It passes eligibility without a hearing.",
+      "choice_2": "Supply the coach’s public notice",
+      "log_2": "You give paper and tape for a notice quoting the actual order. Above it, the leak continues its undefeated season."
+    },
+    "ENC-D02-C": {
+      "name": "An active workplace",
+      "desc": "At a nursing-home rummage sale, an aide points to federal staffing minimums repealed in February 2026. Older requirements remain. The administrator is selling extra chairs. His plan for keeping everybody on their feet is proceeding beautifully.",
+      "choice_0": "Use food and water; rest",
+      "log_0": "You use food and water to rest and recover. The aide sits briefly. The chair demonstrates a suspiciously affordable retention strategy.",
+      "choice_1": "Help move the sale chairs",
+      "log_1": "You strain yourself moving chairs. The administrator calls this proof fewer seats encourage activity. The aide offers him the heaviest one.",
+      "choice_2": "Supply an accurate public notice",
+      "log_2": "You give paper and tape for an accurate notice. The aide adds the older requirements. The administrator’s uncluttered wall becomes less efficient."
+    },
+    "ENC-D03-A": {
+      "name": "Tell the airbags",
+      "desc": "At a rest stop, a trans Kansas driver shows the replacement license the state required. Same driver. Same car. Different sex marker. He asks whether he needs to notify the airbags.",
+      "choice_0": "Use paper; save the law’s scope",
+      "log_0": "You use paper to save the law’s actual scope. He puts the new card away. The camera still remembers who it photographed.",
+      "choice_1": "Share lunch with the driver",
+      "log_1": "You share lunch and laugh. His car unlocks without consulting his birth certificate. Even the door recognizes him.",
+      "choice_2": "Take a quiet bench break",
+      "log_2": "You clear your head on a quiet bench. He adjusts the driver’s seat. It still has the same opinion of his legs."
+    },
+    "ENC-D03-B": {
+      "name": "The toaster has a floor",
+      "desc": "At a thrift store, a visiting disabled worker shows July 2025’s abandoned federal phaseout of subminimum-wage certificates. His employer uses one where state law permits. Here, the donated toaster enjoys a firm minimum price.",
+      "choice_0": "Use paper; save the federal rule",
+      "log_0": "You use paper to save the federal rule. He turns the toaster over. Even secondhand appliances receive a proper valuation.",
+      "choice_1": "Share a full lunch",
+      "log_1": "You share lunch and laugh. He checks the toaster’s warranty. Lasting thirty days apparently earns more confidence than working every weekday.",
+      "choice_2": "Take a quiet break",
+      "log_2": "You take a quiet break. The cashier refuses a lower offer for the toaster. Some labor-saving devices must never be undervalued."
+    },
+    "ENC-D03-C": {
+      "name": "Roadworthy, pending counsel",
+      "desc": "At a motel breakfast, adult volunteers review Idaho's restrictions on concealed abortion assistance to unemancipated minors. They ask your crew to record the public facts for D.C. Their car passed its inspection. The route needs a lawyer. The lawyer doesn't do roadside assistance.",
+      "choice_0": "Use your paper; record the limits",
+      "log_0": "You use some supplies to save the minor-specific limits. The driver files the car's clean inspection beside the questions keeping it parked.",
+      "choice_1": "Share food with the planning volunteers",
+      "log_1": "You share some food and enjoy lunch together. The lawyer unrolls the route papers. The driver puts the bread basket on them. Lunch proceeds.",
+      "choice_2": "Read quietly on the motel porch",
+      "log_2": "You clear your head on the porch. The car wears a cheerful roadworthy sticker. Its driver is still inside, qualifying the journey."
+    },
+    "ENC-D04-A": {
+      "name": "Small government, large pants",
+      "desc": "At an outdoor shop, a trans hunting-club treasurer shows you ATF’s proposed birth-sex rule for its forms. The owner wants Washington out of his gun cabinet. He is considerably more flexible about somebody else’s pants.",
+      "choice_0": "Read the actual proposal",
+      "log_0": "You check the proposal’s limits. The owner hides his sales ledger when you glance at it. Certain personal details are sacred.",
+      "choice_1": "Save the public notice",
+      "log_1": "You save the notice, head aching. The owner locks his office. His small-government tour has reached its border.",
+      "choice_2": "Trust the total-ban rumor",
+      "log_2": "The treasurer corrects you: this proposal does not ban all trans gun owners. The owner still pats his cabinet protectively."
+    },
+    "ENC-D04-B": {
+      "name": "Housing, with a lock",
+      "desc": "At a camping shop, an outreach worker reads Trump’s July 2025 order promoting broader civil commitment through legal and funding changes. It isn’t automatic confinement. The display tent has three bedrooms. Her clients keep getting offered plans with locks.",
+      "choice_0": "Read what the order actually directs",
+      "log_0": "You check the order’s limits. The worker measures the display tent. It remains the most detailed housing proposal in the room.",
+      "choice_1": "Save the public order",
+      "log_1": "You save the order, head aching. The salesman demonstrates a zipper from the inside. Choosing when to leave appears to be a feature.",
+      "choice_2": "Call it automatic confinement for everyone",
+      "log_2": "The worker corrects you: legal processes and criteria still matter. The government’s sweeping announcement came with much smaller print."
+    },
+    "ENC-D04-C": {
+      "name": "The purpose of a sandwich",
+      "desc": "A Texas volunteer at a roadside café asks your crew to check SB33: public abortion-travel assistance includes food. The café owner is preparing a city-convention catering bid. He holds up one sandwich. Apparently he needs to know where it plans to go after lunch.",
+      "choice_0": "Check the public-spending limits",
+      "log_0": "You verify the limits. The owner puts the sandwich beside his catering forms. It qualifies for public money by staying vague about its itinerary.",
+      "choice_1": "Save the food-assistance provision",
+      "log_1": "You save the provision, head aching. The owner cuts the sandwich diagonally. It has changed direction without resolving its funding status.",
+      "choice_2": "Post that private food donations are banned",
+      "log_2": "The volunteer corrects you: SB33 targets public assistance. The owner removes your claim from the table before it frightens the bread."
+    },
+    "ENC-D05-A": {
+      "name": "A lifetime warranty",
+      "desc": "A visiting Louisiana nurse asks your crew to time a cabinet lock at a hardware store. State controls now secure misoprostol, also used to stop bleeding. The salesman offers a lifetime warranty. She would settle for getting it open before closing.",
+      "choice_0": "Check the rule and reported delays",
+      "log_0": "You verify the rule and reported delays, head aching. The salesman offers another key. The nurse asks whether it comes with another afternoon.",
+      "choice_1": "Browse the quiet garden aisle",
+      "log_1": "You clear your head by the garden supplies. The salesman demonstrates a watering can. Its contents escape without finding a supervisor.",
+      "choice_2": "Say the medicine is completely banned",
+      "log_2": "The simple story settles your head until she corrects it: valid prescribing remains lawful. The salesman resumes wrestling with the lawful cabinet."
+    },
+    "ENC-D05-B": {
+      "name": "The phone plan stays",
+      "desc": "At a pharmacy café, a parent reads the Medicaid and CHIP youth transition-care exclusions due October 13, 2026. Some existing hormone care gets up to six extra months. Her teenager keeps growing. The phone plan renews automatically.",
+      "choice_0": "Read the dates and funding limits",
+      "log_0": "You check the dates and exceptions, head aching. The phone company has committed to her longer than the benefits department.",
+      "choice_1": "Take a quiet window seat",
+      "log_1": "You clear your head by the window. Her phone renews with a cheerful ping. Apparently continuity is available as an add-on.",
+      "choice_2": "Use the headline; take a break",
+      "log_2": "The short version feels manageable until she corrects it: funding exclusions, not a ban on all care. Your certainty expires first."
+    },
+    "ENC-D05-C": {
+      "name": "Still part of the family",
+      "desc": "A retired municipal worker at a diner shows June 2025’s Supreme Court ruling limiting disabled retirees’ employment-discrimination claims. Other protections remain. His old workplace still calls him family. Benefits would like to know whether he’s currently employed by this family.",
+      "choice_0": "Read the actual employment limits",
+      "log_0": "You read the job-holding limits, head aching. His retirement photograph has room for everybody except the person calculating the benefits.",
+      "choice_1": "Take a quiet break",
+      "log_1": "You take a quiet break. He folds the workplace-family brochure into a coaster. It finally supports something.",
+      "choice_2": "Trust the warm brochure",
+      "log_2": "You trust the warm brochure and relax. He corrects your legal summary. The family reunion has an eligibility date."
+    },
+    "ENC-D06-A": {
+      "name": "The federal wardrobe case",
+      "desc": "At a post office, a woman explains how June 2026’s court order restored her trans sister’s care and clothing in federal prison. She needs a stamp. Her sister needed a federal judge to get dressed.",
+      "choice_0": "Read and save the public ruling",
+      "log_0": "You save the ruling, head aching. Her sister’s care needed a judge. The postage merely wants money.",
+      "choice_1": "Give paper for the public order",
+      "log_1": "You give paper for the public order; her sister’s details stay private. The wardrobe dispute has grown another stack of stationery.",
+      "choice_2": "Take a quiet break outside",
+      "log_2": "You clear your head outside. She seals the envelope. Ordinary glue remains one of the few accommodations requiring no litigation."
+    },
+    "ENC-D06-B": {
+      "name": "A cleaner angle",
+      "desc": "At a hardware counter, a power-plant neighbor reads EPA’s February 2026 repeal of stronger mercury and toxic-metal rules. Older limits survive. The salesman makes a dirty demonstration filter look cleaner by turning it around. Government innovation travels fast.",
+      "choice_0": "Read and save the remaining limits",
+      "log_0": "You save the remaining limits and repealed requirements, head aching. The salesman turns the filter back. The dirt declines to renegotiate.",
+      "choice_1": "Use paper for an accurate notice",
+      "log_1": "You use paper for an accurate notice. The neighbor draws the filter’s dirty side. The salesman calls it an unfair angle.",
+      "choice_2": "Take a quiet break outside",
+      "log_2": "You clear your head outside. Through the window, the same filter is enjoying a second immaculate face."
+    },
+    "ENC-D06-C": {
+      "name": "The complimentary lullaby",
+      "desc": "At a rest stop, an Alabama couple asks your crew to check the embryo ruling and later IVF-clinic immunity law. Their own insurance excludes IVF. The agent on speaker calls children priceless. He has priced everything required to have one.",
+      "choice_0": "Check and save the legal distinction",
+      "log_0": "You save the ruling and immunity limits, head aching. The agent congratulates them on the embryos' status. They ask where to redeem it.",
+      "choice_1": "Use your paper; copy the limits",
+      "log_1": "You use some supplies to copy the limits. They fold the agent's smiling-baby brochure over the exclusions. The baby is sitting on the bill.",
+      "choice_2": "Leave the call for some quiet",
+      "log_2": "You clear your head away from the call. The hold music plays a lullaby. The couple has been receiving it for free."
+    },
+    "ENC-D07-A": {
+      "name": "Rewards for coming back empty",
+      "desc": "A traveler at a rest stop asks your crew to check Arizona's emergency-contraception refusal rule. The pharmacy returned her prescription, as required. It also offered a loyalty card. She holds them side by side. They are building a lasting relationship with the paper.",
+      "choice_0": "Check and save the actual rule",
+      "log_0": "You save the refusal-and-return rule, clearing the confusion. She folds the loyalty card around the prescription. It finally supports contraception.",
+      "choice_1": "Say Arizona banned emergency contraception",
+      "log_1": "She corrects you: the law permits specified refusals. She hasn't come this far to collect another person saying no.",
+      "choice_2": "Use your paper; copy the limits",
+      "log_2": "You use some supplies to copy the limits. She tucks them into the loyalty-card sleeve. The free gift finally contains useful information."
+    },
+    "ENC-D07-B": {
+      "name": "The invisible emergency",
+      "desc": "At a copy shop, a trans mechanic reads Social Security’s June 2026 rule: its sex field can only be changed to reflect sex at birth. It isn’t printed on the card. Washington has discovered his most urgent component: invisible paperwork.",
+      "choice_0": "Save the actual records rule",
+      "log_0": "You save the rule and clear up the confusion. He holds the card to the light. Still no sex field. Tremendous progress.",
+      "choice_1": "Assume the card displays it",
+      "log_1": "He corrects you and covers the personal details. The blank space remains flawless. The federal government has defended it at considerable length.",
+      "choice_2": "Use paper for the public rule",
+      "log_2": "You use your paper for the public rule. He puts it beside the card. The invisible field now requires visible luggage."
+    },
+    "ENC-D07-C": {
+      "name": "The website gets an extension",
+      "desc": "At a library printer, a low-vision resident reads DOJ’s April 2026 extension of government-web accessibility deadlines into 2027 and 2028. Existing access duties remain. Her appointment confirmation is due today. The website has successfully requested an accommodation.",
+      "choice_0": "Save the actual deadlines",
+      "log_0": "You save the deadlines and clear up the confusion. Her appointment still needs confirming. Only the website has been excused from showing up.",
+      "choice_1": "Assume all access duties are suspended",
+      "log_1": "She corrects you: existing access duties remain. The government gave its website more time, not permission to stop being a government.",
+      "choice_2": "Use paper for a large-type copy",
+      "log_2": "You use paper for a large-type public notice. She checks the dates. Enlarging the words proves considerably faster than enlarging the deadline."
+    },
+    "ENC-D08-A": {
+      "name": "Two functioning arms",
+      "desc": "At a pregnancy center's open house, a nurse asks your crew to check its ads against Massachusetts's warnings about misleading centers. The manager offers a 'medical volunteer' badge for carrying a sandwich board. The qualifications are two functioning arms. The center offers no abortion referrals.",
+      "choice_0": "Use your paper; check the services",
+      "log_0": "You use some supplies to check the missing services, head pounding. The manager offers a lab coat. Apparently it covers the gaps.",
+      "choice_1": "Carry the sign; endorse the center",
+      "log_1": "You scrape your shin and relax into the pitch. The nurse corrects your endorsement: no abortion referrals. Your badge doesn't cover that either.",
+      "choice_2": "Leave without checking the claims",
+      "log_2": "You leave with a quieter head and no checked account. The manager hangs your unused badge on the sandwich board. Staffing restored."
+    },
+    "ENC-D08-B": {
+      "name": "Family first, calendar later",
+      "desc": "At a union-hall table sale, a worker shows May 2025’s ruling removing certain abortion accommodations from the federal pregnancy-workplace rule. Medical-treatment exceptions remain. A manager selling “FAMILY FIRST” mugs promises unlimited time off, provided time stops first.",
+      "choice_0": "Use paper; check the actual limits",
+      "log_0": "You save the actual limits using paper, drained. The manager removes the clock batteries. His generous leave policy is nearly operational.",
+      "choice_1": "Trust him; help stack tables",
+      "log_1": "The simple promise clears your head. You strain yourself stacking tables, then learn the manager’s unlimited leave exists only on mugs.",
+      "choice_2": "Skip the details; take a break",
+      "log_2": "You relax, then repeat that every pregnancy protection vanished. The worker corrects you. The mug is still the least complicated witness."
+    },
+    "ENC-D08-C": {
+      "name": "Same water, happier label",
+      "desc": "At a water-filter shop, a utility worker reads EPA’s May 2026 proposals to drop some PFAS limits and extend certain deadlines. Nothing is final. The salesman presents two identical demonstration samples. One has a much more optimistic label.",
+      "choice_0": "Use paper; check the actual proposals",
+      "log_0": "You use paper to save the proposals, drained. The salesman swaps the labels. The samples achieve an immediate regulatory breakthrough.",
+      "choice_1": "Trust him; help carry display boxes",
+      "log_1": "His assurance clears your head. You strain yourself carrying boxes before the worker corrects his claims. The optimism weighs more than advertised.",
+      "choice_2": "Take the headline; take a break",
+      "log_2": "You relax, then describe the proposals as final. The worker corrects you. The salesman has already printed the victory stickers."
+    },
+    "ENC-D09-A": {
+      "name": "Reserved for the return trip",
+      "desc": "Your crew stops at a hospital's public meeting about losing maternity services. A volunteer shows the national maternity-care desert report. The county commissioner unveils reserved parking for new mothers. From those spaces, it's a long drive to somewhere they can become one.",
+      "choice_0": "Check the closure and remaining services",
+      "log_0": "You check the closure and remaining services, head aching. The commissioner measures the parking bay. The route to a delivery ward won't fit.",
+      "choice_1": "Take a quiet look at the garden",
+      "log_1": "You clear your head in the garden. The commissioner tests the parking ribbon again. It is the only local delivery he has scheduled.",
+      "choice_2": "Rest in the van instead",
+      "log_2": "You nap and miss the community account. The commissioner posts his parking photograph, cropped just above the shuttered maternity windows."
+    },
+    "ENC-D09-B": {
+      "name": "The cheaper repair",
+      "desc": "At a phone-repair counter, a youth volunteer revises referral cards: the specialized LGBTQ+ option within 988 closed July 17, 2025; the general line remains. Washington called it ending separate services. The clerk calls removing buttons a cheaper repair.",
+      "choice_0": "Check the agency and operator notices",
+      "log_0": "You check both notices, head aching. The clerk points at a phone missing a button. It also serves everyone equally now.",
+      "choice_1": "Take a quiet break outside",
+      "log_1": "You clear your head outside. The clerk is still waiting to hear how fewer specialists became a larger welcome.",
+      "choice_2": "Skim the headline; nap",
+      "log_2": "You nap, then repeat that 988 closed. The volunteer corrects you. Your shortcut has disconnected the service that remains."
+    },
+    "ENC-D09-C": {
+      "name": "A longer planning horizon",
+      "desc": "At a rest-area picnic table, a Women’s Health Initiative participant shows April 2025’s funding cancellation and May’s reversal. The study continued. She’s kept appointments for decades. Her bagged salad has a longer planning horizon than Washington.",
+      "choice_0": "Read the cancellation and reversal",
+      "log_0": "You check the timeline, head aching. She puts the cancellation under her salad container. It has finally helped preserve something.",
+      "choice_1": "Take a quiet bench break",
+      "log_1": "You clear your head on a quiet bench. She checks next year’s appointment. The salad is the only thing legitimately expiring.",
+      "choice_2": "Skim the cancellation; nap",
+      "log_2": "You nap and repeat that the study closed. She corrects you. Your obituary arrived before her next appointment reminder."
+    },
+    "ENC-D10-A": {
+      "name": "Freedom at whisper volume",
+      "desc": "While you price copies, a trans warehouse worker reads EEOC’s January 2026 decision rescinding harassment guidance. Discrimination law survives. A supervisor asks whether he can say anything now. The clerk switches on the security microphone.",
+      "choice_0": "Use paper; save the agency statement",
+      "log_0": "You use paper to save the agency’s statement. The supervisor lowers his voice. Remarkable how quickly clarification improves working conditions.",
+      "choice_1": "Wait quietly by the door",
+      "log_1": "You wait by the door and clear your head. The supervisor tests a whisper. His new freedom requires very little volume.",
+      "choice_2": "Accept the supervisor’s interpretation",
+      "log_2": "The worker corrects you: the law remains. The supervisor asks if the camera records sound. His confidence needs terms and conditions."
+    },
+    "ENC-D10-B": {
+      "name": "The crayon checkpoint",
+      "desc": "At a school-supply sale, a Head Start volunteer shows the September 2025 injunction stopping Washington’s attempted immigration restrictions on the program. The policy remains unenforced. A box of crayons has survived its promotion to border-control equipment.",
+      "choice_0": "Use paper; save the court notice",
+      "log_0": "You use paper to save the injunction. The volunteer opens the crayon box. Every color got in without a background check.",
+      "choice_1": "Take a quiet break",
+      "log_1": "You clear your head outside. The volunteer returns to sorting crayons. Her original job has survived another attempt to make it something else.",
+      "choice_2": "Trust the headline about new checks",
+      "log_2": "The volunteer corrects you: the injunction blocks the Head Start restriction. The crayons have already returned to their previous profession."
+    },
+    "ENC-D10-C": {
+      "name": "The wrong door needs a lock",
+      "desc": "After reports of police using Flock to follow ex-partners, a hardware shop advertises extra door locks. A customer offers the public investigation report. The salesman recommends another deadbolt. She asks whether it fits a police database.",
+      "choice_0": "Share food; check the public report",
+      "log_0": "You share food and preserve the findings. The shop has seventeen locks for a door and none for authorized curiosity.",
+      "choice_1": "Take a break by the key rack",
+      "log_1": "Your head clears by the key rack. Every ordinary key has teeth; the safeguards in the brochure appear to be decorative.",
+      "choice_2": "Trust the brochure’s safety promise",
+      "log_2": "You endorse the brochure. She turns it over: a warranty for the camera, nothing for the person underneath."
+    },
+    "ENC-D11-A": {
+      "name": "The atlas answers first",
+      "desc": "At a rest stop, a Minnesota legal volunteer offers directions while reading March 2026’s Whipple order requiring private legal calls and transfer safeguards. Her atlas finds every town. Finding a detained client took a federal judge.",
+      "choice_0": "Take her direct highway detour",
+      "log_0": "Her direct route recovers time and clears your head. The atlas locates you without requiring three phone calls and a court order.",
+      "choice_1": "Take her gentler back-road route",
+      "log_1": "The gentler route regains some time and lifts the mood. She waves goodbye. Nobody needs permission to tell you where you are."
+    },
+    "ENC-D11-B": {
+      "name": "Directions, not a statement",
+      "desc": "At a truck-stop counter, a camera promoter calls Texas’s abortion-related Flock search a welfare check. The cashier keeps the released investigation summary beside the road maps. She separates them: one tells you where to go; the other demands an explanation.",
+      "choice_0": "Use the cashier’s direct road map",
+      "log_0": "You follow her public-road directions and make up miles, head clearer. She gets the van moving without asking for a statement.",
+      "choice_1": "Take the slower signed exit",
+      "log_1": "You regain some road, spirits lifted. The cashier declines the promoter’s help finding everybody’s reason for leaving."
+    },
+    "ENC-D11-C": {
+      "name": "Over one counter",
+      "desc": "At a highway pharmacy, a clerk offers detour directions while recalling Biden’s January 2025 withdrawal of proposed prescription-free contraceptive coverage. Existing rules remained. The medicine was already on the shelf. The insurance card wanted it to visit a doctor.",
+      "choice_0": "Follow the clerk’s direct detour",
+      "log_0": "The direct detour regains time and clears your head. The clerk’s map has a startling innovation: only one place marked destination.",
+      "choice_1": "Take her scenic back road",
+      "log_1": "You regain some time and laugh at her directions: “Past the doctor, past the insurer, then actually go somewhere.”"
+    },
+    "ENC-D12-A": {
+      "name": "Attendance, with free delivery",
+      "desc": "At a courthouse coffee cart, a visiting California volunteer offers detour directions. June 2026’s judgment struck down the immigration-court arrest policy; appeals continue. The system invited people to attend hearings, then discovered attendance came with free delivery.",
+      "choice_0": "Use paper for the road shortcut",
+      "log_0": "Your copied shortcut uses some paper and recovers time. The volunteer separates it from the court notice. Directions should honor their invitations.",
+      "choice_1": "Check the ruling; take side streets",
+      "log_1": "You confirm the ruling’s limits and recover some time on side streets. The volunteer appreciates a route that discloses its destination."
+    },
+    "ENC-D12-B": {
+      "name": "Destination included",
+      "desc": "At a bus-station café, a travel-aid volunteer offers directions while reading March 2026’s stay of a third-country deportation ruling. A chance to contest the destination remains disputed. At the ticket desk, that privilege comes with the cheap seats.",
+      "choice_0": "Use paper for the quick road route",
+      "log_0": "You copy the quick road route using some paper and regain time. The volunteer circles the destination. Your itinerary has advanced civil rights.",
+      "choice_1": "Check the status; take the slower shortcut",
+      "log_1": "You verify the ruling’s status and take the slower shortcut. The volunteer confirms where you’re going. No one calls this radical."
+    },
+    "ENC-D12-C": {
+      "name": "The screen is the easy repair",
+      "desc": "At a phone-repair kiosk, a customer asks about deleting fertility data already shared. The technician points to the FTC’s Premom settlement, tips glitter into a desk fan, and hands her a dustpan. “Now ask for it back.”",
+      "choice_0": "Share food; take his direct directions",
+      "log_0": "You share food and take his direct road directions. He can repair the screen; the audience assembled behind it is another department.",
+      "choice_1": "Check the settlement before leaving",
+      "log_1": "You regain some road and credibility. The technician can replace a cracked screen faster than an advertiser can forget a useful secret."
+    },
+    "ENC-D13-A": {
+      "name": "Smaller dots, same clinic",
+      "desc": "The FTC banned X-Mode’s sale of sensitive location data. At a roadside café, a promoter insists location dots are anonymous. The waitress points to the clinic across the street. He offers to make the dots smaller.",
+      "choice_0": "Take the waitress’s highway directions",
+      "log_0": "You regain road. Her directions point to the highway; the promoter’s map keeps trying to explain why everyone stopped beside the clinic.",
+      "choice_1": "Wait for the signed exit lane",
+      "log_1": "You regain some road and clear your head. She folds the promoter’s map until his pitch is the smallest dot in town."
+    },
+    "ENC-D13-B": {
+      "name": "The tolerant detour sign",
+      "desc": "At a Beltway road closure, a reporter recalls 2025’s White House restrictions on AP over “Gulf of Mexico.” Access was still disputed that November. The detour sign is more tolerant: it lets you disagree with the arrows.",
+      "choice_0": "Follow the reporter’s main-road detour",
+      "log_0": "The reporter’s directions recover time. The road accepts your destination without testing whether you’ve used the president’s preferred name for the water.",
+      "choice_1": "Take the quiet side streets",
+      "log_1": "You regain some time and clear your head. The reporter waves goodbye. No test of your publication’s ocean vocabulary."
+    },
+    "ENC-D13-C": {
+      "name": "Turn the page",
+      "desc": "At a Beltway service station, a visiting Alabama plumber offers directions and recalls DOJ ending Lowndes County’s sewage settlement in April 2025 as an anti-DEI move. His wrench turns both ways. Washington prefers turning the page.",
+      "choice_0": "Take the plumber’s direct route",
+      "log_0": "His shortcut gets you moving. He points to the turn, then the wrench. One problem can actually be fixed today.",
+      "choice_1": "Take his quieter side streets",
+      "log_1": "You regain some time and clear your head. He caps a clean pipe fitting. Still waiting on the government’s matching part."
+    },
+    "ENC-S01-A": {
+      "name": "Uniformly absent",
+      "desc": "At a park stop after DOGE firings, volunteers offer your crew some food and ask for help sorting abandoned service-desk stock. A rack holds uniforms for staff who aren’t coming back. It has more name badges than the welcome desk.",
+      "choice_0": "Help sort the abandoned stock",
+      "log_0": "You haul stock until your shoulders and head ache. The ranger finds another uniform. It is immediately qualified to staff the empty desk.",
+      "choice_1": "Record the staffing account",
+      "log_1": "You record the staffing account and laugh at the ranger’s coat-hanger demonstration. The hangers achieve perfect attendance while declining every visitor request.",
+      "choice_2": "Take some food for the road",
+      "log_2": "You take some food from the visitors’ donation. It’s the only queue today with somebody working at both ends."
+    },
+    "ENC-S01-B": {
+      "name": "The spare part's chair",
+      "desc": "A garage hit by Trump’s tariffs welcomes your crew to its volunteer repair day and shared lunch. The owner needs help sorting old parts. A new imported component sits alone on a clean chair. Nobody wanted to leave that much money standing up.",
+      "choice_0": "Help sort the salvage shelves",
+      "log_0": "You scrape your knuckles and get a headache sorting parts. The owner finds a matching component. The expensive chair has acquired a roommate.",
+      "choice_1": "Record the owner’s tariff account",
+      "log_1": "You record the changed bill and enjoy the owner’s demonstration. He offers the component a seatbelt for its eventual trip across the workshop.",
+      "choice_2": "Take some food from lunch",
+      "log_2": "You collect some food. The owner moves the component off its chair so lunch can use the only seating not yet priced as an investment."
+    },
+    "ENC-S01-C": {
+      "name": "The second opening ceremony",
+      "desc": "A veterans’ hall is holding a supper about Trump’s “Department of War” secondary title. They welcome your crew and need help sorting old ceremonial stock. The same ribbon is scheduled to open both departments. It’s beginning to look concerned about the scissors.",
+      "choice_0": "Help sort the ceremonial stock",
+      "log_0": "You haul boxes until your back and head ache. The volunteer finds the original scissors. The new era can now be opened with used equipment.",
+      "choice_1": "Record what the title changed",
+      "log_1": "You record the actual announcement and enjoy the volunteers’ rehearsal. They cut an imaginary ribbon twice. The imaginary department remains the same size.",
+      "choice_2": "Take some food from supper",
+      "log_2": "You take some food. The volunteer labels the leftovers strategic reserves. The sandwiches appear comfortable with their secondary title."
+    },
+    "ENC-S02-A": {
+      "name": "Lunch for the slogan",
+      "desc": "At a roadside tariff fair, an importer needs supplies for his public cost display. Across the aisle, a promoter offers your crew some food to repeat “China paid.” The importer has his American bank statement. The promoter has better sandwiches.",
+      "choice_0": "Donate supplies to the cost display",
+      "log_0": "You donate some supplies; the importer records your help. The American payment finally gets a display board as large as the foreign-payer slogan.",
+      "choice_1": "Take the food; repeat the slogan",
+      "log_1": "You collect some food and repeat the slogan. The importer corrects you with his payment record. The sandwich has purchased a very small spokesperson.",
+      "choice_2": "Use your paper; record the payment",
+      "log_2": "You use some supplies to document the actual payment. The importer points to his name. It has remained American throughout the promotion."
+    },
+    "ENC-S02-B": {
+      "name": "Complimentary certainty",
+      "desc": "At a library health-information fair, volunteers need supplies to display the corrected MAHA citations. A wellness promoter offers your stopped crew some food for praising the original report as error-free. The volunteers have the corrections. The promoter has covered them with the biscuit tray.",
+      "choice_0": "Donate supplies for the correction display",
+      "log_0": "You donate some supplies; volunteers record your help. The correction board rises above the biscuits. Evidence is finally operating at eye level.",
+      "choice_1": "Take the food; call it error-free",
+      "log_1": "You take some food and praise the original report. The librarian corrects you. The promoter moves another biscuit over the missing study.",
+      "choice_2": "Use your paper; save the corrections",
+      "log_2": "You use some supplies to save the original and corrected citations. The librarian moves the biscuit tray. The references immediately become easier to find."
+    },
+    "ENC-S02-C": {
+      "name": "Independent sandwiches",
+      "desc": "A civic picnic explains unlimited super-PAC contributions and the different limits on direct candidate gifts. Volunteers need supplies for their examples. A sponsor offers your crew some food to say there are no limits at all. His example is currently talking with its mouth full.",
+      "choice_0": "Donate supplies for the examples",
+      "log_0": "You donate some supplies, and volunteers record your help. The two sets of rules finally get separate folders. The sponsor requests a third sandwich.",
+      "choice_1": "Take the food; repeat no limits",
+      "log_1": "You collect some food and repeat the wrong rule. A volunteer corrects it. The sponsor has confused unlimited independent spending with unlimited agreement.",
+      "choice_2": "Use your paper; record the distinction",
+      "log_2": "You use some supplies to record the rules accurately. The volunteer separates the folders. The sandwiches continue attempting a merger."
+    },
+    "ENC-S03-A": {
+      "name": "A shift to prove the shift",
+      "desc": "Your tired crew stops at a workshop preparing for Medicaid work checks due from 2027. A cleaner is filling in a practice form during her unpaid break. The form asks why she isn’t working. Volunteers offer a table for your own food and welcome help.",
+      "choice_0": "Read the practice form",
+      "log_0": "You read until your head aches. The cleaner lists her unpaid break as time spent explaining her unpaid break. The form requests detail.",
+      "choice_1": "Use some food; take a break",
+      "log_1": "You use some food and recover at the table. The cleaner turns the form face down. It cannot question chewing from that position.",
+      "choice_2": "Donate supplies to the workshop",
+      "log_2": "You donate some supplies, and volunteers add your help to their account. The cleaner finally gets a spare pen that doesn’t belong to another job."
+    },
+    "ENC-S03-B": {
+      "name": "The disappearing overhead chair",
+      "desc": "Your road-weary crew stops at a research teach-in about the Trump administration’s proposed NIH overhead cap. A scientist explains which costs keep a laboratory running. Her demonstration chair has a cushion marked “discovery” and no legs. Volunteers offer ordinary seating and need supplies.",
+      "choice_0": "Study the cost breakdown",
+      "log_0": "You read until your head aches. The scientist lists the chair legs as overhead. The discovery cushion begins its research on the floor.",
+      "choice_1": "Use some water; sit down",
+      "log_1": "You use some water and ease your aches in an ordinary chair. Its unglamorous legs quietly complete the assignment.",
+      "choice_2": "Donate supplies to the teach-in",
+      "log_2": "You donate some supplies, and volunteers record your help. The scientist puts a box under the cushion. Overhead returns disguised as a donation."
+    },
+    "ENC-S03-C": {
+      "name": "The gift that needs a chair",
+      "desc": "Your aching crew stops at a temp-work briefing. The recruiter’s gift policy requires workers to document a free coffee while a news display covers the Pentagon’s Qatari jet. The coffee has its own folder. Applicants are still standing. A volunteer welcomes supply donations.",
+      "choice_0": "Read the gift-policy forms",
+      "log_0": "You read until your head aches. The form asks how the coffee could influence you. Remaining conscious seems like a dangerous admission.",
+      "choice_1": "Use some food; sit outside",
+      "log_1": "You use some food and recover on the outside bench. Your lunch comes from your own bag. The recruiter cannot find its foreign sponsor.",
+      "choice_2": "Donate supplies to the worker desk",
+      "log_2": "You donate some supplies, and the worker volunteer records your help. The coffee’s folder gets a divider. Aircraft acceptance remains outside her stationery budget."
+    },
+    "ENC-S04-A": {
+      "name": "The safe place to stop",
+      "desc": "After Trump officials’ Signal scandal, a roadside freight desk has put its public rest-area directions through a privacy briefing. Your tired crew is welcome to wait. The dispatcher knows a quiet corner. The briefing presenter has accidentally sent the directions to the biscuit supplier.",
+      "choice_0": "Read the new privacy briefing",
+      "log_0": "You read until your head aches. The biscuit supplier knows where you can rest. The people operating the rest area await a secure reply.",
+      "choice_1": "Use some food; rest outside",
+      "log_1": "You use some food and rest with a clearer head. The dispatcher closes the briefing window. The outdoor bench requires no recipient list.",
+      "choice_2": "Ask the dispatcher about the quiet corner",
+      "log_2": "The dispatcher becomes a local contact and shows you a place to rest. She writes her number down without adding a journalist."
+    },
+    "ENC-S04-B": {
+      "name": "Rest assured by the brochure",
+      "desc": "After DOGE park firings, your tired crew reaches a campground with an unanswered service phone. A volunteer host welcomes you to rest and explain your trip. The recorded greeting promises personal attention. The host has heard it often enough to consider it a character reference.",
+      "choice_0": "Read the service changes",
+      "log_0": "You read the changes until your head aches. The phone promises someone will be right with you. It has become the park’s longest-serving optimist.",
+      "choice_1": "Use some food; rest by the van",
+      "log_1": "You use some food and rest with a clearer head. The greeting continues inside. Outside, the host actually knows where the bench is.",
+      "choice_2": "Talk with the volunteer host",
+      "log_2": "The host becomes a local contact and finds you a resting place. She answers your question before the recording finishes promising an answer."
+    },
+    "ENC-S04-C": {
+      "name": "The name is not a bed",
+      "desc": "Following Trump’s Gulf renaming, a marina has renamed its visitor area “America’s Great Rest.” Your tired crew stops beneath the new sign. The benches are stacked for painting. A dockhand offers the old shaded corner. It has survived without being named after the country.",
+      "choice_0": "Read the new visitor directions",
+      "log_0": "You read the directions until your head aches. Every route reaches America’s Great Rest. None explains how to sit on stacked benches.",
+      "choice_1": "Use some food; rest in shade",
+      "log_1": "You use some food and rest with a clearer head. The old corner has no ceremonial title, but it has successfully retained the shade.",
+      "choice_2": "Ask the dockhand for a resting place",
+      "log_2": "The dockhand becomes a local contact and shows you the old resting spot. His directions contain an actual bench and only one name."
+    },
+    "ENC-S05-A": {
+      "name": "The adhesive boom",
+      "desc": "At a grocery hit by Trump’s tariffs, your crew can buy some food for $6 or earn $10 applying revised prices. The owner has run out of shelf space for the stickers. American manufacturing has begun with a very large order of glue.",
+      "choice_0": "Buy some food for $6",
+      "log_0": "You pay $6 and collect some food. The cashier peels off the old price. It comes away more reluctantly than the patriotic flag.",
+      "choice_1": "Apply revised prices for $10",
+      "log_1": "You earn $10 and a headache. By closing time, the shelf is mostly adhesive. The promised manufacturing boom has reached your thumb.",
+      "choice_2": "Pass on shopping and work",
+      "log_2": "You pass and leave dispirited. The affordability display has put its own prices out of reach."
+    },
+    "ENC-S05-B": {
+      "name": "The complimentary evidence",
+      "desc": "A temp-work centre sells some food for $6 and offers your crew $10 to inventory gifts surrendered under its employer’s rule. Above the mint collection, a news screen reports the Pentagon’s Qatari jet. The recruiter has ordered a bigger evidence bag. For the mints.",
+      "choice_0": "Buy some food for $6",
+      "log_0": "You pay $6 and collect some food. Buying it avoids a gift declaration. The receipt is your lunch’s diplomatic passport.",
+      "choice_1": "Inventory the surrendered gifts for $10",
+      "log_1": "You earn $10 and a headache listing the mints. One is marked “possible influence, peppermint.” Nobody asks whether it needs a runway.",
+      "choice_2": "Pass on the food and job",
+      "log_2": "You leave dispirited. The recruiter locks up a complimentary biscuit. The aircraft on the news remains complimentary."
+    },
+    "ENC-S05-C": {
+      "name": "Secondary-title special",
+      "desc": "A surplus-market café celebrates Trump’s “Department of War” secondary title. It offers your crew some food for $6 or $10 to check the souvenir labels. The chili has been renamed “Operational Readiness.” The cook is still defending it from a fly.",
+      "choice_0": "Buy some food for $6",
+      "log_0": "You pay $6 and collect some food. The cook deploys a lid. Operational readiness is now protected by an actual defence system.",
+      "choice_1": "Check the souvenir labels for $10",
+      "log_1": "You earn $10 and a headache checking the secondary title. The cook asks whether the chili must retain a statutory name.",
+      "choice_2": "Pass on the offer",
+      "log_2": "You leave dispirited. The fly lands on Operational Readiness. The market announces no change in its strategic position."
+    },
+    "ENC-S06-A": {
+      "name": "Actual-size science",
+      "desc": "A library fair is checking the nonexistent studies from the initial MAHA report. The organizer offers your crew $8 to correct the display cards. The original author table has empty chairs. The corrected version needs actual people, which is proving a serious catering complication.",
+      "choice_0": "Check and save the citation history",
+      "log_0": "You save the original and corrected references with a headache. The organizer cancels the imaginary seating plan. The room becomes smaller and more accurate.",
+      "choice_1": "Correct the display cards for $8",
+      "log_1": "You earn $8 and enjoy crossing out the fictional study. It is the first government-inspired job here completed without needing an imaginary qualification.",
+      "choice_2": "Leave the fair",
+      "log_2": "You leave dispirited. The empty author chair has acquired a ribbon. The organizer still needs somebody who exists to move it."
+    },
+    "ENC-S06-B": {
+      "name": "Please redirect the sandwich",
+      "desc": "A print shop’s public display reconstructs the Trump officials’ Signal leak with a sandwich-order diagram. The owner offers your crew $8 to rearrange its arrows after the demonstration. The journalist’s plate is full. The cook is still waiting for permission to learn about lunch.",
+      "choice_0": "Check and save the reported timeline",
+      "log_0": "You save the checked timeline, head aching. The owner adds a label for the accidental recipient. It is larger than the label for security.",
+      "choice_1": "Rearrange the display arrows for $8",
+      "log_1": "You earn $8 and enjoy connecting the cook to the order. The sandwich completes its journey without appearing in an unexpected publication.",
+      "choice_2": "Skip the display",
+      "log_2": "You leave dispirited. The owner runs the demonstration again. The journalist receives another sandwich while the cook studies the empty order tray."
+    },
+    "ENC-S06-C": {
+      "name": "Return postage required",
+      "desc": "Parents responding to Trump’s Education Department closure directive have set up a roadside letter stall. They offer your crew $8 to sort public requests by subject. The crate marked “power returned to parents” contains mostly envelopes needing stamps. Sovereignty has developed a postage problem.",
+      "choice_0": "Check and save the directive",
+      "log_0": "You save the actual directive and its legal limits, head aching. The parent removes a premature “closed” sticker. The crate still needs carrying.",
+      "choice_1": "Sort the public requests for $8",
+      "log_1": "You earn $8 and enjoy the parents’ commentary. The request for less paperwork fills its own box. Everyone agrees to start there.",
+      "choice_2": "Leave the stall",
+      "log_2": "You leave dispirited. A parent weighs the request for more local control. It has gone into the next postage bracket."
+    },
+    "ENC-S07-A": {
+      "name": "The desk survived",
+      "desc": "After DOGE park firings, a campground association is moving the unused service desk into its volunteer tent. They offer your crew $12 for lifting, or welcome supplies. The coordinator calls the desk “excess bureaucracy.” It still has to go somewhere people can ask for toilet paper.",
+      "choice_0": "Donate supplies to the coordinator",
+      "log_0": "You donate some supplies and gain a local contact. The coordinator finds your details easily; the desk’s staff directory has plenty of space.",
+      "choice_1": "Move the desk for $12",
+      "log_1": "You earn $12 with aching arms. The coordinator empties the drawer of unused name badges. Smaller government becomes surprisingly easier to lift.",
+      "choice_2": "Pass on the request",
+      "log_2": "You leave dispirited. The empty service desk remains outside the volunteer tent, continuing its successful transition out of public service."
+    },
+    "ENC-S07-B": {
+      "name": "Premium domestic rust",
+      "desc": "Trump’s tariffs have sent a roadside machine shop hunting salvage. The owner offers your crew $12 to unload old steel, or welcomes useful supplies. He has price-tagged the rust. “It’s American rust. We’re protecting it now.”",
+      "choice_0": "Donate supplies to the shop",
+      "log_0": "You donate some supplies and gain a local contact. The owner adds your name beside the repair phone. The rust gets no vote.",
+      "choice_1": "Unload the steel for $12",
+      "log_1": "You earn $12, sore but laughing as flakes fall off the steel. The owner sweeps them into a tin. “Domestic inventory.”",
+      "choice_2": "Pass on the offer",
+      "log_2": "You leave dispirited. The owner moves the rust behind the counter. Apparently protection requires somewhere safer to put the price tag."
+    },
+    "ENC-S07-C": {
+      "name": "The useful tax leaflet",
+      "desc": "A pantry fundraiser preparing for the 2025 SNAP cuts offers your stopped crew $12 to move a donated empty freezer. Food donations are also welcome. The freezer has a bad wheel. A politician’s tax-cut leaflet is waiting for its first practical assignment.",
+      "choice_0": "Donate some food to the pantry",
+      "log_0": "You donate some food and gain a local contact. The cook writes down your details before filling the freezer. Your contribution actually has a destination.",
+      "choice_1": "Move the freezer for $12",
+      "log_1": "You earn $12 and sore arms. The cook wedges the tax-cut leaflet beneath the wheel. Its food policy finally stops something rolling backwards.",
+      "choice_2": "Pass on the offer",
+      "log_2": "You leave dispirited. The freezer rolls back across the room. The politician’s smiling face remains very positive about the direction of travel."
+    },
+    "ENC-S08-A": {
+      "name": "The foldout electorate",
+      "desc": "A roadside café hosts a bookkeeper’s public guide to unlimited super-PAC money; some food costs $5. Your crew stops beside a sample donor ledger. The ordinary voter fits on a receipt. The billionaire requires a foldout that has reached the next table.",
+      "choice_0": "Check and save the spending rules",
+      "log_0": "You save the checked rules and examples, head aching. The bookkeeper folds the billionaire away. Several ordinary voters become visible underneath.",
+      "choice_1": "Buy some food for $5",
+      "log_1": "You pay $5 and collect some food. The cook gives your order equal time on the grill. The ledger’s largest donor has not been consulted.",
+      "choice_2": "Skip the café and guide",
+      "log_2": "You leave dispirited. The bookkeeper opens another foldout. The electorate is going to need a larger tablecloth."
+    },
+    "ENC-S08-B": {
+      "name": "The coverage magnifier",
+      "desc": "A community health briefing at a roadside diner explains the 2025 Medicaid law; some food costs $5. Your crew stops at the source table. The eligibility changes are in small print. The politician’s promise of simplicity needs the entire window.",
+      "choice_0": "Check and save the law’s changes",
+      "log_0": "You save the checked changes and projections, head aching. The nurse moves the enormous simplicity poster so you can find the actual rules.",
+      "choice_1": "Buy some food for $5",
+      "log_1": "You pay $5 and collect some food. The cook states exactly what is included. The nurse asks whether he is available to explain the bill.",
+      "choice_2": "Leave without reading or eating",
+      "log_2": "You leave dispirited. From outside, the simplicity promise is perfectly legible. The rules remain behind it, requiring better eyesight and an appointment."
+    },
+    "ENC-S08-C": {
+      "name": "A war on small print",
+      "desc": "A roadside souvenir printer is explaining Trump’s “Department of War” secondary title beside a $5 food counter. Your crew stops at the source display. The word “War” fills a banner. The explanation of “secondary” has been squeezed onto the back of the stapler.",
+      "choice_0": "Check and save the naming order",
+      "log_0": "You save the actual order and statutory-name distinction, head aching. The printer turns over the stapler. The qualification has survived underneath the war effort.",
+      "choice_1": "Buy some food for $5",
+      "log_1": "You pay $5 and collect some food. The cook leaves its name alone. Lunch reaches operational readiness when he finds the lid.",
+      "choice_2": "Pass on the display and food",
+      "log_2": "You leave dispirited. The large banner flaps over the source display. War has successfully occupied the part explaining what actually changed."
+    },
+    "ENC-S09-A": {
+      "name": "Patriotically air-conditioned",
+      "desc": "Florida barred local heat-break rules. At a roadside trade fair, a contractor wants the same freedom here. He praises toughness from inside a refrigerated sales trailer. A worker points you toward shade; the trailer’s exhaust is blowing directly onto her.",
+      "choice_0": "Rest in shade; share food",
+      "log_0": "Food and shade restore you. The contractor shuts his trailer window to explain more comfortably why workers need fewer protections.",
+      "choice_1": "Praise the freedom to endure",
+      "log_1": "His certainty calms you. You repeat it; the worker offers to swap places with his air conditioner. Your authority evaporates.",
+      "choice_2": "Skip the fair",
+      "log_2": "You leave irritated. The contractor puts on a cardigan before recording another message about people becoming too sensitive to heat."
+    },
+    "ENC-S09-B": {
+      "name": "The research was feeling shy",
+      "desc": "The MAHA report cited studies that did not exist. You stop at a wellness fair where a vendor says missing evidence proves how suppressed it is. A first-aid volunteer offers a shaded seat. The vendor’s certificate has been printed backwards for additional secrecy.",
+      "choice_0": "Rest; use some supplies",
+      "log_0": "You eat and recover in the shade. The volunteer reads the backwards certificate in a mirror; it remains impressively unqualified.",
+      "choice_1": "Agree the missing studies prove it",
+      "log_1": "The neat explanation settles your nerves. A visitor asks whether an empty bottle therefore contains the strongest possible medicine.",
+      "choice_2": "Leave the fair",
+      "log_2": "You leave disappointed. The vendor covers the blank reference list, protecting the authorities from discovering absolutely nothing."
+    },
+    "ENC-S09-C": {
+      "name": "Your speech needs a bigger wallet",
+      "desc": "Super PACs can take unlimited contributions. At a roadside political picnic, a donor’s giant fan cools the premium tables while volunteers sweat. The organizer says everyone’s voice is equal. A worker points out the quiet shade behind the speaker tower.",
+      "choice_0": "Rest in shade; share food",
+      "log_0": "You recover over food. Above you, the donor’s speech requires enough amplification to knock a paper plate off a democratic table.",
+      "choice_1": "Agree every voice counts equally",
+      "log_1": "The reassurance helps until you repeat it near the premium microphone. Your equal voice disappears beneath the donor clearing his throat.",
+      "choice_2": "Pass on the picnic",
+      "log_2": "You leave dispirited. A volunteer searches for the small-donor table and finds it being used to hold the large donor’s fan."
+    },
+    "ENC-S10-A": {
+      "name": "The drain is unpatriotic",
+      "desc": "Trump ordered “Gulf of America” onto federal maps. At a flooded parking stop, the owner offers $7 to repaint his sign. The attendant asks for a drain. He hands her a flag.",
+      "choice_0": "Repaint the sign for $7",
+      "log_0": "Seven dollars and a headache. The owner salutes the new gulf while you wring the old water out of your socks.",
+      "choice_1": "Mark the dry exit",
+      "log_1": "Drivers trust your arrow. The attendant asks whether draining an American gulf now counts as surrendering territory.",
+      "choice_2": "Leave the puddle alone",
+      "log_2": "You leave disappointed. His flag falls into the puddle. He blames Mexico."
+    },
+    "ENC-S10-B": {
+      "name": "The mountain’s forwarding address",
+      "desc": "Trump ordered Denali renamed Mount McKinley for federal use. At a souvenir stall, the printer offers $7 to replace labels on identical mountain photographs. A customer demands to see the new mountain before paying. The printer rotates the old photograph.",
+      "choice_0": "Replace the labels for $7",
+      "log_0": "Seven dollars and a headache. A customer asks whether McKinley is taller. The printer raises the shelf.",
+      "choice_1": "Show what the order changed",
+      "log_1": "You earn trust by comparing the labels with the order. The mountain has performed no work whatsoever on its rebrand.",
+      "choice_2": "Leave the photographs alone",
+      "log_2": "You leave without the cash. The customer asks whether the old mountain is discounted now that Washington has replaced it."
+    },
+    "ENC-S10-C": {
+      "name": "Welcome to the other department",
+      "desc": "Trump authorized Department of War as a second title for Defense. A motel near a veterans’ event offers $7 to relabel its meeting room accordingly. The owner wants a grander entrance. The cleaner suggests opening the door instead of adding another name.",
+      "choice_0": "Relabel the room for $7",
+      "log_0": "Seven dollars and a headache. The owner holds two ribbon cuttings; both crowds enter the same room and collide.",
+      "choice_1": "Post the actual room directions",
+      "log_1": "Guests trust your directions. The cleaner moves one arrow and achieves the evening’s only successful military maneuver.",
+      "choice_2": "Skip the job",
+      "log_2": "You leave disappointed. The owner asks whether the two departments will need separate beds or can continue occupying the same mattress."
+    },
+    "ENC-S11-A": {
+      "name": "The raccoon has seniority",
+      "desc": "After DOGE’s park-staff cuts, you stop at a park-side shop. The clerk offers $9 to fold trail leaflets. Outside, a bin overflows beneath AMERICA THE BEAUTIFUL. A raccoon is wearing somebody’s entire picnic.",
+      "choice_0": "Share food with the clerk",
+      "log_0": "You share food and exchange numbers, enjoying a laugh. She locks the door before the raccoon applies for management.",
+      "choice_1": "Fold the leaflets for $9",
+      "log_1": "Nine dollars and aching eyes. The clerk endorses your careful folding. Washington’s savings now require the gift shop’s wages.",
+      "choice_2": "Get back on the road",
+      "log_2": "You leave disappointed. The raccoon climbs onto the information desk, becoming the first park employee to receive lunch."
+    },
+    "ENC-S11-B": {
+      "name": "The library needs a patriotic eraser",
+      "desc": "Trump’s patriotic-education order reaches a community book sale. The organizer offers $9 to sort donated books. A campaigner wants every unpleasant chapter removed from the history section. The thickest book is beginning to resemble a coaster.",
+      "choice_0": "Share food with the organizer",
+      "log_0": "You share food and exchange numbers, enjoying a laugh. The coaster-sized history book finally supports something real: a cup of tea.",
+      "choice_1": "Sort the books for $9",
+      "log_1": "Nine dollars and aching eyes earn the organizer’s endorsement. The rejected history fills three shelves; the patriotic remainder fits beside the bookmarks.",
+      "choice_2": "Return to the road",
+      "log_2": "You leave disappointed. The champion requests larger type so the remaining history can still look like an education."
+    },
+    "ENC-S11-C": {
+      "name": "Closing time for the closing department",
+      "desc": "Trump directed his education secretary to facilitate closing the department. A print shop offers $9 to fold school-help leaflets. A campaign flyer promises fewer bureaucrats. The help number reaches somebody who also needs the number.",
+      "choice_0": "Share food with the printer",
+      "log_0": "You share food and gain a contact, laughing at the phone tree. The printer suggests putting the education secretary on hold.",
+      "choice_1": "Fold the leaflets for $9",
+      "log_1": "Nine dollars and a headache earn the printer’s endorsement. The leaflet unfolds into more instructions for finding the simpler government.",
+      "choice_2": "Keep traveling",
+      "log_2": "You leave dispirited. The flyer’s smiling parent has been on hold long enough for the pictured child to look employed."
+    },
+    "ENC-S12-A": {
+      "name": "The ingredients in your wallet",
+      "desc": "USDA approved Nebraska’s ban on buying soda and energy drinks with SNAP benefits, effective January 2026. At a Nebraska grocer, you can move crates for $14 or sort shelf labels for some food. Cash still buys the identical bottles. The government’s taste test happens inside the card reader.",
+      "choice_0": "Move the crates for $14",
+      "log_0": "You haul crates, earn $14 and stretch your sore back. The clerk pays cash. Suddenly every bottle you just moved is an acceptable purchase.",
+      "choice_1": "Sort labels for food",
+      "log_1": "You earn some food and a headache giving identical bottles different payment labels. The clerk checks the ingredients again. Still no mention of household income.",
+      "choice_2": "Pass on the work",
+      "log_2": "You leave frustrated without earnings. The clerk turns a bottle over, looking for the part of the drink that changes when somebody pays cash."
+    },
+    "ENC-S12-B": {
+      "name": "The baby’s money has a bedtime",
+      "desc": "Trump Accounts offer eligible newborns $1,000, locked away from childhood expenses. At a discount-store loading bay, a parent needs diapers today. The manager offers $14 for lifting boxes or food for checking labels. The baby’s investment statement has already needed changing.",
+      "choice_0": "Lift the boxes for $14",
+      "log_0": "You earn $14 and sore muscles. The parent buys diapers; the baby immediately demonstrates why this cannot wait for compound interest.",
+      "choice_1": "Check labels for food",
+      "log_1": "You earn food and a headache. The parent considers asking the baby’s portfolio to stay awake for the next feeding.",
+      "choice_2": "Decline the shift",
+      "log_2": "You leave without earnings. The investor screams from the trolley, expressing a surprisingly immediate preference for spending."
+    },
+    "ENC-S12-C": {
+      "name": "The straw receives immediate assistance",
+      "desc": "Trump ordered federal agencies off paper straws. At a catering depot, the dispatcher offers $14 to move plastic-straw cartons or food for sorting them. A school’s cancelled food order is still on the desk. Lunch has lost funding; its drinking equipment has a national strategy.",
+      "choice_0": "Move the cartons for $14",
+      "log_0": "Fourteen dollars and sore shoulders. The dispatcher asks whether a hungry child could survive by chewing the national priority.",
+      "choice_1": "Sort the cartons for food",
+      "log_1": "You earn supplies and a headache. Your lunch arrives beside enough protected plastic to feed an extremely disappointed whale.",
+      "choice_2": "Decline the work",
+      "log_2": "You leave without earnings. The dispatcher places a straw beside the cancelled lunch order so at least something has received federal attention."
+    },
+    "ENC-S13-A": {
+      "name": "China’s card declined",
+      "desc": "Trump says China pays the tariffs. At a roadside shop, your supplies cost $12. The cashier taps a Chinese flag against the card reader. Declined.",
+      "choice_0": "Pay the $12",
+      "log_0": "Your payment works. “Congratulations,” she says. “You’re China now.”",
+      "choice_1": "Get the itemized quote",
+      "log_1": "She circles the tariff. “China’s very generous with your money.”",
+      "choice_2": "Keep the $12",
+      "log_2": "You leave empty-handed. The tariff has successfully protected the supplies from Americans."
+    },
+    "ENC-S13-B": {
+      "name": "One cent, before expenses",
+      "desc": "The Mint stopped making circulating pennies after each cost 3.69 cents to produce. Old pennies still count as money. At a roadside shop, some food and water cost $12. The cashier taps her penny jar. “Washington finally found something it couldn’t afford to keep making cheap.”",
+      "choice_0": "Buy the supplies for $12",
+      "log_0": "You pay $12 and collect some supplies. She straightens the penny jar. “Still worth a cent. Just retired from costing us nearly four.”",
+      "choice_1": "Get the written price breakdown",
+      "log_1": "You keep the $12 quote and the Mint’s cost figures through a long explanation. She asks you not to let the bread hear what a penny cost.",
+      "choice_2": "Keep your money",
+      "log_2": "You leave empty-handed and annoyed. She pats the penny jar. The smallest thing on the counter has a retirement plan. Your van still needs feeding."
+    },
+    "ENC-S13-C": {
+      "name": "Lost and found a stadium",
+      "desc": "Ohio’s 2025 budget allocated $600 million in unclaimed funds to a Browns stadium. At an Ohio roadside shop, some food and water cost $12. The cashier keeps the report beside the lost-property box. “Anything in there shaped like a billionaire? Apparently they get collected first.”",
+      "choice_0": "Pay $12 for supplies",
+      "log_0": "You buy some food and water. She points at the stadium report. “See? Even you managed to spend your own money.”",
+      "choice_1": "Get the itemized quote",
+      "log_1": "You save the $12 quote and budget report through a long explanation. “They couldn’t find the money’s owners,” she says. “The stadium introduced itself immediately.”",
+      "choice_2": "Keep the twelve dollars",
+      "log_2": "You leave empty-handed and frustrated. She calls after you: “Keep a hand on it. Ohio’s looking for a midfield logo.”"
+    },
+    "ENC-S14-A": {
+      "name": "A donation you can trip over",
+      "desc": "Super PACs accept unlimited contributions. You stop at an event depot offering $10 to carry a donor’s giant ceremonial cheque. Its accompanying poster says every citizen has a voice. The cheque is too wide to fit through the citizens’ entrance.",
+      "choice_0": "Save the terms and donor display",
+      "log_0": "You document the arrangement, head aching. The donor’s speech is officially independent; it still requires three people and a loading door.",
+      "choice_1": "Carry the cheque for $10",
+      "log_1": "Ten dollars and sore muscles. The donor signs in one effortless stroke; you need to sit down after delivering his free speech.",
+      "choice_2": "Pass on the job",
+      "log_2": "You leave disappointed. A worker removes the public entrance sign so the donor’s equal voice can scrape through sideways."
+    },
+    "ENC-S14-B": {
+      "name": "Savings need volunteers",
+      "desc": "Republicans’ 2025 law reduced projected federal Medicaid spending. At a clinic fundraiser, a hire company offers $10 to move chairs. The display celebrates government savings beside a jar asking patients to fill the hole. Someone has helpfully supplied a very small jar.",
+      "choice_0": "Compare the law with the display",
+      "log_0": "You save the figures, head aching. The jar would need to become a bank before the savings started looking like healthcare.",
+      "choice_1": "Move the chairs for $10",
+      "log_1": "You earn $10 and aching muscles. The fundraiser adds another chair for people who will be asked to applaud needing a fundraiser.",
+      "choice_2": "Leave the job",
+      "log_2": "You leave disappointed. A patient drops coins into the jar; the sound is considerably smaller than the tax bill."
+    },
+    "ENC-S14-C": {
+      "name": "The border has a gift shop",
+      "desc": "Trump’s Gold Card offers an expedited immigration route tied to a million-dollar gift. At a visa-agent open house, a contractor offers $10 to move gold display stands. The welcome mat is so thick the cleaner has to drag it in.",
+      "choice_0": "Read and save the program terms",
+      "log_0": "You preserve the terms through a headache. The welcome gets noticeably warmer once the applicant’s money is allowed to arrive first.",
+      "choice_1": "Move the stands for $10",
+      "log_1": "Ten dollars and sore arms. You carry the golden gateway while earning enough to approach it with considerable imagination.",
+      "choice_2": "Decline the work",
+      "log_2": "You leave disappointed. The agent calls the entrance welcoming, then asks someone to check whether the welcome mat might attract ordinary shoes."
+    },
+    "ENC-S15-A": {
+      "name": "Working on proof of working",
+      "desc": "Congress added Medicaid work requirements for 2027. At a community information table, a cleaner practices assembling proof of shifts between shifts. The sample form asks why she missed the workshop. Her payslip is still damp from the job that prevented her attending.",
+      "choice_0": "Check and save the examples",
+      "log_0": "You document the mismatch, mentally drained. The cleaner’s work prevented her proving she works. The sample answer box is admirably small.",
+      "choice_1": "Share some lunch",
+      "log_1": "You share food and exchange numbers. She eats while sorting payslips, providing evidence that employment can interfere with both lunch and paperwork.",
+      "choice_2": "Continue the trip",
+      "log_2": "You leave frustrated. She asks whether attending a workshop about proving work can itself count as work. Nobody has brought that form."
+    },
+    "ENC-S15-B": {
+      "name": "The book’s missing workforce",
+      "desc": "Trump ordered changes to federal history displays. At a pop-up history discussion, a warehouse worker compares the proposed patriotic captions with old factory photographs. The cheerful new caption celebrates industrial greatness. Somebody has placed it directly over the people doing the work.",
+      "choice_0": "Compare and save both versions",
+      "log_0": "You document the missing workers, eyes aching. The factory’s greatness becomes easier to explain once you peel the explanation off its employees.",
+      "choice_1": "Share food with the worker",
+      "log_1": "You share lunch and exchange numbers. He places a crumb on each hidden worker, briefly restoring history with a sandwich.",
+      "choice_2": "Get back on the road",
+      "log_2": "You leave irritated. The organizer adjusts the caption so industrial greatness no longer has any visible need for lunch breaks."
+    },
+    "ENC-S15-C": {
+      "name": "A lecture is not a meal",
+      "desc": "Republicans’ 2025 law tightened SNAP eligibility and cut spending. At a food-aid discussion, a night-shift worker compares the changes with a leaflet explaining personal responsibility. The leaflet’s author is pictured beside a banquet. The worker would like to qualify for whatever is behind him.",
+      "choice_0": "Check the changes with the worker",
+      "log_0": "You save a careful comparison, mentally tired. The leaflet has six photographs of responsibility and no instructions for eating any of them.",
+      "choice_1": "Share some food",
+      "log_1": "You share lunch and gain a contact. The worker moves the author’s banquet photograph aside to make room for actual dinner.",
+      "choice_2": "Leave the discussion",
+      "log_2": "You leave frustrated. The worker folds the leaflet around a small snack, finally finding a useful relationship between the advice and food."
+    },
+    "ENC-S16-A": {
+      "name": "Cabinet-level contact management",
+      "desc": "Trump’s team included a journalist in its Signal strike chat. At a café showing the news, the owner offers $8 to clear a tour bus’s tables. The cashier needs his PIN to refund mayonnaise.",
+      "choice_0": "Check the report with her",
+      "log_0": "You confirm the report. The café’s new security procedure is asking who the people in the chat actually are.",
+      "choice_1": "Clear the tables for $8",
+      "log_1": "Eight dollars and a headache. You match forgotten phones to passengers. The café’s standards now exceed national security’s.",
+      "choice_2": "Skip the job",
+      "log_2": "You leave unpaid. The mayonnaise refund remains behind a stronger security procedure than the airstrikes."
+    },
+    "ENC-S16-B": {
+      "name": "Refund-shaped paper",
+      "desc": "At a parcel counter, a clerk’s airline cancelled her flight. She declined replacement travel, so DOT’s rule requires an automatic refund. It sent a voucher instead. She offers $8 to sort return labels while she reads the rule. Her cash drawer refuses to recognize the voucher as a relative.",
+      "choice_0": "Read the refund rule with her",
+      "log_0": "You confirm that the refund must use her original payment method. “I paid with money,” she says. “Apparently that was an unusual choice.”",
+      "choice_1": "Sort return labels for $8",
+      "log_1": "You sort the labels, earn $8 and rest your aching eyes. The drawer produces cash on its first attempt. She wonders whether it has airline-management experience.",
+      "choice_2": "Skip the job",
+      "log_2": "You leave unpaid and annoyed. She folds the unwanted voucher into a paper plane. At last, something this airline sent her can take off."
+    },
+    "ENC-S16-C": {
+      "name": "Independent balloons",
+      "desc": "Super PACs can receive unlimited contributions. At a party-supply shop, the owner offers $8 to sort balloons for an independent political event. One donor’s balloon fills the van-sized loading door. The small-donor balloons come in a bag labelled decorative filler.",
+      "choice_0": "Compare the event’s public materials",
+      "log_0": "Your careful account earns trust. The giant balloon is officially independent, although every smaller balloon must move wherever it goes.",
+      "choice_1": "Sort the balloons for $8",
+      "log_1": "Eight dollars and a headache. You separate the citizens by purchasing power while the event plan calls everyone part of one big conversation.",
+      "choice_2": "Pass on the job",
+      "log_2": "You leave disappointed. The large donor’s balloon blocks the light, giving the small donors their first experience of being overshadowed literally."
+    },
+    "ENC-S17-A": {
+      "name": "Freedom reaches the tuna",
+      "desc": "Trump ordered showerhead deregulation. At a truck stop, a celebratory display sprays the sandwich counter. The clerk offers $9 to brace it. Ordinary showers are free if you bring soap. The tuna has already exercised its freedom.",
+      "choice_0": "Use your soap; take a shower",
+      "log_0": "Clean at last. On your way out, a tuna sandwich makes a determined break for the drain.",
+      "choice_1": "Brace the display for $9",
+      "log_1": "Nine dollars and aching arms. You hold freedom upright while the clerk evacuates the egg mayonnaise.",
+      "choice_2": "Stay dry; keep driving",
+      "log_2": "You leave unwashed. The display has liberated half the lunch menu; the remaining sandwiches are gathering on higher ground."
+    },
+    "ENC-S17-B": {
+      "name": "Florida’s refreshing example",
+      "desc": "Florida blocked local heat-break mandates. At a gym open house, a contractor promotes copying the law while workers assemble his enormous cooling fan. Nine dollars pays for moving its bases. Showers are free with your own soap; apparently water works better without a speech.",
+      "choice_0": "Use your soap; shower",
+      "log_0": "You wash and clear your head. The contractor’s fan blows a worker’s break request under his refrigerated drinks table.",
+      "choice_1": "Move the bases for $9",
+      "log_1": "Nine dollars and sore arms. You carry the equipment allowing the contractor to explain comfortably why cooling should remain optional.",
+      "choice_2": "Stay unwashed; leave",
+      "log_2": "You leave irritated. The contractor complains that his free water is not cold enough while explaining why workers need fewer local protections."
+    },
+    "ENC-S17-C": {
+      "name": "America has acquired your shower",
+      "desc": "Trump renamed the Gulf on federal maps. At a truck stop, the owner celebrates by renaming the free showers American Waters. He offers $9 to move a heavy map stand. You need your own soap. The water still comes from the same pipe.",
+      "choice_0": "Use your soap; shower",
+      "log_0": "You wash and feel human again. The owner asks whether the American water felt different; you point at the unchanged dirt in the drain.",
+      "choice_1": "Move the map stand for $9",
+      "log_1": "Nine dollars and aching muscles. You move the national boundary three feet left so customers can reach the toilet.",
+      "choice_2": "Keep driving",
+      "log_2": "You leave unwashed and annoyed. The owner asks whether the shower queue looks more patriotic now that it has a coastline."
+    },
+    "ENC-S18-A": {
+      "name": "Education, some assembly required",
+      "desc": "Trump directed the Education Department’s closure as far as law permits. At a school fundraiser, an organizer offers $11 to sort donated books. A volunteer is using the closure flyer to prop up a broken shelf. Finally, the policy is supporting education.",
+      "choice_0": "Sort the books for $11",
+      "log_0": "Eleven dollars and aching eyes. You shelve the books; the closure flyer holds steady in its first successful teaching-support role.",
+      "choice_1": "Share food with the volunteer",
+      "log_1": "You share lunch and a laugh. She adds another closure flyer beneath the shelf, strengthening education through repeated calls to dismantle it.",
+      "choice_2": "Leave the fundraiser",
+      "log_2": "You leave disappointed. The shelf needs more support; the volunteer asks whether Washington has printed anything else about providing less."
+    },
+    "ENC-S18-B": {
+      "name": "The owner fits; history doesn’t",
+      "desc": "Trump ordered federal history displays steered toward his version of national greatness. At a souvenir printer, $11 is offered for stocking postcard racks. A retired guide shows a proposed factory image: the owner fills the frame; the workforce has been cropped into the gift-shop floor.",
+      "choice_0": "Stock the racks for $11",
+      "log_0": "Eleven dollars and a headache. You arrange the owner’s face beside the cropping scraps containing everyone who made him wealthy.",
+      "choice_1": "Share food with the guide",
+      "log_1": "You share lunch and laugh at the edits. The guide reconstructs the workforce from scraps; the owner suddenly looks much less self-made.",
+      "choice_2": "Pass on the work",
+      "log_2": "You leave disappointed. The printer enlarges the owner again, removing the last employee capable of explaining how the factory operated."
+    },
+    "ENC-S18-C": {
+      "name": "Patriotism gets the big type",
+      "desc": "Trump’s school order promotes patriotic education. At a used-book stall, an organizer offers $11 to arrange the history section. A campaigner’s proposed guide prints the country’s achievements in huge letters and its mistakes so small the volunteer needs the stamp-collecting magnifier.",
+      "choice_0": "Arrange the books for $11",
+      "log_0": "Eleven dollars and tired eyes. You find the difficult history hiding beneath a photograph large enough to require its own table.",
+      "choice_1": "Share food with the volunteer",
+      "log_1": "You share lunch and laugh. She puts the magnifier over the omissions, making the proposed patriotic curriculum unexpectedly easier to see through.",
+      "choice_2": "Leave the stall",
+      "log_2": "You leave disappointed. The campaigner asks whether the magnifier could be restricted to passages that make the country look bigger."
+    },
+    "ENC-S19-A": {
+      "name": "Gold-standard stapling",
+      "desc": "The MAHA report cited nonexistent studies. A copy shop offers $15 to collate report booklets for a public discussion. The printer says missing pages are your fault, but missing science is apparently a formatting issue. He checks your staples more carefully than the references.",
+      "choice_0": "Collate and flag errors for $15",
+      "log_0": "Fifteen dollars, evidence, and a headache. Every page is now attached to something real, which puts the staples ahead of several citations.",
+      "choice_1": "Praise the impressive references",
+      "log_1": "Your grand reading gets a laugh. You endorse a nonexistent paper; the printer asks whether your application to the commission is pending.",
+      "choice_2": "Decline the job",
+      "log_2": "You leave disappointed. The printer checks another staple, still the only part of the report willing to hold under light pressure."
+    },
+    "ENC-S19-B": {
+      "name": "Overhead has started dripping",
+      "desc": "Trump’s NIH overhead-cap proposal put research running costs under pressure. At a university open day, a hire worker offers $15 to sort equipment tags. A researcher has put a bucket beneath a leak. The proposal’s cheerful summary keeps getting wet.",
+      "choice_0": "Sort tags; preserve the comparison",
+      "log_0": "Fifteen dollars and evidence cost a headache. The bucket becomes essential research equipment the moment the ceiling starts participating in the experiment.",
+      "choice_1": "Praise the savings without checking",
+      "log_1": "The crew laughs at your confident pitch. The researcher hands you the wet summary; you have omitted the part directly above your head.",
+      "choice_2": "Leave the job",
+      "log_2": "You leave disappointed. The bucket fills beneath a proposal that finds the room itself an awkward expense to associate with indoor research."
+    },
+    "ENC-S19-C": {
+      "name": "The fine print has more money",
+      "desc": "Super PACs can accept unlimited contributions while candidate donations have separate limits. At an event printer, $15 is offered to sort disclosure inserts. The donor’s name gets a banner; the word independent has been squeezed behind the staple.",
+      "choice_0": "Sort inserts; save the disclosures",
+      "log_0": "Fifteen dollars and reliable evidence cost a headache. You unfold the small print until the donor’s independence becomes physically capable of occupying a room.",
+      "choice_1": "Recite the rules from memory",
+      "log_1": "Your donor impression gets laughs. You confuse the two contribution rules; the printer points out that the loophole requires better aim.",
+      "choice_2": "Pass on the work",
+      "log_2": "You leave disappointed. The donor’s banner needs another pole; the disclosure remains small enough to disappear behind one finger."
+    },
+    "ENC-S20-A": {
+      "name": "Federal savings, local shoulders",
+      "desc": "USDA cancelled local-food purchasing funds. At a co-op loading bay, an organizer offers food for packing donated groceries or $10 for sorting delivery slips. The cancelled order is easy to lift. Everything replacing it is in crates.",
+      "choice_0": "Pack groceries for food",
+      "log_0": "You earn supplies and a sore back. The federal savings arrive in your shoulders, considerably heavier than they looked in the announcement.",
+      "choice_1": "Sort delivery slips for $10",
+      "log_1": "Ten dollars and a headache. Each address gets matched to food; Washington’s contribution remains a remarkably lightweight cancellation notice.",
+      "choice_2": "Skip the shift",
+      "log_2": "You leave without earnings. The organizer folds the cancellation into a tiny square. Unfortunately, the crates refuse to become equally efficient."
+    },
+    "ENC-S20-B": {
+      "name": "The cut comes with a serving suggestion",
+      "desc": "Republicans’ 2025 law cut SNAP spending and tightened eligibility. At a food-bank warehouse, packing groceries earns food; sorting address slips pays $10. A political leaflet calls the cuts an incentive. The volunteer holds it over a bowl to see what drops out.",
+      "choice_0": "Pack groceries for food",
+      "log_0": "You earn supplies and aching muscles. The incentive produces nothing edible; the volunteer puts it under the bowl to protect the table.",
+      "choice_1": "Sort addresses for $10",
+      "log_1": "Ten dollars and a headache. You match hungry households with deliveries while the leaflet continues offering them a stronger character.",
+      "choice_2": "Leave the work",
+      "log_2": "You leave disappointed. The volunteer shakes the incentive one last time before returning to the groceries somebody actually supplied."
+    },
+    "ENC-S20-C": {
+      "name": "A carton returns to public life",
+      "desc": "Congress and Trump let schools serve whole milk again in 2026. A dairy co-op is throwing a tiny welcome-back party for a carton. You can pack produce for some food or sort pickup slips for $10. The milk was always for sale. It just needed federal clearance for lunch.",
+      "choice_0": "Pack produce for food",
+      "log_0": "You earn some food and sore muscles boxing apples. Nobody in Congress has needed to take a position on their percentage of apple.",
+      "choice_1": "Sort pickup slips for $10",
+      "log_1": "You earn $10 and a headache. SCHOOL is now an allowed destination for the carton. Its contents haven’t changed; its congressional representation has improved.",
+      "choice_2": "Pass on the shift",
+      "log_2": "You leave frustrated, without wages or supplies. A member asks if you’ll stay for the carton’s victory speech. You’ve already heard enough from its elected representatives."
+    },
+    "ENC-S21-A": {
+      "name": "The sea forgot its new name",
+      "desc": "Trump ordered federal maps to say Gulf of America. At a marine-supply counter, a customer demands an American refund because his old chart still says Mexico. The clerk has the order. The customer checks his shoes for foreign seawater.",
+      "choice_0": "Read and save the order",
+      "log_0": "You save the actual naming change, head aching. The clerk explains that the water did not relocate; the customer looks personally betrayed by geography.",
+      "choice_1": "Perform the ocean’s citizenship interview",
+      "log_1": "The crew laughs until you invent a maritime border change. The clerk takes the chart away before your geography reaches the fish.",
+      "choice_2": "Leave the clerk to work",
+      "log_2": "You leave irritated. The customer wrings out a sock and asks whether the shop can exchange the water for the patriotic version."
+    },
+    "ENC-S21-B": {
+      "name": "The second name needs a second mug",
+      "desc": "Trump authorized Department of War as a second name for Defense. At a surplus shop, a customer wants both departmental mugs because he supports both departments. The clerk has the order and one mug with a removable paper sleeve.",
+      "choice_0": "Read and save the actual order",
+      "log_0": "You preserve the secondary-title detail, head aching. The clerk slides the sleeve off, giving the customer a remarkably affordable tour of the bureaucracy.",
+      "choice_1": "Give both departments grand voices",
+      "log_1": "The crew laughs. You invent a rivalry between the two names; the customer starts asking which mug has the larger budget.",
+      "choice_2": "End the conversation",
+      "log_2": "You leave irritated. The customer buys confidence by pointing at both names while the clerk continues holding exactly one mug."
+    },
+    "ENC-S21-C": {
+      "name": "Immigration, now with gift wrapping",
+      "desc": "Trump’s Gold Card ties expedited immigration to a million-dollar gift. You stop at a travel shop where the brochure sits beside cheap luggage. A clerk wraps it in tissue. Apparently the border opens more politely when it thinks it is receiving a present.",
+      "choice_0": "Read and save the terms",
+      "log_0": "You save the eligibility terms, head aching. A million dollars buys special attention; your travel budget qualifies for being pointed toward the exit.",
+      "choice_1": "Perform the luxury border welcome",
+      "log_1": "The crew laughs until you promise automatic citizenship. The clerk corrects you: even the expensive welcome still has terms.",
+      "choice_2": "Put the brochure down",
+      "log_2": "You leave irritated. The clerk smooths the tissue around a welcome priced well beyond the people currently carrying the luggage."
+    },
+    "ENC-S22-A": {
+      "name": "The map has already won",
+      "desc": "Albuquerque reported a federal attempt to withdraw its Rail Trail grant. At a Beltway transport-book stall, a $6 route print still shows the promised path. The clerk keeps the withdrawal notice beside it. The funding has become harder to locate than the destination.",
+      "choice_0": "Buy the print for $6",
+      "log_0": "You keep the six-dollar print as evidence. A dotted line remains the cheapest way to deliver infrastructure without anyone having to walk on it.",
+      "choice_1": "Compare the notice with the map",
+      "log_1": "You save a careful comparison, head aching. The clerk draws the uncertain funding in pencil, finally giving the path an accurate surface.",
+      "choice_2": "Follow the trip onward",
+      "log_2": "You leave disappointed. The print reaches the destination beautifully; the people who might use the actual path have received a notice instead."
+    },
+    "ENC-S22-B": {
+      "name": "A second name costs six dollars",
+      "desc": "Trump gave Defense the secondary title Department of War. At a military-souvenir stall, a $6 visitor guide marks two departments at the same address. The clerk has the order. A tourist is trying to schedule enough time to walk between them.",
+      "choice_0": "Buy the guide for $6",
+      "log_0": "You keep the six-dollar error as evidence. The tourist asks whether visiting both departments qualifies for a multi-site discount.",
+      "choice_1": "Compare the guide with the order",
+      "log_1": "You untangle the secondary name through a headache. The clerk erases the walking route, saving the tourist an ambitious circuit of the pavement.",
+      "choice_2": "Leave the guide behind",
+      "log_2": "You leave irritated. The tourist sets two reminders for reaching the same building, providing the rebrand with its first doubling of effort."
+    },
+    "ENC-S22-C": {
+      "name": "The difficult history is around the back",
+      "desc": "Trump ordered intervention in federal history displays. At a historical-site souvenir stall, a $6 guide offers a newly cheerful route past every grand house. The clerk has the earlier map. The servants’ entrance appears to have walked off without permission.",
+      "choice_0": "Buy the guide for $6",
+      "log_0": "You keep the six-dollar revision as evidence. The route enters every drawing room without once passing anyone who cleaned it.",
+      "choice_1": "Compare the two maps",
+      "log_1": "You preserve the missing entrance, head aching. The house’s self-made grandeur begins looking rather dependent on the path erased behind it.",
+      "choice_2": "Leave the souvenir stall",
+      "log_2": "You leave disappointed. A cleaner takes the missing route, demonstrating an inconveniently practical relationship with the history being removed."
+    },
+    "ENC-S23-A": {
+      "name": "Small government inspects your straw",
+      "desc": "Trump ordered federal agencies to stop using paper straws. At a burger stand, the owner films inspections of customers’ drinks as his own patriotic tribute. The cashier points out that customers are not federal agencies. He asks her to stop weakening the border.",
+      "choice_0": "Share food; back the cashier",
+      "log_0": "You share food and confirm her point. She eats while he carefully investigates whether the burger wrapper is conspiring with the straw.",
+      "choice_1": "Read and save the actual order",
+      "log_1": "You save the order through a headache. His federal jurisdiction shrinks until it no longer reaches the milkshake currently in front of him.",
+      "choice_2": "Decline; wait in the van",
+      "log_2": "You leave irritated. He demands another close-up of the straw, which has now received more oversight than the owner’s payroll."
+    },
+    "ENC-S23-B": {
+      "name": "The working parent has insufficient time",
+      "desc": "Congress created Medicaid work rules beginning in 2027. At a preparation workshop, a working parent asks when to complete the paperwork between shifts. A campaign volunteer offers a pamphlet about initiative. The parent asks whether initiative can collect a child from school.",
+      "choice_0": "Share food; support the parent",
+      "log_0": "You share food and back the question. The pamphlet lies beside the parent’s schedule, contributing no childcare whatsoever.",
+      "choice_1": "Read and save the rules",
+      "log_1": "You save the rollout details, head aching. The parent’s employment has already filled every hour the pamphlet calls available for getting organized.",
+      "choice_2": "Leave the workshop",
+      "log_2": "You leave annoyed. The parent folds the initiative pamphlet small enough to carry; fitting the actual requirements into the day remains harder."
+    },
+    "ENC-S23-C": {
+      "name": "The photograph is insufficiently grateful",
+      "desc": "Trump’s Smithsonian directive called for his version of patriotic history. At a roadside history display, a promoter copies the idea by covering a strike photograph with a flag. The attendant asks where the workers went. He says they are now behind the country.",
+      "choice_0": "Share food; support the attendant",
+      "log_0": "You share food and confirm what was covered. The attendant lifts one corner of the flag; American workers reappear without harming America.",
+      "choice_1": "Compare and save both displays",
+      "log_1": "You document the change, head aching. The promoter’s restored truth requires the photograph to remain mostly invisible.",
+      "choice_2": "Leave the display",
+      "log_2": "You leave frustrated. The promoter adds another flag after discovering the first one has failed to cover a worker’s raised hand."
+    },
+    "ENC-S24-A": {
+      "name": "The shower has taken the hair",
+      "desc": "Trump ordered showerhead deregulation after years of complaining about water pressure. At a hardware launch, the demonstration blasts the wig off a presidential mannequin. The clerk offers $12 to mop; ordinary traveler showers cost $5. The wig is heading for plumbing reform.",
+      "choice_0": "Mop the floor for $12",
+      "log_0": "Twelve dollars and a sore back. You catch the wig on the mop, briefly becoming the best-groomed cleaner in the building.",
+      "choice_1": "Buy a $5 shower",
+      "log_1": "Five dollars buys a proper wash. The ordinary shower leaves your hair attached, an achievement the demonstration has chosen not to emphasize.",
+      "choice_2": "Skip both offers",
+      "log_2": "You leave disappointed. The clerk puts the wet wig back on the mannequin, which now looks less certain about freedom."
+    },
+    "ENC-S24-B": {
+      "name": "The gulf has reached reception",
+      "desc": "Trump put Gulf of America on federal maps. At a motel promotion, the owner gives a leaking lobby fountain the same name. He offers $12 to mop or a $5 shower token. The cleaner asks whether the expanding gulf now includes the carpet.",
+      "choice_0": "Mop the lobby for $12",
+      "log_0": "You earn $12 and aching muscles. The owner calls your mop a territorial concession and asks you to stop shrinking America.",
+      "choice_1": "Pay $5 for a shower",
+      "log_1": "You wash and clear your head. The shower’s water stays within its borders without anyone giving it a national identity.",
+      "choice_2": "Leave the motel",
+      "log_2": "You leave annoyed. The owner shifts a tiny flag to the puddle’s edge, updating the map instead of calling the plumber."
+    },
+    "ENC-S24-C": {
+      "name": "The welcome is dripping",
+      "desc": "Trump’s Gold Card offers an immigration route linked to a million-dollar gift. At a hotel’s promotional evening, a gold-colored ice gateway is melting over workers’ shoes. The attendant offers $12 to mop or a $5 shower. Wealthy arrivals enter through the dry side.",
+      "choice_0": "Mop beneath the gateway for $12",
+      "log_0": "Twelve dollars and aching muscles. You remove the wet border so the people buying special welcome never have to step in it.",
+      "choice_1": "Buy the $5 wash",
+      "log_1": "Five dollars buys a refreshing shower. Your welcome is smaller but has working drainage and no minimum donation.",
+      "choice_2": "Leave the event",
+      "log_2": "You leave irritated. The presenter asks someone to move the workers; their wet shoes are spoiling the photograph of a welcoming America."
+    },
+    "ENC-S25-A": {
+      "name": "Same bombs, new letterhead",
+      "desc": "Trump gave the Defense Department “Department of War” as a second name. At a print shop, the printer offers $13 to sort new letterheads. He presents two invoices. “Same bombs. Twice the stationery.”",
+      "choice_0": "Sort the letterheads for $13",
+      "log_0": "You sort both names, save the invoices, and earn $13, head aching. The printer needs another cabinet for the expanded letterhead supply.",
+      "choice_1": "Improvise the grand unveiling",
+      "log_1": "You announce two armies by mistake. The crew laughs; the printer doubles his quote. You both briefly understand government contracting.",
+      "choice_2": "Pass on the work",
+      "log_2": "You leave unpaid. The printer asks whether peace needs a separate invoice or whether nobody is ordering that."
+    },
+    "ENC-S25-B": {
+      "name": "Evidence available in cardboard",
+      "desc": "The MAHA report cited nonexistent studies. At a conference printer, the owner offers $13 to sort poster components. A promotional design shows a tower of scientific evidence. The tower is cardboard, which at least exists.",
+      "choice_0": "Sort posters; save the references",
+      "log_0": "You earn $13 and preserve the errors, head aching. The cardboard passes its first evidence check by being physically present.",
+      "choice_1": "Improvise the scientific introduction",
+      "log_1": "The crew laughs at your solemn delivery. You praise an imaginary paper; the printer offers you a place inside the cardboard tower.",
+      "choice_2": "Pass on the work",
+      "log_2": "You leave disappointed. The printer adds a stronger base, giving the scientific claim a kind of support it previously lacked."
+    },
+    "ENC-S25-C": {
+      "name": "Original, in very large letters",
+      "desc": "The U.S. Copyright Office says prompting alone does not establish authorship of an AI output. An art-stall seller offers $13 to pair generated pictures with honest credit labels. He has made ORIGINAL larger than the picture. The lettering is doing most of the creative work.",
+      "choice_0": "Match the labels; save the guidance",
+      "log_0": "You earn $13 matching labels and save the guidance, head aching. The seller’s word original shrinks to match his actual contribution.",
+      "choice_1": "Give the computer an authorship award speech",
+      "log_1": "Your speech gets laughs and loses trust. The seller asks where the computer’s human author should stand for the presentation.",
+      "choice_2": "Skip the job",
+      "log_2": "You leave annoyed. The seller looks at the oversized lettering and considers doing some actual drawing before ordering a larger sign."
+    },
+    "ENC-S26-A": {
+      "name": "The trail has become a notice",
+      "desc": "Albuquerque reported a federal attempt to withdraw Rail Trail money. At a Beltway supporters’ stall, the printer offers $9 to fold leaflets. A volunteer’s bicycle leans against the funding announcement. It is the only transport here receiving actual support from the paperwork.",
+      "choice_0": "Share food with the volunteer",
+      "log_0": "You share food and gain a contact. She moves the leaflet stack under her bicycle’s wobbly stand, getting one useful public service from it.",
+      "choice_1": "Fold the leaflets for $9",
+      "log_1": "Nine dollars and aching eyes earn an endorsement. You make the withdrawal notice compact enough for people to carry while walking.",
+      "choice_2": "Head back to the van",
+      "log_2": "You leave disappointed. The volunteer rings her bicycle bell; the funding notice remains considerably less capable of moving people."
+    },
+    "ENC-S26-B": {
+      "name": "Please silence the launch",
+      "desc": "Virginia ordered school divisions toward bell-to-bell phone policies. At a roadside school-supply drive, an organizer offers $9 to fold explanatory leaflets and welcomes lunch company. She keeps reaching for her phone to photograph the phone-free demonstration. The distraction has organizer privileges.",
+      "choice_0": "Share some food with the organizer",
+      "log_0": "You share lunch and exchange numbers. She puts the phone away long enough to discover that company is available without opening an app.",
+      "choice_1": "Fold the leaflets for $9",
+      "log_1": "You earn $9 and an endorsement through tired eyes. Each folded leaflet briefly blocks the organizer’s view of her own screen.",
+      "choice_2": "Leave the table",
+      "log_2": "You leave disappointed. She asks for one last photograph of everyone concentrating on something other than phones."
+    },
+    "ENC-S26-C": {
+      "name": "The newborn cannot expense lunch",
+      "desc": "Trump Accounts offer eligible babies $1,000 unavailable for ordinary childhood spending. At a baby-supply charity sale, the organizer offers $9 to sort price tags. A parent holds an account notice beside diapers. The baby is attempting a hostile takeover of the receipt.",
+      "choice_0": "Share some food with the parent",
+      "log_0": "You share food and gain a contact. The parent eats while the baby crumples the notice into the nearest available financial product.",
+      "choice_1": "Sort the price tags for $9",
+      "log_1": "Nine dollars and aching eyes earn the organizer’s endorsement. The diapers remain stubbornly priced for people who need them before retirement.",
+      "choice_2": "Leave the sale",
+      "log_2": "You leave disappointed. The parent checks the notice again. The infant investor has expressed an immediate cash-flow problem directly into the stroller."
+    },
+    "ENC-S27-A": {
+      "name": "The forty-two-cent department",
+      "desc": "Washington offered federal agencies Musk’s Grok AI for forty-two cents. A copy shop selling AI classes advertises that price for attendees and offers $6 to hang the banner. The class costs extra. So does being the wrong customer.",
+      "choice_0": "Save the offer and the proposed banner",
+      "log_0": "You save the agency-only terms despite the headache. The banner’s universal bargain shrinks to a very particular customer.",
+      "choice_1": "Hang the misleading banner for $6",
+      "log_1": "You earn $6 and lose trust when readers discover the restriction. The owner has outsourced the expensive part: looking them in the eye.",
+      "choice_2": "Turn down the banner job",
+      "log_2": "You leave annoyed. The owner checks whether folding the banner can conceal the part where his shop is not a federal agency."
+    },
+    "ENC-S27-B": {
+      "name": "Five stars, no footsteps",
+      "desc": "The FTC prohibits fabricated consumer reviews. A motel owner offers $6 to hang a banner quoting guests his marketing service invented. The housekeeper has counted the occupied rooms. She would like to meet the delighted couple who apparently slept in the linen cupboard.",
+      "choice_0": "Save the review and room comparison",
+      "log_0": "You save the contradiction through tired eyes. The linen cupboard has excellent storage and an increasingly distinguished romantic history.",
+      "choice_1": "Hang the invented-review banner for $6",
+      "log_1": "You earn $6 and lose trust. A visitor asks for the famous suite; the housekeeper opens the cupboard and points at the towels.",
+      "choice_2": "Decline the job",
+      "log_2": "You leave irritated. The owner asks whether upgrading the cupboard’s pillows might make the review retroactively less imaginary."
+    },
+    "ENC-S27-C": {
+      "name": "Approved by the printer",
+      "desc": "Trump floated fifty-year mortgages in 2025; that was a proposal, not an available nationwide program. A housing-leads seller offers $6 to hang WASHINGTON APPROVED FIFTY-YEAR LOANS. The only approval he can produce is the printer’s receipt.",
+      "choice_0": "Save the proposal and the seller’s claim",
+      "log_0": "You save both, head aching. The seller’s promised government program turns out to have been authorized by a man operating a laminator.",
+      "choice_1": "Hang the misleading banner for $6",
+      "log_1": "You earn $6 and lose trust. A visitor asks where to apply; the seller offers another brochure instead of the program you advertised.",
+      "choice_2": "Refuse the job",
+      "log_2": "You leave annoyed. The seller checks the laminator again, hoping its finished light might count as federal approval."
+    },
+    "ENC-S28-A": {
+      "name": "The small briefcase strategy",
+      "desc": "Trump ordered limits on federally supported institutional home purchases, with definitions and implementation required. At an open-house cleanup, an agent has bought a smaller briefcase for corporate visitors. Sorting cards pays $12; a quiet break is available. The company itself refuses to fit inside.",
+      "choice_0": "Sort the cards; save the actual scope",
+      "log_0": "You sort cards for $12 and save the order, head aching. The agent’s briefcase has shrunk. His institutional investor has not.",
+      "choice_1": "Use your food; take a recovery break",
+      "log_1": "You eat and recover in the empty chair. The agent’s miniature briefcase remains incapable of making a corporation into a household.",
+      "choice_2": "Head back to the van",
+      "log_2": "You leave irritated. The agent tries folding the corporate letterhead smaller, extending a remarkably ambitious interpretation of household size."
+    },
+    "ENC-S28-B": {
+      "name": "Obsolete, with references",
+      "desc": "Duffy told Congress in 2025 that parts of air-traffic infrastructure still used floppy disks. At a surplus-electronics stall, sorting old media pays $12; a quiet break is available using your food. The seller has crossed obsolete off one basket. The price remains two dollars.",
+      "choice_0": "Sort the media; save the testimony",
+      "log_0": "You sort disks for $12 and save Duffy’s testimony, head aching. The oldest disk has outlasted the computer that promised to replace it.",
+      "choice_1": "Use your food; take a recovery break",
+      "log_1": "You eat and recover while the seller handles the fragile old media. Your break requires no compatibility adapter.",
+      "choice_2": "Return to the road",
+      "log_2": "You leave annoyed. The seller wraps a floppy disk carefully, newly aware that retirement can apparently be postponed by federal infrastructure."
+    },
+    "ENC-S28-C": {
+      "name": "Fifty pages of affordability",
+      "desc": "Trump floated fifty-year mortgages in 2025. A roadside housing fair needs $12 worth of help assembling a sample payment calendar; its volunteer first-aider can also tend your aches using supplies you provide. The sample house has two rooms. The calendar needs three tables.",
+      "choice_0": "Assemble the sample calendar for $12",
+      "log_0": "You earn $12 and preserve the proposal, mentally exhausted. The pages keep arriving long after the little house runs out of rooms.",
+      "choice_1": "Use your supplies; see the first-aider",
+      "log_1": "Your supplies help you recover. The first-aider finishes a useful service without offering to spread it over fifty years.",
+      "choice_2": "Keep traveling",
+      "log_2": "You leave frustrated. A volunteer asks for another table, the only immediately available expansion in the affordability proposal."
+    },
+    "ENC-S29-A": {
+      "name": "The manuscript gets through",
+      "desc": "NIH’s July 2025 access policy makes covered new accepted manuscripts public without an embargo. At a library copy kiosk, matching versions pays $12. The author’s manuscript can be read free; the publisher’s glossy layout is a different product. The knowledge has escaped without its expensive jacket.",
+      "choice_0": "Match the versions for $12",
+      "log_0": "You earn $12 and tired eyes. The plain manuscript contains the research despite arriving without the publisher’s carefully dressed cover.",
+      "choice_1": "Keep the public manuscript and publication details",
+      "log_1": "You save both records, eyes aching. The public copy opens immediately; the decorative cover no longer controls whether the ideas may enter.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the kiosk. The volunteer clips the plain pages together, supplying all the luxury binding needed to keep the research in order."
+    },
+    "ENC-S29-B": {
+      "name": "The direct route is closed",
+      "desc": "Treasury suspended the IRS’s free Direct File tool for 2026; other free filing options remain. At a used-computer stall, a seller offers $12 to sort replacement labels for old tax-help kiosks. The machines still work. Only the part where government made itself convenient has broken.",
+      "choice_0": "Sort the replacement labels for $12",
+      "log_0": "You earn $12 and a headache sorting “Direct File” from “Other filing options.” The computers pass every hardware test. The government needs a replacement part.",
+      "choice_1": "Preserve the old and new captions",
+      "log_1": "You save both captions and the IRS update, head aching. The seller keeps one old label: “File directly with us.” Apparently that was the experimental feature.",
+      "choice_2": "Get back on the road",
+      "log_2": "You leave the job behind. He puts the empty kiosks on sale. “Taxes still mandatory,” he calls. “Helpful government sold separately.”"
+    },
+    "ENC-S29-C": {
+      "name": "Please sort the welcomes by income",
+      "desc": "Trump’s Gold Card ties an expedited immigration route to a million-dollar gift. At a promotional printer, the owner offers $12 to sort translated brochures. The gold editions say welcome on the cover. The ordinary immigration leaflet begins with several reasons to be nervous.",
+      "choice_0": "Sort the brochures for $12",
+      "log_0": "You earn $12 and a headache. The same country greets readers in remarkably different tones depending on the price of the cover.",
+      "choice_1": "Keep the public brochures and terms",
+      "log_1": "You preserve the comparison, mentally tired. A large gift makes the border’s language lessons progress directly to hospitality.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the job behind. The printer adds another layer of gold, apparently the international symbol for this applicant will be treated as an asset."
+    },
+    "ENC-S30-A": {
+      "name": "The campaign for a path needs a van",
+      "desc": "Albuquerque reported an attempted federal withdrawal of Rail Trail funds. At a coastal transport meeting, an organizer offers $15 to deliver campaign materials using your own packing supplies. A commuter has the correspondence. Once again, the working route belongs to somebody else.",
+      "choice_0": "Use supplies; make the delivery",
+      "log_0": "You spend supplies and earn $15. The posters promising movement reach the meeting because the van never waited for the funding announcement.",
+      "choice_1": "Compare the correspondence with the commuter",
+      "log_1": "You gain evidence and a contact, head aching. The promised path currently moves most efficiently when printed small enough for somebody to carry.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the offer behind. The organizer checks your van’s departure time with more urgency than the campaign’s map has ever received."
+    },
+    "ENC-S30-B": {
+      "name": "The welcome cannot carry itself",
+      "desc": "Trump’s Gold Card offers expedited immigration linked to a million-dollar gift. At a coastal information event, $15 is offered to deliver welcome boxes using your supplies. A hotel worker has the public terms. The boxes are too heavy for the people being welcomed.",
+      "choice_0": "Use supplies; deliver the boxes",
+      "log_0": "You spend supplies and earn $15. The expensive welcome reaches its destination through people whose own welcome has never required a ribbon.",
+      "choice_1": "Read the terms with the worker",
+      "log_1": "You gain a contact and evidence, mentally tired. The brochure calls wealth a contribution; carrying the brochure’s furniture earns a much smaller word.",
+      "choice_2": "Keep driving",
+      "log_2": "You leave the offer behind. An organizer asks whether the welcome can be made lighter without reducing the impression of money."
+    },
+    "ENC-S30-C": {
+      "name": "No wind, except for the banner",
+      "desc": "Trump paused new federal wind-project approvals. At an energy meeting, an organizer offers $15 to deliver display materials using your supplies. A technician has the order. The anti-wind banner keeps escaping across the car park, apparently unaware it should wait for a review.",
+      "choice_0": "Use supplies; make the delivery",
+      "log_0": "You spend supplies and earn $15. The banner needs extra fastening to keep its opposition to wind from being carried away by wind.",
+      "choice_1": "Read the order with the technician",
+      "log_1": "You gain a contact and evidence through a headache. The breeze supplies an unscheduled demonstration while the discussion of whether to permit it continues.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the offer behind. The organizer chases the banner, discovering that opposition to wind still requires an effective relationship with it."
+    },
+    "ENC-S31-A": {
+      "name": "Paid by the century",
+      "desc": "Wisconsin’s court upheld Governor Evers’s deletion of budget characters extending school revenue-limit increases to 2425, not guaranteed appropriations. A roadside printer offers $14 to align comparison cards and welcomes shared lunch. He is reconsidering the phrase annual printing contract.",
+      "choice_0": "Align the cards; keep the comparison",
+      "log_0": "You earn $14 and save the comparison, eyes aching. A few missing characters have given the printer several centuries of extra calendar space.",
+      "choice_1": "Share some food; rest with the printer",
+      "log_1": "You share lunch, recover, and exchange numbers. He promises to repay the favor this century, a modest improvement on the school calendar.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the stall. The printer checks the date on his next invoice very carefully before letting anyone near the scissors."
+    },
+    "ENC-S31-B": {
+      "name": "Purchasing should be the deliberate bit",
+      "desc": "The federal consumer watchdog refunded unwanted Fortnite purchases. At a used-console stall, a worker offers $14 to label demonstration controls and keep the comparison. You may share lunch and rest here. The pretend purchase button is huge. The pretend confirmation button is apparently shy.",
+      "choice_0": "Label the controls; save the comparison",
+      "log_0": "You earn $14 and tired eyes. The demonstration finally gives buying something as clear a label as moving a cartoon person left.",
+      "choice_1": "Share some food; take a break",
+      "log_1": "You share food, recover, and gain a contact. The worker asks before taking a second biscuit, demonstrating a complete purchasing philosophy.",
+      "choice_2": "Continue the trip",
+      "log_2": "You leave the stall. The worker enlarges the confirmation label until an ordinary finger can finally see what it is agreeing to."
+    },
+    "ENC-S31-C": {
+      "name": "The after-coffee instructions",
+      "desc": "The SEC fined Keurig over incomplete recyclability disclosures. At a coffee-equipment co-op, a worker offers $14 to match sample pods with local collection instructions, or a shared lunch break. Making coffee takes one button. Dealing with the company’s environmental claim has filled the other counter.",
+      "choice_0": "Match the instructions; save the comparison",
+      "log_0": "You earn $14 and tired eyes. The sorting guide finally includes the collectors’ answer, which the confident sales display had treated as optional.",
+      "choice_1": "Share some food; rest with the worker",
+      "log_1": "You share lunch, recover, and gain a contact. The worker pours ordinary water, briefly avoiding a product that needs a disposal seminar.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the co-op. The worker clears space beside the coffee machine for the instructions required after its simple part is over."
+    },
+    "ENC-S32-A": {
+      "name": "The wind has not read the order",
+      "desc": "Trump paused new federal wind-project approvals. At a turbine-repair stall, a technician offers $10 to sort spare-part labels. He keeps the order under a paperweight. The breeze removes the paperweight’s supporting documents every time somebody praises the pause.",
+      "choice_0": "Sort the labels for $10",
+      "log_0": "Ten dollars and a headache. The technician retrieves another page from the hedge; wind continues producing results without waiting for the speech to finish.",
+      "choice_1": "Record the technician’s account",
+      "log_1": "You gain evidence and a contact, mentally tired. He distinguishes paused approvals from moving air, a distinction the flying order demonstrates repeatedly.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the offer behind. A speaker asks someone to hold the paperwork still while he explains the advantages of stopping wind development."
+    },
+    "ENC-S32-B": {
+      "name": "The unreliable panel is doing the work",
+      "desc": "Trump ordered strict enforcement of wind and solar tax-credit terminations, calling those sources unreliable. At a repair fair, a technician offers $10 to sort component labels. The anti-solar presentation is powered by the small solar panel nobody wants included in the photograph.",
+      "choice_0": "Sort the labels for $10",
+      "log_0": "Ten dollars and aching eyes. The panel powers another slide explaining its unreliability; the technician asks whether it should stop interrupting the argument.",
+      "choice_1": "Save the setup and technician’s account",
+      "log_1": "You gain evidence and a contact through a headache. The presentation’s most reliable participant is the one being accused on every slide.",
+      "choice_2": "Continue the trip",
+      "log_2": "You leave the offer behind. The photographer moves the panel out of frame, successfully reducing visible solar dependence without reducing solar dependence."
+    },
+    "ENC-S32-C": {
+      "name": "An actual choice",
+      "desc": "After a court restricted Google’s exclusive distribution deals, a computer refurbisher makes a demonstration keyboard with several search keys. Sorting spare keycaps pays $10; he also invites you to check the ruling. Previously, his display offered four choices of the same button.",
+      "choice_0": "Sort the spare keycaps for $10",
+      "log_0": "You earn $10 and tired eyes. The refurbished keyboard can finally suggest that a choice might lead somewhere different.",
+      "choice_1": "Record the ruling with the refurbisher",
+      "log_1": "You save the exclusivity distinction, mentally tired, and gain a contact. He keeps Google available; the demonstration needs competition, not a disappearance trick.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the stall. The refurbisher tests a second search key and enjoys its modest refusal to be the first one."
+    },
+    "ENC-S33-A": {
+      "name": "The tank has run out of freedom",
+      "desc": "Trump ordered showerhead deregulation. At a desert service stop, a celebratory display is draining the tank. The plumber offers water for help shutting it off or $12 for the heavier work. The owner asks whether the empty tank is refusing to cooperate politically.",
+      "choice_0": "Help shut it off; take water",
+      "log_0": "You gain water and some peace of mind. The plumber demonstrates the off switch, a technology omitted from the freedom ceremony.",
+      "choice_1": "Do the heavier work for $12",
+      "log_1": "Twelve dollars and sore muscles. You haul the equipment while the owner asks whether refilling the tank counts as government interference.",
+      "choice_2": "Keep driving",
+      "log_2": "You leave the offer behind. The display coughs; the owner checks the banner instead of the water level."
+    },
+    "ENC-S33-B": {
+      "name": "A nationally protected blockage",
+      "desc": "Trump ordered federal agencies back to plastic straws. At a desert drinks promotion, the giant ceremonial straw blocks the refill station. The installer offers water for clearing the walkway or $12 to move its heavy base. The straw has secured access to all the drinks.",
+      "choice_0": "Clear the walkway; take water",
+      "log_0": "You gain water and clear your head. Ordinary people can reach the tap once the national drinking priority moves out of their way.",
+      "choice_1": "Move the base for $12",
+      "log_1": "Twelve dollars and aching muscles. You carry the object designed to prove that drinking ought to require less effort.",
+      "choice_2": "Continue the trip",
+      "log_2": "You leave the offer behind. The installer bends the giant straw sideways, achieving the national strategy’s first practical compromise with thirst."
+    },
+    "ENC-S33-C": {
+      "name": "The inspection left a forwarding fee",
+      "desc": "Texas ended most noncommercial safety inspections but kept a $7.50 inspection-program replacement fee. At a Texas garage, the mechanic offers water for clearing access or $12 to shift barriers. The inspection bay is empty. Its fee has kept the appointment.",
+      "choice_0": "Clear access; take some water",
+      "log_0": "You clear the approach, collect water, and enjoy a useful result. The empty inspection bay contributes no further inspection to the arrangement.",
+      "choice_1": "Move the barriers for $12",
+      "log_1": "You earn $12 and sore muscles. The barriers move on; the replacement fee has secured a more permanent position.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the garage. The mechanic checks the empty bay once more, just in case the fee has grown an inspector."
+    },
+    "ENC-S34-A": {
+      "name": "A fee for the lack of money",
+      "desc": "Congress repealed the CFPB’s new overdraft rule for very large banks. At a roadside payroll kiosk, a clerk offers $16 to match account notices and invites a closer comparison. The charge is easiest to describe when the customer can least afford the description.",
+      "choice_0": "Match the account notices for $16",
+      "log_0": "You earn $16 and tired eyes. The account receives a charge for running short, then has to run shorter to cover it.",
+      "choice_1": "Compare the repeal with the old options",
+      "log_1": "You read until your eyes ache. Charging someone for having no money remains a remarkably confident business model.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the kiosk. Its empty coin dish remains the most accurate illustration of the customer account."
+    },
+    "ENC-S34-B": {
+      "name": "Ten fewer ways to fold",
+      "desc": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost him ten folding instructions. He offers $16 to sort linen labels. His fitted sheet has captured one arm. Deregulation is reaching for the other.",
+      "choice_0": "Sort linen labels for $16",
+      "log_0": "You earn $16 and rest your aching eyes. The sorted tags say FITTED. The owner asks whether you could repeal that part too.",
+      "choice_1": "Compare his claim with the old instructions",
+      "log_1": "You save his boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the offer behind. He announces that he has eliminated red tape. The elastic captures his other arm."
+    },
+    "ENC-S34-C": {
+      "name": "Tomorrow’s investor needs today’s invoice",
+      "desc": "Trump Accounts offer eligible newborns $1,000 unavailable for childhood bills. At a baby-goods warehouse, $16 is offered to sort delivery labels. A parent compares the account announcement with a diaper invoice. The baby has begun rejecting delayed gratification at full volume.",
+      "choice_0": "Sort delivery labels for $16",
+      "log_0": "Sixteen dollars and a headache. The diaper boxes leave today; the money meant to celebrate the baby’s future remains admirably patient.",
+      "choice_1": "Compare the account rules with the invoice",
+      "log_1": "You save the mismatch through aching eyes. The parent asks whether the diapers might accept a payment schedule based on adulthood.",
+      "choice_2": "Keep moving",
+      "log_2": "You leave the job behind. The baby grabs the announcement, becoming the first person here to extract immediate practical entertainment from it."
     }
   },
   "play": {

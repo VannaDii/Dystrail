@@ -18,19 +18,88 @@ static CANONICAL: std::sync::LazyLock<Vec<crate::game::data::Encounter>> =
             .expect("shipped encounters are valid")
     });
 
+pub const ROAD_FAMILIES: &[(&str, &str)] = &[
+    ("classic_bridge_crews", "ENC-C01"),
+    ("classic_civic_potluck", "ENC-C02"),
+    ("classic_crossing_block_party", "ENC-C03"),
+    ("classic_freeway_mural", "ENC-C04"),
+    ("classic_mail_drop", "ENC-C05"),
+    ("classic_media_training", "ENC-C06"),
+    ("classic_mutual_aid", "ENC-C07"),
+    ("classic_mutual_aid_dispatch", "ENC-C08"),
+    ("classic_neighborhood_watch", "ENC-C09"),
+    ("classic_overpass_stage", "ENC-C10"),
+    ("classic_press_briefing", "ENC-C11"),
+    ("classic_press_pool_qna", "ENC-C12"),
+    ("classic_radio_phonebank", "ENC-C13"),
+    ("classic_service_station", "ENC-C14"),
+    ("classic_union_blockade", "ENC-C15"),
+    ("classic_water_drive", "ENC-C16"),
+    ("fundraiser_detour", "ENC-C17"),
+    ("town_hall_drift", "ENC-C18"),
+    ("beltway_briefing", "ENC-D01"),
+    ("deep_circuit_breaker", "ENC-D02"),
+    ("deep_field_intel", "ENC-D03"),
+    ("deep_grassroots_signal", "ENC-D04"),
+    ("deep_media_ambush", "ENC-D05"),
+    ("deep_memorandum_dump", "ENC-D06"),
+    ("deep_secure_line", "ENC-D07"),
+    ("deep_state_dirge", "ENC-D08"),
+    ("deep_watch_party", "ENC-D09"),
+    ("deep_watchdog_sync", "ENC-D10"),
+    ("deep_waystation_boost", "ENC-D11"),
+    ("deep_rustbelt_convoy", "ENC-D12"),
+    ("deep_beltway_fastpass", "ENC-D13"),
+    ("raw_milk", "ENC-S01"),
+    ("tariff_whiplash", "ENC-S02"),
+    ("clinic_triage", "ENC-S03"),
+    ("overnight_briefing", "ENC-S04"),
+    ("sat_straw_reserve", "ENC-S05"),
+    ("sat_corn_bullets", "ENC-S06"),
+    ("sat_grant_groceries", "ENC-S07"),
+    ("sat_cow_citations", "ENC-S08"),
+    ("sat_forecast_corrected", "ENC-S09"),
+    ("sat_parking_gulf", "ENC-S10"),
+    ("sat_library_minimum", "ENC-S11"),
+    ("sat_tariff_forklift", "ENC-S12"),
+    ("sat_alternator_tariff", "ENC-S13"),
+    ("sat_billion_pothole", "ENC-S14"),
+    ("sat_bridge_bullets", "ENC-S15"),
+    ("sat_press_pool_radio", "ENC-S16"),
+    ("sat_hydration_pressure", "ENC-S17"),
+    ("sat_museum_grant", "ENC-S18"),
+    ("sat_factcheck_shift", "ENC-S19"),
+    ("sat_food_shelf", "ENC-S20"),
+    ("sat_cabinet_guest", "ENC-S21"),
+    ("sat_name_infrastructure", "ENC-S22"),
+    ("sat_straw_inspection", "ENC-S23"),
+    ("sat_shower_force", "ENC-S24"),
+    ("sat_receipt_museum", "ENC-S25"),
+    ("sat_transit_ribbon", "ENC-S26"),
+    ("sat_weather_desk", "ENC-S27"),
+    ("sat_bibliography_emergency", "ENC-S28"),
+    ("west_grant_translation", "ENC-S29"),
+    ("west_rail_replacement", "ENC-S30"),
+    ("west_laboratory_overhead", "ENC-S31"),
+    ("west_wind_loyalty", "ENC-S32"),
+    ("west_desert_pressure", "ENC-S33"),
+    ("west_beef_passports", "ENC-S34"),
+];
+
+/// Shared settings remain provisional until each variant's authored art is accepted.
+pub fn runtime_for_unit(unit: &str) -> Option<&'static str> {
+    ROAD_FAMILIES
+        .iter()
+        .find(|(_, family)| valid(unit, family))
+        .map(|(runtime, _)| *runtime)
+}
+
 fn family(gs: &GameState) -> Option<&'static str> {
     let encounter = gs.current_encounter.as_ref()?;
-    let family = match encounter.id.as_str() {
-        "classic_bridge_crews" => "ENC-C01",
-        "classic_civic_potluck" => "ENC-C02",
-        "classic_crossing_block_party" => "ENC-C03",
-        "classic_freeway_mural" => "ENC-C04",
-        "classic_mail_drop" => "ENC-C05",
-        "classic_media_training" => "ENC-C06",
-        "classic_mutual_aid" => "ENC-C07",
-        "classic_mutual_aid_dispatch" => "ENC-C08",
-        _ => return None,
-    };
+    let family = ROAD_FAMILIES
+        .iter()
+        .find(|(runtime, _)| *runtime == encounter.id)?
+        .1;
     is_shipped(encounter).then_some(family)
 }
 
@@ -288,6 +357,40 @@ mod tests {
         gs
     }
     #[test]
+    fn all_195_road_variants_have_complete_copy_and_current_save_identity() {
+        let copy: serde_json::Value =
+            serde_json::from_str(include_str!("../../i18n/en.json")).unwrap();
+        assert_eq!(ROAD_FAMILIES.len(), 65);
+        for &(runtime, family) in ROAD_FAMILIES {
+            let event = CANONICAL.iter().find(|event| event.id == runtime).unwrap();
+            for suffix in ["A", "B", "C"] {
+                let unit = format!("{family}-{suffix}");
+                assert_eq!(runtime_for_unit(&unit), Some(runtime));
+                let row = &copy["encounter_copy"][&unit];
+                for field in ["name", "desc"].into_iter().map(str::to_owned).chain(
+                    (0..event.choices.len())
+                        .flat_map(|i| [format!("choice_{i}"), format!("log_{i}")]),
+                ) {
+                    let text = row[&field].as_str().unwrap();
+                    assert!(!text.is_empty() && !text.ends_with('…'), "{unit}.{field}");
+                }
+                assert!(row[format!("choice_{}", event.choices.len())].is_null());
+                let mut gs = run();
+                gs.current_encounter = Some(event.clone());
+                gs.continuity
+                    .visual_content
+                    .selections
+                    .insert(format!("{family}/road/300"), unit.clone());
+                let mut restored: GameState =
+                    serde_json::from_str(&serde_json::to_string(&gs).unwrap()).unwrap();
+                seal_encounter(&mut restored);
+                assert_eq!(encounter_unit(&restored), Some(unit.as_str()));
+            }
+        }
+        assert_eq!(runtime_for_unit("ENC-W01-A"), None);
+        assert_eq!(runtime_for_unit("ENC-C01-D"), None);
+    }
+    #[test]
     fn rest_and_barter_record_original_offer_without_mutating_mechanics() {
         let mut before = GameState {
             seed: 42,
@@ -372,17 +475,8 @@ mod tests {
     }
     #[test]
     fn every_integrated_family_preserves_imported_copy_and_outcome_identity() {
-        let families = [
-            ("classic_bridge_crews", "ENC-C01"),
-            ("classic_civic_potluck", "ENC-C02"),
-            ("classic_crossing_block_party", "ENC-C03"),
-            ("classic_freeway_mural", "ENC-C04"),
-            ("classic_mail_drop", "ENC-C05"),
-            ("classic_media_training", "ENC-C06"),
-            ("classic_mutual_aid", "ENC-C07"),
-            ("classic_mutual_aid_dispatch", "ENC-C08"),
-        ];
-        for (runtime, family) in families {
+        let families = ROAD_FAMILIES;
+        for &(runtime, family) in families {
             let mut original = run();
             original.current_encounter =
                 Some(CANONICAL.iter().find(|e| e.id == runtime).unwrap().clone());

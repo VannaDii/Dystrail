@@ -19243,5 +19243,21 @@
     "sha256": "f68bceb4a4644feff2823bc903fe32e12e0f7f2e09c28c0d8bd290fa4f12837c",
     "source": "exec-f465d38d-fcb8-4870-84b7-145f71916622.png",
     "validation": "Inspected all12 retained cells; no visible religious symbols. Desktop/mobile browser checks cover11 reachable runtime cells and exact offline bytes; clinic phone and civic-street desktop captures inspected. No claim that all game assets have passed the final symbol/scene audit."
+  },
+  "road_copy_checkpoint": {
+    "status": "English narrative integrated; not final visual or localization acceptance",
+    "eligible_variants": 195,
+    "existing_handlers": 65,
+    "newly_connected_variants": 171,
+    "source": "current-source-records.json: compatible_narrative road encounters only",
+    "implementation": "dystrail-web/src/app/visual_content.rs ROAD_FAMILIES; i18n/en.json encounter_copy",
+    "mechanics": "Existing 65 encounter definitions and effects unchanged; 36 mechanics-dependent records remain inactive",
+    "art": "C01-C08 retain previously reviewed integration and holds. Remaining variants temporarily use handler shared settings; setting fit, authored props, actual crew, and per-variant art acceptance remain pending. No new generation.",
+    "localization": "New 171 variants use English fallback; translations not complete. Variant source-context help also remains pending.",
+    "checks": [
+      "Native coverage of all 195 copy records and current-save identities",
+      "Existing full-family presentation isolation check expanded to all 65 handlers",
+      "Browser verification in road-copy-completion.spec.ts"
+    ]
   }
 }
