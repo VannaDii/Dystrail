@@ -19470,9 +19470,10 @@
       "All 45 titles/epilogues match approved source",
       "Build 72ce6d67ee7109bbd561 succeeded",
       "39 terminal variants passed on desktop/mobile, including offline reload and state preservation; final-vote fixture adjusted to actual destination before final visual check",
-      "Corrected final-vote arrival fixtures passed all terminal cases on desktop/mobile (15.4s). Six existing result-screen tests passed. Final D.C. desktop/mobile screenshots reviewed for copy layout; generic ending illustration remains explicitly provisional."
+      "Corrected final-vote arrival fixtures passed all terminal cases on desktop/mobile (15.4s). Six existing result-screen tests passed. Final D.C. desktop/mobile screenshots reviewed for copy layout; generic ending illustration remains explicitly provisional.",
+      "Early-ending geography, dusk lighting and departed/dead roster checks passed in all six regions on desktop/mobile. Visual review found foreground covering the result caption; caption stacking corrected and final screenshots rechecked."
     ],
-    "art": "Existing ending presentation retained provisionally. No new image generation. Variant-specific props, actual regional stopping context and surviving-crew artwork still require acceptance.",
+    "art": "Early endings now use the reviewed road for the actual route segment with recorded time/weather. Recorded crew fates remain in the roster. Normal undamaged van/standing crew are not inserted into terminal scenes; cause-specific vehicle and survivor scene art remains incomplete. Arrival art remains provisional.",
     "remaining": [
       "Ending scene/prop integration and surviving-crew visual acceptance",
       "Translations and factual context",

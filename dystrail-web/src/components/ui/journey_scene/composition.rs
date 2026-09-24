@@ -134,7 +134,8 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
             },
         ),
         SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => ("journey-settings-v1", 2, 3, 3),
-        SceneStage::Ending(arrived) => ("journey-settings-v1", 2, 3, if *arrived { 4 } else { 5 }),
+        SceneStage::Ending(true) => ("journey-settings-v1", 2, 3, 4),
+        SceneStage::Ending(false) => return None,
         _ => encounter_setting(name, p.hour, p.region)?,
     };
     let width = 1536.0 / f64::from(columns);

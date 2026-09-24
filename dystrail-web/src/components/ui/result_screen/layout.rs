@@ -47,7 +47,7 @@ pub fn render_body(
 
     html! {
         <section role="region" aria-labelledby="result-title" onkeydown={on_keydown} class="result-screen">
-            <div class="result-art"><crate::components::ui::journey_scene::JourneyScene day={gs.day} hour={u8::try_from(gs.continuity.clock_minutes / 60).unwrap_or(8)} stage={crate::components::ui::journey_scene::SceneStage::Ending(arrived)} deep={gs.mode.is_deep()} weather={Some(gs.weather_state.today)}>
+            <div class="result-art"><crate::components::ui::journey_scene::JourneyScene region={Some(gs.region)} road_asset={Some(crate::game::route::road_scene(gs).to_owned())} party={Some(gs.party.clone())} day={gs.day} hour={u8::try_from(gs.continuity.clock_minutes / 60).unwrap_or(8)} stage={crate::components::ui::journey_scene::SceneStage::Ending(arrived)} deep={gs.mode.is_deep()} weather={Some(gs.weather_state.today)}>
                 <figcaption class="result-art-caption">
                     <div class="result-outcome"><p class="eyebrow">{i18n::t("play.outcome")}</p><h1 id="result-title" class="result-headline">{ &headline_text }</h1><p class="result-epilogue">{&epilogue_text}</p><p class="result-location">{super::super::route_map::location::location(gs)}<span>{progress_text}</span></p></div>
                     <div class="result-profile">{character_portrait::framed(gs.persona_id.as_deref().unwrap_or("journalist"),player,Expression::ending(gs))}<div><p class="eyebrow">{i18n::t("play.profile")}</p><span>{persona_name(summary)}</span><span>{&summary.mode}</span></div></div>

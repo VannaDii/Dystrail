@@ -975,3 +975,5 @@ html.hc .journal .journal-event-heading,html.hc .journal .journal-event-context,
 
 /* Crossing layers share a fixed camera; van placement scales with the scene. */
 .world-view .journey-scene[data-scene="crossing"] .crew-van { width:44%; left:4%; bottom:15%; }
+/* Keep ending captions above the road's foreground and lighting layers. */
+.result-art .scene-road .result-art-caption { z-index:4; }

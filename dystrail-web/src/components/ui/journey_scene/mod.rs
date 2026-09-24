@@ -109,9 +109,12 @@ fn reviewed_road(region: Region, day: u32, requested: Option<&str>) -> &'static 
 #[function_component(JourneyScene)]
 pub fn journey_scene(p: &Props) -> Html {
     crate::i18n::use_language();
-    let road = matches!(p.stage, SceneStage::Travel(_) | SceneStage::Setup);
+    let early_ending = matches!(p.stage, SceneStage::Ending(false));
+    let road = early_ending || matches!(p.stage, SceneStage::Travel(_) | SceneStage::Setup);
     let stopped = !p.moving && matches!(p.stage, SceneStage::Travel(_));
-    let name = if let SceneStage::Travel(region) = p.stage {
+    let name = if early_ending {
+        Some(reviewed_road(p.region.unwrap_or(Region::Heartland), p.day, p.road_asset.as_deref()))
+    } else if let SceneStage::Travel(region) = p.stage {
         Some(reviewed_road(region, p.day, p.road_asset.as_deref()))
     } else {
         asset_name(p.deep, &p.stage)
@@ -137,7 +140,7 @@ pub fn journey_scene(p: &Props) -> Html {
             if crossing {{crossing_art::render(p).unwrap_or_default()} <van::CrewVan party={p.party.clone()} />} else {
             if let Some(art)=care_art::render(p) {{art}} else if let Some(art)=road_art::render(&p.stage) {{art}} else if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
             if let SceneStage::Travel(region) = p.stage {{billboard::render(billboard::selected(region, p.seed, p.day), p.day)}}
-            if stopped {{parked::render(p.party.as_ref())}} else if road {<van::CrewVan party={p.party.clone()} />}
+            if stopped {{parked::render(p.party.as_ref())}} else if road && !early_ending {<van::CrewVan party={p.party.clone()} />}
             if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
             }
             <div class="scene-light"></div>

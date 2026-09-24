@@ -35,3 +35,21 @@ test('recorded terminal causes show matching ending variants without changing re
   }
  }
 });
+test('early endings retain recorded regional scenery, time and crew fates',async({page},info)=>{
+ const base=await baseline(page);const routes=JSON.parse(readFileSync('../dystrail-game/data/routes.json','utf8'));
+ for(const region of ['PacificCoast','MountainWest','Southwest','Heartland','RustBelt','Beltway']){
+  const route=routes.find((r:any)=>r.stops.some((s:any)=>s.region===region));const stop=route.stops.find((s:any)=>s.region===region);
+  const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.route_services.route_id=route.id;
+  s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.clock_minutes=1200;
+  s.ending={type:'collapse',cause:'hunger'};
+  s.party.members.find((m:any)=>m.persona==='organizer').status='Departed';s.party.members.find((m:any)=>m.persona==='staffer').status='Dead';
+  await importState(page,s);await expect(page.locator('#main')).toHaveAttribute('data-screen','result');
+  const expected=stop.scene==='open-heartland-prairie'?'open-heartland-orchard':stop.scene==='open-rustbelt-foundry'?'open-rustbelt-lakeside':stop.scene;
+  await expect(page.locator('.result-art .journey-scene')).toHaveAttribute('data-scene',expected);
+  await expect(page.locator('.result-art .journey-scene')).toHaveAttribute('data-time','dusk');
+  await expect(page.locator('.ending-crew [data-member="organizer"]')).toHaveAttribute('data-fate','crew.departed');
+  await expect(page.locator('.ending-crew [data-member="staffer"]')).toHaveAttribute('data-fate','crew.dead');
+  await expect(page.locator('.result-art .crew-van')).toHaveCount(0);
+  if(region==='Southwest')await page.screenshot({path:info.outputPath('early-ending-southwest.png'),fullPage:true});
+ }
+});
