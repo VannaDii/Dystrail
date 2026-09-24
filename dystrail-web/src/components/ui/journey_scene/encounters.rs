@@ -1,6 +1,8 @@
 //! Deliberate encounter-to-setting assignments; unknown events never inherit road art.
 pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
     Some(match id {
+        // The rejected lander illustration stays excluded pending user review.
+        "ENC-C04-A" => "enc-rest-area",
         "west_grant_translation"
         | "classic_media_training"
         | "classic_press_briefing"

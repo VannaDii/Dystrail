@@ -23,6 +23,7 @@ fn family(gs: &GameState) -> Option<&'static str> {
     let family = match encounter.id.as_str() {
         "classic_bridge_crews" => "ENC-C01",
         "classic_crossing_block_party" => "ENC-C03",
+        "classic_freeway_mural" => "ENC-C04",
         "classic_mail_drop" => "ENC-C05",
         "classic_media_training" => "ENC-C06",
         _ => return None,

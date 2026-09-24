@@ -1446,6 +1446,40 @@
       "log_1": "You enjoy the rehearsal. The volunteer christens the mop “Strategic Deterrence.” The leak starts another drop while they’re still saluting.",
       "overlay_0": "AIR SUPERIORITY",
       "fact": "The September 2025 action authorized Department of War as a secondary title. It did not abolish the statutory Department of Defense name established by Congress. The hall, volunteers, and roof proposal are fictional."
+    },
+    "ENC-C04-A": {
+      "name": "Ground contact",
+      "desc": "NASA says Athena’s sideways landing left its drill unable to reach the Moon. At a roadside astronomy picnic, volunteers need help with a homemade lander display. Their drill has already completed the ground-contact phase.",
+      "choice_0": "Help haul the lander platform",
+      "log_0": "You haul the platform until your shoulders ache. The picnic cheers its successful landing on the far side of the table.",
+      "choice_1": "Donate materials for the display",
+      "log_1": "Your supplies secure the platform, earning the volunteers’ endorsement. Their procurement program now includes checking which way is up.",
+      "choice_2": "Record the actual mission result",
+      "log_2": "You record the drill’s failure and the instruments that returned data. The volunteer retires a much simpler, less accurate disaster joke.",
+      "fact": "NASA's Athena payload documentation says the lander's roughly horizontal orientation prevented the TRIDENT drill from reaching the lunar surface and completing its objectives. This was an uncrewed commercial mission; other instruments returned data."
+    },
+    "ENC-C04-B": {
+      "name": "Domestic adjectives",
+      "desc": "The FTC accused patriotic-goods sellers of false Made in USA claims and proposed a settlement. At a hardware shop, a worker is rebuilding a returned flag-display stand and invites help or materials. The advertising arrived entirely American. Several components apparently took a longer route.",
+      "choice_0": "Help haul the display sections",
+      "log_0": "You haul the sections until your shoulders ache and enjoy the company. The flag needs a sturdy base more than another adjective.",
+      "choice_1": "Donate repair materials",
+      "log_1": "Your materials secure the stand and earn trust. The worker records their actual source, an unexpectedly radical approach to product description.",
+      "choice_2": "Record the origin-claim distinction",
+      "log_2": "You record the allegation and proposed settlement accurately. The worker removes an unsupported claim without needing to lower the flag.",
+      "fact": "In April 2026 the FTC announced a complaint and proposed settlement concerning false US-origin claims for flag-display products. The announcement described allegations and an order requiring judicial approval, not a finding that all patriotic products were imported."
+    },
+    "ENC-C04-C": {
+      "name": "Freedom from shade",
+      "desc": "At a travelling workers’ fair, Florida roofers show your crew the law blocking local heat protections. Their protest canopy covers the water cooler. A sponsor praising deregulation has put their chair underneath it. The roofers need help moving the display.",
+      "choice_0": "Help move the demonstration canopy",
+      "log_0": "You haul the canopy until your arms ache. The roofers laugh as the sponsor follows its shadow without once supporting the policy.",
+      "choice_1": "Donate some water for workers",
+      "log_1": "You donate some water; the roofers record your help. The sponsor calls hydration a personal responsibility, then asks whose cooler this is.",
+      "choice_2": "Record the roofers’ demonstration",
+      "log_2": "You record the roofers explaining the Florida law. The sponsor keeps edging into the shot, specifically the shaded part.",
+      "fact": "A 2024 Florida law bars local governments from imposing certain workplace heat protections and water-break requirements. It does not make drinking water illegal or remove every federal obligation.",
+      "overlay_0": "LOCAL HEAT RULES BLOCKED"
     }
   },
   "play": {

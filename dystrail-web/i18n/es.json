@@ -1455,6 +1455,40 @@
       "overlay_line1": "SUPERIORIDAD",
       "overlay_line2": "AÉREA",
       "fact": "La medida de septiembre de 2025 autorizó «Departamento de Guerra» como título secundario. No abolió el nombre legal de Departamento de Defensa establecido por el Congreso. El local, sus voluntarios y la propuesta sobre el techo son ficticios."
+    },
+    "ENC-C04-A": {
+      "name": "Contacto con el suelo",
+      "desc": "La NASA dice que Athena aterrizó de lado y su taladro no pudo alcanzar el suelo lunar. En un pícnic astronómico junto a la carretera, el voluntariado necesita ayuda con una maqueta casera del módulo. Su taladro ya ha completado la fase de contacto con el suelo.",
+      "choice_0": "Ayudar a trasladar la plataforma",
+      "log_0": "Arrastráis la plataforma hasta que os duelen los hombros. El grupo celebra su aterrizaje al otro extremo de la mesa.",
+      "choice_1": "Donar materiales para la exposición",
+      "log_1": "Vuestras provisiones aseguran la plataforma y os ganan el respaldo del voluntariado. Su programa de compras ya incluye comprobar qué lado va arriba.",
+      "choice_2": "Registrar el resultado real de la misión",
+      "log_2": "Registráis el fallo del taladro y los instrumentos que sí enviaron datos. La voluntaria retira un chiste sobre el desastre mucho más sencillo y bastante menos exacto.",
+      "fact": "La documentación de la NASA sobre Athena indica que su posición casi horizontal impidió que el taladro TRIDENT alcanzara el suelo lunar y cumpliera sus objetivos. Era una misión comercial sin tripulación; otros instrumentos sí enviaron datos."
+    },
+    "ENC-C04-B": {
+      "name": "Adjetivos nacionales",
+      "desc": "La FTC acusó a vendedores de artículos patrióticos de usar falsas afirmaciones de «Made in USA» y propuso un acuerdo. En una ferretería, una trabajadora reconstruye un soporte de bandera devuelto e invita a ayudar o aportar materiales. La publicidad llegó completamente estadounidense. Al parecer, varias piezas tomaron un camino más largo.",
+      "choice_0": "Ayudar a trasladar las piezas",
+      "log_0": "Movéis las piezas hasta que os duelen los hombros y disfrutáis de la compañía. La bandera necesita una base firme más que otro adjetivo.",
+      "choice_1": "Donar materiales para la reparación",
+      "log_1": "Vuestros materiales afianzan el soporte y generan confianza. La trabajadora anota su procedencia real: una forma inesperadamente radical de describir un producto.",
+      "choice_2": "Registrar la distinción sobre el origen",
+      "log_2": "Registráis con precisión la acusación y el acuerdo propuesto. La trabajadora retira una afirmación sin fundamento sin tener que bajar la bandera.",
+      "fact": "En abril de 2026, la FTC anunció una denuncia y un acuerdo propuesto sobre afirmaciones falsas de origen estadounidense en productos de exposición de banderas. El anuncio describía acusaciones y una orden pendiente de aprobación judicial, no una conclusión de que todos los productos patrióticos fueran importados."
+    },
+    "ENC-C04-C": {
+      "name": "Libertad frente a la sombra",
+      "desc": "En una feria itinerante de trabajadores, unas techadoras de Florida enseñan a vuestra tripulación la ley que bloquea las protecciones locales frente al calor. Su toldo de protesta cubre la nevera del agua. Una patrocinadora que elogia la desregulación ha puesto su silla debajo. Las techadoras necesitan ayuda para mover la exposición.",
+      "choice_0": "Ayudar a mover el toldo",
+      "log_0": "Arrastráis el toldo hasta que os duelen los brazos. Las techadoras se ríen al ver a la patrocinadora seguir su sombra sin apoyar en ningún momento la política.",
+      "choice_1": "Donar agua para las trabajadoras",
+      "log_1": "Donáis agua y las techadoras anotan vuestra ayuda. La patrocinadora llama a la hidratación una responsabilidad personal y luego pregunta de quién es esta nevera.",
+      "choice_2": "Grabar la demostración de las techadoras",
+      "log_2": "Grabáis a las techadoras explicando la ley de Florida. La patrocinadora no deja de colarse en el encuadre, concretamente en la parte con sombra.",
+      "fact": "Una ley de Florida de 2024 impide que los gobiernos locales impongan ciertas protecciones laborales frente al calor y pausas para beber agua. No prohíbe beber agua ni elimina todas las obligaciones federales.",
+      "overlay_0": "NORMAS LOCALES CONTRA EL CALOR BLOQUEADAS"
     }
   },
   "play": {

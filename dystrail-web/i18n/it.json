@@ -1455,6 +1455,40 @@
       "overlay_line1": "SUPERIORITÀ",
       "overlay_line2": "AEREA",
       "fact": "Il provvedimento del settembre 2025 ha autorizzato «Dipartimento della Guerra» come titolo secondario. Non ha abolito il nome legale Dipartimento della Difesa stabilito dal Congresso. La sede, i volontari e la proposta sul tetto sono inventati."
+    },
+    "ENC-C04-A": {
+      "name": "Contatto con il suolo",
+      "desc": "La NASA dice che l'atterraggio su un fianco di Athena ha impedito alla trivella di raggiungere il suolo lunare. A un picnic astronomico lungo la strada, i volontari chiedono aiuto con un modello artigianale del lander. Il loro trapano ha già completato la fase di contatto con il suolo.",
+      "choice_0": "Aiuta a spostare la piattaforma",
+      "log_0": "Trascinate la piattaforma finché vi fanno male le spalle. Il gruppo festeggia il suo atterraggio all'altra estremità del tavolo.",
+      "choice_1": "Dona materiali per l'esposizione",
+      "log_1": "Le vostre scorte fissano la piattaforma e vi valgono il sostegno dei volontari. Il loro programma acquisti ora prevede di controllare quale lato vada in alto.",
+      "choice_2": "Documenta il vero esito della missione",
+      "log_2": "Documentate il fallimento della trivella e gli strumenti che hanno trasmesso dati. La volontaria ritira una battuta sul disastro molto più semplice e meno accurata.",
+      "fact": "La documentazione NASA su Athena indica che la posizione quasi orizzontale impedì alla trivella TRIDENT di raggiungere il suolo lunare e completare i suoi obiettivi. Era una missione commerciale senza equipaggio; altri strumenti trasmisero dati."
+    },
+    "ENC-C04-B": {
+      "name": "Aggettivi nazionali",
+      "desc": "La FTC ha accusato alcuni venditori di articoli patriottici di false dichiarazioni «Made in USA» e ha proposto un accordo. In un negozio di ferramenta, un'addetta sta ricostruendo un supporto per bandiere restituito e invita a dare una mano o a fornire materiali. La pubblicità è arrivata interamente americana. Diverse componenti sembrano aver fatto un giro più lungo.",
+      "choice_0": "Aiuta a spostare le sezioni",
+      "log_0": "Spostate le sezioni finché vi fanno male le spalle, godendovi la compagnia. Alla bandiera serve una base solida più che un altro aggettivo.",
+      "choice_1": "Dona materiali per la riparazione",
+      "log_1": "I vostri materiali fissano il supporto e guadagnano fiducia. L'addetta ne annota la vera provenienza: un modo insospettabilmente radicale di descrivere un prodotto.",
+      "choice_2": "Documenta la distinzione sull'origine",
+      "log_2": "Documentate con precisione le accuse e l'accordo proposto. L'addetta rimuove un'affermazione infondata senza dover abbassare la bandiera.",
+      "fact": "Nell'aprile 2026 la FTC annunciò una denuncia e un accordo proposto su false dichiarazioni di origine statunitense per prodotti da esposizione di bandiere. L'annuncio descriveva accuse e un provvedimento soggetto ad approvazione giudiziaria, non una conclusione secondo cui tutti i prodotti patriottici fossero importati."
+    },
+    "ENC-C04-C": {
+      "name": "Liberi dall'ombra",
+      "desc": "A una fiera itinerante dei lavoratori, alcune operaie dei tetti della Florida mostrano al vostro gruppo la legge che blocca le tutele locali dal caldo. Il loro gazebo di protesta copre il contenitore dell'acqua. Una sponsor che elogia la deregolamentazione ci ha sistemato sotto la sedia. Le operaie chiedono aiuto per spostare l'esposizione.",
+      "choice_0": "Aiuta a spostare il gazebo",
+      "log_0": "Trascinate il gazebo finché vi fanno male le braccia. Le operaie ridono mentre la sponsor ne segue l'ombra senza mai sostenere la tutela.",
+      "choice_1": "Dona acqua alle lavoratrici",
+      "log_1": "Donate acqua e le operaie registrano il vostro aiuto. La sponsor definisce l'idratazione una responsabilità personale, poi chiede di chi sia quel contenitore.",
+      "choice_2": "Riprendi la dimostrazione delle operaie",
+      "log_2": "Riprendete le operaie mentre spiegano la legge della Florida. La sponsor continua a infilarsi nell'inquadratura, precisamente nella parte in ombra.",
+      "fact": "Una legge della Florida del 2024 impedisce ai governi locali di imporre determinate protezioni dal caldo sul lavoro e pause per bere. Non vieta di bere acqua né elimina tutti gli obblighi federali.",
+      "overlay_0": "TUTELE LOCALI DAL CALDO BLOCCATE"
     }
   },
   "play": {

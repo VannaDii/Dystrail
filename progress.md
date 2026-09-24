@@ -564,3 +564,11 @@ September 14 — standing crew transparency repair:
 - Verified exact field coverage, nonempty values, preserved placeholders and unchanged font names only; `cargo test --offline -p dystrail-web --lib locales_have_balanced_templates` passed; diff whitespace check passed. No new build/browser review in this text-only checkpoint; French wrapping and native-language editorial acceptance remain unverified.
 - Recovered encounter translation packages contain ES/IT/AR only. Fifteen other locales still lack these variants; full key-parity failure is not resolved. Do not replace this gap with English and claim localization complete. Preserved ally translations also contain stale premises and must not be imported wholesale.
 - No image generation, no deployment.
+
+## C04 integration checkpoint — 2026-09-24
+
+- Restored all three approved classic_freeway_mural narrative variants in EN/ES/IT/AR, using current source paragraphs and preserved matching translations/factual qualifications. Existing effect/choice guard, seed selection, saved identity, and committed outcome pipeline apply; engine effects unchanged.
+- Reused byte-identical C04 B workshop and C04 C shade-protest atlases; all three actual outcomes select their respective cells. Preserved native 760×504 crops, indoor/outdoor lighting classification, bottom-left captions and existing stats. Shade-protest lettering is localized live text. Rejected C04 A lander art remains excluded; the shared outdoor setting is provisional and the essential illustration remains an acceptance gap. No generation.
+- Fixed French C01 B prop lettering to use French, matching its newly translated copy.
+- Build 37e24636eea6ac37382d succeeded. Five visual-content native tests and two C04 browser tests passed (desktop/mobile all nine choices, journal/save identity, unchanged stat effects, reload, Arabic 320px offline and width). Viewed desktop C offer, mobile C outcome and Arabic B; review snapshots in c04-checkpoint. Mobile prop lettering still uses existing hidden-text/info fallback and requires acceptance. Native-language review and full locale parity remain outstanding.
+- No deployment; no Hearing or unrelated formatting changes retained.

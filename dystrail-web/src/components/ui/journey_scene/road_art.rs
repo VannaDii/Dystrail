@@ -20,6 +20,8 @@ pub fn supported(unit: &str) -> bool {
             | "ENC-C03-A"
             | "ENC-C03-B"
             | "ENC-C03-C"
+            | "ENC-C04-B"
+            | "ENC-C04-C"
             | "ENC-C05-A"
             | "ENC-C05-B"
             | "ENC-C05-C"
@@ -33,6 +35,7 @@ pub fn is_indoors(unit: &str) -> bool {
     matches!(
         unit,
         "ENC-C01-B"
+            | "ENC-C04-B"
             | "ENC-C03-A"
             | "ENC-C03-C"
             | "ENC-C05-A"
@@ -53,8 +56,8 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     let count = match unit {
-        "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
-        | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
+        "ENC-C04-C" | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B"
+        | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };
@@ -71,6 +74,7 @@ fn labels(unit: &str, worked: bool) -> Html {
     if unit == "ENC-C01-B" {
         let (first, second) = match crate::i18n::current_lang().as_str() {
             "es" => ("PIEZA NO", "RECONOCIDA"),
+            "fr" => ("PIÈCE NON", "RECONNUE"),
             "it" => ("RICAMBIO NON", "RICONOSCIUTO"),
             "ar" => ("قطعة غير", "معترف بها"),
             _ => ("PART NOT", "RECOGNIZED"),
@@ -93,7 +97,8 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
-    if unit.starts_with("ENC-C05-") || unit.starts_with("ENC-C06-") {
+    if unit.starts_with("ENC-C04-") || unit.starts_with("ENC-C05-") || unit.starts_with("ENC-C06-")
+    {
         return Some(render_retained(unit, choice));
     }
     if unit.starts_with("ENC-C03-") {
@@ -151,8 +156,8 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
-        "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C"
-        | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
+        "ENC-C04-B" | "ENC-C04-C" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A"
+        | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
         _ => "760 / 360",
     })
 }
@@ -194,6 +199,7 @@ fn render_retained(unit: &str, choice: Option<usize>) -> Html {
     let atlas = format!("road-{}-20260914", unit[4..].to_ascii_lowercase());
     let clip = format!("road-frame-{unit}-{cell}");
     let (x, y, w, h) = match unit {
+        "ENC-C04-C" => (36, 326, 215, 80),
         "ENC-C05-A" => (201, 268, 130, 37),
         "ENC-C05-B" => (220, 205, 132, 66),
         "ENC-C06-A" => (315, 340, 130, 32),
@@ -204,7 +210,7 @@ fn render_retained(unit: &str, choice: Option<usize>) -> Html {
         <defs><clipPath id={clip.clone()}><rect x={(dx+4).to_string()} y={(dy+4).to_string()} width="760" height="504"/></clipPath></defs>
         <g clip-path={format!("url(#{clip})")}>
             <image href={crate::paths::asset_path(&format!("static/img/scenes-v2/{atlas}.png"))} width="1536" height="1024"/>
-            {if cell == 0 && unit != "ENC-C06-B" { html!{<foreignObject class="road-prop-lettering" x={x.to_string()} y={y.to_string()} width={w.to_string()} height={h.to_string()}>
+            {if (cell == 0 || unit == "ENC-C04-C") && unit != "ENC-C06-B" && unit != "ENC-C04-B" { html!{<foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={(dy+y).to_string()} width={w.to_string()} height={h.to_string()}>
                 <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 18px/1.05 sans-serif;overflow-wrap:anywhere">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
             </foreignObject>} } else {Html::default()}}
         </g>

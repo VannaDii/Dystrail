@@ -5404,7 +5404,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "held_excluded_shared_rest_area_pending_illustration",
+        "mechanics": "unchanged",
+        "build": "37e24636eea6ac37382d",
+        "verification": "Desktop/mobile: all nine choices, saved identity, unchanged stat effects, journal, reload, Arabic 320px offline. Held A art excluded. Desktop C offer and mobile C outcome/B Arabic inspected; mobile prop lettering remains hidden with info fallback."
+      }
     },
     {
       "unit": "ENC-C04-B",
@@ -5433,7 +5446,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_four_cells_bound_to_committed_choice",
+        "mechanics": "unchanged",
+        "build": "37e24636eea6ac37382d",
+        "verification": "Desktop/mobile: all nine choices, saved identity, unchanged stat effects, journal, reload, Arabic 320px offline. Held A art excluded. Desktop C offer and mobile C outcome/B Arabic inspected; mobile prop lettering remains hidden with info fallback."
+      }
     },
     {
       "unit": "ENC-C04-C",
@@ -5462,7 +5488,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_four_cells_bound_to_committed_choice",
+        "mechanics": "unchanged",
+        "build": "37e24636eea6ac37382d",
+        "verification": "Desktop/mobile: all nine choices, saved identity, unchanged stat effects, journal, reload, Arabic 320px offline. Held A art excluded. Desktop C offer and mobile C outcome/B Arabic inspected; mobile prop lettering remains hidden with info fallback."
+      }
     },
     {
       "unit": "ENC-C05-A",
