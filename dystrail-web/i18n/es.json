@@ -1381,6 +1381,48 @@
       "log_2": "Donáis provisiones y os instaláis en la sala tranquila. La puerta se abre desde dentro. Pensáis en recomendársela al gimnasio.",
       "overlay_0": "POR FAVOR, SIGA EN ESPERA",
       "fact": "En julio de 2025, el Octavo Circuito anuló la norma de la FTC para cancelar con un clic por su procedimiento regulatorio. No declaró legales todas las prácticas que dificultan cancelar; pueden seguir aplicándose otras protecciones al consumidor."
+    },
+    "ENC-C05-A": {
+      "name": "Devolver a remitente inexistente",
+      "desc": "En una biblioteca, unas voluntarias entregan a tu grupo cartas sobre los estudios inexistentes del primer informe MAHA. Ofrecen comida por una respuesta grabada y rigurosa. Una cartera jubilada ha traído un sobre vacío. «Es toda la investigación que nos cabía».",
+      "choice_0": "Leer y guardar las cartas",
+      "log_0": "Lees y guardas las cartas entre risas. La cartera ha subrayado «dirección desconocida» con tanta fuerza que el estudio inexistente ahora tiene ventana.",
+      "choice_1": "Grabar una respuesta rigurosa",
+      "log_1": "Grabas las correcciones de las citas y recoges comida. La bibliotecaria comprueba que la respuesta existe antes de darle al play.",
+      "choice_2": "Compartir comida y ordenar cartas",
+      "log_2": "Compartes comida y ordenas las cartas con las voluntarias. Cada estudio ausente recibe un clip de verdad. El presupuesto científico se recupera.",
+      "overlay_0": "DIRECCIÓN DESCONOCIDA",
+      "overlay_line1": "DIRECCIÓN",
+      "overlay_line2": "DESCONOCIDA",
+      "fact": "En mayo de 2025 se detectaron estudios inexistentes y otros errores de citas en el primer informe MAHA. HHS declaró que había corregido errores de citas y formato. Esto no demuestra que la IA los causara ni que todas las afirmaciones del informe fueran falsas."
+    },
+    "ENC-C05-B": {
+      "name": "Demasiado grande para el formulario",
+      "desc": "Una voluntaria detiene vuestra furgoneta con cartas sobre la aceptación por el Pentágono del avión de lujo de Catar. En su trabajo le hicieron declarar una magdalena regalada. Ofrece comida por una respuesta grabada. Su formulario pregunta si la magdalena tiene propietarios extranjeros.",
+      "choice_0": "Leer y guardar las cartas",
+      "log_0": "Guardas las cartas y os reís de la declaración de la magdalena. La voluntaria le dibujó un tren de aterrizaje. Cumplimiento rechazó las ruedas adicionales.",
+      "choice_1": "Grabar una respuesta rigurosa",
+      "log_1": "Grabas lo ocurrido con la aceptación del avión y recoges comida. Ella misma declara los sándwiches. «Sin alas. Deberíamos estar a salvo».",
+      "choice_2": "Compartir comida y ordenar cartas",
+      "log_2": "Compartes comida y ayudas a ordenar las cartas. Alguien convierte el formulario de la magdalena en un avión de papel. Su exención para regalos mejora de inmediato.",
+      "overlay_0": "DECLARACIÓN DE REGALO",
+      "overlay_line1": "DECLARACIÓN",
+      "overlay_line2": "DE REGALO",
+      "fact": "El 21 de mayo de 2025, el Pentágono anunció que había aceptado un Boeing 747 de Catar para uso presidencial. La aceptación suscitó preguntas legales y éticas; no prueba una sentencia por soborno ni que el avión estuviera listo para operar de inmediato."
+    },
+    "ENC-C05-C": {
+      "name": "Los otros invitados a cenar",
+      "desc": "Tras la cena de Trump para grandes inversores de su moneda meme, la clientela de un restaurante de carretera ha escrito sus propias solicitudes de audiencia. Detienen a tu grupo para que las lleve a Washington. La cocinera ofrece comida por una respuesta grabada. Su invitación está sujeta a una factura de gas pendiente.",
+      "choice_0": "Leer y guardar sus cartas",
+      "log_0": "Guardas las cartas entre risas por la lista de invitados. Profesión: lavaplatos. Cartera de inversiones: un guante con monedas suficientes para la lavandería.",
+      "choice_1": "Grabar una respuesta rigurosa",
+      "log_1": "Grabas sus peticiones y recoges comida. La cocinera anuncia la recepción exclusiva. Es detrás del mostrador, junto a la fregona.",
+      "choice_2": "Compartir comida y ordenar solicitudes",
+      "log_2": "Compartes comida y ordenas las solicitudes. La clientela brinda por vuestra llegada con agua del grifo. Nadie comprueba su capitalización bursátil.",
+      "overlay_0": "SOLICITUD DE AUDIENCIA",
+      "overlay_line1": "SOLICITUD",
+      "overlay_line2": "DE AUDIENCIA",
+      "fact": "El 22 de mayo de 2025, Trump recibió a grandes inversores de su moneda meme en su club de golf de Virginia; se invitó a unas 220 personas. Esto vincula inversión pagada y acceso, pero no demuestra una compra de decisiones políticas establecida judicialmente."
     }
   },
   "play": {

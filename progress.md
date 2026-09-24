@@ -534,3 +534,9 @@ September 14 — standing crew transparency repair:
 ### Briefing clock alignment — 2026-09-21
 - Roadside briefing art now follows the shared lighting profile: regional daytime art through afternoon/dusk, baked night setting only during night (21:00–05:59). Previously switched at 17:00. No generation or mechanics changes.
 - Updated hourly regression covers all 24 hours; focused native test passed. git diff --check passed. Composed browser review remains outstanding; this is not full feature acceptance.
+
+### Mail-drop variants integrated — 2026-09-24
+- Restored C05 A/B/C copy in EN/ES/IT/AR and three unchanged retained atlases; no generation. Feminine/neutral local residents, blank raster props, live offer labels, bottom-left captions.
+- Enabled canonical-effects-guarded classic_mail_drop selection and actual choice/outcome binding. Nine outcomes preserve existing mechanics, journal and saved identity.
+- Build 9dc93a9386847f2722eb; five native persistence tests and two desktop/mobile browser tests passed (all nine outcomes, pending reload, Arabic320/offline). Desktop and phone renders inspected and retained in c05-checkpoint.
+- Remaining: other locale translations, mobile prop label acceptance, broad feature acceptance. No Hearing or stat layout changes.

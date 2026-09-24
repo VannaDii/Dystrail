@@ -1381,6 +1381,42 @@
       "log_2": "You donate some supplies and settle in the quiet room. Its door opens from inside. You consider recommending it to the gym.",
       "overlay_0": "PLEASE CONTINUE HOLDING",
       "fact": "In July 2025 the Eighth Circuit vacated the FTC click-to-cancel rule on rulemaking procedural grounds. That did not make every cancellation obstacle lawful; other consumer protections may still apply."
+    },
+    "ENC-C05-A": {
+      "name": "Return to nonexistent sender",
+      "desc": "At a library stop, volunteers give your crew letters about the nonexistent studies in the first MAHA report. They offer some food for an accurate recorded reply. A retired mail carrier has brought an empty envelope. “That’s all the research we could fit.”",
+      "choice_0": "Read and save the letters",
+      "log_0": "You read and save the letters, laughing. The mail carrier has underlined “address unknown” so hard the nonexistent study now has a window.",
+      "choice_1": "Record an accurate reply",
+      "log_1": "You record the citation corrections and collect some food. The librarian checks the reply exists before pressing play.",
+      "choice_2": "Share some food; sort letters",
+      "log_2": "You share some food and sort the letters with the volunteers. Every missing study gets a real paperclip. The science budget is recovering.",
+      "overlay_0": "ADDRESS UNKNOWN",
+      "fact": "May 2025 reporting identified nonexistent studies and other citation errors in the initial MAHA report. HHS said it corrected citation and formatting errors. This does not establish that AI caused the errors or that every claim in the report was false."
+    },
+    "ENC-C05-B": {
+      "name": "Too big for the form",
+      "desc": "A community volunteer flags down your van with letters about the Pentagon accepting Qatar’s luxury jet. Her workplace made her declare a gifted muffin. She offers some food for a recorded reply. Her copy of the form asks whether the muffin has foreign owners.",
+      "choice_0": "Read and save the letters",
+      "log_0": "You save the letters and laugh over the muffin declaration. The volunteer drew landing gear underneath it. Compliance rejected the extra wheels.",
+      "choice_1": "Record an accurate reply",
+      "log_1": "You record the jet acceptance and collect some food. She declares the sandwiches herself. “No wings. We should be all right.”",
+      "choice_2": "Share some food; sort letters",
+      "log_2": "You share some food and help sort letters. Someone folds the muffin form into an aircraft. Its gift exemption improves immediately.",
+      "overlay_0": "GIFT DECLARATION",
+      "fact": "On May 21, 2025, the Pentagon announced that it had accepted a Boeing 747 from Qatar for presidential use. Acceptance raised legal and ethical questions; it does not establish a bribery conviction or immediate operational readiness."
+    },
+    "ENC-C05-C": {
+      "name": "The other dinner guests",
+      "desc": "After Trump’s dinner for top meme-coin investors, diner regulars have written their own requests for a hearing. They flag down your crew to carry them to D.C. The cook offers some food for a recorded reply. Their invitation is clipped to an unpaid gas bill.",
+      "choice_0": "Read and save their letters",
+      "log_0": "You save the letters, laughing at the guest list. Occupation: dishwasher. Investment portfolio: a glove containing enough quarters for the laundry.",
+      "choice_1": "Record an accurate reply",
+      "log_1": "You record their requests and collect some food. The cook announces the exclusive reception. It’s behind the counter, beside the mop.",
+      "choice_2": "Share some food; sort requests",
+      "log_2": "You share some food and sort the requests. The regulars toast your arrival with tap water. Nobody checks its market capitalization.",
+      "overlay_0": "REQUEST FOR A HEARING",
+      "fact": "On May 22, 2025, Trump hosted top investors in his meme coin at his Virginia golf club; roughly 220 people were invited. This connects investment and access, but does not establish a judicial finding that policy decisions were bought."
     }
   },
   "play": {

@@ -5383,7 +5383,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_mail_drop",
+        "asset": "static/img/scenes-v2/road-c05-a-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "checks": "Desktop/mobile all nine outcomes: exact resource effects, journal title, saved identity, pending reload and Arabic320 offline; 2 browser tests passed. Native persistence suite 5 passed.",
+        "limitations": "EN/ES/IT/AR copy restored; other locales fall back to English. Phone prop text uses existing caption info fallback; final mobile label acceptance remains outstanding."
+      }
     },
     {
       "unit": "ENC-C05-B",
@@ -5412,7 +5419,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_mail_drop",
+        "asset": "static/img/scenes-v2/road-c05-b-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "checks": "Desktop/mobile all nine outcomes: exact resource effects, journal title, saved identity, pending reload and Arabic320 offline; 2 browser tests passed. Native persistence suite 5 passed.",
+        "limitations": "EN/ES/IT/AR copy restored; other locales fall back to English. Phone prop text uses existing caption info fallback; final mobile label acceptance remains outstanding."
+      }
     },
     {
       "unit": "ENC-C05-C",
@@ -5441,7 +5455,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_mail_drop",
+        "asset": "static/img/scenes-v2/road-c05-c-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "checks": "Desktop/mobile all nine outcomes: exact resource effects, journal title, saved identity, pending reload and Arabic320 offline; 2 browser tests passed. Native persistence suite 5 passed.",
+        "limitations": "EN/ES/IT/AR copy restored; other locales fall back to English. Phone prop text uses existing caption info fallback; final mobile label acceptance remains outstanding."
+      }
     },
     {
       "unit": "ENC-C06-A",

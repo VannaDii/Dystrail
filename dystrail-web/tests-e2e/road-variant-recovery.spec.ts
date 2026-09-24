@@ -2,8 +2,8 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {baseline,importState,openMenu,waitForLaunch} from './helpers';
 const bank=JSON.parse(readFileSync('static/assets/data/game.json','utf8'));
-for(const family of ['C01','C03']) {
-const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':'classic_crossing_block_party'));
+for(const family of ['C01','C03','C05']) {
+const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C03'?'classic_crossing_block_party':'classic_mail_drop'));
 
 test(`${family} variants keep copy, art, committed choices and saved identity aligned`,async({page,context},info)=>{
  await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
@@ -11,14 +11,14 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
  test.setTimeout(120000);
  const base=await baseline(page);base.seed=42;base.region='RustBelt';base.stats.supplies=10;base.stats.hp=9;base.stats.credibility=5;
  base.current_encounter=event;base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
- const titles=family==='C01'?['Smaller government','Permission to spin','Dignity, by the pound']:['Closing-time education','The dry wing','Your call is a commitment'];
+ const titles=family==='C01'?['Smaller government','Permission to spin','Dignity, by the pound']:family==='C05'?['Return to nonexistent sender','Too big for the form','The other dinner guests']:['Closing-time education','The dry wing','Your call is a commitment'];
  for(let row=0;row<3;row++){
   const unit=`ENC-${family}-${'ABC'[row]}`;
   for(let choice=0;choice<event.choices.length;choice++){
    const state=structuredClone(base);state.visual_content={edition:1,selections:{[`ENC-${family}/road/300`]:unit}};
    await importState(page,state);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
-   const atlas=family==='C01'?'road-c01-20260914':`road-c03-${'abc'[row]}-20260914`;
+   const atlas=family==='C01'?'road-c01-20260914':`road-${family.toLowerCase()}-${'abc'[row]}-20260914`;
    const scene=page.locator(`.scene-atlas[data-atlas="${atlas}"]`);
    await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2:0));
    await page.reload();await waitForLaunch(page);
@@ -37,6 +37,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
    await page.locator('.encounter-choice button').nth(choice).click();
    await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2+(choice===0?1:0):choice+1));
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
+   if(family==='C05') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
    await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
    expect(saved.visual_content.selections[`ENC-${family}/road/300`]).toBe(unit);
@@ -56,7 +57,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
  await expect(page.locator('.scene-caption')).toHaveCSS('text-align','left');
  await context.setOffline(true);await page.reload();await waitForLaunch(page);
  await page.screenshot({path:info.outputPath('arabic-offline.png'),fullPage:true});
- await expect(page.locator(`.scene-atlas[data-atlas="${family==='C01'?'road-c01-20260914':'road-c03-b-20260914'}"]`)).toHaveAttribute('data-cell',family==='C01'?'2':'0');
+ await expect(page.locator(`.scene-atlas[data-atlas="${family==='C01'?'road-c01-20260914':`road-${family.toLowerCase()}-b-20260914`}"]`)).toHaveAttribute('data-cell',family==='C01'?'2':'0');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 

@@ -23,6 +23,7 @@ fn family(gs: &GameState) -> Option<&'static str> {
     let family = match encounter.id.as_str() {
         "classic_bridge_crews" => "ENC-C01",
         "classic_crossing_block_party" => "ENC-C03",
+        "classic_mail_drop" => "ENC-C05",
         _ => return None,
     };
     let canonical = CANONICAL.iter().find(|event| event.id == encounter.id)?;

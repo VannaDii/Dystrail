@@ -1381,6 +1381,48 @@
       "log_2": "Donate provviste e vi sistemate nella stanza tranquilla. La porta si apre dall’interno. Pensate di consigliarla alla palestra.",
       "overlay_0": "RESTARE IN ATTESA",
       "fact": "Nel luglio 2025 l’Ottavo Circuito ha annullato la regola FTC per disdire con un clic per ragioni procedurali. Non ha dichiarato lecita ogni pratica che rende difficile disdire; altre tutele dei consumatori possono ancora applicarsi."
+    },
+    "ENC-C05-A": {
+      "name": "Restituire al mittente inesistente",
+      "desc": "Durante una sosta in biblioteca, alcune volontarie consegnano al gruppo lettere sugli studi inesistenti del primo rapporto MAHA. Offrono cibo per una risposta registrata e accurata. Una postina in pensione ha portato una busta vuota. «È tutta la ricerca che ci stava».",
+      "choice_0": "Leggi e conserva le lettere",
+      "log_0": "Leggi e conservi le lettere ridendo. La postina ha sottolineato «indirizzo sconosciuto» con tanta forza che lo studio inesistente ora ha una finestra.",
+      "choice_1": "Registra una risposta accurata",
+      "log_1": "Registri le correzioni delle citazioni e ritiri del cibo. La bibliotecaria controlla che la risposta esista prima di premere play.",
+      "choice_2": "Condividi cibo e ordina le lettere",
+      "log_2": "Condividi cibo e ordini le lettere con le volontarie. Ogni studio mancante riceve una vera graffetta. Il bilancio della scienza si sta riprendendo.",
+      "overlay_0": "INDIRIZZO SCONOSCIUTO",
+      "overlay_line1": "INDIRIZZO",
+      "overlay_line2": "SCONOSCIUTO",
+      "fact": "Nel maggio 2025 furono individuati studi inesistenti e altri errori nelle citazioni del primo rapporto MAHA. HHS dichiarò di aver corretto errori di citazione e formattazione. Ciò non dimostra che fossero causati dall'IA né che ogni affermazione del rapporto fosse falsa."
+    },
+    "ENC-C05-B": {
+      "name": "Troppo grande per il modulo",
+      "desc": "Una volontaria ferma il vostro furgone con lettere sull'accettazione, da parte del Pentagono, del jet di lusso del Qatar. Al lavoro le hanno fatto dichiarare un muffin ricevuto in regalo. Offre cibo per una risposta registrata. Il suo modulo chiede se il muffin abbia proprietari stranieri.",
+      "choice_0": "Leggi e conserva le lettere",
+      "log_0": "Conservi le lettere e ridete della dichiarazione del muffin. La volontaria gli ha disegnato un carrello di atterraggio. L'ufficio conformità ha respinto le ruote aggiuntive.",
+      "choice_1": "Registra una risposta accurata",
+      "log_1": "Registri l'accettazione del jet e ritiri del cibo. Lei dichiara personalmente i panini. «Niente ali. Dovremmo essere a posto».",
+      "choice_2": "Condividi cibo e ordina le lettere",
+      "log_2": "Condividi cibo e aiuti a ordinare le lettere. Qualcuno piega il modulo del muffin in un aeroplano. La sua esenzione per i regali migliora immediatamente.",
+      "overlay_0": "DICHIARAZIONE DEL REGALO",
+      "overlay_line1": "DICHIARAZIONE",
+      "overlay_line2": "DEL REGALO",
+      "fact": "Il 21 maggio 2025 il Pentagono annunciò di aver accettato un Boeing 747 dal Qatar per uso presidenziale. L'accettazione sollevò questioni legali ed etiche; non dimostra una sentenza per corruzione né l'immediata operatività dell'aereo."
+    },
+    "ENC-C05-C": {
+      "name": "Gli altri ospiti della cena",
+      "desc": "Dopo la cena di Trump per i maggiori investitori nella sua meme coin, i clienti abituali di una tavola calda hanno scritto le proprie richieste di udienza. Fermano il gruppo perché le porti a Washington. La cuoca offre cibo per una risposta registrata. Il loro invito è attaccato a una bolletta del gas non pagata.",
+      "choice_0": "Leggi e conserva le loro lettere",
+      "log_0": "Conservi le lettere ridendo dell'elenco degli invitati. Professione: lavapiatti. Portafoglio investimenti: un guanto con abbastanza monete per la lavanderia.",
+      "choice_1": "Registra una risposta accurata",
+      "log_1": "Registri le loro richieste e ritiri del cibo. La cuoca annuncia il ricevimento esclusivo. È dietro il bancone, accanto al mocio.",
+      "choice_2": "Condividi cibo e ordina le richieste",
+      "log_2": "Condividi cibo e ordini le richieste. I clienti brindano al vostro arrivo con acqua del rubinetto. Nessuno ne controlla la capitalizzazione di mercato.",
+      "overlay_0": "RICHIESTA DI UDIENZA",
+      "overlay_line1": "RICHIESTA",
+      "overlay_line2": "DI UDIENZA",
+      "fact": "Il 22 maggio 2025 Trump ospitò i maggiori investitori nella sua meme coin nel suo golf club in Virginia; circa 220 persone furono invitate. Ciò collega investimenti a pagamento e accesso, ma non dimostra un acquisto di decisioni politiche accertato in giudizio."
     }
   },
   "play": {
