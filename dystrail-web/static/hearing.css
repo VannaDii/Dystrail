@@ -170,6 +170,8 @@
 
 /* The caption portrait was removed: do not reserve its former column. */
 .world-view .journey-scene .scene-footer .scene-caption { padding-inline:20px; text-align:left; }
+/* Keep the capped title block at the physical left while preserving RTL text direction. */
+.world-view .journey-scene .scene-footer .scene-caption h1 { margin-left:0; margin-right:auto; }
 @media(max-width:700px) { .world-view .journey-scene .scene-footer .scene-caption { padding-inline:14px; } }
 
 /* Policy art uses its native wide camera; captions retain the scene overlay. */

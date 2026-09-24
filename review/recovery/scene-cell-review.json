@@ -19596,8 +19596,16 @@
     ],
     "remaining": [
       "Other activity translations",
-      "Arabic desktop scene title alignment needs correction to approved bottom-left placement",
       "Broader art, source context and localization acceptance remain open"
     ]
+  },
+  "caption_localization_checkpoint": {
+    "status": "Physical bottom-left caption position preserved without changing RTL direction",
+    "verification": [
+      "Build 2f04306d5e9765135b65 passed",
+      "Road and town captions checked in English, Spanish and Arabic on desktop and mobile: 12 layout cases passed",
+      "Arabic desktop town and mobile road screenshots visually reviewed"
+    ],
+    "scope": "Shared scene footer title block only; no UI redesign or art production"
   }
 }
