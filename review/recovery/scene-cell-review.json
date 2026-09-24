@@ -19557,8 +19557,21 @@
     ],
     "remaining": [
       "Updated persona/shop/mode translations; endpoint translations retained but need final language acceptance",
-      "D.C. arrival composition fails ground-plane consistency: van overlaps foreground fixture, especially obvious on mobile; requires retained-art/layout correction before visual acceptance",
       "Final complete-game acceptance and preview sheets"
+    ]
+  },
+  "arrival_composition_checkpoint": {
+    "status": "D.C. arrival ground-plane defect corrected using retained art and cast; broader ending/Hearing art acceptance remains open",
+    "decision": "Treat retained D.C. setting as a pedestrian plaza. Van stays off-screen; actual active travelers stand on open right-hand paving clear of the foreground ballot box. Use one 3:2 camera and proportional slots on desktop/mobile. Roadside parked-van behavior remains unchanged.",
+    "verification": [
+      "Build 7730e77bf7233a53925e passed",
+      "Desktop/mobile full-crew and four-survivor cases passed; departed/dead members excluded, save party unchanged, offline reload preserves presentation",
+      "Final desktop full-crew and mobile survivor images reviewed: feet clear the box edge and travelers share the paving plane",
+      "No raster edits or image-generation calls"
+    ],
+    "remaining": [
+      "Final time-of-day/weather and full-flow art acceptance",
+      "Hearing scene-specific visual jokes and ending compositions"
     ]
   }
 }

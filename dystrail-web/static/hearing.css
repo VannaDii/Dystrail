@@ -22,8 +22,6 @@
 .hearing-stage .journey-scene .scene-background { object-fit:cover; object-position:center; }
 .hearing-arrival .journey-scene:not(.scene-road) .scene-art { filter:none; }
 .hearing-stage .scene-light { z-index:1; }
-.hearing-arrival .parked-crew { position:absolute; inset:20% 5% 15%; z-index:2; }
-.hearing-arrival .crew-van { max-width:38%; }
 .hearing-stage .scene-atlas { width:100%; height:100%; }
 .hearing-chair { position:absolute; inset-block-start:6%; inset-inline-end:12%; width:clamp(115px,15%,165px); z-index:2; transition:transform .6s ease; }
 .hearing-chair .character-portrait { box-shadow:0 6px 0 #090f14; }
@@ -184,3 +182,17 @@
 .policy-bulletin .bulletin-copy{max-width:75ch}
 .policy-bulletin #bulletin-continue{margin-top:20px}
 @media(max-width:700px){.policy-bulletin .scene-caption{padding:20px 14px 10px}.policy-bulletin .bulletin-body{padding:16px}}
+
+/* Fixed arrival camera: the active crew stands on the open right-hand paving.
+   The foreground ballot box occupies the left half; the van stays off this pedestrian plaza. */
+.hearing-arrival .journey-scene { height:auto; aspect-ratio:3/2; }
+.hearing-arrival .parked-crew { inset:0; z-index:2; }
+.hearing-arrival .standing-crew { inset:0; width:100%; height:100%; }
+.hearing-arrival .standing-member { left:calc(48% + var(--arrival-slot) * 7.3%); top:55%; bottom:auto; width:18%; height:27%; transform:none; }
+.hearing-arrival .standing-member .cast-art { width:100%; height:100%; margin:0; }
+.hearing-arrival .standing-member:nth-child(1) { --arrival-slot:0; }
+.hearing-arrival .standing-member:nth-child(2) { --arrival-slot:1; }
+.hearing-arrival .standing-member:nth-child(3) { --arrival-slot:2; }
+.hearing-arrival .standing-member:nth-child(4) { --arrival-slot:3; }
+.hearing-arrival .standing-member:nth-child(5) { --arrival-slot:4; }
+.hearing-arrival .standing-member:nth-child(6) { --arrival-slot:5; }

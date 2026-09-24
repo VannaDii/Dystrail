@@ -62,7 +62,7 @@ pub(super) fn render(p: &BossPageProps, title: &str) -> Html {
     let hour = u8::try_from(minute / 60).unwrap_or(12);
     html! {<div class={classes!("hearing-stage",arrival.then_some("hearing-arrival"),preparation.then_some("hearing-preparation"),committee.then_some("hearing-committee"),verdict.then_some("hearing-verdict"),outcome.map(|o|format!("hearing-ending-{}",super::outcome_key(o))))}>
         <JourneyScene stage={if arrival {SceneStage::Ending(true)} else {SceneStage::Boss}} show_cast={false} {day} {hour} party={Some(p.state.party.clone())}>
-            if arrival { {crate::components::ui::journey_scene::parked::render(Some(&p.state.party))} }
+            if arrival { {crate::components::ui::journey_scene::parked::arrival(Some(&p.state.party))} }
             else {
                 <div class="hearing-chair"><figure class="character-portrait"><span class="character-art" aria-hidden="true"><svg viewBox={format!("{} {} 512 512",(cell%3)*512,(cell/3)*512)} focusable="false"><image href={crate::paths::asset_path("static/img/journey/hearing-officials-v1.png")} width="1536" height="1024"/></svg></span><figcaption>{t(if cell>=3 {"clerk"} else {"chair"})}</figcaption></figure></div>
                 if let Some(speaker)=speaker {<div class="hearing-speaker">{character_portrait::framed(&speaker.persona,&speaker.name,expression)}</div>}
