@@ -1322,6 +1322,137 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ENC-C01-A": {
+      "name": "Un État plus petit",
+      "desc": "DOGE a licencié les équipes de nettoyage du parc. La garde forestière restante n’a pas déjeuné. Elle propose des gants à votre équipage devant des poubelles débordantes. « Félicitations. Le petit État, c’est vous. »",
+      "choice_0": "Partager de la nourriture et vider les poubelles",
+      "log_0": "Vous partagez votre déjeuner et transportez des sacs jusqu’à en avoir mal au dos. Elle vous tend un sac-poubelle. « Votre prime d’habillement. »",
+      "choice_1": "Photographier les dégâts pour votre dossier à Washington",
+      "log_1": "Vous photographiez les poubelles débordantes. Elle désigne les mouches. « Le seul service qui recrute encore. »",
+      "fact": "Cette scène tourne en dérision les suppressions de postes de février 2025 au National Park Service. La garde forestière et la rencontre sont fictives."
+    },
+    "ENC-C01-B": {
+      "name": "Permission d’essorer",
+      "desc": "Dans un atelier de réparation coopératif au bord de la route, une personne vous montre la loi de l’Oregon limitant les verrous logiciels sur les pièces de rechange. Les bénévoles ont besoin de nourriture et d’aide pour récupérer des interrupteurs. Un lave-linge refuse une pièce qui fonctionne. Il accepte les sous-vêtements sales sans vérifier leur fabricant.",
+      "choice_0": "Partager de la nourriture ; récupérer des interrupteurs",
+      "log_0": "Vous partagez le déjeuner et démontez des interrupteurs jusqu’à avoir mal aux poignets. Le tambour peut tourner. L’autorisation du fabricant est toujours en cours de chargement.",
+      "choice_1": "Photographier le blocage et la loi de l’Oregon",
+      "log_1": "Vous conservez le message d’erreur et la règle de l’Oregon pour Washington. La pièce s’adapte parfaitement. C’est apparemment le fait d’être propriétaire qui pose un problème de compatibilité.",
+      "overlay_0": "PIÈCE NON RECONNUE",
+      "fact": "L’Oregon limite l’appairage des pièces lorsqu’il bloque des pièces de rechange fonctionnelles dans certains équipements grand public. La loi comporte des limites et des exceptions ; elle n’établit pas un droit à la réparation dans tout le pays. Cet atelier et ce lave-linge sont fictifs."
+    },
+    "ENC-C01-C": {
+      "name": "La dignité au kilo",
+      "desc": "Rubio a ordonné le retour de Times New Roman dans les courriers du département d’État. Un atelier d’impression au bord de la route l’imite et jette ses tracts en Calibri avant le repas associatif. Les bénévoles ont besoin de nourriture et d’aide pour déplacer les bennes. La déchiqueteuse accepte les deux camps.",
+      "choice_0": "Partager de la nourriture ; déplacer les bennes",
+      "log_0": "Vous partagez le déjeuner et déplacez les bennes, le dos douloureux. Les tracts disent exactement la même chose. La diplomatie américaine a simplement décidé que les lettres avaient besoin de pieds.",
+      "choice_1": "Photographier la purge typographique",
+      "log_1": "Vous photographiez les deux versions et l’ordre de Rubio. Toutes les phrases survivent. La dignité nationale repose apparemment sur de petites pattes sous l’alphabet.",
+      "overlay_0": "CALIBRI",
+      "overlay_1": "TIMES NEW ROMAN",
+      "fact": "Marco Rubio a ordonné le retour de Times New Roman dans les courriers du département d’État en décembre 2025. Cet ordre n’imposait aucun changement aux imprimeries privées ; celle de la scène est fictive."
+    },
+    "ENC-C03-A": {
+      "name": "L’école en liquidation",
+      "desc": "Trump a ordonné de préparer la fermeture du département de l’Éducation. Lors d’une collecte scolaire, des parents demandent à votre équipage de nourrir les bénévoles ou de filmer leur fausse liquidation. Un bureau porte l’étiquette « LE POUVOIR RENDU AUX PARENTS ». Deux parents se disputent pour savoir comment le soulever.",
+      "choice_0": "Partager de la nourriture ; participer à la vente",
+      "log_0": "Vous partagez de la nourriture et participez aux fausses enchères des parents. Le bureau ira à la personne capable d’expliquer une division posée sans pleurer.",
+      "choice_1": "Filmer la mise en scène des parents",
+      "log_1": "Vous filmez la mise en scène pour Washington. Sous la chaise marquée « gestion locale », le schéma de montage fédéral est toujours collé.",
+      "choice_2": "Approvisionner le coin lecture tranquille",
+      "log_2": "Vous laissez des provisions et vous installez dans le coin lecture. Le livre s’ouvre sans que personne ait dû supprimer sa maison d’édition.",
+      "overlay_0": "LE POUVOIR RENDU AUX PARENTS",
+      "fact": "Le décret de mars 2025 demandait des mesures visant à fermer le département de l’Éducation dans les limites permises par la loi. Il ne supprimait pas lui-même le département."
+    },
+    "ENC-C03-B": {
+      "name": "L’aile au sec",
+      "desc": "Trump a annoncé une salle de bal à la Maison-Blanche financée par des donateurs, car les grands dîners nécessitaient des tentes. Dans un club associatif au bord de la route, les membres organisent une collecte sous un chapiteau qui fuit. Apportez de la nourriture et vous pourrez baptiser la grande aile nouvelle. C’est le coin au sec.",
+      "choice_0": "Partager de la nourriture ; baptiser la nouvelle aile",
+      "log_0": "Vous donnez de la nourriture et attribuez votre nom au coin sec. Quelqu’un y déplace une chaise pliante. Votre héritage présidentiel accueille une personne.",
+      "choice_1": "Filmer la comparaison avec la salle de bal",
+      "log_1": "Vous filmez l’annonce et le budget du club. Les donateurs de Trump achètent une salle de bal. Ceux du club peuvent pour l’instant se payer les mots « salle de bal ».",
+      "choice_2": "Approvisionner le coin pique-nique tranquille",
+      "log_2": "Vous donnez des provisions et vous asseyez au calme. Le club donne votre nom au porte-serviettes. L’accès réservé aux donateurs est très abordable sans président dans le lot.",
+      "overlay_0": "BAPTISEZ LA NOUVELLE AILE",
+      "fact": "L’annonce de la Maison-Blanche de juillet 2025 présentait une salle de bal financée par Trump et des donateurs, en évoquant les tentes utilisées pour les grands événements. L’estimation initiale n’était pas un coût définitif ; la sécurité relevait séparément du Secret Service."
+    },
+    "ENC-C03-C": {
+      "name": "Votre appel vous engage",
+      "desc": "Un tribunal a annulé la règle de la FTC sur la résiliation en un clic. Lors d’un repas partagé au bord de la route, une personne tente de résilier son abonnement à la salle de sport, téléphone sur haut-parleur. On vous invite à apporter de la nourriture ou à profiter de la salle tranquille. La musique d’attente a survécu à deux gratins.",
+      "choice_0": "Partager de la nourriture ; participer à l’exercice",
+      "log_0": "Vous partagez de la nourriture et encouragez la personne au téléphone. La salle de sport offre trois mois gratuits. Elle demande si l’un d’eux comprend le droit de partir.",
+      "choice_1": "Enregistrer la tentative de résiliation",
+      "log_1": "Avec son accord, vous enregistrez sa sélection de l’option résiliation. Une voix la félicite d’avoir choisi de rester membre. Pendant un instant, personne ne touche au téléphone.",
+      "choice_2": "Approvisionner la salle tranquille",
+      "log_2": "Vous donnez des provisions et vous installez dans la salle tranquille. Sa porte s’ouvre de l’intérieur. Vous envisagez de la recommander à la salle de sport.",
+      "overlay_0": "MERCI DE RESTER EN LIGNE",
+      "fact": "En juillet 2025, la cour d’appel du huitième circuit a annulé la règle de la FTC sur la résiliation en un clic pour des raisons de procédure réglementaire. Cela ne rendait pas licite tout obstacle à la résiliation ; d’autres protections des consommateurs peuvent s’appliquer."
+    },
+    "ENC-C05-A": {
+      "name": "Retour à l’expéditeur inexistant",
+      "desc": "À une bibliothèque, des bénévoles donnent à votre équipage des lettres sur les études inexistantes du premier rapport MAHA. On vous propose de la nourriture contre une réponse enregistrée exacte. Une personne retraitée de la poste a apporté une enveloppe vide. « Voilà toute la recherche qu’on a pu faire rentrer. »",
+      "choice_0": "Lire et conserver les lettres",
+      "log_0": "Vous lisez et conservez les lettres en riant. La personne retraitée a tellement souligné « adresse inconnue » que l’étude inexistante a désormais une fenêtre.",
+      "choice_1": "Enregistrer une réponse exacte",
+      "log_1": "Vous enregistrez les corrections des références et récupérez de la nourriture. La bibliothécaire vérifie que la réponse existe avant d’appuyer sur lecture.",
+      "choice_2": "Partager de la nourriture ; trier les lettres",
+      "log_2": "Vous partagez de la nourriture et triez les lettres avec les bénévoles. Chaque étude manquante reçoit un vrai trombone. Le budget de la science se redresse.",
+      "overlay_0": "ADRESSE INCONNUE",
+      "fact": "Des articles de mai 2025 ont relevé des études inexistantes et d’autres erreurs de références dans le premier rapport MAHA. Le HHS a déclaré avoir corrigé des erreurs de références et de mise en forme. Cela ne prouve ni que l’IA a causé ces erreurs ni que toutes les affirmations du rapport étaient fausses."
+    },
+    "ENC-C05-B": {
+      "name": "Trop gros pour le formulaire",
+      "desc": "Une bénévole arrête votre van avec des lettres sur l’acceptation par le Pentagone du jet de luxe qatari. Son travail lui a imposé de déclarer un muffin reçu en cadeau. Elle propose de la nourriture contre une réponse enregistrée. Son formulaire demande si le muffin a des propriétaires étrangers.",
+      "choice_0": "Lire et conserver les lettres",
+      "log_0": "Vous conservez les lettres et riez de la déclaration du muffin. La bénévole lui a dessiné un train d’atterrissage. Le service conformité a refusé les roues supplémentaires.",
+      "choice_1": "Enregistrer une réponse exacte",
+      "log_1": "Vous enregistrez l’acceptation du jet et récupérez de la nourriture. Elle déclare elle-même les sandwichs. « Pas d’ailes. Ça devrait aller. »",
+      "choice_2": "Partager de la nourriture ; trier les lettres",
+      "log_2": "Vous partagez de la nourriture et aidez au tri. Quelqu’un plie le formulaire du muffin en avion. Son exemption pour les cadeaux s’améliore immédiatement.",
+      "overlay_0": "DÉCLARATION DE CADEAU",
+      "fact": "Le 21 mai 2025, le Pentagone a annoncé avoir accepté un Boeing 747 du Qatar pour un usage présidentiel. Cette acceptation a soulevé des questions juridiques et éthiques ; elle n’établit ni une condamnation pour corruption ni une aptitude opérationnelle immédiate."
+    },
+    "ENC-C05-C": {
+      "name": "Les autres convives",
+      "desc": "Après le dîner de Trump avec les principaux investisseurs de son meme coin, des habitués d’un restaurant ont rédigé leurs propres demandes d’audience. Ils arrêtent votre équipage pour les faire porter à Washington. La cuisine propose de la nourriture contre une réponse enregistrée. Leur invitation est agrafée à une facture de gaz impayée.",
+      "choice_0": "Lire et conserver leurs lettres",
+      "log_0": "Vous conservez les lettres en riant de la liste des invités. Profession : plonge. Portefeuille d’investissement : un gant contenant de quoi payer la laverie en pièces.",
+      "choice_1": "Enregistrer une réponse exacte",
+      "log_1": "Vous enregistrez leurs demandes et récupérez de la nourriture. En cuisine, on annonce la réception exclusive. C’est derrière le comptoir, à côté du balai.",
+      "choice_2": "Partager de la nourriture ; trier les demandes",
+      "log_2": "Vous partagez de la nourriture et triez les demandes. Les habitués portent un toast à votre arrivée avec de l’eau du robinet. Personne ne vérifie sa capitalisation boursière.",
+      "overlay_0": "DEMANDE D’AUDIENCE",
+      "fact": "Le 22 mai 2025, Trump a reçu les principaux investisseurs de son meme coin dans son club de golf de Virginie ; environ 220 personnes étaient invitées. Cela relie investissement et accès, mais n’établit pas qu’un tribunal ait constaté l’achat de décisions politiques."
+    },
+    "ENC-C06-A": {
+      "name": "L’échelle de couverture",
+      "desc": "Lors d’un atelier sur le financement de la santé, des bénévoles montrent à votre équipage comment la loi de 2025 modifie les dépenses et l’admissibilité à Medicaid. Une échelle sert de démonstration. Le barreau du bas porte l’étiquette « CONTRIBUABLE ». Le premier barreau accessible a été retiré pour que le modèle reste abordable.",
+      "choice_0": "Vérifier la loi et la démonstration",
+      "log_0": "Vous vérifiez les sources et comprenez les changements. Pour ranger, la bénévole remet le barreau manquant. Même la démonstration en a besoin pour fonctionner.",
+      "choice_1": "Regarder les bénévoles répéter",
+      "log_1": "Vous appréciez la répétition. La personne qui joue une sénatrice vante l’échelle depuis un escabeau apporté par quelqu’un d’autre.",
+      "overlay_0": "CONTRIBUABLE",
+      "fact": "La Public Law 119-21 réduit les dépenses fédérales Medicaid prévues et modifie les critères d’admissibilité. Les pertes de couverture annoncées sont des projections, pas des décomptes déjà observés. L’atelier et ses personnages sont fictifs."
+    },
+    "ENC-C06-B": {
+      "name": "Le tarif par ministère",
+      "desc": "Washington a proposé aux agences fédérales l’IA Grok de Musk pour quarante-deux cents. À un salon de l’emploi au bord de la route, la personne qui anime l’atelier répète des entretiens avec un jouet parlant et vous invite à essayer. Elle demande si les salaires humains peuvent aussi couvrir un ministère entier.",
+      "choice_0": "Vérifier ce qu’achète réellement ce prix",
+      "log_0": "Vous expliquez le tarif d’accès par agence et gagnez en confiance et en compréhension. La colonne des salaires retrouve sa place. Le jouet reste disponible au prix de gros.",
+      "choice_1": "Essayer l’entretien d’entraînement",
+      "log_1": "Vous annoncez votre salaire par ministère entier. Le groupe rit ; la personne qui anime l’atelier reconnaît qu’une personne attend toujours une vraie fiche de paie.",
+      "fact": "Le 25 septembre 2025, la GSA a annoncé un accès à Grok à 0,42 dollar par organisation fédérale pour 18 mois, jusqu’en mars 2027. Il s’agissait d’une offre promotionnelle, ni d’un tarif permanent ni d’une capacité de calcul illimitée ; des fonctions et limites supérieures exigent une mise à niveau. L’entretien est fictif."
+    },
+    "ENC-C06-C": {
+      "name": "Le titre secondaire",
+      "desc": "Trump a autorisé « département de la Guerre » comme titre secondaire. Dans une salle d’association d’anciens combattants, des bénévoles invitent votre équipage à examiner leur réponse : rebaptiser le toit qui fuit « Supériorité aérienne ». Un seau contrôle déjà l’espace en dessous.",
+      "choice_0": "Documenter la proposition et la fuite",
+      "log_0": "Vous vérifiez l’annonce du nouveau nom et documentez la réponse de l’association. La personne qui vous accueille vide le seau. La supériorité aérienne a atteint la moquette.",
+      "choice_1": "Participer à la répétition du baptême",
+      "log_1": "Vous appréciez la répétition. La personne bénévole baptise le balai « Dissuasion stratégique ». Une nouvelle goutte tombe pendant le salut.",
+      "overlay_0": "SUPÉRIORITÉ AÉRIENNE",
+      "fact": "La mesure de septembre 2025 a autorisé le titre secondaire de département de la Guerre. Elle n’a pas supprimé le nom légal de département de la Défense établi par le Congrès. La salle, les bénévoles et la proposition concernant le toit sont fictifs."
     }
   },
   "play": {

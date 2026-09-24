@@ -1376,7 +1376,7 @@
       "choice_0": "Share some food; join the exercise",
       "log_0": "You share some food and cheer them on. The gym offers three free months. They ask whether any of them include leaving.",
       "choice_1": "Record their cancellation attempt",
-      "log_1": "With their permission, you record them selecting cancellation. A voice congratulates him on choosing continued membership. Nobody touches the phone for a moment.",
+      "log_1": "With their permission, you record them selecting cancellation. A voice congratulates them on choosing continued membership. Nobody touches the phone for a moment.",
       "choice_2": "Supply the quiet room",
       "log_2": "You donate some supplies and settle in the quiet room. Its door opens from inside. You consider recommending it to the gym.",
       "overlay_0": "PLEASE CONTINUE HOLDING",
