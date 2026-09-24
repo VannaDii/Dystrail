@@ -19480,5 +19480,20 @@
       "Full Hearing-to-result and share composition acceptance",
       "Incomplete/fallback families are native-tested conditional paths, not claimed as browser-reachable terminal outcomes"
     ]
+  },
+  "ally_copy_checkpoint": {
+    "status": "18 English ally departure records integrated; translations and full presentation acceptance remain",
+    "behavior": "Narrative triggers only on actual unexpected ally loss; stable day/family selection persists. Final outside-ally wording distinguishes network loss from traveling crew. Acknowledgment clears the notice without replaying effects.",
+    "verification": [
+      "All 18 name/description/final-ally strings match canonical source",
+      "Native 36 variant/count cases preserve crew and actual state; deliberate ally spending is not overwritten",
+      "Build e8ad0c162f8b6d547b17 passed",
+      "Desktop/mobile 36 notice cases each passed including offline reload and acknowledgment state preservation",
+      "Desktop/mobile screenshots reviewed: bottom-left title, actual crew and standard delta cards preserved"
+    ],
+    "remaining": [
+      "Translations and factual context",
+      "Shared aftermath also displays recent journal entries, duplicating current notice above its detail panel; assess in final presentation pass"
+    ]
   }
 }

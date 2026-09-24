@@ -4149,6 +4149,96 @@
     "END-VOTEFAIL-C": {
       "name": "Efficiency Achieved",
       "desc": "The final vote rejects your case. A DOGE admirer praises the savings. The government has avoided doing something, after making everybody travel here to ask."
+    },
+    "ALLY-01-A": {
+      "name": "The Red Hat Referral",
+      "desc": "Your outside contact {name} quits helping and joins a MAGA merchandise drive. Their goodbye includes a discount code. Political conversion now has affiliate tracking.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-01-B": {
+      "name": "America First, Contact Last",
+      "desc": "Your contact {name} drops the trip to sell America First hats. They ask you to reimburse the tariff on the shipment. China has apparently nominated friends and family.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-01-C": {
+      "name": "The Donor Conversion",
+      "desc": "Your contact {name} stops supporting the trip and takes a job courting super-PAC donors. They still believe in your voice. They’ve simply discovered the volume knob.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "ALLY-02-A": {
+      "name": "Efficiency Has Arrived",
+      "desc": "DOGE cuts cost your outside contact {name} their job. They withdraw to find work. Their last assignment was to document the value of documenting their value.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-02-B": {
+      "name": "Nobody to Answer",
+      "desc": "Your contact {name} loses a public-service job in the DOGE cuts and must stop helping. The agency’s goodbye says to call with questions. They were the person who answered.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-02-C": {
+      "name": "The Merit Vacancy",
+      "desc": "Your contact {name} loses their job as a contractor scraps its DEI work and must withdraw. The boss announces a new era of merit. His son announces that lunch is ready.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "ALLY-03-A": {
+      "name": "America Pays First",
+      "desc": "Your contact {name} takes extra shifts to cover tariff-inflated repair costs and can’t keep helping. They’ve found out which foreign country pays. It’s the one printed on their address.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-03-B": {
+      "name": "Trickle-Down Overtime",
+      "desc": "Your contact {name} needs extra shifts for medical bills and withdraws. Congress is selling health-budget cuts as savings. They would like to know where the savings get deposited.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-03-C": {
+      "name": "The Food Budget",
+      "desc": "Your contact {name} takes another shift to cover groceries and stops helping. They watched Congress sell food-aid cuts as independence. They are now independently working Saturday.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "ALLY-04-A": {
+      "name": "Bipartisan Checkout",
+      "desc": "Your contact {name} leaves to sell merchandise to rival political rallies. They’ve solved the two-party problem with two card readers.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-04-B": {
+      "name": "The Patriotic Returns Policy",
+      "desc": "Your contact {name} quits helping to sell Gulf of America souvenirs. They keep the old Gulf of Mexico stock underneath. The ocean has yet to request a refund.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-04-C": {
+      "name": "Emergency Appeal",
+      "desc": "Your contact {name} leaves to write political fundraising emails. Every message says democracy ends at midnight. Their contract renews monthly.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "ALLY-05-A": {
+      "name": "The Deep State Group Chat",
+      "desc": "Your contact {name} sends a video claiming journalists invented the Signal scandal, then blocks the crew. The explanation is now more secure than the bombing chat.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-05-B": {
+      "name": "The Classified Stomach",
+      "desc": "Your contact {name} decides your criticism of MAHA milk proves you work for the FDA and cuts contact. Your new federal career comes with no salary and several stomach cramps.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-05-C": {
+      "name": "The Tariff Awakening",
+      "desc": "Your contact {name} says tariffs cannot raise American prices because Trump said China pays. They block you after the crew sends a receipt. Evidence is apparently an import.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "ALLY-06-A": {
+      "name": "The Protest Barrier",
+      "desc": "Your contact {name} twists an ankle outside a political fundraiser and withdraws. The accessible entrance was reserved for donors. Equal access was available at the next sponsorship level.",
+      "last": "That was your last outside contact. The traveling crew remains; your support network is now empty."
+    },
+    "ALLY-06-B": {
+      "name": "The Unpaid Department",
+      "desc": "Your contact {name} hurts their back volunteering after DOGE staffing cuts and must stop helping. They’ve been injured performing a job the government proved nobody needed.",
+      "last": "No outside allies remain. Nobody in the van has departed because of this message."
+    },
+    "ALLY-06-C": {
+      "name": "The Stage of Free Speech",
+      "desc": "Your contact {name} strains a shoulder hauling equipment for a protest against billionaire political spending. Free speech, it turns out, is heavier when nobody delivers it for you.",
+      "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
     }
   },
   "play": {
