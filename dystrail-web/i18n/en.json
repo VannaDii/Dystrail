@@ -4293,6 +4293,168 @@
       "round_3": "The final procedural round. The paperwork is declared fit to return to work.",
       "before_vote": "You finish the rounds. One vote now decides the case. The form is excused from further examination.",
       "exhausted": "You cannot finish the rounds, so no vote follows. The chair asks the paperwork whether it can continue without you."
+    },
+    "COND-CLEAR-A": {
+      "name": "Unregulated Sunshine",
+      "desc": "Clear skies. The radio credits Trump’s energy agenda. The sun declines the cabinet appointment.",
+      "continuing": "The clear weather continues. The sun has not returned the communications team’s calls.",
+      "relief": "The clear spell ends. Apparently the sun serves at its own pleasure."
+    },
+    "COND-CLEAR-B": {
+      "name": "Forecast Approved",
+      "desc": "Clear weather gives the crew a break. Nobody has needed to improve the forecast with a Sharpie.",
+      "continuing": "The sky remains clear without editorial assistance.",
+      "relief": "The weather changes. The marker is referred to the complaints department."
+    },
+    "COND-CLEAR-C": {
+      "name": "The Public Option",
+      "desc": "Clear skies. DOGE fired forecasters; the remaining staff called this one. The sunshine has been given until Monday to explain what it accomplished.",
+      "continuing": "The forecast continues to match the sky. An unfashionable government outcome.",
+      "relief": "The clear spell ends; check the actual new forecast, not the applause."
+    },
+    "COND-COLD-A": {
+      "name": "A Private Climate",
+      "desc": "Cold grips the route. The fossil-fuel lobby calls its dinner an energy-security event. You’d like to attend the room-temperature portion.",
+      "continuing": "The cold continues. Energy security still appears to be indoors.",
+      "relief": "The cold eases. Your fingers regain the ability to disagree with a press release."
+    },
+    "COND-COLD-B": {
+      "name": "Frozen Federal Assets",
+      "desc": "The cold settles in beside a reduced-hours public visitor center. DOGE saved on heating the office by removing the people who opened it.",
+      "continuing": "Cold persists. The locked visitor center is achieving excellent energy savings.",
+      "relief": "Conditions improve. The door remains a separate policy problem."
+    },
+    "COND-COLD-C": {
+      "name": "Personal Responsibility, Insulated",
+      "desc": "The temperature drops. A donor’s billboard praises personal responsibility. Your blanket would like to know whether that comes in fleece.",
+      "continuing": "The cold continues. You add another layer without forming a super PAC.",
+      "relief": "The cold eases. Warmth arrives without requesting your billing address."
+    },
+    "COND-COLDEXPOSURE-A": {
+      "name": "The Private Warmth Sector",
+      "desc": "Cold exposure is now causing harm. The political donor’s promise of opportunity offers several square feet of cardboard. You investigate its insulation policy.",
+      "continuing": "The cold remains harmful. Seek protection; donor enthusiasm has no measurable heat output.",
+      "relief": "Exposure is relieved. Your hands regain the ability to put the leaflet down."
+    },
+    "COND-COLDEXPOSURE-B": {
+      "name": "Essential Services, Optional Hours",
+      "desc": "Cold exposure is harming the crew near a closed public rest facility. The staffing cuts saved a salary. The door is still costing everybody else.",
+      "continuing": "The cold remains dangerous. Find protection; the locked door will not reconsider its staffing level.",
+      "relief": "Exposure eases after protection. The closed facility retains its perfect attendance record."
+    },
+    "COND-COLDEXPOSURE-C": {
+      "name": "Heating the Debate",
+      "desc": "Prolonged cold is now harming the crew. A politician on the radio promises to heat up the energy debate. You hold a hand over the speaker. Nothing.",
+      "continuing": "The cold is still causing harm. Get actual protection; the speech has reached its third insulated anecdote.",
+      "relief": "Exposure is relieved. The radio can return to being merely irritating."
+    },
+    "COND-HEAT-A": {
+      "name": "The Freedom to Sweat",
+      "desc": "A heat wave settles over the route. Politicians call mandatory water breaks overreach. Your sweat appears to be a grassroots protest.",
+      "continuing": "The heat persists. The protest has spread to every seat.",
+      "relief": "The heat eases. The seats begin negotiating a return to normal relations."
+    },
+    "COND-HEAT-B": {
+      "name": "Drill, Baby, Swelter",
+      "desc": "The radio plays “Drill, baby, drill” over another heat warning. The dashboard has begun producing its own plastic reserves.",
+      "continuing": "The heat continues. The steering wheel remains too patriotic to touch.",
+      "relief": "Temperatures ease. The dashboard declines further energy development."
+    },
+    "COND-HEAT-C": {
+      "name": "Executive Air Conditioning",
+      "desc": "A heat wave arrives. On the radio, an official opposes worker heat rules from a room you can hear being air-conditioned.",
+      "continuing": "The heat persists. The studio thermostat remains outside the debate.",
+      "relief": "The heat breaks. The official’s jacket has survived without comment."
+    },
+    "COND-HEATEXPOSURE-A": {
+      "name": "The Cost of Local Control",
+      "desc": "Prolonged heat is now harming the crew. Opponents of mandatory heat breaks promised freedom. Your body has mistaken it for permission to shut down.",
+      "continuing": "Heat is still causing harm. Get protection and attend to the crew; the slogan has no cooling setting.",
+      "relief": "Heat exposure is relieved. Your body accepts the change without a constitutional challenge."
+    },
+    "COND-HEATEXPOSURE-B": {
+      "name": "Policy-Proof Temperature",
+      "desc": "Heat exposure is causing damage. The Sharpiegate approach has failed: you can change a line on a map, but the steering wheel still burns.",
+      "continuing": "The heat remains harmful. The marker stays comfortably cool in the glove box.",
+      "relief": "Exposure is relieved. You return the marker to a job within its qualifications."
+    },
+    "COND-HEATEXPOSURE-C": {
+      "name": "An Energy Success Story",
+      "desc": "The heat has become dangerous. A roadside “energy dominance” banner flaps above the van. It is providing the most useful part of the policy: shade.",
+      "continuing": "Heat is still harming the crew. Stay protected; the banner is not medical care.",
+      "relief": "Exposure eases. The banner’s brief public-service career ends."
+    },
+    "COND-HUNGER-A": {
+      "name": "Trickle-Down Lunch",
+      "desc": "Food is running short. Congress has cut projected food-aid spending. Someone holds an empty bowl under the radio, just in case the savings trickle down.",
+      "continuing": "Hunger continues. You turn the bowl around to improve reception.",
+      "relief": "Food relieves the hunger. It arrives through an actual person, a supply the radio had overlooked."
+    },
+    "COND-HUNGER-B": {
+      "name": "The Protected Pantry",
+      "desc": "Food runs low while Trump’s tariff pitch plays on the radio. The crew has been successfully protected from the contents of several shops.",
+      "continuing": "Hunger persists. China has not sent sandwiches.",
+      "relief": "You eat. International trade briefly becomes a matter of chewing."
+    },
+    "COND-HUNGER-C": {
+      "name": "Donor-Class Calories",
+      "desc": "Supplies are low. A political fundraiser advertises dinner with a senator. The crew would settle for dinner without one.",
+      "continuing": "Hunger continues. Access to the senator appears to be the expensive part of the chicken.",
+      "relief": "You get enough food. The absence of a senator improves the meal."
+    },
+    "COND-ILLNESS-A": {
+      "name": "An Unfunded Body",
+      "desc": "Illness hits the journey. Congress calls health-budget cuts a saving. Your body would like to see the return address for whatever it caught.",
+      "continuing": "The illness continues. Your body remains inconveniently outside the budget’s success metrics.",
+      "relief": "The illness clears. Recovery has happened despite the running commentary."
+    },
+    "COND-ILLNESS-B": {
+      "name": "Natural Selection of a Chair",
+      "desc": "Illness interrupts the trip. A MAHA advertisement offers to help your body heal itself. The crew starts with a chair that makes fewer promises.",
+      "continuing": "The illness persists. The miracle advertisement remains in excellent health.",
+      "relief": "The illness clears. The chair asks for no testimonial."
+    },
+    "COND-ILLNESS-C": {
+      "name": "The Medical Work Requirement",
+      "desc": "Illness slows the crew. The radio explains Congress’s new Medicaid work requirements. Your immune system would like its overtime recorded.",
+      "continuing": "You remain unwell. The immune system has not taken a lunch break or received a supervisor’s signature.",
+      "relief": "The illness clears. Your body submits its completed assignment by getting out of the chair."
+    },
+    "COND-SMOKE-A": {
+      "name": "Now With More Freedom",
+      "desc": "Smoke hangs over the road. The radio celebrates rolling back environmental rules. You close the windows on the celebration.",
+      "continuing": "The smoke persists. Freedom has developed a taste you can’t get out of your mouth.",
+      "relief": "The smoke clears. Breathing briefly returns to being a background activity."
+    },
+    "COND-SMOKE-B": {
+      "name": "Visible Deregulation",
+      "desc": "Smoke reduces visibility. Officials say environmental rules hold business back. The horizon appears to have been released from its obligations.",
+      "continuing": "Smoke continues. Your next landmark has exercised its freedom to disappear.",
+      "relief": "The air clears enough to see farther. The horizon resumes public service."
+    },
+    "COND-SMOKE-C": {
+      "name": "The Museum of Clean Air",
+      "desc": "Smoke settles over the route. A museum follows Trump’s flattering-history directive with an exhibit celebrating American industry. You are inhaling the deleted scenes.",
+      "continuing": "The smoke persists. The souvenir has entered through a gap in the window seal.",
+      "relief": "The air clears. You decline the gift shop’s take-home edition."
+    },
+    "COND-STORM-A": {
+      "name": "The Map Is Dry",
+      "desc": "A storm lashes the van. You consider the Sharpiegate approach, but there isn’t enough marker to cross out the sky.",
+      "continuing": "Rain continues. The forecast map is the only dry territory you control.",
+      "relief": "The storm passes. The sky has corrected itself without a press conference."
+    },
+    "COND-STORM-B": {
+      "name": "The Energy Announcement",
+      "desc": "Heavy rain hits as the radio celebrates climate-policy rollbacks. The announcement is waterproof. The passenger-side window isn’t.",
+      "continuing": "The storm continues. You move the radio away from the leak so optimism can remain operational.",
+      "relief": "The rain eases. The leak remains available for the next victory speech."
+    },
+    "COND-STORM-C": {
+      "name": "Patriotically Wet",
+      "desc": "The storm does not care what Trump calls the Gulf. Water arrives under both names and immediately ignores your towel.",
+      "continuing": "Rain keeps coming. You have recognized its sovereignty over the seat cushion.",
+      "relief": "The storm ends. The towel requests disaster assistance."
     }
   },
   "play": {

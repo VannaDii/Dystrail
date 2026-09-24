@@ -19525,5 +19525,24 @@
       "Source destinations were not re-researched in this batch; figures remain explicitly dated 2025 references",
       "Town artwork and pre-choice reward subtitle remain part of overall presentation acceptance, not proven by text-profile checks"
     ]
+  },
+  "condition_copy_checkpoint": {
+    "status": "27 English weather/illness/hunger/exposure narratives integrated into existing journey journal; scene-specific art and translations remain incomplete",
+    "behavior": "Weather transitions narrate old-weather relief and new-weather onset; continuing weather and persistent hunger/illness narrate once per day advance. Hunger follows zero supplies, illness follows remaining illness days. Exposure harm requires new engine exposure/heatstroke log entries; damage lockout does not invent harm. Exposure relief requires a previously harmful streak to reset. Seeded per-family identity is persisted. Initial outfitting is excluded from condition narration.",
+    "accounting": "Narrative entries carry equal before/after stats and no resource changes. Original action receipts alone account for costs. No new pause, mechanic, random draw, stat layout or art.",
+    "verification": [
+      "All 27 title/onset/continuing/relief packages match approved source",
+      "Two native tests pass for transitions, exposure lockout, journal persistence and no simulation mutation",
+      "Build eb31efb591a41615dd64 passed",
+      "All 81 narrative messages render on desktop/mobile without resource cards or overflow",
+      "Actual food gathering records hunger relief exactly once and preserves stats/journal offline; setup creates only the departure entry",
+      "Existing continuous-travel weather costs/reload test passed on desktop/mobile",
+      "Final corrected desktop/mobile hunger-relief screenshots reviewed"
+    ],
+    "remaining": [
+      "Condition-specific scene/prop integration remains incomplete; current regional/camp art and weather layers retained",
+      "Translations and factual-context links",
+      "Full-game narrative pacing and final acceptance"
+    ]
   }
 }

@@ -22,6 +22,10 @@ pub fn record(before: &GameState, after: &mut GameState, report: &mut Aftermath,
     report.resources = super::receipt::resource_changes(before, after);
     let place = crate::components::ui::route_map::location::location(after);
     let (day, minute) = entry_time(before, after);
+    // Initial outfitting establishes supplies; it is not recovery from a hungry journey.
+    if !before.continuity.journal.is_empty() {
+        super::condition_copy::record(before, after, day, minute, &place);
+    }
     let entry = JournalEntry {
         action_kind: if after.breakdown.is_some() {
             "repair"
