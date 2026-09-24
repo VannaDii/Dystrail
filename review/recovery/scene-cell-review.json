@@ -5169,7 +5169,20 @@
       "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
       "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
       "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "held_excluded_shared_community_pending_illustration",
+        "mechanics": "unchanged",
+        "build": "ce12b2d0a51601de6e17",
+        "verification": "Desktop/mobile all nine choices: correct offer/meal versus record/donate sheet and cell, saved identity, journal, unchanged effects, reload; Arabic 320px offline and no overflow. Desktop C offer and Arabic B phone inspected. A image held/excluded; B chair still covered after meal; mobile labels use existing info fallback."
+      }
     },
     {
       "unit": "ENC-C02-B",
@@ -5206,7 +5219,20 @@
       "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
       "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
       "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_offer_meal_and_record_donate_bound_to_actual_choice",
+        "mechanics": "unchanged",
+        "build": "ce12b2d0a51601de6e17",
+        "verification": "Desktop/mobile all nine choices: correct offer/meal versus record/donate sheet and cell, saved identity, journal, unchanged effects, reload; Arabic 320px offline and no overflow. Desktop C offer and Arabic B phone inspected. A image held/excluded; B chair still covered after meal; mobile labels use existing info fallback."
+      }
     },
     {
       "unit": "ENC-C02-C",
@@ -5243,7 +5269,20 @@
       "other_outcome_original": "/Users/vanna/Source/Dystrail-worktrees/recovery-2026-09-21/generated-originals/exec-77b5e237-1eaf-4296-93d4-ba4ba541ce1e.png",
       "other_outcome_sha256": "ada6699d519a8b07e16932f2ce6a578abacebd564401c9cb8dfe6e3b35d18856",
       "outcome_rule": "Historical mapping: choice 0 meal/right on offer-meal sheet; choice 1 record/left and choice 2 donate/right on companion sheet. Must agree with successful current action, not selection alone.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_offer_meal_and_record_donate_bound_to_actual_choice",
+        "mechanics": "unchanged",
+        "build": "ce12b2d0a51601de6e17",
+        "verification": "Desktop/mobile all nine choices: correct offer/meal versus record/donate sheet and cell, saved identity, journal, unchanged effects, reload; Arabic 320px offline and no overflow. Desktop C offer and Arabic B phone inspected. A image held/excluded; B chair still covered after meal; mobile labels use existing info fallback."
+      }
     },
     {
       "unit": "ENC-C03-A",

@@ -572,3 +572,10 @@ September 14 — standing crew transparency repair:
 - Fixed French C01 B prop lettering to use French, matching its newly translated copy.
 - Build 37e24636eea6ac37382d succeeded. Five visual-content native tests and two C04 browser tests passed (desktop/mobile all nine choices, journal/save identity, unchanged stat effects, reload, Arabic 320px offline and width). Viewed desktop C offer, mobile C outcome and Arabic B; review snapshots in c04-checkpoint. Mobile prop lettering still uses existing hidden-text/info fallback and requires acceptance. Native-language review and full locale parity remain outstanding.
 - No deployment; no Hearing or unrelated formatting changes retained.
+
+## C02 integration checkpoint — 2026-09-24
+
+- Restored the three current-source community-meal variants in EN/ES/IT/AR, preserving original choice effects and qualified factual notes. Reused matching translations.
+- Bound retained offer/meal and record/donate sheets to actual committed choices for B/C. SHA-256 verified original bytes; cropped native unequal row heights without stretching; no generated or baked text. A tax-leaflet gag remains held and excluded, using the shared community setting provisionally. B meal frame still fails to clear the paperwork chair; this remains an art-acceptance gap.
+- Build ce12b2d0a51601de6e17, five native visual-content tests, and two desktop/mobile C02 browser tests passed. Tests cover all nine outcomes, correct sheet/cell, stat effects, identity/journal/save/reload, and Arabic 320px offline without horizontal overflow. Inspected desktop C and Arabic B mobile; retained two review screenshots. Existing phone label-hiding/info fallback and incomplete translations remain open.
+- No image generation, Hearing changes, or deployment.

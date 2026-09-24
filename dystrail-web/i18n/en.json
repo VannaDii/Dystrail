@@ -1480,6 +1480,42 @@
       "log_2": "You record the roofers explaining the Florida law. The sponsor keeps edging into the shot, specifically the shaded part.",
       "fact": "A 2024 Florida law bars local governments from imposing certain workplace heat protections and water-break requirements. It does not make drinking water illegal or remove every federal obligation.",
       "overlay_0": "LOCAL HEAT RULES BLOCKED"
+    },
+    "ENC-C02-A": {
+      "name": "Supporting dinner",
+      "desc": "At a pantry preparing for the 2025 SNAP cuts, volunteers welcome your hungry crew and any help you can spare. A senator’s tax-cut leaflet props up the short table leg. It’s finally supporting dinner.",
+      "choice_0": "Eat; take some food",
+      "log_0": "You eat and take some food. The tax-cut leaflet stays under the table; removing it would cost everyone their lunch.",
+      "choice_1": "Record the volunteers’ account",
+      "log_1": "You record the volunteers and collect some food. They ask you to include the casserole before Washington counts it as unnecessary spending.",
+      "choice_2": "Donate some food",
+      "log_2": "You donate some food. A volunteer tapes your receipt over the senator’s smile. The first thing on that leaflet that fed anyone.",
+      "overlay_0": "TAX CUTS",
+      "fact": "The 2025 reconciliation law includes SNAP spending reductions and eligibility changes alongside tax provisions. It does not establish that every food pantry lost funding."
+    },
+    "ENC-C02-B": {
+      "name": "Proof of lunch",
+      "desc": "Your crew is welcomed at a supper for workers untangling the expanded SNAP work rules. A cleaner’s proof of employment occupies the only chair she hasn’t cleaned. Volunteers are collecting their accounts for D.C.",
+      "choice_0": "Eat; take some food",
+      "log_0": "You eat and collect some food. The cleaner puts her payslips under a plate. For once, they help her keep a meal.",
+      "choice_1": "Record the cleaner’s account",
+      "log_1": "You record her account and take some food. She clocks the interview. Even explaining she’s employed is becoming a second job.",
+      "choice_2": "Add some food to supper",
+      "log_2": "You add some food. Volunteers record the donation on one line; nobody needs your manager to confirm you were holding the tin.",
+      "overlay_0": "PROOF OF WORK",
+      "fact": "The 2025 reconciliation law expands SNAP requirements and creates Medicaid community-engagement requirements. The federal Medicaid rollout begins in January 2027, with an earlier state option; it is not a nationwide 2026 implementation."
+    },
+    "ENC-C02-C": {
+      "name": "Speech with gravy",
+      "desc": "A kitchen near the highway is feeding travelers with leftovers from a super-PAC donor dinner. Your hungry crew is welcome to eat or help. The invitation promised unlimited political speech. Most of it was steak.",
+      "choice_0": "Eat; take some food",
+      "log_0": "You eat and take some food. A steak finally meets someone who wasn’t charged admission to a constitutional right.",
+      "choice_1": "Record the cooks’ account",
+      "log_1": "You record the leftovers and collect some food. The cooks cleared in three minutes what donors spent four hours calling speech.",
+      "choice_2": "Donate some food",
+      "log_2": "You donate some food. The cook adds it to the pot without checking how loudly your bank account can talk.",
+      "overlay_0": "UNLIMITED SPEECH",
+      "fact": "Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committees. Direct candidate contribution limits are a different rule."
     }
   },
   "play": {

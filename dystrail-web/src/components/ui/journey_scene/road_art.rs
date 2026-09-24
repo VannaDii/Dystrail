@@ -17,6 +17,8 @@ pub fn supported(unit: &str) -> bool {
         "ENC-C01-A"
             | "ENC-C01-B"
             | "ENC-C01-C"
+            | "ENC-C02-B"
+            | "ENC-C02-C"
             | "ENC-C03-A"
             | "ENC-C03-B"
             | "ENC-C03-C"
@@ -35,6 +37,8 @@ pub fn is_indoors(unit: &str) -> bool {
     matches!(
         unit,
         "ENC-C01-B"
+            | "ENC-C02-B"
+            | "ENC-C02-C"
             | "ENC-C04-B"
             | "ENC-C03-A"
             | "ENC-C03-C"
@@ -56,7 +60,7 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     let count = match unit {
-        "ENC-C04-C" | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B"
+        "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C" | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B"
         | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
@@ -97,6 +101,9 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
+    if unit.starts_with("ENC-C02-") {
+        return Some(render_c02(unit, choice));
+    }
     if unit.starts_with("ENC-C04-") || unit.starts_with("ENC-C05-") || unit.starts_with("ENC-C06-")
     {
         return Some(render_retained(unit, choice));
@@ -156,6 +163,8 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
+        "ENC-C02-B" => "760 / 308",
+        "ENC-C02-C" => "760 / 326",
         "ENC-C04-B" | "ENC-C04-C" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A"
         | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
         _ => "760 / 360",
@@ -213,6 +222,39 @@ fn render_retained(unit: &str, choice: Option<usize>) -> Html {
             {if (cell == 0 || unit == "ENC-C04-C") && unit != "ENC-C06-B" && unit != "ENC-C04-B" { html!{<foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={(dy+y).to_string()} width={w.to_string()} height={h.to_string()}>
                 <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 18px/1.05 sans-serif;overflow-wrap:anywhere">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
             </foreignObject>} } else {Html::default()}}
+        </g>
+    </svg>}
+}
+
+/// Preserved six-cell sheets: offer/meal and recording/donation share row geometry.
+fn render_c02(unit: &str, choice: Option<usize>) -> Html {
+    let row = if unit == "ENC-C02-B" { 1 } else { 2 };
+    let other = matches!(choice, Some(1 | 2));
+    let right = matches!(choice, Some(0 | 2));
+    let dx = if right { 768 } else { 0 };
+    let atlas = if other {
+        "road-c02-record-donate-20260914"
+    } else {
+        "road-c02-offer-meal-20260914"
+    };
+    let (y, h) = if row == 1 { (378, 308) } else { (694, 326) };
+    let (x, label_y, w, label_h) = if row == 1 {
+        if choice == Some(2) {
+            (106, 637, 80, 35)
+        } else {
+            (102, 637, 145, 35)
+        }
+    } else {
+        (38, 882, 112, 48)
+    };
+    let clip = format!("road-frame-{unit}-{}", choice.map_or(0, |c| c + 1));
+    html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={(row*2+usize::from(right)).to_string()} viewBox={format!("{} {y} 760 {h}",dx+4)} preserveAspectRatio="xMidYMid meet">
+        <defs><clipPath id={clip.clone()}><rect x={(dx+4).to_string()} y={y.to_string()} width="760" height={h.to_string()}/></clipPath></defs>
+        <g clip-path={format!("url(#{clip})")}>
+            <image href={crate::paths::asset_path(&format!("static/img/scenes-v2/{atlas}.png"))} width="1536" height="1024"/>
+            <foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={label_y.to_string()} width={w.to_string()} height={label_h.to_string()}>
+                <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 16px/1.05 sans-serif;overflow-wrap:anywhere">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
+            </foreignObject>
         </g>
     </svg>}
 }

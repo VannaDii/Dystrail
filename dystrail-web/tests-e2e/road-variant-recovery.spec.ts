@@ -2,8 +2,8 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {baseline,importState,openMenu,waitForLaunch} from './helpers';
 const bank=JSON.parse(readFileSync('static/assets/data/game.json','utf8'));
-for(const family of ['C01','C03','C04','C05','C06']) {
-const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C03'?'classic_crossing_block_party':family==='C04'?'classic_freeway_mural':family==='C05'?'classic_mail_drop':'classic_media_training'));
+for(const family of ['C01','C02','C03','C04','C05','C06']) {
+const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C02'?'classic_civic_potluck':family==='C03'?'classic_crossing_block_party':family==='C04'?'classic_freeway_mural':family==='C05'?'classic_mail_drop':'classic_media_training'));
 
 test(`${family} variants keep copy, art, committed choices and saved identity aligned`,async({page,context},info)=>{
  await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
@@ -20,13 +20,13 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
    await importState(page,state);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
    const atlas=family==='C01'?'road-c01-20260914':`road-${family.toLowerCase()}-${'abc'[row]}-20260914`;
-   const held=family==='C04' && row===0;
-   const scene=held?page.locator('.scene-atlas').first():page.locator(`.scene-atlas[data-atlas="${atlas}"]`);
-   if(held) await expect(page.locator('image[href*="road-c04-a"]')).toHaveCount(0);
-   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2:0));
+   const held=(family==='C02'||family==='C04') && row===0;
+   const scene=held?page.locator('.scene-atlas').first():family==='C02'?page.locator('.scene-atlas[data-atlas^="road-c02-"]'):page.locator(`.scene-atlas[data-atlas="${atlas}"]`);
+   if(held) await expect(page.locator(`image[href*="road-${family.toLowerCase()}"]`)).toHaveCount(0);
+   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'||family==='C02'?row*2:0));
    await page.reload();await waitForLaunch(page);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
-   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2:0));
+   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'||family==='C02'?row*2:0));
    if(family==='C01' && row>0 && choice===0){
     await page.getByRole('button',{name:titles[row],exact:true}).click();
     await expect(page.locator('.viewport-help:visible')).toContainText(row===1?'PART NOT RECOGNIZED':'CALIBRI');
@@ -38,10 +38,11 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
     await page.screenshot({path:info.outputPath(`${unit}-offer.png`),fullPage:true});
    }
    await page.locator('.encounter-choice button').nth(choice).click();
-   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2+(choice===0?1:0):choice+1));
+   if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C02'?row*2+(choice===0||choice===2?1:0):family==='C01'?row*2+(choice===0?1:0):choice+1));
    else await expect(scene).toBeVisible();
+   if(family==='C02'&&!held) await expect(scene).toHaveAttribute('data-atlas',`road-c02-${choice===0?'offer-meal':'record-donate'}-20260914`);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
-   if(family==='C04'||family==='C05'||family==='C06') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
+   if(family==='C02'||family==='C04'||family==='C05'||family==='C06') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
    await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
    expect(saved.visual_content.selections[`ENC-${family}/road/300`]).toBe(unit);
@@ -61,7 +62,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
  await expect(page.locator('.scene-caption')).toHaveCSS('text-align','left');
  await context.setOffline(true);await page.reload();await waitForLaunch(page);
  await page.screenshot({path:info.outputPath('arabic-offline.png'),fullPage:true});
- await expect(page.locator(`.scene-atlas[data-atlas="${family==='C01'?'road-c01-20260914':`road-${family.toLowerCase()}-b-20260914`}"]`)).toHaveAttribute('data-cell',family==='C01'?'2':'0');
+ await expect(page.locator(`.scene-atlas[data-atlas="${family==='C01'?'road-c01-20260914':family==='C02'?'road-c02-offer-meal-20260914':`road-${family.toLowerCase()}-b-20260914`}"]`)).toHaveAttribute('data-cell',family==='C01'||family==='C02'?'2':'0');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 

@@ -3,6 +3,7 @@ pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
     Some(match id {
         // The rejected lander illustration stays excluded pending user review.
         "ENC-C04-A" => "enc-rest-area",
+        "ENC-C02-A" => "enc-community",
         "west_grant_translation"
         | "classic_media_training"
         | "classic_press_briefing"

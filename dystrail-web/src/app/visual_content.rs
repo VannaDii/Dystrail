@@ -22,6 +22,7 @@ fn family(gs: &GameState) -> Option<&'static str> {
     let encounter = gs.current_encounter.as_ref()?;
     let family = match encounter.id.as_str() {
         "classic_bridge_crews" => "ENC-C01",
+        "classic_civic_potluck" => "ENC-C02",
         "classic_crossing_block_party" => "ENC-C03",
         "classic_freeway_mural" => "ENC-C04",
         "classic_mail_drop" => "ENC-C05",

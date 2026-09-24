@@ -1489,6 +1489,42 @@
       "log_2": "Grabáis a las techadoras explicando la ley de Florida. La patrocinadora no deja de colarse en el encuadre, concretamente en la parte con sombra.",
       "fact": "Una ley de Florida de 2024 impide que los gobiernos locales impongan ciertas protecciones laborales frente al calor y pausas para beber agua. No prohíbe beber agua ni elimina todas las obligaciones federales.",
       "overlay_0": "NORMAS LOCALES CONTRA EL CALOR BLOQUEADAS"
+    },
+    "ENC-C02-A": {
+      "name": "Apoyo para la cena",
+      "desc": "En un banco de alimentos que se prepara para los recortes de SNAP de 2025, las voluntarias reciben a vuestro grupo hambriento y cualquier ayuda que podáis ofrecer. Un folleto de un senador sobre recortes de impuestos calza la pata corta de la mesa. Por fin sostiene la cena.",
+      "choice_0": "Comer y llevarse algo de comida",
+      "log_0": "Coméis y os lleváis algo de comida. El folleto sobre recortes de impuestos se queda bajo la mesa; quitarlo le costaría el almuerzo a todo el mundo.",
+      "choice_1": "Grabar el relato de las voluntarias",
+      "log_1": "Grabáis a las voluntarias y recogéis algo de comida. Os piden que incluyáis la cazuela antes de que Washington la cuente como gasto innecesario.",
+      "choice_2": "Donar algo de comida",
+      "log_2": "Donáis algo de comida. Una voluntaria pega vuestro recibo sobre la sonrisa del senador. Lo primero de ese folleto que ha dado de comer a alguien.",
+      "overlay_0": "RECORTES DE IMPUESTOS",
+      "fact": "La ley de reconciliación de 2025 incluye reducciones del gasto en SNAP y cambios de elegibilidad junto con disposiciones fiscales. Eso no significa que todos los bancos de alimentos perdieran financiación."
+    },
+    "ENC-C02-B": {
+      "name": "Prueba de almuerzo",
+      "desc": "Os reciben en una cena para trabajadores que intentan entender los requisitos laborales ampliados de SNAP. La prueba de empleo de una limpiadora ocupa la única silla que aún no ha limpiado. El voluntariado recoge sus relatos para D.C.",
+      "choice_0": "Comer y llevarse algo de comida",
+      "log_0": "Coméis y recogéis algo de comida. La limpiadora pone sus nóminas bajo un plato. Por una vez, le ayudan a conservar una comida.",
+      "choice_1": "Grabar el relato de la limpiadora",
+      "log_1": "Grabáis su relato y os lleváis algo de comida. Ella cronometra la entrevista. Hasta explicar que tiene empleo se está convirtiendo en un segundo trabajo.",
+      "choice_2": "Añadir algo de comida a la cena",
+      "log_2": "Añadís algo de comida. El voluntariado registra la donación en una sola línea; nadie necesita que vuestro jefe confirme que sosteníais la lata.",
+      "overlay_0": "PRUEBA DE EMPLEO",
+      "fact": "La ley de reconciliación de 2025 amplía los requisitos de SNAP y crea requisitos de participación comunitaria para Medicaid. Su aplicación federal en Medicaid comienza en enero de 2027, con opción estatal de adelantarla; no es una implantación nacional ya vigente en 2026."
+    },
+    "ENC-C02-C": {
+      "name": "Discurso con salsa",
+      "desc": "Una cocina junto a la carretera alimenta a viajeros con las sobras de una cena de donantes de un super-PAC. Vuestro grupo hambriento puede comer o ayudar. La invitación prometía discurso político ilimitado. Casi todo era bistec.",
+      "choice_0": "Comer y llevarse algo de comida",
+      "log_0": "Coméis y os lleváis algo de comida. Un bistec por fin conoce a alguien a quien no cobraron entrada a un derecho constitucional.",
+      "choice_1": "Grabar el relato del equipo de cocina",
+      "log_1": "Grabáis las sobras y recogéis algo de comida. El equipo de cocina retiró en tres minutos lo que los donantes pasaron cuatro horas llamando discurso.",
+      "choice_2": "Donar algo de comida",
+      "log_2": "Donáis algo de comida. La cocinera la añade a la olla sin comprobar a qué volumen puede hablar vuestra cuenta bancaria.",
+      "overlay_0": "DISCURSO ILIMITADO",
+      "fact": "Citizens United y SpeechNow sustentan el gasto independiente ilimitado y las aportaciones a comités dedicados exclusivamente a ese gasto. Los límites de las aportaciones directas a candidatos son una norma distinta."
     }
   },
   "play": {

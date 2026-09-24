@@ -1489,6 +1489,42 @@
       "log_2": "Riprendete le operaie mentre spiegano la legge della Florida. La sponsor continua a infilarsi nell'inquadratura, precisamente nella parte in ombra.",
       "fact": "Una legge della Florida del 2024 impedisce ai governi locali di imporre determinate protezioni dal caldo sul lavoro e pause per bere. Non vieta di bere acqua né elimina tutti gli obblighi federali.",
       "overlay_0": "TUTELE LOCALI DAL CALDO BLOCCATE"
+    },
+    "ENC-C02-A": {
+      "name": "Sostegno alla cena",
+      "desc": "In un banco alimentare che si prepara ai tagli SNAP del 2025, le volontarie accolgono il vostro gruppo affamato e qualsiasi aiuto possiate offrire. Un volantino di un senatore sui tagli alle tasse sostiene la gamba corta del tavolo. Finalmente sostiene la cena.",
+      "choice_0": "Mangiare e prendere del cibo",
+      "log_0": "Mangiate e prendete del cibo. Il volantino sui tagli alle tasse resta sotto il tavolo: toglierlo costerebbe il pranzo a tutti.",
+      "choice_1": "Registrare il racconto delle volontarie",
+      "log_1": "Registrate le volontarie e prendete del cibo. Vi chiedono di includere lo sformato prima che Washington lo conti come spesa inutile.",
+      "choice_2": "Donare del cibo",
+      "log_2": "Donate del cibo. Una volontaria incolla la vostra ricevuta sul sorriso del senatore. La prima cosa su quel volantino che abbia sfamato qualcuno.",
+      "overlay_0": "TAGLI ALLE TASSE",
+      "fact": "La legge di riconciliazione del 2025 include riduzioni della spesa SNAP e modifiche ai requisiti di accesso, insieme a disposizioni fiscali. Questo non significa che ogni banco alimentare abbia perso finanziamenti."
+    },
+    "ENC-C02-B": {
+      "name": "Prova di pranzo",
+      "desc": "Siete accolti a una cena per lavoratori alle prese con i requisiti lavorativi ampliati di SNAP. La prova d’impiego di un’addetta alle pulizie occupa l’unica sedia che non ha ancora pulito. Il volontariato raccoglie i loro racconti per D.C.",
+      "choice_0": "Mangiare e prendere del cibo",
+      "log_0": "Mangiate e prendete del cibo. L’addetta alle pulizie mette le buste paga sotto un piatto. Per una volta, l’aiutano a tenersi un pasto.",
+      "choice_1": "Registrare il racconto dell’addetta alle pulizie",
+      "log_1": "Registrate il suo racconto e prendete del cibo. Lei cronometra l’intervista. Persino spiegare di avere un impiego sta diventando un secondo lavoro.",
+      "choice_2": "Aggiungere del cibo alla cena",
+      "log_2": "Aggiungete del cibo. Il volontariato registra la donazione in una sola riga; nessuno ha bisogno che il vostro capo confermi che tenevate in mano la scatoletta.",
+      "overlay_0": "PROVA D’IMPIEGO",
+      "fact": "La legge di riconciliazione del 2025 amplia i requisiti SNAP e introduce requisiti di partecipazione comunitaria per Medicaid. L’attuazione federale per Medicaid inizia a gennaio 2027, salvo anticipo statale; non è già operativa in tutto il paese nel 2026."
+    },
+    "ENC-C02-C": {
+      "name": "Discorso con salsa",
+      "desc": "Una cucina vicino alla strada sfama i viaggiatori con gli avanzi di una cena di donatori di un super-PAC. Il vostro gruppo affamato è benvenuto, per mangiare o aiutare. L’invito prometteva discorso politico illimitato. Quasi tutto era bistecca.",
+      "choice_0": "Mangiare e prendere del cibo",
+      "log_0": "Mangiate e prendete del cibo. Una bistecca incontra finalmente qualcuno che non ha pagato l’ingresso a un diritto costituzionale.",
+      "choice_1": "Registrare il racconto di chi cucina",
+      "log_1": "Registrate gli avanzi e prendete del cibo. In cucina hanno sparecchiato in tre minuti ciò che i donatori avevano passato quattro ore a chiamare discorso.",
+      "choice_2": "Donare del cibo",
+      "log_2": "Donate del cibo. La cuoca lo aggiunge alla pentola senza controllare quanto forte sappia parlare il vostro conto in banca.",
+      "overlay_0": "DISCORSO ILLIMITATO",
+      "fact": "Citizens United e SpeechNow sono alla base della spesa indipendente illimitata e dei contributi ai comitati dedicati esclusivamente a tale spesa. I limiti ai contributi diretti ai candidati seguono una regola diversa."
     }
   },
   "play": {
