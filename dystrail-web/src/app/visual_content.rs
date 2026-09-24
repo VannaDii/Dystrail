@@ -284,6 +284,23 @@ pub fn rest_unit(gs: &GameState) -> String {
     service_unit(gs, "ACT-REST", "day", gs.day)
 }
 
+pub fn departure_unit(gs: &GameState) -> Option<String> {
+    let persona = gs.persona_id.as_deref()?;
+    if !matches!(persona, "journalist" | "lobbyist" | "organizer" | "satirist" | "staffer" | "whistleblower") {
+        return None;
+    }
+    Some(service_unit(gs, &format!("OPEN-{}", persona.to_uppercase()), "departure", 0))
+}
+
+pub fn record_departure(gs: &mut GameState) -> Option<String> {
+    let unit = departure_unit(gs)?;
+    let family = unit.rsplit_once('-')?.0;
+    let key = format!("{family}/departure/0");
+    gs.continuity.visual_content.selections.entry(key.clone()).or_insert(unit.clone());
+    gs.continuity.visual_content.outcomes.entry(key).or_insert(0);
+    Some(unit)
+}
+
 fn trade_family(kind: u8) -> &'static str {
     match kind {
         1 => "ACT-BARTERBATTERY",
@@ -414,6 +431,28 @@ pub fn record_care(before: &GameState, after: &mut GameState, choice: usize) {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn departures_are_persona_bound_stable_and_presentation_only() {
+        for persona in ["journalist", "lobbyist", "organizer", "satirist", "staffer", "whistleblower"] {
+            let mut variants = std::collections::BTreeSet::new();
+            for seed in 0..32 {
+                let mut state = super::GameState::default();
+                state.seed = seed;
+                state.persona_id = Some(persona.into());
+                let before = state.clone();
+                let unit = super::departure_unit(&state).unwrap();
+                assert!(unit.starts_with(&format!("OPEN-{}-", persona.to_uppercase())));
+                variants.insert(unit.clone());
+                assert_eq!(super::record_departure(&mut state), Some(unit.clone()));
+                let restored: super::GameState = serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
+                assert_eq!(super::departure_unit(&restored), Some(unit));
+                state.continuity.visual_content = before.continuity.visual_content.clone();
+                assert_eq!(serde_json::to_value(state).unwrap(), serde_json::to_value(before).unwrap());
+            }
+            assert_eq!(variants.len(), 3);
+        }
+        assert_eq!(super::departure_unit(&super::GameState::default()), None);
+    }
     use super::*;
     fn run() -> GameState {
         let mut gs = GameState {

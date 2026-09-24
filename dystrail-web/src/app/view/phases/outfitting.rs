@@ -5,6 +5,10 @@ use yew::prelude::*;
 
 pub fn render_outfitting(state: &AppState) -> Html {
     let mut current_state = (*state.pending_state).clone().unwrap_or_default();
+    // Review and checkout must choose presentation from the same run code.
+    if let Some((_, seed)) = crate::game::seed::decode_to_seed(&state.code) {
+        current_state.seed = seed;
+    }
     current_state.stats.supplies = 0;
     current_state.inventory = crate::game::state::Inventory::default();
     let on_continue = {
@@ -32,9 +36,10 @@ pub fn render_outfitting(state: &AppState) -> Html {
                     let mut initialized = new_state.with_seed(seed, mode, (*data).clone());
                     initialized.continuity.visual_content.edition =
                         crate::app::visual_content::EDITION;
+                    let departure = crate::app::visual_content::record_departure(&mut initialized);
                     let mut report = crate::app::aftermath::Aftermath {
-                        title: crate::i18n::t("play.loadout"),
-                        message: crate::i18n::t("journey.mission"),
+                        title: departure.as_ref().map_or_else(|| crate::i18n::t("play.loadout"), |unit| crate::i18n::t(&format!("encounter_copy.{unit}.name"))),
+                        message: departure.as_ref().map_or_else(|| crate::i18n::t("journey.mission"), |unit| crate::i18n::t(&format!("encounter_copy.{unit}.log_0"))),
                         scene: crate::components::ui::journey_scene::SceneStage::Travel(
                             initialized.region,
                         ),

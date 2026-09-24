@@ -19443,5 +19443,23 @@
       "Real travel through a crossing, beyond imported telemetry fixtures",
       "Broader localization and final visual acceptance"
     ]
+  },
+  "departure_copy_checkpoint": {
+    "status": "18 English departure introductions integrated; art and translations incomplete",
+    "source": "Current approved OPEN-JOURNALIST, OPEN-ORGANIZER, OPEN-WHISTLEBLOWER, OPEN-LOBBYIST, OPEN-STAFFER and OPEN-SATIRIST A/B/C",
+    "behavior": "Existing loadout review shows the persona-specific introduction; successful checkout records its matching outcome in the departure journal/report. Review uses the decoded run-code seed, avoiding placeholder-seed mismatch. Selection is persisted under OPEN-PERSONA/departure/0 without consuming simulation RNG. Existing buttons, purchase grants and costs remain unchanged.",
+    "art": "Current regional departure road, actual cast and van retained; no new images or generation. Individual authored departure props are not yet represented.",
+    "verification": [
+      "Native test exercised 32 seeds for each persona, all three variants, serialized restoration and state isolation",
+      "All 18 titles, introductions and outcomes match current-source-records.json",
+      "Build 3a2b6436ab05faf2a466; six-character checkout and offline-reload flows passed on desktop/mobile (2 tests, 45.3 seconds)",
+      "Desktop and mobile loadout introductions and mobile departure report visually reviewed. Mobile capture now waits for scrollY=0 with instant scrolling, avoiding a mid-scroll sticky-header artifact. Existing sticky checkout remains unchanged; this is not final whole-screen acceptance."
+    ],
+    "remaining": [
+      "Current-premise translations",
+      "Approved scene-specific props and distinctive departure presentation",
+      "Factual source context",
+      "Final visual acceptance"
+    ]
   }
 }

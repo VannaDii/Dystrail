@@ -19,6 +19,9 @@ pub fn render(
             <div class="outfit-title-row"><h1 id="store-title" tabindex="-1">{i18n::t(if **review{"play.loadout"}else{"play.outfit"})}<ContextHelp title={i18n::t("play.outfit")} text={i18n::t(if p.resupply {"play.resupply_help"} else {"play.outfit_help"})} /></h1>
             if p.resupply {<button class="leave-store" onclick={{let close=p.on_close.clone();Callback::from(move |_|close.emit(()))}}>{i18n::t("play2.leave_shop")}</button>}</div>
             if !p.resupply {<p>{i18n::t(if **review{"play.review_help"}else{"play.pack_empty"})}</p>}
+            if **review && !p.resupply {if let Some(unit)=crate::app::visual_content::departure_unit(&p.game_state) {
+                <p class="departure-intro" data-departure-unit={unit.clone()}><strong>{i18n::t(&format!("encounter_copy.{unit}.name"))}{". "}</strong>{i18n::t(&format!("encounter_copy.{unit}.desc"))}</p>
+            }}
         </header>
         if !p.resupply {{crate::components::ui::leg_summary::render(&p.game_state)}}
         <div class="outfit-catalog">

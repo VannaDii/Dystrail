@@ -3861,6 +3861,114 @@
       "bribe_success": "The payment gets you through. A private contractor immediately offers to rent you a second bucket.",
       "bribe_failure": "The payment is kept, but passage is refused. The contractor bills for bucket access.",
       "terminal_failure": "The crossing cannot be completed. The expedition ends; the bucket has been shortlisted for promotion."
+    },
+    "OPEN-JOURNALIST-A": {
+      "name": "Seattle: Added to the Chat",
+      "desc": "You leave Seattle with five companions and a reporter’s notebook. Trump’s team sent bombing plans to a journalist by accident. You’re hoping your government answers questions nearly as easily.",
+      "choice_0": "Head for D.C.",
+      "log_0": "The van pulls out. You check the route twice, placing it ahead of the national-security team."
+    },
+    "OPEN-JOURNALIST-B": {
+      "name": "Seattle: The Unapproved Edition",
+      "desc": "Trump wants a more flattering version of American history. You leave Seattle to report the current version. Five companions climb into the van; nobody’s circumstances have been improved by editing.",
+      "choice_0": "Start the journey",
+      "log_0": "You head for D.C. The notebook opens to a blank page, still the most optimistic thing in the van."
+    },
+    "OPEN-JOURNALIST-C": {
+      "name": "Seattle: Follow the Money, Slowly",
+      "desc": "You’re a reporter leaving Seattle with five companions to follow political money to D.C. The billionaires took planes. Your investigation begins by splitting the price of gas.",
+      "choice_0": "Get on the road",
+      "log_0": "The van sets off. Following the money would be easier if it occasionally used a rest stop."
+    },
+    "OPEN-LOBBYIST-A": {
+      "name": "Los Angeles: Access, Economy Class",
+      "desc": "You know how Washington sells access. Unfortunately, your five companions know how much gas costs. You leave Los Angeles for D.C. with lobbying experience and a donor network consisting of the glove box.",
+      "choice_0": "Head for D.C.",
+      "log_0": "The van heads east. Loose change speaks, mostly when you hit a pothole."
+    },
+    "OPEN-LOBBYIST-B": {
+      "name": "Los Angeles: The Unfunded Briefing",
+      "desc": "You’ve heard the tariff pitch: foreign countries pay. Your crew pays for the supplies. You leave Los Angeles with five companions to explain this accounting problem in D.C., preferably to someone holding the calculator.",
+      "choice_0": "Start the journey",
+      "log_0": "You set out. China has declined to split the gas."
+    },
+    "OPEN-LOBBYIST-C": {
+      "name": "Los Angeles: Dinner Not Included",
+      "desc": "Washington hosts fundraisers where the chicken comes with a senator. You’re taking five companions from Los Angeles to D.C. Your lobbying budget currently covers the chicken, if everybody respects the drumsticks.",
+      "choice_0": "Set off east",
+      "log_0": "You leave. For once, nobody in the van has to pretend the senator is the interesting part of dinner."
+    },
+    "OPEN-ORGANIZER-A": {
+      "name": "Portland: The Public Workforce",
+      "desc": "DOGE keeps firing public workers and calling it efficiency. You organize five companions for a trip from Portland to D.C. Fitting everyone’s luggage into one van is your first suspiciously public service.",
+      "choice_0": "Leave for D.C.",
+      "log_0": "You set out. Nobody has been fired for pointing out that the cooler needs room."
+    },
+    "OPEN-ORGANIZER-B": {
+      "name": "Portland: A Very Small Super PAC",
+      "desc": "Billionaires get unlimited independent political spending. Your Portland crew gets a jar for gas money. You’re taking five companions to D.C. to see whether six actual mouths can compete with one very large wallet.",
+      "choice_0": "Begin the trip",
+      "log_0": "You head east. The gas jar is your treasurer, and it has already called an emergency meeting."
+    },
+    "OPEN-ORGANIZER-C": {
+      "name": "Portland: Proof of Doing Things",
+      "desc": "Congress wants more work paperwork from people seeking benefits. You organize five companions for D.C. Between shifts, bills and this trip, everybody is exhausted. You begin documenting the apparently hypothetical labor.",
+      "choice_0": "Start toward D.C.",
+      "log_0": "You leave Portland. Organizing the receipts has become the only job that doesn’t pay even badly."
+    },
+    "OPEN-SATIRIST-A": {
+      "name": "San Diego: The Ocean Kept Its Job",
+      "desc": "Trump renamed the Gulf. You’re a satirist leaving San Diego with five companions to ask D.C. whether changing the name of broke also helps. The van votes for “temporarily presidential.”",
+      "choice_0": "Start the trip",
+      "log_0": "You set out. The newly prestigious budget still requires cheap gas."
+    },
+    "OPEN-SATIRIST-B": {
+      "name": "San Diego: Please Stop Helping",
+      "desc": "The government accidentally sent bombing plans to a journalist. You’re a satirist heading from San Diego to D.C. with five companions. You would like to arrive before reality takes all the good lines.",
+      "choice_0": "Leave for D.C.",
+      "log_0": "You leave. The crew agrees to keep trip planning out of the national-security chat."
+    },
+    "OPEN-SATIRIST-C": {
+      "name": "San Diego: Straight Man Needed",
+      "desc": "Trump calls defense “war” and says it promotes peace. You’re taking five companions from San Diego to D.C. to ask what food should be renamed before you can afford it.",
+      "choice_0": "Get on the road",
+      "log_0": "The van pulls away. Renaming breakfast “economic confidence” has left everyone hungry for details."
+    },
+    "OPEN-STAFFER-A": {
+      "name": "Sacramento: The Brand Survives",
+      "desc": "Trump added “Department of War” to the government’s branding. You’re a staffer leaving Sacramento with five companions to ask D.C. for actual help. You name the van “Reliable.” Nothing mechanical happens.",
+      "choice_0": "Leave for D.C.",
+      "log_0": "You set out. The new nameplate weighs less than a working spare and accomplishes considerably less."
+    },
+    "OPEN-STAFFER-B": {
+      "name": "Sacramento: Inbox Zero, Services Zero",
+      "desc": "You’ve seen DOGE turn staffing cuts into a success announcement. You leave Sacramento with five companions to explain what disappeared with the staff. Unlike the announcement, your van has to carry its contents somewhere.",
+      "choice_0": "Begin the trip",
+      "log_0": "You head for D.C. The crew declines to improve legroom by declaring two passengers redundant."
+    },
+    "OPEN-STAFFER-C": {
+      "name": "Sacramento: Let Them Eat Guidance",
+      "desc": "Congress’s new benefits work rules need explaining. You’re a staffer taking five companions from Sacramento to D.C. Everyone has worked. Nobody has yet managed to eat the guidance document.",
+      "choice_0": "Get underway",
+      "log_0": "The trip starts. You pack the forms beside the food, where they can observe the difference."
+    },
+    "OPEN-WHISTLEBLOWER-A": {
+      "name": "San Francisco: Essential Until Deleted",
+      "desc": "DOGE calls missing staff “savings.” You know what those people did. You leave San Francisco with five companions and your case for D.C. The van has fewer departments, but you’re keeping the brakes.",
+      "choice_0": "Drive toward D.C.",
+      "log_0": "You set out. Nobody suggests improving fuel efficiency by removing the driver."
+    },
+    "OPEN-WHISTLEBLOWER-B": {
+      "name": "San Francisco: The Wrong Recipient",
+      "desc": "You’re a whistleblower heading from San Francisco to D.C. with five companions. Officials say government information must be handled carefully. The bombing-plan group chat apparently had a different onboarding video.",
+      "choice_0": "Begin the journey",
+      "log_0": "You start the trip. The case folder stays shut, an ambitious new standard for information security."
+    },
+    "OPEN-WHISTLEBLOWER-C": {
+      "name": "San Francisco: An Inconvenient Appendix",
+      "desc": "Trump wants history to emphasize American greatness. Your whistleblower case concerns the small print. Five companions join you for D.C.; the folder fits badly between everybody’s actual living expenses.",
+      "choice_0": "Set out for D.C.",
+      "log_0": "You leave San Francisco. The official story has room for improvement, which is awkward for its editors."
     }
   },
   "play": {
