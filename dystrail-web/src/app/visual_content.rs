@@ -31,15 +31,36 @@ fn family(gs: &GameState) -> Option<&'static str> {
         "classic_mutual_aid_dispatch" => "ENC-C08",
         _ => return None,
     };
-    let canonical = CANONICAL.iter().find(|event| event.id == encounter.id)?;
-    // Imported custom events must retain their own presentation if any effects differ.
-    (encounter.choices.len() == canonical.choices.len()
-        && encounter
-            .choices
-            .iter()
-            .zip(&canonical.choices)
-            .all(|(a, b)| a.effects == b.effects))
-    .then_some(family)
+    is_shipped(encounter).then_some(family)
+}
+
+fn is_shipped(encounter: &crate::game::data::Encounter) -> bool {
+    CANONICAL
+        .iter()
+        .find(|event| event.id == encounter.id)
+        .is_some_and(|canonical| {
+            encounter.name == canonical.name
+                && encounter.desc == canonical.desc
+                && encounter.choices.len() == canonical.choices.len()
+                && encounter
+                    .choices
+                    .iter()
+                    .zip(&canonical.choices)
+                    .all(|(a, b)| a.label == b.label && a.effects == b.effects)
+        })
+}
+
+/// Keep imported wording out of both variant and legacy localization namespaces.
+/// This ID is only for rendering; it never replaces the simulation encounter ID.
+pub fn copy_id(gs: &GameState) -> String {
+    let Some(encounter) = gs.current_encounter.as_ref() else {
+        return String::new();
+    };
+    if is_shipped(encounter) {
+        encounter_unit(gs).unwrap_or(&encounter.id).to_owned()
+    } else {
+        format!("imported/{}", encounter.id)
+    }
 }
 
 pub fn record_outcome(before: &GameState, after: &mut GameState, choice: usize) {
@@ -133,6 +154,68 @@ mod tests {
                 .clone(),
         );
         gs
+    }
+    #[test]
+    fn every_integrated_family_preserves_imported_copy_and_outcome_identity() {
+        let families = [
+            ("classic_bridge_crews", "ENC-C01"),
+            ("classic_civic_potluck", "ENC-C02"),
+            ("classic_crossing_block_party", "ENC-C03"),
+            ("classic_freeway_mural", "ENC-C04"),
+            ("classic_mail_drop", "ENC-C05"),
+            ("classic_media_training", "ENC-C06"),
+            ("classic_mutual_aid", "ENC-C07"),
+            ("classic_mutual_aid_dispatch", "ENC-C08"),
+        ];
+        for (runtime, family) in families {
+            let mut original = run();
+            original.current_encounter =
+                Some(CANONICAL.iter().find(|e| e.id == runtime).unwrap().clone());
+            seal_encounter(&mut original);
+            let unit = encounter_unit(&original).unwrap().to_owned();
+            assert!(unit.starts_with(family));
+            let restored: GameState =
+                serde_json::from_str(&serde_json::to_string(&original).unwrap()).unwrap();
+            assert_eq!(encounter_unit(&restored), Some(unit.as_str()));
+            for choice in 0..original.current_encounter.as_ref().unwrap().choices.len() {
+                let mut after = restored.clone();
+                after.current_encounter = None;
+                let before = serde_json::to_value(&after).unwrap();
+                record_outcome(&restored, &mut after, choice);
+                assert_eq!(
+                    after
+                        .continuity
+                        .visual_content
+                        .outcomes
+                        .get(&format!("{family}/road/300")),
+                    Some(&choice)
+                );
+                let mut actual = serde_json::to_value(&after).unwrap();
+                actual["visual_content"] = before["visual_content"].clone();
+                assert_eq!(
+                    actual, before,
+                    "presentation must not change simulation state: {runtime}"
+                );
+            }
+            for field in ["name", "desc", "label"] {
+                let mut custom = restored.clone();
+                let event = custom.current_encounter.as_mut().unwrap();
+                match field {
+                    "name" => event.name = "Imported title".into(),
+                    "desc" => event.desc = "Imported story".into(),
+                    _ => event.choices[0].label = "Imported action".into(),
+                }
+                let before = serde_json::to_value(&custom).unwrap();
+                seal_encounter(&mut custom);
+                assert_eq!(encounter_unit(&custom), None, "custom {field}: {runtime}");
+                assert_eq!(copy_id(&custom), format!("imported/{runtime}"));
+                assert_eq!(serde_json::to_value(&custom).unwrap(), before);
+                let mut after = custom.clone();
+                after.current_encounter = None;
+                record_outcome(&custom, &mut after, 0);
+                assert!(after.continuity.visual_content.outcomes.is_empty());
+            }
+        }
     }
     #[test]
     fn three_choice_family_records_third_outcome_and_rejects_custom_effects() {

@@ -589,3 +589,10 @@ September 14 — standing crew transparency repair:
 - No generation or deployment.
 
 - Follow-up on the capture: resetting scroll exposed a real sticky-continue-bar overlap with the scene caption. Wrapped the existing outcome summary/actions in their own containing block, preserving their styles and sticky behavior within that section. Final build 3a712fb6b6da321fe505. Added a geometric non-overlap assertion after each outcome; focused C07 desktop/mobile tests passed, and final mobile work outcome was visually inspected. Captures now retained with caption visible and no extra bust.
+
+## Imported encounter compatibility — 2026-09-24
+
+- Found and fixed a preservation gap: a custom imported encounter with the same runtime ID and effects but changed title/description/action labels could receive a shipped variant, and the legacy localization namespace could overwrite custom copy even when the variant guard declined it.
+- Canonical comparison now covers title, description and action labels as well as effects/choice count. A presentation-only namespace bypasses shipped localization for custom encounters; engine IDs and scene context remain unchanged. Applies to encounter UI, actual resolved outcome and journal. Stale saved variant selections cannot override custom wording or manufacture a variant outcome.
+- Six native visual-content tests pass, including all eight families, custom title/description/action labels, full-width seed save round-trip, all committed choices and non-presentation state equality. Build 9074fff73c976f5e1294 succeeds. Four browser tests pass: normal C07 regression plus custom-import persistence on desktop/mobile, including reload, outcome text, journal/save, correct resource cost and absence of authored C07 imagery for the custom event. Final subsequent source change was whitespace-only.
+- No image generation, new art, Hearing changes or deployment.

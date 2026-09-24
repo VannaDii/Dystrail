@@ -151,7 +151,8 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
         }
         *state.action_lock.borrow_mut() = true;
         let before = sess.state().clone();
-        let copy_id = crate::app::visual_content::encounter_unit(&before)
+        let copy_id = crate::app::visual_content::copy_id(&before);
+        let scene_id = crate::app::visual_content::encounter_unit(&before)
             .unwrap_or(&encounter.id)
             .to_owned();
         let message = choice
@@ -183,7 +184,7 @@ pub fn build_encounter_choice(state: &AppState) -> Callback<usize> {
                     || message.clone(),
                     |member| format!("{}: {message}", member.name),
                 ),
-            scene: crate::components::ui::journey_scene::road_art::aftermath(copy_id, idx),
+            scene: crate::components::ui::journey_scene::road_art::aftermath(scene_id, idx),
             resources: Vec::new(),
             details: crate::app::receipt::resource_details(&before, sess.state()),
             before: before.stats.clone(),

@@ -76,3 +76,28 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
 });
 
 }
+
+test('custom imported wording survives a stale shipped variant identity',async({page})=>{
+ const state=await baseline(page);state.seed=42;state.stats.supplies=10;
+ state.current_encounter=structuredClone(bank.find((e:any)=>e.id==='classic_mutual_aid'));
+ state.current_encounter.name='Imported community visit';
+ state.current_encounter.desc='This is the player’s custom encounter description.';
+ state.current_encounter.choices[0].label='Use my custom action';
+ state.last_encounter_driving_minutes=300;state.driving_minutes_total=300;
+ state.visual_content={edition:1,selections:{'ENC-C07/road/300':'ENC-C07-A'}};
+ await importState(page,state);
+ await expect(page.locator('#screen-title')).toContainText('Imported community visit');
+ await expect(page.locator('.encounter-panel')).toContainText(state.current_encounter.desc);
+ await expect(page.locator('.encounter-choice button').first()).toContainText('Use my custom action');
+ await expect(page.locator('image[href*="road-c07-"]')).toHaveCount(0);
+ await page.reload();await waitForLaunch(page);
+ await expect(page.locator('#screen-title')).toContainText('Imported community visit');
+ await page.locator('.encounter-choice button').first().click();
+ await expect(page.locator('#screen-title')).toContainText('Imported community visit');
+ await expect(page.locator('.outcome-copy')).toContainText(state.current_encounter.choices[0].effects.log);
+ await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
+ const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
+ expect(saved.current_encounter).toBeNull();expect(saved.stats.supplies).toBe(8);
+ expect(saved.journal.at(-1).title).toBe('Imported community visit');
+ expect(saved.visual_content.outcomes?.['ENC-C07/road/300']).toBeUndefined();
+});

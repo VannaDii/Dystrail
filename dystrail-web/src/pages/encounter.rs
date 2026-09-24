@@ -27,12 +27,13 @@ pub fn encounter_page(props: &EncounterPageProps) -> Html {
             html! { <p class="muted" role="status">{ crate::i18n::t("ui.loading_encounters") }</p> }
         },
         |mut enc| {
-            if let Some(unit) = crate::app::visual_content::encounter_unit(&props.state) {
-                enc.id = unit.to_owned(); // presentation clone; engine keeps runtime identity/effects
-            }
+            let scene_id = crate::app::visual_content::encounter_unit(&props.state)
+                .unwrap_or(&enc.id)
+                .to_owned();
+            enc.id = crate::app::visual_content::copy_id(&props.state);
             html! {
                 <>
-                    <crate::components::ui::world_view::WorldView state={props.state.clone()} title={crate::i18n::encounter_text(&enc.id,"name",&enc.name)} stage={Some(SceneStage::Encounter(enc.id.clone()))} decision={html! {
+                    <crate::components::ui::world_view::WorldView state={props.state.clone()} title={crate::i18n::encounter_text(&enc.id,"name",&enc.name)} stage={Some(SceneStage::Encounter(scene_id))} decision={html! {
                     <crate::components::ui::encounter_card::EncounterCard
                         key={crate::i18n::current_lang()}
                         encounter={enc}
