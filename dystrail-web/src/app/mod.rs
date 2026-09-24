@@ -15,6 +15,7 @@ pub mod journey_panel;
 pub mod map;
 mod map_countdown;
 pub mod phase;
+pub mod policy_bulletin;
 pub mod receipt;
 pub mod recovery;
 pub mod repair;

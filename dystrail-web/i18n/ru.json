@@ -1834,5 +1834,102 @@
       "copy": "Теперь в непрозрачном чёрном.",
       "compact": "ОТКРЫТЫЕ СЧЕТА"
     }
+  },
+  "policy_bulletin": {
+    "label": "Дорожный бюллетень",
+    "received": "Получен в день {day} · {time}",
+    "expired": "Это событие уже завершилось."
+  },
+  "visual_copy": {
+    "ORDER-DEREGULATE-A": {
+      "title": "Peace, Now With More War",
+      "activation": "The government promotes “Department of War” branding. The spokesperson calls it peace through strength. Your van would settle for peace through a working alternator.",
+      "expiration": "The reorganization event ends. The van has retained its original, less threatening name."
+    },
+    "ORDER-DEREGULATE-B": {
+      "title": "Two Names, One Purchase Order",
+      "activation": "Trump’s War Department branding brings another reorganization. Officials order new signs before checking the equipment. Your van has nominated its rattle for a leadership position.",
+      "expiration": "The event expires. The rattle is demoted to a maintenance issue."
+    },
+    "ORDER-DEREGULATE-C": {
+      "title": "The Branding Campaign",
+      "activation": "Officials explain that calling defense “war” will project strength. The crew tries calling the van “a tank.” The suspension files an immediate objection.",
+      "expiration": "The branding event ends. The van accepts a return to civilian duties."
+    },
+    "ORDER-GAG-A": {
+      "title": "A Very Dangerous Index",
+      "activation": "Book-panic bulletin: officials copy Trump’s ban on classroom “indoctrination.” The approved reading list arrives pre-approved, with instructions on how freely to discuss it.",
+      "expiration": "The panic recedes. A librarian quietly moves the books back where people can accidentally learn things."
+    },
+    "ORDER-GAG-B": {
+      "title": "The classical refund",
+      "activation": "Trump’s architecture order prefers classical designs for covered federal buildings. A rest-stop owner copies it with cardboard columns around the snack machine. One blocks the coin return. It now serves the grandeur of Western civilization. It no longer serves coins.",
+      "expiration": "The bulletin ends. The owner moves a column and gets their test coin back. The machine manages this without consulting an architect."
+    },
+    "ORDER-GAG-C": {
+      "title": "The Pronoun Emergency",
+      "activation": "Officials announce another emergency about gender in schools. The roof still leaks. Nobody has established the puddle’s biological sex.",
+      "expiration": "The bulletin expires. The puddle has acquired a second bucket and no political affiliation."
+    },
+    "ORDER-MILITARIZE-A": {
+      "title": "Freedom of Movement, Subject to Movement",
+      "activation": "Checkpoint bulletin: officials invoke Trump’s border-security rhetoric to add another road inspection. The officer asks why free citizens are always trying to go somewhere.",
+      "expiration": "The extra inspections end. Your destination is once again a place rather than an explanation."
+    },
+    "ORDER-MILITARIZE-B": {
+      "title": "America, Please Hold",
+      "activation": "Trump-style extreme vetting demands proof you belong here. The van’s registration, your accent and your patience are called forward separately.",
+      "expiration": "The restriction expires. Your patience is still waiting to have its documents returned."
+    },
+    "ORDER-MILITARIZE-C": {
+      "title": "The Domestic Border",
+      "activation": "Officials bring “extreme vetting” to another stretch of road. Your crew explains you’re already in America. The guard says that’s what everyone says.",
+      "expiration": "The order ends. The road stops interviewing its users."
+    },
+    "ORDER-SHUTDOWN-A": {
+      "title": "Essential, Unpaid",
+      "activation": "Shutdown bulletin: Congress has run out of agreement. Federal workers are asked to keep being essential on an optional-salary basis.",
+      "expiration": "The shutdown ends. Paychecks may resume pretending this was a scheduling problem."
+    },
+    "ORDER-SHUTDOWN-B": {
+      "title": "Open for Contributions",
+      "activation": "The government shuts down. Services close; political fundraising emails continue arriving. Apparently the donation button is essential infrastructure.",
+      "expiration": "Services reopen. Nobody has needed to reboot the donation button."
+    },
+    "ORDER-SHUTDOWN-C": {
+      "title": "Hostage Negotiations",
+      "activation": "Congress fails to keep the government open. Your next meal has been invited to participate in the negotiations. It wasn’t given a chair.",
+      "expiration": "The shutdown ends. The food budget is released without a thank-you note."
+    },
+    "ORDER-TARIFFS-A": {
+      "title": "Foreign Aid, Domestic Wallet",
+      "activation": "Trump’s tariff message says foreign countries will pay. Your grocery bill has volunteered to be a foreign country.",
+      "expiration": "The tariff event ends. Your wallet would like its citizenship restored."
+    },
+    "ORDER-TARIFFS-B": {
+      "title": "The Importer Is You",
+      "activation": "Another tariff bulletin promises to punish overseas producers. At the shop, the punishment is itemized beneath your bread.",
+      "expiration": "The event expires. The bread is released into your custody."
+    },
+    "ORDER-TARIFFS-C": {
+      "title": "Protected From Purchasing",
+      "activation": "Officials announce protection for American consumers through higher import taxes. The food remains safely on the shelf, beyond the reach of American consumers.",
+      "expiration": "The tariff event passes. You and the shelf resume diplomatic relations."
+    },
+    "ORDER-TAXCUTS-A": {
+      "title": "Education Has Left the Building",
+      "activation": "The education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.",
+      "expiration": "The order ends. The exit sign returns to its specialist subject."
+    },
+    "ORDER-TAXCUTS-B": {
+      "title": "School of Hard Cuts",
+      "activation": "The education department closes. Students are directed to the school of hard knocks. It is already charging for the door.",
+      "expiration": "The order expires. The school of hard knocks keeps your application fee."
+    },
+    "ORDER-TAXCUTS-C": {
+      "title": "Discover It Yourself",
+      "activation": "Officials eliminate the education department. The announcement calls it empowerment. The teacher begins explaining long division with the remaining half of a pencil.",
+      "expiration": "The order ends. The pencil requests a colleague."
+    }
   }
 }

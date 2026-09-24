@@ -8,6 +8,7 @@ pub fn record(before: &GameState, after: &mut GameState, report: &mut Aftermath,
         .turn_journal_start
         .get_or_insert(before.continuity.journal.len());
     after.advance_clock(before, minutes);
+    super::policy_bulletin::capture(before, after);
     report.after = after.stats.clone();
     if after.breakdown.is_some() {
         report.scene = crate::components::ui::journey_scene::SceneStage::Breakdown;

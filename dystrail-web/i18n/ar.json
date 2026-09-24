@@ -1967,5 +1967,102 @@
     "use_evidence": "يستخدم دليلًا",
     "bonus_evidence": "قد يكشف أدلة إضافية",
     "hours": "{hours} ساعات"
+  },
+  "policy_bulletin": {
+    "label": "نشرة على الطريق",
+    "received": "وردت في اليوم {day} · {time}",
+    "expired": "انتهى هذا الحدث بالفعل."
+  },
+  "visual_copy": {
+    "ORDER-SHUTDOWN-B": {
+      "title": "مفتوح للتبرعات",
+      "activation": "تُغلق الحكومة. تتوقف الخدمات؛ وتستمر رسائل جمع التبرعات السياسية في الوصول. يبدو أن زر التبرع من البنية التحتية الأساسية.",
+      "expiration": "تعود الخدمات. لم يحتج أحد إلى إعادة تشغيل زر التبرع."
+    },
+    "ORDER-SHUTDOWN-C": {
+      "title": "مفاوضات الرهائن",
+      "activation": "يفشل الكونغرس في إبقاء الحكومة مفتوحة. دُعيت وجبتك المقبلة للمشاركة في المفاوضات. لم تحصل على كرسي.",
+      "expiration": "ينتهي الإغلاق. تُفرج المفاوضات عن ميزانية الطعام دون رسالة شكر."
+    },
+    "ORDER-MILITARIZE-B": {
+      "title": "أمريكا، يُرجى الانتظار",
+      "activation": "يطالب التدقيق المتشدد على طريقة ترامب بإثبات أنك تنتمي إلى هنا. يُستدعى تسجيل الشاحنة الصغيرة ولهجتك وصبرك، كلٌّ على حدة.",
+      "expiration": "ينتهي القيد. لا يزال صبرك ينتظر استعادة وثائقه."
+    },
+    "ORDER-MILITARIZE-C": {
+      "title": "الحدود الداخلية",
+      "activation": "تجلب السلطات «التدقيق المتشدد» إلى مقطع آخر من الطريق. يوضح فريقك أنه موجود بالفعل في أمريكا. يأتي الرد من الحراسة: هذا ما يقوله الجميع.",
+      "expiration": "ينتهي الأمر. يتوقف الطريق عن إجراء مقابلات مع مستخدميه."
+    },
+    "ORDER-GAG-B": {
+      "title": "استرداد كلاسيكي",
+      "activation": "يفضّل أمر ترامب المعماري التصاميم الكلاسيكية للمباني الفيدرالية المشمولة. تقلّده صاحبة استراحة بأعمدة كرتونية حول آلة الوجبات الخفيفة. يسدّ أحدها فتحة إرجاع النقود. باتت الآلة تخدم عظمة الحضارة الغربية. لكنها لم تعد تُرجع النقود.",
+      "expiration": "تنتهي النشرة. تحرّك صاحبة الاستراحة عمودًا وتستعيد العملة التجريبية. تنجح الآلة في ذلك دون استشارة مهندس معماري."
+    },
+    "ORDER-GAG-C": {
+      "title": "طوارئ الضمائر",
+      "activation": "تعلن السلطات حالة طوارئ أخرى بشأن الجندر في المدارس. ما زال السقف يسرّب الماء. لم يحدد أحد الجنس البيولوجي للبركة.",
+      "expiration": "تنتهي النشرة. حصلت البركة على دلو ثانٍ، دون أي انتماء سياسي."
+    },
+    "ORDER-TARIFFS-B": {
+      "title": "المستورد هو أنت",
+      "activation": "تعد نشرة جمركية أخرى بمعاقبة المنتجين في الخارج. في المتجر، تظهر العقوبة كبند أسفل خبزك.",
+      "expiration": "ينتهي الحدث. يُفرَج عن الخبز ويُسلَّم إلى عهدتك."
+    },
+    "ORDER-TARIFFS-C": {
+      "title": "حماية من الشراء",
+      "activation": "تعلن السلطات حماية المستهلكين الأمريكيين عبر زيادة ضرائب الاستيراد. يظل الطعام آمنًا على الرف، بعيدًا عن متناول المستهلكين الأمريكيين.",
+      "expiration": "يمضي الحدث الجمركي. تستأنف أنت والرف العلاقات الدبلوماسية."
+    },
+    "ORDER-TAXCUTS-B": {
+      "title": "مدرسة التخفيضات القاسية",
+      "activation": "تُغلق وزارة التعليم. يُوجَّه الطلاب إلى مدرسة الحياة القاسية. لقد بدأت بالفعل بتحصيل رسوم على الباب.",
+      "expiration": "ينتهي الأمر. تحتفظ مدرسة الحياة القاسية برسوم طلبك."
+    },
+    "ORDER-TAXCUTS-C": {
+      "title": "اكتشفها بنفسك",
+      "activation": "تلغي السلطات وزارة التعليم. يسمي الإعلان ذلك تمكينًا. تبدأ المعلمة بشرح القسمة المطوّلة بنصف قلم الرصاص المتبقي.",
+      "expiration": "ينتهي الأمر. يطلب قلم الرصاص زميلًا."
+    },
+    "ORDER-DEREGULATE-B": {
+      "title": "اسمان وأمر شراء واحد",
+      "activation": "تجلب تسمية ترامب «وزارة الحرب» عملية إعادة تنظيم أخرى. تطلب السلطات لافتات جديدة قبل فحص المعدات. رشّحت شاحنتك الصغيرة قعقعتها لمنصب قيادي.",
+      "expiration": "ينتهي الحدث. تُخفَّض رتبة القعقعة إلى مشكلة صيانة."
+    },
+    "ORDER-DEREGULATE-C": {
+      "title": "حملة العلامة التجارية",
+      "activation": "تشرح السلطات أن تسمية الدفاع «حربًا» ستُظهر القوة. يجرب الفريق تسمية الشاحنة الصغيرة «دبابة». يقدم نظام التعليق اعتراضًا فوريًا.",
+      "expiration": "ينتهي حدث العلامة التجارية. تقبل الشاحنة الصغيرة العودة إلى المهام المدنية."
+    },
+    "ORDER-DEREGULATE-A": {
+      "title": "Peace, Now With More War",
+      "activation": "The government promotes “Department of War” branding. The spokesperson calls it peace through strength. Your van would settle for peace through a working alternator.",
+      "expiration": "The reorganization event ends. The van has retained its original, less threatening name."
+    },
+    "ORDER-GAG-A": {
+      "title": "A Very Dangerous Index",
+      "activation": "Book-panic bulletin: officials copy Trump’s ban on classroom “indoctrination.” The approved reading list arrives pre-approved, with instructions on how freely to discuss it.",
+      "expiration": "The panic recedes. A librarian quietly moves the books back where people can accidentally learn things."
+    },
+    "ORDER-MILITARIZE-A": {
+      "title": "Freedom of Movement, Subject to Movement",
+      "activation": "Checkpoint bulletin: officials invoke Trump’s border-security rhetoric to add another road inspection. The officer asks why free citizens are always trying to go somewhere.",
+      "expiration": "The extra inspections end. Your destination is once again a place rather than an explanation."
+    },
+    "ORDER-SHUTDOWN-A": {
+      "title": "Essential, Unpaid",
+      "activation": "Shutdown bulletin: Congress has run out of agreement. Federal workers are asked to keep being essential on an optional-salary basis.",
+      "expiration": "The shutdown ends. Paychecks may resume pretending this was a scheduling problem."
+    },
+    "ORDER-TARIFFS-A": {
+      "title": "Foreign Aid, Domestic Wallet",
+      "activation": "Trump’s tariff message says foreign countries will pay. Your grocery bill has volunteered to be a foreign country.",
+      "expiration": "The tariff event ends. Your wallet would like its citizenship restored."
+    },
+    "ORDER-TAXCUTS-A": {
+      "title": "Education Has Left the Building",
+      "activation": "The education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.",
+      "expiration": "The order ends. The exit sign returns to its specialist subject."
+    }
   }
 }

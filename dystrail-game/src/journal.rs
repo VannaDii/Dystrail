@@ -7,11 +7,25 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct VisualContent {
     #[serde(default)]
+    pub policy_bulletins: Vec<PolicyBulletin>,
+    #[serde(default)]
     pub edition: u16,
     #[serde(default)]
     pub selections: std::collections::BTreeMap<String, String>,
     #[serde(default)]
     pub outcomes: std::collections::BTreeMap<String, usize>,
+}
+
+/// A presentation receipt for an engine activation; acknowledging never reapplies it.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PolicyBulletin {
+    pub id: String,
+    pub order: crate::exec_orders::ExecOrder,
+    pub unit: String,
+    pub received_day: u32,
+    pub received_minute: u16,
+    #[serde(default)]
+    pub acknowledged: bool,
 }
 
 /// The saved player-facing account of the journey, including its route checkpoint.

@@ -545,3 +545,9 @@ September 14 — standing crew transparency repair:
 - Restored C06 A/B/C EN/ES/IT/AR copy and three unchanged retained atlases. Canonical effects guard and committed outcome binding preserve mechanics; unused fourth reference frame never selected. No generation.
 - Build a6c3a5f356c9fa586859; five native persistence tests and four C05/C06 desktop/mobile browser tests passed. Six C06 outcomes preserve exact effects, journal and saved identity; Arabic320 offline verified. Source atlases and representative desktop/mobile compositions inspected. Existing locale copy unchanged.
 - Pending: other-language translations, mobile A/C prop label acceptance and broad feature acceptance. Hearing and interface/stat layouts untouched.
+
+### Policy announcement recovery foundation — 2026-09-24
+- Restored a persisted, idempotent activation queue captured from newly committed engine logs in the shared history path. Presentation variants derive from seed and activation identity without consuming simulation RNG. Legacy active policies are not manufactured into new announcements. Acknowledgment changes only presentation data.
+- Restored all 18 English policy narratives and preserved B/C translations for ES/IT/AR; bulletin controls restored in all20 locales. Missing narrative translations are explicit English fallbacks. Existing locale values preserved.
+- Two queue tests pass, including full-u64 save roundtrip, repeated activations, all six policies, no effect replay and stable variants. Full native suite:89 passed,1 failed on pre-existing Bengali encounter_copy.ENC-C01-A.choice_0 gap, confirmed absent at HEAD before this batch. Initial new policy key gaps fixed.
+- Hearing thread checked: last turn completed; no hearing engine changes. Announcement rendering, travel interruption/resume and composed policy art remain pending; queue alone does not satisfy that requirement. No generated images.

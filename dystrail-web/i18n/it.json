@@ -1967,5 +1967,102 @@
     "use_evidence": "Usa una prova",
     "bonus_evidence": "Potrebbe rivelare altre prove",
     "hours": "{hours} ore"
+  },
+  "policy_bulletin": {
+    "label": "Bollettino lungo la strada",
+    "received": "Ricevuto il giorno {day} · {time}",
+    "expired": "Questo evento è già terminato."
+  },
+  "visual_copy": {
+    "ORDER-SHUTDOWN-B": {
+      "title": "Aperto alle donazioni",
+      "activation": "Il governo chiude. I servizi si fermano; le email di raccolta fondi politica continuano ad arrivare. A quanto pare il pulsante per donare è un’infrastruttura essenziale.",
+      "expiration": "I servizi riaprono. Nessuno ha dovuto riavviare il pulsante per donare."
+    },
+    "ORDER-SHUTDOWN-C": {
+      "title": "Trattative sugli ostaggi",
+      "activation": "Il Congresso non riesce a tenere aperto il governo. Il tuo prossimo pasto è stato invitato a partecipare alle trattative. Non gli hanno dato una sedia.",
+      "expiration": "La chiusura finisce. Il budget alimentare viene rilasciato senza un biglietto di ringraziamento."
+    },
+    "ORDER-MILITARIZE-B": {
+      "title": "America, resti in attesa",
+      "activation": "Il controllo estremo in stile Trump pretende prove che tu appartenga a questo posto. Il libretto del furgone, il tuo accento e la tua pazienza vengono chiamati separatamente.",
+      "expiration": "La restrizione scade. La tua pazienza aspetta ancora che le restituiscano i documenti."
+    },
+    "ORDER-MILITARIZE-C": {
+      "title": "La frontiera interna",
+      "activation": "Le autorità portano il «controllo estremo» su un altro tratto di strada. La squadra spiega di essere già in America. La guardia dice che lo dicono tutti.",
+      "expiration": "L’ordine finisce. La strada smette di interrogare chi la percorre."
+    },
+    "ORDER-GAG-B": {
+      "title": "Il rimborso classico",
+      "activation": "L’ordine di Trump sull’architettura preferisce progetti classici per gli edifici federali interessati. La proprietaria di un’area di sosta lo imita con colonne di cartone attorno al distributore di snack. Una blocca il resto. Ora serve la grandezza della civiltà occidentale. Non restituisce più monete.",
+      "expiration": "Il bollettino finisce. La proprietaria sposta una colonna e recupera la moneta di prova. La macchina ci riesce senza consultare un architetto."
+    },
+    "ORDER-GAG-C": {
+      "title": "L’emergenza dei pronomi",
+      "activation": "Le autorità annunciano un’altra emergenza sul genere nelle scuole. Il tetto perde ancora. Nessuno ha stabilito il sesso biologico della pozzanghera.",
+      "expiration": "Il bollettino scade. La pozzanghera ha acquisito un secondo secchio e nessuna affiliazione politica."
+    },
+    "ORDER-TARIFFS-B": {
+      "title": "L’importatore sei tu",
+      "activation": "Un altro bollettino sui dazi promette di punire i produttori esteri. In negozio, la punizione è elencata sotto il tuo pane.",
+      "expiration": "L’evento scade. Il pane viene affidato alla tua custodia."
+    },
+    "ORDER-TARIFFS-C": {
+      "title": "Protezione dagli acquisti",
+      "activation": "Le autorità annunciano protezione per i consumatori americani attraverso tasse più alte sulle importazioni. Il cibo resta al sicuro sullo scaffale, fuori dalla portata dei consumatori americani.",
+      "expiration": "L’evento dei dazi passa. Tu e lo scaffale riprendete le relazioni diplomatiche."
+    },
+    "ORDER-TAXCUTS-B": {
+      "title": "La scuola dei tagli",
+      "activation": "Il dipartimento dell’Istruzione chiude. Chi studia viene indirizzato alla scuola della vita. Fa già pagare la porta.",
+      "expiration": "L’ordine scade. La scuola della vita trattiene la quota d’iscrizione."
+    },
+    "ORDER-TAXCUTS-C": {
+      "title": "Scoprilo da te",
+      "activation": "Le autorità eliminano il dipartimento dell’Istruzione. L’annuncio lo chiama emancipazione. L’insegnante comincia a spiegare la divisione in colonna con la mezza matita rimasta.",
+      "expiration": "L’ordine finisce. La matita chiede una collega."
+    },
+    "ORDER-DEREGULATE-B": {
+      "title": "Due nomi, un ordine d’acquisto",
+      "activation": "Il marchio Dipartimento della Guerra di Trump porta un’altra riorganizzazione. I funzionari ordinano insegne nuove prima di controllare le attrezzature. Il furgone ha candidato il proprio sferragliamento a un ruolo dirigenziale.",
+      "expiration": "L’evento scade. Lo sferragliamento viene declassato a problema di manutenzione."
+    },
+    "ORDER-DEREGULATE-C": {
+      "title": "La campagna del marchio",
+      "activation": "I funzionari spiegano che chiamare la difesa «guerra» proietterà forza. La squadra prova a chiamare il furgone «carro armato». Le sospensioni presentano un’obiezione immediata.",
+      "expiration": "L’evento del marchio finisce. Il furgone accetta di tornare ai compiti civili."
+    },
+    "ORDER-DEREGULATE-A": {
+      "title": "Peace, Now With More War",
+      "activation": "The government promotes “Department of War” branding. The spokesperson calls it peace through strength. Your van would settle for peace through a working alternator.",
+      "expiration": "The reorganization event ends. The van has retained its original, less threatening name."
+    },
+    "ORDER-GAG-A": {
+      "title": "A Very Dangerous Index",
+      "activation": "Book-panic bulletin: officials copy Trump’s ban on classroom “indoctrination.” The approved reading list arrives pre-approved, with instructions on how freely to discuss it.",
+      "expiration": "The panic recedes. A librarian quietly moves the books back where people can accidentally learn things."
+    },
+    "ORDER-MILITARIZE-A": {
+      "title": "Freedom of Movement, Subject to Movement",
+      "activation": "Checkpoint bulletin: officials invoke Trump’s border-security rhetoric to add another road inspection. The officer asks why free citizens are always trying to go somewhere.",
+      "expiration": "The extra inspections end. Your destination is once again a place rather than an explanation."
+    },
+    "ORDER-SHUTDOWN-A": {
+      "title": "Essential, Unpaid",
+      "activation": "Shutdown bulletin: Congress has run out of agreement. Federal workers are asked to keep being essential on an optional-salary basis.",
+      "expiration": "The shutdown ends. Paychecks may resume pretending this was a scheduling problem."
+    },
+    "ORDER-TARIFFS-A": {
+      "title": "Foreign Aid, Domestic Wallet",
+      "activation": "Trump’s tariff message says foreign countries will pay. Your grocery bill has volunteered to be a foreign country.",
+      "expiration": "The tariff event ends. Your wallet would like its citizenship restored."
+    },
+    "ORDER-TAXCUTS-A": {
+      "title": "Education Has Left the Building",
+      "activation": "The education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.",
+      "expiration": "The order ends. The exit sign returns to its specialist subject."
+    }
   }
 }
