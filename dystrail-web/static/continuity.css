@@ -972,3 +972,6 @@ html.hc .journal .journal-event-heading,html.hc .journal .journal-event-context,
  .save-actions { gap:8px; }
  .save-manager .save-action { gap:7px; padding:10px 8px; font-size:13px; }
 }
+
+/* Crossing layers share a fixed camera; van placement scales with the scene. */
+.world-view .journey-scene[data-scene="crossing"] .crew-van { width:44%; left:4%; bottom:15%; }

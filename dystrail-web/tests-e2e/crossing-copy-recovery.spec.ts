@@ -14,6 +14,26 @@ test('crossing introductions match approved narratives rather than mode labels',
  }
 });
 const saved=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+test('crossing layers preserve later-route geography and absent crew',async({page},info)=>{
+ const base=await baseline(page);
+ const routes=JSON.parse(readFileSync('../dystrail-game/data/routes.json','utf8'));
+ const route=routes.find((r:any)=>r.id===base.persona_id);
+ for(const region of ['Heartland','RustBelt','Beltway']){
+  const stop=route.stops.find((s:any)=>s.region===region);
+  expect(stop,region).toBeTruthy();
+  const s=structuredClone(base);s.seed=42;s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;
+  s.party.members[1].status='Departed';s.party.members[2].status='Dead';
+  s.crossing_events=[{day:s.day,region,season:s.season,kind:'checkpoint',permit_used:false,bribe_attempted:false,bribe_success:null,bribe_cost_cents:0,bribe_chance:null,bribe_roll:null,detour_reason:null,detour_taken:false,detour_hours:null,detour_base_supplies_delta:null,detour_extra_supplies_loss:null,terminal_threshold:0,terminal_roll:null,outcome:'passed'}];
+  s.visual_content={edition:1,selections:{},outcomes:{},policy_bulletins:[],crossing_presentations:[{event_index:0,unit:'CROSS-02D-A',permit_receipt:false,acknowledged:false}]};
+  await importState(page,s);
+  await expect(page.locator('.world-view')).toHaveAttribute('data-region',region);
+  const expected=stop.scene==='open-heartland-prairie'?'open-heartland-orchard':stop.scene==='open-rustbelt-foundry'?'open-rustbelt-lakeside':stop.scene;
+  await expect(page.locator('.crossing-layered-art')).toHaveAttribute('data-route-art',expected);
+  await expect(page.locator('.van-occupant')).toHaveCount(4);
+  for(const member of s.party.members.filter((m:any)=>m.status!=='Active'))await expect(page.locator(`.van-occupant[data-member="${member.persona}"]`)).toHaveCount(0);
+  if(region==='Beltway')await page.screenshot({path:info.outputPath('crossing-beltway-survivors.png'),fullPage:true});
+ }
+});
 test('Spanish and Arabic crossing narratives preserve receipt and permit distinctions',async({page,context},info)=>{
  test.setTimeout(180000);
  const base=await baseline(page);
@@ -53,6 +73,17 @@ test('crossing narratives acknowledge committed telemetry without changing the j
   await importState(page,s);await expect(page.locator('#main')).toHaveAttribute('data-screen','crossing-outcome');await expect(page.locator('.crossing-message')).toContainText(copy[unit][field]);
   await expect(page.locator(".camp-toggle")).toBeDisabled();await expect(page.locator(".journey-actions .retro-btn-primary")).toBeDisabled();
   const before=await saved(page);
+  if(['CROSS-02C-A','CROSS-02D-A'].includes(unit)&&['passage','diversion'].includes(field)){
+   const asset=unit==='CROSS-02D-A'?'privacy':field==='passage'?'workers-raised':'workers-lowered';
+   await expect(page.locator('.crossing-authored-outcome')).toHaveAttribute('href',new RegExp(`crossing-${asset}-v2.png$`));
+   await expect(page.locator('.van-occupant')).toHaveCount(s.party.members.filter((m:any)=>m.status==='Active').length);
+   if(unit==='CROSS-02D-A'&&field==='passage'){
+    await context.setOffline(true);await page.reload();await waitForLaunch(page);
+    await expect(page.locator('.crossing-authored-outcome')).toBeVisible();
+    await context.setOffline(false);
+   }
+   await page.screenshot({path:info.outputPath(`${unit}-${field}.png`),fullPage:true});
+  }
   if(family==='CROSS-03'&&v==='C'&&field==='terminal_failure'){
    await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.crossing-message')).toContainText(copy[unit][field]);await page.screenshot({path:info.outputPath('crossing-outcome.png'),fullPage:true});await context.setOffline(false);
   }

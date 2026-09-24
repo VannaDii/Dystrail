@@ -19390,7 +19390,7 @@
     "status": "12 English, Spanish and Arabic narrative variants integrated; retained crossing-specific art and remaining localization incomplete",
     "source": "Current approved CROSS-01, CROSS-02C, CROSS-02D and CROSS-03 A/B/C records",
     "behavior": "Captures only newly committed crossing telemetry, seals deterministic presentation, persists acknowledgment and pauses travel. Reads actual outcome, failed/successful bribe and consumed-receipt versus reusable permit context. Continue marks acknowledgment only; existing phase/aftermath survives.",
-    "art": "Uses existing regional stopped-road scene and actual surviving crew provisionally; does not claim the required crossing structures, props or terminal damage have been illustrated.",
+    "art": "CROSS-02C-A and CROSS-02D-A now use retained layered art for nonterminal outcomes; other variants and terminal damage remain provisional.",
     "remaining": [
       "Recover compatible retained crossing-specific art and localized editable signs",
       "Remaining locales, including Italian, require current-premise translations",
@@ -19412,7 +19412,7 @@
         "crossing-workers-raised-v2",
         "crossing-workers-lowered-v2"
       ],
-      "reuse_constraints": "Retained SVG crop code supports regional landscape replacement; not integrated or visually accepted. Preserve blank sign surfaces, localized overlays, actual crew and believable relative scale. Full raster mountain backgrounds cannot be applied to every crossing region.",
+      "reuse_constraints": "Privacy and worker candidates integrated using retained SVG masks and reviewed regional scenery; see crossing_art_checkpoint. Remaining candidates still require individual composition review.",
       "obsolete_premises": [
         "crossing-laminate-v2",
         "crossing-crown variants",
@@ -19421,5 +19421,27 @@
       "generation_calls": 0
     },
     "visual_review": "Arabic desktop/mobile screenshots reviewed: crossing narrative, controls and scene caption are readable with no horizontal overflow. Road scene is provisional; old departure receipt in synthetic fixture remains English and does not prove full journey localization."
+  },
+  "crossing_art_checkpoint": {
+    "status": "Two retained crossing scenes integrated; other variants and terminal failures remain incomplete",
+    "units": [
+      "CROSS-02C-A",
+      "CROSS-02D-A"
+    ],
+    "assets": "Four retained v2 PNGs copied unchanged: raised/lowered workers, privacy camera and road fork. Recovered SVG crops separate props from mountain scenery; reviewed route scenery replaces the background. No image generation or raster edits.",
+    "composition": "Fixed 1536x1024 camera, 3:2 scene on desktop/mobile, van width 44% at left 4% and bottom 15%; painted people remain behind the road. Actual active occupants use existing seated cast. Worker nameplate is localized editable SVG/HTML text; raster signs remain blank.",
+    "behavior": "Raised/lowered barrier follows committed passed/diverted outcome. Terminal failure keeps provisional travel scene rather than presenting an undamaged crossing as complete. Shared canonical lighting/weather remains active.",
+    "verification": [
+      "Build 11c80849d95f04006a7f succeeded, 167 offline files",
+      "Desktop/mobile 84-outcome checks passed (2 tests, 33.7s), including crossing art selection, actual occupant count and privacy-scene offline reload",
+      "Desktop/mobile later-route checks passed in Heartland, RustBelt and Beltway with two absent crew (2 tests, 6.0s)",
+      "Reviewed desktop workers/privacy and mobile lowered-barrier compositions plus desktop Beltway survivor scene; pixel style, readable bottom-left captions and believable relative scale retained"
+    ],
+    "remaining": [
+      "Other 10 crossing variants",
+      "Terminal crossing damage presentation",
+      "Real travel through a crossing, beyond imported telemetry fixtures",
+      "Broader localization and final visual acceptance"
+    ]
   }
 }

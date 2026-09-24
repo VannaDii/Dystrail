@@ -133,7 +133,12 @@ pub fn render(app: &AppState) -> Html {
             app.session.set(Some(session));
         })
     };
-    html! {<crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={copy(&n.unit,"name")} stage={Some(crate::components::ui::journey_scene::SceneStage::Travel(gs.region))} decision={html!{
+    use crate::components::ui::journey_scene::{SceneStage, crossing_art};
+    let event = &gs.crossing_events[n.event_index];
+    let stage = if crossing_art::supported(&n.unit) && event.outcome != CrossingOutcomeTelemetry::Failed {
+        SceneStage::Crossing { unit: n.unit.clone(), passed: event.outcome == CrossingOutcomeTelemetry::Passed }
+    } else { SceneStage::Travel(gs.region) };
+    html! {<crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={copy(&n.unit,"name")} stage={Some(stage)} decision={html!{
         <section class="crossing-outcome outcome-screen" data-event-index={n.event_index.to_string()}>
             <div class="aftermath-panel"><p class="crossing-message">{message(gs,n)}</p></div>
             <div class="outcome-actions"><button id="crossing-continue" class="btn btn-primary" onclick={on_continue}>{i18n::t("ui.continue")}</button></div>
