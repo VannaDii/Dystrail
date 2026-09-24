@@ -40,7 +40,7 @@ pub fn render_camp(state: &AppState) -> Html {
                         if *lock.borrow() { return; }
                         *lock.borrow_mut() = true;
                         let mut report = crate::app::aftermath::Aftermath {
-                            title: crate::i18n::t("ux.camp"), message, scene: crate::components::ui::journey_scene::SceneStage::Camp,
+                            title: crate::i18n::encounter_text(&crate::app::visual_content::rest_unit(&before), "name", &crate::i18n::t("ux.camp")), message, scene: crate::components::ui::journey_scene::SceneStage::Camp,
                             resources: Vec::new(),
                             details: crate::app::receipt::resource_details(&before,&new_state),
                             before: before.stats.clone(), after: new_state.stats.clone(),

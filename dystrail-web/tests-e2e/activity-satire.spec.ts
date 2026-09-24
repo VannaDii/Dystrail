@@ -39,3 +39,40 @@ test('all gathering and work variants keep their offer, receipt and current-save
   await context.setOffline(false);
  }
 });
+
+test('rest and all barter variants preserve current-save outcomes and limits',async({page,context})=>{
+ test.setTimeout(120_000);
+ const original=await baseline(page);
+ for(const family of ['REST','BARTERTIRE','BARTERBATTERY','BARTERSUPPLIES']) for(const suffix of ['A','B','C']) {
+  const state=structuredClone(original);state.seed=42;state.day=6;state.clock_minutes=600;
+  state.stats.supplies=10;state.stats.hp=6;state.stats.sanity=6;state.inventory.spares.tire=1;
+  state.camp.rest_cooldown=0;state.disease_cooldown=100;state.exec_order_cooldown=100;
+  state.crew_care.last_check_day=100;
+  const rest=family==='REST';
+  if(!rest) atTown(state,'Spokane');
+  const unit=`ACT-${family}-${suffix}`;
+  const key=`ACT-${family}/${rest?'day':'town'}/${rest?state.day:state.route_services.stop}`;
+  state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
+  await importState(page,state);
+  await page.getByRole('button',{name:rest?'Camp':'Trade with locals',exact:true}).click();
+  await expect(page.getByText(copy[unit].desc,{exact:true})).toBeVisible();
+  await page.reload();await waitForLaunch(page);
+  if(suffix==='A') await snap(page,`activity-${family.toLowerCase()}-offer`);
+  await page.getByRole('button',{name:copy[unit].choice_0,exact:true}).click();
+  await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
+  const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+  expect(after.visual_content.selections[key]).toBe(unit);expect(after.visual_content.outcomes[key]).toBe(0);
+  if(rest) {expect(after.day).toBe(7);expect(after.camp.rest_cooldown).toBeGreaterThan(0);}
+  else {
+   expect(after.route_services.traded_at).toBe(state.route_services.stop);
+   expect(after.clock_minutes).toBe(630);
+   expect(after.stats.supplies).toBe(family==='BARTERTIRE'?7:family==='BARTERBATTERY'?6:15);
+   expect(after.inventory.spares.tire).toBe(family==='BARTERTIRE'?2:family==='BARTERSUPPLIES'?0:1);
+   expect(after.inventory.spares.battery).toBe(state.inventory.spares.battery+(family==='BARTERBATTERY'?1:0));
+  }
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await context.setOffline(false);
+ }
+});

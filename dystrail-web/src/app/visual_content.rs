@@ -196,6 +196,78 @@ pub fn record_activity(
         .or_insert(0);
 }
 
+fn service_unit(gs: &GameState, family: &str, scope: &str, occurrence: u32) -> String {
+    let key = format!("{family}/{scope}/{occurrence}");
+    if let Some(unit) = gs
+        .continuity
+        .visual_content
+        .selections
+        .get(&key)
+        .filter(|unit| valid(unit, family))
+    {
+        return unit.clone();
+    }
+    let suffix = ["A", "B", "C"][(hash(gs.seed, family, occurrence) % 3) as usize];
+    format!("{family}-{suffix}")
+}
+
+pub fn rest_unit(gs: &GameState) -> String {
+    service_unit(gs, "ACT-REST", "day", gs.day)
+}
+
+fn trade_family(kind: u8) -> &'static str {
+    match kind {
+        1 => "ACT-BARTERBATTERY",
+        2 => "ACT-BARTERSUPPLIES",
+        _ => "ACT-BARTERTIRE",
+    }
+}
+
+pub fn trade_unit(gs: &GameState, kind: u8) -> String {
+    service_unit(
+        gs,
+        trade_family(kind),
+        "town",
+        gs.continuity.route_services.stop.unwrap_or_default(),
+    )
+}
+
+pub fn record_rest(before: &GameState, after: &mut GameState) {
+    let key = format!("ACT-REST/day/{}", before.day);
+    after
+        .continuity
+        .visual_content
+        .selections
+        .entry(key.clone())
+        .or_insert_with(|| rest_unit(before));
+    after
+        .continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(0);
+}
+
+pub fn record_trade(before: &GameState, after: &mut GameState, kind: u8) {
+    let key = format!(
+        "{}/town/{}",
+        trade_family(kind),
+        before.continuity.route_services.stop.unwrap_or_default()
+    );
+    after
+        .continuity
+        .visual_content
+        .selections
+        .entry(key.clone())
+        .or_insert_with(|| trade_unit(before, kind));
+    after
+        .continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(0);
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -214,6 +286,49 @@ mod tests {
                 .clone(),
         );
         gs
+    }
+    #[test]
+    fn rest_and_barter_record_original_offer_without_mutating_mechanics() {
+        let mut before = GameState {
+            seed: 42,
+            day: 6,
+            ..GameState::default()
+        };
+        before.stats.supplies = 10;
+        before.inventory.spares.tire = 1;
+        before.continuity.route_services.stop = Some(160);
+        for kind in 0..3 {
+            let mut after = before.clone();
+            assert!(after.trade_route_offer(kind));
+            let mechanics = serde_json::to_value(&after).unwrap();
+            record_trade(&before, &mut after, kind);
+            assert!(!after.can_route_trade(kind));
+            let key = format!("{}/town/160", trade_family(kind));
+            assert_eq!(
+                after.continuity.visual_content.selections[&key],
+                trade_unit(&before, kind)
+            );
+            let mut actual = serde_json::to_value(&after).unwrap();
+            actual["visual_content"] = mechanics["visual_content"].clone();
+            assert_eq!(actual, mechanics);
+        }
+        before.continuity.route_services.stop = None;
+        let mut after = before.clone();
+        assert!(
+            crate::game::camp_rest(&mut after, &crate::game::CampConfig::default_config()).rested
+        );
+        assert!(after.day > before.day);
+        let mechanics = serde_json::to_value(&after).unwrap();
+        record_rest(&before, &mut after);
+        let restored: GameState =
+            serde_json::from_str(&serde_json::to_string(&after).unwrap()).unwrap();
+        assert_eq!(
+            restored.continuity.visual_content.selections["ACT-REST/day/6"],
+            rest_unit(&before)
+        );
+        let mut actual = serde_json::to_value(&restored).unwrap();
+        actual["visual_content"] = mechanics["visual_content"].clone();
+        assert_eq!(actual, mechanics);
     }
     #[test]
     fn activity_identity_survives_overnight_completion_without_changing_simulation() {

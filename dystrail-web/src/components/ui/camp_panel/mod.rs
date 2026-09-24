@@ -42,14 +42,17 @@ pub fn camp_panel(p: &Props) -> Html {
         Callback::from(move |_| {
             let mut state = (*p.game_state).clone();
             let outcome = camp_rest(&mut state, &p.camp_config);
-            p.on_state_change.emit((
-                state,
-                i18n::t(if outcome.rested {
-                    "ux.rested"
-                } else {
-                    "ux.no_change"
-                }),
-            ));
+            let message = if outcome.rested {
+                crate::app::visual_content::record_rest(&p.game_state, &mut state);
+                i18n::encounter_text(
+                    &crate::app::visual_content::rest_unit(&p.game_state),
+                    "log_0",
+                    &i18n::t("ux.rested"),
+                )
+            } else {
+                i18n::t("ux.no_change")
+            };
+            p.on_state_change.emit((state, message));
         })
     };
     let close = {
@@ -75,10 +78,13 @@ pub fn camp_panel(p: &Props) -> Html {
             ("days", days.as_str()),
         ])),
     );
+    let rest_unit = crate::app::visual_content::rest_unit(&p.game_state);
+    let rest_offer = i18n::encounter_text(&rest_unit, "desc", "");
+    let choice = i18n::encounter_text(&rest_unit, "choice_0", &i18n::t("camp.title"));
     html! { <section class="camp-modal" aria-labelledby="camp-title">
         <h2 id="camp-title" class="sr-only">{i18n::t("camp.title")}</h2>
         <div class="camp-actions">
-            <div class="camp-action"><ActionButton onclick={rest} disabled={p.game_state.camp.rest_cooldown > 0 || cfg.rest.day == 0} label={rest_label} />{cooldown(p.game_state.camp.rest_cooldown,cfg.rest.cooldown_days,"play2.rest_ready")}</div>
+            <div class="camp-action"><p>{rest_offer}</p><ActionButton onclick={rest} disabled={p.game_state.camp.rest_cooldown > 0 || cfg.rest.day == 0} label={choice} detail={rest_label} />{cooldown(p.game_state.camp.rest_cooldown,cfg.rest.cooldown_days,"play2.rest_ready")}</div>
             {p.gathering.clone()}
         </div>
         <div class="controls"><button class="retro-btn-primary" onclick={close}>{i18n::t("ux.back_road")}</button></div>

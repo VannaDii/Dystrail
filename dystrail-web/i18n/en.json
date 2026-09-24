@@ -1659,6 +1659,78 @@
       "desc": "A farmer lets the crew glean after neighbors discuss SNAP work requirements. A crooked carrot has been rejected by the buyer. It would like credit for its hours underground.",
       "choice_0": "Collect the rejected produce",
       "log_0": "You collect food at the cost of sore muscles. The carrot’s employment record remains spotless."
+    },
+    "ACT-BARTERBATTERY-A": {
+      "name": "Energy Independence",
+      "desc": "Someone offers a battery for supplies at the exchange. Trump promises American energy independence on the radio. You ask if that includes starting the van.",
+      "choice_0": "Trade supplies for the battery",
+      "log_0": "You get the battery. The van’s energy policy now has terminals."
+    },
+    "ACT-BARTERBATTERY-B": {
+      "name": "The Tariff-Free Conversation",
+      "desc": "A resident offers a spare battery for supplies. After hearing the shop’s tariff quote, direct diplomacy between two broke people is looking remarkably sophisticated.",
+      "choice_0": "Make the battery trade",
+      "log_0": "Supplies leave; a battery arrives. China has been spared another bill it wasn’t going to pay."
+    },
+    "ACT-BARTERBATTERY-C": {
+      "name": "The Grid Is Negotiable",
+      "desc": "At the exchange, a resident offers a battery for supplies. Politicians on the radio debate an energy emergency. The resident has brought the part you actually need.",
+      "choice_0": "Barter for the battery",
+      "log_0": "The battery is yours. The debate continues without providing any voltage."
+    },
+    "ACT-BARTERSUPPLIES-A": {
+      "name": "A Very Small Redistribution",
+      "desc": "A resident offers food for your spare tire. Congress is discussing who deserves assistance. The resident mainly wants a tire that holds air.",
+      "choice_0": "Trade the spare for supplies",
+      "log_0": "You get supplies. Eligibility was established by looking at the tire."
+    },
+    "ACT-BARTERSUPPLIES-B": {
+      "name": "The International Tire Standard",
+      "desc": "Someone offers supplies for your tire. Trump calls tariffs a brilliant negotiating tool. The trader points at the food. “Or we could both leave with something.”",
+      "choice_0": "Swap the spare for supplies",
+      "log_0": "You leave with supplies. The tire enters its new market without a presidential address."
+    },
+    "ACT-BARTERSUPPLIES-C": {
+      "name": "The Budget That Feeds Someone",
+      "desc": "A resident offers supplies for a spare tire while Congress’s budget fight plays on a radio. You manage to move resources without discovering anyone is undeserving.",
+      "choice_0": "Exchange the tire for supplies",
+      "log_0": "The trade is done. Your budget has produced lunch, putting it ahead of several televised proposals."
+    },
+    "ACT-BARTERTIRE-A": {
+      "name": "Independent Spending",
+      "desc": "At the community exchange, a resident offers a tire for supplies. A nearby radio discusses unlimited political spending. You check whether the tire comes with a senator.",
+      "choice_0": "Trade supplies for the tire",
+      "log_0": "The tire is yours. No senator included, but it may actually get you somewhere."
+    },
+    "ACT-BARTERTIRE-B": {
+      "name": "A Trade War With Snacks",
+      "desc": "A resident offers a spare tire for supplies. Neither of you wants another tariff-inflated shop bill. The negotiation begins over a tin of beans, without threatening Canada.",
+      "choice_0": "Barter for the spare tire",
+      "log_0": "Supplies traded, tire acquired. Peace holds between the glove box and the grocery bag."
+    },
+    "ACT-BARTERTIRE-C": {
+      "name": "Roundtable Negotiations",
+      "desc": "A senator’s donor-dinner ad plays at the exchange. A resident offers a tire for supplies. “I can also listen to your concerns,” she says, “but the tire’s extra.”",
+      "choice_0": "Make the exchange",
+      "log_0": "You leave with a tire. Your roundtable has tread and no fundraising target."
+    },
+    "ACT-REST-A": {
+      "name": "Restoration of Executive Function",
+      "desc": "The crew can rest for a day. After another DOGE efficiency story, someone suggests firing the tired people. This would leave the van impressively understaffed.",
+      "choice_0": "Take a day to rest",
+      "log_0": "Rest restores what it can. You retain the staff, including the person who knows where the keys are."
+    },
+    "ACT-REST-B": {
+      "name": "The Trickle-Down Nap",
+      "desc": "The crew can stop for a day. A billionaire on the radio praises relentless work. Nobody can hear his staff carrying the microphone.",
+      "choice_0": "Rest for the day",
+      "log_0": "You recover within the day’s limits. Productivity declines in the radio audience; snoring receives a majority."
+    },
+    "ACT-REST-C": {
+      "name": "National Security, Airplane Mode",
+      "desc": "The crew can take a day off the road. You silence the phones before another headline about the cabinet’s Signal chats. Let someone else accidentally run the Pentagon.",
+      "choice_0": "Rest and mute the phones",
+      "log_0": "The crew rests. No airstrike plans are found in the sandwich order. A quiet diplomatic success."
     }
   },
   "play": {

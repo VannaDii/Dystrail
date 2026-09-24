@@ -3888,7 +3888,15 @@
         760,
         340
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERBATTERY-A",
@@ -3922,7 +3930,15 @@
         760,
         343
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERSUPPLIES-A",
@@ -3956,7 +3972,15 @@
         760,
         341
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERTIRE-B",
@@ -3990,7 +4014,15 @@
         760,
         341
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERBATTERY-B",
@@ -4024,7 +4056,15 @@
         760,
         339
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERSUPPLIES-B",
@@ -4058,7 +4098,15 @@
         760,
         344
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERTIRE-C",
@@ -4092,7 +4140,15 @@
         760,
         341
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERBATTERY-C",
@@ -4126,7 +4182,15 @@
         760,
         343
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-BARTERSUPPLIES-C",
@@ -4160,7 +4224,15 @@
         760,
         340
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-CASHWORK-A",
@@ -4678,7 +4750,15 @@
         768,
         341
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-REST-B",
@@ -4712,7 +4792,15 @@
         768,
         341
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "ACT-REST-C",
@@ -4746,7 +4834,15 @@
         768,
         342
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for rest; seed/family/town stop for barter; recorded only on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Approved source used; conflicting preserved refresh translations not imported",
+        "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
+      }
     },
     {
       "unit": "CROSS-01-A",
