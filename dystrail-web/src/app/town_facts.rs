@@ -68,6 +68,19 @@ impl TownFact {
             .unwrap_or_default()
     }
 }
+
+/// Reuse sourced endpoint context at departure and arrival without creating a town encounter.
+pub fn endpoint_context(town: &str) -> Html {
+    let fact = serde_json::from_str::<Vec<TownFact>>(include_str!("../../static/assets/data/town-facts.json"))
+        .ok().and_then(|facts| facts.into_iter().find(|fact| fact.town == town));
+    let Some(fact) = fact else { return Html::default(); };
+    html! {<span class="endpoint-context" data-town={town.to_owned()}>
+        <crate::components::ui::context_help::ContextHelp informational={true} icon={"i".to_owned()} title={format!("{} · {}",town,i18n::t("trail.record"))}>
+            <p class="endpoint-fact">{fact.message()}</p>
+            <p><a href={fact.source.clone()} target="_blank" rel="noopener noreferrer">{i18n::t("trail.source")}</a>{" · "}{i18n::tr("trail.verified",Some(&BTreeMap::from([("date",fact.checked.as_str())])))}</p>
+        </crate::components::ui::context_help::ContextHelp>
+    </span>}
+}
 pub fn render(app: &super::state::AppState) -> Html {
     let Some(gs) = app.session.as_ref().map(crate::game::JourneySession::state) else {
         return Html::default();

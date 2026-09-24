@@ -19544,5 +19544,21 @@
       "Translations and factual-context links",
       "Full-game narrative pacing and final acceptance"
     ]
+  },
+  "functional_copy_checkpoint": {
+    "status": "Six persona descriptions, eleven shop descriptions and two mode descriptions integrated in English; seven retained endpoint facts exposed through existing information popovers",
+    "behavior": "Descriptions only: prices, grants, persona modifiers, Hearing and other mechanics unchanged. Four shop descriptions translate implementation terms into player-facing language (masks, water, press pass, legal fund); legal-fund purchase does not promise automatic tariff cover. Deep End description states the approved opt-in themes. Origin facts appear during departure review; D.C. fact appears on Hearing arrival.",
+    "verification": [
+      "All six persona descriptions and both mode descriptions match canonical source; runtime catalog descriptions match English UI",
+      "Seven endpoint English facts already matched canonical content and were reused with original sources/check dates",
+      "Build 928a97974063e5a7624d passed",
+      "Eight final desktop/mobile browser tests passed in 55.2 seconds, covering all six departures, seven endpoint popovers/source links, eleven shop descriptions, six persona descriptions, checkout and offline state",
+      "Shop and D.C. popover desktop/mobile screenshots reviewed; popover text fits existing component"
+    ],
+    "remaining": [
+      "Updated persona/shop/mode translations; endpoint translations retained but need final language acceptance",
+      "D.C. arrival composition fails ground-plane consistency: van overlaps foreground fixture, especially obvious on mobile; requires retained-art/layout correction before visual acceptance",
+      "Final complete-game acceptance and preview sheets"
+    ]
   }
 }

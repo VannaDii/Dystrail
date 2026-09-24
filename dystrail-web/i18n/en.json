@@ -231,11 +231,11 @@
   "persona": {
     "choose": "Choose your character",
     "journalist": {
-      "desc": "Credible and resourceful; thrives on receipts.",
+      "desc": "Resourceful and credible, with a better chance of finding Receipts. Starts in Seattle.",
       "name": "Journalist"
     },
     "lobbyist": {
-      "desc": "Connections reduce costs.",
+      "desc": "Receives shop and bribe discounts through contacts. Starts in Los Angeles; this does not grant staff or official authority.",
       "name": "Lobbyist"
     },
     "mods": {
@@ -247,22 +247,22 @@
     },
     "mult": "Multiplier ×{mult}",
     "organizer": {
-      "desc": "Builds morale and allies.",
+      "desc": "Starts with stronger morale and more outside allies; also receives a small bribe discount. Starts in Portland.",
       "name": "Organizer"
     },
     "preview": "Starting: Supplies {sup} · Cred {cred} · San {san} · Mor {mor} · Allies {allies} · Budget ${budget}",
     "preview_wait": "Choose a character to see their strengths.",
     "satirist": {
-      "desc": "Copes with humor; restores sanity.",
+      "desc": "Humor helps sustain sanity. Starts in San Diego.",
       "name": "Satirist"
     },
     "selected_budget_prefix": "Starting budget",
     "staffer": {
-      "desc": "Balanced; no strong perks.",
+      "desc": "A balanced start without special bonuses or penalties. Starts in Sacramento.",
       "name": "Staffer"
     },
     "whistleblower": {
-      "desc": "Draws heat; finds more receipts.",
+      "desc": "Finds more Receipts but draws extra executive-order pressure. Starts in San Francisco.",
       "name": "Whistleblower"
     },
     "selection_summary": "Selected {name}. Starting budget {budget}",
@@ -449,47 +449,47 @@
     },
     "items": {
       "alternator": {
-        "desc": "Charge restored.",
+        "desc": "One spare alternator. Restores the failed charging component when fitted during its matching breakdown.",
         "name": "Alternator"
       },
       "battery": {
-        "desc": "Cold starts.",
+        "desc": "One spare battery. Can be fitted when the battery fails; it is not an alternator.",
         "name": "Battery"
       },
       "coats": {
-        "desc": "Cold snap resilience.",
+        "desc": "Warm coats protect against cold’s sanity cost and health damage from prolonged cold exposure.",
         "name": "Warm Coats"
       },
       "fuel_pump": {
-        "desc": "When the party runs dry.",
+        "desc": "One spare fuel pump. Fits a fuel-pump breakdown; it does not add fuel or repair unrelated faults.",
         "name": "Fuel Pump"
       },
       "legal_fund": {
-        "desc": "Buffer your credibility.",
+        "desc": "Adds one credibility. Does not automatically protect you from tariff costs.",
         "name": "Legal Fund"
       },
       "masks": {
-        "desc": "Smoke/illness protection.",
+        "desc": "Carried masks protect against smoke’s sanity cost and reduce illness risk. Other smoke costs still apply.",
         "name": "Masks"
       },
       "ponchos": {
-        "desc": "Storm friendly.",
+        "desc": "Ponchos protect against storm sanity loss. Other storm costs still apply.",
         "name": "Ponchos"
       },
       "press_pass": {
-        "desc": "Can act as a permit.",
+        "desc": "A unique permit item. At crossings that accept it, it can authorize passage without consuming a Receipt.",
         "name": "Press Pass"
       },
       "rations": {
-        "desc": "Non-perishable. Keeps you going.",
+        "desc": "Adds three supplies per pack. A practical contribution to the argument that people need to eat.",
         "name": "Rations Pack"
       },
       "spare_tire": {
-        "desc": "Fix blowouts fast.",
+        "desc": "One spare tire. Can be fitted for a tire breakdown; fitting consumes the spare.",
         "name": "Spare Tire"
       },
       "water": {
-        "desc": "Hydration matters.",
+        "desc": "Adds two supplies. Carried water jugs prevent the extra sanity and health costs of prolonged heat.",
         "name": "Water Jugs"
       }
     },
@@ -618,7 +618,7 @@
     "tagline": "A political survival road trip.",
     "premise": "Get to D.C. with your health, sanity, and dignity intact. The road has other plans.",
     "classic_desc": "Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity.",
-    "deep_desc": "The same road, a worse reality. Stranger encounters, harsher satire, and higher volatility. For a second trip into the mess.",
+    "deep_desc": "The same road, a worse reality. Darker satire about attacks on trans rights, abortion restrictions, surveillance abuse, detention, and denied care. Choose this trail to opt in to those themes.",
     "begin": "Choose your character",
     "new_run": "New journey",
     "code": "Run code (optional)",

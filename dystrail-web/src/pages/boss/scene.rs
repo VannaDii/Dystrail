@@ -68,7 +68,7 @@ pub(super) fn render(p: &BossPageProps, title: &str) -> Html {
                 if let Some(speaker)=speaker {<div class="hearing-speaker">{character_portrait::framed(&speaker.persona,&speaker.name,expression)}</div>}
                 if matches!(phase,HearingPhase::RoundRolling(_)|HearingPhase::VoteRolling|HearingPhase::Committee(_)) {<div class="hearing-paper" aria-hidden="true"><span/><span/><span/></div>}
             }
-            <figcaption class="hearing-scene-caption"><span>{title}</span><crate::components::ui::game_clock::GameClock {day} {hour} minute={u8::try_from(minute%60).unwrap_or(0)} moving={false}/></figcaption>
+            <figcaption class="hearing-scene-caption"><span>{title}if arrival {{crate::app::town_facts::endpoint_context("D.C.")}}</span><crate::components::ui::game_clock::GameClock {day} {hour} minute={u8::try_from(minute%60).unwrap_or(0)} moving={false}/></figcaption>
         </JourneyScene>
         <div class="hearing-crew" role="group" aria-label={p.state.party.name.clone()}>{for active.iter().filter(|m|arrival || speaker.is_none_or(|s|s.persona!=m.persona)).map(|m|character_portrait::framed(&m.persona,&m.name,expression))}</div>
     </div>}

@@ -1,7 +1,7 @@
 {
   "journalist": {
     "name": "Journalist",
-    "desc": "Credible and resourceful; thrives on receipts.",
+    "desc": "Resourceful and credible, with a better chance of finding Receipts. Starts in Seattle.",
     "score_mult": 0.8,
     "start": {
       "supplies": 18,
@@ -20,7 +20,7 @@
   },
   "organizer": {
     "name": "Organizer",
-    "desc": "Builds morale and allies.",
+    "desc": "Starts with stronger morale and more outside allies; also receives a small bribe discount. Starts in Portland.",
     "score_mult": 1.0,
     "start": {
       "supplies": 18,
@@ -36,7 +36,7 @@
   },
   "whistleblower": {
     "name": "Whistleblower",
-    "desc": "Draws heat; finds more receipts.",
+    "desc": "Finds more Receipts but draws extra executive-order pressure. Starts in San Francisco.",
     "score_mult": 1.2,
     "start": {
       "supplies": 14,
@@ -53,7 +53,7 @@
   },
   "lobbyist": {
     "name": "Lobbyist",
-    "desc": "Connections reduce costs.",
+    "desc": "Receives shop and bribe discounts through contacts. Starts in Los Angeles; this does not grant staff or official authority.",
     "score_mult": 0.9,
     "start": {
       "supplies": 16,
@@ -70,7 +70,7 @@
   },
   "staffer": {
     "name": "Staffer",
-    "desc": "Balanced; no strong perks.",
+    "desc": "A balanced start without special bonuses or penalties. Starts in Sacramento.",
     "score_mult": 1.0,
     "start": {
       "supplies": 18,
@@ -84,7 +84,7 @@
   },
   "satirist": {
     "name": "Satirist",
-    "desc": "Copes with humor; restores sanity.",
+    "desc": "Humor helps sustain sanity. Starts in San Diego.",
     "score_mult": 1.1,
     "start": {
       "supplies": 18,

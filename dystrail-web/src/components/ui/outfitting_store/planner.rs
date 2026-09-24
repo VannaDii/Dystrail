@@ -21,6 +21,7 @@ pub fn render(
             if !p.resupply {<p>{i18n::t(if **review{"play.review_help"}else{"play.pack_empty"})}</p>}
             if **review && !p.resupply {if let Some(unit)=crate::app::visual_content::departure_unit(&p.game_state) {
                 <p class="departure-intro" data-departure-unit={unit.clone()}><strong>{i18n::t(&format!("encounter_copy.{unit}.name"))}{". "}</strong>{i18n::t(&format!("encounter_copy.{unit}.desc"))}</p>
+                {crate::app::town_facts::endpoint_context(crate::game::route::origin(p.game_state.persona_id.as_deref().unwrap_or("journalist")))}
             }}
         </header>
         if !p.resupply {{crate::components::ui::leg_summary::render(&p.game_state)}}
