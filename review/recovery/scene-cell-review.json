@@ -19332,7 +19332,24 @@
       "build": "de8e56beb0701f78aa4f",
       "native": "Stale-premise selection guard passed; production build passed.",
       "mobile": "Nine setting/caption cases, offline reload and absent-member exclusion passed after overlay removal.",
-      "desktop": "Earlier composition test passed but revealed unacceptable overlay proportions. Post-removal verification is blocked by launch timeout before gameplay; unresolved, not accepted."
+      "desktop": "Post-removal nine-setting, actual caption, absent-member and offline check passed (8.5s) after fresh diagnostic launch; earlier intermittent startup timeouts remain recorded, cause unproven. All 163 packaged assets match manifest integrity."
     }
+  },
+  "repair_copy_checkpoint": {
+    "status": "12 approved English repair variants integrated; artwork, factual links and remaining languages incomplete",
+    "source": "Current-source-records REPAIR-TIRE/BATTERY/ALTERNATOR/FUELPUMP A/B/C",
+    "behavior": "Seed-stable selection by part, incident start day and driving minutes; recorded only after successful existing repair handler. No mechanics or RNG changes. Separate roadside purchase and shop outcomes.",
+    "remaining": [
+      "Retained repair scene integration and actual-crew composition",
+      "Translation recovery with premise matching",
+      "Variant-specific factual context links",
+      "Review qualitative repair option subtitles against approved interaction copy"
+    ],
+    "verification": [
+      "All 12 variants and four choices passed desktop/mobile cost, time, RNG, identity and offline-outcome checks before outcome-footer fix",
+      "Localized template balance passed",
+      "Build ef02439a5dcfe0a939e7: desktop/mobile checks passed after footer correction (2 tests, 23.4s). Screenshots reviewed: complete outcome text and stat labels visible, action bar follows panel. Shop-purchase narrative branch not separately browser-exercised."
+    ],
+    "layout_fix": "Existing outcome return bar moved from sticky overlay to normal flow to prevent covering narrative and stat labels; existing styling and controls preserved."
   }
 }

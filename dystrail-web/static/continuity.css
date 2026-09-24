@@ -618,7 +618,7 @@ html.hc .ally-departure .ally-message { background:#000; border-color:#fff; }
 .outcome-summary .receipt-details>div { justify-content:flex-start; }
 .outcome-summary .receipt-details:empty { display:none; }
 .outcome-screen .aftermath-panel>.resource-changes { flex:0 1 auto; max-width:100%; justify-content:flex-start; margin:0; gap:12px; }
-.outcome-actions { position:sticky; bottom:0; z-index:8; display:flex; justify-content:flex-end; padding:12px 24px max(12px,env(safe-area-inset-bottom)); background:var(--panel); border-top:1px solid var(--panel-border); }
+.outcome-actions { position:relative; display:flex; justify-content:flex-end; padding:12px 24px max(12px,env(safe-area-inset-bottom)); background:var(--panel); border-top:1px solid var(--panel-border); }
 .outcome-actions>button { display:flex; justify-content:center; align-items:center; gap:10px; min-width:220px; max-width:100%; min-height:48px; }
 .game-shell:has(.outcome-screen)>.game-header { z-index:100; }
 @media(max-width:700px) {
