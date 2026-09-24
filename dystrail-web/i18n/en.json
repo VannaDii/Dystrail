@@ -3405,6 +3405,150 @@
       "log_1": "You save the mismatch through aching eyes. The parent asks whether the diapers might accept a payment schedule based on adulthood.",
       "choice_2": "Keep moving",
       "log_2": "You leave the job behind. The baby grabs the announcement, becoming the first person here to extract immediate practical entertainment from it."
+    },
+    "CARE-01-A": {
+      "name": "Alive With Goodness",
+      "desc": "{name} tries raw milk from a “Make America Healthy Again” stall. The vendor calls it “alive with goodness.” Judging by the screaming from the toilet, the goodness has a knife.",
+      "continuing": "{name} is still ill from the MAHA raw milk. The vendor has promoted the stomach cramps to a cleansing process.",
+      "log_0": "{name} recovers with care. The vendor asks for a testimonial. You offer the bathroom key."
+    },
+    "CARE-01-B": {
+      "name": "The Freedom Fridge",
+      "desc": "{name} drinks raw milk at a MAHA stall opposing government food rules. They start vomiting. The vendor checks the fridge: unplugged, in protest.",
+      "continuing": "{name} is still sick. The vendor says refrigeration is a slippery slope to federal control of cheese.",
+      "log_0": "{name} recovers. The vendor plugs in the fridge and asks you to keep his surrender quiet."
+    },
+    "CARE-01-C": {
+      "name": "A Second Opinion",
+      "desc": "A MAHA vendor tells {name} raw milk builds immunity. Now they’re ill. He recommends a second bottle. Apparently the immune system needs a rematch.",
+      "continuing": "{name} remains ill. The unopened second bottle sits in the van like a very small hostile nation.",
+      "log_0": "Care helps {name} recover. You decline the rematch. The bottle keeps its undefeated record."
+    },
+    "CARE-02-A": {
+      "name": "Executive Forecast",
+      "desc": "During a paid unloading shift, {name} becomes dehydrated. The boss crossed out the heat warning with a Sharpie, but apparently, the sun doesn’t take corrections. #sharpiegate",
+      "continuing": "{name} is still dehydrated. The Sharpie has made a full recovery and returned to management.",
+      "log_0": "Care restores {name}. The sun continues operating outside the boss’s chain of command."
+    },
+    "CARE-02-B": {
+      "name": "Local Control",
+      "desc": "During an unloading shift, {name} becomes dehydrated. The boss praises Florida’s ban on local heat-break rules. “Government shouldn’t tell us what to do,” he says, blocking the water.",
+      "continuing": "{name} remains dehydrated. The boss’s freedom to manage has developed an impressive thirst.",
+      "log_0": "{name} recovers with care. For several revolutionary minutes, thirst gets a vote."
+    },
+    "CARE-02-C": {
+      "name": "Drill, Baby, Drink",
+      "desc": "{name} becomes dehydrated unloading a “Drill, baby, drill” rally stage. The organizer says heat is natural. So is the ice in his private cooler.",
+      "continuing": "{name} is still dehydrated. The organizer has ordered more ice for his argument.",
+      "log_0": "Care helps {name} recover. The organizer guards the cooler like the last remaining oil reserve."
+    },
+    "CARE-03-A": {
+      "name": "Proof of Labor",
+      "desc": "After a temp shift, {name} stays up proving those hours count under Congress’s benefits work rules. By dawn, the only unpaid work is proving they work.",
+      "continuing": "{name} is exhausted from the benefits paperwork. Their shift is documented; the night spent proving it remains volunteer work.",
+      "log_0": "Care helps {name} recover. You put the forms away before they develop a work requirement of their own."
+    },
+    "CARE-03-B": {
+      "name": "Efficient Exhaustion",
+      "desc": "{name} loses sleep helping a laid-off DOGE-cut worker assemble job applications. The government called them redundant. Every employer wants the same information entered again.",
+      "continuing": "{name} is still exhausted. The last application has asked the worker to upload the résumé it just deleted.",
+      "log_0": "Care restores {name}. For once, something has been saved without creating a new account."
+    },
+    "CARE-03-C": {
+      "name": "The Merit Test",
+      "desc": "{name} loses a night applying for a government contractor’s temp work. The firm denounces DEI. Its application asks whether the owner’s nephew referred them. He’s twelve.",
+      "continuing": "{name} remains exhausted. The nephew’s referral box is still the shortest route through the merit system.",
+      "log_0": "{name} recovers. The nephew is unavailable for comment; it’s a school night."
+    },
+    "CARE-04-A": {
+      "name": "Drain the Sample Bucket",
+      "desc": "{name} tries a MAHA tonic promising to “drain the swamp” from their body. They vomit into the sample bucket. The swamp has acquired a gift shop.",
+      "continuing": "{name} is still sick from the tonic. The vendor says discomfort proves it works. Refunds apparently prove nothing.",
+      "log_0": "{name} recovers with care. The vendor offers a loyalty card. You suggest a mop."
+    },
+    "CARE-04-B": {
+      "name": "The Unelected Stomach",
+      "desc": "{name} becomes sick after a MAHA supplement sample. The vendor blames unelected health experts. Nobody recalls voting for the powder, either.",
+      "continuing": "{name} remains ill. The vendor has demanded an investigation into the stomach’s political affiliations.",
+      "log_0": "Care helps {name} recover. Their stomach accepts the result without demanding a recount."
+    },
+    "CARE-04-C": {
+      "name": "Personal Responsibility, Now in Mango",
+      "desc": "{name} tries a MAHA cleanse sold as freedom from the FDA. Now they’re sick. The vendor celebrates personal responsibility by pointing at the customer.",
+      "continuing": "{name} is still ill. The vendor’s cure for government overreach has reached the entire stomach.",
+      "log_0": "{name} recovers. You ask the vendor to take some personal responsibility. He suddenly has a lawyer."
+    },
+    "CARE-05-A": {
+      "name": "Patriotically Lost",
+      "desc": "{name} loses sleep reconciling maps after Trump’s Gulf and mountain renaming. The van still needs the same turn. Geography has failed its loyalty test.",
+      "continuing": "{name} is exhausted. Two maps disagree about the name of something that has not moved.",
+      "log_0": "Care restores {name}. You follow the road, which has managed to stay in office."
+    },
+    "CARE-05-B": {
+      "name": "The Mountain Formerly Known",
+      "desc": "{name} stays up matching a renamed federal landmark to an older route guide. A mountain has two names. Somehow the human has to do the paperwork.",
+      "continuing": "{name} is still exhausted. The mountain has declined to provide a preferred spelling.",
+      "log_0": "{name} recovers. You agree to recognize the mountain by the enormous mountain underneath the name."
+    },
+    "CARE-05-C": {
+      "name": "Rebranding Detour",
+      "desc": "{name} loses sleep updating the route after another federal renaming announcement. The app celebrates American greatness by sending you past the same gas station twice.",
+      "continuing": "{name} remains exhausted. The renamed destination is secure; the route to it is doing a victory lap.",
+      "log_0": "Care helps {name} recover. You disable the celebratory update and keep the actual road."
+    },
+    "CARE-06-A": {
+      "name": "A Very Small Trade War",
+      "desc": "{name} spends all night disputing Trump’s tariff on a van part. By dawn, they’re waving a white napkin at the card reader. It asks for a tip.",
+      "continuing": "{name} is exhausted from the tariff dispute. China has not sent a relief driver.",
+      "log_0": "{name} recovers with care. You declare a ceasefire with the receipt printer."
+    },
+    "CARE-06-B": {
+      "name": "America First in Line",
+      "desc": "{name} loses sleep tracing a “foreign-paid” tariff through the repair quote. Every arrow leads back to your wallet. America first, apparently.",
+      "continuing": "{name} remains exhausted. You have traced international trade to the lint in the van’s coin tray.",
+      "log_0": "Care helps {name} recover. The coin tray is formally cleared of responsibility for China."
+    },
+    "CARE-06-C": {
+      "name": "The Tariff Hotline",
+      "desc": "{name} stays up calling about a tariff on the van’s replacement part. The hotline promises to connect them with whoever pays it. Their own phone starts ringing.",
+      "continuing": "{name} is still exhausted. The hold music has survived three attempts to make China answer.",
+      "log_0": "{name} recovers. You let the next call go to voicemail. International relations can leave a message."
+    },
+    "CARE-07-A": {
+      "name": "Five Things Before Breakfast",
+      "desc": "{name} loses sleep helping a DOGE-cut friend list their work for an efficiency review. They count five tasks. The person requesting the list has created a sixth.",
+      "continuing": "{name} remains exhausted. The review has classified time spent answering the review as administrative waste.",
+      "log_0": "Care restores {name}. You record one completed task: keeping an actual person functioning."
+    },
+    "CARE-07-B": {
+      "name": "Secure Group Chat",
+      "desc": "After a loading job, {name} spends the night sorting the boss’s endless group messages. He copied the Pentagon’s bombing-plan chat. Nobody is sure who invited the pizza delivery driver.",
+      "continuing": "{name} is still exhausted. The delivery driver knows tomorrow’s rota and would prefer to know who ordered garlic bread.",
+      "log_0": "{name} recovers. You mute the chat before the boss authorizes a second shift by emoji."
+    },
+    "CARE-07-C": {
+      "name": "The Need-to-Know Shift",
+      "desc": "{name} loses sleep after a temp boss copies the Signal bombing-plan scandal: rota, payroll, everyone’s phone number, one chat. He says it’s secure because the group has a padlock emoji.",
+      "continuing": "{name} remains exhausted. The padlock emoji has not prevented the boss’s uncle from replying to all.",
+      "log_0": "Care helps {name} recover. You remove the notifications. The emoji remains bravely on duty."
+    },
+    "CARE-08-A": {
+      "name": "Self-Made, Staff Carried",
+      "desc": "At a paid unloading job for a billionaire’s political fundraiser, {name} injures their back moving his memoir, I Did It All Myself. The donor steps over them to reach the podium.",
+      "continuing": "{name} remains injured. The donor’s speech about self-reliance has required another pair of hands to turn the pages.",
+      "log_0": "Care helps {name} recover. You leave the remaining memoirs to pull themselves up by their dust jackets."
+    },
+    "CARE-08-B": {
+      "name": "The Donation Photo",
+      "desc": "{name} strains their back moving food-pantry donations as the radio covers Congress’s SNAP cuts. A politician arrives to lift an empty box. Finally, a balanced workload.",
+      "continuing": "{name} is still injured. The politician’s empty box has appeared in three photographs without requiring medical attention.",
+      "log_0": "{name} recovers with care. The empty box is unavailable to help; it has a press conference."
+    },
+    "CARE-08-C": {
+      "name": "The Smaller Delivery Service",
+      "desc": "At a food pantry discussing Congress’s food-aid cuts, {name} helps haul sacks and strains their back. The volunteer calls it trickle-down. Nothing appears to be trickling; it’s all carrying.",
+      "continuing": "{name} remains injured. The pantry still has sacks to move and no billionaire has dripped out of the ceiling.",
+      "log_0": "Care helps {name} recover. The next sack can wait for the invisible hand."
     }
   },
   "play": {
@@ -3636,16 +3780,16 @@
     "trade_2": "Trade 1 spare tire → 5 supplies",
     "crew_stop": "Someone needs care",
     "care_body": "The medic offers {name} treatment before asking about payment. You briefly suspect an elaborate sting.",
-    "care_critical": "{name} is critically ill. Continuing without care will kill them. Provide care or take a full recovery day.",
+    "care_critical": "{name} is critically unwell. Pressing on without care now will kill them. If this is your character, the journey will end.",
     "care_action": "Treat them · {effects}",
     "shelter_action": "Leave a companion with the medics · Crew member leaves · {effects}",
     "defer_action": "Keep driving without care · {effects} · Illness may worsen",
     "fatal_action": "Continue without care · Fatal · {effects}",
     "care_hint": "Each choice takes one hour. Care costs two supplies. Only companions can leave with the medics. A full recovery day clears illness.",
     "care_helped": "{name} is fit to travel. Two supplies: the least insulting medical bill in America.",
-    "care_sheltered": "{name} stays for care. The health system works; the carpool doesn’t.",
-    "care_deferred": "{name} is still sick. You’ve recreated your old job’s sick-leave policy: keep going.",
-    "care_lost": "{name} dies. The crew continues without them.",
+    "care_sheltered": "{name} stays in shelter and leaves the traveling crew alive. The incident is cleared.",
+    "care_deferred": "You continue without care. {name} remains unwell, and the incident can worsen.",
+    "care_lost": "{name} has died after the crew continued without care. Their place in the van is empty.",
     "struggling": "Needs recovery",
     "present": "Present at journey’s end",
     "mission": "Bring the crew and evidence of institutional nonsense to a public hearing in D.C. Gather receipts, build credibility and find allies along the way. Arriving is only part of it: the crew needs enough sanity to be heard.",
@@ -3678,7 +3822,7 @@
     "journal": "Journal",
     "fast_mode": "Fast mode",
     "report": "The Trail",
-    "player_lost": "{name} dies. The journey ends.",
+    "player_lost": "You have died after continuing without care. Your journey ends here.",
     "trade_open": "Trade with locals",
     "trade_help": "Choose an exchange. The community can make one trade with your crew at this stop.",
     "trade_label_0": "Get a spare tire",

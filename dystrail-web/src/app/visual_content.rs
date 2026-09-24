@@ -337,6 +337,81 @@ pub fn record_trade(before: &GameState, after: &mut GameState, kind: u8) {
         .or_insert(0);
 }
 
+/// An unresolved illness retains its presentation across later care checks.
+pub fn care_unit(gs: &GameState) -> Option<String> {
+    let persona = gs.continuity.crew_care.pending.as_ref()?;
+    if gs.continuity.crew_care.reason >= 8 {
+        return None;
+    }
+    let family = format!("CARE-{:02}", gs.continuity.crew_care.reason + 1);
+    let strain = gs
+        .continuity
+        .crew_care
+        .strain
+        .get(persona)
+        .copied()
+        .unwrap_or(1);
+    if strain > 1 {
+        if let Some(unit) = gs
+            .continuity
+            .visual_content
+            .selections
+            .get(&format!("care-active/{persona}"))
+            .filter(|unit| valid(unit, &family))
+        {
+            return Some(unit.clone());
+        }
+    }
+    Some(service_unit(
+        gs,
+        &family,
+        &format!("care/{persona}"),
+        gs.continuity.crew_care.last_check_day,
+    ))
+}
+
+pub fn record_care(before: &GameState, after: &mut GameState, choice: usize) {
+    let Some(unit) = care_unit(before) else {
+        return;
+    };
+    let persona = before.continuity.crew_care.pending.as_ref().unwrap();
+    let key = format!(
+        "{}/care/{persona}/{}",
+        &unit[..7],
+        before.continuity.crew_care.last_check_day
+    );
+    after
+        .continuity
+        .visual_content
+        .selections
+        .insert(key.clone(), unit.clone());
+    after
+        .continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(choice);
+    let active = format!("care-active/{persona}");
+    if choice == 2
+        && before
+            .continuity
+            .crew_care
+            .strain
+            .get(persona)
+            .copied()
+            .unwrap_or(1)
+            < 3
+    {
+        after
+            .continuity
+            .visual_content
+            .selections
+            .insert(active, unit);
+    } else {
+        after.continuity.visual_content.selections.remove(&active);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -355,6 +430,54 @@ mod tests {
                 .clone(),
         );
         gs
+    }
+    #[test]
+    fn care_keeps_its_story_through_deferral_and_records_only_presentation() {
+        for reason in 0..8 {
+            let mut before = GameState {
+                seed: 42,
+                day: 5,
+                persona_id: Some("journalist".into()),
+                ..GameState::default()
+            };
+            before.party.initialize("journalist", 7);
+            before.stats.supplies = 10;
+            before.continuity.crew_care.pending = Some("organizer".into());
+            before.continuity.crew_care.reason = reason;
+            before
+                .continuity
+                .crew_care
+                .strain
+                .insert("organizer".into(), 1);
+            before.continuity.crew_care.last_check_day = 5;
+            let unit = care_unit(&before).unwrap();
+            for choice in 0..3 {
+                let mut after = before.clone();
+                assert!(after.resolve_crew_care(choice).is_some());
+                let mechanics = serde_json::to_value(&after).unwrap();
+                record_care(&before, &mut after, choice);
+                let mut actual = serde_json::to_value(&after).unwrap();
+                actual["visual_content"] = mechanics["visual_content"].clone();
+                assert_eq!(actual, mechanics);
+                if choice == 2 {
+                    let mut restored: GameState =
+                        serde_json::from_str(&serde_json::to_string(&after).unwrap()).unwrap();
+                    restored.day = 12; // Care checks need not be exactly five days apart.
+                    restored.check_crew(11);
+                    assert_eq!(care_unit(&restored), Some(unit.clone()));
+                    let before_cure = restored.clone();
+                    assert!(restored.resolve_crew_care(0).is_some());
+                    record_care(&before_cure, &mut restored, 0);
+                    assert!(
+                        !restored
+                            .continuity
+                            .visual_content
+                            .selections
+                            .contains_key("care-active/organizer")
+                    );
+                }
+            }
+        }
     }
     #[test]
     fn all_195_road_variants_have_complete_copy_and_current_save_identity() {

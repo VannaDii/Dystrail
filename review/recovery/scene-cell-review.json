@@ -19275,5 +19275,36 @@
       "Native completeness, source presence, town association and save identity for all 132 stories",
       "Browser town-copy-recovery.spec.ts checks all 132 stories, source links, repeated-conversation limits and selected offline reloads"
     ]
+  },
+  "care_copy_checkpoint": {
+    "status": "24 variants integrated in en/es/it/ar; visual and full-language acceptance incomplete",
+    "source": "Current approved CARE records; 14 matching recovered translations per language retained. Ten stale scenarios per language rewritten against current English for es/it/ar.",
+    "behavior": "Same pending crew member, costs, shelter/death rules and 60-minute action handler. Active story survives deferral across arbitrary later check days and is retired on recovery or removal.",
+    "remaining": [
+      "Recover and compose retained care scene artwork with actual affected and surviving crew",
+      "Restore variant-specific factual context; obsolete reason-based links removed because they refer to different premises",
+      "Remaining language translations and visual acceptance",
+      "Native-speaker review of corrected care translations"
+    ],
+    "verification": [
+      "Native deferral/reload/recovery identity and presentation-only state checks",
+      "Name placeholders checked in all 24 records across four languages",
+      "Balanced localization templates",
+      "care-copy-recovery.spec.ts: all variants and three choices; critical companion/player loss; translated and offline presentation",
+      "Corrected translations: desktop and mobile offline browser checks passed (2 tests); build a765e20d1d9b601b84c4. Arabic desktop and Spanish mobile screenshots reviewed; provisional camp art and pre-existing English departure log remain visible."
+    ],
+    "corrected_translation_units": [
+      "CARE-04-A",
+      "CARE-04-B",
+      "CARE-04-C",
+      "CARE-05-B",
+      "CARE-05-C",
+      "CARE-06-A",
+      "CARE-06-B",
+      "CARE-06-C",
+      "CARE-07-C",
+      "CARE-08-C"
+    ],
+    "save_scope": "Current-build save/import/replay only; older exports are not an acceptance requirement per user instruction."
   }
 }

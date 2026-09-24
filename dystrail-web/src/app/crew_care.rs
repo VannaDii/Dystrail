@@ -42,12 +42,28 @@ pub fn render(app: &AppState) -> Html {
                 let Some(key) = gs.resolve_crew_care(index) else {
                     return;
                 };
+                super::visual_content::record_care(&before, gs, index);
                 let mut report = Aftermath {
-                    title: format!("{} · {name}", i18n::t("journey.crew_stop")),
-                    message: i18n::tr(
-                        key,
-                        Some(&std::collections::BTreeMap::from([("name", name.as_str())])),
+                    title: format!(
+                        "{name} · {}",
+                        care_copy(&before, "name", &name, &i18n::t("journey.crew_stop"))
                     ),
+                    message: if index == 0 {
+                        care_copy(
+                            &before,
+                            "log_0",
+                            &name,
+                            &i18n::tr(
+                                key,
+                                Some(&std::collections::BTreeMap::from([("name", name.as_str())])),
+                            ),
+                        )
+                    } else {
+                        i18n::tr(
+                            key,
+                            Some(&std::collections::BTreeMap::from([("name", name.as_str())])),
+                        )
+                    },
                     scene: SceneStage::Care,
                     before: before.stats.clone(),
                     after: gs.stats.clone(),
@@ -62,8 +78,8 @@ pub fn render(app: &AppState) -> Html {
         })
     };
     html! {<>
-        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={format!("{} · {}",member.name,i18n::t("journey.crew_stop"))} stage={Some(SceneStage::Care)} />
-        <section class="crew-incident" aria-label={i18n::t("journey.crew_stop")}><p class="scene-narrative">{i18n::tr(&format!("trail.care_reason_{}",gs.continuity.crew_care.reason),Some(&std::collections::BTreeMap::from([("name",member.name.as_str())])))}{" "}{i18n::tr(if strain>=3{"journey.care_critical"}else{"journey.care_body"},Some(&std::collections::BTreeMap::from([("name",member.name.as_str())])))} {crate::components::ui::satire_context::hook(match gs.continuity.crew_care.reason {0|3=>"maha",1=>"weather",2=>"bullets",4=>"names",5=>"tariffs",6=>"signal",_=>"food"})}</p>
+        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={format!("{} · {}",member.name,care_copy(gs,"name",&member.name,&i18n::t("journey.crew_stop")))} stage={Some(SceneStage::Care)} />
+        <section class="crew-incident" aria-label={i18n::t("journey.crew_stop")}><p class="scene-narrative">{care_copy(gs,if strain>1 {"continuing"} else {"desc"},&member.name,&i18n::tr(&format!("trail.care_reason_{}",gs.continuity.crew_care.reason),Some(&std::collections::BTreeMap::from([("name",member.name.as_str())]))))}{" "}{i18n::tr(if strain>=3{"journey.care_critical"}else{"journey.care_body"},Some(&std::collections::BTreeMap::from([("name",member.name.as_str())])))} </p>
             <div class="camp-actions"><ActionButton duration={Some(i18n::t("trail.one_hour"))} onclick={choice(0)} disabled={gs.stats.supplies<2} label={care_label(gs,0,strain>=3)} />
             <ActionButton duration={Some(i18n::t("trail.one_hour"))} onclick={choice(1)} disabled={gs.persona_id.as_ref()==Some(persona)} label={care_label(gs,1,strain>=3)} />
             <ActionButton duration={Some(i18n::t("trail.one_hour"))} onclick={choice(2)} label={care_label(gs,2,strain>=3)} /></div>
@@ -110,4 +126,11 @@ fn care_label(gs: &crate::game::GameState, choice: usize, fatal: bool) -> String
             detail.as_str(),
         )])),
     )
+}
+
+fn care_copy(gs: &crate::game::GameState, field: &str, name: &str, fallback: &str) -> String {
+    let Some(unit) = super::visual_content::care_unit(gs) else {
+        return fallback.to_owned();
+    };
+    i18n::encounter_text(&unit, field, fallback).replace("{name}", name)
 }

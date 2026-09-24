@@ -1596,6 +1596,150 @@
       "choice_2": "Confrontare e salvare le mappe dei pedaggi",
       "log_2": "Salvi le mappe vecchie e attuali e chiarisci la sentenza. La corriera ripone la corona giocattolo. Il confine di Manhattan non si sposta per un copricapo.",
       "overlay_0": "VIVA IL RE"
+    },
+    "CARE-01-A": {
+      "name": "Bontà viva",
+      "desc": "{name} prova il latte crudo di un banco «Make America Healthy Again». La venditrice lo definisce «vivo di bontà». A giudicare dalle urla dal bagno, quella bontà ha un coltello.",
+      "continuing": "Il malessere di {name} per il latte crudo MAHA continua. La venditrice ha promosso i crampi a processo depurativo.",
+      "log_0": "{name} si riprende con le cure. La venditrice chiede una testimonianza. Offrite la chiave del bagno."
+    },
+    "CARE-01-B": {
+      "name": "Il frigo della libertà",
+      "desc": "{name} beve latte crudo a un banco MAHA contrario alle regole alimentari del governo. Inizia il vomito. La venditrice controlla il frigo: staccato, per protesta.",
+      "continuing": "Il malessere di {name} continua. La venditrice dice che refrigerare è il primo passo verso il controllo federale del formaggio.",
+      "log_0": "{name} si riprende. La venditrice attacca il frigo e vi chiede discrezione sulla resa."
+    },
+    "CARE-01-C": {
+      "name": "Un secondo parere",
+      "desc": "Una venditrice MAHA dice a {name} che il latte crudo rafforza le difese immunitarie. Ora c'è malessere. Consiglia un'altra bottiglia. A quanto pare, il sistema immunitario vuole la rivincita.",
+      "continuing": "Il malessere di {name} continua. La seconda bottiglia, ancora chiusa, siede nel furgone come una minuscola nazione ostile.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Rifiutate la rivincita. La bottiglia conserva la sua imbattibilità."
+    },
+    "CARE-02-A": {
+      "name": "Previsioni esecutive",
+      "desc": "Durante un turno di scarico retribuito, {name} soffre di disidratazione. La responsabile ha cancellato l'allerta caldo con uno Sharpie, ma il sole non accetta correzioni. #sharpiegate",
+      "continuing": "La disidratazione di {name} continua. Lo Sharpie si è ristabilito ed è tornato alla direzione.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Il sole continua a operare fuori dalla catena di comando della responsabile."
+    },
+    "CARE-02-B": {
+      "name": "Controllo locale",
+      "desc": "Durante uno scarico, {name} soffre di disidratazione. La responsabile elogia il divieto della Florida alle regole locali sulle pause per il caldo. «Il governo non deve dirci cosa fare», dice, bloccando l'acqua.",
+      "continuing": "La disidratazione di {name} continua. La libertà gestionale della responsabile ha sviluppato una sete impressionante.",
+      "log_0": "{name} si riprende con le cure. Per alcuni minuti rivoluzionari, la sete ha diritto di voto."
+    },
+    "CARE-02-C": {
+      "name": "Trivella, tesoro, bevi",
+      "desc": "{name} soffre di disidratazione scaricando un palco da comizio «Drill, baby, drill». L'organizzatrice dice che il caldo è naturale. Anche il ghiaccio nel suo frigo privato lo è.",
+      "continuing": "La disidratazione di {name} continua. L'organizzatrice ha ordinato altro ghiaccio per la sua argomentazione.",
+      "log_0": "Le cure aiutano {name} a riprendersi. L'organizzatrice sorveglia il frigo come l'ultima riserva di petrolio."
+    },
+    "CARE-03-A": {
+      "name": "Prova di lavoro",
+      "desc": "Dopo un turno a termine, {name} resta sveglia tutta la documentazione: bisogna dimostrare che quelle ore valgono per i requisiti lavorativi dei sussidi del Congresso. All'alba, l'unico lavoro non pagato è dimostrare di lavorare.",
+      "continuing": "Le pratiche dei sussidi hanno sfinito {name}. Il turno è documentato; la notte passata a dimostrarlo resta volontariato.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Mettete via i moduli prima che sviluppino requisiti lavorativi propri."
+    },
+    "CARE-03-B": {
+      "name": "Sfinimento efficiente",
+      "desc": "{name} perde sonno aiutando una lavoratrice licenziata dai tagli DOGE a compilare candidature. Il governo l'ha dichiarata superflua. Ogni azienda vuole gli stessi dati inseriti di nuovo.",
+      "continuing": "Lo sfinimento di {name} continua. L'ultima candidatura chiede di caricare il curriculum che ha appena cancellato.",
+      "log_0": "{name} si riprende con le cure. Per una volta si è salvato qualcosa senza creare un nuovo account."
+    },
+    "CARE-03-C": {
+      "name": "La prova del merito",
+      "desc": "{name} perde una notte candidandosi a un lavoro a termine presso un'appaltatrice del governo. L'azienda condanna la DEI. Il modulo chiede se la raccomandazione arriva da una parente della titolare. Ha dodici anni.",
+      "continuing": "Lo sfinimento di {name} continua. La casella della raccomandazione familiare resta la via più breve nel sistema del merito.",
+      "log_0": "{name} si riprende. La parente non può commentare: domani c'è scuola."
+    },
+    "CARE-04-A": {
+      "name": "Prosciugare il secchio dei campioni",
+      "desc": "{name} prova un tonico MAHA che promette di «prosciugare la palude» nel corpo. Vomita nel secchio dei campioni. La palude ora ha un negozio di souvenir.",
+      "continuing": "{name} sta ancora male per il tonico. La venditrice dice che il malessere dimostra che funziona. A quanto pare i rimborsi non dimostrano nulla.",
+      "log_0": "{name} si riprende con le cure. La venditrice offre una tessera fedeltà. Tu suggerisci uno straccio."
+    },
+    "CARE-04-B": {
+      "name": "Lo stomaco non eletto",
+      "desc": "{name} sta male dopo un assaggio di integratore MAHA. La venditrice incolpa gli esperti sanitari non eletti. Nessuno ricorda di aver votato nemmeno per quella polvere.",
+      "continuing": "{name} sta ancora male. La venditrice ha chiesto un’indagine sulle affiliazioni politiche dello stomaco.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Lo stomaco accetta il risultato senza chiedere un riconteggio."
+    },
+    "CARE-04-C": {
+      "name": "Responsabilità personale, ora al mango",
+      "desc": "{name} prova una depurazione MAHA venduta come libertà dalla FDA. Ora sta male. La venditrice celebra la responsabilità personale indicando chi ha comprato il prodotto.",
+      "continuing": "{name} sta ancora male. Il rimedio contro l’invadenza del governo ha invaso tutto lo stomaco.",
+      "log_0": "{name} si riprende. Chiedi alla venditrice di assumersi un po’ di responsabilità personale. All’improvviso ha un’avvocata."
+    },
+    "CARE-05-A": {
+      "name": "Smarrimento patriottico",
+      "desc": "{name} perde sonno confrontando mappe dopo i cambi di nome di Trump al Golfo e a una montagna. Il furgone deve sempre fare la stessa svolta. La geografia ha fallito la prova di lealtà.",
+      "continuing": "Lo sfinimento di {name} continua. Due mappe discordano sul nome di qualcosa che non si è mosso.",
+      "log_0": "{name} si riprende con le cure. Seguite la strada, che è riuscita a restare in carica."
+    },
+    "CARE-05-B": {
+      "name": "La montagna precedentemente nota come",
+      "desc": "{name} passa la notte a confrontare il nuovo nome di un luogo federale con una vecchia guida. Una montagna ha due nomi. Per qualche motivo, le scartoffie spettano all’essere umano.",
+      "continuing": "{name} non ha ancora recuperato il sonno. La montagna si rifiuta di fornire la grafia preferita.",
+      "log_0": "{name} si riprende. Decidete di riconoscere la montagna dall’enorme montagna che sta sotto il nome."
+    },
+    "CARE-05-C": {
+      "name": "Deviazione per cambio di marchio",
+      "desc": "{name} perde il sonno aggiornando il percorso dopo l’ennesimo annuncio federale di un nuovo nome. L’app celebra la grandezza americana facendovi passare due volte dalla stessa stazione di servizio.",
+      "continuing": "{name} non ha ancora recuperato il sonno. La destinazione rinominata è al sicuro; il percorso sta facendo un giro d’onore.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Disattivi l’aggiornamento celebrativo e tieni la strada vera."
+    },
+    "CARE-06-A": {
+      "name": "Una piccolissima guerra commerciale",
+      "desc": "{name} passa la notte a contestare il dazio di Trump su un ricambio del furgone. All’alba sventola un tovagliolo bianco davanti al POS. Il POS chiede la mancia.",
+      "continuing": "La disputa sul dazio ha esaurito {name}. La Cina non ha mandato nessuno a dare il cambio alla guida.",
+      "log_0": "{name} si riprende con le cure. Dichiari un cessate il fuoco con la stampante degli scontrini."
+    },
+    "CARE-06-B": {
+      "name": "L’America prima in fila",
+      "desc": "{name} perde il sonno cercando nel preventivo il dazio «pagato dagli stranieri». Tutte le frecce portano al vostro portafoglio. L’America prima, a quanto pare.",
+      "continuing": "{name} non ha ancora recuperato il sonno. Avete rintracciato il commercio internazionale nella lanugine del portamonete del furgone.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Il portamonete viene ufficialmente assolto da ogni responsabilità per la Cina."
+    },
+    "CARE-06-C": {
+      "name": "La linea assistenza dazi",
+      "desc": "{name} passa la notte al telefono per un dazio sul ricambio del furgone. Il servizio promette di passare la chiamata a chi lo paga. Squilla il suo stesso telefono.",
+      "continuing": "{name} non ha ancora recuperato il sonno. La musica d’attesa è sopravvissuta a tre tentativi di far rispondere la Cina.",
+      "log_0": "{name} si riprende. Lasci la prossima chiamata alla segreteria. Le relazioni internazionali possono lasciare un messaggio."
+    },
+    "CARE-07-A": {
+      "name": "Cinque cose prima di colazione",
+      "desc": "{name} perde sonno aiutando un'amica colpita dai tagli DOGE a elencare il suo lavoro per una verifica di efficienza. Contano cinque compiti. Chi chiede l'elenco ne ha creato un sesto.",
+      "continuing": "Lo sfinimento di {name} continua. La verifica ha classificato il tempo passato a risponderle come spreco amministrativo.",
+      "log_0": "{name} si riprende con le cure. Registrate un compito concluso: mantenere in funzione una persona vera."
+    },
+    "CARE-07-B": {
+      "name": "Chat di gruppo sicura",
+      "desc": "Dopo uno scarico, {name} passa la notte a ordinare gli infiniti messaggi della responsabile. Ha copiato la chat del Pentagono sui piani di bombardamento. Nessuno sa chi abbia invitato la fattorina della pizza.",
+      "continuing": "Lo sfinimento di {name} continua. La fattorina conosce i turni di domani e preferirebbe sapere chi ha ordinato il pane all'aglio.",
+      "log_0": "{name} si riprende. Silenziate la chat prima che la responsabile autorizzi un altro turno con un'emoji."
+    },
+    "CARE-07-C": {
+      "name": "Il turno delle informazioni riservate",
+      "desc": "{name} perde il sonno dopo che una responsabile temporanea copia lo scandalo dei piani di bombardamento su Signal: turni, paghe e numeri di telefono di tutti in una chat. Dice che è sicura perché il gruppo ha un’emoji a lucchetto.",
+      "continuing": "{name} non ha ancora recuperato il sonno. L’emoji a lucchetto non ha impedito allo zio della responsabile di rispondere a tutti.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Disattivi le notifiche. L’emoji resta coraggiosamente di guardia."
+    },
+    "CARE-08-A": {
+      "name": "Fatta da sola, trasportata dallo staff",
+      "desc": "Durante uno scarico retribuito per la raccolta politica di una miliardaria, {name} si fa male alla schiena spostando le sue memorie, Ho fatto tutto da sola. La donatrice scavalca {name} per raggiungere il podio.",
+      "continuing": "L'infortunio di {name} continua. Il discorso della donatrice sull'autosufficienza ha richiesto altre mani per voltare le pagine.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Lasciate che le memorie restanti si sollevino da sole, tirandosi per la sovraccoperta."
+    },
+    "CARE-08-B": {
+      "name": "La foto della donazione",
+      "desc": "{name} si fa male alla schiena spostando donazioni alimentari mentre la radio racconta i tagli del Congresso a SNAP. Una politica arriva per sollevare una scatola vuota. Finalmente un carico di lavoro equilibrato.",
+      "continuing": "L'infortunio di {name} continua. La scatola vuota della politica è apparsa in tre foto senza bisogno di cure.",
+      "log_0": "{name} si riprende con le cure. La scatola vuota non può aiutare: ha una conferenza stampa."
+    },
+    "CARE-08-C": {
+      "name": "Il servizio di consegna ridotto",
+      "desc": "In un banco alimentare dove si discutono i tagli del Congresso agli aiuti, {name} aiuta a trasportare sacchi e si fa male alla schiena. Una volontaria la chiama ricchezza che sgocciola dall’alto. Qui non sgocciola niente: si trasporta tutto.",
+      "continuing": "La schiena di {name} fa ancora male. Restano sacchi da spostare e dal soffitto non è sgocciolato nessun miliardario.",
+      "log_0": "Le cure aiutano {name} a riprendersi. Il prossimo sacco può aspettare la mano invisibile."
     }
   },
   "play": {
@@ -1827,16 +1971,16 @@
     "trade_2": "Scambia 1 pneumatico → 5 provviste",
     "crew_stop": "Qualcuno ha bisogno di cure",
     "care_body": "Il sanitario offre cure a {name} prima di chiedere del pagamento. Per un attimo sospetti una trappola elaborata.",
-    "care_critical": "{name} è in condizioni critiche. Proseguire senza cure ne causerà la morte. Fornisci cure o prendi un'intera giornata di recupero.",
+    "care_critical": "{name} è in condizioni critiche. Proseguire ora senza cure ne causerà la morte. Se è il tuo personaggio, il viaggio finirà.",
     "care_action": "Fornisci cure · {effects}",
     "shelter_action": "Lascia una persona del gruppo con i sanitari · Lascia il gruppo · {effects}",
     "defer_action": "Continua a guidare senza cure · {effects} · La malattia può peggiorare",
     "fatal_action": "Prosegui senza cure · Fatale · {effects}",
     "care_hint": "Ogni scelta richiede un'ora. Le cure costano due provviste. Solo i compagni possono restare con i sanitari. Un'intera giornata di recupero risolve la malattia.",
     "care_helped": "{name} può riprendere il viaggio. Due provviste: il conto medico meno offensivo d'America.",
-    "care_sheltered": "{name} resta per le cure. Il sistema sanitario funziona; il viaggio condiviso no.",
-    "care_deferred": "{name} sta ancora male. Avete ricreato la politica di malattia del vecchio lavoro: andare avanti.",
-    "care_lost": "{name} muore. Il gruppo prosegue senza questa persona.",
+    "care_sheltered": "{name} rimane al rifugio e lascia in vita il gruppo in viaggio. L’incidente è risolto.",
+    "care_deferred": "Proseguite senza cure. {name} sta ancora male e la situazione può peggiorare.",
+    "care_lost": "La mancanza di cure ha causato la morte di {name}. Il suo posto nel furgone è vuoto.",
     "struggling": "Ha bisogno di recupero",
     "present": "Presente alla fine del viaggio",
     "mission": "Porta il gruppo e le prove delle assurdità istituzionali a un’udienza pubblica a D.C. Raccogli documenti, credibilità e alleati. Arrivare non basta: il gruppo deve conservare abbastanza lucidità per farsi ascoltare.",
@@ -1869,7 +2013,7 @@
     "journal": "Diario",
     "fast_mode": "Modalità rapida",
     "report": "Il sentiero",
-    "player_lost": "{name} muore. Il viaggio finisce.",
+    "player_lost": "Hai perso la vita dopo aver proseguito senza cure. Il tuo viaggio finisce qui.",
     "trade_open": "Scambia con la gente del posto",
     "trade_help": "Scegli uno scambio. La comunità ne può fare uno con il tuo gruppo a questa sosta.",
     "trade_label_0": "Ottieni una ruota di scorta",
