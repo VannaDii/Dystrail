@@ -13,6 +13,8 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
     let handlers: Handlers = AppHandlers::new(state, navigator);
     let screen = if state.pending_turn.is_none() && crate::app::policy_bulletin::is_pending(state) {
         "policy-bulletin"
+    } else if state.pending_turn.is_none() && crate::app::crossing_presentation::is_pending(state) {
+        "crossing-outcome"
     } else if *state.phase == crate::app::Phase::Map {
         "map"
     } else if state.pending_turn.is_some() {

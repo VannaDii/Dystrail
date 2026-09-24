@@ -36,6 +36,7 @@ pub fn use_travel_flow(app: &AppState) {
         && app.pending_turn.is_none()
         && app.aftermath.is_none()
         && !super::policy_bulletin::is_pending(app)
+        && !super::crossing_presentation::is_pending(app)
         && !*app.show_save
         && !*app.show_abandon
         && !*app.town_open;
@@ -123,6 +124,7 @@ pub fn controls(app: &AppState) -> Html {
         .is_some_and(|s| s.state().breakdown.is_some());
     let camping = *app.phase == Phase::Camp && !breakdown;
     let decision = app.aftermath.is_some()
+        || super::crossing_presentation::is_pending(app)
         || matches!(*app.phase, Phase::Encounter | Phase::Boss | Phase::AllyLoss);
     let locked = decision || *app.town_open || app.pending_turn.is_some();
     let in_town = app

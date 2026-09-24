@@ -7,7 +7,7 @@ use yew::prelude::*;
 pub fn build_travel(state: &AppState) -> Callback<()> {
     let state = state.clone();
     Callback::from(move |()| {
-        if *state.action_lock.borrow() || state.aftermath.is_some() || crate::app::policy_bulletin::is_pending(&state) {
+        if *state.action_lock.borrow() || state.aftermath.is_some() || crate::app::policy_bulletin::is_pending(&state) || crate::app::crossing_presentation::is_pending(&state) {
             return;
         }
         let Some(mut sess) = (*state.session).clone() else {

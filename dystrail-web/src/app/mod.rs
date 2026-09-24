@@ -16,6 +16,7 @@ pub mod map;
 mod map_countdown;
 pub mod phase;
 pub mod policy_bulletin;
+pub mod crossing_presentation;
 pub mod receipt;
 pub mod recovery;
 pub mod repair;

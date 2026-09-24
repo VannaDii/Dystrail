@@ -7,6 +7,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct VisualContent {
     #[serde(default)]
+    pub crossing_presentations: Vec<CrossingPresentation>,
+    #[serde(default)]
     pub policy_bulletins: Vec<PolicyBulletin>,
     #[serde(default)]
     pub edition: u16,
@@ -299,4 +301,14 @@ mod tests {
                 > restored.day * 1440 + u32::from(restored.continuity.clock_minutes)
         );
     }
+}
+
+/// Acknowledging an already resolved crossing never reapplies its engine outcome.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct CrossingPresentation {
+    pub event_index: usize,
+    pub unit: String,
+    pub permit_receipt: bool,
+    #[serde(default)]
+    pub acknowledged: bool,
 }

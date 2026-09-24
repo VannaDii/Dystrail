@@ -19385,5 +19385,22 @@
       "reason": "Preserved translations for these nine describe different factual premises from the approved current English records; do not bulk-import them.",
       "verification": "Build 91974db088c1096b877b; desktop/mobile checks passed for all 3 battery variants in es/it/ar, disabled paid options when broke, successful cashless repair, and offline localized outcomes (2 tests, 57.4s). Arabic mobile screenshot reviewed: readable RTL narrative and stat labels, no overlapping return bar."
     }
+  },
+  "crossing_copy_checkpoint": {
+    "status": "12 English narrative variants integrated; retained crossing-specific art and localization incomplete",
+    "source": "Current approved CROSS-01, CROSS-02C, CROSS-02D and CROSS-03 A/B/C records",
+    "behavior": "Captures only newly committed crossing telemetry, seals deterministic presentation, persists acknowledgment and pauses travel. Reads actual outcome, failed/successful bribe and consumed-receipt versus reusable permit context. Continue marks acknowledgment only; existing phase/aftermath survives.",
+    "art": "Uses existing regional stopped-road scene and actual surviving crew provisionally; does not claim the required crossing structures, props or terminal damage have been illustrated.",
+    "remaining": [
+      "Recover compatible retained crossing-specific art and localized editable signs",
+      "Translation recovery against current premises",
+      "Variant-specific factual context",
+      "Full real-travel visual acceptance including terminal crossing damage"
+    ],
+    "verification": [
+      "Native capture deduplication, mode/ordinal family binding, current-save restoration and simulation-state isolation passed",
+      "Initial desktop/mobile checks passed all 12 variants across seven applicable outcomes; acknowledgment changes no simulation state; offline reload passed",
+      "Build ca55ed86f2ba90ab1476: desktop/mobile 84-case checks passed with Travel/Camp disabled pending acknowledgment (2 tests, 27.8s). Final mobile screenshot reviewed; narrative uses existing left-aligned outcome layout, scene remains explicitly provisional."
+    ]
   }
 }

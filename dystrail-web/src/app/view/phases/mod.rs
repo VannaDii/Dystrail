@@ -34,6 +34,9 @@ pub fn render_main_view(state: &AppState, handlers: &AppHandlers, route: Option<
     if state.pending_turn.is_none() && crate::app::policy_bulletin::is_pending(state) {
         return crate::app::policy_bulletin::render(state);
     }
+    if state.pending_turn.is_none() && crate::app::crossing_presentation::is_pending(state) {
+        return crate::app::crossing_presentation::render(state);
+    }
     if *state.town_open {
         return crate::app::services::render_shop(state);
     }

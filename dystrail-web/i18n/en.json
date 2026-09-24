@@ -3729,6 +3729,138 @@
       "roadside": "A replacement arrives and is fitted. The delivery driver declines a tour of the good side.",
       "incomplete": "The repair is not complete. The van remains broken.",
       "cashless": "Radio contacts can arrange work in exchange for a used part and repair. No cash or spare is needed."
+    },
+    "CROSS-01-A": {
+      "name": "American Enough",
+      "desc": "At the checkpoint, an officer demands an American-made van. You open the hood. He starts an international incident with the alternator.",
+      "passage": "He waves you through. The alternator is admitted on a temporary work visa.",
+      "diversion": "You take the detour. The alternator remains suspiciously good at its job.",
+      "permit_receipt": "Your permit clears the van. The alternator is included as a dependent. One Receipt is used.",
+      "permit_tag": "Your permit clears the van. The alternator is included as a dependent. Your permit tag remains available.",
+      "bribe_success": "The payment clears the barrier. Your money passes the nationality test.",
+      "bribe_failure": "He takes the payment and keeps the barrier down. Apparently tariffs work here too.",
+      "refused_passage": "The officer refuses passage. You take the detour, with the alleged foreign threat still charging the battery."
+    },
+    "CROSS-01-B": {
+      "name": "Geographic Contraband",
+      "desc": "The checkpoint officer spots “Gulf of Mexico” on your map. Trump renamed it. The officer holds the map by one corner, like it might leak Mexicans.",
+      "passage": "He lets you pass after folding the offending Gulf out of sight. The ocean has been contained.",
+      "diversion": "You take the detour. Both names continue to contain the same water.",
+      "permit_receipt": "Your permit is accepted. Apparently the map has diplomatic immunity. One Receipt is used.",
+      "permit_tag": "Your permit is accepted. Apparently the map has diplomatic immunity. Your permit tag remains available.",
+      "bribe_success": "The payment gets you through. He becomes surprisingly relaxed about where things come from.",
+      "bribe_failure": "He takes the payment but refuses passage. You have purchased a very patriotic delay.",
+      "refused_passage": "He refuses passage. You detour around the checkpoint; the Gulf stays where it was."
+    },
+    "CROSS-01-C": {
+      "name": "Where Was the Van Born?",
+      "desc": "The checkpoint officer announces Trump-style extreme vetting. He asks where the van was born. You point to the manufacturer’s plate. “Long-form certificate,” he says.",
+      "passage": "You are waved through. The van’s citizenship interview has not improved its suspension.",
+      "diversion": "You detour. The van is now accused of taking jobs from American vans.",
+      "permit_receipt": "Your permit is accepted. The van is apparently a naturalized cargo space. One Receipt is used.",
+      "permit_tag": "Your permit is accepted. The van is apparently a naturalized cargo space. Your permit tag remains available.",
+      "bribe_success": "The payment opens the barrier. The van has qualified for the investor route.",
+      "bribe_failure": "The payment is taken; the barrier stays down. The van’s investment has become foreign aid.",
+      "refused_passage": "Passage is refused. You take the detour before he asks the spare tire for its grandparents."
+    },
+    "CROSS-02C-A": {
+      "name": "The Department of Barrier",
+      "desc": "The crossing office has copied Trump’s “Department of War” makeover. The new nameplate is enormous. Behind it, two workers are holding up the barrier by hand.",
+      "passage": "You cross while the workers hold the barrier. The nameplate offers strong moral support.",
+      "diversion": "You take the detour. The new department has secured a decisive victory over traffic.",
+      "permit_receipt": "The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. One Receipt is used.",
+      "permit_tag": "The permit clears you. A worker lifts the barrier with his actual defense budget: both arms. Your permit tag remains available.",
+      "bribe_success": "The payment gets the barrier raised. The department has discovered arms funding.",
+      "bribe_failure": "The payment disappears into the office. The workers still have only the original two arms each.",
+      "terminal_failure": "You cannot complete this crossing. The expedition ends beneath a nameplate large enough to hide the problem."
+    },
+    "CROSS-02C-B": {
+      "name": "Merit-Based Concrete",
+      "desc": "The crossing boss boasts that he removed DEI from the inspection checklist. He points to a crack in the concrete. “That’s a diversity of surfaces.”",
+      "passage": "You make it across. The concrete remains unpersuaded by the personnel policy.",
+      "diversion": "You detour. The boss has successfully excluded your van from the bridge.",
+      "permit_receipt": "Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. One Receipt is used.",
+      "permit_tag": "Your permit is accepted. Paperwork has passed a load-bearing test that paperwork really shouldn’t be taking. Your permit tag remains available.",
+      "bribe_success": "The payment clears the crossing. Merit has turned out to have a cash option.",
+      "bribe_failure": "The payment is taken, but passage is refused. You have funded another investigation into the concrete’s pronouns.",
+      "terminal_failure": "This crossing ends the expedition. The boss’s review recommends less diversity in the complaint form."
+    },
+    "CROSS-02C-C": {
+      "name": "China Will Fix It",
+      "desc": "At the crossing, workers have priced replacement steel after Trump’s tariffs. The supervisor keeps refreshing his inbox for China’s payment. A cone has been promoted to bridge repair.",
+      "passage": "You cross. The cone remains the project’s most dependable appointment.",
+      "diversion": "You take the detour. China has not responded to the supervisor’s fifth reminder.",
+      "permit_receipt": "Your permit clears you. The supervisor briefly considers invoicing it for steel. One Receipt is used.",
+      "permit_tag": "Your permit clears you. The supervisor briefly considers invoicing it for steel. Your permit tag remains available.",
+      "bribe_success": "The payment clears the barrier. The supervisor puts it in the folder meant for China’s contribution.",
+      "bribe_failure": "The payment is taken without passage. You have been mistaken for another country with spare money.",
+      "terminal_failure": "The crossing cannot be completed. Your expedition ends; the cone receives another term."
+    },
+    "CROSS-02D-A": {
+      "name": "The Privacy Camera",
+      "desc": "Deep End only",
+      "passage": "You pass. The second camera is apparently supervising the first camera’s personal growth.",
+      "diversion": "You take the diversion. The privacy notice promises to record your concerns, along with your number plate.",
+      "permit_receipt": "Your permit is accepted. The guard briefly experiences identifying someone without stalking them. One Receipt is used.",
+      "permit_tag": "Your permit is accepted. The guard briefly experiences identifying someone without stalking them. Your permit tag remains available.",
+      "bribe_success": "The payment clears the barrier. Privacy remains unavailable, but passage has a price.",
+      "bribe_failure": "The payment is taken and passage refused. The camera has preserved an excellent record of the customer experience.",
+      "terminal_failure": "The crossing ends your expedition. The protection camera continues protecting the guard from having to remember anything."
+    },
+    "CROSS-02D-B": {
+      "name": "Two Documents, One Person",
+      "desc": "Deep End only",
+      "passage": "You clear the crossing. The woman ahead remains one person, despite the office’s impressive ability to manufacture two problems.",
+      "diversion": "You divert. The guard says the alternate road is less direct, a subject on which he has considerable experience.",
+      "permit_receipt": "Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. One Receipt is used.",
+      "permit_tag": "Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. Your permit tag remains available.",
+      "bribe_success": "The payment opens the barrier. The computer recognizes money with touching flexibility.",
+      "bribe_failure": "The payment is taken; passage is refused. Money has been recognized. People remain under review.",
+      "terminal_failure": "The crossing ends your expedition. The computer displays no conflict with that outcome."
+    },
+    "CROSS-02D-C": {
+      "name": "Screened for Needing Treatment",
+      "desc": "Deep End only",
+      "passage": "You pass. The clinic’s treatment plan remains a very thorough description of why it needs a treatment plan.",
+      "diversion": "You divert. The intake desk describes your departure as reduced demand for services.",
+      "permit_receipt": "Your permit is accepted. The crossing can process paper considerably faster than it processes people. One Receipt is used.",
+      "permit_tag": "Your permit is accepted. The crossing can process paper considerably faster than it processes people. Your permit tag remains available.",
+      "bribe_success": "The payment clears the barrier. The cash receives immediate attention from a specialist.",
+      "bribe_failure": "The payment is taken without passage. The office has completed its financial intake.",
+      "terminal_failure": "The crossing ends your expedition. The intake form is complete; the service it describes remains missing."
+    },
+    "CROSS-03-A": {
+      "name": "Free Speech Has a Cover Charge",
+      "desc": "At the final crossing, the official calls campaign spending “speech.” He looks at your van full of actual speakers. “We meant the folding kind.”",
+      "passage": "You cross. Your voices have briefly cleared a market that prefers banknotes.",
+      "diversion": "You take the diversion. Apparently freedom of speech includes a longer walk to the microphone.",
+      "permit_receipt": "Your permit clears you. For once, paper gets heard without having a face printed on it. One Receipt is used.",
+      "permit_tag": "Your permit clears you. For once, paper gets heard without having a face printed on it. Your permit tag remains available.",
+      "bribe_success": "The payment opens the barrier. Your money has delivered a concise and persuasive address.",
+      "bribe_failure": "The money is taken; passage is refused. Your speech has been entered into somebody’s wallet.",
+      "terminal_failure": "The crossing ends your expedition. The official describes the silence as a healthy marketplace of ideas."
+    },
+    "CROSS-03-B": {
+      "name": "Approved Version of the Journey",
+      "desc": "The crossing office follows Trump’s demand for a more flattering American history. The officer weighs your case folder. “That’s a lot of country that needs improving.”",
+      "passage": "You cross with the case. The country’s flattering biography has acquired an awkward appendix.",
+      "diversion": "You detour. The officer starts describing your absence as public satisfaction.",
+      "permit_receipt": "Your permit clears you. The folder remains inconveniently full. One Receipt is used.",
+      "permit_tag": "Your permit clears you. The folder remains inconveniently full. Your permit tag remains available.",
+      "bribe_success": "The payment opens the barrier. Your story has found a sponsor.",
+      "bribe_failure": "The payment is kept, but passage is refused. Sponsorship does not include editorial control.",
+      "terminal_failure": "You cannot complete this crossing. The expedition ends; the official version is already shorter."
+    },
+    "CROSS-03-C": {
+      "name": "The Department of Arrivals",
+      "desc": "The crossing office is copying Trump’s plan to dismantle the Education Department: abolish the desk, announce better service. Your appointment is being held on an upturned bucket.",
+      "passage": "You cross. The bucket receives no credit for its public service.",
+      "diversion": "You detour. The bucket is now managing both arrivals and complaints.",
+      "permit_receipt": "Your permit clears you. The bucket has retained institutional knowledge. One Receipt is used.",
+      "permit_tag": "Your permit clears you. The bucket has retained institutional knowledge. Your permit tag remains available.",
+      "bribe_success": "The payment gets you through. A private contractor immediately offers to rent you a second bucket.",
+      "bribe_failure": "The payment is kept, but passage is refused. The contractor bills for bucket access.",
+      "terminal_failure": "The crossing cannot be completed. The expedition ends; the bucket has been shortlisted for promotion."
     }
   },
   "play": {
