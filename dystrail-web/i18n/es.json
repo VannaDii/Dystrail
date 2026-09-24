@@ -1740,6 +1740,33 @@
       "desc": "En un banco de alimentos donde se habla de los recortes del Congreso a la ayuda alimentaria, {name} ayuda a cargar sacos y se lesiona la espalda. Una voluntaria lo llama efecto goteo. Nada parece gotear: aquí todo se carga.",
       "continuing": "La lesión de {name} continúa. Quedan sacos por mover y no ha caído ningún multimillonario del techo.",
       "log_0": "Los cuidados ayudan a {name} a recuperarse. El siguiente saco puede esperar a la mano invisible."
+    },
+    "REPAIR-BATTERY-A": {
+      "name": "Cinco logros, cero voltios",
+      "desc": "La batería muere. Inspirándose en DOGE, alguien de la tripulación le pide que enumere cinco logros. Ha alimentado cada salida. La dirección pregunta qué ha hecho hoy.",
+      "log_0": "Instalas la batería de repuesto. Su primer logro es conseguir que el salpicadero deje de ser un espejo.",
+      "log_1": "El taller instala un recambio. Apruebas la electricidad sin contratar a un multimillonario para investigarla.",
+      "log_2": "Cambias provisiones por una batería usada y la instalas. La experiencia sobrevive a otra iniciativa de eficiencia.",
+      "log_3": "Terminas el trabajo acordado e instalas una batería usada. La evaluación de productividad de cuatro horas incluye productividad real.",
+      "roadside": "Entregan e instalan el recambio. Quien conduce ha conseguido algo visible antes de enviar un correo."
+    },
+    "REPAIR-BATTERY-B": {
+      "name": "Dominio energético, no disponible aquí",
+      "desc": "La batería muere a mitad del discurso de Trump sobre el «dominio energético estadounidense». El lema termina en tu teléfono. La abundancia nacional tiene una cobertura pésima.",
+      "log_0": "Instalas la batería de repuesto. La furgoneta alcanza el objetivo político radical de arrancar.",
+      "log_1": "El taller instala el recambio. El dominio energético llega con una factura a tu nombre.",
+      "log_2": "Cambias provisiones por una batería usada y la instalas. Nadie dice «dominio». El motor arranca igualmente.",
+      "log_3": "El trabajo acordado paga una batería usada y su reparación. Tus brazos aportan la política energética.",
+      "roadside": "Entregan e instalan la batería. Quien conduce lleva más energía utilizable que todo el discurso."
+    },
+    "REPAIR-BATTERY-C": {
+      "name": "La candidatura cualificada",
+      "desc": "Falla la batería. La radio culpa de otro problema a la diversidad, la equidad y la inclusión. Bajo el capó, los bornes positivo y negativo llevan años trabajando juntos. Ninguno hará declaraciones.",
+      "log_0": "Instalas el repuesto. Positivo y negativo retoman su acuerdo sospechosamente inclusivo.",
+      "log_1": "El taller instala el recambio. Nadie pregunta al voltaje por sus afiliaciones políticas.",
+      "log_2": "Cambias provisiones por una batería usada y la instalas. La furgoneta elige su candidatura arrancando.",
+      "log_3": "Terminas el trabajo acordado e instalas una batería usada. Resulta que la competencia consiste en conectar cosas.",
+      "roadside": "Llega el recambio y se instala. Quien conduce conecta ambos bornes pese a las preocupaciones de la radio."
     }
   },
   "play": {

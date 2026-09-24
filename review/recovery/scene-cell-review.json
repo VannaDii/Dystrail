@@ -19350,6 +19350,40 @@
       "Localized template balance passed",
       "Build ef02439a5dcfe0a939e7: desktop/mobile checks passed after footer correction (2 tests, 23.4s). Screenshots reviewed: complete outcome text and stat labels visible, action bar follows panel. Shop-purchase narrative branch not separately browser-exercised."
     ],
-    "layout_fix": "Existing outcome return bar moved from sticky overlay to normal flow to prevent covering narrative and stat labels; existing styling and controls preserved."
+    "layout_fix": "Existing outcome return bar moved from sticky overlay to normal flow to prevent covering narrative and stat labels; existing styling and controls preserved.",
+    "translations": {
+      "recovered": [
+        "REPAIR-BATTERY-A",
+        "REPAIR-BATTERY-B",
+        "REPAIR-BATTERY-C"
+      ],
+      "languages": [
+        "es",
+        "it",
+        "ar"
+      ],
+      "fields": [
+        "name",
+        "desc",
+        "log_0",
+        "log_1",
+        "log_2",
+        "log_3",
+        "roadside"
+      ],
+      "excluded_stale": [
+        "REPAIR-ALTERNATOR-A",
+        "REPAIR-ALTERNATOR-B",
+        "REPAIR-ALTERNATOR-C",
+        "REPAIR-FUELPUMP-A",
+        "REPAIR-FUELPUMP-B",
+        "REPAIR-FUELPUMP-C",
+        "REPAIR-TIRE-A",
+        "REPAIR-TIRE-B",
+        "REPAIR-TIRE-C"
+      ],
+      "reason": "Preserved translations for these nine describe different factual premises from the approved current English records; do not bulk-import them.",
+      "verification": "Build 91974db088c1096b877b; desktop/mobile checks passed for all 3 battery variants in es/it/ar, disabled paid options when broke, successful cashless repair, and offline localized outcomes (2 tests, 57.4s). Arabic mobile screenshot reviewed: readable RTL narrative and stat labels, no overlapping return bar."
+    }
   }
 }

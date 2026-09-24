@@ -1740,6 +1740,33 @@
       "desc": "In un banco alimentare dove si discutono i tagli del Congresso agli aiuti, {name} aiuta a trasportare sacchi e si fa male alla schiena. Una volontaria la chiama ricchezza che sgocciola dall’alto. Qui non sgocciola niente: si trasporta tutto.",
       "continuing": "La schiena di {name} fa ancora male. Restano sacchi da spostare e dal soffitto non è sgocciolato nessun miliardario.",
       "log_0": "Le cure aiutano {name} a riprendersi. Il prossimo sacco può aspettare la mano invisibile."
+    },
+    "REPAIR-BATTERY-A": {
+      "name": "Cinque risultati, zero volt",
+      "desc": "La batteria muore. Ispirandosi a DOGE, qualcuno dell’equipaggio le chiede cinque risultati ottenuti. Ha alimentato ogni partenza. La direzione chiede cosa abbia fatto oggi.",
+      "log_0": "Monti la batteria di scorta. Il suo primo risultato è far smettere al cruscotto di essere uno specchio.",
+      "log_1": "L’officina monta il ricambio. Approvi l’elettricità senza assumere un miliardario per indagare.",
+      "log_2": "Scambi provviste per una batteria usata e la monti. L’esperienza sopravvive a un’altra iniziativa di efficienza.",
+      "log_3": "Completi il lavoro concordato e monti una batteria usata. La valutazione di produttività di quattro ore comprende produttività vera.",
+      "roadside": "Il ricambio viene consegnato e montato. Chi guida ha ottenuto qualcosa di visibile prima di inviare un’email."
+    },
+    "REPAIR-BATTERY-B": {
+      "name": "Dominio energetico, qui non disponibile",
+      "desc": "La batteria muore a metà del discorso di Trump sul «dominio energetico americano». Lo slogan finisce sul telefono. L’abbondanza nazionale ha una pessima copertura.",
+      "log_0": "Monti la batteria di scorta. Il furgone raggiunge il radicale obiettivo politico di partire.",
+      "log_1": "L’officina monta il ricambio. Il dominio energetico arriva con una fattura a tuo nome.",
+      "log_2": "Scambi provviste per una batteria usata e la monti. Nessuno dice «dominio». Il motore parte lo stesso.",
+      "log_3": "Il lavoro concordato paga una batteria usata e la riparazione. Le tue braccia forniscono la politica energetica.",
+      "roadside": "La batteria viene consegnata e montata. Chi guida trasporta più energia utilizzabile dell’intero discorso."
+    },
+    "REPAIR-BATTERY-C": {
+      "name": "La candidatura qualificata",
+      "desc": "La batteria si guasta. La radio attribuisce un altro problema alla diversità, equità e inclusione. Sotto il cofano, i poli positivo e negativo lavorano insieme da anni. Nessuno dei due rilascia dichiarazioni.",
+      "log_0": "Monti il ricambio. Positivo e negativo riprendono il loro accordo sospettosamente inclusivo.",
+      "log_1": "L’officina monta il ricambio. Nessuno chiede al voltaggio le sue affiliazioni politiche.",
+      "log_2": "Scambi provviste per una batteria usata e la monti. Il furgone seleziona la candidatura mettendosi in moto.",
+      "log_3": "Completi il lavoro concordato e monti una batteria usata. La competenza, a quanto pare, consiste nel collegare le cose.",
+      "roadside": "Il ricambio arriva e viene montato. Chi guida collega entrambi i poli nonostante le preoccupazioni della radio."
     }
   },
   "play": {
