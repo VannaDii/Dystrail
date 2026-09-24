@@ -2,8 +2,9 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {baseline,importState,openMenu,waitForLaunch} from './helpers';
 const bank=JSON.parse(readFileSync('static/assets/data/game.json','utf8'));
-for(const family of ['C01','C02','C03','C04','C05','C06']) {
-const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C02'?'classic_civic_potluck':family==='C03'?'classic_crossing_block_party':family==='C04'?'classic_freeway_mural':family==='C05'?'classic_mail_drop':'classic_media_training'));
+const families:Record<string,string>={C01:'classic_bridge_crews',C02:'classic_civic_potluck',C03:'classic_crossing_block_party',C04:'classic_freeway_mural',C05:'classic_mail_drop',C06:'classic_media_training',C07:'classic_mutual_aid',C08:'classic_mutual_aid_dispatch'};
+for(const [family,eventId] of Object.entries(families)) {
+const event=bank.find((e:any)=>e.id===eventId);
 
 test(`${family} variants keep copy, art, committed choices and saved identity aligned`,async({page,context},info)=>{
  await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
@@ -20,7 +21,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
    await importState(page,state);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
    const atlas=family==='C01'?'road-c01-20260914':`road-${family.toLowerCase()}-${'abc'[row]}-20260914`;
-   const held=(family==='C02'||family==='C04') && row===0;
+   const held=((family==='C02'||family==='C04'||family==='C08') && row===0)||(family==='C07'&&row===2);
    const scene=held?page.locator('.scene-atlas').first():family==='C02'?page.locator('.scene-atlas[data-atlas^="road-c02-"]'):page.locator(`.scene-atlas[data-atlas="${atlas}"]`);
    if(held) await expect(page.locator(`image[href*="road-${family.toLowerCase()}"]`)).toHaveCount(0);
    if(!held) await expect(scene).toHaveAttribute('data-cell',String(family==='C01'||family==='C02'?row*2:0));
@@ -42,11 +43,19 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
    else await expect(scene).toBeVisible();
    if(family==='C02'&&!held) await expect(scene).toHaveAttribute('data-atlas',`road-c02-${choice===0?'offer-meal':'record-donate'}-20260914`);
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
-   if(family==='C02'||family==='C04'||family==='C05'||family==='C06') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
+   if(['C02','C04','C05','C06','C07','C08'].includes(family)){
+    await page.evaluate(async()=>{(document.activeElement as HTMLElement)?.blur();window.scrollTo(0,0);await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);});
+    const caption=await page.locator('.scene-caption').boundingBox();
+    const actions=await page.locator('.outcome-actions').boundingBox();
+    expect(actions!.y).toBeGreaterThanOrEqual(caption!.y+caption!.height-1);
+    await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
+   }
    await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
    expect(saved.visual_content.selections[`ENC-${family}/road/300`]).toBe(unit);
    expect(saved.current_encounter).toBeNull();
+   expect(saved.budget_cents).toBe(base.budget_cents+(event.choices[choice].effects.cash_cents??0));
+   if(event.choices[choice].effects.add_receipt) expect(saved.receipts).toContain(event.choices[choice].effects.add_receipt);
    for(const stat of ['supplies','hp','credibility','morale','sanity']) {
     expect(saved.stats[stat]).toBe(Math.min(stat==='supplies'?20:10,base.stats[stat]+(event.choices[choice].effects[stat]??0)));
    }

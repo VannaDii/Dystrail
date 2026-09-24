@@ -30,6 +30,10 @@ pub fn supported(unit: &str) -> bool {
             | "ENC-C06-A"
             | "ENC-C06-B"
             | "ENC-C06-C"
+            | "ENC-C07-A"
+            | "ENC-C07-B"
+            | "ENC-C08-B"
+            | "ENC-C08-C"
     )
 }
 
@@ -46,6 +50,9 @@ pub fn is_indoors(unit: &str) -> bool {
             | "ENC-C05-C"
             | "ENC-C06-A"
             | "ENC-C06-C"
+            | "ENC-C07-A"
+            | "ENC-C07-B"
+            | "ENC-C08-B"
     )
 }
 
@@ -60,8 +67,9 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     let count = match unit {
-        "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C" | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B"
-        | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
+        "ENC-C07-B" | "ENC-C08-B" | "ENC-C08-C" | "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C"
+        | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
+        | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };
@@ -101,6 +109,9 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
+    if unit.starts_with("ENC-C07-") || unit.starts_with("ENC-C08-") {
+        return Some(render_c07_c08(unit, choice));
+    }
     if unit.starts_with("ENC-C02-") {
         return Some(render_c02(unit, choice));
     }
@@ -165,6 +176,14 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
         "ENC-C01-B" => "760 / 307",
         "ENC-C02-B" => "760 / 308",
         "ENC-C02-C" => "760 / 326",
+        "ENC-C08-C" => {
+            if matches!(stage, SceneStage::EncounterOutcome { choice: 1 | 2, .. }) {
+                "760 / 504"
+            } else {
+                "760 / 484"
+            }
+        }
+        "ENC-C07-A" | "ENC-C07-B" | "ENC-C08-B" => "760 / 504",
         "ENC-C04-B" | "ENC-C04-C" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A"
         | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
         _ => "760 / 360",
@@ -255,6 +274,45 @@ fn render_c02(unit: &str, choice: Option<usize>) -> Html {
             <foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={label_y.to_string()} width={w.to_string()} height={label_h.to_string()}>
                 <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 16px/1.05 sans-serif;overflow-wrap:anywhere">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
             </foreignObject>
+        </g>
+    </svg>}
+}
+
+/// Retained paid-work and civic-display scenes. Local hosts are never crew slots.
+fn render_c07_c08(unit: &str, choice: Option<usize>) -> Html {
+    let cell = choice.filter(|c| *c < 3).map_or(0, |c| c + 1);
+    let dx = (cell % 2) * 768;
+    let bottom = cell >= 2;
+    let dy = if bottom {
+        if unit == "ENC-C08-C" { 492 } else { 512 }
+    } else {
+        0
+    };
+    let height = if unit == "ENC-C08-C" && !bottom {
+        484
+    } else {
+        504
+    };
+    let atlas = format!("road-{}-20260914", unit[4..].to_ascii_lowercase());
+    let clip = format!("road-frame-{unit}-{cell}");
+    let label = match unit {
+        "ENC-C07-B" => Some((27, 160, 130, 165, 20)),
+        "ENC-C08-C" => Some((34, if bottom { 295 } else { 276 }, 108, 68, 16)),
+        "ENC-C08-B" => match cell {
+            0 => Some((86, 208, 61, 25, 11)),
+            1 => Some((151, 258, 94, 29, 13)),
+            2 => Some((82, 213, 53, 23, 10)),
+            _ => None,
+        },
+        _ => None,
+    };
+    html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas.clone()} data-cell={cell.to_string()} viewBox={format!("{} {} 760 {height}",dx+4,dy+4)} preserveAspectRatio="xMidYMid meet">
+        <defs><clipPath id={clip.clone()}><rect x={(dx+4).to_string()} y={(dy+4).to_string()} width="760" height={height.to_string()}/></clipPath></defs>
+        <g clip-path={format!("url(#{clip})")}>
+            <image href={crate::paths::asset_path(&format!("static/img/scenes-v2/{atlas}.png"))} width="1536" height="1024"/>
+            {label.map_or_else(Html::default, |(x,y,w,h,size)|html!{<foreignObject class="road-prop-lettering" x={(dx+x).to_string()} y={(dy+y).to_string()} width={w.to_string()} height={h.to_string()}>
+                <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style={format!("height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold {size}px/1.05 sans-serif;overflow-wrap:anywhere")}>{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
+            </foreignObject>})}
         </g>
     </svg>}
 }

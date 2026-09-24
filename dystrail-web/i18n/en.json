@@ -1516,6 +1516,77 @@
       "log_2": "You donate some food. The cook adds it to the pot without checking how loudly your bank account can talk.",
       "overlay_0": "UNLIMITED SPEECH",
       "fact": "Citizens United and SpeechNow underpin unlimited independent spending and contributions to independent-expenditure-only committees. Direct candidate contribution limits are a different rule."
+    },
+    "ENC-C07-A": {
+      "name": "The peace division",
+      "desc": "FIFA gave Trump its first peace prize. A trophy repairer is adding a peace division between bowling and darts. She offers $10 and some food for lifting the display; repair materials and lunch company are welcome. The new department still needs shelf brackets.",
+      "fact": "FIFA gave Donald Trump its inaugural Peace Prize at the World Cup final draw in Washington on December 5, 2025. This was FIFA’s own award, not the Nobel Peace Prize. Its praise expresses the organization’s assessment; it does not prove a particular peace achievement or bribery. The shop and repairer are fictional.",
+      "choice_0": "Donate some repair materials",
+      "log_0": "Your materials earn the repairer’s endorsement. The peace division acquires the modest structural support unavailable from an acceptance speech.",
+      "choice_1": "Lift the display for $10 and food",
+      "log_1": "You earn cash, food, and sore muscles, laughing as world peace takes its place between a bowling ball and crossed darts.",
+      "choice_2": "Share food; record the award’s origin",
+      "log_2": "You share lunch and record that FIFA created its own prize. The repairer keeps the Nobel label in a different drawer."
+    },
+    "ENC-C07-B": {
+      "name": "Returned to the parents",
+      "desc": "Trump’s order to facilitate closing the Education Department has inspired a PTA’s “do it ourselves” fundraiser. They offer your stopped crew $10 and some food to shift donated desks. The volunteers have received local control. It came without a furniture dolly.",
+      "fact": "The March 2025 executive order directed the secretary to facilitate closing the Education Department to the extent permitted by law. It does not mean Congress abolished the department. The fundraiser and volunteers are fictional.",
+      "choice_0": "Donate supplies for the fundraiser",
+      "log_0": "You donate some supplies; the PTA records your help. A parent attaches felt feet to a desk. Local control stops scratching the floor.",
+      "choice_1": "Take the desk-moving job",
+      "log_1": "You earn $10 and some food with an aching back. A parent applauds. “Excellent. You’re now qualified to run the furniture department.”",
+      "choice_2": "Share some food; record concerns",
+      "log_2": "You share some food and record the parents’ questions. They want to know which part of closing a department makes the desk lighter.",
+      "overlay_0": "DESK MOVING: $10 + FOOD"
+    },
+    "ENC-C07-C": {
+      "name": "Apparently overhead",
+      "desc": "At a research fundraiser opposing the Trump administration’s proposed NIH overhead cap, volunteers offer your crew $10 and some food to shift equipment. They also need supplies. The display labels the freezer “overhead.” A scientist is demonstrating what happens when overhead melts onto your shoes.",
+      "fact": "In February 2025, UT Southwestern estimated that the proposed NIH indirect-cost cap put more than $100 million annually at risk. This was an estimate of risk from a proposal, not an already observed local loss. The fundraiser and characters are fictional.",
+      "choice_0": "Donate supplies to the display",
+      "log_0": "You donate some supplies; volunteers record your contribution. The scientist finally puts the thawing demonstration in a tray. Waste has stopped leaking.",
+      "choice_1": "Take the equipment-moving job",
+      "log_1": "You earn $10 and some food, arms aching. Moving the empty freezer proves overhead weighs considerably more than the speech against it.",
+      "choice_2": "Share some food; record testimony",
+      "log_2": "You share some food and record the scientist’s concerns. She points at the freezer plug. “The breakthrough is inside. It needs electricity.”",
+      "overlay_0": "OVERHEAD • MOVING WORK $10 + FOOD"
+    },
+    "ENC-C08-A": {
+      "name": "Patriotic cartography",
+      "desc": "Trump’s Gulf renaming has left a roadside map club with old charts and new federal labels. They ask your stopped crew to help prepare a public comparison. The volunteer has carefully checked the coast. It has made no effort to move.",
+      "fact": "The January 20, 2025 executive order directed federal use of Gulf of America. It changed federal naming, not the coastline or universal international usage. The map club and dialogue are fictional.",
+      "choice_0": "Donate supplies for comparison charts",
+      "log_0": "You donate some supplies and help document the labels. The volunteer uses a ruler to confirm that greatness added no coastline.",
+      "choice_1": "Share some food with the club",
+      "log_1": "You share some food, and everyone invents patriotic names for the crumbs. The plate becomes the first disputed territory to disappear.",
+      "choice_2": "Check and save the charts",
+      "log_2": "You compare and save the charts, relieved to find the coordinates unchanged. The volunteer gives the compass permission to remain neutral.",
+      "overlay_0": "SAME COAST. NEW FEDERAL NAME."
+    },
+    "ENC-C08-B": {
+      "name": "A place at the table",
+      "desc": "Inspired by Trump’s dinner for top meme-coin investors, residents at a roadside café are preparing an access-to-government display. They ask your crew for help. A place setting for an ordinary voter includes a folding chair outside the window.",
+      "fact": "Trump hosted leading investors in his meme coin at his Virginia golf club on May 22, 2025; about 220 were invited. Investment was tied to access; this is not a finding that a policy decision was purchased. The cafe and residents are fictional.",
+      "choice_0": "Donate supplies for the display",
+      "log_0": "You donate some supplies and help document the display. The volunteer moves the voter’s chair closer. It can now smell access.",
+      "choice_1": "Share some food; join the rehearsal",
+      "log_1": "You share some food and rehearse the voter’s dinner. Everyone laughs when the server presents the menu through binoculars.",
+      "choice_2": "Check and save the dinner report",
+      "log_2": "You check and save the report about the investor dinner. The café owner unlocks the outside chair. “No minimum holding here.”",
+      "overlay_0": "ORDINARY VOTER"
+    },
+    "ENC-C08-C": {
+      "name": "Royal toll exemption",
+      "desc": "Trump tried to end New York’s congestion toll and posted “Long Live the King.” A judge blocked the attempt. At a carpool picnic, a visiting New York courier shows her bill. Hosts invite supplies for recording drivers’ accounts, or some food to share. Her bill accepts money, not royal proclamations.",
+      "fact": "In February 2025 the administration tried to withdraw approval for New York congestion pricing, and Trump posted ‘LONG LIVE THE KING!’. On March 3, 2026 a federal district court rejected that termination on the asserted grounds. This describes the dated ruling, not every later appeal or a permanent end to the toll. The courier and picnic are fictional.",
+      "choice_0": "Donate supplies to record drivers’ accounts",
+      "log_0": "You donate supplies and preserve the accounts. The courier attaches the presidential post to her toll bill. They disagree about who is running the kingdom.",
+      "choice_1": "Share some food; hear the courier’s story",
+      "log_1": "You share some food and hear her story. “I tried saying Long Live the King at the toll bill,” she says. “Turns out it wanted Long Live My Debit Card.”",
+      "choice_2": "Compare and save the toll maps",
+      "log_2": "You save the old and current toll maps and make sense of the ruling. The courier puts away her toy crown. The border of Manhattan remains unmoved by headwear.",
+      "overlay_0": "LONG LIVE THE KING"
     }
   },
   "play": {

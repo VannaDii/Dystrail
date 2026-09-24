@@ -5800,7 +5800,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_choice_cells",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "ENC-C07-B",
@@ -5829,7 +5842,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_choice_cells",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "ENC-C07-C",
@@ -5858,7 +5884,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "excluded_provisional_shared_setting",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "ENC-C08-A",
@@ -5887,7 +5926,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "excluded_provisional_shared_setting",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "ENC-C08-B",
@@ -5916,7 +5968,20 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_choice_cells",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "ENC-C08-C",
@@ -5946,7 +6011,20 @@
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
       "crop_status": "Proposed y boundaries 0/492/1024 from direct inspection; confirm divider pixels before production. Do not reuse the historical equal-half crop.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "runtime_integrated_art_acceptance_pending",
+        "locales": [
+          "en",
+          "es",
+          "it",
+          "ar"
+        ],
+        "art": "retained_choice_cells",
+        "mechanics": "unchanged",
+        "build": "3a712fb6b6da321fe505",
+        "verification": "Four desktop/mobile tests cover all eighteen choices, unchanged stats/cash/receipt awards, correct outcome frame, saved identity/journal/reload and Arabic 320px offline. Held C07C and excluded C08A images stay absent. C08C unequal rows cropped at y=492. Native-language review, mobile prop-label visibility and final composition acceptance remain open."
+      }
     },
     {
       "unit": "TOWN-41-A",

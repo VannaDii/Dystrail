@@ -1525,6 +1525,77 @@
       "log_2": "Donáis algo de comida. La cocinera la añade a la olla sin comprobar a qué volumen puede hablar vuestra cuenta bancaria.",
       "overlay_0": "DISCURSO ILIMITADO",
       "fact": "Citizens United y SpeechNow sustentan el gasto independiente ilimitado y las aportaciones a comités dedicados exclusivamente a ese gasto. Los límites de las aportaciones directas a candidatos son una norma distinta."
+    },
+    "ENC-C07-A": {
+      "name": "La división de la paz",
+      "desc": "La FIFA concedió a Trump su primer premio de la paz. Una reparadora de trofeos está creando una división de paz entre los bolos y los dardos. Ofrece 10 dólares y algo de comida por levantar el expositor; también agradece materiales y compañía para comer. Al nuevo departamento aún le faltan soportes para la estantería.",
+      "fact": "La FIFA entregó a Donald Trump su primer Premio de la Paz en el sorteo final del Mundial en Washington el 5 de diciembre de 2025. Era un premio propio de la FIFA, no el Nobel de la Paz. Sus elogios expresan la valoración de la organización; no prueban un logro de paz concreto ni un soborno. La tienda y la reparadora son ficticias.",
+      "choice_0": "Donar materiales de reparación",
+      "log_0": "Tus materiales te ganan el respaldo de la reparadora. La división de la paz consigue el modesto apoyo estructural que no podía darle un discurso de aceptación.",
+      "choice_1": "Levantar el expositor por 10 dólares y comida",
+      "log_1": "Ganas dinero, comida y agujetas, entre risas, mientras la paz mundial ocupa su sitio entre una bola de bolos y unos dardos.",
+      "choice_2": "Compartir comida; registrar el origen del premio",
+      "log_2": "Compartes el almuerzo y registras que la FIFA creó su propio premio. La reparadora guarda la etiqueta del Nobel en otro cajón."
+    },
+    "ENC-C07-B": {
+      "name": "Devuelto a los padres",
+      "desc": "La orden de Trump de facilitar el cierre del Departamento de Educación inspiró una recaudación de fondos de una asociación de padres: «lo hacemos nosotros». Ofrecen a vuestro grupo 10 dólares y comida por mover pupitres donados. Los voluntarios han recibido el control local. Llegó sin carretilla para muebles.",
+      "fact": "La orden ejecutiva de marzo de 2025 indicó a la secretaria que facilitara el cierre del Departamento de Educación en la medida permitida por la ley. No significa que el Congreso aboliera el departamento. La recaudación y sus voluntarios son ficticios.",
+      "choice_0": "Donar suministros para la recaudación",
+      "log_0": "Donas suministros; la asociación registra tu ayuda. Una madre coloca fieltro en las patas de un pupitre. El control local deja de rayar el suelo.",
+      "choice_1": "Aceptar el trabajo de mover pupitres",
+      "log_1": "Ganas 10 dólares y comida, con dolor de espalda. Una madre aplaude. «Excelente. Ya puedes dirigir el departamento de mobiliario».",
+      "choice_2": "Compartir comida; registrar inquietudes",
+      "log_2": "Compartes comida y registras las preguntas de los padres. Quieren saber qué parte de cerrar un departamento hace que pese menos el pupitre.",
+      "overlay_0": "MOVER PUPITRES: 10 DÓLARES Y COMIDA"
+    },
+    "ENC-C07-C": {
+      "name": "Al parecer, gastos indirectos",
+      "desc": "En una recaudación científica contra el límite propuesto por la administración Trump a los gastos indirectos de los NIH, los voluntarios ofrecen a vuestro grupo 10 dólares y comida por mover equipos. También necesitan suministros. El expositor llama «gastos indirectos» al congelador. Una científica demuestra qué ocurre cuando esos gastos se derriten sobre tus zapatos.",
+      "fact": "En febrero de 2025, UT Southwestern estimó que el límite propuesto a los gastos indirectos de los NIH ponía en riesgo más de 100 millones de dólares anuales. Era una estimación del riesgo de una propuesta, no una pérdida local ya observada. La recaudación y sus personajes son ficticios.",
+      "choice_0": "Donar suministros para la demostración",
+      "log_0": "Donas suministros; los voluntarios registran tu aportación. La científica coloca por fin la demostración que se descongela en una bandeja. El despilfarro ha dejado de gotear.",
+      "choice_1": "Aceptar el trabajo de mover equipos",
+      "log_1": "Ganas 10 dólares y comida, con los brazos doloridos. Mover el congelador vacío demuestra que los gastos indirectos pesan bastante más que el discurso contra ellos.",
+      "choice_2": "Compartir comida; registrar el testimonio",
+      "log_2": "Compartes comida y registras las inquietudes de la científica. Señala el enchufe del congelador. «El avance está dentro. Necesita electricidad».",
+      "overlay_0": "GASTOS INDIRECTOS · MOVER EQUIPOS: 10 DÓLARES Y COMIDA"
+    },
+    "ENC-C08-A": {
+      "name": "Cartografía patriótica",
+      "desc": "El cambio de nombre del golfo por Trump ha dejado a un club de mapas de carretera con cartas antiguas y nuevas etiquetas federales. Piden a tu grupo que ayude a preparar una comparación pública. La voluntaria ha revisado la costa con cuidado. No ha hecho el menor esfuerzo por moverse.",
+      "fact": "La orden del 20 de enero de 2025 dispuso el uso federal de Golfo de América. Cambió el nombre federal, no la costa ni el uso internacional universal. El club y el diálogo son ficticios.",
+      "choice_0": "Donar provisiones para comparar mapas",
+      "log_0": "Donas provisiones y ayudas a documentar los nombres. La voluntaria confirma con una regla que la grandeza no añadió costa.",
+      "choice_1": "Compartir comida con el club",
+      "log_1": "Compartes comida y todos inventan nombres patrióticos para las migas. El plato se convierte en el primer territorio disputado que desaparece.",
+      "choice_2": "Comparar y guardar los mapas",
+      "log_2": "Comparas y guardas los mapas, con alivio al ver que las coordenadas no cambiaron. La voluntaria permite que la brújula siga siendo neutral.",
+      "overlay_0": "MISMA COSTA. NUEVO NOMBRE FEDERAL."
+    },
+    "ENC-C08-B": {
+      "name": "Un lugar en la mesa",
+      "desc": "Inspirados por la cena de Trump para grandes inversores de su criptomoneda meme, vecinos de una cafetería preparan una exposición sobre el acceso al gobierno. Piden ayuda a tu grupo. El puesto de una votante común incluye una silla plegable al otro lado de la ventana.",
+      "fact": "Trump recibió a grandes inversores de su criptomoneda meme en su club de golf de Virginia el 22 de mayo de 2025; hubo unas 220 invitaciones. La inversión daba acceso; esto no demuestra que se comprara una decisión política. La cafetería y sus vecinos son ficticios.",
+      "choice_0": "Donar provisiones para la exposición",
+      "log_0": "Donas provisiones y ayudas a documentar la exposición. La voluntaria acerca la silla de la votante. Ahora puede oler el acceso.",
+      "choice_1": "Compartir comida y participar en el ensayo",
+      "log_1": "Compartes comida y ensayáis la cena de la votante. Todos se ríen cuando la camarera presenta el menú mirando por unos prismáticos.",
+      "choice_2": "Revisar y guardar la noticia de la cena",
+      "log_2": "Revisas y guardas la noticia sobre la cena de inversores. La dueña abre el candado de la silla exterior. «Aquí no exigimos una inversión mínima».",
+      "overlay_0": "VOTANTE COMÚN"
+    },
+    "ENC-C08-C": {
+      "name": "Exención real del peaje",
+      "desc": "Trump intentó terminar con el peaje por congestión de Nueva York y publicó «Viva el rey». Un juez bloqueó el intento. En un pícnic de viajeros, una mensajera neoyorquina muestra su factura. Las anfitrionas aceptan provisiones para registrar testimonios, o comida para compartir. La factura acepta dinero, no proclamas reales.",
+      "fact": "En febrero de 2025 el gobierno intentó retirar la autorización del peaje neoyorquino y Trump publicó «LONG LIVE THE KING!». El 3 de marzo de 2026 un tribunal federal de distrito rechazó esa retirada por los motivos alegados. Es un fallo fechado, no una descripción de todas las apelaciones posteriores ni del fin permanente del peaje. La mensajera y el pícnic son ficticios.",
+      "choice_0": "Donar provisiones para registrar testimonios",
+      "log_0": "Donas provisiones y conservas los testimonios. La mensajera adjunta la publicación presidencial a su factura del peaje. No se ponen de acuerdo sobre quién gobierna el reino.",
+      "choice_1": "Compartir comida y escuchar a la mensajera",
+      "log_1": "Compartes comida y escuchas su historia. «Probé a decirle Viva el rey a la factura», dice. «Resulta que quería Viva mi tarjeta de débito».",
+      "choice_2": "Comparar y guardar los mapas del peaje",
+      "log_2": "Guardas los mapas antiguos y actuales y entiendes el fallo. La mensajera guarda su corona de juguete. El límite de Manhattan no se deja mover por un sombrero.",
+      "overlay_0": "VIVA EL REY"
     }
   },
   "play": {

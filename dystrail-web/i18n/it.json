@@ -1525,6 +1525,77 @@
       "log_2": "Donate del cibo. La cuoca lo aggiunge alla pentola senza controllare quanto forte sappia parlare il vostro conto in banca.",
       "overlay_0": "DISCORSO ILLIMITATO",
       "fact": "Citizens United e SpeechNow sono alla base della spesa indipendente illimitata e dei contributi ai comitati dedicati esclusivamente a tale spesa. I limiti ai contributi diretti ai candidati seguono una regola diversa."
+    },
+    "ENC-C07-A": {
+      "name": "La divisione della pace",
+      "desc": "La FIFA ha assegnato a Trump il suo primo premio per la pace. Una riparatrice di trofei sta aggiungendo una divisione pace tra bowling e freccette. Offre 10 dollari e del cibo per sollevare l'espositore; sono benvenuti anche materiali e compagnia a pranzo. Al nuovo dipartimento mancano ancora le staffe per il ripiano.",
+      "fact": "La FIFA ha consegnato a Donald Trump il suo primo Premio per la Pace al sorteggio finale dei Mondiali a Washington il 5 dicembre 2025. Era un premio della FIFA, non il Nobel per la Pace. Gli elogi esprimono il giudizio dell'organizzazione, non provano uno specifico risultato di pace né un caso di corruzione. Il negozio e la riparatrice sono inventati.",
+      "choice_0": "Dona materiali per le riparazioni",
+      "log_0": "I tuoi materiali ti valgono il sostegno della riparatrice. La divisione della pace ottiene il modesto supporto strutturale che un discorso di ringraziamento non poteva darle.",
+      "choice_1": "Solleva l'espositore per 10 dollari e cibo",
+      "log_1": "Guadagni denaro, cibo e muscoli indolenziti, ridendo mentre la pace mondiale prende posto fra una palla da bowling e le freccette.",
+      "choice_2": "Condividi cibo; documenta l'origine del premio",
+      "log_2": "Condividi il pranzo e documenti che la FIFA ha creato un premio proprio. La riparatrice tiene l'etichetta del Nobel in un altro cassetto."
+    },
+    "ENC-C07-B": {
+      "name": "Restituito ai genitori",
+      "desc": "L'ordine di Trump di agevolare la chiusura del Dipartimento dell'Istruzione ha ispirato una raccolta fondi dei genitori: «facciamo da soli». Offrono al vostro gruppo 10 dollari e cibo per spostare banchi donati. I volontari hanno ricevuto il controllo locale. È arrivato senza un carrello per mobili.",
+      "fact": "L'ordine esecutivo del marzo 2025 incaricava la segretaria di agevolare la chiusura del Dipartimento dell'Istruzione nei limiti consentiti dalla legge. Non significa che il Congresso abbia abolito il dipartimento. La raccolta fondi e i volontari sono inventati.",
+      "choice_0": "Dona provviste per la raccolta fondi",
+      "log_0": "Doni delle provviste; l'associazione registra il tuo aiuto. Una madre applica feltrini ai piedi di un banco. Il controllo locale smette di graffiare il pavimento.",
+      "choice_1": "Accetta il lavoro di spostare i banchi",
+      "log_1": "Guadagni 10 dollari e del cibo, con la schiena dolorante. Una madre applaude. «Ottimo. Ora puoi dirigere il dipartimento dei mobili».",
+      "choice_2": "Condividi cibo; registra le preoccupazioni",
+      "log_2": "Condividi del cibo e registri le domande dei genitori. Vogliono sapere quale parte della chiusura di un dipartimento renda il banco più leggero.",
+      "overlay_0": "SPOSTARE BANCHI: 10 DOLLARI E CIBO"
+    },
+    "ENC-C07-C": {
+      "name": "A quanto pare, costi indiretti",
+      "desc": "A una raccolta fondi per la ricerca contro il tetto ai costi indiretti dei NIH proposto dall'amministrazione Trump, i volontari offrono al vostro gruppo 10 dollari e cibo per spostare attrezzature. Servono anche provviste. L'esposizione definisce il congelatore «costi indiretti». Una scienziata mostra che cosa succede quando i costi indiretti si sciolgono sulle scarpe.",
+      "fact": "Nel febbraio 2025 UT Southwestern stimava che il tetto proposto ai costi indiretti dei NIH mettesse a rischio oltre 100 milioni di dollari l'anno. Era una stima del rischio di una proposta, non una perdita locale già osservata. La raccolta fondi e i personaggi sono inventati.",
+      "choice_0": "Dona provviste per la dimostrazione",
+      "log_0": "Doni delle provviste; i volontari registrano il contributo. La scienziata mette finalmente la dimostrazione che si scioglie in un vassoio. Lo spreco ha smesso di perdere acqua.",
+      "choice_1": "Accetta il lavoro di spostare l'attrezzatura",
+      "log_1": "Guadagni 10 dollari e cibo, con le braccia indolenzite. Spostare il congelatore vuoto dimostra che i costi indiretti pesano molto più del discorso contro di loro.",
+      "choice_2": "Condividi cibo; registra la testimonianza",
+      "log_2": "Condividi del cibo e registri le preoccupazioni della scienziata. Indica la spina del congelatore. «La scoperta è dentro. Ha bisogno di elettricità».",
+      "overlay_0": "COSTI INDIRETTI · TRASLOCO: 10 DOLLARI E CIBO"
+    },
+    "ENC-C08-A": {
+      "name": "Cartografia patriottica",
+      "desc": "La rinomina del Golfo voluta da Trump ha lasciato un club stradale di cartografia con vecchie mappe e nuove etichette federali. Chiedono al gruppo di aiutare a preparare un confronto pubblico. La volontaria ha controllato bene la costa. Non ha fatto il minimo sforzo per spostarsi.",
+      "fact": "L’ordine del 20 gennaio 2025 dispose l’uso federale del nome Golfo d’America. Cambiò il nome federale, non la costa né ogni uso internazionale. Il club e il dialogo sono inventati.",
+      "choice_0": "Donare provviste per confrontare le mappe",
+      "log_0": "Doni provviste e aiuti a documentare le etichette. La volontaria verifica con un righello che la grandezza non ha aggiunto costa.",
+      "choice_1": "Condividere cibo con il club",
+      "log_1": "Condividi cibo e tutti inventano nomi patriottici per le briciole. Il piatto diventa il primo territorio conteso a sparire.",
+      "choice_2": "Confrontare e salvare le mappe",
+      "log_2": "Confronti e salvi le mappe: che sollievo, le coordinate sono immutate. La volontaria autorizza la bussola a restare neutrale.",
+      "overlay_0": "STESSA COSTA. NUOVO NOME FEDERALE."
+    },
+    "ENC-C08-B": {
+      "name": "Un posto a tavola",
+      "desc": "Ispirati dalla cena di Trump per i maggiori investitori della sua meme coin, gli abitanti preparano in un caffè una mostra sull’accesso al governo. Chiedono aiuto al gruppo. Il posto per una normale elettrice comprende una sedia pieghevole fuori dalla finestra.",
+      "fact": "Trump ospitò importanti investitori della sua meme coin nel suo golf club in Virginia il 22 maggio 2025; gli inviti furono circa 220. L’investimento era legato all’accesso; non dimostra l’acquisto di una decisione politica. Il caffè e gli abitanti sono inventati.",
+      "choice_0": "Donare provviste per la mostra",
+      "log_0": "Doni provviste e aiuti a documentare la mostra. La volontaria avvicina la sedia dell’elettrice. Ora può annusare l’accesso.",
+      "choice_1": "Condividere cibo e partecipare alla prova",
+      "log_1": "Condividi cibo e provate la cena dell’elettrice. Tutti ridono quando la cameriera presenta il menu guardando nel binocolo.",
+      "choice_2": "Verificare e salvare la notizia della cena",
+      "log_2": "Verifichi e salvi la notizia sulla cena degli investitori. La proprietaria apre il lucchetto della sedia esterna. «Qui nessun investimento minimo».",
+      "overlay_0": "ELETTRICE COMUNE"
+    },
+    "ENC-C08-C": {
+      "name": "Esenzione reale dal pedaggio",
+      "desc": "Trump tentò di abolire il pedaggio anti-congestione di New York e pubblicò «Viva il re». Un giudice bloccò il tentativo. A un picnic tra pendolari, una corriera di New York mostra il conto. Le ospiti chiedono provviste per registrare le testimonianze o cibo da condividere. Il conto accetta denaro, non proclami reali.",
+      "fact": "Nel febbraio 2025 il governo tentò di revocare l’autorizzazione al pedaggio di New York e Trump pubblicò «LONG LIVE THE KING!». Il 3 marzo 2026 un tribunale federale distrettuale respinse la revoca sui motivi addotti. Si tratta di quella sentenza, non di tutti gli appelli successivi né della fine permanente del pedaggio. La corriera e il picnic sono inventati.",
+      "choice_0": "Donare provviste per registrare i racconti",
+      "log_0": "Doni provviste e conservi le testimonianze. La corriera allega il post presidenziale al conto del pedaggio. Non concordano su chi governi il regno.",
+      "choice_1": "Condividere cibo e ascoltare la corriera",
+      "log_1": "Condividi cibo e ascolti il suo racconto. «Ho provato a dire Viva il re al conto», racconta. «Voleva Viva la mia carta di debito».",
+      "choice_2": "Confrontare e salvare le mappe dei pedaggi",
+      "log_2": "Salvi le mappe vecchie e attuali e chiarisci la sentenza. La corriera ripone la corona giocattolo. Il confine di Manhattan non si sposta per un copricapo.",
+      "overlay_0": "VIVA IL RE"
     }
   },
   "play": {

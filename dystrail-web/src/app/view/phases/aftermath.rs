@@ -24,6 +24,7 @@ pub fn render_aftermath(state: &AppState, feedback: &Aftermath) -> Html {
     };
     html! { <div class="outcome-screen">
         <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={feedback.title.clone()} stage={Some(feedback.scene.clone())} />
+        <div class="outcome-body">
         <section class={classes!("aftermath-panel",ally_notice.then_some("ally-departure"))} aria-labelledby="aftermath-title" aria-live="polite">
             <div class="outcome-summary">
             <h2 id="aftermath-title" class="eyebrow">{i18n::t(if ally_notice {"ally_loss.notice"}else{"ux.outcome"})}</h2>
@@ -41,5 +42,6 @@ pub fn render_aftermath(state: &AppState, feedback: &Aftermath) -> Html {
                 _ => "ux.continue",
             })}</span>
         </button></div>
+        </div>
     </div> }
 }
