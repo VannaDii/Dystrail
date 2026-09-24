@@ -117,10 +117,10 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
                 },
             )
         }
-        SceneStage::Camp | SceneStage::Care if p.region == Some(Region::Southwest) => {
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } if p.region == Some(Region::Southwest) => {
             ("western-settings-v1", 2, 3, 4)
         }
-        SceneStage::Camp | SceneStage::Care if p.region == Some(Region::MountainWest) => {
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } if p.region == Some(Region::MountainWest) => {
             ("western-settings-v1", 2, 3, 5)
         }
         SceneStage::Town => (
@@ -133,7 +133,7 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
                 _ => 0,
             },
         ),
-        SceneStage::Camp | SceneStage::Care => ("journey-settings-v1", 2, 3, 3),
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => ("journey-settings-v1", 2, 3, 3),
         SceneStage::Ending(arrived) => ("journey-settings-v1", 2, 3, if *arrived { 4 } else { 5 }),
         _ => encounter_setting(name, p.hour, p.region)?,
     };

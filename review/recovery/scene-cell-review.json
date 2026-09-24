@@ -19306,5 +19306,33 @@
       "CARE-08-C"
     ],
     "save_scope": "Current-build save/import/replay only; older exports are not an acceptance requirement per user instruction."
+  },
+  "care_art_checkpoint": {
+    "units": [
+      "CARE-01-A",
+      "CARE-01-B",
+      "CARE-01-C",
+      "CARE-02-A",
+      "CARE-02-B",
+      "CARE-02-C",
+      "CARE-03-A",
+      "CARE-03-B",
+      "CARE-03-C"
+    ],
+    "status": "Retained setting integration; final visual acceptance incomplete",
+    "source": "Byte-identical care-settings-a/b/c-20260914 atlases, first three cells only; preserved code uses stale premises in later cells so they remain excluded.",
+    "composition": "768x512 cells at native 3:2 aspect on desktop/mobile; blank signs remain blank; actual affected traveler named in caption. Standing overlay rejected after screenshot review because its head/body scale mismatched painted NPCs.",
+    "remaining": [
+      "Appropriate in-scene affected-traveler poses with credible proportions",
+      "Variant-specific localized sign content where required",
+      "Remaining 15 care scenes and outcomes",
+      "Final pixel-art consistency and all-cast visual acceptance"
+    ],
+    "verification": {
+      "build": "de8e56beb0701f78aa4f",
+      "native": "Stale-premise selection guard passed; production build passed.",
+      "mobile": "Nine setting/caption cases, offline reload and absent-member exclusion passed after overlay removal.",
+      "desktop": "Earlier composition test passed but revealed unacceptable overlay proportions. Post-removal verification is blocked by launch timeout before gameplay; unresolved, not accepted."
+    }
   }
 }

@@ -78,7 +78,7 @@ pub fn render(app: &AppState) -> Html {
         })
     };
     html! {<>
-        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={format!("{} · {}",member.name,care_copy(gs,"name",&member.name,&i18n::t("journey.crew_stop")))} stage={Some(SceneStage::Care)} />
+        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={format!("{} · {}",member.name,care_copy(gs,"name",&member.name,&i18n::t("journey.crew_stop")))} stage={Some(super::visual_content::care_unit(gs).map_or(SceneStage::Care, |unit| SceneStage::CareIncident { unit, persona: member.persona.clone() }))} />
         <section class="crew-incident" aria-label={i18n::t("journey.crew_stop")}><p class="scene-narrative">{care_copy(gs,if strain>1 {"continuing"} else {"desc"},&member.name,&i18n::tr(&format!("trail.care_reason_{}",gs.continuity.crew_care.reason),Some(&std::collections::BTreeMap::from([("name",member.name.as_str())]))))}{" "}{i18n::tr(if strain>=3{"journey.care_critical"}else{"journey.care_body"},Some(&std::collections::BTreeMap::from([("name",member.name.as_str())])))} </p>
             <div class="camp-actions"><ActionButton duration={Some(i18n::t("trail.one_hour"))} onclick={choice(0)} disabled={gs.stats.supplies<2} label={care_label(gs,0,strain>=3)} />
             <ActionButton duration={Some(i18n::t("trail.one_hour"))} onclick={choice(1)} disabled={gs.persona_id.as_ref()==Some(persona)} label={care_label(gs,1,strain>=3)} />

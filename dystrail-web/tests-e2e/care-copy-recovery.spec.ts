@@ -60,3 +60,21 @@ test('recovered care translations retain names and render offline',async({page,c
   }
  }
 });
+
+test('retained care settings preserve patient captions without invented crew',async({page,context},info)=>{
+ test.setTimeout(120_000);const base=await baseline(page);
+ for(let reason=0;reason<3;reason++)for(const suffix of ['A','B','C']){
+  const {s,actor,unit}=stateFor(base,reason,suffix);
+  await importState(page,s);
+  await expect(page.locator('[data-care-setting]')).toHaveAttribute('data-care-setting',unit);
+  await expect(page.locator('.journey-scene')).toContainText(s.party.members.find((m:any)=>m.persona===actor).name);
+  await expect(page.locator('[data-care-persona]')).toHaveCount(0);
+  await page.locator('.journey-scene').screenshot({path:info.outputPath(`${unit}.png`)});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await context.setOffline(true);await page.reload();await waitForLaunch(page);
+ await expect(page.locator('[data-care-setting]')).toHaveAttribute('data-care-setting','CARE-03-C');
+ await context.setOffline(false);
+ const {s,actor}=stateFor(base,0,'A');s.party.members.find((m:any)=>m.persona===actor).status='Departed';
+ await importState(page,s);await expect(page.locator('[data-care-persona]')).toHaveCount(0);
+});
