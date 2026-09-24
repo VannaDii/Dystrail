@@ -136,6 +136,66 @@ pub fn encounter_unit(gs: &GameState) -> Option<&str> {
         .map(String::as_str)
 }
 
+/// Activity offers remain stable during a day or town visit without consuming RNG.
+fn activity_key(
+    gs: &GameState,
+    action: crate::game::activities::Activity,
+) -> (String, &'static str, u32) {
+    use crate::game::activities::Activity;
+    let family = match action {
+        Activity::Forage => "ACT-FORAGE",
+        Activity::Glean => "ACT-GLEAN",
+        Activity::WorkSupplies => "ACT-FOODWORK",
+        Activity::WorkCash => "ACT-CASHWORK",
+    };
+    let (scope, occurrence) = if Activity::TOWN.contains(&action) {
+        (
+            "town",
+            gs.continuity.route_services.stop.unwrap_or_default(),
+        )
+    } else {
+        ("day", gs.day)
+    };
+    (format!("{family}/{scope}/{occurrence}"), family, occurrence)
+}
+
+pub fn activity_unit(gs: &GameState, action: crate::game::activities::Activity) -> String {
+    let (key, family, occurrence) = activity_key(gs, action);
+    if let Some(unit) = gs
+        .continuity
+        .visual_content
+        .selections
+        .get(&key)
+        .filter(|unit| valid(unit, family))
+    {
+        return unit.clone();
+    }
+    let suffix = ["A", "B", "C"][(hash(gs.seed, family, occurrence) % 3) as usize];
+    format!("{family}-{suffix}")
+}
+
+/// Called after the existing activity handler succeeds, using its original offer identity.
+pub fn record_activity(
+    before: &GameState,
+    after: &mut GameState,
+    action: crate::game::activities::Activity,
+) {
+    let (key, _, _) = activity_key(before, action);
+    let unit = activity_unit(before, action);
+    after
+        .continuity
+        .visual_content
+        .selections
+        .entry(key.clone())
+        .or_insert(unit);
+    after
+        .continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(0);
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -154,6 +214,46 @@ mod tests {
                 .clone(),
         );
         gs
+    }
+    #[test]
+    fn activity_identity_survives_overnight_completion_without_changing_simulation() {
+        use crate::game::activities::Activity;
+        for action in [
+            Activity::Forage,
+            Activity::Glean,
+            Activity::WorkSupplies,
+            Activity::WorkCash,
+        ] {
+            let mut seen = std::collections::BTreeSet::new();
+            for seed in 0..12 {
+                let mut before = GameState {
+                    seed,
+                    day: 6,
+                    ..GameState::default()
+                };
+                before.stats.supplies = 5;
+                before.continuity.clock_minutes = crate::game::travel_time::TRAVEL_DAY_END - 60;
+                if Activity::TOWN.contains(&action) {
+                    before.continuity.route_services.stop = Some(160);
+                }
+                let unit = activity_unit(&before, action);
+                seen.insert(unit.clone());
+                let restored: GameState =
+                    serde_json::from_str(&serde_json::to_string(&before).unwrap()).unwrap();
+                assert_eq!(activity_unit(&restored, action), unit);
+                let mut after = restored.clone();
+                assert!(after.perform_activity(action));
+                let mechanics = serde_json::to_value(&after).unwrap();
+                record_activity(&before, &mut after, action);
+                let (key, _, _) = activity_key(&before, action);
+                assert_eq!(after.continuity.visual_content.selections[&key], unit);
+                assert_eq!(after.continuity.visual_content.outcomes[&key], 0);
+                let mut actual = serde_json::to_value(&after).unwrap();
+                actual["visual_content"] = mechanics["visual_content"].clone();
+                assert_eq!(actual, mechanics);
+            }
+            assert_eq!(seen.len(), 3);
+        }
     }
     #[test]
     fn every_integrated_family_preserves_imported_copy_and_outcome_identity() {

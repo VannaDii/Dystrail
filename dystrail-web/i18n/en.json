@@ -1587,6 +1587,78 @@
       "choice_2": "Compare and save the toll maps",
       "log_2": "You save the old and current toll maps and make sense of the ruling. The courier puts away her toy crown. The border of Manhattan remains unmoved by headwear.",
       "overlay_0": "LONG LIVE THE KING"
+    },
+    "ACT-CASHWORK-A": {
+      "name": "Family Values Payroll",
+      "desc": "A diner offers $18 for a three-hour cleanup. The owner praises Trump’s “no tax on tips” promise. You ask about the wage. He points at the tip jar.",
+      "choice_0": "Take the cleanup shift",
+      "log_0": "You collect the $18 and lose some patience. The empty tip jar enjoys a completely tax-free afternoon."
+    },
+    "ACT-CASHWORK-B": {
+      "name": "The Self-Made Stage",
+      "desc": "A venue offers $18 to unload staging for a billionaire’s political fundraiser. The banner says he built everything himself. It needs six people to lift it.",
+      "choice_0": "Unload the stage equipment",
+      "log_0": "You finish the shift with $18 and less patience. The billionaire takes the stage alone, preserving the illusion."
+    },
+    "ACT-CASHWORK-C": {
+      "name": "Infrastructure Week, Again",
+      "desc": "A shop offers $18 to unload a delivery delayed by broken local access roads. The owner calls it Trump’s Infrastructure Week. The driver calls it Thursday.",
+      "choice_0": "Unload the delivery",
+      "log_0": "You collect $18, tired of the speeches. The delivery truck has completed more public works than the slogan."
+    },
+    "ACT-FOODWORK-A": {
+      "name": "Your Dinner, Your Assignment",
+      "desc": "A pantry offers food for a three-hour sorting shift. Congress has cut projected food-aid spending. The volunteer calls your crate “the local implementation plan.”",
+      "choice_0": "Sort donations for food",
+      "log_0": "You finish tired and take the food. Congress can call it self-sufficiency; you have seen the donation labels."
+    },
+    "ACT-FOODWORK-B": {
+      "name": "The Donor Leftovers",
+      "desc": "A community kitchen offers food for sorting leftovers from a super-PAC dinner. Unlimited political speech appears to include an extraordinary amount of chicken.",
+      "choice_0": "Sort the leftovers",
+      "log_0": "You earn food and lose patience. A drumstick finally reaches someone without a donor badge."
+    },
+    "ACT-FOODWORK-C": {
+      "name": "American-Made Hunger",
+      "desc": "A pantry offers food for a sorting shift. A volunteer points to tariff-inflated grocery invoices. “China pays,” she says, holding out an empty till. “We’re waiting.”",
+      "choice_0": "Sort food for the pantry",
+      "log_0": "The work costs patience but earns food. The till remains impressively international in its emptiness."
+    },
+    "ACT-FORAGE-A": {
+      "name": "No Payslip Required",
+      "desc": "A local guide leads a foraging walk while neighbors discuss Congress’s food-aid work rules. The blackberry bush has failed to install a document-upload portal.",
+      "choice_0": "Gather what the guide identifies",
+      "log_0": "You gather some food. The bush accepts evidence that you are hungry. Washington may want to audit it."
+    },
+    "ACT-FORAGE-B": {
+      "name": "The Redundant Botanist",
+      "desc": "A botanist laid off in the DOGE cuts shows your crew what is safe to gather. She points to a dangerous lookalike. “That advice used to be considered waste.”",
+      "choice_0": "Follow the botanist’s guidance",
+      "log_0": "You collect some food and avoid the lookalikes. The savings remain difficult to eat."
+    },
+    "ACT-FORAGE-C": {
+      "name": "A Public Option With Thorns",
+      "desc": "At a foraging walk, the guide says lobbyists get dinner for discussing food policy. You’ll be getting dinner from a bush. The bush has fewer sponsors.",
+      "choice_0": "Gather with the guide",
+      "log_0": "You bring back some food. None of it demands a seat on the committee."
+    },
+    "ACT-GLEAN-A": {
+      "name": "The Tariff Harvest",
+      "desc": "A farmer lets your crew glean produce while grumbling about tariffs on tractor parts. His crops grew locally. Their operating expenses have been around the world.",
+      "choice_0": "Glean the remaining produce",
+      "log_0": "You work the row and collect food, sore from the effort. The farmer waves a repair bill. “China missed another payment.”"
+    },
+    "ACT-GLEAN-B": {
+      "name": "The Free-Market Carrot",
+      "desc": "A farmer offers your crew leftover produce while the radio covers Congress’s food-aid cuts. “Plenty of food,” she says. “We’re running short of permission to eat it.”",
+      "choice_0": "Glean with permission",
+      "log_0": "You gather food and wear yourselves out. Every carrot makes it past the eligibility committee."
+    },
+    "ACT-GLEAN-C": {
+      "name": "Independence Day Labor",
+      "desc": "A farmer lets the crew glean after neighbors discuss SNAP work requirements. A crooked carrot has been rejected by the buyer. It would like credit for its hours underground.",
+      "choice_0": "Collect the rejected produce",
+      "log_0": "You collect food at the cost of sore muscles. The carrot’s employment record remains spotless."
     }
   },
   "play": {

@@ -16,7 +16,7 @@ pub fn render(app: &AppState) -> Html {
     }
     html! {<section class="roadside-options" aria-label={i18n::t(if town{"trail.town_work"}else{"trail.gather"})}>
         <h2>{i18n::t(if town{"trail.town_work"}else{"trail.gather"})}<crate::components::ui::context_help::ContextHelp title={i18n::t("trail.gather")} text={i18n::t("trail.gather_help")} /></h2>
-        <div class="action-grid">{for Activity::TOWN.into_iter().map(|action|html!{<div class="action-option"><ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={i18n::t(action.key())} detail={activity_detail(gs,action)} /></div>})}</div>
+        <div class="action-grid">{for Activity::TOWN.into_iter().map(|action|html!{<div class="action-option">{activity_offer(gs,action)}<ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={activity_copy(gs,action,"choice_0",&i18n::t(action.key()))} detail={activity_detail(gs,action)} /></div>})}</div>
         if town && gs.continuity.activities.worked_at==gs.continuity.route_services.stop {<p class="action-availability">{i18n::t("trail.work_done")}</p>}
     </section>}
 }
@@ -30,7 +30,8 @@ pub fn render_camp(app: &AppState) -> Html {
     let remaining = gs.forage_cooldown_days();
     html! {<>{for Activity::ROADSIDE.into_iter().map(|action|html!{
         <div class="camp-action camp-gather">
-            <ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={i18n::t(action.key())} detail={activity_detail(gs,action)} />
+            {activity_offer(gs,action)}
+            <ActionButton disabled={!gs.can_activity(action)} onclick={choose(app,action)} label={activity_copy(gs,action,"choice_0",&i18n::t(action.key()))} detail={activity_detail(gs,action)} />
 
             {gather_blocker(gs,action).map_or_else(
                 || crate::components::ui::camp_panel::cooldown(remaining,FORAGE_COOLDOWN_DAYS,"trail.gather_wait"),
@@ -66,6 +67,7 @@ fn choose(app: &AppState, action: Activity) -> Callback<MouseEvent> {
         if !session.with_state_mut(|gs| gs.perform_activity(action)) {
             return;
         }
+        session.with_state_mut(|gs| super::visual_content::record_activity(&before, gs, action));
         let scene = if before.continuity.route_services.stop.is_some() {
             crate::components::ui::journey_scene::SceneStage::Town
         } else {
@@ -73,8 +75,13 @@ fn choose(app: &AppState, action: Activity) -> Callback<MouseEvent> {
         };
         let next = super::aftermath::next_phase(session.state());
         let mut report = Aftermath {
-            title: i18n::t(action.key()),
-            message: i18n::t(&format!("{}_done", action.key())),
+            title: activity_copy(&before, action, "name", &i18n::t(action.key())),
+            message: activity_copy(
+                &before,
+                action,
+                "log_0",
+                &i18n::t(&format!("{}_done", action.key())),
+            ),
             scene,
             before: before.stats.clone(),
             after: session.state().stats.clone(),
@@ -129,4 +136,25 @@ fn activity_detail(gs: &crate::game::GameState, action: Activity) -> String {
         )])),
     ));
     detail.join(" · ")
+}
+
+fn activity_copy(
+    gs: &crate::game::GameState,
+    action: Activity,
+    field: &str,
+    fallback: &str,
+) -> String {
+    i18n::encounter_text(
+        &super::visual_content::activity_unit(gs, action),
+        field,
+        fallback,
+    )
+}
+
+fn activity_offer(gs: &crate::game::GameState, action: Activity) -> Html {
+    let description = activity_copy(gs, action, "desc", "");
+    if description.is_empty() {
+        return Html::default();
+    }
+    html! {<p class="activity-offer">{description}</p>}
 }

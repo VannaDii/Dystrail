@@ -4194,7 +4194,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-CASHWORK-B",
@@ -4222,7 +4230,15 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-CASHWORK-C",
@@ -4242,7 +4258,15 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FOODWORK-A",
@@ -4276,7 +4300,15 @@
         768,
         256
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FOODWORK-B",
@@ -4310,7 +4342,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FOODWORK-C",
@@ -4344,7 +4384,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FORAGE-A",
@@ -4378,7 +4426,15 @@
         768,
         256
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FORAGE-B",
@@ -4412,7 +4468,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-FORAGE-C",
@@ -4446,7 +4510,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-GLEAN-A",
@@ -4480,7 +4552,15 @@
         768,
         256
       ],
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-GLEAN-B",
@@ -4514,7 +4594,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-GLEAN-C",
@@ -4548,7 +4636,15 @@
         768,
         256
       ],
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_content_checkpoint": {
+        "status": "English offer, choice and outcome integrated; visual and localization acceptance incomplete",
+        "source": "current-source-records.json",
+        "selection": "seed/family/day for gathering; seed/family/town stop for work; recorded on successful completion",
+        "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
+        "translations": "Preserved refresh translations conflict with approved source and were not imported",
+        "mechanics": "Existing Activity handler unchanged"
+      }
     },
     {
       "unit": "ACT-REST-A",
