@@ -19573,5 +19573,17 @@
       "Final time-of-day/weather and full-flow art acceptance",
       "Hearing scene-specific visual jokes and ending compositions"
     ]
+  },
+  "mode_localization_checkpoint": {
+    "status": "Approved Deep End opt-in theme notice present in all 20 supported languages",
+    "verification": [
+      "Build fcb2a7ad6004b21bcf93 passed",
+      "All 20 locales passed desktop/mobile checks: localized notice visible before selection, Classic remains selected, no horizontal overflow",
+      "Arabic desktop and Tamil mobile screenshots reviewed for wrapping and script rendering"
+    ],
+    "remaining": [
+      "Broader translation completion remains open: several locales still show existing English UI fallback, visible in Tamil onboarding",
+      "Full linguistic acceptance and other narrative translations"
+    ]
   }
 }
