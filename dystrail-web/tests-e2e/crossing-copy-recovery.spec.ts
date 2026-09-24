@@ -2,7 +2,47 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {baseline,importState,waitForLaunch} from './helpers';
 const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
+test('crossing introductions match approved narratives rather than mode labels',()=>{
+ const source=JSON.parse(readFileSync('../review/recovery/current-source-records.json','utf8'));
+ const crossings=source.units.filter((unit:any)=>unit.id.startsWith('CROSS-'));
+ expect(crossings).toHaveLength(12);
+ for(const unit of crossings){
+  const narrative=unit.source_paragraphs.slice(1).find((text:string)=>
+   !/^(Deep End only|Classic only)$/.test(text)&&!text.includes('→'));
+  expect(narrative,unit.id).toBeTruthy();
+  expect(copy[unit.id].desc,unit.id).toBe(narrative);
+ }
+});
 const saved=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+test('Spanish and Arabic crossing narratives preserve receipt and permit distinctions',async({page,context},info)=>{
+ test.setTimeout(180000);
+ const base=await baseline(page);
+ for(const locale of ['es','ar']){
+  const translated=JSON.parse(readFileSync(`i18n/${locale}.json`,'utf8')).encounter_copy;
+  for(const family of ['CROSS-01','CROSS-02C','CROSS-02D','CROSS-03'])for(const v of ['A','B','C']){
+   const unit=`${family}-${v}`;const receipt=v==='A';
+   for(const field of Object.keys(copy[unit]))expect(translated[unit][field],`${locale}/${unit}/${field}`).toBeTruthy();
+   expect(translated[unit].permit_receipt).not.toBe(translated[unit].permit_tag);
+   const s=structuredClone(base);s.seed=42;
+   s.crossing_events=[{day:s.day,region:s.region,season:s.season,kind:'checkpoint',permit_used:true,bribe_attempted:false,bribe_success:null,bribe_cost_cents:0,bribe_chance:null,bribe_roll:null,detour_reason:null,detour_taken:false,detour_hours:null,detour_base_supplies_delta:null,detour_extra_supplies_loss:null,terminal_threshold:0,terminal_roll:null,outcome:'passed'}];
+   s.visual_content={edition:1,selections:{},outcomes:{},policy_bulletins:[],crossing_presentations:[{event_index:0,unit,permit_receipt:receipt,acknowledged:false}]};
+   await importState(page,s);
+   await page.evaluate(locale=>localStorage.setItem('dystrail.locale',locale),locale);
+   const final=family==='CROSS-03'&&v==='C';
+   if(final)await context.setOffline(true);
+   await page.reload();await waitForLaunch(page);
+   await expect(page.locator('.crossing-message')).toContainText(translated[unit].desc);
+   await expect(page.locator('.crossing-message')).toContainText(translated[unit][receipt?'permit_receipt':'permit_tag']);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   if(final)await page.screenshot({path:info.outputPath(`crossing-${locale}.png`),fullPage:true});
+   await page.locator('#crossing-continue').click();
+   await expect(page.locator('#crossing-continue')).toHaveCount(0);
+   if(final)await context.setOffline(false);
+   await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));
+   await page.reload();await waitForLaunch(page);
+  }
+ }
+});
 test('crossing narratives acknowledge committed telemetry without changing the journey',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);
  for(const family of ['CROSS-01','CROSS-02C','CROSS-02D','CROSS-03'])for(const v of ['A','B','C'])for(const field of ['passage','permit_receipt','permit_tag','bribe_success','diversion','bribe_failure',family==='CROSS-01'?'refused_passage':'terminal_failure']){
@@ -18,6 +58,8 @@ test('crossing narratives acknowledge committed telemetry without changing the j
   }
   await page.locator('#crossing-continue').click();await expect(page.locator('#crossing-continue')).toHaveCount(0);
   const after=await saved(page);expect(after.visual_content.crossing_presentations[0].acknowledged).toBe(true);
+  // Inventory tags are a Rust HashSet: reload may change serialization order.
+  after.inventory.tags.sort();before.inventory.tags.sort();
   after.visual_content=before.visual_content;expect(after).toEqual(before);
  }
 });

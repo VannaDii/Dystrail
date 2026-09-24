@@ -3798,7 +3798,7 @@
     },
     "CROSS-02D-A": {
       "name": "The Privacy Camera",
-      "desc": "Deep End only",
+      "desc": "The checkpoint’s Flock camera is advertised as protection. A woman ahead asks who protects her when an officer uses it to stalk her. The guard points to a second camera.",
       "passage": "You pass. The second camera is apparently supervising the first camera’s personal growth.",
       "diversion": "You take the diversion. The privacy notice promises to record your concerns, along with your number plate.",
       "permit_receipt": "Your permit is accepted. The guard briefly experiences identifying someone without stalking them. One Receipt is used.",
@@ -3809,7 +3809,7 @@
     },
     "CROSS-02D-B": {
       "name": "Two Documents, One Person",
-      "desc": "Deep End only",
+      "desc": "At the checkpoint, a trans traveler’s renewed federal passport conflicts with her state ID. The guard says the computer cannot reconcile them. She suggests looking up from the computer.",
       "passage": "You clear the crossing. The woman ahead remains one person, despite the office’s impressive ability to manufacture two problems.",
       "diversion": "You divert. The guard says the alternate road is less direct, a subject on which he has considerable experience.",
       "permit_receipt": "Your permit clears you. The guard accepts that some documents are allowed to agree with their owner. One Receipt is used.",
@@ -3820,7 +3820,7 @@
     },
     "CROSS-02D-C": {
       "name": "Screened for Needing Treatment",
-      "desc": "Deep End only",
+      "desc": "The checkpoint advertises ICE-style medical screening. A diabetic man asks about treatment. The guard points to his intake form. “We’ve already established that you need some.”",
       "passage": "You pass. The clinic’s treatment plan remains a very thorough description of why it needs a treatment plan.",
       "diversion": "You divert. The intake desk describes your departure as reduced demand for services.",
       "permit_receipt": "Your permit is accepted. The crossing can process paper considerably faster than it processes people. One Receipt is used.",

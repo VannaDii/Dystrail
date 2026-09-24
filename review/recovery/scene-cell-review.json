@@ -19387,20 +19387,39 @@
     }
   },
   "crossing_copy_checkpoint": {
-    "status": "12 English narrative variants integrated; retained crossing-specific art and localization incomplete",
+    "status": "12 English, Spanish and Arabic narrative variants integrated; retained crossing-specific art and remaining localization incomplete",
     "source": "Current approved CROSS-01, CROSS-02C, CROSS-02D and CROSS-03 A/B/C records",
     "behavior": "Captures only newly committed crossing telemetry, seals deterministic presentation, persists acknowledgment and pauses travel. Reads actual outcome, failed/successful bribe and consumed-receipt versus reusable permit context. Continue marks acknowledgment only; existing phase/aftermath survives.",
     "art": "Uses existing regional stopped-road scene and actual surviving crew provisionally; does not claim the required crossing structures, props or terminal damage have been illustrated.",
     "remaining": [
       "Recover compatible retained crossing-specific art and localized editable signs",
-      "Translation recovery against current premises",
+      "Remaining locales, including Italian, require current-premise translations",
       "Variant-specific factual context",
       "Full real-travel visual acceptance including terminal crossing damage"
     ],
     "verification": [
       "Native capture deduplication, mode/ordinal family binding, current-save restoration and simulation-state isolation passed",
       "Initial desktop/mobile checks passed all 12 variants across seven applicable outcomes; acknowledgment changes no simulation state; offline reload passed",
-      "Build ca55ed86f2ba90ab1476: desktop/mobile 84-case checks passed with Travel/Camp disabled pending acknowledgment (2 tests, 27.8s). Final mobile screenshot reviewed; narrative uses existing left-aligned outcome layout, scene remains explicitly provisional."
-    ]
+      "Build ca55ed86f2ba90ab1476: desktop/mobile 84-case checks passed with Travel/Camp disabled pending acknowledgment (2 tests, 27.8s). Final mobile screenshot reviewed; narrative uses existing left-aligned outcome layout, scene remains explicitly provisional.",
+      "Build fb974984f2ca5e1854c3: source-bound introductions and all 24 Spanish/Arabic variant presentations passed on desktop/mobile, including both permit forms, offline reload and viewport overflow checks. Desktop 84-outcome state-isolation test passed. Initial mobile state comparison found only HashSet tag serialization order; comparator now sorts inventory tags without excluding their values.",
+      "Focused mobile recheck passed all 84 outcome/state cases in 17.8 seconds after normalizing unordered inventory tags. No simulation changes or additional image generation."
+    ],
+    "localization": "Recovered nine matching Spanish/Arabic variants; rewrote CROSS-01-A, CROSS-02C-C and CROSS-03-A against current approved premises instead of stale retained translations. All 12 distinguish consumed Receipt from reusable permit. Other locales remain incomplete.",
+    "source_correction": "CROSS-02D A/B/C now use the approved narrative rather than the Deep End only source label. Regression checks all 12 introductions directly against current-source-records.json.",
+    "retained_art_review": {
+      "compatible_candidates": [
+        "crossing-privacy-v2",
+        "crossing-workers-raised-v2",
+        "crossing-workers-lowered-v2"
+      ],
+      "reuse_constraints": "Retained SVG crop code supports regional landscape replacement; not integrated or visually accepted. Preserve blank sign surfaces, localized overlays, actual crew and believable relative scale. Full raster mountain backgrounds cannot be applied to every crossing region.",
+      "obsolete_premises": [
+        "crossing-laminate-v2",
+        "crossing-crown variants",
+        "crossing-slots-v2"
+      ],
+      "generation_calls": 0
+    },
+    "visual_review": "Arabic desktop/mobile screenshots reviewed: crossing narrative, controls and scene caption are readable with no horizontal overflow. Road scene is provisional; old departure receipt in synthetic fixture remains English and does not prove full journey localization."
   }
 }

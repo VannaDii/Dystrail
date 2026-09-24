@@ -1767,6 +1767,140 @@
       "log_2": "Cambias provisiones por una batería usada y la instalas. La furgoneta elige su candidatura arrancando.",
       "log_3": "Terminas el trabajo acordado e instalas una batería usada. Resulta que la competencia consiste en conectar cosas.",
       "roadside": "Llega el recambio y se instala. Quien conduce conecta ambos bornes pese a las preocupaciones de la radio."
+    },
+    "CROSS-01-B": {
+      "name": "Contrabando geográfico",
+      "desc": "La agente del puesto ve «Golfo de México» en vuestro mapa. Trump le cambió el nombre. Sujeta el mapa por una esquina, como si pudiera gotear mexicanos.",
+      "passage": "Os deja pasar tras doblar el golfo ofensivo para ocultarlo. El océano ha sido contenido.",
+      "diversion": "Tomáis el desvío. Ambos nombres siguen conteniendo la misma agua.",
+      "bribe_success": "El pago os abre paso. De pronto, a la agente le preocupa mucho menos de dónde vienen las cosas.",
+      "bribe_failure": "Se queda el pago, pero os niega el paso. Habéis comprado una demora muy patriótica.",
+      "refused_passage": "Os niegan el paso. Rodeáis el puesto; el golfo sigue donde estaba.",
+      "terminal_failure": "No podéis completar el cruce. El viaje termina en el puesto.",
+      "permit_receipt": "Aceptan el permiso. Al parecer, el mapa tiene inmunidad diplomática. Se usa una Prueba.",
+      "permit_tag": "Aceptan el permiso. Al parecer, el mapa tiene inmunidad diplomática. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-01-C": {
+      "name": "¿Dónde nació la furgoneta?",
+      "desc": "La agente del puesto anuncia una investigación extrema al estilo Trump. Pregunta dónde nació la furgoneta. Señaláis la placa del fabricante. «Certificado íntegro», responde.",
+      "passage": "Os dejan pasar. La entrevista de ciudadanía de la furgoneta no ha mejorado su suspensión.",
+      "diversion": "Tomáis un desvío. Ahora acusan a la furgoneta de quitarles el trabajo a las furgonetas estadounidenses.",
+      "bribe_success": "El pago abre la barrera. La furgoneta se ha acogido a la vía para inversores.",
+      "bribe_failure": "Aceptan el pago; la barrera sigue bajada. La inversión de la furgoneta se ha convertido en ayuda exterior.",
+      "refused_passage": "Os niegan el paso. Tomáis el desvío antes de que pregunten por los abuelos de la rueda de repuesto.",
+      "terminal_failure": "No podéis completar el cruce. El viaje termina en el puesto.",
+      "permit_receipt": "Aceptan el permiso. Al parecer, la furgoneta es un espacio de carga naturalizado. Se usa una Prueba.",
+      "permit_tag": "Aceptan el permiso. Al parecer, la furgoneta es un espacio de carga naturalizado. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-02C-A": {
+      "name": "El Departamento de Barreras",
+      "desc": "La oficina del cruce ha copiado el cambio de imagen de Trump al «Departamento de Guerra». La nueva placa es enorme. Detrás, dos trabajadoras sostienen la barrera a mano.",
+      "passage": "Cruzáis mientras las trabajadoras sostienen la barrera. La placa ofrece un gran apoyo moral.",
+      "diversion": "Tomáis el desvío. El nuevo departamento ha logrado una victoria decisiva contra el tráfico.",
+      "bribe_success": "El pago hace que levanten la barrera. El departamento ha descubierto cómo financiar sus brazos armados.",
+      "bribe_failure": "El pago desaparece en la oficina. Cada trabajadora sigue teniendo solo sus dos brazos originales.",
+      "terminal_failure": "No podéis completar el cruce. La expedición termina bajo una placa lo bastante grande para ocultar el problema.",
+      "permit_receipt": "El permiso os abre paso. Una trabajadora levanta la barrera con su verdadero presupuesto de defensa: ambos brazos. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. Una trabajadora levanta la barrera con su verdadero presupuesto de defensa: ambos brazos. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-02C-B": {
+      "name": "Hormigón por méritos",
+      "desc": "La jefa del cruce presume de haber eliminado la diversidad, equidad e inclusión de la lista de inspección. Señala una grieta en el hormigón. «Eso es diversidad de superficies».",
+      "passage": "Conseguís cruzar. El hormigón sigue sin dejarse convencer por la política de personal.",
+      "diversion": "Tomáis el desvío. La jefa ha conseguido excluir vuestra furgoneta del puente.",
+      "bribe_success": "El pago permite el cruce. Resulta que el mérito tiene una opción en efectivo.",
+      "bribe_failure": "Aceptan el pago, pero os niegan el paso. Habéis financiado otra investigación sobre los pronombres del hormigón.",
+      "terminal_failure": "Este cruce pone fin a la expedición. La evaluación de la jefa recomienda menos diversidad en el formulario de reclamaciones.",
+      "permit_receipt": "Aceptan el permiso. El papeleo ha superado una prueba de carga a la que el papeleo nunca debería someterse. Se usa una Prueba.",
+      "permit_tag": "Aceptan el permiso. El papeleo ha superado una prueba de carga a la que el papeleo nunca debería someterse. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-02D-A": {
+      "name": "La cámara de privacidad",
+      "desc": "El puesto anuncia su cámara Flock como protección. Una mujer delante pregunta quién la protege cuando alguien de la policía la utiliza para acosarla. La guardia señala una segunda cámara.",
+      "passage": "Pasáis. Al parecer, la segunda cámara supervisa el crecimiento personal de la primera.",
+      "diversion": "Tomáis el desvío. El aviso de privacidad promete registrar vuestras inquietudes, junto con vuestra matrícula.",
+      "bribe_success": "El pago abre la barrera. La privacidad sigue sin estar disponible, pero el paso tiene precio.",
+      "bribe_failure": "Aceptan el pago y os niegan el paso. La cámara conserva un excelente registro de la experiencia del cliente.",
+      "terminal_failure": "El cruce pone fin a la expedición. La cámara protectora sigue protegiendo a la guardia de tener que recordar nada.",
+      "permit_receipt": "Aceptan el permiso. La guardia experimenta brevemente lo que es identificar a alguien sin acosarlo. Se usa una Prueba.",
+      "permit_tag": "Aceptan el permiso. La guardia experimenta brevemente lo que es identificar a alguien sin acosarlo. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-02D-B": {
+      "name": "Dos documentos, una persona",
+      "desc": "En el puesto, el pasaporte federal renovado de una viajera trans contradice su identificación estatal. La guardia dice que el ordenador no puede conciliarlos. Ella sugiere levantar la vista del ordenador.",
+      "passage": "Superáis el cruce. La mujer de delante sigue siendo una sola persona, pese al impresionante talento de la oficina para fabricar dos problemas.",
+      "diversion": "Os desviáis. La guardia dice que la otra carretera es menos directa, un tema en el que tiene bastante experiencia.",
+      "bribe_success": "El pago abre la barrera. El ordenador reconoce el dinero con una flexibilidad conmovedora.",
+      "bribe_failure": "Aceptan el pago; os niegan el paso. El dinero ha sido reconocido. Las personas siguen en revisión.",
+      "terminal_failure": "El cruce pone fin a la expedición. El ordenador no detecta ningún conflicto con ese resultado.",
+      "permit_receipt": "El permiso os abre paso. La guardia acepta que algunos documentos pueden coincidir con su titular. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. La guardia acepta que algunos documentos pueden coincidir con su titular. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-02D-C": {
+      "name": "Evaluada para necesitar tratamiento",
+      "desc": "El puesto anuncia evaluaciones médicas al estilo ICE. Una mujer con diabetes pregunta por el tratamiento. La guardia señala el formulario de ingreso. «Ya hemos establecido que necesita uno».",
+      "passage": "Pasáis. El plan de tratamiento de la clínica sigue siendo una descripción muy exhaustiva de por qué necesita un plan de tratamiento.",
+      "diversion": "Os desviáis. La mesa de admisión describe vuestra marcha como una reducción de la demanda de servicios.",
+      "bribe_success": "El pago abre la barrera. El dinero recibe atención inmediata de una especialista.",
+      "bribe_failure": "Aceptan el pago sin dejaros pasar. La oficina ha completado su admisión financiera.",
+      "terminal_failure": "El cruce pone fin a la expedición. El formulario de ingreso está completo; el servicio que describe sigue ausente.",
+      "permit_receipt": "Aceptan el permiso. El puesto procesa el papel bastante más rápido que a las personas. Se usa una Prueba.",
+      "permit_tag": "Aceptan el permiso. El puesto procesa el papel bastante más rápido que a las personas. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-03-B": {
+      "name": "Versión aprobada del viaje",
+      "desc": "La oficina del cruce sigue la exigencia de Trump de una historia estadounidense más halagadora. La agente sopesa vuestra carpeta del caso. «Aquí hay mucho país que necesita mejorar».",
+      "passage": "Cruzáis con el expediente. La halagadora biografía del país ha adquirido un apéndice incómodo.",
+      "diversion": "Tomáis el desvío. La agente empieza a describir vuestra ausencia como satisfacción ciudadana.",
+      "bribe_success": "El pago abre la barrera. Vuestra historia ha encontrado patrocinio.",
+      "bribe_failure": "Se queda el pago, pero os niega el paso. El patrocinio no incluye control editorial.",
+      "terminal_failure": "No podéis completar el cruce. La expedición termina; la versión oficial ya es más corta.",
+      "permit_receipt": "El permiso os abre paso. La carpeta sigue incómodamente llena. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. La carpeta sigue incómodamente llena. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-03-C": {
+      "name": "El Departamento de Llegadas",
+      "desc": "La oficina del cruce copia el plan de Trump para desmantelar el Departamento de Educación: eliminar el escritorio y anunciar un mejor servicio. Vuestra cita se atiende sobre un cubo boca abajo.",
+      "passage": "Cruzáis. Nadie reconoce el servicio público del cubo.",
+      "diversion": "Tomáis el desvío. El cubo ahora gestiona tanto las llegadas como las reclamaciones.",
+      "bribe_success": "El pago os abre paso. Una contratista privada ofrece inmediatamente alquilaros un segundo cubo.",
+      "bribe_failure": "Se queda el pago, pero os niega el paso. La contratista factura el acceso al cubo.",
+      "terminal_failure": "No podéis completar el cruce. La expedición termina; el cubo figura entre los candidatos al ascenso.",
+      "permit_receipt": "El permiso os abre paso. El cubo ha conservado la memoria institucional. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. El cubo ha conservado la memoria institucional. La etiqueta de permiso sigue disponible."
+    },
+    "CROSS-01-A": {
+      "name": "Lo bastante estadounidense",
+      "desc": "En el puesto, una agente exige una furgoneta fabricada en Estados Unidos. Abres el capó. Ella provoca un incidente internacional con el alternador.",
+      "passage": "Os deja pasar. El alternador entra con un visado de trabajo temporal.",
+      "diversion": "Tomáis el desvío. El alternador sigue siendo sospechosamente bueno en su trabajo.",
+      "permit_receipt": "El permiso da paso a la furgoneta. El alternador figura como familiar a cargo. Se usa una Prueba.",
+      "permit_tag": "El permiso da paso a la furgoneta. El alternador figura como familiar a cargo. La etiqueta de permiso sigue disponible.",
+      "bribe_success": "El pago abre la barrera. Vuestro dinero supera la prueba de nacionalidad.",
+      "bribe_failure": "Se queda el pago y mantiene la barrera bajada. Al parecer, los aranceles también funcionan aquí.",
+      "refused_passage": "La agente os niega el paso. Tomáis el desvío, con la supuesta amenaza extranjera todavía cargando la batería."
+    },
+    "CROSS-02C-C": {
+      "name": "China lo arreglará",
+      "desc": "En el cruce, las trabajadoras han calculado el precio del acero de repuesto tras los aranceles de Trump. La supervisora no deja de actualizar su bandeja de entrada esperando el pago de China. Un cono ha ascendido a reparación de puentes.",
+      "passage": "Cruzáis. El cono sigue siendo el nombramiento más fiable del proyecto.",
+      "diversion": "Tomáis el desvío. China no ha respondido al quinto recordatorio de la supervisora.",
+      "permit_receipt": "El permiso os abre paso. La supervisora considera por un momento pasarle la factura del acero. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. La supervisora considera por un momento pasarle la factura del acero. La etiqueta de permiso sigue disponible.",
+      "bribe_success": "El pago abre la barrera. La supervisora lo mete en la carpeta destinada a la aportación de China.",
+      "bribe_failure": "Aceptan el pago sin dejaros pasar. Os han confundido con otro país al que le sobra dinero.",
+      "terminal_failure": "No podéis completar el cruce. La expedición termina; el cono recibe otro mandato."
+    },
+    "CROSS-03-A": {
+      "name": "La libertad de expresión cobra entrada",
+      "desc": "En el último cruce, la funcionaria llama «expresión» al gasto electoral. Mira vuestra furgoneta llena de gente que realmente habla. «Nos referíamos a la que se dobla y cabe en la cartera».",
+      "passage": "Cruzáis. Vuestras voces han superado por un momento un mercado que prefiere billetes.",
+      "diversion": "Tomáis el desvío. Al parecer, la libertad de expresión incluye un paseo más largo hasta el micrófono.",
+      "permit_receipt": "El permiso os abre paso. Por una vez, escuchan al papel sin que lleve una cara impresa. Se usa una Prueba.",
+      "permit_tag": "El permiso os abre paso. Por una vez, escuchan al papel sin que lleve una cara impresa. La etiqueta de permiso sigue disponible.",
+      "bribe_success": "El pago abre la barrera. Vuestro dinero ha pronunciado un discurso breve y convincente.",
+      "bribe_failure": "Se quedan el dinero y os niegan el paso. Vuestro discurso ha quedado registrado en la cartera de alguien.",
+      "terminal_failure": "El cruce pone fin a la expedición. La funcionaria describe el silencio como un saludable mercado de ideas."
     }
   },
   "play": {
