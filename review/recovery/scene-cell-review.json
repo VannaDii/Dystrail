@@ -19495,5 +19495,22 @@
       "Translations and factual context",
       "Shared aftermath also displays recent journal entries, duplicating current notice above its detail panel; assess in final presentation pass"
     ]
+  },
+  "hearing_copy_checkpoint": {
+    "status": "Six English Hearing narratives integrated; art and translations incomplete",
+    "behavior": "Stable seeded Classic/Deep narrative identity. Approved preparation, rolling-round and exhausted-verdict text replaces generic narration. Before-vote copy appears only when a committed vote exists; secured outcomes and actual round-result reactions retain existing wording. No mechanics, costs, odds, draws, timing or controls changed.",
+    "verification": [
+      "All six titles and six narrative fields match canonical source exactly",
+      "Native mode/variant/phase and state-mutation checks passed",
+      "Build fdd7123e9b489f585a4b passed (subsequent Rust formatting only)",
+      "All six narratives tested on desktop/mobile in preparation, actual-vote closure, secured closure and exhaustion; report/stats preservation and offline reload passed",
+      "Existing once-only resolution and staged-round reload regressions passed on desktop/mobile; six final browser tests passed in 1.2 minutes",
+      "Desktop/mobile exhausted-verdict screenshots reviewed; text fits existing Hearing layout"
+    ],
+    "remaining": [
+      "Six scene-specific visual jokes and actual arriving-crew composition remain incomplete; existing portrait-based Hearing scene retained",
+      "Translations and factual context",
+      "Final full-game acceptance and preview sheets"
+    ]
   }
 }

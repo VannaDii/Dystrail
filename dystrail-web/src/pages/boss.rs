@@ -1,4 +1,5 @@
 //! Player-paced presentation of a hearing that has already been committed to the save.
+mod narrative;
 mod scene;
 pub(crate) mod summary;
 mod timing;
@@ -29,6 +30,9 @@ pub struct BossPageProps {
 impl PartialEq for BossPageProps {
     fn eq(&self, other: &Self) -> bool {
         self.state.boss.hearing == other.state.boss.hearing
+            && self.state.mode == other.state.mode
+            && self.state.seed == other.state.seed
+            && self.state.continuity.visual_content == other.state.continuity.visual_content
             && self.state.boss.presentation == other.state.boss.presentation
             && self.state.stats == other.state.stats
             && self.state.day == other.state.day
@@ -90,14 +94,18 @@ pub fn boss_page(p: &BossPageProps) -> Html {
             .map_or(r.starting_stats.sanity, |round| round.sanity_after)
     });
     let base = report.map_or(forecast.base_chance, |r| r.base_chance);
-    let title = match phase {
-        HearingPhase::Arrival => t("arrival"),
-        HearingPhase::Preparation => t("preparation"),
-        HearingPhase::RoundRolling(i) | HearingPhase::RoundResult(i) => t(round_key(i)),
-        HearingPhase::Committee(_) | HearingPhase::CommitteeResult(_) => t("committee"),
-        HearingPhase::Closed => t("closed"),
-        HearingPhase::VoteRolling => t("vote"),
-        _ => report.map_or_else(|| t("closed"), |r| t(outcome_key(r.outcome))),
+    let title = if phase == HearingPhase::Preparation {
+        narrative::copy(&p.state, "name").unwrap_or_else(|| t("preparation"))
+    } else {
+        match phase {
+            HearingPhase::Arrival => t("arrival"),
+            HearingPhase::Preparation => t("preparation"),
+            HearingPhase::RoundRolling(i) | HearingPhase::RoundResult(i) => t(round_key(i)),
+            HearingPhase::Committee(_) | HearingPhase::CommitteeResult(_) => t("committee"),
+            HearingPhase::Closed => t("closed"),
+            HearingPhase::VoteRolling => t("vote"),
+            _ => report.map_or_else(|| t("closed"), |r| t(outcome_key(r.outcome))),
+        }
     };
     let advance = {
         let on = p.on_hearing.clone();
@@ -138,7 +146,8 @@ pub fn boss_page(p: &BossPageProps) -> Html {
             t(&format!("{}_body", outcome_key(r.outcome)))
         }),
     };
-    html! {<section class={classes!("hearing",p.fast.then_some("hearing-fast"))} data-hearing-phase={format!("{phase:?}")} data-revealed-rounds={count.to_string()} aria-labelledby="hearing-title">
+    let narration = narrative::narration(&p.state).unwrap_or(narration);
+    html! {<section data-hearing-unit={narrative::unit(&p.state)} class={classes!("hearing",p.fast.then_some("hearing-fast"))} data-hearing-phase={format!("{phase:?}")} data-revealed-rounds={count.to_string()} aria-labelledby="hearing-title">
         <div class="hearing-hud">
             <div><span>{t("starting_odds")}</span><strong>{percent(base)}</strong></div>
             <div class={classes!((sanity<=2).then_some("hearing-low-sanity"))}><span>{crate::i18n::t("ux.sanity")}</span><strong data-hearing-sanity="true">{sanity}</strong></div>

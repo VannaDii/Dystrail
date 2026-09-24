@@ -4239,6 +4239,60 @@
       "name": "The Stage of Free Speech",
       "desc": "Your contact {name} strains a shoulder hauling equipment for a protest against billionaire political spending. Free speech, it turns out, is heavier when nobody delivers it for you.",
       "last": "Your final outside ally has withdrawn. The travelers still present will have to continue without that network."
+    },
+    "HEARING-C-A": {
+      "name": "The Two-Minute Citizens",
+      "desc": "At the D.C. hearing, the chair gives you two minutes. His political donors get three hours over dinner. Apparently chicken needs more representation.",
+      "round_1": "The first procedural round drains your stamina. The chair explains how valuable everyone’s time is, at length.",
+      "round_2": "Another round of procedure. The donor-dinner menu arrives before anyone has addressed your case.",
+      "round_3": "The last procedural round. The chair asks for brevity, then reads the dessert options.",
+      "before_vote": "You endured the procedure. One vote now decides the case. For a moment, the menu goes face down.",
+      "exhausted": "You cannot endure the remaining procedure. Your hearing ends before the vote; the dinner reservation survives."
+    },
+    "HEARING-C-B": {
+      "name": "Competence, Selectively Required",
+      "desc": "You reach the D.C. hearing. The chair demands impeccable evidence. A clerk hands him the wrong folder. After the bombing-plan group chat, at least this one contains sandwiches.",
+      "round_1": "The opening procedural round drains stamina. The chair says the folder was never classified.",
+      "round_2": "The second round addresses procedure. A clerk removes the sandwiches from the official record.",
+      "round_3": "The final procedural round. The chair insists nobody was ever in danger of lunch.",
+      "before_vote": "The procedure is complete. One vote will decide your case, provided they have found the correct folder.",
+      "exhausted": "You run out of stamina before the vote. The chair has retained enough energy to deny knowing the sandwiches."
+    },
+    "HEARING-C-C": {
+      "name": "The Approved Account",
+      "desc": "At the hearing, the chair invokes Trump’s call for a more flattering American history. Your case concerns the present. He seems annoyed that history is still being manufactured.",
+      "round_1": "The first procedural round drains stamina. Your difficulties are reclassified as discouraging presentation.",
+      "round_2": "The second round debates tone. The chair asks whether the unpaid bill could sound more grateful.",
+      "round_3": "The final procedural round. The bill remains the same size despite extensive editing.",
+      "before_vote": "You make it through procedure. One vote will decide whether the room can cope with the unflattering version.",
+      "exhausted": "You cannot finish the hearing. No vote follows. The chair’s preferred account is now conveniently shorter."
+    },
+    "HEARING-D-A": {
+      "name": "The Appendix Exception",
+      "desc": "At the abortion-ban hearing, a nurse explains why hospital lawyers keep getting called during emergencies. The chair announces a study. She asks whether his appendix also waits for peer review.",
+      "round_1": "The first round drains stamina. The chair asks the nurse to define urgent. She points to the clock. He requests a second opinion.",
+      "round_2": "The second round establishes that time is critical. The committee takes a recess to decide which time.",
+      "round_3": "The last procedural round. The study receives an extension. Nobody has worked out how to give one to a patient.",
+      "before_vote": "You finish the procedure. One vote decides your case. The study will get considerably longer to make up its mind.",
+      "exhausted": "You cannot finish the rounds, so there is no vote. The chair schedules a study of why people keep running out of time."
+    },
+    "HEARING-D-B": {
+      "name": "Nothing to Hide",
+      "desc": "At the hearing on Flock misuse, the chair says innocent people have nothing to hide. A clerk starts describing his own camera records. The chair discovers executive privacy before the first sandwich shop.",
+      "round_1": "The first procedural round drains stamina. The chair distinguishes public safety from information about his lunch.",
+      "round_2": "The next round discusses oversight. He demands oversight of whoever overlooked his right to have no oversight.",
+      "round_3": "The last procedural round. His sandwich has been sealed from the public record.",
+      "before_vote": "You endure the procedure. One vote will decide the case. The chair’s lunch has already received full protection.",
+      "exhausted": "You cannot finish the rounds. The hearing ends before a vote; the chair calls this a useful reduction in surveillance."
+    },
+    "HEARING-D-C": {
+      "name": "Prior Authorization to Be Heard",
+      "desc": "The hearing concerns Medicare Advantage denials of qualifying care. The chair asks whether the patients appealed. A nurse holds up the appeal form. “Yes. It made a full recovery.”",
+      "round_1": "The opening round drains stamina. The chair asks whether the appeal form needs another appeal form.",
+      "round_2": "The second round reviews the review. The nurse adds a chair for the paperwork; it has been here longest.",
+      "round_3": "The final procedural round. The paperwork is declared fit to return to work.",
+      "before_vote": "You finish the rounds. One vote now decides the case. The form is excused from further examination.",
+      "exhausted": "You cannot finish the rounds, so no vote follows. The chair asks the paperwork whether it can continue without you."
     }
   },
   "play": {
