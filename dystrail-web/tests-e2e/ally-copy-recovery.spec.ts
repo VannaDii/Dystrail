@@ -15,6 +15,7 @@ test('ally notices preserve the traveling crew and acknowledge only once',async(
   entry.before=structuredClone(s.stats);entry.before.allies=remaining+1;entry.after=structuredClone(s.stats);entry.resources=[];entry.details=[];
   s.ally_notice=entry;s.journal.push(entry);
   await importState(page,s);await expect(page.locator('.ally-message')).toHaveText(entry.message);await expect(page.locator('#screen-title')).toContainText(copy[unit].name);
+  await expect(page.getByText(entry.message,{exact:true})).toHaveCount(1);
   const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
   const before=await read();expect(before.party).toEqual(s.party);
   if(unit==='ALLY-06-C'&&remaining===0){await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.ally-message')).toHaveText(entry.message);await page.screenshot({path:info.outputPath('last-outside-ally.png'),fullPage:true});await context.setOffline(false);}

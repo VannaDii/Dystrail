@@ -45,7 +45,7 @@ pub fn context(app: &AppState, handlers: &AppHandlers) -> PanelContext {
         return PanelContext::default();
     };
     let gs = session.state();
-    let receipt = if app.aftermath.is_none() {
+    let receipt = if app.aftermath.is_none() && !super::ally_loss::is_notice(app) {
         super::turn::render_turn_entries(gs)
     } else {
         Html::default()

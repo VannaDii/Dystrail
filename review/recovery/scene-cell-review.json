@@ -19489,11 +19489,11 @@
       "Native 36 variant/count cases preserve crew and actual state; deliberate ally spending is not overwritten",
       "Build e8ad0c162f8b6d547b17 passed",
       "Desktop/mobile 36 notice cases each passed including offline reload and acknowledgment state preservation",
-      "Desktop/mobile screenshots reviewed: bottom-left title, actual crew and standard delta cards preserved"
+      "Desktop/mobile screenshots reviewed: bottom-left title, actual crew and standard delta cards preserved",
+      "Build 0e17830500ad0731964a: recent-journal summary suppressed during active ally notice. All 36 cases each on desktop/mobile assert one copy of notice; offline and acknowledgment-state checks pass. Updated screenshots reviewed; journal remains saved."
     ],
     "remaining": [
-      "Translations and factual context",
-      "Shared aftermath also displays recent journal entries, duplicating current notice above its detail panel; assess in final presentation pass"
+      "Translations and factual context"
     ]
   },
   "hearing_copy_checkpoint": {
@@ -19511,6 +19511,19 @@
       "Six scene-specific visual jokes and actual arriving-crew composition remain incomplete; existing portrait-based Hearing scene retained",
       "Translations and factual context",
       "Final full-game acceptance and preview sheets"
+    ]
+  },
+  "town_profile_checkpoint": {
+    "status": "All 51 retained English text profiles match canonical records and render correctly; no rebuilding or illustration required by approved reuse decision",
+    "verification": [
+      "All 51 dated population, state and English attraction descriptions match canonical PROFILE records exactly",
+      "All 51 profiles on both desktop/mobile display population year/value, attraction and correct source hrefs without overflow or changes to stats, crew or clock",
+      "Minneapolis desktop/mobile screenshots reviewed; offline reload preserves profile"
+    ],
+    "remaining": [
+      "Professional translation review of retained Spanish, Italian and Arabic descriptions; other languages use English fallback",
+      "Source destinations were not re-researched in this batch; figures remain explicitly dated 2025 references",
+      "Town artwork and pre-choice reward subtitle remain part of overall presentation acceptance, not proven by text-profile checks"
     ]
   }
 }
