@@ -23,13 +23,22 @@ pub fn supported(unit: &str) -> bool {
             | "ENC-C05-A"
             | "ENC-C05-B"
             | "ENC-C05-C"
+            | "ENC-C06-A"
+            | "ENC-C06-B"
+            | "ENC-C06-C"
     )
 }
 
 pub fn is_indoors(unit: &str) -> bool {
     matches!(
         unit,
-        "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-C"
+        "ENC-C01-B"
+            | "ENC-C03-A"
+            | "ENC-C03-C"
+            | "ENC-C05-A"
+            | "ENC-C05-C"
+            | "ENC-C06-A"
+            | "ENC-C06-C"
     )
 }
 
@@ -45,7 +54,7 @@ pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     let count = match unit {
         "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
-        | "ENC-C05-C" => 1,
+        | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };
@@ -84,16 +93,15 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
-    if unit.starts_with("ENC-C05-") {
-        return Some(render_c05(unit, choice));
+    if unit.starts_with("ENC-C05-") || unit.starts_with("ENC-C06-") {
+        return Some(render_retained(unit, choice));
     }
     if unit.starts_with("ENC-C03-") {
         return Some(render_c03(unit, choice));
     }
     let row = match unit {
         "ENC-C01-A" => 0,
-        "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
-        | "ENC-C05-C" => 1,
+        "ENC-C01-B" => 1,
         _ => 2,
     };
     // Photographing changes evidence, not the site. Only the actual help choice
@@ -143,9 +151,8 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
-        "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C" => {
-            "760 / 504"
-        }
+        "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C"
+        | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
         _ => "760 / 360",
     })
 }
@@ -178,9 +185,10 @@ fn render_c03(unit: &str, choice: Option<usize>) -> Html {
     </svg>}
 }
 
-/// Mail scenes: offer, saved letters, recorded reply/food, shared food/sorting.
-fn render_c05(unit: &str, choice: Option<usize>) -> Html {
-    let cell = choice.filter(|c| *c < 3).map_or(0, |c| c + 1);
+/// Retained offer and actual outcome cells; spare training reference stays unused.
+fn render_retained(unit: &str, choice: Option<usize>) -> Html {
+    let choices = if unit.starts_with("ENC-C06-") { 2 } else { 3 };
+    let cell = choice.filter(|c| *c < choices).map_or(0, |c| c + 1);
     let dx = (cell % 2) * 768;
     let dy = (cell / 2) * 512;
     let atlas = format!("road-{}-20260914", unit[4..].to_ascii_lowercase());
@@ -188,13 +196,15 @@ fn render_c05(unit: &str, choice: Option<usize>) -> Html {
     let (x, y, w, h) = match unit {
         "ENC-C05-A" => (201, 268, 130, 37),
         "ENC-C05-B" => (220, 205, 132, 66),
+        "ENC-C06-A" => (315, 340, 130, 32),
+        "ENC-C06-C" => (272, 238, 90, 80),
         _ => (307, 320, 123, 62),
     };
     html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas.clone()} data-cell={cell.to_string()} viewBox={format!("{} {} 760 504",dx+4,dy+4)} preserveAspectRatio="xMidYMid meet">
         <defs><clipPath id={clip.clone()}><rect x={(dx+4).to_string()} y={(dy+4).to_string()} width="760" height="504"/></clipPath></defs>
         <g clip-path={format!("url(#{clip})")}>
             <image href={crate::paths::asset_path(&format!("static/img/scenes-v2/{atlas}.png"))} width="1536" height="1024"/>
-            {if cell == 0 { html!{<foreignObject class="road-prop-lettering" x={x.to_string()} y={y.to_string()} width={w.to_string()} height={h.to_string()}>
+            {if cell == 0 && unit != "ENC-C06-B" { html!{<foreignObject class="road-prop-lettering" x={x.to_string()} y={y.to_string()} width={w.to_string()} height={h.to_string()}>
                 <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 18px/1.05 sans-serif;overflow-wrap:anywhere">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
             </foreignObject>} } else {Html::default()}}
         </g>

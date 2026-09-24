@@ -1423,6 +1423,38 @@
       "overlay_line1": "SOLICITUD",
       "overlay_line2": "DE AUDIENCIA",
       "fact": "El 22 de mayo de 2025, Trump recibió a grandes inversores de su moneda meme en su club de golf de Virginia; se invitó a unas 220 personas. Esto vincula inversión pagada y acceso, pero no demuestra una compra de decisiones políticas establecida judicialmente."
+    },
+    "ENC-C06-A": {
+      "name": "La escalera de la cobertura",
+      "desc": "En una charla sobre financiación sanitaria, el voluntariado explica a vuestro grupo cómo la ley de Medicaid de 2025 cambia los requisitos y el gasto. Han construido una escalera de demostración. El peldaño inferior dice «contribuyente». Han quitado el primer peldaño al alcance de la mano para que el modelo sea asequible.",
+      "choice_0": "Comprobar la ley y la demostración",
+      "log_0": "Compruebas las fuentes y entiendes los cambios. La voluntaria vuelve a colocar el peldaño que falta antes de guardar la escalera. Hasta la demostración lo necesita para funcionar.",
+      "choice_1": "Ver el ensayo del voluntariado",
+      "log_1": "Disfrutas del ensayo. La voluntaria que interpreta a una senadora elogia la escalera desde otra escalera de mano que ha traído alguien más.",
+      "overlay_0": "CONTRIBUYENTE",
+      "overlay_line1": "CONTRIBUYENTE",
+      "fact": "La Ley Pública 119-21 reduce el gasto federal previsto en Medicaid y cambia los requisitos de acceso. Las pérdidas de cobertura citadas son proyecciones, no cifras ya observadas. La charla y sus personajes son ficticios."
+    },
+    "ENC-C06-B": {
+      "name": "Precio por departamento",
+      "desc": "Washington ofreció a las agencias federales acceso a Grok, la IA de Musk, por cuarenta y dos centavos. En una feria de empleo junto a la carretera, una anfitriona ensaya entrevistas con un juguete que habla y te invita a probar. Pregunta si un salario humano también puede cubrir un departamento entero.",
+      "choice_0": "Comprobar qué incluye la oferta",
+      "log_0": "Explicas el precio del acceso por agencia y ganas confianza y claridad. La anfitriona repone la columna del salario. El juguete sigue disponible al por mayor.",
+      "choice_1": "Probar la entrevista de práctica",
+      "log_1": "Das tu salario por departamento entero. El grupo se ríe; la anfitriona admite que una persona sigue esperando una nómina de verdad.",
+      "fact": "El 25 de septiembre de 2025, la GSA anunció acceso a Grok por 0,42 dólares por organización federal durante 18 meses, hasta marzo de 2027. Era una oferta promocional, no un precio permanente ni capacidad de cómputo ilimitada; más funciones y límites superiores requieren una ampliación. La entrevista es ficticia."
+    },
+    "ENC-C06-C": {
+      "name": "El título secundario",
+      "desc": "Trump autorizó «Departamento de Guerra» como título secundario. En una parada en un local de veteranos, el voluntariado invita a vuestro grupo a examinar su respuesta: llamar «Superioridad Aérea» al techo con goteras. Un cubo ya controla el espacio de debajo.",
+      "choice_0": "Registrar la propuesta y la gotera",
+      "log_0": "Compruebas el anuncio del nombre y registras la respuesta del local. La veterana vuelca el cubo. La superioridad aérea ha llegado a la moqueta.",
+      "choice_1": "Unirse al ensayo del nuevo nombre",
+      "log_1": "Disfrutas del ensayo. La persona voluntaria bautiza la fregona como «Disuasión Estratégica». La gotera suelta otra gota antes de que termine el saludo.",
+      "overlay_0": "SUPERIORIDAD AÉREA",
+      "overlay_line1": "SUPERIORIDAD",
+      "overlay_line2": "AÉREA",
+      "fact": "La medida de septiembre de 2025 autorizó «Departamento de Guerra» como título secundario. No abolió el nombre legal de Departamento de Defensa establecido por el Congreso. El local, sus voluntarios y la propuesta sobre el techo son ficticios."
     }
   },
   "play": {

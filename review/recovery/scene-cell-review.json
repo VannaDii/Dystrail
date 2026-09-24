@@ -5491,7 +5491,19 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_media_training",
+        "asset": "static/img/scenes-v2/road-c06-a-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "choices": [
+          1,
+          2
+        ],
+        "unused_reference_cell": 3,
+        "checks": "Six outcomes verified desktop/mobile with exact resource effects, journal, saved identity, pending reload and Arabic320 offline. C05 shared renderer regression also passed: four browser tests total.",
+        "limitations": "EN/ES/IT/AR restored; other locales use English fallback. Mobile A/C prop labels retain caption-info fallback pending full acceptance."
+      }
     },
     {
       "unit": "ENC-C06-B",
@@ -5520,7 +5532,19 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_media_training",
+        "asset": "static/img/scenes-v2/road-c06-b-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "choices": [
+          1,
+          2
+        ],
+        "unused_reference_cell": 3,
+        "checks": "Six outcomes verified desktop/mobile with exact resource effects, journal, saved identity, pending reload and Arabic320 offline. C05 shared renderer regression also passed: four browser tests total.",
+        "limitations": "EN/ES/IT/AR restored; other locales use English fallback. Mobile A/C prop labels retain caption-info fallback pending full acceptance."
+      }
     },
     {
       "unit": "ENC-C06-C",
@@ -5549,7 +5573,19 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "outcome_cells": "Nominal row-major 2 by 2: offer, first, second, third outcome. Use the preserved renderer and current source/action contract to verify exact semantics; never infer a reward from art.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "runtime_family": "classic_media_training",
+        "asset": "static/img/scenes-v2/road-c06-c-20260914.png",
+        "state": "integrated_pending_full_acceptance",
+        "choices": [
+          1,
+          2
+        ],
+        "unused_reference_cell": 3,
+        "checks": "Six outcomes verified desktop/mobile with exact resource effects, journal, saved identity, pending reload and Arabic320 offline. C05 shared renderer regression also passed: four browser tests total.",
+        "limitations": "EN/ES/IT/AR restored; other locales use English fallback. Mobile A/C prop labels retain caption-info fallback pending full acceptance."
+      }
     },
     {
       "unit": "ENC-C07-A",

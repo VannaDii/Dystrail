@@ -540,3 +540,8 @@ September 14 — standing crew transparency repair:
 - Enabled canonical-effects-guarded classic_mail_drop selection and actual choice/outcome binding. Nine outcomes preserve existing mechanics, journal and saved identity.
 - Build 9dc93a9386847f2722eb; five native persistence tests and two desktop/mobile browser tests passed (all nine outcomes, pending reload, Arabic320/offline). Desktop and phone renders inspected and retained in c05-checkpoint.
 - Remaining: other locale translations, mobile prop label acceptance, broad feature acceptance. No Hearing or stat layout changes.
+
+### Media-training variants integrated — 2026-09-24
+- Restored C06 A/B/C EN/ES/IT/AR copy and three unchanged retained atlases. Canonical effects guard and committed outcome binding preserve mechanics; unused fourth reference frame never selected. No generation.
+- Build a6c3a5f356c9fa586859; five native persistence tests and four C05/C06 desktop/mobile browser tests passed. Six C06 outcomes preserve exact effects, journal and saved identity; Arabic320 offline verified. Source atlases and representative desktop/mobile compositions inspected. Existing locale copy unchanged.
+- Pending: other-language translations, mobile A/C prop label acceptance and broad feature acceptance. Hearing and interface/stat layouts untouched.

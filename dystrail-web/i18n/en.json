@@ -1417,6 +1417,35 @@
       "log_2": "You share some food and sort the requests. The regulars toast your arrival with tap water. Nobody checks its market capitalization.",
       "overlay_0": "REQUEST FOR A HEARING",
       "fact": "On May 22, 2025, Trump hosted top investors in his meme coin at his Virginia golf club; roughly 220 people were invited. This connects investment and access, but does not establish a judicial finding that policy decisions were bought."
+    },
+    "ENC-C06-A": {
+      "name": "The coverage ladder",
+      "desc": "At a health-funding teach-in, volunteers show your stopped crew how the 2025 Medicaid law changes eligibility and spending. They’ve built a demonstration ladder. The bottom rung is labelled “taxpayer.” The first reachable rung has been removed to keep the model affordable.",
+      "choice_0": "Check the law and demonstration",
+      "log_0": "You check the sources and understand the changes. The volunteer restores the missing rung for packing. Even the demonstration needs it to work.",
+      "choice_1": "Watch the volunteers rehearse",
+      "log_1": "You enjoy the rehearsal. The volunteer playing a senator praises the ladder from a stepladder somebody else brought.",
+      "overlay_0": "TAXPAYER",
+      "fact": "Public Law 119-21 reduces projected federal Medicaid spending and changes eligibility. Reported coverage losses are projections, not already observed counts. The teach-in and its characters are fictional."
+    },
+    "ENC-C06-B": {
+      "name": "Priced by the department",
+      "desc": "Washington offered federal agencies Musk’s Grok AI for forty-two cents. At a roadside job fair, a host rehearses interviews with a talking toy and invites you to try. The host asks whether human wages can also cover an entire department.",
+      "choice_0": "Check what the bargain actually buys",
+      "log_0": "You explain the agency-access price, gaining trust and clarity. The host restores the wage column. The toy remains available at wholesale.",
+      "choice_1": "Try the practice interview",
+      "log_1": "You quote your salary per entire department. The group laughs; the host admits that one person still expects one actual paycheck.",
+      "fact": "On September 25, 2025, GSA announced Grok access for $0.42 per federal organization for 18 months, through March 2027. This was a promotional offer, not a permanent price or unlimited compute; additional features and higher limits require an upgrade. The interview is fictional."
+    },
+    "ENC-C06-C": {
+      "name": "The secondary title",
+      "desc": "Trump authorized “Department of War” as a secondary title. At a veterans’ hall stop, volunteers invite your crew to inspect their proposed response: rename the leaky roof “Air Superiority.” A bucket already controls the space beneath it.",
+      "choice_0": "Record the proposal and leak",
+      "log_0": "You check the naming announcement and record the hall’s response. The veteran tips out the bucket. Air superiority has reached the carpet.",
+      "choice_1": "Join the naming rehearsal",
+      "log_1": "You enjoy the rehearsal. The volunteer christens the mop “Strategic Deterrence.” The leak starts another drop while they’re still saluting.",
+      "overlay_0": "AIR SUPERIORITY",
+      "fact": "The September 2025 action authorized Department of War as a secondary title. It did not abolish the statutory Department of Defense name established by Congress. The hall, volunteers, and roof proposal are fictional."
     }
   },
   "play": {

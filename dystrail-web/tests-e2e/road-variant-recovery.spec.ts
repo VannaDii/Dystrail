@@ -2,8 +2,8 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {baseline,importState,openMenu,waitForLaunch} from './helpers';
 const bank=JSON.parse(readFileSync('static/assets/data/game.json','utf8'));
-for(const family of ['C01','C03','C05']) {
-const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C03'?'classic_crossing_block_party':'classic_mail_drop'));
+for(const family of ['C01','C03','C05','C06']) {
+const event=bank.find((e:any)=>e.id===(family==='C01'?'classic_bridge_crews':family==='C03'?'classic_crossing_block_party':family==='C05'?'classic_mail_drop':'classic_media_training'));
 
 test(`${family} variants keep copy, art, committed choices and saved identity aligned`,async({page,context},info)=>{
  await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
@@ -11,7 +11,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
  test.setTimeout(120000);
  const base=await baseline(page);base.seed=42;base.region='RustBelt';base.stats.supplies=10;base.stats.hp=9;base.stats.credibility=5;
  base.current_encounter=event;base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
- const titles=family==='C01'?['Smaller government','Permission to spin','Dignity, by the pound']:family==='C05'?['Return to nonexistent sender','Too big for the form','The other dinner guests']:['Closing-time education','The dry wing','Your call is a commitment'];
+ const titles=family==='C01'?['Smaller government','Permission to spin','Dignity, by the pound']:family==='C06'?['The coverage ladder','Priced by the department','The secondary title']:family==='C05'?['Return to nonexistent sender','Too big for the form','The other dinner guests']:['Closing-time education','The dry wing','Your call is a commitment'];
  for(let row=0;row<3;row++){
   const unit=`ENC-${family}-${'ABC'[row]}`;
   for(let choice=0;choice<event.choices.length;choice++){
@@ -37,7 +37,7 @@ test(`${family} variants keep copy, art, committed choices and saved identity al
    await page.locator('.encounter-choice button').nth(choice).click();
    await expect(scene).toHaveAttribute('data-cell',String(family==='C01'?row*2+(choice===0?1:0):choice+1));
    await expect(page.locator('#screen-title')).toContainText(titles[row]);
-   if(family==='C05') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
+   if(family==='C05'||family==='C06') await page.screenshot({path:info.outputPath(`${unit}-outcome-${choice}.png`),fullPage:true});
    await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
    expect(saved.visual_content.selections[`ENC-${family}/road/300`]).toBe(unit);

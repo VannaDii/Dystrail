@@ -1423,6 +1423,38 @@
       "overlay_line1": "RICHIESTA",
       "overlay_line2": "DI UDIENZA",
       "fact": "Il 22 maggio 2025 Trump ospitò i maggiori investitori nella sua meme coin nel suo golf club in Virginia; circa 220 persone furono invitate. Ciò collega investimenti a pagamento e accesso, ma non dimostra un acquisto di decisioni politiche accertato in giudizio."
+    },
+    "ENC-C06-A": {
+      "name": "La scala della copertura",
+      "desc": "A un incontro sui fondi sanitari, i volontari mostrano al vostro gruppo come la legge Medicaid del 2025 modifica requisiti e spesa. Hanno costruito una scala dimostrativa. Il piolo in basso porta la scritta «contribuente». Il primo piolo raggiungibile è stato rimosso per rendere il modello accessibile.",
+      "choice_0": "Verifica la legge e la dimostrazione",
+      "log_0": "Controlli le fonti e comprendi i cambiamenti. La volontaria rimette il piolo mancante prima di riporre la scala. Anche la dimostrazione ne ha bisogno per funzionare.",
+      "choice_1": "Guarda le prove dei volontari",
+      "log_1": "Ti godi le prove. La volontaria che interpreta una senatrice elogia la scala da uno sgabello a gradini portato da qualcun altro.",
+      "overlay_0": "CONTRIBUENTE",
+      "overlay_line1": "CONTRIBUENTE",
+      "fact": "La legge pubblica 119-21 riduce la spesa federale prevista per Medicaid e modifica i requisiti di accesso. Le perdite di copertura citate sono proiezioni, non dati già osservati. L'incontro e i suoi personaggi sono inventati."
+    },
+    "ENC-C06-B": {
+      "name": "Il prezzo per dipartimento",
+      "desc": "Washington ha offerto alle agenzie federali l'accesso a Grok, l'IA di Musk, per quarantadue centesimi. A una fiera del lavoro lungo la strada, una presentatrice prova i colloqui con un giocattolo parlante e ti invita a tentare. Chiede se anche uno stipendio umano possa coprire un intero dipartimento.",
+      "choice_0": "Verifica che cosa comprende l'offerta",
+      "log_0": "Spieghi il prezzo dell'accesso per agenzia, guadagnando fiducia e chiarezza. La presentatrice ripristina la colonna dello stipendio. Il giocattolo resta disponibile all'ingrosso.",
+      "choice_1": "Prova il colloquio simulato",
+      "log_1": "Indichi il tuo stipendio per dipartimento intero. Il gruppo ride; la presentatrice ammette che una persona si aspetta ancora una busta paga vera.",
+      "fact": "Il 25 settembre 2025 la GSA ha annunciato l'accesso a Grok a 0,42 dollari per organizzazione federale per 18 mesi, fino a marzo 2027. Era un'offerta promozionale, non un prezzo permanente né potenza di calcolo illimitata; funzioni aggiuntive e limiti più alti prevedono un upgrade. Il colloquio è inventato."
+    },
+    "ENC-C06-C": {
+      "name": "Il titolo secondario",
+      "desc": "Trump ha autorizzato «Dipartimento della Guerra» come titolo secondario. Durante una sosta in una sede di veterani, i volontari invitano il vostro gruppo a esaminare la loro risposta: ribattezzare il tetto che perde «Superiorità Aerea». Un secchio controlla già lo spazio sottostante.",
+      "choice_0": "Documenta la proposta e la perdita",
+      "log_0": "Verifichi l'annuncio del nome e documenti la risposta della sede. La veterana rovescia il secchio. La superiorità aerea ha raggiunto la moquette.",
+      "choice_1": "Partecipa alle prove del nuovo nome",
+      "log_1": "Ti godi le prove. Una persona del gruppo battezza il mocio «Deterrenza Strategica». La perdita lascia cadere un'altra goccia prima che finisca il saluto.",
+      "overlay_0": "SUPERIORITÀ AEREA",
+      "overlay_line1": "SUPERIORITÀ",
+      "overlay_line2": "AEREA",
+      "fact": "Il provvedimento del settembre 2025 ha autorizzato «Dipartimento della Guerra» come titolo secondario. Non ha abolito il nome legale Dipartimento della Difesa stabilito dal Congresso. La sede, i volontari e la proposta sul tetto sono inventati."
     }
   },
   "play": {
