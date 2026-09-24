@@ -1767,6 +1767,48 @@
       "log_2": "Scambi provviste per una batteria usata e la monti. Il furgone seleziona la candidatura mettendosi in moto.",
       "log_3": "Completi il lavoro concordato e monti una batteria usata. La competenza, a quanto pare, consiste nel collegare le cose.",
       "roadside": "Il ricambio arriva e viene montato. Chi guida collega entrambi i poli nonostante le preoccupazioni della radio."
+    },
+    "ACT-BARTERTIRE-B": {
+      "name": "Una guerra commerciale con gli spuntini",
+      "desc": "Una residente offre una ruota di scorta in cambio di provviste. Nessuna delle due parti vuole un altro conto gonfiato dai dazi. La trattativa inizia con una scatola di fagioli, senza minacciare il Canada.",
+      "choice_0": "Barattare provviste per la ruota",
+      "log_0": "Provviste scambiate, ruota acquisita. La pace regge tra il vano portaoggetti e la busta della spesa."
+    },
+    "ACT-BARTERTIRE-C": {
+      "name": "Trattative a tavola rotonda",
+      "desc": "Al punto di scambio passa la pubblicità di una cena per i donatori di un senatore. Una residente offre una ruota in cambio di provviste. «Posso anche ascoltare le vostre preoccupazioni», dice, «ma la ruota si paga a parte».",
+      "choice_0": "Fare lo scambio",
+      "log_0": "Ripartite con una ruota. La vostra tavola rotonda ha un battistrada e nessun obiettivo di raccolta fondi."
+    },
+    "ACT-BARTERBATTERY-B": {
+      "name": "La conversazione senza dazi",
+      "desc": "Una residente offre una batteria di scorta in cambio di provviste. Dopo il preventivo del negozio comprensivo di dazi, la diplomazia diretta tra due tasche vuote sembra straordinariamente sofisticata.",
+      "choice_0": "Concludere lo scambio per la batteria",
+      "log_0": "Le provviste partono; arriva una batteria. Alla Cina è stata risparmiata un’altra fattura che non avrebbe pagato."
+    },
+    "ACT-BARTERBATTERY-C": {
+      "name": "La rete elettrica è negoziabile",
+      "desc": "Al punto di scambio, una persona offre una batteria in cambio di provviste. Alla radio la politica discute di un’emergenza energetica. Il pezzo che vi serve è già sul tavolo.",
+      "choice_0": "Barattare provviste per la batteria",
+      "log_0": "La batteria è vostra. Il dibattito continua senza fornire alcun voltaggio."
+    },
+    "ACT-BARTERSUPPLIES-B": {
+      "name": "Lo standard internazionale dello pneumatico",
+      "desc": "Vi offrono provviste in cambio della vostra ruota. Trump definisce i dazi un brillante strumento negoziale. Chi propone lo scambio indica il cibo. «Oppure potremmo andarcene con qualcosa, da entrambe le parti».",
+      "choice_0": "Scambiare la ruota per provviste",
+      "log_0": "Ripartite con le provviste. La ruota entra nel suo nuovo mercato senza un discorso presidenziale."
+    },
+    "ACT-BARTERSUPPLIES-C": {
+      "name": "Il bilancio che dà da mangiare",
+      "desc": "Una residente offre provviste per una ruota di scorta mentre alla radio passa la disputa sul bilancio del Congresso. Riuscite a spostare risorse senza scoprire che qualcuno non le merita.",
+      "choice_0": "Scambiare la ruota per le provviste",
+      "log_0": "Lo scambio è concluso. Il vostro bilancio ha prodotto il pranzo, superando diverse proposte televisive."
+    },
+    "ACT-REST-C": {
+      "name": "Sicurezza nazionale, modalità aereo",
+      "desc": "Il gruppo può prendersi un giorno lontano dalla strada. Silenziate i telefoni prima dell’ennesimo titolo sulle chat Signal del governo. Che sia qualcun altro a dirigere il Pentagono per sbaglio.",
+      "choice_0": "Riposare e silenziare i telefoni",
+      "log_0": "Il gruppo riposa. Nell’ordine dei panini non compaiono piani di attacchi aerei. Un tranquillo successo diplomatico."
     }
   },
   "play": {

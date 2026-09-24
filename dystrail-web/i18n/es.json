@@ -1901,6 +1901,48 @@
       "bribe_success": "El pago abre la barrera. Vuestro dinero ha pronunciado un discurso breve y convincente.",
       "bribe_failure": "Se quedan el dinero y os niegan el paso. Vuestro discurso ha quedado registrado en la cartera de alguien.",
       "terminal_failure": "El cruce pone fin a la expedición. La funcionaria describe el silencio como un saludable mercado de ideas."
+    },
+    "ACT-BARTERTIRE-B": {
+      "name": "Una guerra comercial con aperitivos",
+      "desc": "Una vecina ofrece una rueda de repuesto a cambio de provisiones. Ninguna de las partes quiere otra factura inflada por los aranceles. La negociación empieza con una lata de judías, sin amenazar a Canadá.",
+      "choice_0": "Cambiar provisiones por la rueda",
+      "log_0": "Provisiones entregadas, rueda adquirida. Se mantiene la paz entre la guantera y la bolsa de la compra."
+    },
+    "ACT-BARTERTIRE-C": {
+      "name": "Negociaciones de mesa redonda",
+      "desc": "En el punto de intercambio suena un anuncio de una cena de donantes para un senador. Una vecina ofrece una rueda a cambio de provisiones. «También puedo escuchar tus preocupaciones», dice, «pero la rueda se paga aparte».",
+      "choice_0": "Hacer el intercambio",
+      "log_0": "Os lleváis una rueda. Vuestra mesa redonda tiene dibujo y ningún objetivo de recaudación."
+    },
+    "ACT-BARTERBATTERY-B": {
+      "name": "La conversación sin aranceles",
+      "desc": "Una vecina ofrece una batería de repuesto a cambio de provisiones. Tras oír el presupuesto con aranceles del taller, la diplomacia directa entre dos bolsillos vacíos parece extraordinariamente sofisticada.",
+      "choice_0": "Hacer el cambio por la batería",
+      "log_0": "Salen provisiones; llega una batería. China se ha ahorrado otra factura que no iba a pagar."
+    },
+    "ACT-BARTERBATTERY-C": {
+      "name": "La red eléctrica es negociable",
+      "desc": "En el punto de intercambio, una persona ofrece una batería a cambio de provisiones. En la radio, la clase política debate una emergencia energética. La pieza que necesitáis ya está sobre la mesa.",
+      "choice_0": "Cambiar provisiones por la batería",
+      "log_0": "La batería es vuestra. El debate continúa sin aportar voltaje alguno."
+    },
+    "ACT-BARTERSUPPLIES-B": {
+      "name": "La norma internacional del neumático",
+      "desc": "Os ofrecen provisiones a cambio de vuestra rueda. Trump dice que los aranceles son una herramienta de negociación brillante. Quien propone el cambio señala la comida. «O podríamos salir ambas partes con algo».",
+      "choice_0": "Cambiar la rueda por provisiones",
+      "log_0": "Os lleváis provisiones. La rueda entra en su nuevo mercado sin discurso presidencial."
+    },
+    "ACT-BARTERSUPPLIES-C": {
+      "name": "El presupuesto que da de comer",
+      "desc": "Una vecina ofrece provisiones a cambio de una rueda de repuesto mientras la disputa presupuestaria del Congreso suena en la radio. Lográis mover recursos sin descubrir que alguien no los merece.",
+      "choice_0": "Intercambiar la rueda por provisiones",
+      "log_0": "El trato está hecho. Vuestro presupuesto ha producido un almuerzo, adelantándose a varias propuestas televisadas."
+    },
+    "ACT-REST-C": {
+      "name": "Seguridad nacional, modo avión",
+      "desc": "El grupo puede pasar un día fuera de la carretera. Silenciáis los teléfonos antes de otro titular sobre los chats de Signal del gabinete. Que otra persona dirija el Pentágono por accidente.",
+      "choice_0": "Descansar y silenciar los teléfonos",
+      "log_0": "El grupo descansa. En el pedido de bocadillos no aparece ningún plan de ataque aéreo. Un discreto éxito diplomático."
     }
   },
   "play": {

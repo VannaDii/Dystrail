@@ -19585,5 +19585,19 @@
       "Broader translation completion remains open: several locales still show existing English UI fallback, visible in Tamil onboarding",
       "Full linguistic acceptance and other narrative translations"
     ]
+  },
+  "activity_localization_checkpoint": {
+    "status": "Recovered matching Spanish, Italian and Arabic copy for six barter variants and ACT-REST-C",
+    "reuse": "barter-bc-translations.json and rest-translations.json; stale REST-A/B and work-refresh premises deliberately excluded",
+    "verification": [
+      "Build 6058b1117e3a60120782 passed",
+      "42 desktop/mobile locale-variant flows passed: translated offers and choices, actual trade costs, surviving party, persisted outcome and offline receipt",
+      "Arabic desktop and Spanish mobile captures reviewed"
+    ],
+    "remaining": [
+      "Other activity translations",
+      "Arabic desktop scene title alignment needs correction to approved bottom-left placement",
+      "Broader art, source context and localization acceptance remain open"
+    ]
   }
 }
