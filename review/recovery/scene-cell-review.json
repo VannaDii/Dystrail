@@ -1415,7 +1415,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Renaming ceremony on roadside display matches; actual stopped van/open hood still needs composition at coherent scale. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-DEREGULATE-B",
@@ -1443,7 +1449,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-b.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Pristine delivered sign and neglected machinery match; add actual traveler and van only if full composition fits. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-DEREGULATE-C",
@@ -1471,7 +1483,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Military-name unveiling on display matches; add actual crew beside their current van, not baked placeholder occupants. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-GAG-A",
@@ -1499,7 +1517,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Corrected gray-haired librarian, locked cart and reading sheet match. Use latest retained correction, not earlier head-covering version. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-GAG-B",
@@ -1527,7 +1551,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-b.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Later retained correction moves the extra cardboard column from the snack pickup opening to the small coin-return area. Add only actual present travelers, with no purchase/retrieval action. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-GAG-C",
@@ -1555,7 +1585,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Leaking hallway, two buckets and dry oversized binder match. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-MILITARIZE-A",
@@ -1583,7 +1619,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Barrier, officer and checklist match; actual van must wait behind the barrier with compatible road perspective. Assembled camera remains unverified. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-MILITARIZE-B",
@@ -1611,7 +1653,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Retained cell is an indoor service counter, not the specified traveler/documents/van checkpoint. Existing A/C checkpoint cells are alternatives only if exact composition fits. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-MILITARIZE-C",
@@ -1639,7 +1687,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Domestic road, booth and barrier match; add actual traveler pointing across the same landscape without changing scale or stage. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-SHUTDOWN-A",
@@ -1667,7 +1721,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Closed counters, worker lunch bag and lit fundraiser match. Worker is an external NPC, not a substitute crew member. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-SHUTDOWN-B",
@@ -1695,7 +1755,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-b.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Dark monitors and one bright donation screen match; replace baked heart/progress graphic with editable localized presentation. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-SHUTDOWN-C",
@@ -1723,7 +1789,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Empty plate and oversized chairs match an editorial cutaway. Do not imply actual crew attendance. Inspect small flag finials during final symbol review. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TARIFFS-A",
@@ -1751,7 +1823,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Grocery bag, empty wallet and invoice match; make any identifying customs copy an editable overlay. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TARIFFS-B",
@@ -1779,7 +1857,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-b.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Cashier, long receipt and modest loaf match; keep receipt wording editable. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TARIFFS-C",
@@ -1807,7 +1891,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Groceries and tall blank price panel match; add actual traveler reaching, with the panel visibly intervening. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TAXCUTS-A",
@@ -1835,7 +1925,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-a.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Empty education room, small lectern and illuminated blank exit panel match; localize any sign text. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TAXCUTS-B",
@@ -1863,7 +1959,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-b.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Closed education office, unstaffed counter and blank jar match; localize fee label. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "ORDER-TAXCUTS-C",
@@ -1891,7 +1993,13 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Verify proposed layer composition, small symbols, localization and desktop/mobile rendering; obtain complete inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_checkpoint": {
+        "state": "announcement_flow_integrated_art_acceptance_pending",
+        "asset": "static/img/scenes-v2/policy-bulletins-c.png",
+        "checks": "18 unit bindings and unchanged state after acknowledgment at1440/320; real engine activation, save/import/offline, care/expired notices and automatic map resume verified.",
+        "limitations": "Teacher, short pencil, empty board and blank notice match; keep notice editable. Live prop labels and indicated crew/van compositions remain pending. ORDER-MILITARIZE-B uses shared checkpoint instead of rejected indoor counter. Narrative fallback remains outside preserved translations."
+      }
     },
     {
       "unit": "PERSONA-JOURNALIST",

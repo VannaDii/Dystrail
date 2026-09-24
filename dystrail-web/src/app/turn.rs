@@ -30,7 +30,8 @@ pub fn render_transit(state: &AppState, pending: &Rc<PendingTurn>) -> Html {
             );
             // A scheduled map stays visible until dismissed. A newly reached decision
             // is retained in the session; the engine refuses to travel past it.
-            if !super::flow::visible()
+            if super::policy_bulletin::pending(gs).is_some()
+                || !super::flow::visible()
                 || (next != super::Phase::Map
                     && (next != super::Phase::Travel
                         || gs.breakdown.is_some()

@@ -35,6 +35,7 @@ pub fn use_travel_flow(app: &AppState) {
         && (*app.phase == Phase::Travel || (*app.phase == Phase::Map && *app.map_automatic))
         && app.pending_turn.is_none()
         && app.aftermath.is_none()
+        && !super::policy_bulletin::is_pending(app)
         && !*app.show_save
         && !*app.show_abandon
         && !*app.town_open;

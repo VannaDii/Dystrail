@@ -173,3 +173,14 @@
 /* The caption portrait was removed: do not reserve its former column. */
 .world-view .journey-scene .scene-footer .scene-caption { padding-inline:20px; text-align:left; }
 @media(max-width:700px) { .world-view .journey-scene .scene-footer .scene-caption { padding-inline:14px; } }
+
+/* Policy art uses its native wide camera; captions retain the scene overlay. */
+.policy-bulletin .bulletin-illustration{position:relative;margin:0;isolation:isolate;overflow:hidden}
+.policy-bulletin .bulletin-illustration svg{display:block;width:100%;height:auto;image-rendering:pixelated}
+.policy-bulletin .scene-caption{position:absolute;inset:auto 0 0;padding:28px 20px 16px;text-align:left;background:linear-gradient(transparent,rgba(5,19,29,.9));color:var(--retro-text,#f7eed7)}
+.policy-bulletin .scene-caption h1{margin:4px 0 0;font-family:var(--title-font);font-size:clamp(18px,2.5vw,32px);line-height:1.15;text-shadow:1px 2px 2px #07121b}
+.policy-bulletin .scene-caption>span{font-size:12px}
+.policy-bulletin .bulletin-body{padding:24px;overflow-wrap:anywhere}
+.policy-bulletin .bulletin-copy{max-width:75ch}
+.policy-bulletin #bulletin-continue{margin-top:20px}
+@media(max-width:700px){.policy-bulletin .scene-caption{padding:20px 14px 10px}.policy-bulletin .bulletin-body{padding:16px}}
