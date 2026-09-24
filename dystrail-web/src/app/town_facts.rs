@@ -5,6 +5,12 @@ use yew::prelude::*;
 #[derive(serde::Deserialize)]
 pub struct TownFact {
     pub town: String,
+    #[serde(default)]
+    pub title: BTreeMap<String, String>,
+    #[serde(default)]
+    pub setup: BTreeMap<String, String>,
+    #[serde(default)]
+    pub sources: Vec<super::town_content::Source>,
     pub text: BTreeMap<String, String>,
     pub source: String,
     pub checked: String,
@@ -12,6 +18,18 @@ pub struct TownFact {
 }
 #[must_use]
 pub fn fact(gs: &GameState) -> Option<TownFact> {
+    if let Some(c) = super::town_content::selected(gs) {
+        return Some(TownFact {
+            town: c.town,
+            title: c.title,
+            setup: c.setup,
+            text: c.text,
+            comment: c.comment,
+            sources: c.sources,
+            source: String::new(),
+            checked: String::new(),
+        });
+    }
     let name = super::town::name(gs);
     serde_json::from_str::<Vec<TownFact>>(include_str!("../../static/assets/data/town-facts.json"))
         .ok()?
@@ -20,6 +38,20 @@ pub fn fact(gs: &GameState) -> Option<TownFact> {
 }
 impl TownFact {
     #[must_use]
+    pub fn title(&self) -> String {
+        self.title
+            .get(&i18n::current_lang())
+            .or_else(|| self.title.get("en"))
+            .cloned()
+            .unwrap_or_else(|| i18n::t("journey.local_word"))
+    }
+    pub fn setup(&self) -> String {
+        self.setup
+            .get(&i18n::current_lang())
+            .or_else(|| self.setup.get("en"))
+            .cloned()
+            .unwrap_or_default()
+    }
     pub fn message(&self) -> String {
         self.text
             .get(&i18n::current_lang())
@@ -54,17 +86,20 @@ pub fn render(app: &super::state::AppState) -> Html {
         })
     };
     html! {<>
-        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={i18n::t("journey.local_word")} stage={Some(crate::components::ui::journey_scene::SceneStage::Town)} local_npc={gs.continuity.activities.local_word} />
+        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={fact.title()} stage={Some(crate::components::ui::journey_scene::SceneStage::Town)} local_npc={gs.continuity.activities.local_word} />
         <section class="local-conversation" aria-label={i18n::t("journey.local_word")}>
             <div class="conversation-content">
                 <div class="resident-story">
                     <div class="resident-byline"><span class="eyebrow">{i18n::t("trail.local")}</span><span>{fact.town.clone()}</span></div>
+                    <p>{fact.setup()}</p>
                     <blockquote class="resident-remark"><p>{fact.remark()}</p></blockquote>
                 </div>
                 <aside class="local-record" aria-labelledby="local-record-heading">
                     <div class="local-record-heading"><h2 id="local-record-heading">{i18n::t("trail.record")}</h2><crate::components::ui::context_help::ContextHelp title={i18n::t("trail.about_conversation")} text={i18n::t("trail.fact_note")} icon={"ⓘ".to_owned()} informational={true} /></div>
                     <p class="local-fact">{fact.message()}</p>
-                    <div class="fact-source"><a href={fact.source} target="_blank" rel="noopener noreferrer">{i18n::t("trail.source")}</a><span>{i18n::tr("trail.verified",Some(&BTreeMap::from([("date",fact.checked.as_str())])))}</span></div>
+                    if fact.sources.is_empty() {
+                        <div class="fact-source"><a href={fact.source.clone()} target="_blank" rel="noopener noreferrer">{i18n::t("trail.source")}</a><span>{i18n::tr("trail.verified",Some(&BTreeMap::from([("date",fact.checked.as_str())])))}</span></div>
+                    } else { {for fact.sources.iter().map(|source| html!{<div class="fact-source"><a href={source.url.clone()} target="_blank" rel="noopener noreferrer">{source.title.clone()}</a><span>{i18n::tr("trail.verified",Some(&BTreeMap::from([("date",source.checked.as_str())])))}</span><p>{source.note()}</p></div>})} }
                 </aside>
             </div>
             <div class="conversation-actions"><button class="retro-btn-primary" onclick={done}>{i18n::t("trail.listen")}</button></div>

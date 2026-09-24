@@ -19259,5 +19259,21 @@
       "Existing full-family presentation isolation check expanded to all 65 handlers",
       "Browser verification in road-copy-completion.spec.ts"
     ]
+  },
+  "town_copy_checkpoint": {
+    "status": "132 English conversations integrated; visual and localization acceptance incomplete",
+    "recovered_code": "recorded-files/dystrail-web/src/app/town_content.rs adapted to current identity helper",
+    "sources": "Approved current-source-records.json copy with preserved towns.json and shared-town-boundary-sources.json references; revised TOWN-11-C, TOWN-40-B, TOWN-41-A references corrected",
+    "catalog": "dystrail-web/static/assets/data/town-conversations.json",
+    "selection": "Seed/family/stop, sealed before the existing conversation reward and clock handler; repeated conversations retain the story without extra rewards",
+    "remaining": [
+      "Per-variant artwork and surviving-crew composition",
+      "Translations; preserved town-01-02 translation file is malformed and has not been imported",
+      "Final desktop/mobile visual acceptance"
+    ],
+    "checks": [
+      "Native completeness, source presence, town association and save identity for all 132 stories",
+      "Browser town-copy-recovery.spec.ts checks all 132 stories, source links, repeated-conversation limits and selected offline reloads"
+    ]
   }
 }

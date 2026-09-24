@@ -265,7 +265,7 @@ pub fn record_activity(
         .or_insert(0);
 }
 
-fn service_unit(gs: &GameState, family: &str, scope: &str, occurrence: u32) -> String {
+pub(crate) fn service_unit(gs: &GameState, family: &str, scope: &str, occurrence: u32) -> String {
     let key = format!("{family}/{scope}/{occurrence}");
     if let Some(unit) = gs
         .continuity

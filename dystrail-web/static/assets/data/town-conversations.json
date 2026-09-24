@@ -1,0 +1,3599 @@
+[
+  {
+    "id": "TOWN-01-A",
+    "family_id": "TOWN-01",
+    "town": "Albuquerque",
+    "title": {
+      "en": "Pedestrian Funding Rejected"
+    },
+    "setup": {
+      "en": "At an Albuquerque bus stop, a warehouse picker studies the crew’s walking route."
+    },
+    "text": {
+      "en": "In September 2025, Albuquerque said Trump’s administration tried to withdraw $11.5 million for the Rail Trail while favoring car-based projects."
+    },
+    "comment": {
+      "en": "“Trump wants projects for cars.” She points at your shoes. “Put a license plate on those. We might get you a sidewalk.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.cabq.gov/mayor/news/trump-administration-attempts-to-cancel-money-for-rail-trail",
+        "title": "Trump Administration Attempts to Cancel Money for Rail Trail",
+        "date": "2025-09-11",
+        "checked": "2026-09-13",
+        "qualification": "City account of an attempted $11.5 million cancellation; not a claim that the entire trail closed or the dispute ended."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-01-B",
+    "family_id": "TOWN-01",
+    "town": "Albuquerque",
+    "title": {
+      "en": "Law and Order, Terms Apply"
+    },
+    "setup": {
+      "en": "Outside an Albuquerque laundromat, a retired machinist discusses the city’s lawsuit while the crew waits for dry clothes."
+    },
+    "text": {
+      "en": "In July 2025, Albuquerque challenged Trump’s immigration conditions on police grants supporting officer salaries, evidence processing and crime-victim services."
+    },
+    "comment": {
+      "en": "“Trump threatened police money over immigration. So when somebody steals my bike, should I report a theft or ask whether it crossed a border?”"
+    },
+    "sources": [
+      {
+        "url": "https://www.cabq.gov/mayor/news/city-joins-lawsuits-to-block-federal-cuts-to-public-safety-housing",
+        "title": "City Joins Lawsuits to Block Federal Cuts to Public Safety, Housing",
+        "date": "2025-07-11",
+        "checked": "2026-09-13",
+        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-01-C",
+    "family_id": "TOWN-01",
+    "town": "Albuquerque",
+    "title": {
+      "en": "A Roof With Conditions"
+    },
+    "setup": {
+      "en": "Outside an Albuquerque rental office, a grounds worker compares notices with the travelers."
+    },
+    "text": {
+      "en": "Albuquerque’s July 2025 lawsuit challenged Trump administration conditions threatening housing grants that supported rental assistance, eviction prevention and rehousing."
+    },
+    "comment": {
+      "en": "“Immigration conditions on housing money. I rent a one-bedroom. Apparently it needs a foreign policy.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.cabq.gov/mayor/news/city-joins-lawsuits-to-block-federal-cuts-to-public-safety-housing",
+        "title": "City Joins Lawsuits to Block Federal Cuts to Public Safety, Housing",
+        "date": "2025-07-11",
+        "checked": "2026-09-13",
+        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-02-A",
+    "family_id": "TOWN-02",
+    "town": "Amarillo",
+    "title": {
+      "en": "America First, Beef Pending"
+    },
+    "setup": {
+      "en": "At an Amarillo grocery picnic table, a feed-store loader notices the crew dividing a sandwich."
+    },
+    "text": {
+      "en": "Texas Farm Bureau objected in October 2025 to Trump’s proposal for more Argentine beef imports, warning it could hurt Texas ranchers."
+    },
+    "comment": {
+      "en": "“Trump’s cheaper-beef plan upset our ranchers.” He inspects his sandwich. “I’ll notify Argentina when the affordable bit arrives.”"
+    },
+    "sources": [
+      {
+        "url": "https://media.texasfarmbureau.org/plan-to-import-argentinian-beef-harms-u-s-cattle-ranchers/",
+        "title": "Suggestions to increase Argentinian beef imports harm Texas cattle ranchers",
+        "date": "2025-10-20",
+        "checked": "2026-09-13",
+        "qualification": "Farm Bureau advocacy statement about a proposed import expansion; statewide relevance, not measured Amarillo job losses."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-02-B",
+    "family_id": "TOWN-02",
+    "town": "Amarillo",
+    "title": {
+      "en": "The Government Time Clock"
+    },
+    "setup": {
+      "en": "At an Amarillo diner counter, a delivery driver reads a Pantex audit beside the travelers."
+    },
+    "text": {
+      "en": "A 2025 federal audit reported that Pantex contractor CNS had repaid $18.4 million in 2024 for billing the government for hours not worked."
+    },
+    "comment": {
+      "en": "“Eighteen million for hours nobody worked.” He looks at your job hunt. “We’ve been asking whether they’re hiring. Ask whether they’re billing.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.energy.gov/ig/articles/audit-doe-oig-25-36",
+        "title": "Audit: DOE-OIG-25-36",
+        "date": "2025-11-26",
+        "checked": "2026-09-13",
+        "qualification": "DOE inspector general says CNS paid $18.4 million in a 2024 settlement for claimed hours not worked; report also records operational harm and corrective controls."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-02-C",
+    "family_id": "TOWN-02",
+    "town": "Amarillo",
+    "title": {
+      "en": "Restart the Country"
+    },
+    "setup": {
+      "en": "While the van cools in Amarillo, an appliance repairer recalls the nuclear-worker firings."
+    },
+    "text": {
+      "en": "In February 2025, Trump’s administration reversed most NNSA firings; AP reported Pantex near Amarillo among the hardest-hit offices in the DOGE cuts."
+    },
+    "comment": {
+      "en": "“Fire the nuclear staff. Rehire the nuclear staff.” He points at your ignition. “Government efficiency: have we tried turning the country off and on?”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/916e6819104f04f44c345b7dde4904d5",
+        "title": "Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal",
+        "date": "2025-02-16",
+        "checked": "2026-09-13",
+        "qualification": "AP reported Pantex among the hardest-hit NNSA offices; most firings were reversed. Administration and AP sources disputed exact numbers, so none are used."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-03-A",
+    "family_id": "TOWN-03",
+    "town": "Austin",
+    "title": {
+      "en": "Veterans, Please Close Your Books"
+    },
+    "setup": {
+      "en": "Outside an Austin library, a retired delivery driver tells the travelers why a veterans’ reading group paused."
+    },
+    "text": {
+      "en": "Austin-based Humanities Texas said its veterans’ reading program remained paused in May 2025 after the federal government terminated its operating grant on April 2."
+    },
+    "comment": {
+      "en": "“The federal grant vanished. Veterans can still appear in campaign ads; apparently letting them discuss a book is where Washington draws the line.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.humanitiestexas.org/news/articles/director-may-2025",
+        "title": "Humanities Texas: From the Director, May 2025",
+        "date": "2025-05",
+        "checked": "2026-09-13",
+        "qualification": "Organization self-report from May 2025; program statuses are historical, not asserted current."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-03-B",
+    "family_id": "TOWN-03",
+    "town": "Austin",
+    "title": {
+      "en": "Public Money, Private School"
+    },
+    "setup": {
+      "en": "At an Austin discount store, a teacher compares classroom supplies with the travelers’ grocery money."
+    },
+    "text": {
+      "en": "In 2025, Texas enacted Senate Bill 2 and allocated $1 billion to education accounts that can pay for private schooling."
+    },
+    "comment": {
+      "en": "“Texas found a billion for education accounts that cover private school. I’m buying classroom pencils. Should I put an admissions office on the pencil cup?”"
+    },
+    "sources": [
+      {
+        "url": "https://educationfreedom.texas.gov/",
+        "title": "Texas Education Freedom Accounts",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Official program says the 2025 Legislature appropriated $1 billion; private-school support is not a claim that public schools received no new funding."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-03-C",
+    "family_id": "TOWN-03",
+    "town": "Austin",
+    "title": {
+      "en": "Feed the Pole"
+    },
+    "setup": {
+      "en": "While you check an Austin parking meter, a bakery worker points from its timer to her ticket."
+    },
+    "text": {
+      "en": "Austin’s council set the unpaid-meter fine at $75, effective March 1, 2025."
+    },
+    "comment": {
+      "en": "“Seventy-five dollars if the meter expires. I’m feeding it before I buy lunch. Austin has taught a pole to eat first.”"
+    },
+    "sources": [
+      {
+        "url": "https://services.austintexas.gov/edims/document.cfm?id=447196",
+        "title": "Austin council document setting the unpaid-meter fine",
+        "date": "2025-02-13",
+        "checked": "2026-09-14",
+        "qualification": "The $75 figure applies to the unpaid-meter fine from March 1, 2025; it is not a universal parking penalty."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-04-A",
+    "family_id": "TOWN-04",
+    "town": "Billings",
+    "title": {
+      "en": "Federal Pastry Inspection"
+    },
+    "setup": {
+      "en": "At a Billings supermarket, a shelf stocker compares a protein bar with a pastry beside the travelers."
+    },
+    "text": {
+      "en": "In May 2026, Montana announced federal approval for SNAP restrictions covering candy and prepared desserts while protecting protein bars and fresh baked goods."
+    },
+    "comment": {
+      "en": "“USDA approved Montana’s food ban, with exceptions for protein bars and fresh baked goods. Hunger is simple. Your snack now needs a classification hearing.”"
+    },
+    "sources": [
+      {
+        "url": "https://dphhs.mt.gov/News/2026/May/USDA-Approves-Gov-Junk-Food-Ban-SNAP",
+        "title": "USDA Approves Montana SNAP Food-Restriction Waiver",
+        "date": "2026-05-19",
+        "checked": "2026-09-13",
+        "qualification": "State announcement of federal waiver approval; does not establish implementation date or measured health effects."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-04-B",
+    "family_id": "TOWN-04",
+    "town": "Billings",
+    "title": {
+      "en": "Relief Lives Upstairs"
+    },
+    "setup": {
+      "en": "Outside a Billings apartment building, a cleaner checks a state tax notice while the travelers ask directions."
+    },
+    "text": {
+      "en": "Montana’s 2026 property-tax changes give qualifying primary residences and long-term rental properties a reduced rate, including eligible properties in Billings."
+    },
+    "comment": {
+      "en": "“Montana’s tax break includes long-term rental properties. My landlord gets the relief. I’m hoping he lets me look at it during the next inspection.”"
+    },
+    "sources": [
+      {
+        "url": "https://revenue.mt.gov/property/property-tax-changes/2026-property-tax-information",
+        "title": "2026 Tax Information for Montana Property Owners",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "State rules offer reduced rates for qualifying primary homes and long-term rentals; no guaranteed rent reduction is asserted."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-04-C",
+    "family_id": "TOWN-04",
+    "town": "Billings",
+    "title": {
+      "en": "Small Government, Fabric Division"
+    },
+    "setup": {
+      "en": "Near a Billings public building, a seamstress waits beside the travelers with some mending."
+    },
+    "text": {
+      "en": "Montana’s 2025 House Bill 819 restricted which flags could be displayed on government property, including public schools and state buildings."
+    },
+    "comment": {
+      "en": "“Montana’s lawmakers restricted the flags government can fly. My sewing machine has more settings than the state’s idea of freedom.”"
+    },
+    "sources": [
+      {
+        "url": "https://docs.legmt.gov/download-ticket?ticketId=9cfc3496-02a6-4ccd-9f8b-ad85ec1bab90",
+        "title": "Montana House Bill 819, 2025",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Enacted legislation restricts flags displayed on government property; satire concerns government control of official displays, not private possession."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-05-A",
+    "family_id": "TOWN-05",
+    "town": "Boise",
+    "title": {
+      "en": "Your Freeze Was Canceled"
+    },
+    "setup": {
+      "en": "At a Boise laundromat, a university mailroom worker reads an old funding update beside the travelers."
+    },
+    "text": {
+      "en": "On January 30, 2025, Boise State said the Trump administration’s funding-freeze memo was withdrawn, while other executive orders still required reviews of affected awards."
+    },
+    "comment": {
+      "en": "“Trump’s funding freeze was withdrawn, but the other orders still needed checking. Washington canceled the padlock and left the chain.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.boisestate.edu/research-osp/2025/01/30/federal-funding-update-january-30-2025/",
+        "title": "Boise State: Federal Funding Update, January 30, 2025",
+        "date": "2025-01-30",
+        "checked": "2026-09-13",
+        "qualification": "Dated university guidance: withdrawal of one memo did not withdraw the other executive orders; no specific award loss asserted."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-05-B",
+    "family_id": "TOWN-05",
+    "town": "Boise",
+    "title": {
+      "en": "The Rainbow Has Paperwork"
+    },
+    "setup": {
+      "en": "Outside Boise City Hall, a delivery rider tells the travelers about the 2025 flag dispute."
+    },
+    "text": {
+      "en": "In May 2025, Boise made the Pride flag an official city flag after Idaho restricted government flag displays."
+    },
+    "comment": {
+      "en": "“Idaho restricted flags, so Boise made Pride official. The rainbow had to get a government job before the state would let it be seen.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/13c8f9f7269d1b33daaa7ef041c6c497",
+        "title": "Salt Lake City and Boise make pride flags official city emblems, skirting flag ban laws",
+        "date": "2025-05-07",
+        "checked": "2026-09-13",
+        "qualification": "Describes the May 2025 response; does not claim the flag remained flying after later laws."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-05-C",
+    "family_id": "TOWN-05",
+    "town": "Boise",
+    "title": {
+      "en": "The Governor’s School Supplies"
+    },
+    "setup": {
+      "en": "At a Boise grocery store, a classroom aide compares fundraiser cookies with the travelers’ cheap lunch."
+    },
+    "text": {
+      "en": "In February 2025, Idaho Governor Brad Little signed House Bill 93, creating a $50 million Parental Choice Tax Credit program."
+    },
+    "comment": {
+      "en": "“Governor Little found fifty million for school-choice tax credits. Our fundraiser has oatmeal raisin. Clearly we hired the wrong lobbyist.”"
+    },
+    "sources": [
+      {
+        "url": "https://gov.idaho.gov/pressrelease/gov-little-signs-house-bill-93-creating-the-parental-choice-tax-credit-program/",
+        "title": "Gov. Little signs House Bill 93 creating the Parental Choice Tax Credit program",
+        "date": "2025-02-27",
+        "checked": "2026-09-13",
+        "qualification": "Governor announces a $50 million program; no claim that public-school funding was eliminated."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-06-A",
+    "family_id": "TOWN-06",
+    "town": "Cheyenne",
+    "title": {
+      "en": "The Market Has Favorites"
+    },
+    "setup": {
+      "en": "At a Cheyenne hardware store, a roofer discusses a state press release with the travelers."
+    },
+    "text": {
+      "en": "In July 2025, Wyoming Secretary of State Chuck Gray praised Trump’s order ending wind and solar subsidies while championing coal, oil and gas."
+    },
+    "comment": {
+      "en": "“Gray cheered Trump for ending wind and solar subsidies, then cheered coal and oil. A free market, with the secretary of state holding the scorecards.”"
+    },
+    "sources": [
+      {
+        "url": "https://sos.wyo.gov/Media/2025/SoS_Release_2025-07-09.pdf",
+        "title": "Wyoming Secretary of State Praises Order to End Wind and Solar Subsidies",
+        "date": "2025-07-09",
+        "checked": "2026-09-13",
+        "qualification": "Official political statement; accurately attributed advocacy, not proof of its economic claims."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-06-B",
+    "family_id": "TOWN-06",
+    "town": "Cheyenne",
+    "title": {
+      "en": "Please Introduce Yourself to Your Government"
+    },
+    "setup": {
+      "en": "At a Cheyenne copy shop, a shift worker waits beside the travelers with some registration paperwork."
+    },
+    "text": {
+      "en": "In March 2025, Wyoming enacted House Bill 156 requiring proof of U.S. citizenship and residency for voter registration; Secretary of State Chuck Gray celebrated it."
+    },
+    "comment": {
+      "en": "“Gray wanted more proof of citizenship and residency. The government I’ve paid for all these years would like an introduction. Should I bring flowers?”"
+    },
+    "sources": [
+      {
+        "url": "https://sos.wyo.gov/Media/2025/SoS_Release_2025-03-21.pdf",
+        "title": "Secretary Gray Celebrates Proof-of-Citizenship and Residency Voting Law",
+        "date": "2025-03-21",
+        "checked": "2026-09-13",
+        "qualification": "State announcement of HB 156 becoming law; not instructions for current registration or a claim that lawful citizens were all rejected."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-06-C",
+    "family_id": "TOWN-06",
+    "town": "Cheyenne",
+    "title": {
+      "en": "The State Has a Roofing Budget"
+    },
+    "setup": {
+      "en": "Near Wyoming’s Capitol, a roofer shares a lunch bench with the travelers."
+    },
+    "text": {
+      "en": "Wyoming’s government repaired its Capitol dome and applied gold leaf imported from Italy during the restoration described in 2019."
+    },
+    "comment": {
+      "en": "“The state covered its dome in Italian gold. I patch my roof with tar. The difference, apparently, is which one of us writes the budget.”"
+    },
+    "sources": [
+      {
+        "url": "https://wyohistory.org/encyclopedia/history-wyoming-capitol",
+        "title": "A History of the Wyoming Capitol",
+        "date": "2019-06-04",
+        "checked": "2026-09-13",
+        "qualification": "Wyoming State Historical Society account drawing on archives; suffrage statement does not claim universal enfranchisement irrespective of other eligibility barriers."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-07-A",
+    "family_id": "TOWN-07",
+    "town": "Chicago",
+    "title": {
+      "en": "Next Stop, Federal Court"
+    },
+    "setup": {
+      "en": "At a Chicago station entrance, a hotel cleaner compares train routes with the travelers."
+    },
+    "text": {
+      "en": "CTA sued Trump’s federal transportation agencies in March 2026 over money paused for its Red Line Extension and Red and Purple Modernization projects."
+    },
+    "comment": {
+      "en": "“Trump’s agencies paused the train money. CTA sued. Apparently the Red Line needs a transfer through federal court before it can reach another neighborhood.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.transitchicago.com/chicago-transit-authority-sues-federal-government-over-paused-red-line-extension-and-red--purple-modernization-project-funding/",
+        "title": "CTA Sues Over Paused Red Line Extension and Modernization Funding",
+        "date": "2026-03-20",
+        "checked": "2026-09-13",
+        "qualification": "Transit agency account and litigation position; describes events through publication, not final court disposition."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-07-B",
+    "family_id": "TOWN-07",
+    "town": "Chicago",
+    "title": {
+      "en": "An Unrequested Ride"
+    },
+    "setup": {
+      "en": "At a Chicago corner store, a delivery driver discusses Trump’s attempted Guard deployment with the travelers."
+    },
+    "text": {
+      "en": "In December 2025, the Supreme Court kept Trump’s attempted National Guard deployment to the Chicago area blocked while litigation continued."
+    },
+    "comment": {
+      "en": "“Trump tried to send troops; the courts said wait. I can’t park here without permission, but the president thought the whole city was his loading zone.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/97192a48f01dd4954f1ba505628b5f21",
+        "title": "Supreme Court keeps Trump’s National Guard deployment blocked in the Chicago area, for now",
+        "date": "2025-12-23",
+        "checked": "2026-09-13",
+        "qualification": "Interim Supreme Court order, not a final merits ruling; no claim of a current troop deployment."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-07-C",
+    "family_id": "TOWN-07",
+    "town": "Chicago",
+    "title": {
+      "en": "The Fare That Stayed Put"
+    },
+    "setup": {
+      "en": "At a Chicago bus stop, a grocery clerk counts change beside the travelers."
+    },
+    "text": {
+      "en": "After Illinois passed a transit-funding bill, CTA approved its 2026 budget without fare increases, service cuts or layoffs."
+    },
+    "comment": {
+      "en": "“Illinois passed transit funding, so CTA avoided the fare hike. Incredible technology: legislators release money and ordinary people get to keep some.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.transitchicago.com/chicago-transit-board-approves-2026-cta-budget/",
+        "title": "Chicago Transit Board Approves 2026 CTA Budget",
+        "date": "2025-11-12",
+        "checked": "2026-09-13",
+        "qualification": "CTA credited passage of Illinois SB2111 for avoiding fare increases, service cuts and layoffs in its approved 2026 budget."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-08-A",
+    "family_id": "TOWN-08",
+    "town": "Cleveland",
+    "title": {
+      "en": "The Ladder Budget"
+    },
+    "setup": {
+      "en": "Outside a Cleveland school, a lunchroom worker talks with the travelers during dismissal."
+    },
+    "text": {
+      "en": "Representative Shontel Brown said Trump’s administration notified Cleveland schools that GEAR UP college-access funding would end September 30, 2025."
+    },
+    "comment": {
+      "en": "“Trump’s administration cut GEAR UP, the program helping students toward college. The ladder is still available; Washington just repossessed the bottom rungs.”"
+    },
+    "sources": [
+      {
+        "url": "https://shontelbrown.house.gov/media/press-releases/brown-calls-trump-administration-restore-millions-terminated-education-grants",
+        "title": "Brown Calls for Restoration of Terminated Ohio Education Grants",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Congressional statement; termination notice verified in indexed source text. It is not a current program-status determination."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-08-B",
+    "family_id": "TOWN-08",
+    "town": "Cleveland",
+    "title": {
+      "en": "The Patriotic River"
+    },
+    "setup": {
+      "en": "On a Cleveland riverwalk, a dock worker recalls the Cuyahoga fires as the travelers stop for water."
+    },
+    "text": {
+      "en": "The Cuyahoga burned in Cleveland in 1969. Trump’s March 2025 history directive called for changes to federal historical presentations under his administration’s account of American greatness."
+    },
+    "comment": {
+      "en": "“Trump wants federal history restored to greatness. Our river caught fire. Should the caption say American water was working twice as hard?”"
+    },
+    "sources": [
+      {
+        "url": "https://home.nps.gov/articles/story-of-the-fire.htm",
+        "title": "National Park Service: The 1969 Cuyahoga River Fire",
+        "date": "2022-05-03",
+        "checked": "2026-09-13",
+        "qualification": "NPS distinguishes documented events from the myth that one fire alone created environmental legislation."
+      },
+      {
+        "url": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/",
+        "title": "White House history intervention",
+        "date": "2025-03",
+        "checked": "2026-09-13",
+        "qualification": "March 2025 action directed interventions in Smithsonian/federal historical presentation. The administration calls this restoring truth; that phrase is its framing, not an objective finding."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-08-C",
+    "family_id": "TOWN-08",
+    "town": "Cleveland",
+    "title": {
+      "en": "Taxpayers Keep the River Wet"
+    },
+    "setup": {
+      "en": "At a Cleveland riverside bench, a retired sewer worker shares lunch space with the travelers."
+    },
+    "text": {
+      "en": "Before the famous 1969 river fire, Cleveland voters approved a $100 million bond issue in 1968 for sewer construction and water-treatment upgrades."
+    },
+    "comment": {
+      "en": "“Cleveland voters approved the cleanup money before the famous river fire. A hundred million to keep water wet. Industry’s contribution had been making it flammable.”"
+    },
+    "sources": [
+      {
+        "url": "https://home.nps.gov/articles/story-of-the-fire.htm",
+        "title": "National Park Service: The 1969 Cuyahoga River Fire",
+        "date": "2022-05-03",
+        "checked": "2026-09-13",
+        "qualification": "NPS distinguishes documented events from the myth that one fire alone created environmental legislation."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-09-A",
+    "family_id": "TOWN-09",
+    "town": "Columbia",
+    "title": {
+      "en": "Your Fever Is Optional"
+    },
+    "setup": {
+      "en": "At a Columbia laundromat, a restaurant dishwasher waits beside the travelers."
+    },
+    "text": {
+      "en": "Governor Mike Kehoe signed legislation ending Missouri’s paid-sick-leave requirement in August 2025; Columbia employers could still choose to provide it."
+    },
+    "comment": {
+      "en": "“Governor Kehoe ended Missouri’s paid-sick-leave requirement. My fever can still stay home. It just needs to find somebody else to pay the rent.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Governor’s account of HB567 and HB594; provisions apply statewide, including Columbia. Advocacy claims of benefits are not adopted."
+      },
+      {
+        "url": "https://labor.mo.gov/faqs/knowledge-base/when-do-employees-stop-earning-paid-sick-time-due-passage-hb-567",
+        "title": "When do employees stop earning paid sick time due to HB567?",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Labor Department says the state mandate ended August 28, 2025; employers may voluntarily retain paid leave."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-09-B",
+    "family_id": "TOWN-09",
+    "town": "Columbia",
+    "title": {
+      "en": "Prices May Continue"
+    },
+    "setup": {
+      "en": "At a Columbia grocery checkout, a retail stocker talks with the travelers while waiting in line."
+    },
+    "text": {
+      "en": "Missouri’s 2025 law retained the scheduled $15 minimum wage but removed automatic inflation adjustments, affecting covered workers in Columbia and across the state."
+    },
+    "comment": {
+      "en": "“Kehoe kept the fifteen-dollar minimum but removed its inflation adjustment. Somebody tell the groceries. They don’t appear to have received the freeze notice.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Governor’s account of HB567 and HB594; provisions apply statewide, including Columbia. Advocacy claims of benefits are not adopted."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-09-C",
+    "family_id": "TOWN-09",
+    "town": "Columbia",
+    "title": {
+      "en": "Income Without the Shift"
+    },
+    "setup": {
+      "en": "At a Columbia bus shelter, a janitor opens a pay envelope beside the travelers."
+    },
+    "text": {
+      "en": "Governor Kehoe signed a 2025 Missouri law allowing individuals to deduct federally reported capital gains from state taxable income; it applies to eligible Columbia taxpayers."
+    },
+    "comment": {
+      "en": "“Kehoe gave individual capital gains a state income-tax deduction. I clean floors for money. Apparently I should sell the building while someone else cleans it.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Governor’s account of HB567 and HB594; provisions apply statewide, including Columbia. Advocacy claims of benefits are not adopted."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-10-A",
+    "family_id": "TOWN-10",
+    "town": "Cumberland",
+    "title": {
+      "en": "The Bench Is Retiring Too"
+    },
+    "setup": {
+      "en": "Beside Cumberland’s canal, a maintenance worker talks with the travelers over lunch."
+    },
+    "text": {
+      "en": "After national park firings under Trump in 2025, the C&O Canal separately reported five early retirements, including its only carpenter and arborist."
+    },
+    "comment": {
+      "en": "“Trump cut park staff nationally. Here the only carpenter took early retirement. If that bench collapses, we’ll call it a successful transition to meadow.”"
+    },
+    "sources": [
+      {
+        "url": "https://wtop.com/government/2025/07/what-budget-cuts-and-reduced-staffing-could-mean-for-the-national-park-service/",
+        "title": "WTOP: What Budget Cuts and Reduced Staffing Could Mean for the NPS",
+        "date": "2025-07-01",
+        "checked": "2026-09-13",
+        "qualification": "Reported park-wide staffing decline from 70 to 65; departures were early retirements, not five stated dismissals in Cumberland."
+      },
+      {
+        "url": "https://apnews.com/article/d33cdd7872d64d2bdd8fe70c28652654",
+        "title": "DOGE and national park staffing",
+        "date": "2025-02",
+        "checked": "2026-09-13",
+        "qualification": "The administration fired about 1000 newly hired NPS staff in February 2025, including maintenance and cleaning roles. Do not present every later park closure as caused by those firings."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-10-B",
+    "family_id": "TOWN-10",
+    "town": "Cumberland",
+    "title": {
+      "en": "Destination by Executive Order"
+    },
+    "setup": {
+      "en": "At Cumberland’s canal terminus, a delivery driver compares the travelers’ map with the waterway."
+    },
+    "text": {
+      "en": "The C&O Canal ended at Cumberland without reaching Ohio. Trump’s January 2025 order renamed the Gulf of Mexico for federal use, without moving its shores."
+    },
+    "comment": {
+      "en": "“This canal never reached Ohio. Trump renamed the Gulf. Call your van Washington and you’re there. Still out of gas, but geographically victorious.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.nps.gov/choh/learn/historyculture/canalconstruction.htm",
+        "title": "NPS: Canal Construction",
+        "date": "2021-09-18",
+        "checked": "2026-09-13",
+        "qualification": "Canal-wide history with Cumberland as its actual western terminus."
+      },
+      {
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/restoring-names-that-honor-american-greatness/",
+        "title": "Gulf renaming",
+        "date": "2025-01",
+        "checked": "2026-09-13",
+        "qualification": "January 2025 EO directed federal use of Gulf of America and restoration of Mount McKinley naming; it did not change geography or claim universal international recognition."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-10-C",
+    "family_id": "TOWN-10",
+    "town": "Cumberland",
+    "title": {
+      "en": "Please Postpone Your Family"
+    },
+    "setup": {
+      "en": "At a Cumberland supermarket, a home-care aide discusses Maryland’s leave timetable with the travelers."
+    },
+    "text": {
+      "en": "Maryland’s October 2025 guidance put its new family-and-medical-leave benefits, including for eligible Cumberland workers, on a timetable beginning by January 3, 2028."
+    },
+    "comment": {
+      "en": "“Maryland’s new paid family leave starts in 2028. I’ll tell my mother to schedule her recovery around the government’s recovery from scheduling.”"
+    },
+    "sources": [
+      {
+        "url": "https://paidleave.maryland.gov/stakeholders/Documents/FAMLI%20FAQs%20October%202025.pdf",
+        "title": "Maryland FAMLI Frequently Asked Questions",
+        "date": "2025-10",
+        "checked": "2026-09-13",
+        "qualification": "Official October 2025 program timetable sets benefits to start by January 3, 2028; other leave rights and existing employer benefits are separate."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-11-A",
+    "family_id": "TOWN-11",
+    "town": "Dallas",
+    "title": {
+      "en": "Room-Temperature Innovation"
+    },
+    "setup": {
+      "en": "Outside a Dallas medical campus, a lab cleaner shares a shaded lunch table."
+    },
+    "text": {
+      "en": "In February 2025, Dallas’s UT Southwestern warned that the Trump administration’s proposed NIH overhead cap could cost it more than $100 million a year."
+    },
+    "comment": {
+      "en": "“They call freezers overhead. Let a senator keep his lunch at room temperature and see how fast overhead becomes critical infrastructure.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.utsouthwestern.edu/about-us/assets/president-message-020925.pdf",
+        "title": "Proposed NIH overhead cap",
+        "date": "2025-02-09",
+        "checked": "2026-09-13",
+        "qualification": "UT Southwestern estimated in February 2025 that the proposed cap risked over 100m yearly. Do not present the estimate or proposal as an already realized local loss."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-11-B",
+    "family_id": "TOWN-11",
+    "town": "Dallas",
+    "title": {
+      "en": "Bring Your Own House"
+    },
+    "setup": {
+      "en": "At a Dallas laundromat, a renter compares housing costs while the van blankets dry."
+    },
+    "text": {
+      "en": "Texas law exempts $140,000 of a qualifying residence homestead’s value from school taxes. The applicant must own an interest in the home and live there."
+    },
+    "comment": {
+      "en": "“Texas has tax relief for your home. First, own one. I checked: my security deposit does not count as a down payment on freedom.”"
+    },
+    "sources": [
+      {
+        "url": "https://comptroller.texas.gov/taxes/property-tax/exemptions/",
+        "title": "Texas Comptroller: Property Tax Exemptions",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Current exemption and ownership criteria checked September 2026; no claim that tenants receive this exemption or automatic rent savings."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-11-C",
+    "family_id": "TOWN-11",
+    "town": "Dallas",
+    "title": {
+      "en": "Bolt Down the Exhibit"
+    },
+    "setup": {
+      "en": "Near Fair Park, a custodian chats with you during a food break."
+    },
+    "text": {
+      "en": "Dallas’s federally funded Hall of Negro Life opened in 1936 and was demolished in 1937. In March 2025, Trump ordered changes to federal presentations of American history."
+    },
+    "comment": {
+      "en": "“The federal Black history hall here was demolished in 1937. Now Trump wants history corrected. I would bolt the exhibit to the floor.”"
+    },
+    "sources": [
+      {
+        "url": "https://dallasculture.org/1936hallofnegrolife/",
+        "title": "City of Dallas: The 1936 Hall of Negro Life",
+        "checked": "2026-09-24",
+        "qualification": "The federally funded hall opened in 1936 and was deconstructed one year later. This historical event is separate from the 2025 order."
+      },
+      {
+        "url": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-restores-truth-and-sanity-to-american-history/",
+        "title": "White House history intervention",
+        "checked": "2026-09-13",
+        "qualification": "The 2025 order directed interventions in federal historical presentation. The resident and proposed bolts are fictional."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-12-A",
+    "family_id": "TOWN-12",
+    "town": "Denver",
+    "title": {
+      "en": "Reimbursement Pending"
+    },
+    "setup": {
+      "en": "At a Denver bus shelter, a kitchen worker tells you about the city’s unpaid federal bill."
+    },
+    "text": {
+      "en": "In April 2025, FEMA denied Denver about $24 million in reimbursement for migrant services the city had already provided."
+    },
+    "comment": {
+      "en": "“Washington said help the arrivals, then refused the reimbursement. I tried that with my landlord: patriotic housing partnership. He still wants the rent.”"
+    },
+    "sources": [
+      {
+        "url": "https://denverite.com/2025/04/29/denver-losing-24-million-federal-funding-explained/",
+        "title": "Denverite: What Losing $24M of Federal Money Really Means for Denver",
+        "date": "2025-04-29",
+        "checked": "2026-09-13",
+        "qualification": "Dated report of canceled reimbursements for prior spending; not a claim about the ultimate dispute outcome."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-12-B",
+    "family_id": "TOWN-12",
+    "town": "Denver",
+    "title": {
+      "en": "Please Vote Again"
+    },
+    "setup": {
+      "en": "Over food outside a Denver grocery, a warehouse worker explains Colorado’s extra union ballot."
+    },
+    "text": {
+      "en": "In May 2025, Governor Jared Polis vetoed a bill removing Colorado’s second-election requirement for negotiating a union-security agreement."
+    },
+    "comment": {
+      "en": "“Polis kept the second vote for a union security agreement. Funny: when the boss announces a pay freeze, we never get a first vote.”"
+    },
+    "sources": [
+      {
+        "url": "https://leg.colorado.gov/bills/sb25-005",
+        "title": "Colorado General Assembly: SB25-005 Worker Protection Collective Bargaining",
+        "date": "2025-05-16",
+        "checked": "2026-09-13",
+        "qualification": "Vetoed bill; the extra election concerns union-security agreements, not whether workers may form a union."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-12-C",
+    "family_id": "TOWN-12",
+    "town": "Denver",
+    "title": {
+      "en": "Exact Change of Policy"
+    },
+    "setup": {
+      "en": "Near the Denver Mint, a grocery clerk compares the coins in your palms."
+    },
+    "text": {
+      "en": "Trump ordered an end to circulating penny production in 2025. Denver had made the coins; existing pennies remain legal tender."
+    },
+    "comment": {
+      "en": "“Trump stopped making pennies. The price tags still end in ninety-nine. Apparently the smallest government service was giving me my change.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/86139df5644ef0885a9baf98e9677380",
+        "title": "AP: US Mint presses final pennies as production ends",
+        "date": "2025-11-12",
+        "checked": "2026-09-13",
+        "qualification": "Production ended, not legal-tender status; final public ceremony was in Philadelphia, not Denver."
+      },
+      {
+        "url": "https://www.usmint.gov/learn/coins-and-medals/circulating-coins/penny",
+        "title": "US Mint: Penny",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-13-A",
+    "family_id": "TOWN-13",
+    "town": "Des Moines",
+    "title": {
+      "en": "Apples Await Orders"
+    },
+    "setup": {
+      "en": "At a Des Moines produce stall, a delivery worker points to the unsold apples."
+    },
+    "text": {
+      "en": "In 2025, Trump’s USDA ended two Iowa local-food purchasing programs. One orchard needed new buyers for 50,000 pounds of apples."
+    },
+    "comment": {
+      "en": "“Trump’s USDA canceled the local-food programs. The apples still passed inspection. Unfortunately, they failed the new test: being lunch for someone who needs it.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.radioiowa.com/2025/04/02/iowa-farmers-feel-the-impact-of-local-food-programs-being-eliminated/",
+        "title": "Radio Iowa: Farmers Feel the Impact of Local Food Programs Being Eliminated",
+        "date": "2025-04-02",
+        "checked": "2026-09-13",
+        "qualification": "Statewide program cancellation applicable to Iowa; no unverified Des Moines-specific tonnage, school closure or job loss."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-13-B",
+    "family_id": "TOWN-13",
+    "town": "Des Moines",
+    "title": {
+      "en": "The Light Switch Veto"
+    },
+    "setup": {
+      "en": "At a Des Moines laundromat, a bus driver holds an electric bill up to the window beside your folding table."
+    },
+    "text": {
+      "en": "Des Moines’s electric franchise fee rose to 7.5% in 2025."
+    },
+    "comment": {
+      "en": "“City gets seven and a half percent when I turn on a lamp. I read the bill by the window now. The sun hasn’t signed a franchise agreement.”"
+    },
+    "sources": [
+      {
+        "url": "https://councildocs.dsm.city/ordinances/16%2C485.pdf",
+        "title": "Des Moines electric-franchise ordinance 16,485",
+        "date": "2025",
+        "checked": "2026-09-14",
+        "qualification": "The ordinance establishes the 7.5% franchise-fee rate. No claim about an individual bill’s total increase or the electric utility’s underlying rates."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-13-C",
+    "family_id": "TOWN-13",
+    "town": "Des Moines",
+    "title": {
+      "en": "Need-Based, Need Optional"
+    },
+    "setup": {
+      "en": "At a Des Moines grocery exit, a school cook pauses beside your modest food purchase."
+    },
+    "text": {
+      "en": "Starting in the 2025–26 school year, Iowa removed income limits for its state-funded education savings accounts for accredited private-school expenses."
+    },
+    "comment": {
+      "en": "“Iowa’s private-school accounts no longer have an income ceiling. Finally, a billionaire can get tuition help without the indignity of needing it.”"
+    },
+    "sources": [
+      {
+        "url": "https://educate.iowa.gov/pk-12/educational-choice/education-savings-accounts",
+        "title": "Iowa Department of Education: Students First Education Savings Accounts",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Universal income eligibility began in 2025–26; other residency, enrollment and application requirements remain."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-14-A",
+    "family_id": "TOWN-14",
+    "town": "El Paso",
+    "title": {
+      "en": "The Card Can Sit Down"
+    },
+    "setup": {
+      "en": "At an El Paso streetcar stop, a grocery clerk watches a visitor hunt through a wallet beside you."
+    },
+    "text": {
+      "en": "El Paso’s Sun Metro streetcar is fare-free."
+    },
+    "comment": {
+      "en": "“City streetcar’s free. You can tell who’s new: they board with their card out, like they’re feeding a nervous horse.”"
+    },
+    "sources": [
+      {
+        "url": "https://sunmetro.net/streetcar/about-streetcars",
+        "title": "Sun Metro: About the Streetcars",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Fare-free service applies to the streetcar; no claim about other bus fares, service frequency or reliability."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-14-B",
+    "family_id": "TOWN-14",
+    "town": "El Paso",
+    "title": {
+      "en": "Dress the Fridge for Subsidies"
+    },
+    "setup": {
+      "en": "While you ask about a charging cable, an El Paso repair-shop owner holds a necktie against a refrigerator."
+    },
+    "text": {
+      "en": "El Paso’s December 2023 Meta agreement offered an 80% city property-tax rebate for its first phase, conditioned on $800 million investment and 50 jobs."
+    },
+    "comment": {
+      "en": "“Meta can get eighty percent of its city property tax back. I’m putting a tie on the fridge. One of us is going to qualify.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.elpasotexas.gov/data-centers",
+        "title": "City of El Paso: Data Centers",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "First-phase city property-tax rebate: 80%, 15 years, with stated investment and job conditions. No assertion of actual job delivery or exemption from school and county taxes."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-14-C",
+    "family_id": "TOWN-14",
+    "town": "El Paso",
+    "title": {
+      "en": "Return to Sender"
+    },
+    "setup": {
+      "en": "At an El Paso grocery exit, a stocker watches you total the cost of some supplies."
+    },
+    "text": {
+      "en": "El Paso sits on the Mexican border. New York Fed researchers found US firms and consumers bore most of the cost of Trump’s 2025 tariffs."
+    },
+    "comment": {
+      "en": "“Trump says foreigners pay his tariffs. I tried handing my grocery bill across the bridge. They handed it back. Excellent border security.”"
+    },
+    "sources": [
+      {
+        "url": "https://libertystreeteconomics.newyorkfed.org/2026/02/who-is-paying-for-the-2025-u-s-tariffs/",
+        "title": "Trump tariffs passed to Americans",
+        "date": "2026-02",
+        "checked": "2026-09-13",
+        "qualification": "2026 New York Fed analysis finds most of the economic burden of 2025 tariffs fell on US firms and consumers. Fictional prices and shops are invented."
+      },
+      {
+        "url": "https://www.nps.gov/cham/learn/historyculture/index.htm",
+        "title": "National Park Service: Chamizal History and Culture",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-15-A",
+    "family_id": "TOWN-15",
+    "town": "Flagstaff",
+    "title": {
+      "en": "Stop Watching the Water"
+    },
+    "setup": {
+      "en": "At a Flagstaff picnic table, a plumber hears you discussing water for the next stretch."
+    },
+    "text": {
+      "en": "Trump’s 2025 budget proposal would close Flagstaff’s Grand Canyon Monitoring and Research Center, threatening research used to manage the Colorado River and Glen Canyon Dam."
+    },
+    "comment": {
+      "en": "“Trump proposed closing the canyon’s river-monitoring center. If I stopped checking leaks to save money, I would be called a former plumber.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kjzz.org/text/the-show/2025-06-18/trump-proposal-would-almost-completely-cut-funds-for-grand-canyon-monitoring-and-research-center",
+        "title": "KJZZ: Proposal Threatens Grand Canyon Monitoring and Research Center",
+        "date": "2025-06-18",
+        "checked": "2026-09-13",
+        "qualification": "Reported proposed cuts and conditional closure risk; not a verified closure or realized local job loss."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-15-B",
+    "family_id": "TOWN-15",
+    "town": "Flagstaff",
+    "title": {
+      "en": "Pluto, Pending Appropriation"
+    },
+    "setup": {
+      "en": "Outside a Flagstaff stargazing event, a mechanic steadies a battered amateur telescope."
+    },
+    "text": {
+      "en": "Flagstaff’s Lowell Observatory discovered Pluto. Trump’s April 2026 budget proposal sought a 47% cut to NASA science; Congress would determine the actual funding."
+    },
+    "comment": {
+      "en": "“Trump proposed cutting NASA science almost in half. We found Pluto with a telescope. His budget committee could lose it with a calculator.”"
+    },
+    "sources": [
+      {
+        "url": "https://aas.org/posts/news/2026/04/policy-update-8-april-2026",
+        "title": "American Astronomical Society: Policy Update, 8 April 2026",
+        "date": "2026-04-08",
+        "checked": "2026-09-13",
+        "qualification": "Professional society analysis of a proposed FY2027 budget, not enacted cuts or a documented loss to Lowell."
+      },
+      {
+        "url": "https://lowell.edu/this-week-in-astronomy-history-feb-15-21/",
+        "title": "Lowell Observatory: This Week in Astronomy History, February 15–21",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-15-C",
+    "family_id": "TOWN-15",
+    "town": "Flagstaff",
+    "title": {
+      "en": "Government Overreach, Upward"
+    },
+    "setup": {
+      "en": "On a Flagstaff evening walk, a night cleaner stops where the stars show above the shops."
+    },
+    "text": {
+      "en": "Flagstaff adopted an outdoor-lighting ordinance in 1958, using city regulation to protect the night sky for residents and observatories."
+    },
+    "comment": {
+      "en": "“Flagstaff regulated outdoor lighting so we could see the stars. Terrible government interference. A billboard might have sold that sky something.”"
+    },
+    "sources": [
+      {
+        "url": "https://flagstaff.az.gov/4042/Dark-Sky",
+        "title": "City of Flagstaff: Dark Sky",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "City history of its 1958 ordinance and 2001 designation, not a current legal compliance guide."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-16-A",
+    "family_id": "TOWN-16",
+    "town": "Frederick",
+    "title": {
+      "en": "Mop Up the Savings"
+    },
+    "setup": {
+      "en": "At a Frederick sandwich counter, a hospital porter discusses Trump’s announced federal health cuts."
+    },
+    "text": {
+      "en": "Maryland’s March 31, 2025 layoff log listed ninety HHS positions in Frederick for elimination under Trump’s federal cuts, with a stated May 30 effective date."
+    },
+    "comment": {
+      "en": "“Ninety health jobs marked for cuts. If I streamlined the hospital by removing the toilets, I would still have a mop problem.”"
+    },
+    "sources": [
+      {
+        "url": "https://labor.maryland.gov/employment/rif2025.shtml",
+        "title": "Maryland Department of Labor: RIF Log Year 2025",
+        "date": "2025-03-31",
+        "checked": "2026-09-13",
+        "qualification": "Formal notice lists 90 Frederick HHS positions and a May 30 effective date; notice is not an independent count of completed separations."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-16-B",
+    "family_id": "TOWN-16",
+    "town": "Frederick",
+    "title": {
+      "en": "Money Must Be Accepted"
+    },
+    "setup": {
+      "en": "At a Frederick laundromat, a cleaner compares rental applications while your clothes tumble."
+    },
+    "text": {
+      "en": "Frederick County’s fair-housing rules protect source of income, including housing vouchers, limiting landlords’ ability to reject applicants simply because they use rental assistance."
+    },
+    "comment": {
+      "en": "“The county says landlords cannot reject my housing voucher just for being a voucher. Government had to order them to accept government money. Very efficient market.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.frederickcountymd.gov/6386/Housing-Choice-Voucher",
+        "title": "Frederick County: Housing Choice Voucher",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Source-of-income protection, not a guarantee of acceptance regardless of other lawful screening criteria."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-16-C",
+    "family_id": "TOWN-16",
+    "town": "Frederick",
+    "title": {
+      "en": "Please Schedule Your Emergency"
+    },
+    "setup": {
+      "en": "At a Frederick grocery bench, a care worker checks next month’s family calendar."
+    },
+    "text": {
+      "en": "Maryland’s paid-family-leave program is scheduled to collect contributions from January 2027, with benefit payments beginning in January 2028."
+    },
+    "comment": {
+      "en": "“Maryland’s paid-leave benefits start in 2028. I told Dad to reschedule his recovery. He asked whether the legislature also takes walk-ins.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.labor.maryland.gov/whatsnews/gov-moore-announces-employer-registration-for-paid-family-and-medical-leave-insurance-is-live.shtml",
+        "title": "Maryland Labor: Paid Family and Medical Leave Registration Is Live",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Contributions begin January 2027 and benefits January 2028; this is the scheduled rollout, not a currently payable benefit."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-17-A",
+    "family_id": "TOWN-17",
+    "town": "Hagerstown",
+    "title": {
+      "en": "Premium Delivery Country"
+    },
+    "setup": {
+      "en": "Outside a Hagerstown post office, an off-duty carrier talks while you sort postcards."
+    },
+    "text": {
+      "en": "Hagerstown postal workers announced a March 2025 anti-privatization rally after Trump and Musk discussed privatizing USPS; the proposal was not an enacted sale."
+    },
+    "comment": {
+      "en": "“Trump and Musk floated privatizing the mail. Great: Grandma can become a premium delivery zone. She has always wanted to live inside a surcharge.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/692d56e701f3853af4ce914832a33124",
+        "title": "AP: Trump discusses privatizing the struggling Postal Service",
+        "date": "2025-03-25",
+        "checked": "2026-09-13",
+        "qualification": "Proposal and political debate; no claim USPS was privatized or that a particular surcharge exists."
+      },
+      {
+        "url": "https://radiofreehubcity.com/2025/03/13/rally-against-usps-privatization-to-take-place-in-hagerstown-on-march-23/",
+        "title": "Radio Free Hub City: Rally Against USPS Privatization",
+        "date": "2025-03-13",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-17-B",
+    "family_id": "TOWN-17",
+    "town": "Hagerstown",
+    "title": {
+      "en": "Your Laptop Is Taxing"
+    },
+    "setup": {
+      "en": "At a Hagerstown repair shop’s public bench, a bookkeeper waits with a stubborn laptop."
+    },
+    "text": {
+      "en": "From July 1, 2025, Maryland imposed a 3% sales tax on specified data, information-technology and software-publishing services, adding to eligible service bills."
+    },
+    "comment": {
+      "en": "“Maryland now taxes certain computer services. My laptop finally has a government job: every time it breaks, it raises revenue.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.marylandcomptroller.gov/legal-library/tb-30-jun-2025.html",
+        "title": "Maryland Comptroller: Technical Bulletin No. 56",
+        "date": "2025-06-30",
+        "checked": "2026-09-13",
+        "qualification": "Tax covers specified service classifications, not every computer purchase or every repair."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-17-C",
+    "family_id": "TOWN-17",
+    "town": "Hagerstown",
+    "title": {
+      "en": "Your Seat Is Sold Separately"
+    },
+    "setup": {
+      "en": "At a Hagerstown snack counter, a roofer checks stadium ticket prices while you study the menu."
+    },
+    "text": {
+      "en": "Maryland’s 2021 law authorized bonds for Hagerstown’s new stadium; the state also committed supplemental and fiscal 2023 funding."
+    },
+    "comment": {
+      "en": "“Public money helped build the ballpark. I asked about my seat. Apparently I paid for the building where they sell it to me again.”"
+    },
+    "sources": [
+      {
+        "url": "https://mdstad.com/press-release/governor-hogan-and-maryland-stadium-authority-break-ground-new-downtown-hagerstown",
+        "title": "Maryland Stadium Authority: Groundbreaking for the downtown Hagerstown stadium",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Supports the state bond authority and identified public commitments. The resident’s seat exchange is invented; no claim of promised free admission or diversion from a named service."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-18-A",
+    "family_id": "TOWN-18",
+    "town": "Iowa City",
+    "title": {
+      "en": "America First, Writers Last"
+    },
+    "setup": {
+      "en": "At an Iowa City café window, a dishwasher chats about the writing program’s lost grants."
+    },
+    "text": {
+      "en": "In March 2025, State Department grant terminations ended several Iowa writing programs. The university said more than 90% of those federal grant dollars were spent in the US."
+    },
+    "comment": {
+      "en": "“Trump’s State Department cut the writing program. More than ninety percent of its grant money stayed in America. Apparently America First has a spelling exception.”"
+    },
+    "sources": [
+      {
+        "url": "https://now.uiowa.edu/news/2025/03/us-department-state-halts-international-writing-program-funding",
+        "title": "US Department of State halts International Writing Program funding",
+        "date": "2025-03-06",
+        "checked": "2026-09-13",
+        "qualification": "University account of February 2025 grant termination and its announced effects; not a claim that every program ended permanently."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-18-B",
+    "family_id": "TOWN-18",
+    "town": "Iowa City",
+    "title": {
+      "en": "Opportunity, Office Closed"
+    },
+    "setup": {
+      "en": "Near the Iowa City campus, a cleaner points to an emptied office while taking a food break."
+    },
+    "text": {
+      "en": "In March 2025, the University of Iowa announced its diversity division would close under state and regents directives; twelve jobs had been eliminated. Required civil-rights services continued elsewhere."
+    },
+    "comment": {
+      "en": "“Iowa ordered the university to dismantle its diversity office. They removed twelve jobs in compliance. Equal opportunity now has equal opportunity to wait outside.”"
+    },
+    "sources": [
+      {
+        "url": "https://now.uiowa.edu/news/2025/03/ui-close-division-access-opportunity-and-diversity-march-27",
+        "title": "University of Iowa: Division Closure on March 27",
+        "date": "2025-03-13",
+        "checked": "2026-09-13",
+        "qualification": "Twelve jobs eliminated since the previous spring, not twelve caused solely by this final closure; legally required services were reassigned."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-18-C",
+    "family_id": "TOWN-18",
+    "town": "Iowa City",
+    "title": {
+      "en": "Still Learning to Be Free"
+    },
+    "setup": {
+      "en": "At an Iowa City bus shelter, a campus cleaner moves a lunchbox so you can sit."
+    },
+    "text": {
+      "en": "Iowa City extended its fare-free bus pilot, as recorded in the city’s December 2025 strategic-plan progress report."
+    },
+    "comment": {
+      "en": "“They extended the free-bus pilot. Still testing whether passengers miss paying. I’m willing to be observed keeping my money for as long as science needs.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.icgov.org/home/showpublisheddocument/2925/639040638387730000",
+        "title": "Iowa City strategic-plan progress report, December 2025",
+        "date": "2025-12",
+        "checked": "2026-09-14",
+        "qualification": "Supports extension of the fare-free pilot, not permanent funding or a claim that the program is an actual scientific experiment."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-19-A",
+    "family_id": "TOWN-19",
+    "town": "Joplin",
+    "title": {
+      "en": "The Drain Got a Raise"
+    },
+    "setup": {
+      "en": "At a Joplin hardware counter, a plumber holds a new drain fitting beside a sewer bill."
+    },
+    "text": {
+      "en": "Joplin’s council approved sewer-rate increases beginning April 2025, averaging 4% annually through 2029; individual bills vary."
+    },
+    "comment": {
+      "en": "“Council gave the sewer yearly increases through 2029. My boss says raises must be earned. The drain gets one just for swallowing.”"
+    },
+    "sources": [
+      {
+        "url": "https://joplinbusinessoutlook.com/2025/01/08/sewer-rate-adjustment-begins-for-city-of-joplin-residents-with-april-2025-billing-cycle/",
+        "title": "Sewer rate adjustment begins for Joplin residents with April 2025 billing",
+        "date": "2025-01-08",
+        "checked": "2026-09-14",
+        "qualification": "Average annual change over 2025–2029, with individual impacts varying. No claim about water safety, service failure or an exact household charge."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-19-B",
+    "family_id": "TOWN-19",
+    "town": "Joplin",
+    "title": {
+      "en": "Stay Home on Your Own Time"
+    },
+    "setup": {
+      "en": "At a Joplin grocery exit, a cashier on break buys tissues beside your supplies."
+    },
+    "text": {
+      "en": "Governor Mike Kehoe signed Missouri’s 2025 repeal of the voter-approved paid-sick-leave requirement, ending the state mandate on August 28."
+    },
+    "comment": {
+      "en": "“Governor Kehoe repealed mandatory paid sick leave. The germs still clock in. Missouri protects your employer from catching the cost.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Pro-Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-19-C",
+    "family_id": "TOWN-19",
+    "town": "Joplin",
+    "title": {
+      "en": "The Mansion Has a Deduction"
+    },
+    "setup": {
+      "en": "At a Joplin diner booth, a cleaner sorts pay slips beside a property-sale advertisement."
+    },
+    "text": {
+      "en": "Missouri’s 2025 HB594 created a state income-tax deduction for individual capital gains. Ordinary wages, including a cleaner’s pay, do not become capital gains."
+    },
+    "comment": {
+      "en": "“Missouri stopped taxing individuals’ capital gains. I clean expensive houses for taxable wages. My mop has been advised to diversify into owning the house.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Pro-Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-20-A",
+    "family_id": "TOWN-20",
+    "town": "Kansas City",
+    "title": {
+      "en": "The Truck Has Been Liberated"
+    },
+    "setup": {
+      "en": "Outside a Kansas City food pantry, a delivery worker discusses a canceled federal order."
+    },
+    "text": {
+      "en": "In March 2025, Trump’s USDA canceled expected federal food shipments to Harvesters, serving Kansas and Missouri, including milk, eggs, cheese, chicken and fruit."
+    },
+    "comment": {
+      "en": "“Trump’s USDA canceled food deliveries. The milk never arrived, but the savings did. Unfortunately, the children keep asking for the kind you can pour.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kcur.org/news/2025-03-28/harvesters-food-bank-deliveries-trump-administration-missouri-kansas",
+        "title": "Trump administration cancels food bank shipments to Missouri and Kansas",
+        "date": "2025-03-28",
+        "checked": "2026-09-13",
+        "qualification": "Regional reporting of Harvesters orders canceled in March 2025; no claim that all food-bank supplies stopped."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-20-B",
+    "family_id": "TOWN-20",
+    "town": "Kansas City",
+    "title": {
+      "en": "The Fare Is Already Settled"
+    },
+    "setup": {
+      "en": "At a Kansas City streetcar platform, a cook notices you searching for fare money."
+    },
+    "text": {
+      "en": "Kansas City’s streetcar charges no fare. Its transportation district uses a sales tax and special property assessments to support the system’s construction and operation."
+    },
+    "comment": {
+      "en": "“Local taxes pay for this ride. Put your wallet away. Yes, government did something useful. Try to look normal until we reach your stop.”"
+    },
+    "sources": [
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/main-street-rail-tdd/",
+        "title": "KC Streetcar: Main Street Rail Transportation Development District",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://kcstreetcar.org/about-streetcar/",
+        "title": "KC Streetcar: About the Streetcar",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-20-C",
+    "family_id": "TOWN-20",
+    "town": "Kansas City",
+    "title": {
+      "en": "Forty-Year Season Ticket"
+    },
+    "setup": {
+      "en": "At a Kansas City food counter, a cleaner in a plain baseball cap recalls the stadium vote."
+    },
+    "text": {
+      "en": "Jackson County voters rejected an April 2024 proposal for forty years of sales taxes to help fund a new Royals ballpark and renovations to the Chiefs’ stadium."
+    },
+    "comment": {
+      "en": "“They wanted forty years of sales taxes for stadiums. We voted no. For once, the fans got to send a billionaire back to the minors.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/e9605296b85e91699441e4ba10e83212",
+        "title": "AP: Voters Reject Stadium Tax for Royals and Chiefs",
+        "date": "2024-04-02",
+        "checked": "2026-09-13",
+        "qualification": "Dated failed ballot proposal; not a claim that subsequent stadium funding negotiations ended."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-21-A",
+    "family_id": "TOWN-21",
+    "town": "La Crosse",
+    "title": {
+      "en": "Unobserved Fish Are Cheaper"
+    },
+    "setup": {
+      "en": "At a La Crosse riverside bench, a bait-shop worker pauses beside your water jug."
+    },
+    "text": {
+      "en": "A November 2025 report said Trump’s proposed federal budget could close La Crosse’s Upper Midwest Environmental Sciences Center. USGS emphasized that the budget had not passed."
+    },
+    "comment": {
+      "en": "“Trump’s budget proposed closing our river science center. The fish cannot lobby. We are teaching one to hold a checkbook, but the ink runs.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.wizmnews.com/2025/11/21/closure-of-upper-midwest-environmental-sciences-center-possible-under-proposed-budget/",
+        "title": "Closure of Upper Midwest Environmental Sciences Center possible under proposed budget",
+        "date": "2025-11-21",
+        "checked": "2026-09-13",
+        "qualification": "Local reporting of the proposed FY2026 budget; USGS said the budget had not passed. No completed closure is asserted."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-21-B",
+    "family_id": "TOWN-21",
+    "town": "La Crosse",
+    "title": {
+      "en": "Constitutional Scissors"
+    },
+    "setup": {
+      "en": "At a La Crosse copy shop, a school secretary holds a utility bill up to a pair of scissors."
+    },
+    "text": {
+      "en": "Wisconsin’s Supreme Court upheld Governor Evers’s partial veto extending school revenue-limit increases through 2425. The ruling did not guarantee future appropriations."
+    },
+    "comment": {
+      "en": "“Evers crossed out digits and got school revenue limits through 2425. I tried it on my electric bill. Apparently only one of us has constitutional scissors.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/5a1be188f78ab5e4223b2c7c7ad3ca7d",
+        "title": "AP report on the upheld Wisconsin school revenue-limit veto",
+        "date": "2025",
+        "checked": "2026-09-14",
+        "qualification": "The decision concerns revenue-limit increases through 2425, not an unconditional promise of 400 years of appropriations. The utility-bill comparison is invented satire."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-21-C",
+    "family_id": "TOWN-21",
+    "town": "La Crosse",
+    "title": {
+      "en": "Constitutional Headshot"
+    },
+    "setup": {
+      "en": "At a La Crosse grocery bench, a warehouse worker retrieves an ID from a worn wallet."
+    },
+    "text": {
+      "en": "Wisconsin voters approved a legislatively proposed constitutional photo-ID requirement in April 2025. Photo ID was already required by state law."
+    },
+    "comment": {
+      "en": "“We already showed photo ID. Legislators put it in the constitution. My terrible license photo now has stronger job security than I do.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/abdcaa07f7e82d15330ab8b79485ed9b",
+        "title": "AP: Wisconsin Voters Decide School Superintendent and Voter-ID Amendment",
+        "date": "2025-04-01",
+        "checked": "2026-09-13",
+        "qualification": "The amendment entrenched a pre-existing photo-ID requirement; it did not introduce photo ID for the first time."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-22-A",
+    "family_id": "TOWN-22",
+    "town": "Las Vegas",
+    "title": {
+      "en": "Visitors Have Other Options"
+    },
+    "setup": {
+      "en": "At a Las Vegas bus stop, a hotel housekeeper watches an almost empty airport shuttle pass."
+    },
+    "text": {
+      "en": "Las Vegas visitation fell 11% year over year in June 2025. Some officials cited Trump’s tariffs and immigration policies among possible causes; no single cause was established."
+    },
+    "comment": {
+      "en": "“Trump wanted fewer foreigners coming in. Some tourists took the hint. My landlord has declined to accept a stronger border instead of rent.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/fbcb23cacef7c54f4ecaac0a43ba0703",
+        "title": "Las Vegas tourism is down. Some blame Trump’s tariffs and immigration crackdown",
+        "date": "2025-08-19",
+        "checked": "2026-09-13",
+        "qualification": "AP attributed part of the decline to officials and also reported other explanations; causation is not presented as settled."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-22-B",
+    "family_id": "TOWN-22",
+    "town": "Las Vegas",
+    "title": {
+      "en": "The Fairway Cannot Drink That"
+    },
+    "setup": {
+      "en": "At a Las Vegas shaded water stop, a groundskeeper sets down a dusty rake."
+    },
+    "text": {
+      "en": "Since November 2021, local rules have barred new golf courses in Las Vegas and unincorporated Clark County from using Colorado River water."
+    },
+    "comment": {
+      "en": "“New golf courses cannot use Colorado River water. Finally, the government asked whether my drinking water really needs a putting lesson.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.lvvwd.com/conservation/measures/index.html",
+        "title": "Drought and conservation measures",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Water district rules and water-use account checked September 2026; new-course restrictions differ from budgets for existing courses."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-22-C",
+    "family_id": "TOWN-22",
+    "town": "Las Vegas",
+    "title": {
+      "en": "The Fine Print Leaves No Tip"
+    },
+    "setup": {
+      "en": "At a Las Vegas food court, an off-duty server checks a pay slip beside your lunch."
+    },
+    "text": {
+      "en": "Trump’s 2025 law created a temporary income-tax deduction for eligible tips, with limits. It did not generally remove Social Security and Medicare taxes from those tips."
+    },
+    "comment": {
+      "en": "“Trump promised no tax on tips. The deduction helps; payroll taxes still take a bite. Washington remains the customer who reads the menu and tips itself.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/tips",
+        "title": "IRS: Tips",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Qualified-tip deduction has occupation, income, reporting and dollar limits and runs through 2028."
+      },
+      {
+        "url": "https://www.irs.gov/publications/p15",
+        "title": "IRS: Publication 15, Employer’s Tax Guide",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "Reported tips remain generally subject to Social Security and Medicare taxes."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-23-A",
+    "family_id": "TOWN-23",
+    "town": "Madison",
+    "title": {
+      "en": "Funding on a Spare Tire"
+    },
+    "setup": {
+      "en": "At a Madison campus bus stop, a lab technician watches you check the van’s spare tire."
+    },
+    "text": {
+      "en": "UW–Madison launched short-term bridge funding in May 2025 for research projects whose federal awards had been interrupted or terminated under Trump’s administration."
+    },
+    "comment": {
+      "en": "“Trump interrupted research grants, so the university found bridge money. Science is driving on the spare while Washington takes credit for reducing tire expenses.”"
+    },
+    "sources": [
+      {
+        "url": "https://research.wisc.edu/press-release/2025/08/06/building-bridges-support-for-research-impacted-by-federal-funding-cuts-gets-a-boost-from-ovcr/",
+        "title": "Building Bridges: Support for research impacted by federal funding cuts gets a boost from OVCR",
+        "date": "2025-08-06",
+        "checked": "2026-09-13",
+        "qualification": "University account of bridge funding launched in May 2025 and additional initiatives; not a claim that all canceled funds were replaced."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-23-B",
+    "family_id": "TOWN-23",
+    "town": "Madison",
+    "title": {
+      "en": "One Vote, Different Volume"
+    },
+    "setup": {
+      "en": "At a Madison diner, a cleaner describes the billionaire advertising in Wisconsin’s court race."
+    },
+    "text": {
+      "en": "By March 30, 2025, Elon Musk and groups he supported had spent more than $20 million backing conservative Brad Schimel in Wisconsin’s Supreme Court election."
+    },
+    "comment": {
+      "en": "“Musk brought millions to our Supreme Court election. I brought one vote. His came with surround sound; mine came with a pencil.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/cdea66e0dcbaa53dd183e1d10bee2b35",
+        "title": "AP: Musk Gives Checks Ahead of Wisconsin Supreme Court Election",
+        "date": "2025-03-30",
+        "checked": "2026-09-13",
+        "qualification": "Campaign support and outside spending, not bribery of a judge; amount is a dated minimum."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-23-C",
+    "family_id": "TOWN-23",
+    "town": "Madison",
+    "title": {
+      "en": "The Wallet Amendment"
+    },
+    "setup": {
+      "en": "At a Madison laundromat, a cook fishes an ID out of the clothes before washing."
+    },
+    "text": {
+      "en": "In April 2025, Wisconsin voters approved the legislature’s amendment making photo ID a constitutional voting requirement, reinforcing the existing state-law rule."
+    },
+    "comment": {
+      "en": "“Wisconsin put voter ID in the constitution. I nearly washed mine. Democracy now depends on whether I check my pockets before the spin cycle.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/abdcaa07f7e82d15330ab8b79485ed9b",
+        "title": "AP: Wisconsin Voters Decide School Superintendent and Voter-ID Amendment",
+        "date": "2025-04-01",
+        "checked": "2026-09-13",
+        "qualification": "The amendment entrenched a pre-existing photo-ID requirement; it did not introduce photo ID for the first time."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-24-A",
+    "family_id": "TOWN-24",
+    "town": "Minneapolis",
+    "title": {
+      "en": "The Experiment Is Uncertainty"
+    },
+    "setup": {
+      "en": "At a Minneapolis campus café patio, a lab cleaner shares a table with you."
+    },
+    "text": {
+      "en": "By April 25, 2025, the University of Minnesota reported 72 terminated federal awards under Trump’s administration, affecting 220 personnel across the university."
+    },
+    "comment": {
+      "en": "“Trump terminated research awards. Seventy-two of them. The university still studies uncertainty; Washington has simply moved the experiment into everyone’s paycheck.”"
+    },
+    "sources": [
+      {
+        "url": "https://research.umn.edu/news/navigating-uncertainty-research-leaders-update-board-regents-impact-federal-funding",
+        "title": "Navigating Uncertainty: Research Leaders Update Board of Regents on Impact of Federal Funding Disruptions",
+        "date": "2025-05-13",
+        "checked": "2026-09-13",
+        "qualification": "University-wide snapshot as of April 25, 2025; 220 personnel were affected, not necessarily laid off, and the total is not limited to Minneapolis."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-24-B",
+    "family_id": "TOWN-24",
+    "town": "Minneapolis",
+    "title": {
+      "en": "The Baby Has State Backing"
+    },
+    "setup": {
+      "en": "At a Minneapolis grocery bench, a delivery driver rocks a stroller while discussing leave."
+    },
+    "text": {
+      "en": "Minnesota’s paid-family-and-medical-leave law, signed by Governor Tim Walz, established paid, job-protected leave for eligible workers beginning January 1, 2026."
+    },
+    "comment": {
+      "en": "“Minnesota gives eligible workers paid family leave. My boss calls us a family too. Useful to discover which family pays when the baby arrives.”"
+    },
+    "sources": [
+      {
+        "url": "https://mn.gov/governor/newsroom/press-releases/?id=1055-714988",
+        "title": "Governor Walz: Minnesota Paid Family Leave Begins January 2026",
+        "date": "2025-12",
+        "checked": "2026-09-13",
+        "qualification": "Benefits and job protection have eligibility requirements; not every absence is covered."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-24-C",
+    "family_id": "TOWN-24",
+    "town": "Minneapolis",
+    "title": {
+      "en": "Lunch Without Cross-Examination"
+    },
+    "setup": {
+      "en": "At a Minneapolis park table, a school cook eats after finishing the lunch shift."
+    },
+    "text": {
+      "en": "Governor Walz signed Minnesota’s 2023 free-school-meals law, funding a breakfast and lunch at no charge for students at participating schools."
+    },
+    "comment": {
+      "en": "“Walz made school meals free. Apparently six-year-olds should spend lunch chewing food instead of proving their parents are poor. Dangerous precedent for a government.”"
+    },
+    "sources": [
+      {
+        "url": "https://education.mn.gov/MDE/dse/FNS/SNP/free/?os=f",
+        "title": "Minnesota Department of Education: Free School Meals for Kids",
+        "date": "2023",
+        "checked": "2026-09-13",
+        "qualification": "Participating National School Lunch and School Breakfast Program schools; not every meal at every school."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-25-A",
+    "family_id": "TOWN-25",
+    "town": "Missoula",
+    "title": {
+      "en": "The Freeze Has Thawed Into a Hold"
+    },
+    "setup": {
+      "en": "At a Missoula coffee counter, a university cleaner waits with a folded shift schedule."
+    },
+    "text": {
+      "en": "On January 29, 2025, the University of Montana reported that Trump’s blanket federal funding freeze had been rescinded, while other reviews and communication pauses remained."
+    },
+    "comment": {
+      "en": "“Trump withdrew the blanket funding freeze. Other reviews stayed. The fridge is open, the food is still locked up, and everyone applauds the thaw.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.umt.edu/sponsored-programs/exec-orders/funding-freeze.php",
+        "title": "Federal funding freeze rescinded",
+        "date": "2025-01-29",
+        "checked": "2026-09-13",
+        "qualification": "University notice verified through indexed text; direct page returned 404. Rescission did not cancel other orders or agency communication pauses."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-25-B",
+    "family_id": "TOWN-25",
+    "town": "Missoula",
+    "title": {
+      "en": "The River Sent the Invoice"
+    },
+    "setup": {
+      "en": "At a Missoula riverside rest, a maintenance worker points toward the Milltown area."
+    },
+    "text": {
+      "en": "In a 2005 federal cleanup settlement, Atlantic Richfield and NorthWestern agreed to over $100 million in work at nearby Milltown Reservoir, including contaminated sediment removal and dam dismantling."
+    },
+    "comment": {
+      "en": "“EPA made companies pay for the Milltown cleanup. The revolutionary principle of you broke it, you bought it finally reached a boardroom.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/158eb922f77cefe4852570d900462bdb.html",
+        "title": "$100M settlement reached for Milltown Reservoir cleanup",
+        "date": "2005-08-02",
+        "checked": "2026-09-13",
+        "qualification": "EPA announcement of the settlement and required cleanup near Missoula; no claim of a particular completion date."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-25-C",
+    "family_id": "TOWN-25",
+    "town": "Missoula",
+    "title": {
+      "en": "The Car Can Fend for Itself"
+    },
+    "setup": {
+      "en": "At a Missoula yard sale, a carpenter shows you a sketch for a small backyard rental."
+    },
+    "text": {
+      "en": "Missoula’s accessory-dwelling-unit code requires no additional parking for the added home."
+    },
+    "comment": {
+      "en": "“A backyard home doesn’t need extra parking. I’ve drawn the tenant a kitchen. If the car wants its own living room, it can get a job.”"
+    },
+    "sources": [
+      {
+        "url": "https://library.municode.com/MT/Missoula/codes/municipal_code?nodeId=TIT20ZO_CH20.45ACUSST_20.45.060ACDWUN",
+        "title": "Missoula municipal code, section 20.45.060: Accessory Dwelling Units",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Uses the current code rather than older planning PDFs. No claim of automatic permit approval or removal of every parking requirement."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-26-A",
+    "family_id": "TOWN-26",
+    "town": "North Platte",
+    "title": {
+      "en": "Weather, Once a Day"
+    },
+    "setup": {
+      "en": "At a North Platte fuel stop, a farmhand checks the clouds while you fill the van."
+    },
+    "text": {
+      "en": "In March 2025, amid Trump-era federal workforce cuts, staffing shortages reduced North Platte’s routine National Weather Service balloon launches from twice daily to once."
+    },
+    "comment": {
+      "en": "“Trump’s cuts left fewer people to launch weather balloons. One forecast balloon a day instead of two. The afternoon will have to stop doing weather.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.eenews.net/articles/noaa-cuts-weather-balloon-launches-citing-staff-shortages/",
+        "title": "NOAA cuts weather balloon launches, citing staff shortages",
+        "date": "2025-03-21",
+        "checked": "2026-09-13",
+        "qualification": "Reporting of a temporary reduction beginning March 20, 2025; not a claim that the reduced schedule remains in effect."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-26-B",
+    "family_id": "TOWN-26",
+    "town": "North Platte",
+    "title": {
+      "en": "Voters Read the Tuition Bill"
+    },
+    "setup": {
+      "en": "At a North Platte grocery bench, a school bus driver recalls the private-school funding vote."
+    },
+    "text": {
+      "en": "In November 2024, Nebraska voters repealed the legislature’s provision directing $10 million annually to scholarships for privately operated schools."
+    },
+    "comment": {
+      "en": "“The legislature gave private-school scholarships public money. Nebraska voters repealed it. Turns out school choice includes choosing where the state keeps its wallet.”"
+    },
+    "sources": [
+      {
+        "url": "https://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20General%20Canvass%20Book.pdf",
+        "title": "Nebraska Secretary of State: 2024 General Election Canvass",
+        "date": "2024-11-05",
+        "checked": "2026-09-13",
+        "qualification": "Certified result for Referendum 435; concerns the specific appropriation repealed, not every subsequent school-choice initiative."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-26-C",
+    "family_id": "TOWN-26",
+    "town": "North Platte",
+    "title": {
+      "en": "Essential, Please Remain Seated"
+    },
+    "setup": {
+      "en": "At a North Platte diner, a rail worker talks while a freight train passes outside."
+    },
+    "text": {
+      "en": "In December 2022, Congress and President Biden imposed a national freight-rail contract to block a strike, including at Union Pacific, which operates North Platte’s rail yard."
+    },
+    "comment": {
+      "en": "“Biden and Congress blocked the rail strike. We were essential enough to keep working, just not essential enough to choose when we stopped.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/6e66b66a99415e12c2c1fa642d6a842f",
+        "title": "AP: Rail Workers Gain Sick Leave After Imposed Contract",
+        "date": "2023-02",
+        "checked": "2026-09-13",
+        "qualification": "Reports the prior December imposition and subsequent leave gains; the joke addresses lost strike leverage, not a claim no rail worker later gained sick leave."
+      },
+      {
+        "url": "https://www.up.com/about-us/funstuff/rrtalk/train-types",
+        "title": "Union Pacific: Train Types and Hump Yards",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-27-A",
+    "family_id": "TOWN-27",
+    "town": "Oklahoma City",
+    "title": {
+      "en": "Local Food, Federal Exit"
+    },
+    "setup": {
+      "en": "Outside an Oklahoma City grocery, a pantry volunteer unloads some donated food."
+    },
+    "text": {
+      "en": "In April 2025, the Regional Food Bank of Oklahoma warned that Trump-administration cancellation of federal local-food purchasing funds would reduce its ability to meet growing demand."
+    },
+    "comment": {
+      "en": "“Trump’s USDA canceled local-food funding. Now the pantry asks neighbors to fill the gap. Small government comes with a surprisingly large grocery list.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kswo.com/2025/04/07/federal-cuts-may-soon-begin-affect-local-food-banks/",
+        "title": "Federal cuts may soon begin to affect local food banks",
+        "date": "2025-04-07",
+        "checked": "2026-09-13",
+        "qualification": "Regional Food Bank of Oklahoma warning about the canceled LFPA program; projected capacity effects are not presented as measured losses."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-27-B",
+    "family_id": "TOWN-27",
+    "town": "Oklahoma City",
+    "title": {
+      "en": "The State Bought the Endorsement"
+    },
+    "setup": {
+      "en": "At an Oklahoma City café patio, a school custodian describes the state’s Bible purchase."
+    },
+    "text": {
+      "en": "In November 2024, Ryan Walters’ Oklahoma education department said it ordered 500 Trump-endorsed Bibles for classrooms, costing about $25,000."
+    },
+    "comment": {
+      "en": "“Walters bought Trump-endorsed Bibles for classrooms. I buy my own work gloves. Apparently public funding depends on whose hands have been on the product.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/e00fdcd3253cc11169cc6857d8e8e9de",
+        "title": "AP: Oklahoma Superintendent Announces Religious Department and Bible Purchase",
+        "date": "2024-11-15",
+        "checked": "2026-09-13",
+        "qualification": "Department’s announced order, not a claim that every classroom received a Bible or that every later purchase proceeded."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-27-C",
+    "family_id": "TOWN-27",
+    "town": "Oklahoma City",
+    "title": {
+      "en": "Public Money, Private Gate"
+    },
+    "setup": {
+      "en": "At an Oklahoma City bus stop, a cafeteria worker talks about private-school tax credits."
+    },
+    "text": {
+      "en": "Oklahoma’s official 2025–26 parental-choice tax-credit report allowed up to $250 million in credits for eligible private-school tuition and fees."
+    },
+    "comment": {
+      "en": "“Oklahoma authorized a quarter-billion in private-school credits. My school fundraiser still needs baked goods. Can I file these brownies as an educational institution?”"
+    },
+    "sources": [
+      {
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/reports/pctc/2025/PCTC_Report_6112025.pdf",
+        "title": "Oklahoma Tax Commission: Parental Choice Tax Credit Report",
+        "date": "2025-06-11",
+        "checked": "2026-09-13",
+        "qualification": "Authorized annual cap, not a claim the entire amount was spent or that every household qualifies."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-28-A",
+    "family_id": "TOWN-28",
+    "town": "Omaha",
+    "title": {
+      "en": "Science Without an Electric Bill"
+    },
+    "setup": {
+      "en": "At an Omaha medical-campus bus stop, a cleaner discusses the proposed research-cost cap."
+    },
+    "text": {
+      "en": "In February 2025, Omaha’s UNMC warned that Trump’s proposed NIH research-cost cap threatened expenses including laboratory infrastructure, utilities and cybersecurity."
+    },
+    "comment": {
+      "en": "“Trump’s NIH cap treats the light bill as expendable overhead. Fine. Let the next medical breakthrough develop a natural immunity to darkness.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.unmc.edu/newsroom/2025/02/09/unmc-statement-on-nih-indirect-cost-guidance/",
+        "title": "UNMC statement on NIH indirect cost guidance",
+        "date": "2025-02-09",
+        "checked": "2026-09-13",
+        "qualification": "University warning about announced NIH guidance; does not claim the proposed cap ultimately took effect or specific layoffs occurred."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-28-B",
+    "family_id": "TOWN-28",
+    "town": "Omaha",
+    "title": {
+      "en": "Choose Your Contribution"
+    },
+    "setup": {
+      "en": "At an Omaha riverside rest, a plumber talks while you rinse mud from your shoes."
+    },
+    "text": {
+      "en": "Before Omaha’s sewer-overflow control program, an average year sent about 3.7 billion gallons of sewage mixed with stormwater into the Missouri River and Papillion Creek."
+    },
+    "comment": {
+      "en": "“The city tackles sewage overflows. Taxes or sewage: every household contributes something. I prefer the one with a receipt.”"
+    },
+    "sources": [
+      {
+        "url": "https://omahacso.com/about-program",
+        "title": "About the Program: Clean Solutions for Omaha",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "City wastewater program account; 3.7 billion gallons is the estimated average annual overflow before the program, not a current annual total."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-28-C",
+    "family_id": "TOWN-28",
+    "town": "Omaha",
+    "title": {
+      "en": "The Eleventh Employee Cures It"
+    },
+    "setup": {
+      "en": "At an Omaha sandwich shop’s public bench, a clerk counts coworkers on their fingers."
+    },
+    "text": {
+      "en": "Nebraska’s paid-sick-time mandate took effect October 1, 2025, for employers with at least eleven employees. Smaller employers are not required by that mandate to provide it."
+    },
+    "comment": {
+      "en": "“Nebraska requires paid sick leave at workplaces with eleven employees. We have ten. My flu is waiting for an eleventh opinion.”"
+    },
+    "sources": [
+      {
+        "url": "https://dol.nebraska.gov/PressRelease/Details/335",
+        "title": "Nebraska Department of Labor: Paid Sick Time Effective October 1",
+        "date": "2025-09-25",
+        "checked": "2026-09-13",
+        "qualification": "The mandate covers employers with at least eleven employees; accrual and worker eligibility conditions remain."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-29-A",
+    "family_id": "TOWN-29",
+    "town": "Phoenix",
+    "title": {
+      "en": "Funding With Court Costs"
+    },
+    "setup": {
+      "en": "At a Phoenix shaded food stop, a care worker discusses Arizona’s fight for federal money."
+    },
+    "text": {
+      "en": "In August 2025, Arizona Attorney General Kris Mayes said lawsuits against Trump-administration actions had protected about $1.5 billion in federal funds for state programs."
+    },
+    "comment": {
+      "en": "“Mayes says lawsuits protected a billion and a half in federal funds. Washington has added a new grant requirement: bring your own attorney general.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.azag.gov/press-release/attorney-general-mayes-safeguards-15-billion-federal-funds-arizona-lawsuits-against",
+        "title": "Attorney General Mayes Safeguards $1.5 Billion in Federal Funds for Arizona in Lawsuits Against Trump Administration",
+        "date": "2025-08-08",
+        "checked": "2026-09-13",
+        "qualification": "Attorney general’s own accounting of statewide funds protected while lawsuits continued; not a final judgment in every case or a Phoenix-only total."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-29-B",
+    "family_id": "TOWN-29",
+    "town": "Phoenix",
+    "title": {
+      "en": "A Timesheet for Your Blood Pressure"
+    },
+    "setup": {
+      "en": "At a Phoenix laundromat, a cleaner checks a work schedule while your clothes dry."
+    },
+    "text": {
+      "en": "Under Trump’s 2025 law, certain Arizona Medicaid expansion adults face new work or qualifying-activity requirements beginning January 2027. Exemptions apply; the requirements are not universal."
+    },
+    "comment": {
+      "en": "“Trump’s law adds Medicaid work checks in 2027. I already clean for a living. Now my health insurance wants a second copy of the floor.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.azahcccs.gov/AHCCCS/Initiatives/HR1/",
+        "title": "AHCCCS: Federal H.R.1 Changes",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "Future January 2027 requirements for certain expansion adults; approved activities, earnings alternatives and exemptions matter."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-29-C",
+    "family_id": "TOWN-29",
+    "town": "Phoenix",
+    "title": {
+      "en": "Shade, Estimated Arrival"
+    },
+    "setup": {
+      "en": "At a Phoenix bus stop, a delivery worker shifts with the narrow shadow of a pole."
+    },
+    "text": {
+      "en": "Phoenix’s November 2024 shade plan committed to at least 27,000 trees over five years, while acknowledging that projected planting would still leave unmet shade needs."
+    },
+    "comment": {
+      "en": "“The city promised thousands of trees over five years. My bus arrives in twenty minutes. Can the shade plan start with this square foot?”"
+    },
+    "sources": [
+      {
+        "url": "https://www.phoenix.gov/content/dam/phoenix/heatsite/documents/ShadePhoenixPlan_Nov13CouncilDraft_topost_EN.pdf",
+        "title": "Shade Phoenix: An Action Plan for Trees and Built Shade",
+        "date": "2024-11-13",
+        "checked": "2026-09-13",
+        "qualification": "Council draft plan states a five-year commitment to at least 27,000 trees and says projected planting remains insufficient; a target, not completed planting."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-30-A",
+    "family_id": "TOWN-30",
+    "town": "Pittsburgh",
+    "title": {
+      "en": "Research, Minus the Research Money"
+    },
+    "setup": {
+      "en": "At a Pittsburgh campus food truck, a lab technician joins you at a standing table."
+    },
+    "text": {
+      "en": "At a June 11, 2025 town hall, Pitt reported that federal agencies under Trump had terminated 91 research awards, representing a $42 million loss."
+    },
+    "comment": {
+      "en": "“Trump’s agencies canceled ninety-one Pitt awards. The researchers still have questions. Washington has funded the answer: we cannot afford to find out.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.publicsource.org/trump-administration-higher-education-funding-orders-university-pittsburgh-pitt-cmu-timeline/",
+        "title": "Timeline: First half of 2026 brings more research cuts to Pitt",
+        "date": "2026-08-26",
+        "checked": "2026-09-13",
+        "qualification": "Updated local reporting; this package uses the explicitly dated June 11, 2025 entry, not the current cumulative grant total."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-30-B",
+    "family_id": "TOWN-30",
+    "town": "Pittsburgh",
+    "title": {
+      "en": "The Cough Got an Ordinance"
+    },
+    "setup": {
+      "en": "At a Pittsburgh diner exit, an off-duty server pockets a work schedule."
+    },
+    "text": {
+      "en": "Pittsburgh’s paid-sick-time expansion took effect January 1, 2026, allowing covered workers at employers with at least fifteen employees to accrue up to 72 hours annually."
+    },
+    "comment": {
+      "en": "“Pittsburgh expanded paid sick time. Finally, the cough can stay home instead of explaining the specials. The germs are furious about government interference.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.pittsburghpa.gov/City-Government/Legal-Services/Office-of-Equal-Protection/Paid-Sick-Days-Act",
+        "title": "City of Pittsburgh: Paid Sick Days Act",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.pittsburghpa.gov/files/assets/city/v/1/mayor/documents/paid-sick-day-act-notice/clean-guidelines-v.-4.1-for-adminstering-psda-dec25.pdf",
+        "title": "Pittsburgh Paid Sick Days Act Guidelines",
+        "date": "2025-12",
+        "checked": "2026-09-13",
+        "qualification": "Accrual cap and eligibility requirements, not an immediate bank of 72 hours for every worker."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-30-C",
+    "family_id": "TOWN-30",
+    "town": "Pittsburgh",
+    "title": {
+      "en": "The Sky Needed an Inspector"
+    },
+    "setup": {
+      "en": "At a Pittsburgh overlook, a window cleaner rests beside your food bag."
+    },
+    "text": {
+      "en": "Pittsburgh adopted a smoke-control ordinance and created a Bureau of Smoke Prevention in 1941, giving local government a formal role in controlling industrial smoke."
+    },
+    "comment": {
+      "en": "“Pittsburgh had to pass a law to get smoke out of the air. Industry had been providing free samples directly into everybody’s lungs.”"
+    },
+    "sources": [
+      {
+        "url": "https://historicpittsburgh.org/islandora/object/pitt:US-PPiU-ais198007",
+        "title": "Guide to the Allegheny County Health Department, Bureau of Air Pollution Control Records, 1941–1978",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "University archival finding aid verified through indexed text; direct page rejected retrieval. Supports the 1941 ordinance and bureau."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-31-A",
+    "family_id": "TOWN-31",
+    "town": "Rapid City",
+    "title": {
+      "en": "Government of One Birthday"
+    },
+    "setup": {
+      "en": "At a Rapid City campground table, a cleaner compares park dates with your route."
+    },
+    "text": {
+      "en": "Nearby Badlands National Park’s 2026 fee-free schedule includes June 14, described as Flag Day and President Trump’s birthday, for US citizens and residents."
+    },
+    "comment": {
+      "en": "“Trump made his birthday a free park day. I tried celebrating mine at the gate. Apparently the birthday discount requires executive experience.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.nps.gov/badl/planyourvisit/fees.htm",
+        "title": "Badlands National Park: Fees & Passes",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Official 2026 schedule checked September 13; free entrance days apply to US citizens and residents and may exclude other fees."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-31-B",
+    "family_id": "TOWN-31",
+    "town": "Rapid City",
+    "title": {
+      "en": "The Trucks Get Private Suites"
+    },
+    "setup": {
+      "en": "Stopping to check your map, you meet a Rapid City cleaner rolling a bin along a vacation rental’s wide driveway."
+    },
+    "text": {
+      "en": "Rapid City’s council approved vacation-rental rules in December 2025 requiring two off-street parking spaces."
+    },
+    "comment": {
+      "en": "“Council wants two parking spaces for a vacation rental. The guests get bunk beds. Their trucks each get a private suite.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kotatv.com/2025/12/02/rapid-city-council-votes-regulate-vacation-home-rentals/",
+        "title": "Rapid City council votes to regulate vacation home rentals",
+        "date": "2025-12-02",
+        "checked": "2026-09-14",
+        "qualification": "Supports the two-space requirement under the new vacation-rental rules. No assertion about every existing property’s status or a city requirement that guests use bunk beds."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-31-C",
+    "family_id": "TOWN-31",
+    "town": "Rapid City",
+    "title": {
+      "en": "The Book Cannot Cross the State"
+    },
+    "setup": {
+      "en": "Outside a Rapid City library, a hotel worker compares reading plans with you."
+    },
+    "text": {
+      "en": "In May 2025, South Dakota’s state library suspended interlibrary loans amid Trump-administration disruption of federal library grants, limiting access to books held elsewhere."
+    },
+    "comment": {
+      "en": "“Trump’s library cuts halted the state loan program. The book exists, just somewhere else. We have invented a library card that needs a fuel budget.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/d3a236243b3a5c2b04e85d2004d1a946",
+        "title": "AP: Libraries Cut Services After Trump Targets IMLS",
+        "date": "2025-05-18",
+        "checked": "2026-09-13",
+        "qualification": "Dated interlibrary-loan suspension; court orders and later restoration are not summarized as a current blanket closure."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-32-A",
+    "family_id": "TOWN-32",
+    "town": "Reno",
+    "title": {
+      "en": "Research Without the Refrigerator"
+    },
+    "setup": {
+      "en": "At a Reno campus picnic table, a technician shifts a lunch cooler into the shade."
+    },
+    "text": {
+      "en": "In February 2025, the University of Nevada, Reno said Trump’s announced research-cost cap threatened over $4 million annually; a court had temporarily blocked it."
+    },
+    "comment": {
+      "en": "“Trump proposed capping the money that keeps labs running. Courts paused it. My lunch now has two protections: this cooler and the separation of powers.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.unr.edu/nevada-today/news/president-messages/2025-02-11-update-nih-funding",
+        "title": "Update on NIH Funding",
+        "date": "2025-02-11",
+        "checked": "2026-09-13",
+        "qualification": "University estimate of more than $4 million annually at risk; the same notice reported a temporary court order blocking implementation."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-32-B",
+    "family_id": "TOWN-32",
+    "town": "Reno",
+    "title": {
+      "en": "Affordability Has No Ceiling"
+    },
+    "setup": {
+      "en": "At a Reno laundromat, a retired cleaner compares a rental renewal with your travel budget."
+    },
+    "text": {
+      "en": "Governor Joe Lombardo vetoed Nevada’s AB280 in June 2025, rejecting fee protections and a temporary 5% rent-increase cap for certain tenants, citing affordability concerns."
+    },
+    "comment": {
+      "en": "“Lombardo vetoed a rent cap because it could hurt affordability. Good news: my rent can rise freely to protect me from expensive housing.”"
+    },
+    "sources": [
+      {
+        "url": "https://gov.nv.gov/uploadedFiles/gov2022nvgov/content/Newsroom/vetos/2025/AB280.pdf",
+        "title": "Governor Lombardo: AB280 Veto Message",
+        "date": "2025-06-02",
+        "checked": "2026-09-13",
+        "qualification": "Failed bill with targeted tenant coverage; the governor’s predicted affordability effects are his stated rationale, not proven results."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-32-C",
+    "family_id": "TOWN-32",
+    "town": "Reno",
+    "title": {
+      "en": "The River Got Reassigned"
+    },
+    "setup": {
+      "en": "At a Reno riverside bench, a maintenance worker describes the federal diversion downstream."
+    },
+    "text": {
+      "en": "The federal Derby Dam, completed near Reno in 1905, diverted Truckee River water for irrigation, reducing flows to Pyramid Lake and harming fish important to the Paiute Tribe."
+    },
+    "comment": {
+      "en": "“Washington sent Truckee water toward its irrigation project. Pyramid Lake and Paiute fish got less. Federal generosity is easiest when somebody else owns the bucket.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.usbr.gov/projects/index.php?id=368",
+        "title": "Bureau of Reclamation: Newlands Project",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://pyramidlake.us/fishing",
+        "title": "Pyramid Lake Paiute Tribe: Fishing and Water History",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-33-A",
+    "family_id": "TOWN-33",
+    "town": "Salt Lake City",
+    "title": {
+      "en": "The Cure Has an Overhead Problem"
+    },
+    "setup": {
+      "en": "At a Salt Lake City campus café patio, a lab cleaner waits for a bus."
+    },
+    "text": {
+      "en": "In 2025, University of Utah research leaders estimated that Trump’s proposed NIH reimbursement reduction would cut university research revenue by about $45 million."
+    },
+    "comment": {
+      "en": "“Trump’s NIH proposal threatened forty-five million in research revenue. Apparently the cure should cover its own rent. Has anyone tried asking the disease for a deposit?”"
+    },
+    "sources": [
+      {
+        "url": "https://www.research.utah.edu/features/u-research-leaders-keep-doing-the-science/",
+        "title": "U research leaders: Keep doing the science",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "University account verified through indexed text; $45 million was the estimated impact of a proposed NIH reduction, not a realized loss."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-33-B",
+    "family_id": "TOWN-33",
+    "town": "Salt Lake City",
+    "title": {
+      "en": "Freedom Has a Boundary"
+    },
+    "setup": {
+      "en": "At a downtown Salt Lake City transit stop, a cleaner helps you locate the Free Fare Zone."
+    },
+    "text": {
+      "en": "UTA charges no fare for TRAX and fixed-route bus trips that both start and end inside downtown Salt Lake City’s designated Free Fare Zone."
+    },
+    "comment": {
+      "en": "“UTA makes these downtown trips free. Cross the zone boundary and fares return. Even government kindness has learned to read a property map.”"
+    },
+    "sources": [
+      {
+        "url": "https://myuta.rideuta.com/Fares-And-Passes/Individual-Fares/Free-Fare-Zone",
+        "title": "UTA Free Fare Zone",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Operator rules checked September 2026; both boarding and exiting must occur within the zone, and the rule does not make all regional transit free."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-33-C",
+    "family_id": "TOWN-33",
+    "town": "Salt Lake City",
+    "title": {
+      "en": "The Rainbow Filed Its Paperwork"
+    },
+    "setup": {
+      "en": "Near Salt Lake City Hall, a seamstress pauses while you rest on the steps."
+    },
+    "text": {
+      "en": "In May 2025, Salt Lake City adopted new official Pride, transgender and Juneteenth-themed city flags after Utah restricted which flags government buildings could display."
+    },
+    "comment": {
+      "en": "“Utah tried banning unofficial flags. The city made Pride flags official. The rainbow is still here; it just had to pass a municipal background check.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.slc.gov/blog/2025/05/07/salt-lake-city-adopts-four-flags-to-represent-residents-visitors/",
+        "title": "Salt Lake City: Four Official City Flags",
+        "date": "2025-05-07",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://apnews.com/article/13c8f9f7269d1b33daaa7ef041c6c497",
+        "title": "AP: Salt Lake City and Boise Adopt Official Pride Flags",
+        "date": "2025-05-07",
+        "checked": "2026-09-13",
+        "qualification": "Dated response to the 2025 law; not a claim about every subsequent legislative change."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-34-A",
+    "family_id": "TOWN-34",
+    "town": "San Antonio",
+    "title": {
+      "en": "The Children Continue Anyway"
+    },
+    "setup": {
+      "en": "At a San Antonio playground bench, a school aide discusses the federal funding freeze."
+    },
+    "text": {
+      "en": "During Trump’s January 2025 federal funding-freeze confusion, San Antonio ISD said affected programs would continue while it awaited state and federal guidance."
+    },
+    "comment": {
+      "en": "“Trump froze funding; the district kept programs running while waiting for instructions. The children also kept being children. Terrible failure to coordinate with Washington.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.mysanantonio.com/news/local/article/head-start-funding-federal-freeze-20061743.php",
+        "title": "Will Trump’s federal funding freeze impact San Antonio Head Start programs?",
+        "date": "2025-01-28",
+        "checked": "2026-09-13",
+        "qualification": "Local report says SAISD expected operations to continue and was awaiting guidance; this is uncertainty, not a documented program closure."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-34-B",
+    "family_id": "TOWN-34",
+    "town": "San Antonio",
+    "title": {
+      "en": "The Tuition Has a State Escort"
+    },
+    "setup": {
+      "en": "At a San Antonio grocery queue, a bus driver adds pencils to a small food purchase."
+    },
+    "text": {
+      "en": "Governor Abbott signed Texas’s education savings-account program in 2025, with $1 billion in initial state funding for eligible private-education expenses."
+    },
+    "comment": {
+      "en": "“Abbott gave private-school accounts a billion-dollar launch. My child’s classroom still requests pencils. I should have sent the supply list to a lobbyist.”"
+    },
+    "sources": [
+      {
+        "url": "https://educationfreedom.texas.gov/",
+        "title": "Texas Education Freedom Accounts",
+        "date": "2026",
+        "checked": "2026-09-13",
+        "qualification": "State allocation and program purpose; no claim that a specific school’s pencil budget was directly transferred to the program."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-34-C",
+    "family_id": "TOWN-34",
+    "town": "San Antonio",
+    "title": {
+      "en": "The Fee Passed Inspection"
+    },
+    "setup": {
+      "en": "At a San Antonio garage, a mechanic taps a registration receipt while you ask about the new rules."
+    },
+    "text": {
+      "en": "Texas ended most noncommercial vehicle safety inspections in January 2025 but kept a $7.50 replacement fee; emissions and commercial inspection requirements remain."
+    },
+    "comment": {
+      "en": "“They scrapped most safety inspections and kept the fee. The car stays outside. Open your wallet and say ‘ah.’”"
+    },
+    "sources": [
+      {
+        "url": "https://www.dps.texas.gov/news/vehicle-safety-inspection-changes-take-effect-january-2025",
+        "title": "Texas DPS: Vehicle Safety Inspection Changes Take Effect January 2025",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Most noncommercial safety inspections ended; applicable emissions and commercial rules remain. The fee is not represented as the entire vehicle-registration bill."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-35-A",
+    "family_id": "TOWN-35",
+    "town": "Sioux Falls",
+    "title": {
+      "en": "The Groceries Need a Hearing"
+    },
+    "setup": {
+      "en": "At a Sioux Falls food pantry’s public bench, a delivery worker talks about the funding gap."
+    },
+    "text": {
+      "en": "In July 2025, Feeding South Dakota asked state lawmakers for $3 million after Trump-era federal cuts reduced its food supply across the state."
+    },
+    "comment": {
+      "en": "“Federal cuts left Feeding South Dakota asking legislators for three million. Hunger now needs a committee hearing. It has prepared some very brief stomach remarks.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kotatv.com/2025/07/31/feeding-south-dakota-asks-south-dakota-lawmakers-3m-due-federal-cuts/",
+        "title": "Feeding South Dakota asks South Dakota lawmakers for $3M due to federal cuts",
+        "date": "2025-07-30",
+        "checked": "2026-09-13",
+        "qualification": "Statewide food-bank account, discussed in Sioux Falls; the $3 million was a request, not an awarded grant or a Sioux Falls-only loss."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-35-B",
+    "family_id": "TOWN-35",
+    "town": "Sioux Falls",
+    "title": {
+      "en": "The State Came for Dinner"
+    },
+    "setup": {
+      "en": "At a Sioux Falls grocery checkout, a school cook separates onions from a sprawling receipt."
+    },
+    "text": {
+      "en": "South Dakota voters rejected Initiated Measure 28 in 2024. It proposed barring state taxes on many human-consumption goods, excluding alcohol and prepared food."
+    },
+    "comment": {
+      "en": "“The grocery-tax repeal lost. State still comes to dinner. Never chops an onion, never washes a plate, always gets served before I do.”"
+    },
+    "sources": [
+      {
+        "url": "https://sdsos.gov/elections-voting/assets/BallotQuestions%20%282024%29.pdf",
+        "title": "South Dakota Secretary of State: 2024 Ballot Questions",
+        "date": "2024",
+        "checked": "2026-09-14",
+        "qualification": "Official result: Measure 28 failed, 129,261 to 290,969. The proposal was broader than groceries alone; no claim that it would have eliminated every local tax."
+      },
+      {
+        "url": "https://sdsos.gov/elections-voting/assets/2024%20Assets/2024GeneralBQPamphlet.FINALdocx.pdf",
+        "title": "South Dakota 2024 General Election Ballot Question Pamphlet",
+        "date": "2024",
+        "qualification": "Attorney General’s explanation describes the state-tax proposal and excludes alcoholic beverages and prepared food. Competing campaign arguments are not treated as established facts.",
+        "checked": "2026-09-14"
+      }
+    ]
+  },
+  {
+    "id": "TOWN-35-C",
+    "family_id": "TOWN-35",
+    "town": "Sioux Falls",
+    "title": {
+      "en": "Try Asking the Landowner"
+    },
+    "setup": {
+      "en": "At a Sioux Falls feed-store bench, a farmhand discusses the state’s pipeline law."
+    },
+    "text": {
+      "en": "In March 2025, Governor Rhoden barred eminent domain for carbon-oxide pipelines in South Dakota, preventing compulsory land acquisition for those projects while allowing voluntary deals."
+    },
+    "comment": {
+      "en": "“Rhoden blocked forced land-taking for carbon pipelines. A private company has been invited to try the free market. We wish it a speedy recovery.”"
+    },
+    "sources": [
+      {
+        "url": "https://news.sd.gov/news?id=news_kb_article_view&sysparm_article=KB0043737",
+        "title": "South Dakota Governor: Rhoden Signs Property Rights Bill",
+        "date": "2025-03-06",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://sdlegislature.gov/DisplayChapter?Chapter=190&Session=2025",
+        "title": "South Dakota2025Session Law Chapter190",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Restricts eminentdomain for carbon-oxide pipelines, not every pipeline or voluntary easement."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-36-A",
+    "family_id": "TOWN-36",
+    "town": "South Bend",
+    "title": {
+      "en": "The Hiring Freeze Found the Kitchen"
+    },
+    "setup": {
+      "en": "At a South Bend café, a campus kitchen worker tells you about Notre Dame’s budget notice."
+    },
+    "text": {
+      "en": "In June 2025, Notre Dame announced a 2.5% budget reduction and continued its hiring freeze amid Trump-era federal funding and tax uncertainty."
+    },
+    "comment": {
+      "en": "“Trump’s funding and tax uncertainty put campus hiring on ice. The dishes still arrive hot. Washington has created a hiring freeze with excellent steam.”"
+    },
+    "sources": [
+      {
+        "url": "https://scholastic.nd.edu/issues/notre-dames-response-to-federal-funding-cuts/",
+        "title": "Notre Dame’s Response to Federal Funding Cuts",
+        "date": "2025-10-28",
+        "checked": "2026-09-13",
+        "qualification": "Campus reporting verified through indexed text. Uses the June 19, 2025 budget announcement, not the article’s inconsistent March statement date."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-36-B",
+    "family_id": "TOWN-36",
+    "town": "South Bend",
+    "title": {
+      "en": "Retirement Must Outlive Management"
+    },
+    "setup": {
+      "en": "Outside South Bend’s auto museum, a retired machinist shares a bench with you."
+    },
+    "text": {
+      "en": "Studebaker’s 1963 closure left nearly 3,000 South Bend workers without pension benefits, fueling reform. Congress’s 1974 ERISA law later set minimum standards for private retirement plans."
+    },
+    "comment": {
+      "en": "“Congress tightened pension rules after Studebaker workers lost benefits. Revolutionary idea: retirement money should survive the company’s final management decision.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.dol.gov/node/22391",
+        "title": "US Department of Labor: Studebaker Plant Closes",
+        "date": "1963-12-09",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.dol.gov/general/topic/health-plans/erisa",
+        "title": "US Department of Labor: ERISA",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Minimum standards for covered private plans, not an unlimited federal guarantee of all benefits."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-36-C",
+    "family_id": "TOWN-36",
+    "town": "South Bend",
+    "title": {
+      "en": "The Endowment Seeks Absolution"
+    },
+    "setup": {
+      "en": "At a South Bend grocery bench, a campus cleaner compares bank fees with the university’s tax fight."
+    },
+    "text": {
+      "en": "In 2025, Notre Dame joined other faith-based institutions seeking a religious exemption from higher endowment-return taxes. The final federal legislation included no such exemption."
+    },
+    "comment": {
+      "en": "“Notre Dame sought religious relief on investment taxes. I asked if my overdraft was also a matter of faith. The bank believes in fees.”"
+    },
+    "sources": [
+      {
+        "url": "https://scholastic.nd.edu/issues/notre-dames-response-to-federal-funding-cuts/",
+        "title": "Notre Dame’s Response to Federal Funding Cuts",
+        "date": "2025-10-28",
+        "checked": "2026-09-13",
+        "qualification": "Campus reporting verified through indexed text. Uses the June 19, 2025 budget announcement, not the article’s inconsistent March statement date."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-37-A",
+    "family_id": "TOWN-37",
+    "town": "Spokane",
+    "title": {
+      "en": "The Heat Survived the Cut"
+    },
+    "setup": {
+      "en": "At a Spokane shaded bus stop, a renter uses a folded paper as a fan."
+    },
+    "text": {
+      "en": "In September 2025, Spokane reported that Trump’s administration rescinded a $19.9 million grant supporting planned heating, cooling and air-filter improvements for 300 low-income homes."
+    },
+    "comment": {
+      "en": "“Trump’s administration rescinded the home-cooling grant. The heat kept its funding. I am applying to become a federally recognized breeze.”"
+    },
+    "sources": [
+      {
+        "url": "https://my.spokanecity.org/news/releases/2025/09/23/proposed-resolution-outlines-city-of-spokanes-federal-priorities/",
+        "title": "Proposed Resolution Outlines City of Spokane’s Federal Priorities",
+        "date": "2025-09-23",
+        "checked": "2026-09-13",
+        "qualification": "City account of rescinded awards; home upgrades were planned, not reported completed."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-37-B",
+    "family_id": "TOWN-37",
+    "town": "Spokane",
+    "title": {
+      "en": "The Ceiling Still Goes Up"
+    },
+    "setup": {
+      "en": "At a Spokane laundromat, a delivery worker compares a rent notice with a pay slip."
+    },
+    "text": {
+      "en": "Governor Bob Ferguson signed Washington’s rent-stabilization law in May 2025, limiting increases for covered existing tenants to 7% plus inflation or 10%, whichever is lower."
+    },
+    "comment": {
+      "en": "“Ferguson capped rent hikes. Good. My landlord’s ceiling now rises more slowly than before, which is helpful because my paycheck still cannot reach it.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.wa.gov/news/2025/governor-ferguson-signs-rent-stabilization-affordable-housing-bills",
+        "title": "Governor Ferguson Signs Rent Stabilization Bills",
+        "date": "2025-05-07",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.commerce.wa.gov/housing-policy/hb1217-landlord-resource-center/",
+        "title": "Washington Commerce: HB1217 Resource Center",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Caps apply to covered tenancies with exemptions; not a rent freeze or a claim the maximum is charged to every tenant."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-37-C",
+    "family_id": "TOWN-37",
+    "town": "Spokane",
+    "title": {
+      "en": "Free Speech Had a Placement Fee"
+    },
+    "setup": {
+      "en": "On a Spokane downtown bench, a warehouse worker explains the city’s old street-speaking ban."
+    },
+    "text": {
+      "en": "After Spokane workers protested exploitative job-placement practices, employment-agency owners persuaded city officials to prohibit street speaking, helping trigger the city’s free-speech struggle."
+    },
+    "comment": {
+      "en": "“Job agencies sold lousy jobs; workers complained. Spokane restricted street speaking. The city solved the employment problem by regulating the people describing it.”"
+    },
+    "sources": [
+      {
+        "url": "https://historylink.org/File/7357",
+        "title": "IWW formally begins Spokane free-speech fight on November 2, 1909.",
+        "date": "2005-06-22",
+        "checked": "2026-09-13",
+        "qualification": "HistoryLink historical account; agency practices and the city speech ordinance are historical, not present-day allegations."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-38-A",
+    "family_id": "TOWN-38",
+    "town": "Springfield, IL",
+    "title": {
+      "en": "Democracy, View From Outside"
+    },
+    "setup": {
+      "en": "Near Lincoln Home in Springfield, a cleaner recalls the shutdown while you rest by the neighborhood fence."
+    },
+    "text": {
+      "en": "On October 1, 2025, the federal shutdown closed Lincoln Home’s visitor center and house tours in Springfield, while the neighborhood grounds remained open."
+    },
+    "comment": {
+      "en": "“Congress shut down government and Lincoln tours closed. You could admire democracy through the window. Please do not touch; it was a display model.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.wandtv.com/news/lincoln-home-site-closed-until-further-notice-amid-government-shutdown/article_94ee0b81-24ba-4115-9020-a723d343a04e.html",
+        "title": "Lincoln Home site closed until further notice amid government shutdown",
+        "date": "2025-10-01",
+        "checked": "2026-09-13",
+        "qualification": "WAND indexed article verified; closure is the October 2025 announcement, not a claim of current closure. Grounds remained accessible."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-38-B",
+    "family_id": "TOWN-38",
+    "town": "Springfield, IL",
+    "title": {
+      "en": "No Doctor’s Note for Being Alive"
+    },
+    "setup": {
+      "en": "At a Springfield laundromat, a cook plans a day off while your blankets dry."
+    },
+    "text": {
+      "en": "Illinois’s paid-leave law took effect in 2024, allowing covered workers to earn up to forty hours annually for any reason, subject to its eligibility and notice rules."
+    },
+    "comment": {
+      "en": "“Illinois lets covered workers earn leave for any reason. My boss asked why. I showed him the law. He prefers laws with fewer employees in them.”"
+    },
+    "sources": [
+      {
+        "url": "https://ilga.gov/Legislation/ILCS/Articles?ActID=4351&Chapter=EMPLOYMENT&ChapterID=68&MajorTopic=BUSINESS+AND+EMPLOYMENT",
+        "title": "Illinois General Assembly: Paid Leave for All Workers Act",
+        "date": "2024",
+        "checked": "2026-09-13",
+        "qualification": "Covered workers accrue leave; the law has exclusions and does not grant every worker an immediate forty-hour bank."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-38-C",
+    "family_id": "TOWN-38",
+    "town": "Springfield, IL",
+    "title": {
+      "en": "The Raise Has a Legislature"
+    },
+    "setup": {
+      "en": "At a Springfield grocery checkout, an off-duty stocker compares your food total with an hourly wage."
+    },
+    "text": {
+      "en": "Illinois’s state minimum wage reached $15 an hour for covered workers aged eighteen and older on January 1, 2025."
+    },
+    "comment": {
+      "en": "“Illinois raised the adult minimum to fifteen dollars. Funny how wages needed legislation while the grocery prices managed their promotion without a single hearing.”"
+    },
+    "sources": [
+      {
+        "url": "https://labor.illinois.gov/faqs/minimum-wage-overtime-faq.html",
+        "title": "Illinois Department of Labor: Minimum Wage FAQ",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Adult covered-worker rate; tipped and under-eighteen rules differ."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-39-A",
+    "family_id": "TOWN-39",
+    "town": "Springfield, MO",
+    "title": {
+      "en": "Protein Was Not Renewed"
+    },
+    "setup": {
+      "en": "At a Springfield food pantry bench, a delivery worker talks about missing federal orders."
+    },
+    "text": {
+      "en": "In March 2025, Springfield’s Ozarks Food Harvest estimated that Trump’s USDA cancellations would remove $3 million in food that year; one-third of canceled orders were protein foods."
+    },
+    "comment": {
+      "en": "“Trump’s USDA canceled three million dollars in food. A third was protein. The pantry has plenty of explanations, but nobody has found a recipe yet.”"
+    },
+    "sources": [
+      {
+        "url": "https://ozarksfoodharvest.org/media/federal-cuts-leave-funding-gap-usda-ozarks-food-harvest/",
+        "title": "Ozarks Food Harvest will lose $3 million in food from USDA cuts this year",
+        "date": "2025-03-31",
+        "checked": "2026-09-13",
+        "qualification": "Foodbank’s contemporaneous estimate for 2025, not a retrospective measurement; one-third of canceled orders were protein foods."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-39-B",
+    "family_id": "TOWN-39",
+    "town": "Springfield, MO",
+    "title": {
+      "en": "Inflation Lost Its Appointment"
+    },
+    "setup": {
+      "en": "At a Springfield grocery bench, a cleaner checks a pay slip against your receipt."
+    },
+    "text": {
+      "en": "Governor Kehoe’s 2025 legislation removed future inflation indexing from Missouri’s minimum wage while keeping the scheduled increase to $15 in 2026."
+    },
+    "comment": {
+      "en": "“Kehoe removed automatic inflation raises from Missouri’s minimum wage. I asked the cereal to cooperate. It says its lobbyist is handling the matter.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Pro-Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-39-C",
+    "family_id": "TOWN-39",
+    "town": "Springfield, MO",
+    "title": {
+      "en": "The Invisible Hand Needs Cable"
+    },
+    "setup": {
+      "en": "At a Springfield utility-work fence, an installer pauses while you check your route."
+    },
+    "text": {
+      "en": "Springfield’s community-owned City Utilities built a fiber expansion exceeding 1,000 miles by 2023. Private broadband providers lease that public infrastructure to deliver service."
+    },
+    "comment": {
+      "en": "“The city utility built the fiber; private providers lease it and sell service. Even the invisible hand needs the public to run its cables.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.cityutilities.net/DocumentCenter/View/1069/Annual-Report---2022-PDF",
+        "title": "City Utilities Annual Report 2022",
+        "date": "2022",
+        "checked": "2026-09-13",
+        "qualification": "Utility report identifies Brightspeed and a second tenant on SpringNet fiber infrastructure."
+      },
+      {
+        "url": "https://www.cityutilities.net/DocumentCenter/View/1071/Annual-Report---2023-PDF",
+        "title": "City Utilities Annual Report 2023",
+        "date": "2023",
+        "checked": "2026-09-13",
+        "qualification": "Utility reports its fiber expansion completed in May 2023 and added over 1,000 miles; figures refer to that project."
+      },
+      {
+        "url": "https://www.cityutilities.net/308/About-CU",
+        "title": "About City Utilities",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary source establishes that City Utilities is community-owned."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-40-A",
+    "family_id": "TOWN-40",
+    "town": "St. Louis",
+    "title": {
+      "en": "Lunch Depends on the Round"
+    },
+    "setup": {
+      "en": "At a St. Louis grocery exit, a food-bank driver describes the canceled Illinois purchasing round."
+    },
+    "text": {
+      "en": "In May 2025, St. Louis Area Foodbank said Trump’s administration canceled its next federal local-farm purchasing round for Illinois; earlier awards could still be spent."
+    },
+    "comment": {
+      "en": "“Trump canceled the next local-farm food round. The last one can finish. Apparently hunger is supposed to respect the end of a fiscal paragraph.”"
+    },
+    "sources": [
+      {
+        "url": "https://stlfoodbank.org/blog/may2025blog/",
+        "title": "Growth and Adaptation: May at the Foodbank",
+        "date": "2025-05",
+        "checked": "2026-09-13",
+        "qualification": "Foodbank states its LFPA participation was in Illinois only; existing rounds remained authorized, while the third round was canceled."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-40-B",
+    "family_id": "TOWN-40",
+    "town": "St. Louis",
+    "title": {
+      "en": "The State Stops Charging by the Diaper"
+    },
+    "setup": {
+      "en": "At a St. Louis grocery bench, a cleaner compares baby supplies with your small food purchase."
+    },
+    "text": {
+      "en": "Missouri’s 2025 tax legislation created sales-tax exemptions for diapers and certain other personal-care necessities, reducing tax on qualifying everyday purchases."
+    },
+    "comment": {
+      "en": "“Missouri removed sales tax from diapers. At last, the state admitted this transaction already produces enough waste without its contribution.”"
+    },
+    "sources": [
+      {
+        "url": "https://governor.mo.gov/press-releases/archive/governor-kehoe-signs-bold-tax-cuts-and-pro-business-legislation-law",
+        "title": "Governor Kehoe Signs Tax Cuts and Pro-Business Legislation",
+        "date": "2025-07-10",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-40-C",
+    "family_id": "TOWN-40",
+    "town": "St. Louis",
+    "title": {
+      "en": "A Thriving Little Ticket"
+    },
+    "setup": {
+      "en": "At a St. Louis copy shop, a delivery driver lays a parking notice beside a savings statement."
+    },
+    "text": {
+      "en": "St. Louis lists a $20 meter fine that doubles after 30 days and reaches $80 after 45 days."
+    },
+    "comment": {
+      "en": "“Twenty dollars grows into eighty in forty-five days. I keep the ticket next to my savings statement. Maybe it’ll teach it something.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.stlouis-mo.gov/government/departments/treasurer/parking-violations/parking-violation-fines.cfm",
+        "title": "City of St. Louis: Parking Violation Fines",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "Applies to the listed meter violation and payment intervals. No claim that the resident has obtained any investment return or that the rule covers every citation."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-41-A",
+    "family_id": "TOWN-41",
+    "town": "Toledo",
+    "title": {
+      "en": "The Envelope Contains the Bill"
+    },
+    "setup": {
+      "en": "At a Toledo print shop’s public counter, a worker discusses tariff surcharges while you buy a postcard."
+    },
+    "text": {
+      "en": "In April 2025, a Toledo-area envelope maker said a US paper supplier planned a tariff surcharge because some raw materials came from abroad."
+    },
+    "comment": {
+      "en": "“Trump says tariffs protect American business. Our American paper supplier added a surcharge. The envelope industry finally has an answer to what is inside: another bill.”"
+    },
+    "sources": [
+      {
+        "url": "https://toledofreepress.com/local-businesses-brace-for-tariffs/",
+        "title": "Local businesses brace for tariffs",
+        "checked": "2026-09-11",
+        "qualification": "A reported supplier surcharge and local business account, not a claim about every printer or paper supplier."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-41-B",
+    "family_id": "TOWN-41",
+    "town": "Toledo",
+    "title": {
+      "en": "Lost Money Found a Stadium"
+    },
+    "setup": {
+      "en": "At a Toledo diner, a cleaner recalls Ohio’s decision to use unclaimed funds for football."
+    },
+    "text": {
+      "en": "Governor Mike DeWine’s 2025 Ohio budget set aside $600 million in unclaimed funds for a new Cleveland Browns stadium, making a statewide fund part of the stadium plan."
+    },
+    "comment": {
+      "en": "“DeWine put unclaimed money toward the Browns’ stadium. I lose twenty dollars and retrace my steps. Ohio finds six hundred million and buys football architecture.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/dc224d6592b4662eda77083266646378",
+        "title": "AP: Ohio Budget Includes Stadium Funding",
+        "date": "2025-07-01",
+        "checked": "2026-09-13",
+        "qualification": "Dated budget allocation; not a claim every legal challenge was resolved or the money had all been spent."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-41-C",
+    "family_id": "TOWN-41",
+    "town": "Toledo",
+    "title": {
+      "en": "The Public Bought Back the Ground"
+    },
+    "setup": {
+      "en": "At Toledo’s Glass City Metropark, a groundskeeper rests while you share some food."
+    },
+    "text": {
+      "en": "In 2022 and 2023, Metroparks Toledo used clean harbor-dredged sediment to help restore former industrial ground at Glass City Metropark and its Riverwalk."
+    },
+    "comment": {
+      "en": "“Metroparks used clean harbor mud to rebuild industrial ground. Government turned dredging into a park. Industry had spent years demonstrating the reverse procedure.”"
+    },
+    "sources": [
+      {
+        "url": "https://maac.partnersforcleanstreams.org/wp-content/uploads/sites/2/2024/09/BUI7_RemovalRecommendations_with-AOC-Program-cover-letter_8-20-24.pdf",
+        "title": "Removal Recommendation: Restrictions on Navigational Dredging Activities in the Maumee Area of Concern",
+        "date": "2024-08-20",
+        "checked": "2026-09-13",
+        "qualification": "Ohio environmental restoration report hosted by Partners for Clean Streams; describes clean harbor sediment reused at Glass City Metropark in 2022–2023."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-42-A",
+    "family_id": "TOWN-42",
+    "town": "Tucson",
+    "title": {
+      "en": "Refresh to Remain Employed"
+    },
+    "setup": {
+      "en": "At a Tucson shaded food stop, a city maintenance worker checks a blank phone screen."
+    },
+    "text": {
+      "en": "Tucson’s April 2025 budget memo reported federal grant portals repeatedly shutting and reopening under Trump; nearly 200 grant-funded jobs could be at risk if support disappeared."
+    },
+    "comment": {
+      "en": "“Trump’s grant portals kept shutting. Nearly two hundred jobs faced funding risk. New job description: convince a website that Tucson still exists.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.tucsonaz.gov/files/sharedassets/public/v/1/bsd/documents/finance-documents/prior-budgets/april-22-2025-study-session.pdf",
+        "title": "City of Tucson: Recommended Fiscal Year 2026 Budget, April 22 Study Session",
+        "date": "2025-04-22",
+        "checked": "2026-09-13",
+        "qualification": "Page 1 of the manager’s memorandum reports portal disruptions and conditional risk to nearly 200 grant-funded positions; it does not report 200 layoffs."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-42-B",
+    "family_id": "TOWN-42",
+    "town": "Tucson",
+    "title": {
+      "en": "The Country Club Gets the Second Sip"
+    },
+    "setup": {
+      "en": "At a Tucson park drinking fountain, a groundskeeper explains the separate irrigation system."
+    },
+    "text": {
+      "en": "Tucson invested in reclaimed water in 1984 to reduce groundwater use. Its municipal system sends treated wastewater to irrigate parks, schools, golf courses and cemeteries."
+    },
+    "comment": {
+      "en": "“The city sends treated wastewater to parks and golf courses. Sensible. The country club can have my old water; I am keeping the first sip.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.tucsonaz.gov/Departments/Water/Water-Resources-and-Drought-Preparedness/Reclaimed-Water",
+        "title": "Reclaimed Water — City of Tucson",
+        "date": "undated",
+        "checked": "2026-09-13",
+        "qualification": "Primary utility account of investment beginning in 1984 and reclaimed irrigation for parks, schools, golf courses and cemeteries; not drinking-water guidance."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-42-C",
+    "family_id": "TOWN-42",
+    "town": "Tucson",
+    "title": {
+      "en": "The Pentagon Needs a Parts Tray"
+    },
+    "setup": {
+      "en": "At a Tucson public overlook near the aircraft-storage area, a mechanic shares a snack with you."
+    },
+    "text": {
+      "en": "Tucson’s military aircraft yard salvages reusable parts. In March 2025, senior Trump officials, including Pete Hegseth, discussed military strike plans in a Signal chat that accidentally included a journalist."
+    },
+    "comment": {
+      "en": "“I count spare bolts before a repair. Hegseth’s strike-planning chat included a journalist. Maybe the Pentagon needs one of my little trays.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/09f58fa650e44f740c9416c3e6997f5b",
+        "title": "Signal airstrike chat",
+        "date": "2025-03",
+        "checked": "2026-09-13",
+        "qualification": "In March 2025 senior Trump officials shared Yemen strike details in a Signal chat that accidentally included a journalist. Fictional workers and dialogue are invented."
+      },
+      {
+        "url": "https://www.dm.af.mil/Media/News/Article/2575052/americas-airpower-reservoir-celebrates-75-years/",
+        "title": "Davis-Monthan Air Force Base: America’s Airpower Reservoir",
+        "date": "2021",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-43-A",
+    "family_id": "TOWN-43",
+    "town": "Tulsa",
+    "title": {
+      "en": "Preventive Medicine, Presidential Forecast"
+    },
+    "setup": {
+      "en": "At a Tulsa clinic’s outdoor bench, a cleaner discusses the health department’s funding worries."
+    },
+    "text": {
+      "en": "In March 2025, Tulsa health officials faced uncertainty over Trump-era federal support. Grants had provided over $13 million, about 30% of department revenue, in fiscal 2023–24."
+    },
+    "comment": {
+      "en": "“Trump’s cuts have health officials guessing what Washington will fund. I asked whether uncertainty is contagious. They need a grant to find out.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.publicradiotulsa.org/local-regional/2025-03-14/anxiety-levels-here-are-extremely-high-tulsa-health-department-braces-for-an-unknown-future",
+        "title": "Tulsa Health Department braces for an unknown future",
+        "date": "2025-03-14",
+        "checked": "2026-09-13",
+        "qualification": "Public Radio Tulsa reporting describes uncertainty, not a confirmed $13 million loss; revenue figures refer to fiscal 2023–2024."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-43-B",
+    "family_id": "TOWN-43",
+    "town": "Tulsa",
+    "title": {
+      "en": "Check the Bag for Government"
+    },
+    "setup": {
+      "en": "At a Tulsa grocery loading area, a warehouse worker peers into a shopping bag beside your parked van."
+    },
+    "text": {
+      "en": "Oklahoma ended the state sales tax on qualifying groceries on August 29, 2024; local grocery sales taxes remain."
+    },
+    "comment": {
+      "en": "“State grocery tax is gone. Local tax stayed. I shook the bag to make sure. One level of government was still in there.”"
+    },
+    "sources": [
+      {
+        "url": "https://oklahoma.gov/tax/businesses/state-sales-tax-on-food-and-food-ingredients.html",
+        "title": "Oklahoma Tax Commission: State Sales Tax on Food and Food Ingredients",
+        "date": "undated",
+        "checked": "2026-09-14",
+        "qualification": "State exemption for qualifying groceries; local taxes and excluded categories remain. No invented local rate or claim that all food purchases are tax-free."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-43-C",
+    "family_id": "TOWN-43",
+    "town": "Tulsa",
+    "title": {
+      "en": "Freedom, Required Viewing"
+    },
+    "setup": {
+      "en": "At a Tulsa bus-stop bench, a school bus driver compares the state’s video order with your route."
+    },
+    "text": {
+      "en": "In November 2024, Oklahoma superintendent Ryan Walters directed schools to show students his video announcing a Department of Religious Freedom and Patriotism. Some districts refused."
+    },
+    "comment": {
+      "en": "“Walters required schools to show his religious-freedom video. My kid asked if she could skip it. Excellent question for the civics final.”"
+    },
+    "sources": [
+      {
+        "url": "https://apnews.com/article/e00fdcd3253cc11169cc6857d8e8e9de",
+        "title": "AP: Oklahoma Superintendent Orders Religious Department Video",
+        "date": "2024-11-15",
+        "checked": "2026-09-13",
+        "qualification": "The order and resistance are documented; no claim it was universally obeyed or remains current policy."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-44-A",
+    "family_id": "TOWN-44",
+    "town": "Waco",
+    "title": {
+      "en": "Half the Benefits, Twice the Sandwich"
+    },
+    "setup": {
+      "en": "At a Waco food pantry bench, a cook recalls November’s delayed food assistance."
+    },
+    "text": {
+      "en": "On November 4, 2025, KWBU reported over 31,000 McLennan County residents lacked November SNAP access during the shutdown; half payments were announced, but arrival remained unclear."
+    },
+    "comment": {
+      "en": "“Washington announced half the benefits. I cut one sandwich into two. Same accounting method, but mine comes with crusts.”"
+    },
+    "sources": [
+      {
+        "url": "https://www.kwbu.org/news/2025-11-04/central-texas-food-banks-brace-for-surge-after-snap-benefits-cut",
+        "title": "Central Texas Food Banks brace for surge after SNAP benefits cut",
+        "date": "2025-11-04",
+        "checked": "2026-09-13",
+        "qualification": "Contemporaneous shutdown report: more than 31,000 McLennan County residents faced interrupted November benefits; half payments were announced but timing remained unclear."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-44-B",
+    "family_id": "TOWN-44",
+    "town": "Waco",
+    "title": {
+      "en": "Free Enterprise Had a Fence"
+    },
+    "setup": {
+      "en": "By Waco’s suspension bridge, a delivery driver pauses while you eat some food."
+    },
+    "text": {
+      "en": "Waco’s 1866 toll-bridge charter barred competing bridges and ferries within five miles. McLennan County bought it in 1889, and it became a free city crossing."
+    },
+    "comment": {
+      "en": "“Texas gave this toll bridge a five-mile monopoly. Free enterprise first required a law banning the competition. The public later had to buy its way out.”"
+    },
+    "sources": [
+      {
+        "url": "https://atlas.thc.texas.gov/Details/5309005448",
+        "title": "The Waco Suspension Bridge — Texas Historical Commission marker",
+        "date": "1976",
+        "checked": "2026-09-13",
+        "qualification": "State historical marker records the 1866 monopoly charter, five-mile exclusion, and 1889 transfer to public ownership as a free bridge."
+      }
+    ]
+  },
+  {
+    "id": "TOWN-44-C",
+    "family_id": "TOWN-44",
+    "town": "Waco",
+    "title": {
+      "en": "The Commandments Have Jurisdiction"
+    },
+    "setup": {
+      "en": "At a Waco grocery bench, a school aide discusses Texas’s classroom-poster law."
+    },
+    "text": {
+      "en": "Governor Abbott signed Texas’s 2025 law requiring Ten Commandments posters in public-school classrooms. Implementation faced legal challenges and was temporarily blocked in some districts."
+    },
+    "comment": {
+      "en": "“Abbott required classroom Ten Commandments. My kid asked whether the rule against lying applies to campaign ads. We have been discussing jurisdiction.”"
+    },
+    "sources": [
+      {
+        "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00010F.HTM",
+        "title": "Texas Legislature: SB10 Enrolled Text",
+        "date": "2025",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.texastribune.org/2025/05/24/ten-commandments-texas-schools-senate-bill-10/",
+        "title": "Texas Tribune: Ten Commandments Classroom Bill Becomes Law",
+        "date": "2025-06-21",
+        "checked": "2026-09-13",
+        "qualification": "Primary source; dated or historical action only."
+      },
+      {
+        "url": "https://www.axios.com/local/san-antonio/2025/08/20/texas-ten-commandments-classrooms-schools-law-blocked",
+        "title": "Axios: Texas Classroom Law Temporarily Blocked in Some Districts",
+        "date": "2025-08-20",
+        "checked": "2026-09-13",
+        "qualification": "Dated temporary judicial restriction, not a statement that every district was blocked or that this is the final litigation outcome."
+      }
+    ]
+  }
+]

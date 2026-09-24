@@ -23,6 +23,7 @@ pub mod routing;
 pub mod services;
 pub mod state;
 pub mod town;
+pub mod town_content;
 pub mod town_facts;
 mod town_profile;
 pub mod trading;

@@ -24,6 +24,7 @@ fn talk(app: &AppState) -> Callback<MouseEvent> {
         let message = fact.message();
         let npc = u8::try_from(js_sys::Math::random().to_bits() % 6).unwrap_or(0);
         session.with_state_mut(|gs| {
+            super::town_content::seal(gs);
             gs.continuity.activities.local_word = Some(npc);
             if gs.claim_local_conversation().is_none() {
                 return;
