@@ -19461,5 +19461,23 @@
       "Factual source context",
       "Final visual acceptance"
     ]
+  },
+  "ending_copy_checkpoint": {
+    "status": "45 English ending records integrated; art, factual context and translations incomplete",
+    "behavior": "Result and share headline/epilogue resolution uses explicit ending first, then recorded Hearing outcome, then attempted vote flags. No score-derived victory. Seven collapse causes stay distinct. Incomplete and contradictory/missing outcome accounts have separate narrative families; abandoned journeys preserve their existing explicit wording. Seed and family select stable variants without simulation mutation.",
+    "verification": [
+      "Native cause/score precedence check passed, including explicit collapse overriding vote flags, incomplete/fallback and abandonment",
+      "All 45 titles/epilogues match approved source",
+      "Build 72ce6d67ee7109bbd561 succeeded",
+      "39 terminal variants passed on desktop/mobile, including offline reload and state preservation; final-vote fixture adjusted to actual destination before final visual check",
+      "Corrected final-vote arrival fixtures passed all terminal cases on desktop/mobile (15.4s). Six existing result-screen tests passed. Final D.C. desktop/mobile screenshots reviewed for copy layout; generic ending illustration remains explicitly provisional."
+    ],
+    "art": "Existing ending presentation retained provisionally. No new image generation. Variant-specific props, actual regional stopping context and surviving-crew artwork still require acceptance.",
+    "remaining": [
+      "Ending scene/prop integration and surviving-crew visual acceptance",
+      "Translations and factual context",
+      "Full Hearing-to-result and share composition acceptance",
+      "Incomplete/fallback families are native-tested conditional paths, not claimed as browser-reachable terminal outcomes"
+    ]
   }
 }

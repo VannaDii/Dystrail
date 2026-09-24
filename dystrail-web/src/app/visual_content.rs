@@ -292,6 +292,31 @@ pub fn departure_unit(gs: &GameState) -> Option<String> {
     Some(service_unit(gs, &format!("OPEN-{}", persona.to_uppercase()), "departure", 0))
 }
 
+/// Describe recorded outcomes; never infer victory from the displayed score.
+pub fn ending_unit(gs: &GameState) -> Option<String> {
+    use crate::game::{Ending, boss::HearingOutcome};
+    if gs.continuity.visual_content.edition != EDITION || gs.continuity.abandoned {
+        return None;
+    }
+    let family = match gs.ending {
+        Some(Ending::BossVictory) => "END-VICTORY".to_owned(),
+        Some(Ending::BossVoteFailed) => "END-VOTEFAIL".to_owned(),
+        Some(Ending::SanityLoss) => "END-SANITY".to_owned(),
+        Some(Ending::VehicleFailure { .. }) => "END-DESTROYED".to_owned(),
+        Some(Ending::Exposure { kind }) => format!("END-{}", kind.key().to_uppercase()),
+        Some(Ending::Collapse { cause }) => format!("END-COLLAPSE-{}", cause.key().to_uppercase()),
+        None => match gs.boss.hearing.as_ref().map(|report| report.outcome) {
+            Some(HearingOutcome::Passed | HearingOutcome::Secured) => "END-VICTORY",
+            Some(HearingOutcome::Failed) => "END-VOTEFAIL",
+            Some(HearingOutcome::Exhausted) => "END-SANITY",
+            None if gs.boss.outcome.attempted => if gs.boss.outcome.victory { "END-VICTORY" } else { "END-VOTEFAIL" },
+            None if gs.boss.outcome.victory => "END-FALLBACK",
+            None => "END-INCOMPLETE",
+        }.to_owned(),
+    };
+    Some(service_unit(gs, &family, "ending", 0))
+}
+
 pub fn record_departure(gs: &mut GameState) -> Option<String> {
     let unit = departure_unit(gs)?;
     let family = unit.rsplit_once('-')?.0;
@@ -431,6 +456,27 @@ pub fn record_care(before: &GameState, after: &mut GameState, choice: usize) {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn ending_copy_uses_recorded_cause_and_never_the_score() {
+        use crate::game::{Ending, CollapseCause};
+        let mut gs = super::GameState::default();
+        gs.continuity.visual_content.edition = super::EDITION;
+        gs.stats.credibility = 100;
+        assert!(super::ending_unit(&gs).unwrap().starts_with("END-INCOMPLETE-"));
+        gs.boss.outcome.attempted = true;
+        assert!(super::ending_unit(&gs).unwrap().starts_with("END-VOTEFAIL-"));
+        gs.boss.outcome.victory = true;
+        assert!(super::ending_unit(&gs).unwrap().starts_with("END-VICTORY-"));
+        for cause in [CollapseCause::Hunger, CollapseCause::Vehicle, CollapseCause::Weather, CollapseCause::Breakdown, CollapseCause::Disease, CollapseCause::Crossing, CollapseCause::Panic] {
+            gs.ending = Some(Ending::Collapse { cause });
+            assert!(super::ending_unit(&gs).unwrap().starts_with(&format!("END-COLLAPSE-{}-", cause.key().to_uppercase())));
+        }
+        gs.ending = None;
+        gs.boss.outcome.attempted = false;
+        assert!(super::ending_unit(&gs).unwrap().starts_with("END-FALLBACK-"));
+        gs.continuity.abandoned = true;
+        assert_eq!(super::ending_unit(&gs), None);
+    }
     #[test]
     fn departures_are_persona_bound_stable_and_presentation_only() {
         for persona in ["journalist", "lobbyist", "organizer", "satirist", "staffer", "whistleblower"] {

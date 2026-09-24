@@ -6,6 +6,9 @@ pub(super) fn summary(props: &super::Props) -> Result<ResultSummary, String> {
 }
 
 pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Props) -> String {
+    if let Some(unit) = crate::app::visual_content::ending_unit(&props.game_state) {
+        return format!("encounter_copy.{unit}.name");
+    }
     if props.game_state.continuity.abandoned {
         return "journey.abandoned".into();
     }
@@ -33,6 +36,9 @@ pub(super) fn resolved_headline_key(summary: &ResultSummary, props: &super::Prop
 }
 
 pub(super) fn resolved_epilogue_key(summary: &ResultSummary, props: &super::Props) -> String {
+    if let Some(unit) = crate::app::visual_content::ending_unit(&props.game_state) {
+        return format!("encounter_copy.{unit}.desc");
+    }
     if props.game_state.continuity.abandoned {
         return "journey.abandoned_story".into();
     }
