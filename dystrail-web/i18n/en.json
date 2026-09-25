@@ -4756,7 +4756,7 @@
   "trail": {
     "clear_cart": "Empty the van",
     "shop_help": "Supply shop. Buy food, water, spare parts and protective gear with cash at this stop.",
-    "trade_help": "Community trading. Exchange goods or work for supplies; local offers are available once per stop.",
+    "trade_help": "Trade with the community once per stop: exchange goods or work for supplies.",
     "repair_title": "Replace the {part}",
     "repair_context": "The van cannot continue. Parts and local contacts near {town} offer these routes back onto the road.",
     "repair_onboard": "Fit your spare {part}",

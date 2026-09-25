@@ -105,6 +105,6 @@
   },
   "trade": {
     "i18n_key": "trail.trade_help",
-    "text": "Community trading. Exchange goods or work for supplies; local offers are available once per stop."
+    "text": "Trade with the community once per stop: exchange goods or work for supplies."
   }
 }
