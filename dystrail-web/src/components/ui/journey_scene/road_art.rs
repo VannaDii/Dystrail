@@ -367,6 +367,9 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
         "ENC-S16-B" => ("selected-satire-06",3),
         "ENC-S16-C" => ("selected-satire-07",0),
         "ENC-S17-A" => ("selected-satire-07",1),
+        "ENC-S19-B" => ("selected-satire-08",0),
+        "ENC-S20-B" => ("selected-satire-08",1),
+        "ENC-S22-B" => ("selected-satire-08",3),
         _ => return None,
     })
 }
