@@ -11808,21 +11808,29 @@
       "source_direction": [
         "The owner offers a blank price-label roll toward the travelers beside food for sale; no purchase or work has started. Thick layers of blank price stickers protrude from an otherwise ordinary shelf edge."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Built-up blank price stickers visibly thicken the shelf edge; readable localized pricing remains a UI overlay.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-05.png",
+      "candidate_sha256": "650f5fbb00b45425b9eb4c70160a9b79fa02dc1e1f359fe5dac068ca41ce838c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: blank price-label roll is clear, but sticker layers do not visibly thicken the shelf edge; tiny packaging markings also need user review against the no-baked-text rule.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "layered_price_labels",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-05",
         "canvas": [
@@ -12121,21 +12129,29 @@
       "source_direction": [
         "The contractor gestures from a cooled trailer while the worker indicates an unoccupied shaded rest area. Trailer exhaust blows across the worker while a cardigan hangs inside the cooled office."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Cooled trailer exhaust reaches the worker outside; show separate air paths and a plausible shared scale.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-05.png",
+      "candidate_sha256": "650f5fbb00b45425b9eb4c70160a9b79fa02dc1e1f359fe5dac068ca41ce838c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        0,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: cardigan and shaded rest area appear, but no separate contractor is shown and the exhaust plume misses the worker, so the causal visual joke fails.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "unequal_cooling",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-05",
         "canvas": [
@@ -12184,21 +12200,29 @@
       "source_direction": [
         "The organizer points at equal-access seating while a huge fan cools only the premium section. The donor’s fan sits on the empty small-donor table."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "One large fan serves the premium area rather than equal-access seating; preserve usable unoccupied rest space.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-05.png",
+      "candidate_sha256": "650f5fbb00b45425b9eb4c70160a9b79fa02dc1e1f359fe5dac068ca41ce838c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: premium fan and small donor fan are visible, but the organizer is substantially taller than the approved same-depth 224 px adult scale; review proportions before use.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "donor_fan",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-05",
         "canvas": [
@@ -12223,21 +12247,29 @@
       "source_direction": [
         "The owner offers an unpainted sign and hands the attendant a small flag instead of a drainage tool. The proposed national triumph is a shallow puddle around a visibly clogged drain."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Owner offers a small flag while water pools over a clogged drain; distinguish the prop from an actual repair tool.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-05.png",
+      "candidate_sha256": "650f5fbb00b45425b9eb4c70160a9b79fa02dc1e1f359fe5dac068ca41ce838c",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        512,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: flag, blank sign and clogged-drain puddle are visible, but the two adults substantially exceed the approved 224 px outdoor scale; review proportions before use.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "flag_instead_of_tool",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-05",
         "canvas": [
@@ -18372,7 +18404,7 @@
       },
       {
         "asset_id": "selected-satire-05",
-        "decision": "proposed_one_generation_needed",
+        "decision": "single_attempt_held_for_review",
         "canvas": [
           1536,
           1024
@@ -18449,8 +18481,16 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "review/recovery/retained-unused-art/selected-satire-05.png",
+        "output_sha256": "650f5fbb00b45425b9eb4c70160a9b79fa02dc1e1f359fe5dac068ca41ce838c",
+        "actual_canvas": [
+          1536,
+          1024
+        ],
+        "runtime_binding": "none",
+        "review": "Held after first and only authorized generation attempt. Text surfaces are blank and canvas/grid are correct, but essential actions and approved outdoor adult proportions are inconsistent. No automatic retries."
       },
       {
         "asset_id": "selected-satire-06",
@@ -19628,7 +19668,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 4,
+    "new_image_attempts_used": 5,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
