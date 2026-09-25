@@ -19668,5 +19668,19 @@
       "Further localized overlay and scene acceptance remain open"
     ],
     "image_generation_calls": 0
+  },
+  "ending_atmosphere_checkpoint": {
+    "status": "Recorded time/weather verified; leftover result-scene portrait removed",
+    "verification": [
+      "Build 2f1042b1546786205400 passed",
+      "Five distinct rendered clock profiles and five recorded weather states passed on desktop/mobile",
+      "Offline review preserves clock, terminal cause, Hearing state and crew; no extra exposure costs",
+      "Departed/dead crew remain in fate roster; scene has no bust, van or added travelers",
+      "Final desktop daylight/mobile night captures reviewed; captions remain over scene bottom"
+    ],
+    "remaining": [
+      "Ending-specific editorial props and full localized-copy acceptance remain open"
+    ],
+    "image_generation_calls": 0
   }
 }

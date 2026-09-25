@@ -1,7 +1,6 @@
 use super::Props;
 use super::menu::render_menu_item;
 use super::share::{resolved_epilogue_key, resolved_headline_key};
-use crate::components::ui::character_portrait::{self, Expression};
 use crate::components::ui::stat_card::StatCard;
 use crate::game::ResultSummary;
 use crate::i18n;
@@ -50,7 +49,6 @@ pub fn render_body(
             <div class="result-art"><crate::components::ui::journey_scene::JourneyScene region={Some(gs.region)} road_asset={Some(crate::game::route::road_scene(gs).to_owned())} party={Some(gs.party.clone())} day={gs.day} hour={u8::try_from(gs.continuity.clock_minutes / 60).unwrap_or(8)} stage={crate::components::ui::journey_scene::SceneStage::Ending(arrived)} deep={gs.mode.is_deep()} weather={Some(gs.weather_state.today)}>
                 <figcaption class="result-art-caption">
                     <div class="result-outcome"><p class="eyebrow">{i18n::t("play.outcome")}</p><h1 id="result-title" class="result-headline">{ &headline_text }</h1><p class="result-epilogue">{&epilogue_text}</p><p class="result-location">{super::super::route_map::location::location(gs)}<span>{progress_text}</span></p></div>
-                    <div class="result-profile">{character_portrait::framed(gs.persona_id.as_deref().unwrap_or("journalist"),player,Expression::ending(gs))}<div><p class="eyebrow">{i18n::t("play.profile")}</p><span>{persona_name(summary)}</span><span>{&summary.mode}</span></div></div>
                 </figcaption>
             </crate::components::ui::journey_scene::JourneyScene></div>
 
@@ -140,18 +138,5 @@ fn render_menu(current_focus: u8, on_menu_action: &Callback<u8>) -> Html {
                 { render_menu_item(current_focus, 0, &i18n::t("result.menu.title"), on_menu_action) }
             </ul>
         </nav>
-    }
-}
-
-fn persona_name(summary: &ResultSummary) -> String {
-    let key = format!("persona.{}.name", summary.persona_name);
-    let translated = i18n::t(&key);
-    if translated == key {
-        let mut chars = summary.persona_name.chars();
-        chars.next().map_or_else(String::new, |c| {
-            c.to_uppercase().to_string() + chars.as_str()
-        })
-    } else {
-        translated
     }
 }

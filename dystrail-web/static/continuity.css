@@ -401,7 +401,7 @@ button:disabled { cursor:not-allowed; }
 
 /* Result identity belongs to the player, and the scorecard is always readable. */
 .result-art .journey-scene { aspect-ratio:auto; min-height:380px; }
-.result-art .result-art-caption { position:relative; min-height:380px; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:28px; padding:34px; }
+.result-art .result-art-caption { position:relative; min-height:380px; display:grid; grid-template-columns:minmax(0,1fr); align-items:end; gap:28px; padding:34px; }
 .result-art-caption .result-epilogue { margin:0; font-size:16px; line-height:1.6; }
 .result-art-caption .result-location { display:grid; gap:4px; margin:16px 0 0; color:var(--text-dim); font-size:14px; }
 .result-art-caption .result-location span { font-size:12px; }
