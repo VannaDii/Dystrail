@@ -540,8 +540,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-01-B",
@@ -568,8 +569,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-01-C",
@@ -596,8 +598,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "retained_review_hold"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "retained_review_hold",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-02-A",
@@ -624,8 +627,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-02-B",
@@ -652,8 +656,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-02-C",
@@ -680,8 +685,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-03-A",
@@ -708,8 +714,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-03-B",
@@ -736,8 +743,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-03-C",
@@ -764,8 +772,9 @@
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Compose the actual affected surviving traveler with believable posture, scale and occlusion. Do not restore a detached bust or count caption/mechanics tests as visual acceptance. Reuse retained poses only if they fit; otherwise retain an explicit artwork gap.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Background-only integration. Current care_art::render draws the retained atlas cell; no actual affected-traveler layer exists. Caption names the patient, but the required authored patient composition remains incomplete."
     },
     {
       "unit": "CARE-04-A",
@@ -20711,5 +20720,32 @@
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
     "remaining": "55 inherited road assignments are explicit gaps, not accepted shared scenes. This road-only review is not the full-feature unavoidable-gap list."
+  },
+  "retained_location_search_checkpoint": {
+    "scope": "24 remaining road location gaps",
+    "searched": "176 preserved image mappings and their recorded composition briefs; reviewed matching warehouse, marina, gym, printer, grocery, open-house, repair-fair, nursing, union-hall and souvenir candidates",
+    "result": "No directly suitable shared background found. Matches describe other authored actions: ally bill/desk/trinket vignettes, trade tables, town bus-stop characters, or care scenes with heat-denial, distorted drawings and donation-box jokes. Reusing these as neutral location art would introduce conflicting actions or props.",
+    "new_images": 0,
+    "remaining": "These 24 gaps remain open. This search does not authorize new images or accept rejected scenes."
+  },
+  "care_patient_composition_audit": {
+    "units": [
+      "CARE-01-A",
+      "CARE-01-B",
+      "CARE-01-C",
+      "CARE-02-A",
+      "CARE-02-B",
+      "CARE-02-C",
+      "CARE-03-A",
+      "CARE-03-B",
+      "CARE-03-C"
+    ],
+    "evidence": [
+      "dystrail-web/src/components/ui/journey_scene/care_art.rs: render emits atlas image only",
+      "dystrail-web/src/components/ui/journey_scene/mod.rs: care background does not receive the travel-stage crew renderer",
+      "dystrail-web/tests-e2e/care-copy-recovery.spec.ts: retained-care test explicitly asserts zero data-care-persona elements"
+    ],
+    "result": "Nine retained backgrounds are integrated, but required patient compositions are incomplete. Existing tests establish caption/rendering and mechanics, not complete authored care scenes.",
+    "prior_hold": "CARE-07-A rejected head-only composition remains excluded; do not retry automatically."
   }
 }
