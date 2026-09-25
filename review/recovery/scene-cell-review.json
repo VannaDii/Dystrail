@@ -19613,7 +19613,7 @@
     ]
   },
   "activity_localization_checkpoint": {
-    "status": "Recovered matching Spanish, Italian and Arabic copy for 15 activity variants: six barter, ACT-REST-C, and eight gathering/work B/C variants",
+    "status": "All 24 activity variants have Spanish, Italian and Arabic names, descriptions, action labels and outcome copy; 15 recovered/aligned and nine translated from current English",
     "reuse": "barter-bc-translations.json, rest-translations.json and activity-bc-translations.json; stale REST-A/B and work-refresh premises excluded; CASHWORK-B description aligned with current banner premise and eight action labels translated",
     "verification": [
       "Build 6058b1117e3a60120782 passed",
@@ -19621,11 +19621,14 @@
       "Arabic desktop and Spanish mobile captures reviewed",
       "Build f403849d616859e85763 passed for gathering/work batch",
       "48 desktop/mobile gathering/work locale-variant flows passed: localized descriptions, actions and outcomes, actual resources and time, surviving party, offline receipts and no horizontal overflow",
-      "Arabic desktop and Spanish mobile work captures reviewed"
+      "Arabic desktop and Spanish mobile work captures reviewed",
+      "Build 06ac52acde4740aef33c passed",
+      "Final nine variants: 54 desktop/mobile locale-variant flows passed with actual costs, time/rest progression, surviving party and offline receipts",
+      "All 24 activity variants contain four required fields in es/it/ar; Arabic desktop and Spanish mobile barter captures reviewed"
     ],
     "remaining": [
-      "Nine other activity variants still require translation review",
-      "Broader art, source context and localization acceptance remain open"
+      "Professional language review and other supported-language coverage",
+      "Broader art and source context acceptance remain open; previously recorded mobile tire caption overlap persists"
     ]
   },
   "caption_localization_checkpoint": {

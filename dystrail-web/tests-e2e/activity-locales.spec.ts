@@ -5,18 +5,18 @@ import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 
 test('recovered barter and rest translations survive choices and offline reload',async({page,context})=>{
- test.setTimeout(180_000);
+ test.setTimeout(300_000);
  const original=await baseline(page);
  for(const lang of ['es','it','ar']) {
   const copy=JSON.parse(readFileSync(join(__dirname,`../i18n/${lang}.json`),'utf8')).encounter_copy;
-  for(const unit of ['ACT-BARTERTIRE-B','ACT-BARTERTIRE-C','ACT-BARTERBATTERY-B','ACT-BARTERBATTERY-C','ACT-BARTERSUPPLIES-B','ACT-BARTERSUPPLIES-C','ACT-REST-C']) {
+  for(const unit of (process.env.ACTIVITY_FINAL_BATCH?['ACT-BARTERTIRE-A','ACT-BARTERBATTERY-A','ACT-BARTERSUPPLIES-A','ACT-REST-A','ACT-REST-B']:[ 'ACT-BARTERTIRE-A','ACT-BARTERBATTERY-A','ACT-BARTERSUPPLIES-A','ACT-REST-A','ACT-REST-B','ACT-BARTERTIRE-B','ACT-BARTERTIRE-C','ACT-BARTERBATTERY-B','ACT-BARTERBATTERY-C','ACT-BARTERSUPPLIES-B','ACT-BARTERSUPPLIES-C','ACT-REST-C'])) {
    await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));
    await page.reload();await waitForLaunch(page);
    const state=structuredClone(original);state.seed=42;state.day=6;state.clock_minutes=600;
    state.stats.supplies=10;state.stats.hp=6;state.stats.sanity=6;state.inventory.spares.tire=1;
    state.camp.rest_cooldown=0;state.disease_cooldown=100;state.exec_order_cooldown=100;
    state.crew_care.last_check_day=100;state.turn_journal_start=null;
-   const rest=unit==='ACT-REST-C';if(!rest) atTown(state,'Spokane');
+   const rest=unit.startsWith('ACT-REST-');if(!rest) atTown(state,'Spokane');
    const family=unit.slice(0,-2),key=`${family}/${rest?'day':'town'}/${rest?state.day:state.route_services.stop}`;
    state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
    await importState(page,state);
@@ -37,17 +37,17 @@ test('recovered barter and rest translations survive choices and offline reload'
    await context.setOffline(true);await page.reload();await waitForLaunch(page);
    await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-   if(unit==='ACT-BARTERTIRE-B') await snap(page,`barter-${lang}`);
+   if(unit===(process.env.ACTIVITY_FINAL_BATCH?'ACT-BARTERTIRE-A':'ACT-BARTERTIRE-B')) await snap(page,`barter-${lang}`);
    await context.setOffline(false);
   }
  }
 });
 
 test('recovered gathering and work translations keep real action effects',async({page,context})=>{
- test.setTimeout(180000);const original=await baseline(page);
+ test.setTimeout(300000);const original=await baseline(page);
  for(const lang of ['es','it','ar']) {
   const copy=JSON.parse(readFileSync(join(__dirname,`../i18n/${lang}.json`),'utf8')).encounter_copy;
-  for(const family of ['FORAGE','GLEAN','FOODWORK','CASHWORK']) for(const variant of ['B','C']) {
+  for(const family of ['FORAGE','GLEAN','FOODWORK','CASHWORK']) for(const variant of (process.env.ACTIVITY_FINAL_BATCH?['A']:['A','B','C'])) {
    await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
    const s=structuredClone(original);s.seed=42;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
    s.stats.supplies=5;s.stats.hp=8;s.stats.sanity=6;s.activities={foraged_on:null,worked_at:null,local_word:null};

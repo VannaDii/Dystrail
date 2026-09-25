@@ -1991,6 +1991,60 @@
       "desc": "Una agricultora deja al grupo recoger lo que queda mientras el vecindario habla de los requisitos laborales de SNAP. Quien compra ha rechazado una zanahoria torcida. Esta pide que le reconozcan las horas bajo tierra.",
       "choice_0": "Recoger los productos rechazados",
       "log_0": "Recogéis comida a costa de músculos doloridos. El historial laboral de la zanahoria sigue impecable."
+    },
+    "ACT-CASHWORK-A": {
+      "name": "La nómina de los valores familiares",
+      "desc": "Un restaurante ofrece $18 por tres horas de limpieza. El dueño elogia la promesa de Trump de no gravar las propinas. Preguntáis por el sueldo. Señala el bote de las propinas.",
+      "choice_0": "Aceptar el turno de limpieza",
+      "log_0": "Cobráis los $18 y perdéis algo de paciencia. El bote vacío disfruta de una tarde completamente libre de impuestos."
+    },
+    "ACT-FOODWORK-A": {
+      "name": "Vuestra cena, vuestra tarea",
+      "desc": "Un banco de alimentos ofrece comida por tres horas clasificando donaciones. El Congreso ha recortado el gasto previsto en ayuda alimentaria. La persona voluntaria llama a vuestra caja «el plan de aplicación local».",
+      "choice_0": "Clasificar donaciones a cambio de comida",
+      "log_0": "Acabáis cansados y os lleváis la comida. El Congreso puede llamarlo autosuficiencia; vosotros habéis visto las etiquetas de las donaciones."
+    },
+    "ACT-FORAGE-A": {
+      "name": "Sin nómina",
+      "desc": "Una guía local dirige una salida de recolección mientras el vecindario comenta los requisitos laborales del Congreso para recibir ayuda alimentaria. La zarzamora no ha instalado un portal para subir documentos.",
+      "choice_0": "Recoger lo que identifique la guía",
+      "log_0": "Recogéis algo de comida. La zarzamora acepta como prueba que tenéis hambre. Washington quizá quiera auditarla."
+    },
+    "ACT-GLEAN-A": {
+      "name": "La cosecha de los aranceles",
+      "desc": "Un agricultor permite que la tripulación recoja los productos que quedan mientras protesta por los aranceles sobre las piezas del tractor. Sus cultivos crecieron aquí. Sus gastos de funcionamiento han dado la vuelta al mundo.",
+      "choice_0": "Recoger los productos restantes",
+      "log_0": "Recorréis la hilera y recogéis comida, doloridos por el esfuerzo. El agricultor agita una factura de reparación. «China ha vuelto a saltarse un pago»."
+    },
+    "ACT-BARTERBATTERY-A": {
+      "name": "Independencia energética",
+      "desc": "En el intercambio, alguien ofrece una batería por provisiones. Trump promete independencia energética estadounidense en la radio. Preguntáis si eso incluye arrancar la furgoneta.",
+      "choice_0": "Cambiar provisiones por la batería",
+      "log_0": "Conseguís la batería. La política energética de la furgoneta ya tiene bornes."
+    },
+    "ACT-BARTERSUPPLIES-A": {
+      "name": "Una redistribución muy pequeña",
+      "desc": "Una persona del lugar ofrece comida por vuestra rueda de repuesto. El Congreso debate quién merece ayuda. Lo que esta persona quiere, sobre todo, es una rueda que no pierda aire.",
+      "choice_0": "Cambiar la rueda de repuesto por provisiones",
+      "log_0": "Conseguís provisiones. Bastó con mirar la rueda para comprobar que cumplíais los requisitos."
+    },
+    "ACT-BARTERTIRE-A": {
+      "name": "Gasto independiente",
+      "desc": "En el intercambio comunitario, alguien ofrece una rueda por provisiones. Una radio cercana habla del gasto político ilimitado. Comprobáis si la rueda viene con un senador.",
+      "choice_0": "Cambiar provisiones por la rueda",
+      "log_0": "La rueda es vuestra. No incluye senador, pero quizá os lleve a alguna parte."
+    },
+    "ACT-REST-A": {
+      "name": "Restaurar la función ejecutiva",
+      "desc": "La tripulación puede descansar un día. Tras otra noticia sobre la eficiencia de DOGE, alguien propone despedir a quienes estén cansados. La furgoneta quedaría con una falta de personal impresionante.",
+      "choice_0": "Descansar un día",
+      "log_0": "El descanso recupera lo que puede. Conserváis al personal, incluida la persona que sabe dónde están las llaves."
+    },
+    "ACT-REST-B": {
+      "name": "La siesta del efecto goteo",
+      "desc": "La tripulación puede parar un día. Un multimillonario en la radio ensalza el trabajo sin descanso. Nadie oye al personal que le lleva el micrófono.",
+      "choice_0": "Dedicar el día a descansar",
+      "log_0": "Os recuperáis dentro de los límites del día. Cae la productividad entre la audiencia; los ronquidos obtienen la mayoría."
     }
   },
   "play": {

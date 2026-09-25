@@ -1857,6 +1857,60 @@
       "desc": "Un’agricoltrice lascia spigolare il gruppo mentre il vicinato discute dei requisiti lavorativi di SNAP. Una carota storta è stata scartata da chi compra. Vorrebbe farsi riconoscere le ore sottoterra.",
       "choice_0": "Raccogliere i prodotti scartati",
       "log_0": "Raccogliete cibo al prezzo di muscoli doloranti. Il curriculum della carota resta impeccabile."
+    },
+    "ACT-CASHWORK-A": {
+      "name": "La busta paga dei valori familiari",
+      "desc": "Una tavola calda offre $18 per tre ore di pulizie. Il proprietario elogia la promessa di Trump di non tassare le mance. Chiedete della paga. Indica il barattolo delle mance.",
+      "choice_0": "Accettare il turno di pulizie",
+      "log_0": "Incassate i $18 e perdete un po’ di pazienza. Il barattolo vuoto si gode un pomeriggio completamente esentasse."
+    },
+    "ACT-FOODWORK-A": {
+      "name": "La vostra cena, il vostro compito",
+      "desc": "Un banco alimentare offre cibo per tre ore a smistare donazioni. Il Congresso ha tagliato la spesa prevista per gli aiuti alimentari. Una volontaria chiama la vostra cassa «il piano di attuazione locale».",
+      "choice_0": "Smistare donazioni in cambio di cibo",
+      "log_0": "Finite stanchi e prendete il cibo. Il Congresso può chiamarla autosufficienza; voi avete visto le etichette delle donazioni."
+    },
+    "ACT-FORAGE-A": {
+      "name": "Nessuna busta paga richiesta",
+      "desc": "Una guida locale conduce una passeggiata di raccolta mentre i vicini discutono i requisiti lavorativi imposti dal Congresso per gli aiuti alimentari. Il rovo non ha installato un portale per caricare documenti.",
+      "choice_0": "Raccogliere ciò che la guida identifica",
+      "log_0": "Raccogliete del cibo. Il rovo accetta come prova il fatto che avete fame. Washington potrebbe volerlo sottoporre a un controllo."
+    },
+    "ACT-GLEAN-A": {
+      "name": "Il raccolto dei dazi",
+      "desc": "Un agricoltore lascia spigolare l’equipaggio mentre si lamenta dei dazi sui ricambi del trattore. Le colture sono cresciute qui. I loro costi di gestione hanno fatto il giro del mondo.",
+      "choice_0": "Raccogliere i prodotti rimasti",
+      "log_0": "Lavorate lungo il filare e raccogliete cibo, indolenziti dalla fatica. L’agricoltore agita una fattura di riparazione. «La Cina ha saltato un altro pagamento»."
+    },
+    "ACT-BARTERBATTERY-A": {
+      "name": "Indipendenza energetica",
+      "desc": "Al punto di scambio qualcuno offre una batteria in cambio di provviste. Alla radio Trump promette l’indipendenza energetica americana. Chiedete se comprende l’avviamento del furgone.",
+      "choice_0": "Scambiare provviste per la batteria",
+      "log_0": "Ottenete la batteria. La politica energetica del furgone ora ha i morsetti."
+    },
+    "ACT-BARTERSUPPLIES-A": {
+      "name": "Una piccolissima redistribuzione",
+      "desc": "Una persona del posto offre cibo in cambio della vostra ruota di scorta. Il Congresso discute chi meriti assistenza. A questa persona interessa soprattutto una ruota che tenga l’aria.",
+      "choice_0": "Scambiare la ruota di scorta per provviste",
+      "log_0": "Ottenete provviste. Per verificare i requisiti è bastato guardare la ruota."
+    },
+    "ACT-BARTERTIRE-A": {
+      "name": "Spesa indipendente",
+      "desc": "Al punto di scambio comunitario, qualcuno offre una ruota per delle provviste. Una radio vicina parla di spese politiche illimitate. Controllate se la ruota include un senatore.",
+      "choice_0": "Scambiare provviste per la ruota",
+      "log_0": "La ruota è vostra. Nessun senatore incluso, ma potrebbe davvero portarvi da qualche parte."
+    },
+    "ACT-REST-A": {
+      "name": "Ripristino delle funzioni esecutive",
+      "desc": "L’equipaggio può riposare per un giorno. Dopo l’ennesima notizia sull’efficienza di DOGE, qualcuno propone di licenziare chi è stanco. Il furgone resterebbe incredibilmente a corto di personale.",
+      "choice_0": "Riposare per un giorno",
+      "log_0": "Il riposo recupera quel che può. Tenete il personale, compresa la persona che sa dove sono le chiavi."
+    },
+    "ACT-REST-B": {
+      "name": "Il sonnellino a cascata",
+      "desc": "L’equipaggio può fermarsi per un giorno. Un miliardario alla radio elogia il lavoro incessante. Nessuno sente il personale che gli trasporta il microfono.",
+      "choice_0": "Dedicare la giornata al riposo",
+      "log_0": "Recuperate entro i limiti della giornata. La produttività cala tra gli ascoltatori; il russare ottiene la maggioranza."
     }
   },
   "play": {
