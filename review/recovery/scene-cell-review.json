@@ -20103,5 +20103,16 @@
     ],
     "new_images": 0,
     "remaining": "Other retained assets still need their own no-text review; this is not global asset acceptance"
+  },
+  "road_source_reference_checkpoint": {
+    "status": "Preserved source-reference text exposed for all 195 active road variants; source recovery remains incomplete",
+    "verification": [
+      "Build 36da8aec3656469932d0 passed",
+      "390 desktop/mobile help-dialog checks passed; exact saved run unchanged; representative offline reload passed",
+      "Desktop and mobile captures reviewed; reference text wraps within the dialog"
+    ],
+    "preserved": "Existing localized explanatory facts retained for the first 24 variants; 36 mechanics-dependent records remain excluded",
+    "remaining": "Recover full source references and clickable URLs: some preserved Source paragraphs are truncated excerpts. These excerpts are not complete citations. Newer explanatory notes and localization remain open.",
+    "new_images": 0
   }
 }

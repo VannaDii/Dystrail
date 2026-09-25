@@ -2,6 +2,21 @@
 use yew::prelude::*;
 
 pub fn encounter(id: &str) -> Html {
+    let references = serde_json::from_str::<std::collections::BTreeMap<String, Vec<String>>>(include_str!(
+        "../../../static/assets/data/road-source-references.json"
+    )).expect("validated road source references");
+    if let Some(references) = references.get(id) {
+        let fact = if super::journey_scene::road_art::supported(id) {
+            crate::i18n::encounter_text(id, "fact", "")
+        } else { String::new() };
+        return html! {<super::context_help::ContextHelp informational={true} title={crate::i18n::t("trail.behind_joke")}>
+            <div class="source-explanation" data-source-unit={id.to_owned()}>
+                {if fact.is_empty() {Html::default()} else {html!{<p>{fact}</p>}}}
+                <ul lang="en" dir="auto">{for references.iter().map(|reference| html!{<li class="source-reference">{reference}</li>})}</ul>
+                <p class="source-note">{crate::i18n::t("trail.satire_note")}</p>
+            </div>
+        </super::context_help::ContextHelp>};
+    }
     if super::journey_scene::road_art::supported(id) {
         let fact = crate::i18n::encounter_text(id, "fact", "");
         return html! {<super::context_help::ContextHelp informational={true} title={crate::i18n::t("trail.behind_joke")} text={fact} />};

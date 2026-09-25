@@ -65,3 +65,32 @@ test('reviewed road settings follow the current variant before and after its cho
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }
 });
+
+
+test('all active road variants expose their own source references without changing the run',async({page,context},info)=>{
+ test.setTimeout(360000);const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;
+ base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
+ const references=JSON.parse(readFileSync('static/assets/data/road-source-references.json','utf8'));
+ const units=source.filter((u:any)=>u.category==='Road encounters'&&u.disposition==='compatible_narrative');expect(Object.keys(references)).toHaveLength(195);
+ for(const [index,u] of units.entries()){
+  const state=structuredClone(base);state.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);
+  const key=`${u.id.slice(0,-2)}/road/300`;state.visual_content={edition:1,selections:{[key]:u.id},outcomes:{},policy_bulletins:[]};
+  await importState(page,state);
+  const before=await page.evaluate(()=>localStorage.getItem('dystrail.autosave.v1'));
+  const check=async()=>{
+   await page.locator('.encounter-panel .help-trigger').click();
+   await expect(page.locator('.viewport-help [data-source-unit]')).toHaveAttribute('data-source-unit',u.id);
+   const expected=u.source_paragraphs.filter((p:string)=>p.startsWith('Source:')).map((p:string)=>p.slice(7).trim());
+   await expect(page.locator('.viewport-help .source-reference')).toHaveText(expected);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   await page.keyboard.press('Escape');
+  };
+  await check();expect(await page.evaluate(()=>localStorage.getItem('dystrail.autosave.v1'))).toBe(before);
+  if(index===units.length-1){
+   await context.setOffline(true);await page.reload();await waitForLaunch(page);await check();
+   await page.locator('.encounter-panel .help-trigger').click();await page.screenshot({path:info.outputPath('road-source.png')});await page.keyboard.press('Escape');await context.setOffline(false);
+  }
+ }
+ const inactive=source.filter((u:any)=>u.disposition==='mechanics_dependency_inactive');expect(inactive).toHaveLength(36);
+ for(const u of inactive)expect(references[u.id]).toBeUndefined();
+});
