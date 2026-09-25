@@ -20114,5 +20114,16 @@
     "preserved": "Existing localized explanatory facts retained for the first 24 variants; 36 mechanics-dependent records remain excluded",
     "remaining": "Recover full source references and clickable URLs: some preserved Source paragraphs are truncated excerpts. These excerpts are not complete citations. Newer explanatory notes and localization remain open.",
     "new_images": 0
+  },
+  "fallback_interior_height_checkpoint": {
+    "status": "Square shared interior fallback scenes now use the same 16:9 focal crop as explicit bindings",
+    "scope": "Motel, cafe, library, museum, farm office, service counter; dedicated artwork keeps its own framing",
+    "verification": [
+      "Build passed",
+      "Ten desktop/mobile flows passed across five fallback settings: before choice, outcome and offline reload; crew unchanged and no horizontal overflow",
+      "Desktop farm office and mobile cafe screenshots visually reviewed"
+    ],
+    "remaining": "Historical fallback setting assignments still require content alignment. Farm-office clipboard has letter-like marks requiring a blank compositor surface before final asset acceptance.",
+    "new_images": 0
   }
 }

@@ -94,3 +94,28 @@ test('all active road variants expose their own source references without changi
  const inactive=source.filter((u:any)=>u.disposition==='mechanics_dependency_inactive');expect(inactive).toHaveLength(36);
  for(const u of inactive)expect(references[u.id]).toBeUndefined();
 });
+
+
+test('fallback square interiors retain landscape framing through outcomes',async({page,context},info)=>{
+ const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;
+ base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
+ for(const id of ['ENC-S06-C','ENC-D03-B','ENC-S18-A','ENC-D01-C','ENC-C12-B']){
+  const u=source.find((s:any)=>s.id===id),state=structuredClone(base),key=`${id.slice(0,-2)}/road/300`;
+  state.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);
+  state.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
+  await importState(page,state);
+  const check=async()=>{
+   const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(16/9,1);
+   const vb=(await page.locator('.scene-atlas').first().getAttribute('viewBox'))!.split(' ').map(Number);
+   expect(vb[2]/vb[3]).toBeCloseTo(16/9,5);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  };
+  await check();await page.locator('.encounter-choice button').first().click();await check();
+  await expect(page.locator('.outcome-copy')).toContainText(copy[id].log_0);
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+  expect(saved.party).toEqual(state.party);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);await check();
+  await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+  await page.screenshot({path:info.outputPath(`${id}.png`)});await context.setOffline(false);
+ }
+});

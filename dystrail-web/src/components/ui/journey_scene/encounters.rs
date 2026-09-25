@@ -21,7 +21,11 @@ pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
 }
 
 pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
-    shared_asset(id).map(|name| match name {
+    shared_asset(id).or_else(|| {
+        asset(id, false).filter(|name| matches!(*name,
+            "enc-motel" | "enc-cafe" | "enc-library" | "enc-museum" |
+            "enc-farm-office" | "enc-service-counter"))
+    }).map(|name| match name {
         "enc-service" | "enc-community" | "enc-civic" => "2",
         "enc-rest-area" => "2.25",
         _ => "1.7777778",
