@@ -190,9 +190,8 @@
     window.dystrailAssetUrls = Object.freeze(urls);
     const icon = document.querySelector('link[rel="icon"]');
     if (icon && urls['static/img/app-icon-192.png']) icon.href = urls['static/img/app-icon-192.png'];
-    for (const [variable,path] of [['--persona-art','static/img/journey/personas.png'],['--van-art','static/img/journey/van-crew.png']]) {
-      if (urls[path]) document.documentElement.style.setProperty(variable,`url("${urls[path]}")`);
-    }
+    const personaArt = urls['static/img/journey/personas.png'];
+    if (personaArt) document.documentElement.style.setProperty('--persona-art',`url("${personaArt}")`);
   }
   const launch = async () => {
     gate();

@@ -19113,7 +19113,7 @@
     "new_image_generations": 0,
     "van": {
       "body_asset": "dystrail-web/static/img/journey/van-empty.png",
-      "mask_asset": "dystrail-web/static/img/journey/van-crew.png",
+      "mask_asset": "dystrail-web/src/components/ui/journey_scene/van.rs#van-body-outline",
       "native_canvas": [
         1536,
         1024
