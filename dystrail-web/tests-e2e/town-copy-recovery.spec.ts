@@ -35,3 +35,29 @@ test('all 132 town conversations retain the approved story, matching sources and
   }
  }
 });
+
+test('retained Toledo scenes seat only surviving travelers',async({page,context},info)=>{
+ test.setTimeout(120000);const base=await baseline(page);
+ for(const variant of ['B','C'])for(const survivors of [0,1,4,6]){
+  const story=catalog.find((c:any)=>c.id===`TOWN-41-${variant}`);
+  const route=routes.find((r:any)=>r.stops.some((s:any)=>s.name===story.town)),stop=route.stops.find((s:any)=>s.name===story.town);
+  const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
+  s.party.members.forEach((m:any,i:number)=>m.status=i<survivors?'Active':i%2?'Departed':'Dead');
+  s.route_services={...s.route_services,route_id:route.id,stop:stop.mile,trading:false,talked_at:null,talk_reward:null};s.activities.local_word=null;
+  s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
+  const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:story.id},outcomes:{},policy_bulletins:[]};
+  await importState(page,s);await page.locator('.route-stop .action-button').click();
+  await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',story.id);
+  await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',String(variant==='B'));
+  expect(await page.locator('[data-seated-traveler]').evaluateAll(els=>els.map(e=>e.getAttribute('data-seated-traveler')))).toEqual(s.party.members.filter((m:any)=>m.status==='Active').slice(0,2).map((m:any)=>m.persona));
+  const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',story.id);
+  await expect(page.locator('.resident-remark')).toHaveText(story.comment.en);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  if(survivors===6){await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath(`town-${variant}.png`),fullPage:true});}
+  await page.locator('.conversation-actions button').click();await page.locator('.route-stop .action-button').click();
+  const repeated=await checkpoint(page);expect(repeated.stats).toEqual(after.stats);expect(repeated.clock_minutes).toBe(630);expect(repeated.journal).toEqual(after.journal);
+  await context.setOffline(false);
+ }
+});

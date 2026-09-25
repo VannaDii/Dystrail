@@ -99,7 +99,7 @@ pub fn render(app: &super::state::AppState) -> Html {
         })
     };
     html! {<>
-        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={fact.title()} stage={Some(crate::components::ui::journey_scene::SceneStage::Town)} local_npc={gs.continuity.activities.local_word} />
+        <crate::components::ui::world_view::WorldView state={std::rc::Rc::new(gs.clone())} title={fact.title()} stage={Some(super::town_content::scene(gs))} local_npc={gs.continuity.activities.local_word} />
         <section class="local-conversation" aria-label={i18n::t("journey.local_word")}>
             <div class="conversation-content">
                 <div class="resident-story">

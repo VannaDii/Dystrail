@@ -6300,7 +6300,9 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "crew_composition_reference": "Recovered town_art.rs uses two seated crops, foreground table starts y=726. Treat coordinates as a starting proposal; validate adult scale against the cleaner rather than accepting the old measurements.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Integrated retained native scene with up to two actual active travelers behind original table/food; desktop/mobile reviewed",
+      "integrated_path": "dystrail-web/static/img/scenes-v2/town-41-b.png"
     },
     {
       "unit": "TOWN-41-C",
@@ -6329,7 +6331,9 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval, actual action-to-outcome binding, alpha/edge check, and composed desktop/mobile inspection. No generation or automatic correction authorized.",
       "crew_composition_reference": "Recovered town_art.rs uses two seated crops, foreground table starts y=710. Validate seating height and shared scale in the assembled scene.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Integrated retained native scene with up to two actual active travelers behind original table/food; desktop/mobile reviewed",
+      "integrated_path": "dystrail-web/static/img/scenes-v2/town-41-c.png"
     },
     {
       "unit": "COND-CLEAR-A",
@@ -19746,6 +19750,19 @@
     "remaining": [
       "Ten ally variants still need matching translations",
       "Professional language review and unresolved scene compositions remain open"
+    ]
+  },
+  "town_art_checkpoint": {
+    "status": "TOWN-41-B and TOWN-41-C retained compositions integrated",
+    "reuse": "Original 1536x1024 images copied unchanged; existing cast art and native foreground masks; no generation",
+    "verification": [
+      "Build 010aac2ebcdbbe5e6a4d passed",
+      "Native binding test covered all 132 conversations without state changes; only the two reviewed Toledo variants select these scenes",
+      "16 desktop/mobile cases passed with 0, 1, 4 and 6 active travelers, departed/dead exclusions, offline persistence, exact rewards and repeat-conversation protection",
+      "Desktop/mobile proportions, food occlusion and bottom-left captions visually reviewed"
+    ],
+    "remaining": [
+      "Other town settings and essential visual gags remain incomplete"
     ]
   }
 }

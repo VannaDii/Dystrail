@@ -32,7 +32,7 @@ fn talk(app: &AppState) -> Callback<MouseEvent> {
             let mut report = Aftermath {
                 title: i18n::t("journey.local_word"),
                 message,
-                scene: SceneStage::Town,
+                scene: super::town_content::scene(gs),
                 before: before.stats.clone(),
                 after: gs.stats.clone(),
                 resources: Vec::new(),

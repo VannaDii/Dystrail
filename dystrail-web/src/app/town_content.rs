@@ -56,6 +56,13 @@ pub fn selected(gs: &GameState) -> Option<Conversation> {
     catalog.into_iter().find(|c| c.town == name && c.id == unit)
 }
 
+/// Bind only reviewed compositions to the conversation selected for this town.
+pub fn scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneStage {
+    use crate::components::ui::journey_scene::{SceneStage, town_art};
+    selected(gs).map(|story| SceneStage::Encounter(story.id))
+        .filter(|stage| town_art::context(stage).is_some()).unwrap_or(SceneStage::Town)
+}
+
 /// Seal before advancing the action clock, including a repeat conversation.
 pub fn seal(gs: &mut GameState) -> Option<String> {
     let story = selected(gs)?;
@@ -87,6 +94,21 @@ mod tests {
             }
         }
         panic!("missing stop {town}")
+    }
+    #[test]
+    fn reviewed_scene_bindings_preserve_town_and_state() {
+        for story in catalog() {
+            let mut gs = state_for(&story.town);
+            gs.continuity.visual_content.edition = super::super::visual_content::EDITION;
+            gs.continuity.visual_content.selections.insert(
+                format!("{}/town/{}", story.family_id, gs.continuity.route_services.stop.unwrap()), story.id.clone());
+            let before = serde_json::to_value(&gs).unwrap();
+            let expected = if matches!(story.id.as_str(), "TOWN-41-B" | "TOWN-41-C") {
+                crate::components::ui::journey_scene::SceneStage::Encounter(story.id)
+            } else { crate::components::ui::journey_scene::SceneStage::Town };
+            assert_eq!(scene(&gs), expected);
+            assert_eq!(serde_json::to_value(&gs).unwrap(), before);
+        }
     }
     #[test]
     fn all_132_conversations_preserve_town_sources_and_current_save_identity() {
