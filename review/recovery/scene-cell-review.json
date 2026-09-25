@@ -20225,9 +20225,9 @@
   },
   "preview_checkpoint": {
     "status": "Current progress sheets; not release acceptance",
-    "source_revision": "19f5291",
-    "build": "b4268bc57af2ed81942b",
-    "frames_per_device": 12,
+    "source_revision": "66bcbed",
+    "build": "53a5b3108eae8c50d53b",
+    "frames_per_device": 17,
     "viewports": {
       "desktop": 1440,
       "mobile": 390
@@ -20236,8 +20236,8 @@
       "current-previews/desktop-preview-sheet.png",
       "current-previews/mobile-preview-sheet.png"
     ],
-    "verification": "24 current browser captures passed on desktop/mobile, including six standing cast sheets fetched offline and the retained overhead scene selected from saved state.",
-    "scope": "Road, night, town, ally, selected satire props including overhead, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
+    "verification": "34 current browser captures completed on desktop/mobile, including six standing cast sheets fetched offline and five newly selected satire panels. Both sheets rendered with 17 complete images and were visually inspected.",
+    "scope": "Road, night, town, ally, selected satire props including sheets seven and eight, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
   },
   "town_qualitative_checkpoint": {
     "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",

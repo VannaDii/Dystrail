@@ -1,10 +1,10 @@
 {
-  "revision": "19f5291 · build b4268bc57af2ed81942b",
+  "revision": "66bcbed · build 53a5b3108eae8c50d53b",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 4366,
+      "height": 6242,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -49,6 +49,36 @@
           "complete": true
         },
         {
+          "src": "desktop/balloon/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/sandwich/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/leak/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/bowl/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/guide/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
           "src": "desktop/trade/shot-0.png",
           "width": 1230,
           "height": 648,
@@ -83,7 +113,7 @@
     {
       "device": "mobile",
       "width": 1280,
-      "height": 2878,
+      "height": 4024,
       "images": [
         {
           "src": "mobile/road/shot-0.png",
@@ -123,6 +153,36 @@
         },
         {
           "src": "mobile/fees/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/balloon/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/sandwich/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/leak/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/bowl/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/guide/shot-0.png",
           "width": 1024,
           "height": 1166,
           "complete": true

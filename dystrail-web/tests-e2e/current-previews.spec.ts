@@ -11,7 +11,8 @@ test('capture current integrated visual-world previews',async({page,context},inf
  const base=await baseline(page);base.seed=42;base.turn_journal_start=null;
  const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
  const device=info.project.name==='mobile'?'mobile':'desktop';
- for(const id of ['road','night','town','ally','safe','overhead','fees','trade','pantry','cleanup','crossing','ending']){
+ const roadScenes:Record<string,string>={safe:'ENC-C09-C',overhead:'ENC-C11-A',fees:'ENC-C12-C',balloon:'ENC-S16-C',sandwich:'ENC-S17-A',leak:'ENC-S19-B',bowl:'ENC-S20-B',guide:'ENC-S22-B'};
+ for(const id of ['road','night','town','ally','safe','overhead','fees','balloon','sandwich','leak','bowl','guide','trade','pantry','cleanup','crossing','ending']){
   const s=structuredClone(base);s.clock_minutes=id==='night'?1380:720;
   if(['town','trade','pantry','cleanup'].includes(id)) atTown(s,'Spokane');
   if(id==='pantry'||id==='cleanup'){
@@ -32,8 +33,8 @@ test('capture current integrated visual-world previews',async({page,context},inf
    e.before=structuredClone(s.stats);e.before.allies=1;e.after=structuredClone(s.stats);e.resources=[];e.details=[];
    s.ally_notice=e;s.journal.push(e);
   }
-  if(['safe','overhead','fees'].includes(id)){
-   const unit=id==='safe'?'ENC-C09-C':id==='overhead'?'ENC-C11-A':'ENC-C12-C';
+  if(roadScenes[id]){
+   const unit=roadScenes[id];
    const source=JSON.parse(readFileSync('../review/recovery/current-source-records.json','utf8')).units.find((u:any)=>u.id===unit);
    s.current_encounter=JSON.parse(readFileSync('static/assets/data/game.json','utf8')).find((e:any)=>e.id===source.runtime_key);
    s.day=6;s.last_encounter_driving_minutes=300;s.driving_minutes_total=300;

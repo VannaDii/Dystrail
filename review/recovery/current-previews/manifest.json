@@ -1,5 +1,5 @@
 {
-  "revision": "19f5291 · build b4268bc57af2ed81942b",
+  "revision": "66bcbed · build 53a5b3108eae8c50d53b",
   "frames": [
     {
       "id": "road",
@@ -42,6 +42,36 @@
       "title": "Honest price, hidden fee",
       "note": "Retained price-display scene; all lettering and dollar amounts are editable UI.",
       "status": "Partial"
+    },
+    {
+      "id": "balloon",
+      "title": "Independent balloons",
+      "note": "Oversized donor balloon blocks the loading door; the caption and encounter choice remain live UI.",
+      "status": "Integrated"
+    },
+    {
+      "id": "sandwich",
+      "title": "Freedom reaches the tuna",
+      "note": "The spraying sandwich display stays visible at desktop and mobile sizes.",
+      "status": "Integrated"
+    },
+    {
+      "id": "leak",
+      "title": "Overhead has started dripping",
+      "note": "Regenerated pixel-art room with the unresolved leak, bucket and blank funding display.",
+      "status": "Integrated"
+    },
+    {
+      "id": "bowl",
+      "title": "The cut comes with a serving suggestion",
+      "note": "A blank policy leaflet hangs above an empty bowl; no reward is pictured.",
+      "status": "Integrated"
+    },
+    {
+      "id": "guide",
+      "title": "A second name costs six dollars",
+      "note": "Two pins point to one generic building; the itinerary stays blank for live copy.",
+      "status": "Integrated"
     },
     {
       "id": "trade",
