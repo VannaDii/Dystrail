@@ -1707,6 +1707,41 @@
       "log_1": "Vous vous asseyez et soulagez vos jambes. La chercheuse branche discrètement un ventilateur. Les frais indirects améliorent aussitôt les conditions du contribuable.",
       "choice_2": "Conserver l’estimation documentée",
       "log_2": "Vous gardez l’estimation datée et son statut de proposition. La chercheuse place les documents au-dessus de la flaque. Cela aussi, c’est des frais indirects."
+    },
+    "ENC-C07-A": {
+      "name": "Le service de la paix",
+      "desc": "La FIFA a décerné à Trump son premier prix de la paix. Une réparatrice de trophées installe un rayon « paix » entre les boules de bowling et les fléchettes. Elle propose 10 $ et de quoi manger pour soulever le présentoir ; elle accepte aussi du matériel de réparation et de la compagnie à midi. Il manque encore des équerres à la nouvelle section.",
+      "fact": "La FIFA a remis à Donald Trump son premier Prix de la paix lors du tirage au sort de la Coupe du monde à Washington, le 5 décembre 2025. C’est un prix créé par la FIFA, pas le prix Nobel de la paix. Cet éloge exprime le jugement de l’organisation ; il ne prouve ni réalisation précise pour la paix ni corruption. La boutique et la réparatrice sont fictives.",
+      "choice_0": "Donner du matériel de réparation",
+      "log_0": "Votre matériel vous vaut le soutien de la réparatrice. Le rayon de la paix obtient enfin le modeste support structurel qu’un discours de remerciement ne pouvait pas lui fournir.",
+      "choice_1": "Soulever le présentoir contre 10 $ et un repas",
+      "log_1": "Vous gagnez de l’argent, de quoi manger et des courbatures, tandis que la paix mondiale prend place entre une boule de bowling et des fléchettes.",
+      "choice_2": "Partager un repas ; noter l’origine du prix",
+      "log_2": "Vous partagez le repas et notez que la FIFA a créé son propre prix. La réparatrice range l’étiquette « Nobel » dans un autre tiroir."
+    },
+    "ENC-C07-B": {
+      "name": "Rendu aux parents",
+      "desc": "Le décret de Trump visant à faciliter la fermeture du ministère de l’Éducation a inspiré une collecte « faisons-le nous-mêmes » à une association de parents d’élèves. Les bénévoles proposent à votre équipe arrêtée 10 $ et de quoi manger pour déplacer des bureaux donnés. Le contrôle local leur est revenu. Le diable de manutention, lui, n’était pas compris.",
+      "fact": "Le décret de mars 2025 demandait à la ministre de faciliter la fermeture du ministère de l’Éducation dans les limites de la loi. Il ne signifie pas que le Congrès a supprimé le ministère. La collecte et les bénévoles sont fictifs.",
+      "choice_0": "Donner des provisions pour la collecte",
+      "log_0": "Vous donnez quelques provisions ; l’association consigne votre aide. Un parent colle des patins sous un bureau. Le contrôle local cesse de rayer le sol.",
+      "choice_1": "Accepter de déplacer les bureaux",
+      "log_1": "Vous gagnez 10 $ et de quoi manger, avec le dos en compote. Un parent applaudit : « Parfait. Vous pouvez maintenant diriger le service du mobilier. »",
+      "choice_2": "Partager de la nourriture ; noter les inquiétudes",
+      "log_2": "Vous partagez de quoi manger et consignez les questions des parents. Ils se demandent quelle partie de la fermeture d’un ministère rend les bureaux moins lourds.",
+      "overlay_0": "DÉPLACEMENT DES BUREAUX : 10 $ + REPAS"
+    },
+    "ENC-C07-C": {
+      "name": "Apparemment des frais indirects",
+      "desc": "Lors d’une collecte pour la recherche opposée au plafond des frais indirects proposé par l’administration Trump pour les subventions du NIH, des bénévoles proposent à votre équipe 10 $ et de quoi manger pour déplacer du matériel. Il leur faut aussi des provisions. Le présentoir appelle le congélateur « frais indirects ». Une scientifique montre ce qui arrive quand ces frais fondent sur vos chaussures.",
+      "fact": "En février 2025, UT Southwestern estimait que le plafond proposé pour les frais indirects des subventions du NIH menaçait plus de 100 millions de dollars par an. Il s’agissait d’une estimation du risque lié à une proposition, pas d’une perte locale déjà constatée. La collecte et les personnages sont fictifs.",
+      "choice_0": "Donner des provisions au présentoir",
+      "log_0": "Vous donnez quelques provisions ; les bénévoles consignent votre contribution. La scientifique place enfin la démonstration qui dégèle dans un bac. Les pertes cessent de couler.",
+      "choice_1": "Accepter de déplacer le matériel",
+      "log_1": "Vous gagnez 10 $ et de quoi manger, les bras endoloris. Déplacer le congélateur vide prouve que les frais indirects pèsent bien plus lourd que le discours prononcé contre eux.",
+      "choice_2": "Partager de la nourriture ; recueillir un témoignage",
+      "log_2": "Vous partagez de quoi manger et recueillez les inquiétudes de la scientifique. Elle montre la prise du congélateur : « La découverte est à l’intérieur. Elle a besoin d’électricité. »",
+      "overlay_0": "FRAIS INDIRECTS • MANUTENTION : 10 $ + REPAS"
     }
   },
   "play": {
