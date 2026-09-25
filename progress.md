@@ -596,3 +596,9 @@ September 14 — standing crew transparency repair:
 - Canonical comparison now covers title, description and action labels as well as effects/choice count. A presentation-only namespace bypasses shipped localization for custom encounters; engine IDs and scene context remain unchanged. Applies to encounter UI, actual resolved outcome and journal. Stale saved variant selections cannot override custom wording or manufacture a variant outcome.
 - Six native visual-content tests pass, including all eight families, custom title/description/action labels, full-width seed save round-trip, all committed choices and non-presentation state equality. Build 9074fff73c976f5e1294 succeeds. Four browser tests pass: normal C07 regression plus custom-import persistence on desktop/mobile, including reload, outcome text, journal/save, correct resource cost and absence of authored C07 imagery for the custom event. Final subsequent source change was whitespace-only.
 - No image generation, new art, Hearing changes or deployment.
+
+## Retained room notice surfaces — 2026-09-24
+
+- Added runtime blank covers for written notices/clipboards in four retained settings without modifying images or generating art. Covers share atlas coordinates, lighting and scene transforms.
+- Existing browser fixtures exercise each setting before a choice and after offline reload on desktop/mobile, preserving the crew. Visual review corrected two cover placements and removed an unnecessary garage-tool cover.
+- This does not accept all scene assignments: current shoe-shop/catering variants still inherit a radio room and remain integration gaps. Faint radio desk/flip-chart marks remain a separate final artwork review item.

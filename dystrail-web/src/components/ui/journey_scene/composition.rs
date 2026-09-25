@@ -174,8 +174,29 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
             <path d="M1278 747 H1310 L1312 758 H1276 Z" fill="#e4dfc9"/>
         </g>
     });
+    // Retained notice/clipboard surfaces stay blank; readable copy belongs in live UI.
+    let blank_setting_papers = match name {
+        "enc-motel" => html! { <g data-blank-setting-papers="motel" shape-rendering="crispEdges">
+            <path d="M397 114 H416 V145 H397 Z" fill="#cbbba3"/>
+            <path d="M268 179 L292 181 L290 204 L263 202 Z" fill="#e5dbc6"/>
+        </g> },
+        "enc-media-workshop" => html! { <g data-blank-setting-papers="media" shape-rendering="crispEdges">
+            <path d="M79 95 H90 V111 H79 Z" fill="#d5c5ad"/>
+            <path d="M74 120 H84 V134 H74 Z" fill="#e3d4bc"/>
+            <path d="M91 111 H104 V127 H91 Z" fill="#d5c5ad"/>
+        </g> },
+        "enc-service" => html! { <g data-blank-setting-papers="service" shape-rendering="crispEdges">
+            <path d="M295 330 H312 V347 H295 Z" fill="#cbbba5"/>
+        </g> },
+        "enc-radio" => html! { <g data-blank-setting-papers="radio" shape-rendering="crispEdges">
+            <path d="M958 555 H975 V583 H958 Z" fill="#d5c4ab"/>
+            <path d="M994 533 H1020 V566 H994 Z" fill="#cabb9f"/>
+            <path d="M977 594 H999 V619 H977 Z" fill="#cdbba2"/>
+        </g> },
+        _ => Html::default(),
+    };
     Some(
-        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}{blank_farm_paper}{blank_counter_papers}</svg>},
+        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}{blank_farm_paper}{blank_counter_papers}{blank_setting_papers}</svg>},
     )
 }
 

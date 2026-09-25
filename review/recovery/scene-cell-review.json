@@ -20229,5 +20229,20 @@
       "Final visual acceptance, including small-label readability and inherited caption-band treatment"
     ],
     "new_images": 0
+  },
+  "retained_room_papers_checkpoint": {
+    "status": "Blank runtime covers for written notices in retained motel, media workshop, service garage and radio room; source images unchanged",
+    "verification": [
+      "Build passed",
+      "Initial eight desktop/mobile encounter-to-offline-outcome flows passed; rendered review found two misplaced covers and prompted corrections",
+      "Corrected motel/radio covers reviewed on desktop and mobile; desktop media/service captures reviewed. Removed an unnecessary cover from a garage tool.",
+      "Final build and both browser projects passed: eight retained-setting flows including choice resolution, crew continuity, offline outcome, blank-surface presence and document width."
+    ],
+    "remaining": [
+      "These fixtures verify retained rooms, not acceptance of every current variant assigned to them",
+      "Known historical fallback mismatches include C13-A shoe shop and C13-B catering depot inheriting radio-room art; context integration remains incomplete",
+      "Radio desk sheet and media flip-chart retain faint paper marks; assess whether these are writing versus paper rules before claiming every raster surface is blank."
+    ],
+    "new_images": 0
   }
 }

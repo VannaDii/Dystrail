@@ -161,3 +161,32 @@ test('selected satire labels fit their surfaces in every supported language',asy
   }
  }
 });
+
+
+test('retained room notices stay blank through an encounter and offline outcome',async({page,context},info)=>{
+ const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;
+ base.stats={...base.stats,supplies:10,hp:8,sanity:8,morale:8,credibility:8};base.budget_cents=10000;base.budget=100;
+ for(const [runtime,setting,mask,count] of [
+  ['deep_secure_line','enc-motel','motel',2],
+  ['classic_media_training','enc-media-workshop','media',3],
+  ['classic_service_station','enc-service','service',1],
+  ['classic_radio_phonebank','enc-radio','radio',3],
+ ] as const){
+  const state=structuredClone(base);state.current_encounter=structuredClone(bank.find((e:any)=>e.id===runtime));
+  // Custom copy keeps this a direct retained-setting fixture instead of selecting newer variant art.
+  state.current_encounter.name='Retained setting preview';
+  state.visual_content={edition:1,selections:{},outcomes:{},policy_bulletins:[]};
+  await importState(page,state);
+  await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);
+  await expect(page.locator(`[data-blank-setting-papers="${mask}"] path`)).toHaveCount(count);
+  await page.locator('.journey-scene').screenshot({path:info.outputPath(`${mask}.png`)});
+  await page.locator('.encounter-choice button').first().click();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+  expect(saved.current_encounter).toBeNull();expect(saved.party).toEqual(state.party);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);
+  await expect(page.locator(`[data-blank-setting-papers="${mask}"] path`)).toHaveCount(count);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await context.setOffline(false);
+ }
+});
