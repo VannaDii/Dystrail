@@ -8,17 +8,17 @@
   <img src="/assets/crew-van-current.png" alt="Six companions in a blue van with luggage on the roof." width="1536" height="1024">
 </section>
 
-Dystrail is a political survival road trip. Your choices shape who reaches D.C. and how prepared they are for the final vote.
+Dystrail is a political survival road trip. Your choices shape who reaches D.C. and how prepared they are for the final vote. This guide explains the main rules and choices even when the game is closed.
 
 ## Your first run
 
 1. [Choose a trail and character](start.md). **Classic** is the starting point. **The Deep End** opts into darker political themes.
 2. Review the starter cart before you depart. Its contents are paid for from your starting funds, and you can change or remove them.
-3. On the road, check your crew and supplies, set a pace and information diet, and travel. The game stops for decisions, arrivals, and danger.
+3. On the road, check your crew and supplies. {{#help travel}}
 4. Keep enough health and sanity to reach D.C.; collect receipts, credibility, and allies to help your case at [the hearing](hearing.md).
 
-The game explains the known cost of each choice before you make it and shows what actually changed afterward. When in doubt, open **Status & inventory**, the **Trail journal**, or the latest action receipt.
+The chapters below explain how to prepare, travel, care for the crew, handle the hearing, and keep a save. **How It Works** covers the underlying simulation and data for readers who want those details.
 
 [Start a journey](start.md) · [How It Works](how-it-works/)
 
-This guide describes the game published with this documentation. The [How It Works](how-it-works/) section contains the underlying rules and source references.
+This guide describes the game published with this documentation.

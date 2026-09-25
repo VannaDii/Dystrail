@@ -1,18 +1,41 @@
 # Stay in the game
 
-Progress is only useful if the crew can keep going. Check these resources before a long stretch or a costly decision:
+Progress is only useful if the crew can keep going. The main resources affect travel, survival, or your case at the hearing.
 
-| Resource | Why it matters |
-| --- | --- |
-| Supplies | Food and water share a 20-unit stock. Travel, care, weather, and some choices spend it. You can restock in towns or use available gathering and trade actions. |
-| Health | Injury, hunger, exposure, and hard work can lower it. Recovery and some choices can restore it. A traveler at zero health cannot continue. |
-| Sanity | Stress, rushed travel, and information overload can drain it. Quiet news, rest, and some encounters help. The game warns when it reaches 2 or less; the hearing also demands sanity. |
-| Vehicle condition | Wear and breakdowns can stop travel. Check the van and carry a spare if you want another repair option. |
-| Credibility, allies, and receipts | These reflect the case you build on the road. Credibility and allies help the final hearing; kept receipts add to the journey score and can affect the hearing's starting odds. Some choices spend receipts. |
-| Morale and cash | Morale reflects the crew's shared spirit and contributes to the journey score. Cash pays for purchases and some solutions on the road. |
+## Keep the crew moving
 
-Your crew members have their own conditions. **Allies** on the status display are outside supporters, separate from the people in your van.
+### Supplies
 
-There is no one fixed winning route. Weather, encounters, vehicle trouble, and your choices change what you can afford to do next. The latest action receipt is the clearest account of what a decision actually cost.
+{{#help supplies}}
+
+### Health and sanity
+
+**Health:** {{#help health}}
+
+**Sanity:** {{#help sanity}} The hearing also requires sanity to continue answering questions.
+
+### Vehicle condition and cash
+
+Wear and breakdowns can stop travel. A carried matching spare adds a repair option; service and other repairs may cost cash, time, or vehicle condition. Cash also pays for equipment and some solutions at stops.
+
+## Build your case
+
+### Credibility and allies
+
+**Credibility:** {{#help credibility}}
+
+**Allies:** {{#help allies}}
+
+### Receipts
+
+{{#help receipts}}
+
+### Morale
+
+{{#help morale}} Morale also contributes to the journey score.
+
+Your crew members have their own conditions. Care for a sick companion before their condition becomes critical; leaving a companion with medics removes them from the van. If your own character cannot continue, the journey ends.
+
+There is no one fixed winning route. Weather, encounters, vehicle trouble, and your choices change what you can afford to do next. Each decision shows its known effects, and the resulting action receipt gives the actual cost.
 
 Next: [The D.C. hearing](hearing.md).
