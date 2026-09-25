@@ -20083,9 +20083,9 @@
   },
   "preview_checkpoint": {
     "status": "Current progress sheets; not release acceptance",
-    "source_revision": "e0156a8",
-    "build": "5da1c7e4214b63b1133b",
-    "frames_per_device": 11,
+    "source_revision": "19f5291",
+    "build": "b4268bc57af2ed81942b",
+    "frames_per_device": 12,
     "viewports": {
       "desktop": 1440,
       "mobile": 390
@@ -20094,8 +20094,8 @@
       "current-previews/desktop-preview-sheet.png",
       "current-previews/mobile-preview-sheet.png"
     ],
-    "verification": "22 current browser captures passed; all six standing cast sheets fetched successfully offline on desktop and mobile. Sheets contain raw browser captures; no image generation or raster editing.",
-    "scope": "Road, night, town, ally, selected satire props, barter, completed pantry/cleanup work, crossing with absent crew, ending. Road/night/crossing frames now show the current van silhouette. Partial frames and wider remaining work explicitly labeled."
+    "verification": "24 current browser captures passed on desktop/mobile, including six standing cast sheets fetched offline and the retained overhead scene selected from saved state.",
+    "scope": "Road, night, town, ally, selected satire props including overhead, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
   },
   "town_qualitative_checkpoint": {
     "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",

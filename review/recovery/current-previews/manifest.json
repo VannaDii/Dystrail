@@ -1,5 +1,5 @@
 {
-  "revision": "e0156a8 · build 5da1c7e4214b63b1133b",
+  "revision": "19f5291 · build b4268bc57af2ed81942b",
   "frames": [
     {
       "id": "road",
@@ -29,6 +29,12 @@
       "id": "safe",
       "title": "Public comments, secured",
       "note": "Retained safe-and-comment-box panel with localized live lettering. Final artwork acceptance remains open.",
+      "status": "Partial"
+    },
+    {
+      "id": "overhead",
+      "title": "The cost of the plug",
+      "note": "Retained freezer and melting-ice gag with editable label. Cost sheets, chairs and additional translations remain open.",
       "status": "Partial"
     },
     {

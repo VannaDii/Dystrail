@@ -1,10 +1,10 @@
 {
-  "revision": "e0156a8 · build 5da1c7e4214b63b1133b",
+  "revision": "19f5291 · build b4268bc57af2ed81942b",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 4129,
+      "height": 4366,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -34,6 +34,12 @@
           "src": "desktop/safe/shot-0.png",
           "width": 1230,
           "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/overhead/shot-0.png",
+          "width": 1230,
+          "height": 921,
           "complete": true
         },
         {
@@ -77,7 +83,7 @@
     {
       "device": "mobile",
       "width": 1280,
-      "height": 2790,
+      "height": 2878,
       "images": [
         {
           "src": "mobile/road/shot-0.png",
@@ -107,6 +113,12 @@
           "src": "mobile/safe/shot-0.png",
           "width": 1024,
           "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/overhead/shot-0.png",
+          "width": 1024,
+          "height": 1160,
           "complete": true
         },
         {

@@ -11,7 +11,7 @@ test('capture current integrated visual-world previews',async({page,context},inf
  const base=await baseline(page);base.seed=42;base.turn_journal_start=null;
  const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
  const device=info.project.name==='mobile'?'mobile':'desktop';
- for(const id of ['road','night','town','ally','safe','fees','trade','pantry','cleanup','crossing','ending']){
+ for(const id of ['road','night','town','ally','safe','overhead','fees','trade','pantry','cleanup','crossing','ending']){
   const s=structuredClone(base);s.clock_minutes=id==='night'?1380:720;
   if(['town','trade','pantry','cleanup'].includes(id)) atTown(s,'Spokane');
   if(id==='pantry'||id==='cleanup'){
@@ -32,8 +32,8 @@ test('capture current integrated visual-world previews',async({page,context},inf
    e.before=structuredClone(s.stats);e.before.allies=1;e.after=structuredClone(s.stats);e.resources=[];e.details=[];
    s.ally_notice=e;s.journal.push(e);
   }
-  if(id==='safe'||id==='fees'){
-   const unit=id==='safe'?'ENC-C09-C':'ENC-C12-C';
+  if(['safe','overhead','fees'].includes(id)){
+   const unit=id==='safe'?'ENC-C09-C':id==='overhead'?'ENC-C11-A':'ENC-C12-C';
    const source=JSON.parse(readFileSync('../review/recovery/current-source-records.json','utf8')).units.find((u:any)=>u.id===unit);
    s.current_encounter=JSON.parse(readFileSync('static/assets/data/game.json','utf8')).find((e:any)=>e.id===source.runtime_key);
    s.day=6;s.last_encounter_driving_minutes=300;s.driving_minutes_total=300;
@@ -63,6 +63,7 @@ test('capture current integrated visual-world previews',async({page,context},inf
    await expect(page.locator('[data-activity-unit]')).toHaveAttribute('data-activity-unit',unit);
   }
   if(id==='crossing')await expect(page.locator('.van-occupant')).toHaveCount(4);
+  if(id==='overhead')await expect(page.locator('.scene-atlas[data-atlas="road-c11-a-20260914"]')).toHaveAttribute('data-cell','0');
   const target=page.locator(id==='ending'?'.result-art':'.world-view');
   await expect(target).toBeVisible();
   const out=resolve('../review/recovery/current-previews',device,id);mkdirSync(out,{recursive:true});
