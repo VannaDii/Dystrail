@@ -18526,7 +18526,7 @@
       },
       {
         "asset_id": "selected-satire-06",
-        "decision": "single_attempt_held_for_review",
+        "decision": "user_directed_revision_held_for_review",
         "canvas": [
           1536,
           1024
@@ -18556,7 +18556,9 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "held_for_user_review",
-            "review_finding": "Raccoon, picnic cloth, rubbish and blank park sign are present, but the ranger is substantially taller than the approved 224 px outdoor scale; fine texture also misses the 4x logical pixel rule."
+            "review_finding": "Raccoon, picnic cloth, rubbish and blank park sign are present, but the ranger is substantially taller than the approved 224 px outdoor scale; fine texture also misses the 4x logical pixel rule.",
+            "revision_review_status": "held_for_user_review",
+            "revision_review_finding": "Revision retains raccoon, cloth, waste, blank sign and leaflets, but ranger remains about 330 px tall rather than the specified 224 px outdoor adult; leaf and ground detail still uses sub-4 px strokes."
           },
           {
             "unit": "ENC-S13-A",
@@ -18573,7 +18575,9 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "held_for_user_review",
-            "review_finding": "Small Chinese flag and blank card reader convey the intended offer, but the cashier dominates the panel instead of occupying the approved right-hand counter rectangle; fine painterly detail misses the pixel rule."
+            "review_finding": "Small Chinese flag and blank card reader convey the intended offer, but the cashier dominates the panel instead of occupying the approved right-hand counter rectangle; fine painterly detail misses the pixel rule.",
+            "revision_review_status": "held_for_user_review",
+            "revision_review_finding": "Revision retains tiny flag and blank reader, but cashier sits around local x350-600 rather than the right-hand x520-696 counter box; head and torso still dominate; props and shelves use fine-scale detail."
           },
           {
             "unit": "ENC-S14-A",
@@ -18590,7 +18594,9 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "held_for_user_review",
-            "review_finding": "Blank ceremonial cheque is wider than the doorway, but the worker is nearly door-height instead of the specified 272 px adult against a 344 px door; fine texture misses the pixel rule."
+            "review_finding": "Blank ceremonial cheque is wider than the doorway, but the worker is nearly door-height instead of the specified 272 px adult against a 344 px door; fine texture misses the pixel rule.",
+            "revision_review_status": "held_for_user_review",
+            "revision_review_finding": "Revision retains the giant blank cheque and ordinary doorway, but worker remains roughly 350 px tall rather than 272 px beside the 344 px doorway; wall and floor shading violate the coarse grid."
           },
           {
             "unit": "ENC-S16-B",
@@ -18607,7 +18613,9 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "held_for_user_review",
-            "review_finding": "Blank voucher and open cash compartments convey the offer without a transfer, but the clerk is oversized and centered rather than right-framed at the approved counter scale; fine painterly detail misses the pixel rule."
+            "review_finding": "Blank voucher and open cash compartments convey the offer without a transfer, but the clerk is oversized and centered rather than right-framed at the approved counter scale; fine painterly detail misses the pixel rule.",
+            "revision_review_status": "held_for_user_review",
+            "revision_review_finding": "Revision retains blank voucher above open cash compartments without transfer, but clerk sits too centrally and remains too large for the right-hand x520-696 counter box; drawers and shelves use fine-scale detail."
           }
         ],
         "attempt_limit_if_approved": 1,
@@ -18620,7 +18628,19 @@
           1024
         ],
         "runtime_binding": "none",
-        "review": "One authorized attempt. Four independent blank-text panels and central props are present, but fine painterly detail misses the approved coarse pixel grid and adult scale/framing miss the declared rigs. Hold the sheet for user review; no retry."
+        "review": "One authorized attempt. Four independent blank-text panels and central props are present, but fine painterly detail misses the approved coarse pixel grid and adult scale/framing miss the declared rigs. Hold the sheet for user review; no retry.",
+        "user_directed_revision": {
+          "authorization": "User explicitly agreed to correct pixel scale and proportions on 2026-09-25; this was a requested revision after the one automatic attempt, not a second automatic attempt.",
+          "attempts": 1,
+          "output_path": "review/recovery/retained-unused-art/selected-satire-06-user-revision.png",
+          "output_sha256": "b9fa64af7dc05385ad5e0d0e18770eca22074c7cdc461bfa67c139844aeb1c78",
+          "actual_canvas": [
+            1536,
+            1024
+          ],
+          "decision": "held_for_user_review",
+          "review": "The same four jokes, blank text surfaces and panel boundaries survive. The rendered detail is still much finer than the required 192x128 logical grid enlarged 4x. Ranger and doorway worker still exceed approved proportions; counter clerks remain too central. Do not bind this atlas or make another automatic attempt."
+        }
       },
       {
         "asset_id": "selected-satire-07",
@@ -19743,7 +19763,8 @@
       "new UI/stat designs"
     ],
     "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate.",
-    "approval_source": "User: The production package is approved (2026-09-21)"
+    "approval_source": "User: The production package is approved (2026-09-21)",
+    "user_directed_revisions_used": 1
   },
   "shared_atlas_checkpoint": {
     "build": "f26020f7d8e2099037a5",
