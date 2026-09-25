@@ -19767,6 +19767,8 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
+    "additional_user_authorized_calls": 1,
+    "effective_attempt_ceiling": 14,
     "new_image_attempts_used": 9,
     "new_images": [
       "selected-satire-01",
