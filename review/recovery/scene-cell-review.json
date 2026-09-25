@@ -9546,7 +9546,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -9557,7 +9557,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-rest-area. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-C09-B",
@@ -9767,7 +9768,9 @@
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "overhead_freezer",
       "staging_scope_resolved": true,
-      "production_route": "reuse_retained"
+      "production_route": "reuse_retained",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-C11-B",
@@ -10053,7 +10056,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Outdoor repair fair and first-aid chair. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-C14-C",
@@ -10248,7 +10253,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-C17-A",
@@ -10381,7 +10388,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-C18-C",
@@ -10538,7 +10547,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Indoor school gym equipment sale. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-D02-C",
@@ -10561,7 +10572,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Nursing-home rummage sale. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-D03-A",
@@ -10851,7 +10864,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-D06-C",
@@ -10970,7 +10985,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Pregnancy-center open house with advertising display. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-D08-B",
@@ -10993,7 +11010,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Union-hall table sale. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-D08-C",
@@ -11054,7 +11073,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-D09-B",
@@ -11148,7 +11169,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: School-supply sale. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-D10-C",
@@ -11378,7 +11401,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11389,7 +11412,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-checkpoint. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-D13-C",
@@ -11425,7 +11449,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11436,7 +11460,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-rest-area. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S01-B",
@@ -11483,7 +11508,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Veterans hall supper. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S02-A",
@@ -11567,7 +11594,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11578,7 +11605,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-service-counter. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S03-B",
@@ -11615,7 +11643,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S03-C",
@@ -11627,7 +11657,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11638,7 +11668,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-service-counter. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S04-A",
@@ -11650,7 +11681,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11661,7 +11692,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-convoy. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S04-B",
@@ -11708,7 +11740,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Marina visitor area. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S05-A",
@@ -11745,7 +11779,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S05-B",
@@ -11757,7 +11793,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11768,7 +11804,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-service-counter. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S05-C",
@@ -11863,7 +11900,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Roadside letter stall. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S07-A",
@@ -11941,7 +11980,9 @@
       "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
       "composition_family": "freezer_leaflet",
       "staging_scope_resolved": true,
-      "production_route": "user_review_retained_attempt"
+      "production_route": "user_review_retained_attempt",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S08-A",
@@ -12012,7 +12053,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Souvenir printing stall beside food counter. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S09-A",
@@ -12049,7 +12092,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S09-B",
@@ -12061,7 +12106,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12072,7 +12117,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-community. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S09-C",
@@ -12109,7 +12155,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S10-A",
@@ -12146,7 +12194,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S10-B",
@@ -12169,7 +12219,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Mountain-photograph souvenir stall. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S10-C",
@@ -12230,7 +12282,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S11-B",
@@ -12301,7 +12355,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Grocery checkout and crates. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S12-B",
@@ -12324,7 +12380,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Discount-store loading bay. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S12-C",
@@ -12347,7 +12405,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Catering depot. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S13-A",
@@ -12384,7 +12444,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S13-B",
@@ -12407,7 +12469,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Food-and-water shop checkout. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S13-C",
@@ -12430,7 +12494,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Food-and-water shop and lost property. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S14-A",
@@ -12467,7 +12533,9 @@
         ],
         "rig": "doorway",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S14-B",
@@ -12490,7 +12558,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Clinic fundraiser with chairs. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S14-C",
@@ -12502,7 +12572,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12513,7 +12583,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-service-counter. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S15-A",
@@ -12525,7 +12596,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12536,7 +12607,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-community. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S15-B",
@@ -12646,7 +12718,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S16-C",
@@ -12683,7 +12757,9 @@
         ],
         "rig": "doorway",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S17-A",
@@ -12720,7 +12796,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S17-B",
@@ -12757,7 +12835,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S17-C",
@@ -12769,7 +12849,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12780,7 +12860,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-convoy. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S18-A",
@@ -12841,7 +12922,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Souvenir printer and postcard racks. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S18-C",
@@ -12926,7 +13009,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S19-C",
@@ -12949,7 +13034,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Event printer and disclosure inserts. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S20-A",
@@ -13010,7 +13097,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S20-C",
@@ -13179,7 +13268,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S22-C",
@@ -13240,7 +13331,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S23-B",
@@ -13252,7 +13345,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13263,7 +13356,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-service-counter. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S23-C",
@@ -13325,7 +13419,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S24-B",
@@ -13362,7 +13458,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S24-C",
@@ -13399,7 +13497,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S25-A",
@@ -13494,7 +13594,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Transport supporters leaflet stall. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S26-B",
@@ -13531,7 +13633,9 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S26-C",
@@ -13543,7 +13647,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13554,7 +13658,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-community. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S27-A",
@@ -13663,7 +13768,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: House open-house cleanup. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S28-B",
@@ -13699,7 +13806,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13710,7 +13817,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-community. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S29-A",
@@ -13805,7 +13913,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Coastal transport meeting. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S30-B",
@@ -13817,7 +13927,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13828,7 +13938,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-community. Dialogue carries satire; optional source props remain suggestions, not claimed illustrated."
     },
     {
       "unit": "ENC-S30-C",
@@ -13865,7 +13976,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S31-A",
@@ -13960,7 +14073,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Outdoor turbine repair stall. Search retained dedicated candidates before any production."
     },
     {
       "unit": "ENC-S32-B",
@@ -13997,7 +14112,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S32-C",
@@ -14058,7 +14175,9 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S33-B",
@@ -14095,7 +14214,9 @@
         ],
         "rig": "doorway",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S33-C",
@@ -14179,7 +14300,9 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
     },
     {
       "unit": "ENC-S34-C",
@@ -14202,7 +14325,9 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
+      "routing_gap": "No suitably matching cell in reviewed shared atlases: Baby-goods warehouse. Search retained dedicated candidates before any production."
     },
     {
       "unit": "TOWN-01-A",
@@ -20356,7 +20481,7 @@
   "road_binding_audit": {
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
-    "explicit_shared_units": 93,
+    "explicit_shared_units": 108,
     "dedicated_units": 28,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
@@ -20365,7 +20490,6 @@
       "ENC-C08-A"
     ],
     "historical_fallback_review_required": [
-      "ENC-C09-A",
       "ENC-C11-A",
       "ENC-C14-B",
       "ENC-C16-C",
@@ -20377,21 +20501,14 @@
       "ENC-D08-B",
       "ENC-D09-A",
       "ENC-D10-B",
-      "ENC-D13-B",
-      "ENC-S01-A",
       "ENC-S01-C",
-      "ENC-S03-A",
       "ENC-S03-B",
-      "ENC-S03-C",
-      "ENC-S04-A",
       "ENC-S04-C",
       "ENC-S05-A",
-      "ENC-S05-B",
       "ENC-S06-C",
       "ENC-S07-C",
       "ENC-S08-C",
       "ENC-S09-A",
-      "ENC-S09-B",
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S10-B",
@@ -20404,30 +20521,23 @@
       "ENC-S13-C",
       "ENC-S14-A",
       "ENC-S14-B",
-      "ENC-S14-C",
-      "ENC-S15-A",
       "ENC-S16-B",
       "ENC-S16-C",
       "ENC-S17-A",
       "ENC-S17-B",
-      "ENC-S17-C",
       "ENC-S18-B",
       "ENC-S19-B",
       "ENC-S19-C",
       "ENC-S20-B",
       "ENC-S22-B",
       "ENC-S23-A",
-      "ENC-S23-B",
       "ENC-S24-A",
       "ENC-S24-B",
       "ENC-S24-C",
       "ENC-S26-A",
       "ENC-S26-B",
-      "ENC-S26-C",
       "ENC-S28-A",
-      "ENC-S28-C",
       "ENC-S30-A",
-      "ENC-S30-B",
       "ENC-S30-C",
       "ENC-S32-A",
       "ENC-S32-B",
@@ -20436,8 +20546,67 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 70,
-    "requirement": "Every remaining historical mapping must be checked against the current source location; compatible reuse must be explicit, mismatches remain incomplete. Do not count inherited runtime scenery as integration."
+    "remaining_count": 55,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 31 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "reviewed_location_gaps": {
+      "ENC-C14-B": "Outdoor repair fair and first-aid chair",
+      "ENC-D02-B": "Indoor school gym equipment sale",
+      "ENC-D02-C": "Nursing-home rummage sale",
+      "ENC-D08-A": "Pregnancy-center open house with advertising display",
+      "ENC-D08-B": "Union-hall table sale",
+      "ENC-D10-B": "School-supply sale",
+      "ENC-S01-C": "Veterans hall supper",
+      "ENC-S04-C": "Marina visitor area",
+      "ENC-S06-C": "Roadside letter stall",
+      "ENC-S08-C": "Souvenir printing stall beside food counter",
+      "ENC-S10-B": "Mountain-photograph souvenir stall",
+      "ENC-S12-A": "Grocery checkout and crates",
+      "ENC-S12-B": "Discount-store loading bay",
+      "ENC-S12-C": "Catering depot",
+      "ENC-S13-B": "Food-and-water shop checkout",
+      "ENC-S13-C": "Food-and-water shop and lost property",
+      "ENC-S14-B": "Clinic fundraiser with chairs",
+      "ENC-S18-B": "Souvenir printer and postcard racks",
+      "ENC-S19-C": "Event printer and disclosure inserts",
+      "ENC-S26-A": "Transport supporters leaflet stall",
+      "ENC-S28-A": "House open-house cleanup",
+      "ENC-S30-A": "Coastal transport meeting",
+      "ENC-S32-A": "Outdoor turbine repair stall",
+      "ENC-S34-C": "Baby-goods warehouse"
+    },
+    "reviewed_essential_gag_gaps": [
+      "ENC-C11-A",
+      "ENC-C16-C",
+      "ENC-C18-B",
+      "ENC-D06-B",
+      "ENC-D09-A",
+      "ENC-S03-B",
+      "ENC-S05-A",
+      "ENC-S07-C",
+      "ENC-S09-A",
+      "ENC-S09-C",
+      "ENC-S10-A",
+      "ENC-S11-A",
+      "ENC-S13-A",
+      "ENC-S14-A",
+      "ENC-S16-B",
+      "ENC-S16-C",
+      "ENC-S17-A",
+      "ENC-S17-B",
+      "ENC-S19-B",
+      "ENC-S20-B",
+      "ENC-S22-B",
+      "ENC-S23-A",
+      "ENC-S24-A",
+      "ENC-S24-B",
+      "ENC-S24-C",
+      "ENC-S26-B",
+      "ENC-S30-C",
+      "ENC-S32-B",
+      "ENC-S33-A",
+      "ENC-S33-B",
+      "ENC-S34-B"
+    ]
   },
   "motel_context_checkpoint": {
     "unit": "ENC-S27-B",
@@ -20516,5 +20685,31 @@
     ],
     "new_images": 0,
     "remaining": "Optional props remain source suggestions. Remaining historical assignments and essential-gag holds are not accepted by these checks."
+  },
+  "road_remaining_context_checkpoint": {
+    "units": {
+      "ENC-C09-A": "enc-rest-area",
+      "ENC-S01-A": "enc-rest-area",
+      "ENC-S03-A": "enc-service-counter",
+      "ENC-S03-C": "enc-service-counter",
+      "ENC-S05-B": "enc-service-counter",
+      "ENC-S14-C": "enc-service-counter",
+      "ENC-S23-B": "enc-service-counter",
+      "ENC-S09-B": "enc-community",
+      "ENC-S15-A": "enc-community",
+      "ENC-S26-C": "enc-community",
+      "ENC-S28-C": "enc-community",
+      "ENC-S30-B": "enc-community",
+      "ENC-S04-A": "enc-convoy",
+      "ENC-S17-C": "enc-convoy",
+      "ENC-D13-B": "enc-checkpoint"
+    },
+    "new_images": 0,
+    "verification": [
+      "Build passed",
+      "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
+      "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
+    ],
+    "remaining": "55 inherited road assignments are explicit gaps, not accepted shared scenes. This road-only review is not the full-feature unavoidable-gap list."
   }
 }
