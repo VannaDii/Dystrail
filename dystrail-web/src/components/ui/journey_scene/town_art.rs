@@ -9,7 +9,7 @@ pub fn shared_setting(unit: &str) -> bool {
 }
 
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
-    context(stage).map(|(unit, _)| if shared_setting(unit) { "1" } else { "1.5" })
+    context(stage).map(|(unit, _)| if shared_setting(unit) { "1.7777778" } else { "1.5" })
 }
 
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
@@ -27,7 +27,7 @@ pub fn render(p: &Props) -> Option<Html> {
     if shared_setting(unit) {
         return Some(html! {
             <svg class="scene-background town-setting" data-town-unit={unit.to_owned()} data-town-context="cafe"
-                viewBox="512 0 512 512" preserveAspectRatio="xMidYMid meet">
+                viewBox="512 64 512 288" preserveAspectRatio="xMidYMid meet">
                 <image href={crate::paths::asset_path("static/img/journey/encounter-settings-v3.png")} width="1536" height="1024"/>
             </svg>
         });

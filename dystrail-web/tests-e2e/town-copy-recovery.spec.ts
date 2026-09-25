@@ -75,7 +75,7 @@ test('indoor cafe conversations use the shared native setting',async({page,conte
   await expect(page.locator('[data-town-context]')).toHaveAttribute('data-town-context','cafe');
   await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',id);
   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
-  const box=await page.locator('.journey-scene > .scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(1,1);
+  const box=await page.locator('.journey-scene > .scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(16/9,1);
   await expect(page.locator('.resident-story > p')).toHaveText(story.setup.en);
   const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
   await context.setOffline(true);await page.reload();await waitForLaunch(page);

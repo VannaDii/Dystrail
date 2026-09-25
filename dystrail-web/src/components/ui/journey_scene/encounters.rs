@@ -1,5 +1,25 @@
 //! Deliberate encounter-to-setting assignments; unknown events never inherit road art.
+/// Reviewed current variants override the historical runtime event's location.
+pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
+    Some(match id {
+        "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
+        "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
+        "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" => "enc-cafe",
+        "ENC-C15-C" | "ENC-C17-C" | "ENC-D07-C" | "ENC-S02-B" |
+        "ENC-S06-A" | "ENC-S29-A" => "enc-library",
+        "ENC-C11-B" | "ENC-D07-B" | "ENC-D10-A" | "ENC-S06-B" |
+        "ENC-S11-C" | "ENC-S19-A" | "ENC-S25-A" | "ENC-S27-A" => "enc-service-counter",
+        "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" => "enc-service",
+        _ => return None,
+    })
+}
+
+pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
+    shared_asset(id).map(|name| if name == "enc-service" { "2" } else { "1.7777778" })
+}
+
 pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
+    if let Some(setting) = shared_asset(id) { return Some(setting); }
     Some(match id {
         // The rejected lander illustration stays excluded pending user review.
         "ENC-C04-A" => "enc-rest-area",

@@ -140,8 +140,11 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
     };
     let width = 1536.0 / f64::from(columns);
     let height = 1024.0 / f64::from(rows);
+    let landscape_shared = match &p.stage { SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => super::encounters::shared_aspect(unit) == Some("1.7777778"), _ => false };
     let x = f64::from(cell % columns) * width;
     let y = f64::from(cell / columns) * height;
+    // Crop surplus ceiling/floor in shared interiors; keep scale uniform.
+    let (y, height) = if landscape_shared { (y + 64.0, width * 9.0 / 16.0) } else { (y, height) };
     Some(
         html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/></svg>},
     )
