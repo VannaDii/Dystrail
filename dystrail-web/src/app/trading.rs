@@ -23,13 +23,27 @@ pub fn render(app: &AppState) -> Html {
     };
     let used = gs.continuity.route_services.traded_at == gs.continuity.route_services.stop;
     html! {<>
-        <WorldView state={std::rc::Rc::new(gs.clone())} title={i18n::t("journey.trade_open")} stage={Some(SceneStage::Town)} />
+        <WorldView state={std::rc::Rc::new(gs.clone())} title={i18n::t("journey.trade_open")} stage={Some(completed_scene(gs))} />
         <section class="town-trading" aria-label={i18n::t("journey.trade_open")}><p>{i18n::t(if used {"play2.traded"}else{"journey.trade_help"})}</p>
             <div class="action-grid">{for (0..3_u8).map(|kind|html!{<div class="action-option"><p>{trade_copy(gs,kind,"desc","")}</p><ActionButton label={trade_copy(gs,kind,"choice_0",&i18n::t(&format!("journey.trade_label_{kind}")))} detail={i18n::t(&format!("journey.trade_{kind}"))} disabled={!gs.can_route_trade(kind)} onclick={choose(app,kind)} /></div>})}</div>
             <button onclick={toggle(app,false)}>{i18n::t("trail.listen")}</button>
         </section>
     </>}
 }
+fn completed_scene(gs: &crate::game::GameState) -> SceneStage {
+    let Some(stop) = gs.continuity.route_services.stop else { return SceneStage::Town; };
+    if gs.continuity.route_services.traded_at != Some(stop) { return SceneStage::Town; }
+    for family in ["ACT-BARTERTIRE", "ACT-BARTERBATTERY", "ACT-BARTERSUPPLIES"] {
+        let key = format!("{family}/town/{stop}");
+        if gs.continuity.visual_content.outcomes.get(&key) == Some(&0) {
+            if let Some(unit) = gs.continuity.visual_content.selections.get(&key) {
+                return SceneStage::EncounterOutcome { unit: unit.clone(), choice: 0 };
+            }
+        }
+    }
+    SceneStage::Town
+}
+
 fn choose(app: &AppState, kind: u8) -> Callback<MouseEvent> {
     let app = app.clone();
     Callback::from(move |_| {

@@ -3904,7 +3904,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERBATTERY-A",
@@ -3946,7 +3948,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERSUPPLIES-A",
@@ -3988,7 +3992,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERTIRE-B",
@@ -4030,7 +4036,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERBATTERY-B",
@@ -4072,7 +4080,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERSUPPLIES-B",
@@ -4114,7 +4124,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERTIRE-C",
@@ -4156,7 +4168,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERBATTERY-C",
@@ -4198,7 +4212,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-BARTERSUPPLIES-C",
@@ -4240,7 +4256,9 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Approved source used; conflicting preserved refresh translations not imported",
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
-      }
+      },
+      "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
     },
     {
       "unit": "ACT-CASHWORK-A",
@@ -19633,6 +19651,21 @@
     "remaining": [
       "Fourteen ally scene variants retain regional roadside fallback; held/mismatched cells are not production-approved",
       "Localized sign/message overlays and full ally translation/context acceptance remain open"
+    ],
+    "image_generation_calls": 0
+  },
+  "barter_art_checkpoint": {
+    "status": "Nine completed barter cells integrated from three unchanged retained atlases",
+    "verification": [
+      "Native cargo check and build aaa6f2cc0864b55df21e passed",
+      "All nine trades plus three rest regressions passed on desktop/mobile; no completed panel before exchange; actual costs and crew preserved; offline selection retained",
+      "Corrected fixture journal boundary and top-of-page capture; final desktop 38.4s and mobile 44.3s passed",
+      "Representative desktop/mobile compositions reviewed against original atlas crops"
+    ],
+    "remaining": [
+      "Pre-trade screen retains shared town context because all three offers remain available simultaneously",
+      "Mobile bottom-left caption overlaps part of foreground tire in ACT-BARTERTIRE-A; retain as explicit visual review item",
+      "Further localized overlay and scene acceptance remain open"
     ],
     "image_generation_calls": 0
   }
