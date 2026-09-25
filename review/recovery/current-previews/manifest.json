@@ -1,0 +1,41 @@
+{
+  "revision": "4018aa6 \u00b7 build 2f1042b1546786205400",
+  "frames": [
+    {
+      "id": "road",
+      "title": "Roadside and crew",
+      "note": "Actual active travelers, editable billboard and bottom-left caption.",
+      "status": "Integrated"
+    },
+    {
+      "id": "night",
+      "title": "Night travel setting",
+      "note": "Same saved route and crew at 23:00; clock lighting does not advance time.",
+      "status": "Integrated"
+    },
+    {
+      "id": "town",
+      "title": "Town setting",
+      "note": "Shared regional setting. Encounter-specific art and localized content remain incomplete.",
+      "status": "Partial"
+    },
+    {
+      "id": "ally",
+      "title": "Outside contact",
+      "note": "Reviewed job-loss vignette. The outside contact is not removed from the traveling party.",
+      "status": "Integrated"
+    },
+    {
+      "id": "trade",
+      "title": "Completed barter",
+      "note": "Retained panel selected by a committed trade. Mobile foreground-caption overlap remains a review item.",
+      "status": "Partial"
+    },
+    {
+      "id": "ending",
+      "title": "Journey ending",
+      "note": "Recorded regional scene and ending copy, without the removed portrait inset.",
+      "status": "Integrated"
+    }
+  ]
+}

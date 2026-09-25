@@ -19682,5 +19682,19 @@
       "Ending-specific editorial props and full localized-copy acceptance remain open"
     ],
     "image_generation_calls": 0
+  },
+  "preview_checkpoint": {
+    "status": "Current desktop/mobile progress sheets captured and reviewed; not release acceptance",
+    "build": "2f1042b1546786205400",
+    "source_commit": "4018aa6",
+    "path": "review/recovery/current-previews",
+    "verification": [
+      "12 current-browser scene captures at 1440px and 390px passed after reload",
+      "Both HTML sheets decode all six captures without horizontal overflow",
+      "Desktop 1520x2332 and mobile 1280x1666 sheets rendered from unchanged browser captures"
+    ],
+    "remaining": [
+      "Refresh final sheets after remaining integration and acceptance work"
+    ]
   }
 }

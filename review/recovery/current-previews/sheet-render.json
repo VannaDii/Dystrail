@@ -1,0 +1,91 @@
+{
+  "revision": "4018aa6 · build 2f1042b1546786205400",
+  "outputs": [
+    {
+      "device": "desktop",
+      "width": 1520,
+      "height": 2332,
+      "images": [
+        {
+          "src": "desktop/road/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/night/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/town/shot-0.png",
+          "width": 1230,
+          "height": 496,
+          "complete": true
+        },
+        {
+          "src": "desktop/ally/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/trade/shot-0.png",
+          "width": 1230,
+          "height": 648,
+          "complete": true
+        },
+        {
+          "src": "desktop/ending/shot-0.png",
+          "width": 1230,
+          "height": 382,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "device": "mobile",
+      "width": 1280,
+      "height": 1666,
+      "images": [
+        {
+          "src": "mobile/road/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/night/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/town/shot-0.png",
+          "width": 1024,
+          "height": 1341,
+          "complete": true
+        },
+        {
+          "src": "mobile/ally/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/trade/shot-0.png",
+          "width": 1024,
+          "height": 932,
+          "complete": true
+        },
+        {
+          "src": "mobile/ending/shot-0.png",
+          "width": 1024,
+          "height": 1184,
+          "complete": true
+        }
+      ]
+    }
+  ]
+}
