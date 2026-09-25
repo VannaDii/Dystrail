@@ -4,18 +4,28 @@ pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
     Some(match id {
         "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
         "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
-        "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" => "enc-cafe",
+        "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" |
+        "ENC-C13-C" | "ENC-D03-C" | "ENC-S05-C" => "enc-cafe",
         "ENC-C15-C" | "ENC-C17-C" | "ENC-D07-C" | "ENC-S02-B" |
         "ENC-S06-A" | "ENC-S29-A" => "enc-library",
         "ENC-C11-B" | "ENC-D07-B" | "ENC-D10-A" | "ENC-S06-B" |
         "ENC-S11-C" | "ENC-S19-A" | "ENC-S25-A" | "ENC-S27-A" => "enc-service-counter",
-        "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" => "enc-service",
+        "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" | "ENC-D13-C" => "enc-service",
+        "ENC-D03-A" | "ENC-D06-C" | "ENC-D07-A" | "ENC-D09-C" | "ENC-D11-A" => "enc-rest-area",
+        "ENC-C15-A" | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" |
+        "ENC-S02-A" | "ENC-S02-C" | "ENC-S15-C" | "ENC-S20-A" | "ENC-S20-C" => "enc-community",
+        "ENC-C18-A" | "ENC-C18-C" => "enc-civic",
+        "ENC-S15-B" | "ENC-S23-C" => "enc-museum",
         _ => return None,
     })
 }
 
 pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
-    shared_asset(id).map(|name| if name == "enc-service" { "2" } else { "1.7777778" })
+    shared_asset(id).map(|name| match name {
+        "enc-service" | "enc-community" | "enc-civic" => "2",
+        "enc-rest-area" => "2.25",
+        _ => "1.7777778",
+    })
 }
 
 pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
