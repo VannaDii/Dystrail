@@ -1315,6 +1315,46 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ALLY-01-A": {
+      "name": "Die Empfehlung mit der roten Kappe",
+      "desc": "Eure externe Kontaktperson {name} hilft nicht mehr mit und steigt in eine MAGA-Verkaufsaktion ein. Die Abschiedsnachricht enthält einen Rabattcode. Politische Bekehrung hat jetzt Affiliate-Tracking.",
+      "last": "Das war euer letzter Kontakt von außerhalb. Die Reisegruppe bleibt zusammen; euer Unterstützungsnetz ist jetzt leer."
+    },
+    "ALLY-02-A": {
+      "name": "Die Effizienz ist da",
+      "desc": "DOGE-Kürzungen kosten eure externe Kontaktperson {name} den Job. Für die Arbeitssuche zieht sich die Person zurück. Die letzte Aufgabe war, den Wert des Dokumentierens des eigenen Wertes zu dokumentieren.",
+      "last": "Das war euer letzter Kontakt von außerhalb. Die Reisegruppe bleibt zusammen; euer Unterstützungsnetz ist jetzt leer."
+    },
+    "ALLY-02-C": {
+      "name": "Die freie Leistungsstelle",
+      "desc": "Eure Kontaktperson {name} verliert den Job, als ein Auftragnehmer seine Arbeit für Vielfalt, Gerechtigkeit und Inklusion streicht, und muss sich zurückziehen. Der Chef verkündet eine neue Ära des Leistungsprinzips. Sein Sohn verkündet, dass das Mittagessen fertig ist.",
+      "last": "Eure letzte Unterstützung von außerhalb hat sich zurückgezogen. Die verbleibende Reisegruppe muss ohne dieses Netz weiterfahren."
+    },
+    "ALLY-03-B": {
+      "name": "Überstunden sickern durch",
+      "desc": "Eure Kontaktperson {name} braucht zusätzliche Schichten für Arztrechnungen und zieht sich zurück. Der Kongress verkauft Kürzungen im Gesundheitshaushalt als Ersparnisse. Eure Kontaktperson möchte wissen, auf welches Konto sie eingezahlt werden.",
+      "last": "Es gibt keine Verbündeten außerhalb der Reisegruppe mehr. Wegen dieser Nachricht hat niemand den Van verlassen."
+    },
+    "ALLY-03-C": {
+      "name": "Das Lebensmittelbudget",
+      "desc": "Eure Kontaktperson {name} übernimmt eine weitere Schicht für die Lebensmitteleinkäufe und hilft nicht mehr mit. Der Kongress hat Kürzungen bei Lebensmittelhilfen als Unabhängigkeit verkauft. Jetzt wird unabhängig am Samstag gearbeitet.",
+      "last": "Eure letzte Unterstützung von außerhalb hat sich zurückgezogen. Die verbleibende Reisegruppe muss ohne dieses Netz weiterfahren."
+    },
+    "ALLY-04-B": {
+      "name": "Das patriotische Rückgaberecht",
+      "desc": "Eure Kontaktperson {name} hilft nicht mehr mit und verkauft Souvenirs vom Golf von Amerika. Darunter liegt der alte Bestand vom Golf von Mexiko. Der Ozean hat noch keine Erstattung verlangt.",
+      "last": "Es gibt keine Verbündeten außerhalb der Reisegruppe mehr. Wegen dieser Nachricht hat niemand den Van verlassen."
+    },
+    "ALLY-05-A": {
+      "name": "Der Gruppenchat des tiefen Staates",
+      "desc": "Eure Kontaktperson {name} schickt ein Video, laut dem Journalisten den Signal-Skandal erfunden hätten, und blockiert dann die Reisegruppe. Die Erklärung ist jetzt besser abgesichert als der Chat über Bombenangriffe.",
+      "last": "Das war euer letzter Kontakt von außerhalb. Die Reisegruppe bleibt zusammen; euer Unterstützungsnetz ist jetzt leer."
+    },
+    "ALLY-05-B": {
+      "name": "Der geheime Magen",
+      "desc": "Eure Kontaktperson {name} hält eure Kritik an MAHA-Milch für den Beweis, dass ihr für die FDA arbeitet, und bricht den Kontakt ab. Eure neue Bundeskarriere bringt kein Gehalt, aber mehrere Magenkrämpfe.",
+      "last": "Es gibt keine Verbündeten außerhalb der Reisegruppe mehr. Wegen dieser Nachricht hat niemand den Van verlassen."
     }
   },
   "play": {

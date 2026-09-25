@@ -1322,6 +1322,46 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ALLY-01-A": {
+      "name": "A indicação do boné vermelho",
+      "desc": "Seu contato externo {name} deixa de ajudar e entra numa campanha de venda de produtos MAGA. A despedida inclui um código de desconto. A conversão política agora tem rastreamento de afiliados.",
+      "last": "Esse era seu último contato externo. O grupo continua na van; sua rede de apoio agora está vazia."
+    },
+    "ALLY-02-A": {
+      "name": "A eficiência chegou",
+      "desc": "Os cortes do DOGE fazem seu contato externo {name} perder o emprego e se retirar para procurar trabalho. Sua última tarefa era documentar o valor de documentar seu valor.",
+      "last": "Esse era seu último contato externo. O grupo continua na van; sua rede de apoio agora está vazia."
+    },
+    "ALLY-02-C": {
+      "name": "A vaga do mérito",
+      "desc": "Seu contato {name} perde o emprego quando uma empresa contratada elimina suas atividades de diversidade, equidade e inclusão, e precisa se retirar. O chefe anuncia uma nova era do mérito. O filho dele anuncia que o almoço está pronto.",
+      "last": "Seu último apoio externo se retirou. Quem continua na viagem terá de seguir sem essa rede."
+    },
+    "ALLY-03-B": {
+      "name": "Horas extras em cascata",
+      "desc": "Seu contato {name} precisa de turnos extras para pagar contas médicas e se retira. O Congresso vende cortes no orçamento da saúde como economia. Seu contato quer saber em qual conta ela é depositada.",
+      "last": "Não restam aliados externos. Ninguém saiu da van por causa desta mensagem."
+    },
+    "ALLY-03-C": {
+      "name": "O orçamento da comida",
+      "desc": "Seu contato {name} pega mais um turno para pagar as compras e deixa de ajudar. Viu o Congresso vender cortes na assistência alimentar como independência. Agora trabalha no sábado de forma independente.",
+      "last": "Seu último apoio externo se retirou. Quem continua na viagem terá de seguir sem essa rede."
+    },
+    "ALLY-04-B": {
+      "name": "A política de devolução patriótica",
+      "desc": "Seu contato {name} deixa de ajudar para vender lembranças do Golfo da América. Guarda embaixo o estoque antigo do Golfo do México. O oceano ainda não pediu reembolso.",
+      "last": "Não restam aliados externos. Ninguém saiu da van por causa desta mensagem."
+    },
+    "ALLY-05-A": {
+      "name": "O grupo do Estado profundo",
+      "desc": "Seu contato {name} manda um vídeo dizendo que jornalistas inventaram o escândalo do Signal e depois bloqueia o grupo. A explicação agora está mais protegida que a conversa sobre os bombardeios.",
+      "last": "Esse era seu último contato externo. O grupo continua na van; sua rede de apoio agora está vazia."
+    },
+    "ALLY-05-B": {
+      "name": "O estômago sigiloso",
+      "desc": "Seu contato {name} decide que suas críticas ao leite MAHA provam que você trabalha para a FDA e corta o contato. Sua nova carreira federal vem sem salário e com várias cólicas estomacais.",
+      "last": "Não restam aliados externos. Ninguém saiu da van por causa desta mensagem."
     }
   },
   "play": {

@@ -1315,6 +1315,46 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ALLY-01-A": {
+      "name": "Kırmızı Şapka Tavsiyesi",
+      "desc": "Dışarıdaki bağlantınız {name} yardımı bırakıp MAGA ürünleri satışına katılıyor. Veda mesajında indirim kodu var. Siyasi dönüşümün artık satış ortaklığı takibi de var.",
+      "last": "Bu, dışarıdaki son bağlantınızdı. Yolculuk ekibi hâlâ burada; destek ağınız artık boş."
+    },
+    "ALLY-02-A": {
+      "name": "Verimlilik Geldi",
+      "desc": "DOGE kesintileri dışarıdaki bağlantınız {name}'i işsiz bırakıyor. İş aramak için desteğini çekiyor. Son görevi, kendi değerini belgelemenin değerini belgelemekti.",
+      "last": "Bu, dışarıdaki son bağlantınızdı. Yolculuk ekibi hâlâ burada; destek ağınız artık boş."
+    },
+    "ALLY-02-C": {
+      "name": "Liyakat Kadrosu",
+      "desc": "Bağlantınız {name}, yüklenici şirket çeşitlilik, hakkaniyet ve kapsayıcılık çalışmalarını kaldırınca işini kaybedip desteğini çekiyor. Patron yeni bir liyakat çağı ilan ediyor. Patronun çocuğu yemeğin hazır olduğunu ilan ediyor.",
+      "last": "Dışarıdaki son desteğiniz çekildi. Kalan yolcular bu ağ olmadan devam etmek zorunda."
+    },
+    "ALLY-03-B": {
+      "name": "Aşağıya Sızan Fazla Mesai",
+      "desc": "Bağlantınız {name}, sağlık faturaları için ek vardiyalara ihtiyaç duyup desteğini çekiyor. Kongre sağlık bütçesi kesintilerini tasarruf diye satıyor. Bu tasarrufun hangi hesaba yattığı merak konusu.",
+      "last": "Dışarıda müttefik kalmadı. Bu mesaj yüzünden minibüsten kimse ayrılmadı."
+    },
+    "ALLY-03-C": {
+      "name": "Gıda Bütçesi",
+      "desc": "Bağlantınız {name}, market masrafı için bir vardiya daha alıp yardımı bırakıyor. Kongrenin gıda yardımı kesintilerini bağımsızlık diye sattığını izledi. Şimdi cumartesi bağımsız biçimde çalışıyor.",
+      "last": "Dışarıdaki son desteğiniz çekildi. Kalan yolcular bu ağ olmadan devam etmek zorunda."
+    },
+    "ALLY-04-B": {
+      "name": "Vatansever İade Politikası",
+      "desc": "Bağlantınız {name}, Amerika Körfezi hediyelikleri satmak için yardımı bırakıyor. Eski Meksika Körfezi stokunu altta tutuyor. Okyanus henüz para iadesi istemedi.",
+      "last": "Dışarıda müttefik kalmadı. Bu mesaj yüzünden minibüsten kimse ayrılmadı."
+    },
+    "ALLY-05-A": {
+      "name": "Derin Devlet Grup Sohbeti",
+      "desc": "Bağlantınız {name}, Signal skandalını gazetecilerin uydurduğunu iddia eden bir video gönderip ekibi engelliyor. Açıklama artık bombardıman sohbetinden daha iyi korunuyor.",
+      "last": "Bu, dışarıdaki son bağlantınızdı. Yolculuk ekibi hâlâ burada; destek ağınız artık boş."
+    },
+    "ALLY-05-B": {
+      "name": "Gizli Mide",
+      "desc": "Bağlantınız {name}, MAHA sütünü eleştirmenizin FDA için çalıştığınızı kanıtladığına karar verip iletişimi kesiyor. Yeni federal kariyeriniz maaş getirmiyor ama birkaç mide krampı getiriyor.",
+      "last": "Dışarıda müttefik kalmadı. Bu mesaj yüzünden minibüsten kimse ayrılmadı."
     }
   },
   "play": {

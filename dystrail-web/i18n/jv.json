@@ -1315,6 +1315,46 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ALLY-01-A": {
+      "name": "Rujukan Topi Abang",
+      "desc": "Kontak njabamu, {name}, mandheg mbantu lan melu dodolan barang MAGA. Pesen pamite ana kode diskon. Ganti haluan politik saiki nganggo pelacakan afiliasi.",
+      "last": "Kuwi kontak njaba sing pungkasan. Rombongan lelungan isih ana; jaringan panyengkuyungmu saiki kosong."
+    },
+    "ALLY-02-A": {
+      "name": "Efisiensi Wis Teka",
+      "desc": "Pangurangan DOGE nggawe kontak njabamu, {name}, kelangan gawe. Dheweke mundur kanggo golek gawe anyar. Tugas pungkasane yaiku nyathet regane nyathet regane awake dhewe.",
+      "last": "Kuwi kontak njaba sing pungkasan. Rombongan lelungan isih ana; jaringan panyengkuyungmu saiki kosong."
+    },
+    "ALLY-02-C": {
+      "name": "Lowongan Adhedhasar Prestasi",
+      "desc": "Kontakmu, {name}, kelangan gawe amarga kontraktor mbusak pakaryan babagan keragaman, kesetaraan, lan inklusi, mula kudu mundur. Sing duwe usaha ngumumake jaman anyar meritokrasi. Anake ngumumake yen nedha awan wis siap.",
+      "last": "Panyengkuyung njaba pungkasan wis mundur. Wong sing isih melu lelungan kudu nerusake tanpa jaringan kuwi."
+    },
+    "ALLY-03-B": {
+      "name": "Lembur sing Netes Mudhun",
+      "desc": "Kontakmu, {name}, butuh giliran gawe tambahan kanggo mbayar biaya medis lan banjur mundur. Kongres ngedol potongan anggaran kesehatan minangka pengiritan. Dheweke kepengin ngerti dhuwit iritane mlebu rekening sapa.",
+      "last": "Ora ana sekutu njaba sing kari. Ora ana wong ing van sing lunga amarga pesen iki."
+    },
+    "ALLY-03-C": {
+      "name": "Anggaran Pangan",
+      "desc": "Kontakmu, {name}, njupuk giliran gawe maneh kanggo blanja pangan lan mandheg mbantu. Dheweke ndeleng Kongres ngedol potongan bantuan pangan minangka kamardikan. Saiki dheweke nyambut gawe dina Setu kanthi mandiri.",
+      "last": "Panyengkuyung njaba pungkasan wis mundur. Wong sing isih melu lelungan kudu nerusake tanpa jaringan kuwi."
+    },
+    "ALLY-04-B": {
+      "name": "Aturan Retur Patriotik",
+      "desc": "Kontakmu, {name}, mandheg mbantu kanggo dodolan oleh-oleh Teluk Amerika. Stok Teluk Meksiko lawas disimpen ing ngisore. Samodra durung njaluk dhuwite dibalekake.",
+      "last": "Ora ana sekutu njaba sing kari. Ora ana wong ing van sing lunga amarga pesen iki."
+    },
+    "ALLY-05-A": {
+      "name": "Grup Obrolan Negara Bayangan",
+      "desc": "Kontakmu, {name}, ngirim video sing nuduh wartawan ngarang skandal Signal, banjur mblokir rombongan. Katrangane saiki luwih aman tinimbang obrolan pengeboman.",
+      "last": "Kuwi kontak njaba sing pungkasan. Rombongan lelungan isih ana; jaringan panyengkuyungmu saiki kosong."
+    },
+    "ALLY-05-B": {
+      "name": "Weteng Rahasia Negara",
+      "desc": "Kontakmu, {name}, nganggep kritikmu marang susu MAHA minangka bukti yen kowe kerja kanggo FDA, banjur medhot kontak. Karier federal anyarmu ora ana gajine, nanging ana weteng mules pirang-pirang.",
+      "last": "Ora ana sekutu njaba sing kari. Ora ana wong ing van sing lunga amarga pesen iki."
     }
   },
   "play": {

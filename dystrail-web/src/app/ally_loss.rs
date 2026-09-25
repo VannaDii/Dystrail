@@ -90,6 +90,8 @@ mod tests {
     use super::*;
     #[test]
     fn all_ally_variants_preserve_crew_and_actual_losses() {
+        for locale in i18n::locales() {
+        i18n::set_lang(locale.code);
         for day in 1..=6 { for suffix in ["A", "B", "C"] { for remaining in [0, 1] {
             let mut before = GameState::default();
             before.day = day;
@@ -116,5 +118,7 @@ mod tests {
             explain(&before, &mut after, &mut report);
             assert_eq!(report.message, "deliberate choice");
         }}}
+        }
+        i18n::set_lang("en");
     }
 }

@@ -1911,6 +1911,46 @@
       "desc": "L’equipaggio può fermarsi per un giorno. Un miliardario alla radio elogia il lavoro incessante. Nessuno sente il personale che gli trasporta il microfono.",
       "choice_0": "Dedicare la giornata al riposo",
       "log_0": "Recuperate entro i limiti della giornata. La produttività cala tra gli ascoltatori; il russare ottiene la maggioranza."
+    },
+    "ALLY-01-A": {
+      "name": "La raccomandazione del cappellino rosso",
+      "desc": "Il vostro contatto esterno {name} smette di aiutare e partecipa a una campagna di vendita di prodotti MAGA. Il saluto include un codice sconto. La conversione politica ora ha il tracciamento delle affiliazioni.",
+      "last": "Era il vostro ultimo contatto esterno. Il gruppo in viaggio resta con voi; la rete di sostegno ora è vuota."
+    },
+    "ALLY-02-A": {
+      "name": "È arrivata l'efficienza",
+      "desc": "I tagli DOGE fanno perdere il lavoro al vostro contatto esterno {name}, che si ritira per cercarne un altro. L'ultimo incarico era documentare il valore del documentare il proprio valore.",
+      "last": "Era il vostro ultimo contatto esterno. Il gruppo in viaggio resta con voi; la rete di sostegno ora è vuota."
+    },
+    "ALLY-02-C": {
+      "name": "Il posto del merito",
+      "desc": "Il vostro contatto {name} perde il lavoro quando un'impresa appaltatrice elimina le attività per diversità, equità e inclusione, e deve ritirarsi. Il capo annuncia una nuova era del merito. Suo figlio annuncia che il pranzo è pronto.",
+      "last": "L'ultimo sostegno esterno si è ritirato. Chi è ancora in viaggio dovrà proseguire senza quella rete."
+    },
+    "ALLY-03-B": {
+      "name": "Straordinari a cascata",
+      "desc": "Il vostro contatto {name} ha bisogno di turni extra per pagare le spese mediche e si ritira. Il Congresso vende i tagli alla sanità come risparmi. Il vostro contatto vorrebbe sapere su quale conto vengono versati.",
+      "last": "Non restano alleati esterni. Nessuno ha lasciato il furgone a causa di questo messaggio."
+    },
+    "ALLY-03-C": {
+      "name": "Il bilancio della spesa",
+      "desc": "Il vostro contatto {name} accetta un altro turno per pagare la spesa e smette di aiutare. Ha visto il Congresso vendere i tagli agli aiuti alimentari come indipendenza. Ora lavora il sabato in piena indipendenza.",
+      "last": "L'ultimo sostegno esterno si è ritirato. Chi è ancora in viaggio dovrà proseguire senza quella rete."
+    },
+    "ALLY-04-B": {
+      "name": "Resi patriottici",
+      "desc": "Il vostro contatto {name} smette di aiutare per vendere souvenir del Golfo d'America. Sotto tiene le vecchie scorte del Golfo del Messico. L'oceano non ha ancora chiesto un rimborso.",
+      "last": "Non restano alleati esterni. Nessuno ha lasciato il furgone a causa di questo messaggio."
+    },
+    "ALLY-05-A": {
+      "name": "La chat dello Stato profondo",
+      "desc": "Il vostro contatto {name} invia un video secondo cui i giornalisti hanno inventato lo scandalo Signal, poi blocca il gruppo. La spiegazione ora è più protetta della chat sui bombardamenti.",
+      "last": "Era il vostro ultimo contatto esterno. Il gruppo in viaggio resta con voi; la rete di sostegno ora è vuota."
+    },
+    "ALLY-05-B": {
+      "name": "Lo stomaco classificato",
+      "desc": "Il vostro contatto {name} decide che criticare il latte MAHA dimostra che lavorate per la FDA e interrompe i contatti. La vostra nuova carriera federale non prevede stipendio, ma diversi crampi allo stomaco.",
+      "last": "Non restano alleati esterni. Nessuno ha lasciato il furgone a causa di questo messaggio."
     }
   },
   "play": {

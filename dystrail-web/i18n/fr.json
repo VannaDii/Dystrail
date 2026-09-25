@@ -1453,6 +1453,46 @@
       "log_1": "Vous appréciez la répétition. La personne bénévole baptise le balai « Dissuasion stratégique ». Une nouvelle goutte tombe pendant le salut.",
       "overlay_0": "SUPÉRIORITÉ AÉRIENNE",
       "fact": "La mesure de septembre 2025 a autorisé le titre secondaire de département de la Guerre. Elle n’a pas supprimé le nom légal de département de la Défense établi par le Congrès. La salle, les bénévoles et la proposition concernant le toit sont fictifs."
+    },
+    "ALLY-01-A": {
+      "name": "Le parrainage de la casquette rouge",
+      "desc": "Votre contact extérieur {name} cesse de vous aider et rejoint une campagne de vente de produits MAGA. Son message d'adieu contient un code de réduction. La conversion politique a désormais son suivi d'affiliation.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-02-A": {
+      "name": "L'efficacité est arrivée",
+      "desc": "Les coupes de DOGE coûtent son emploi à votre contact extérieur {name}, qui se retire pour chercher du travail. Sa dernière mission était de documenter la valeur du travail consistant à documenter sa valeur.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-02-C": {
+      "name": "Le poste du mérite",
+      "desc": "Votre contact {name} perd son emploi quand une entreprise sous contrat supprime ses activités de diversité, d'équité et d'inclusion, et doit se retirer. Le patron annonce une nouvelle ère du mérite. Son fils annonce que le déjeuner est prêt.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ALLY-03-B": {
+      "name": "Les heures sup ruissellent",
+      "desc": "Votre contact {name} a besoin d'heures supplémentaires pour payer des factures médicales et se retire. Le Congrès vend les coupes du budget de la santé comme des économies. Votre contact aimerait savoir sur quel compte elles sont versées.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ALLY-03-C": {
+      "name": "Le budget alimentaire",
+      "desc": "Votre contact {name} accepte un service de plus pour payer les courses et cesse de vous aider. Le Congrès a vendu les coupes dans l'aide alimentaire comme de l'indépendance. Désormais, votre contact travaille le samedi en toute indépendance.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ALLY-04-B": {
+      "name": "La politique de retour patriotique",
+      "desc": "Votre contact {name} cesse de vous aider pour vendre des souvenirs du golfe d'Amérique. L'ancien stock du golfe du Mexique reste dessous. L'océan n'a pas encore demandé de remboursement.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ALLY-05-A": {
+      "name": "La discussion de l'État profond",
+      "desc": "Votre contact {name} envoie une vidéo affirmant que les journalistes ont inventé le scandale Signal, puis bloque le groupe. L'explication est désormais mieux sécurisée que la discussion sur les bombardements.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-05-B": {
+      "name": "L'estomac classifié",
+      "desc": "Votre contact {name} décide que vos critiques du lait MAHA prouvent que vous travaillez pour la FDA et coupe le contact. Votre nouvelle carrière fédérale ne comprend aucun salaire, mais plusieurs crampes d'estomac.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
     }
   },
   "play": {

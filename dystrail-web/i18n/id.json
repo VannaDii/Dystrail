@@ -1315,6 +1315,46 @@
       "log_1": "You add the contradiction to your evidence file. Nobody has yet asked the cows to apologize.",
       "choice_2": "Keep moving",
       "log_2": "The crew leaves the offer behind."
+    },
+    "ALLY-01-A": {
+      "name": "Rujukan Topi Merah",
+      "desc": "Kontak luarmu, {name}, berhenti membantu dan ikut menjual barang MAGA. Pesan perpisahannya menyertakan kode diskon. Pindah haluan politik kini punya pelacakan afiliasi.",
+      "last": "Itulah kontak luar terakhirmu. Rombongan perjalanan tetap ada; jaringan dukunganmu kini kosong."
+    },
+    "ALLY-02-A": {
+      "name": "Efisiensi Telah Tiba",
+      "desc": "Pemangkasan DOGE membuat kontak luarmu, {name}, kehilangan pekerjaan. Mereka mundur untuk mencari kerja. Tugas terakhirnya adalah mendokumentasikan nilai dari mendokumentasikan nilai dirinya.",
+      "last": "Itulah kontak luar terakhirmu. Rombongan perjalanan tetap ada; jaringan dukunganmu kini kosong."
+    },
+    "ALLY-02-C": {
+      "name": "Lowongan Berdasarkan Prestasi",
+      "desc": "Kontakmu, {name}, kehilangan pekerjaan saat kontraktor menghapus kegiatan keberagaman, kesetaraan, dan inklusinya, lalu harus mundur. Pemilik mengumumkan era baru meritokrasi. Anak pemilik mengumumkan makan siang sudah siap.",
+      "last": "Dukungan luar terakhirmu mundur. Pelancong yang masih ada harus melanjutkan tanpa jaringan itu."
+    },
+    "ALLY-03-B": {
+      "name": "Lembur yang Menetes ke Bawah",
+      "desc": "Kontakmu, {name}, perlu sif tambahan untuk tagihan medis dan mundur. Kongres menjual pemotongan anggaran kesehatan sebagai penghematan. Mereka ingin tahu penghematannya masuk rekening siapa.",
+      "last": "Tak ada sekutu luar yang tersisa. Tidak seorang pun meninggalkan van akibat pesan ini."
+    },
+    "ALLY-03-C": {
+      "name": "Anggaran Makan",
+      "desc": "Kontakmu, {name}, mengambil sif lagi untuk belanja bahan makanan dan berhenti membantu. Mereka menyaksikan Kongres menjual pemotongan bantuan pangan sebagai kemandirian. Kini mereka bekerja hari Sabtu secara mandiri.",
+      "last": "Dukungan luar terakhirmu mundur. Pelancong yang masih ada harus melanjutkan tanpa jaringan itu."
+    },
+    "ALLY-04-B": {
+      "name": "Kebijakan Retur Patriotik",
+      "desc": "Kontakmu, {name}, berhenti membantu untuk menjual suvenir Teluk Amerika. Stok lama Teluk Meksiko disimpan di bawahnya. Laut belum meminta pengembalian dana.",
+      "last": "Tak ada sekutu luar yang tersisa. Tidak seorang pun meninggalkan van akibat pesan ini."
+    },
+    "ALLY-05-A": {
+      "name": "Grup Percakapan Negara Bayangan",
+      "desc": "Kontakmu, {name}, mengirim video yang menuduh jurnalis mengarang skandal Signal, lalu memblokir rombongan. Penjelasannya kini lebih terlindungi daripada percakapan pengeboman.",
+      "last": "Itulah kontak luar terakhirmu. Rombongan perjalanan tetap ada; jaringan dukunganmu kini kosong."
+    },
+    "ALLY-05-B": {
+      "name": "Perut Rahasia Negara",
+      "desc": "Kontakmu, {name}, menganggap kritikmu terhadap susu MAHA membuktikan kamu bekerja untuk FDA, lalu memutus kontak. Karier federal barumu tak memberi gaji, hanya beberapa kram perut.",
+      "last": "Tak ada sekutu luar yang tersisa. Tidak seorang pun meninggalkan van akibat pesan ini."
     }
   },
   "play": {

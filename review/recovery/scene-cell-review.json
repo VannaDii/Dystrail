@@ -19722,5 +19722,30 @@
       "Spanish 320px rendered capture reviewed; narrow controls grow vertically instead of overflowing"
     ],
     "scope": "Current journey controls verified; no blanket claim about every screen"
+  },
+  "ally_localization_checkpoint": {
+    "status": "Eight matching ally variants recovered in all 19 non-English languages",
+    "units": [
+      "ALLY-01-A",
+      "ALLY-02-A",
+      "ALLY-02-C",
+      "ALLY-03-B",
+      "ALLY-03-C",
+      "ALLY-04-B",
+      "ALLY-05-A",
+      "ALLY-05-B"
+    ],
+    "reuse": "Preserved ally-translation files; other ten variants excluded because their satire premises differ from current English",
+    "verification": [
+      "Native ally explanation checks passed for all 18 variants, two remaining-ally states and all 20 languages; crew and deliberate departures preserved",
+      "Build 8dbf424ec7bd5efdd763 passed",
+      "All 152 recovered locale/variant entries match retained title, description and final-contact wording",
+      "76 desktop/mobile localized notice flows passed: saved receipt, offline reload, acknowledgment-only state change, crew preservation and no horizontal overflow",
+      "Arabic desktop and mobile captures reviewed"
+    ],
+    "remaining": [
+      "Ten ally variants still need matching translations",
+      "Professional language review and unresolved scene compositions remain open"
+    ]
   }
 }

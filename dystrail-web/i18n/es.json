@@ -2045,6 +2045,46 @@
       "desc": "La tripulación puede parar un día. Un multimillonario en la radio ensalza el trabajo sin descanso. Nadie oye al personal que le lleva el micrófono.",
       "choice_0": "Dedicar el día a descansar",
       "log_0": "Os recuperáis dentro de los límites del día. Cae la productividad entre la audiencia; los ronquidos obtienen la mayoría."
+    },
+    "ALLY-01-A": {
+      "name": "La recomendación de la gorra roja",
+      "desc": "Tu contacto externo {name} deja de ayudar y se suma a una campaña de venta de artículos MAGA. Su despedida incluye un código de descuento. La conversión política ya tiene seguimiento de afiliados.",
+      "last": "Ese era tu último contacto externo. El grupo sigue en la furgoneta; tu red de apoyo está vacía."
+    },
+    "ALLY-02-A": {
+      "name": "Ha llegado la eficiencia",
+      "desc": "Los recortes de DOGE dejan sin empleo a tu contacto externo {name}, que se retira para buscar trabajo. Su última tarea fue documentar el valor de documentar su valor.",
+      "last": "Ese era tu último contacto externo. El grupo sigue en la furgoneta; tu red de apoyo está vacía."
+    },
+    "ALLY-02-C": {
+      "name": "La vacante del mérito",
+      "desc": "Tu contacto {name} pierde su empleo cuando una contratista elimina su trabajo de diversidad, equidad e inclusión, y debe retirarse. El jefe anuncia una nueva era del mérito. Su hijo anuncia que la comida está lista.",
+      "last": "Tu último apoyo externo se ha retirado. Quienes siguen viajando tendrán que continuar sin esa red."
+    },
+    "ALLY-03-B": {
+      "name": "Horas extra por goteo",
+      "desc": "Tu contacto {name} necesita más turnos para pagar facturas médicas y se retira. El Congreso vende los recortes sanitarios como ahorro. Tu contacto quiere saber en qué cuenta lo ingresan.",
+      "last": "Ya no quedan aliados externos. Nadie de la furgoneta se ha marchado por este mensaje."
+    },
+    "ALLY-03-C": {
+      "name": "El presupuesto de comida",
+      "desc": "Tu contacto {name} acepta otro turno para pagar la compra y deja de ayudar. Vio al Congreso vender los recortes de ayudas alimentarias como independencia. Ahora trabaja el sábado de forma independiente.",
+      "last": "Tu último apoyo externo se ha retirado. Quienes siguen viajando tendrán que continuar sin esa red."
+    },
+    "ALLY-04-B": {
+      "name": "La política de devoluciones patriótica",
+      "desc": "Tu contacto {name} deja de ayudar para vender recuerdos del Golfo de América. Guarda debajo las existencias del Golfo de México. El océano aún no ha pedido un reembolso.",
+      "last": "Ya no quedan aliados externos. Nadie de la furgoneta se ha marchado por este mensaje."
+    },
+    "ALLY-05-A": {
+      "name": "El chat del Estado profundo",
+      "desc": "Tu contacto {name} envía un vídeo que acusa a periodistas de inventarse el escándalo de Signal y después bloquea al grupo. La explicación ya está más protegida que el chat sobre los bombardeos.",
+      "last": "Ese era tu último contacto externo. El grupo sigue en la furgoneta; tu red de apoyo está vacía."
+    },
+    "ALLY-05-B": {
+      "name": "El estómago clasificado",
+      "desc": "Tu contacto {name} decide que criticar la leche MAHA demuestra que trabajas para la FDA y corta el contacto. Tu nueva carrera federal no trae sueldo, pero sí varios retortijones.",
+      "last": "Ya no quedan aliados externos. Nadie de la furgoneta se ha marchado por este mensaje."
     }
   },
   "play": {
