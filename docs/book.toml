@@ -1,11 +1,15 @@
 [book]
-title = "Dystrail Docs"
+title = "Dystrail Game Guide"
 authors = ["Dystrail Team"]
 language = "en"
-src = "."
+src = "src"
 
 [output.html]
-default-theme = "light"
+default-theme = "navy"
 site-url = "/docs/"
 git-repository-url = "https://github.com/VannaDii/Dystrail"
 preferred-dark-theme = "navy"
+additional-css = ["theme/game-guide.css"]
+
+[output.html.print]
+enable = false
