@@ -29,6 +29,7 @@ pub fn render_aftermath(state: &AppState, feedback: &Aftermath) -> Html {
             <div class="outcome-summary">
             <h2 id="aftermath-title" class="eyebrow">{i18n::t(if ally_notice {"ally_loss.notice"}else{"ux.outcome"})}</h2>
             <p class={classes!("outcome-copy",ally_notice.then_some("ally-message"))}>{&feedback.message}</p>
+            if ally_notice {{crate::app::ally_loss::source_help(gs)}}
             <dl class="receipt-details">{for feedback.details.iter().filter(|(name,_)|crate::app::receipt::narrative_detail(name)).map(|(name,value)|html!{<div><dt>{name}</dt><dd>{value}</dd></div>})}</dl>
             if feedback.changes().is_empty() && feedback.resources.is_empty() && feedback.details.is_empty() {<p>{i18n::t("ux.no_change")}</p>}
             </div>

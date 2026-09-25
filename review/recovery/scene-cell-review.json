@@ -20135,5 +20135,24 @@
     ],
     "remaining": "Historical setting mismatches and other retained-asset no-text review remain open. This is not global artwork acceptance.",
     "new_images": 0
+  },
+  "ally_source_notes_checkpoint": {
+    "status": "Seven matching preserved ally explanations restored in English, Spanish and Italian through the existing source-help popover",
+    "units": [
+      "ALLY-02-A",
+      "ALLY-02-C",
+      "ALLY-03-B",
+      "ALLY-03-C",
+      "ALLY-04-B",
+      "ALLY-05-A",
+      "ALLY-05-B"
+    ],
+    "verification": [
+      "Build passed",
+      "42 desktop/mobile locale-unit flows passed: exact retained notes, offline reload, unchanged full gameplay state",
+      "Two focused final layout checks passed after excluding help icons from aftermath action-button sizing; desktop/mobile captures reviewed"
+    ],
+    "remaining": "Eleven other ally premises need current matching source explanations; source URLs and other note translations remain open. Saved notice text remains as originally recorded.",
+    "new_images": 0
   }
 }

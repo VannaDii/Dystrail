@@ -80,6 +80,25 @@ fn notice_scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneSt
         .map_or(SceneStage::Travel(gs.region), |unit| SceneStage::Encounter(unit.clone()))
 }
 
+/// Preserved explanations are independent of whether a vignette has dedicated art.
+pub fn source_help(gs: &GameState) -> Html {
+    let key = format!("ALLY-{:02}/departure/{}", gs.day % 6 + 1, gs.day);
+    let Some(unit) = gs.continuity.visual_content.selections.get(&key) else { return Html::default(); };
+    let notes: BTreeMap<String, BTreeMap<String, String>> = serde_json::from_str(include_str!(
+        "../../static/assets/data/ally-source-notes.json"
+    )).expect("validated retained ally source notes");
+    let language = i18n::current_lang();
+    let Some(translations) = notes.get(unit) else { return Html::default(); };
+    let (lang, note) = translations.get(&language).map(|note| (language.as_str(), note))
+        .or_else(|| translations.get("en").map(|note| ("en", note))).expect("English source note");
+    html! {<crate::components::ui::context_help::ContextHelp informational=true icon={"ⓘ".to_owned()} title={i18n::t("trail.behind_joke")}>
+        <div class="source-explanation" data-ally-source={unit.clone()}>
+            <p lang={lang.to_owned()} dir="auto">{note}</p>
+            <p class="source-note">{i18n::t("trail.satire_note")}</p>
+        </div>
+    </crate::components::ui::context_help::ContextHelp>}
+}
+
 #[must_use]
 pub fn is_notice(app: &AppState) -> bool {
     *app.phase == Phase::AllyLoss

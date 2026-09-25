@@ -71,3 +71,34 @@ test('localized ally notices preserve saved receipts and crew',async({page,conte
   }
  }
 });
+
+test('retained ally source notes follow the selected vignette offline',async({page,context},info)=>{
+ test.setTimeout(180000);const base=await baseline(page);
+ const notes=JSON.parse(readFileSync('static/assets/data/ally-source-notes.json','utf8'));
+ const preserved=JSON.parse(readFileSync('../review/recovery/recorded-files/review/art-satire/ally-source-note-translations.json','utf8'));
+ expect(Object.keys(notes)).toHaveLength(7);
+ for(const lang of ['en','es','it'])for(const [unit,translations] of Object.entries(notes)){
+  if(process.env.ALLY_SOURCE_LAYOUT_ONLY==='1'&&(lang!=='it'||unit!=='ALLY-05-B'))continue;
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+  const [,f,v]=unit.split('-'),family=Number(f),s=structuredClone(base);s.seed=42;s.day=family-1;s.stats.allies=0;
+  s.visual_content={edition:1,selections:{[`ALLY-0${family}/departure/${s.day}`]:unit},outcomes:{},policy_bulletins:[]};
+  const entry=structuredClone(s.journal[0]);entry.title=copy[unit].name;entry.message=copy[unit].desc.replace('{name}','Ari');
+  entry.before=structuredClone(s.stats);entry.before.allies=1;entry.after=structuredClone(s.stats);entry.resources=[];entry.details=[];
+  s.ally_notice=entry;s.journal.push(entry);await importState(page,s);
+  await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+  const read=()=>page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state;s.inventory.tags.sort();return s;});
+  const before=await read();
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  expect(await read()).toEqual(before);
+  const trigger=page.locator('.ally-departure .help-trigger');
+  const box=await trigger.boundingBox();expect(box!.width).toBe(24);expect(box!.height).toBe(24);
+  await trigger.click();
+  const note=page.locator('.viewport-help [data-ally-source]');await expect(note).toHaveAttribute('data-ally-source',unit);
+  const expected=(translations as any)[lang];expect(expected).toBe(preserved[lang][(family-1)*3+v.charCodeAt(0)-65]);
+  await expect(note.locator('p').first()).toHaveText(expected);await expect(note.locator('p').first()).toHaveAttribute('lang',lang);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  if(unit==='ALLY-05-B'&&lang==='it')await page.screenshot({path:info.outputPath('ally-source-it.png')});
+  await page.keyboard.press('Escape');expect(await read()).toEqual(before);
+  await context.setOffline(false);
+ }
+});
