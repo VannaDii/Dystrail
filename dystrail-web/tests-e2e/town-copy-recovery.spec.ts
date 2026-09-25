@@ -64,7 +64,7 @@ test('retained Toledo scenes seat only surviving travelers',async({page,context}
 
 test('indoor cafe conversations use the shared native setting',async({page,context},info)=>{
  test.setTimeout(120000);const base=await baseline(page);
- const units=['TOWN-02-B','TOWN-17-C','TOWN-18-A','TOWN-19-C','TOWN-20-C','TOWN-23-B','TOWN-25-A','TOWN-26-C','TOWN-36-A'];
+ const units=['TOWN-02-B','TOWN-16-A','TOWN-17-C','TOWN-18-A','TOWN-19-C','TOWN-20-C','TOWN-23-B','TOWN-25-A','TOWN-26-C','TOWN-36-A'];
  for(const id of units){
   const story=catalog.find((c:any)=>c.id===id),route=routes.find((r:any)=>r.stops.some((s:any)=>s.name===story.town)),stop=route.stops.find((s:any)=>s.name===story.town);
   const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
@@ -72,16 +72,23 @@ test('indoor cafe conversations use the shared native setting',async({page,conte
   s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
   const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
   await importState(page,s);await page.locator('.route-stop .action-button').click();
+  const outdoors=['TOWN-18-A','TOWN-36-A'].includes(id);
+  if(outdoors){
+   await expect(page.locator('[data-town-context]')).toHaveCount(0);
+   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','false');
+  }else{
   await expect(page.locator('[data-town-context]')).toHaveAttribute('data-town-context','cafe');
   await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',id);
   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
   const box=await page.locator('.journey-scene > .scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(16/9,1);
+  }
   await expect(page.locator('.resident-story > p')).toHaveText(story.setup.en);
   const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
   await context.setOffline(true);await page.reload();await waitForLaunch(page);
-  await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',id);
+  if(outdoors) await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','false');
+  else await expect(page.locator('[data-town-unit]')).toHaveAttribute('data-town-unit',id);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  if(id==='TOWN-02-B'){await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath('cafe.png'),fullPage:true});}
+  if(['TOWN-02-B','TOWN-16-A','TOWN-18-A','TOWN-36-A'].includes(id)){await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath(`${id}.png`),fullPage:true});}
   await context.setOffline(false);
  }
 });

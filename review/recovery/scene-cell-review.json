@@ -15221,20 +15221,29 @@
       ],
       "candidate_original": null,
       "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "decision": "shared_context_selected",
       "finding": "Dialogue carries the satirical premise; use a suitable shared town context for Frederick. Keep the full approved copy. Source prop/gesture details are retained suggestions, not separate mandatory illustrations. Do not depict a contradictory activity, invented policy consequence, landmark, casualty, purchase or reward.",
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
-      "desktop_mobile": "Use one composition at its native aspect ratio on both viewports. Keep essential action above the bottom-left caption; no cropped-off hands/props, supplementary bust, or new stat design.",
+      "desktop_mobile": "16:9 crop on desktop/mobile with undistorted furniture and bottom-left caption.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
-      "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_binding": "cafe",
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Frederick sandwich counter uses retained cafe interior with 16:9 viewBox [512,64,512,288]; no new actors or art"
     },
     {
       "unit": "TOWN-16-B",
@@ -15368,29 +15377,21 @@
       ],
       "candidate_original": null,
       "candidate_sha256": null,
-      "native_canvas": [
-        1536,
-        1024
-      ],
-      "native_cell_xywh": [
-        512,
-        0,
-        512,
-        512
-      ],
-      "decision": "shared_context_selected",
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "decision": "shared_context_candidate_unselected",
       "finding": "Dialogue carries the satirical premise; use a suitable shared town context for Iowa City. Keep the full approved copy. Source prop/gesture details are retained suggestions, not separate mandatory illustrations. Do not depict a contradictory activity, invented policy consequence, landmark, casualty, purchase or reward.",
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
-      "desktop_mobile": "16:9 crop on both viewports, preserving furniture proportions and bottom-left caption; native square source must not dictate page height.",
+      "desktop_mobile": "Outdoor regional composition; bottom-left caption and actual crew continuity preserved. Dedicated exterior context remains open.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
-      "shared_context_binding": "cafe",
+      "shared_context_binding": "actual_region_context",
       "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
-      "integration_status": "Retained cafe interior with 16:9 viewBox [512,64,512,288]; no invented cast or scene actions"
+      "integration_status": "Source explicitly places conversation outside cafe; restored outdoor regional presentation. Specific cafe exterior remains unselected."
     },
     {
       "unit": "TOWN-18-B",
@@ -16716,29 +16717,21 @@
       ],
       "candidate_original": null,
       "candidate_sha256": null,
-      "native_canvas": [
-        1536,
-        1024
-      ],
-      "native_cell_xywh": [
-        512,
-        0,
-        512,
-        512
-      ],
-      "decision": "shared_context_selected",
+      "native_canvas": null,
+      "native_cell_xywh": null,
+      "decision": "shared_context_candidate_unselected",
       "finding": "Dialogue carries the satirical premise; use a suitable shared town context for South Bend. Keep the full approved copy. Source prop/gesture details are retained suggestions, not separate mandatory illustrations. Do not depict a contradictory activity, invented policy consequence, landmark, casualty, purchase or reward.",
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
-      "desktop_mobile": "16:9 crop on both viewports, preserving furniture proportions and bottom-left caption; native square source must not dictate page height.",
+      "desktop_mobile": "Outdoor regional composition; bottom-left caption and actual crew continuity preserved. Dedicated exterior context remains open.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
-      "shared_context_binding": "cafe",
+      "shared_context_binding": "actual_region_context",
       "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
-      "integration_status": "Retained cafe interior with 16:9 viewBox [512,64,512,288]; no invented cast or scene actions"
+      "integration_status": "Source explicitly places conversation outside cafe; restored outdoor regional presentation. Specific cafe exterior remains unselected."
     },
     {
       "unit": "TOWN-36-B",
@@ -19876,17 +19869,16 @@
     ]
   },
   "town_shared_context_checkpoint": {
-    "status": "Nine explicit indoor conversations now use the retained cafe setting",
+    "status": "Eight explicit indoor conversations use retained cafe setting; source review excludes two outdoor cafe conversations",
     "units": [
       "TOWN-02-B",
+      "TOWN-16-A",
       "TOWN-17-C",
-      "TOWN-18-A",
       "TOWN-19-C",
       "TOWN-20-C",
       "TOWN-23-B",
       "TOWN-25-A",
-      "TOWN-26-C",
-      "TOWN-36-A"
+      "TOWN-26-C"
     ],
     "asset": "static/img/journey/encounter-settings-v3.png; cell [512,0,512,512]",
     "verification": [
@@ -19898,7 +19890,23 @@
     "remaining": [
       "Other shared town contexts and essential visual gags remain open"
     ],
-    "rendering": "User height correction: source cell [512,0,512,512] cropped to [512,64,512,288], 16:9, uniformly scaled on desktop and mobile."
+    "rendering": "User height correction: source cell [512,0,512,512] cropped to [512,64,512,288], 16:9, uniformly scaled on desktop and mobile.",
+    "source_correction": {
+      "build": "ece36a2807ffec4778cd",
+      "units_added": [
+        "TOWN-16-A"
+      ],
+      "outdoor_restored": [
+        "TOWN-18-A",
+        "TOWN-36-A"
+      ],
+      "reason": "Scene directions explicitly specify outside for Iowa City and South Bend, despite cafe in setup. Indoor Frederick sandwich counter was missed.",
+      "verification": [
+        "132-conversation native binding test passed",
+        "20 desktop/mobile flows passed including indoor/outdoor state, crew, time and offline reload",
+        "Frederick desktop and Iowa City mobile captures visually reviewed"
+      ]
+    }
   },
   "road_shared_context_checkpoint": {
     "units": {

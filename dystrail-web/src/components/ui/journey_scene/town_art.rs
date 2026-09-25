@@ -4,8 +4,8 @@ use crate::{components::ui::cast_art, game::party::MemberStatus};
 use yew::prelude::*;
 
 pub fn shared_setting(unit: &str) -> bool {
-    matches!(unit, "TOWN-02-B" | "TOWN-17-C" | "TOWN-18-A" | "TOWN-19-C" |
-        "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C" | "TOWN-36-A")
+    matches!(unit, "TOWN-02-B" | "TOWN-17-C" | "TOWN-16-A" | "TOWN-19-C" |
+        "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C")
 }
 
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
