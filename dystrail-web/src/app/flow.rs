@@ -145,7 +145,7 @@ pub fn controls(app: &AppState) -> Html {
                 && s.state().ending.is_none()
         });
     html! {<div class="journey-actions">
-    <button class="fast-mode-toggle" role="switch" aria-checked={fast.to_string()} aria-label={crate::i18n::t("journey.fast_mode")} onclick={{let speed=app.travel_speed.clone();Callback::from(move |_|speed.set(if fast {TravelSpeed::Normal}else{TravelSpeed::Fast}))}}><span class="switch-track" aria-hidden="true"><span /></span>{crate::i18n::t("journey.fast")}</button>
+    <button class="fast-mode-toggle" role="switch" aria-checked={fast.to_string()} aria-label={crate::i18n::t("journey.fast_mode")} onclick={{let speed=app.travel_speed.clone();Callback::from(move |_|speed.set(if fast {TravelSpeed::Normal}else{TravelSpeed::Fast}))}}><span class="switch-track" aria-hidden="true"><span /></span><span class="journey-action-label">{crate::i18n::t("journey.fast")}</span></button>
     <button class="camp-toggle" aria-pressed={camping.to_string()} disabled={locked || breakdown} onclick={{let app=app.clone();Callback::from(move |_|{
         if app.session.as_ref().is_some_and(|s|s.state().breakdown.is_some()) { return; }
         let next = if camping {

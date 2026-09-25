@@ -3906,7 +3906,8 @@
         "mechanics": "Existing camp_rest and trade_route_offer handlers unchanged"
       },
       "integration_status": "Unchanged retained completed-trade cell selected only from committed current-stop trade outcome; crew remains off-camera",
-      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks"
+      "verification": "All nine exchanges passed desktop/mobile resource, save identity and offline scene checks",
+      "caption_review": "Current completed cell places the tire in the bottom-left caption area. At mobile width the approved caption overlaps the tire. Keep this explicit composition gap for user review; do not move the caption, distort the art or generate automatically."
     },
     {
       "unit": "ACT-BARTERBATTERY-A",
@@ -19712,5 +19713,14 @@
     ],
     "scope": "Reward mechanics and claimed/outcome numeric reporting unchanged"
   },
-  "compatibility_scope": "Current save/import, replay and offline behavior only; backward compatibility with older exports is not required by user instruction."
+  "compatibility_scope": "Current save/import, replay and offline behavior only; backward compatibility with older exports is not required by user instruction.",
+  "action_wrapping_checkpoint": {
+    "status": "Language-aware hyphenation and emergency wrapping enabled; flex button labels can shrink without squeezing icons",
+    "verification": [
+      "Build 6d0fcc9c09b19f823b9e passed",
+      "All 20 languages at 1440px, 390px and 320px passed text-rectangle and scroll-overflow checks for all four journey buttons (60 layouts)",
+      "Spanish 320px rendered capture reviewed; narrow controls grow vertically instead of overflowing"
+    ],
+    "scope": "Current journey controls verified; no blanket claim about every screen"
+  }
 }

@@ -977,3 +977,9 @@ html.hc .journal .journal-event-heading,html.hc .journal .journal-event-context,
 .world-view .journey-scene[data-scene="crossing"] .crew-van { width:44%; left:4%; bottom:15%; }
 /* Keep ending captions above the road's foreground and lighting layers. */
 .result-art .scene-road .result-art-caption { z-index:4; }
+
+/* Localized text must wrap within its own control, not merely the viewport. */
+html { hyphens:auto; overflow-wrap:anywhere; word-break:normal; }
+button { hyphens:auto; overflow-wrap:anywhere; }
+.journey-actions>button>span:not(.switch-track) { min-width:0; white-space:normal; hyphens:auto; overflow-wrap:anywhere; }
+.journey-actions>button>.journey-icon,.journey-actions>button>.switch-track { flex-shrink:0; }
