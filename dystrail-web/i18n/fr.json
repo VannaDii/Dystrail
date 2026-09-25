@@ -1742,6 +1742,42 @@
       "choice_2": "Partager de la nourriture ; recueillir un témoignage",
       "log_2": "Vous partagez de quoi manger et recueillez les inquiétudes de la scientifique. Elle montre la prise du congélateur : « La découverte est à l’intérieur. Elle a besoin d’électricité. »",
       "overlay_0": "FRAIS INDIRECTS • MANUTENTION : 10 $ + REPAS"
+    },
+    "ENC-C08-A": {
+      "name": "Cartographie patriotique",
+      "desc": "Le changement de nom du golfe voulu par Trump laisse un club de cartographie en bord de route avec d’anciennes cartes et de nouvelles étiquettes fédérales. Ses membres demandent à votre équipe arrêtée de préparer une comparaison publique. Une bénévole a soigneusement vérifié la côte. Elle n’a fait aucun effort pour se déplacer.",
+      "fact": "Le décret du 20 janvier 2025 imposait l’usage de « Gulf of America » par les autorités fédérales. Il a changé le nom employé par ces autorités, pas le littoral ni l’usage international dans son ensemble. Le club et les dialogues sont fictifs.",
+      "choice_0": "Donner des provisions pour comparer les cartes",
+      "log_0": "Vous donnez quelques provisions et aidez à relever les noms. La bénévole vérifie à la règle que la grandeur n’a ajouté aucun kilomètre de côte.",
+      "choice_1": "Partager de la nourriture avec le club",
+      "log_1": "Vous partagez de quoi manger ; tout le monde invente des noms patriotiques pour les miettes. L’assiette devient le premier territoire disputé à disparaître.",
+      "choice_2": "Vérifier et conserver les cartes",
+      "log_2": "Vous comparez et conservez les cartes. Soulagement : les coordonnées n’ont pas changé. La bénévole autorise la boussole à rester neutre.",
+      "overlay_0": "MÊME CÔTE. NOUVEAU NOM FÉDÉRAL."
+    },
+    "ENC-C08-B": {
+      "name": "Une place à table",
+      "desc": "Inspirés par le dîner offert par Trump aux principaux investisseurs de son jeton mème, des habitants d’un café routier préparent une exposition sur l’accès au pouvoir. Ils demandent l’aide de votre équipe. Le couvert d’une électrice ordinaire comprend une chaise pliante dehors, derrière la fenêtre.",
+      "fact": "Trump a reçu les principaux investisseurs de son jeton mème à son club de golf en Virginie le 22 mai 2025 ; environ 220 personnes étaient invitées. L’investissement était lié à un accès privilégié ; cela ne démontre pas qu’une décision politique a été achetée. Le café et ses habitants sont fictifs.",
+      "choice_0": "Donner des provisions pour l’exposition",
+      "log_0": "Vous donnez quelques provisions et aidez à documenter l’exposition. Une bénévole rapproche la chaise de l’électrice. Elle peut maintenant sentir l’accès au pouvoir.",
+      "choice_1": "Partager un repas ; participer à la répétition",
+      "log_1": "Vous partagez de quoi manger et répétez le dîner de l’électrice. Tout le monde rit quand le serveur présente le menu aux jumelles.",
+      "choice_2": "Vérifier et conserver le compte rendu du dîner",
+      "log_2": "Vous vérifiez et conservez le compte rendu du dîner des investisseurs. La patronne du café déverrouille la chaise dehors : « Ici, pas de mise minimale. »",
+      "overlay_0": "ÉLECTRICE ORDINAIRE"
+    },
+    "ENC-C08-C": {
+      "name": "Exemption de péage royale",
+      "desc": "Trump a tenté de mettre fin au péage urbain de New York et a publié « Long Live the King ». Un juge a bloqué sa tentative. Lors d’un pique-nique de covoiturage, une livreuse new-yorkaise de passage montre sa facture. Ses hôtes acceptent des provisions pour recueillir les témoignages des conducteurs, ou de quoi manger à partager. Sa facture accepte l’argent, pas les proclamations royales.",
+      "fact": "En février 2025, l’administration a tenté de retirer son approbation au péage urbain de New York, et Trump a publié « LONG LIVE THE KING! ». Le 3 mars 2026, un tribunal fédéral de district a rejeté cette révocation pour les motifs invoqués. Cela décrit une décision datée, pas tous les appels ultérieurs ni la fin définitive du péage. La livreuse et le pique-nique sont fictifs.",
+      "choice_0": "Donner des provisions pour recueillir les témoignages",
+      "log_0": "Vous donnez des provisions et conservez les témoignages. La livreuse joint la publication présidentielle à sa facture de péage. Les deux ne s’accordent pas sur l’identité du souverain.",
+      "choice_1": "Partager un repas ; écouter la livreuse",
+      "log_1": "Vous partagez de quoi manger et écoutez son histoire. « J’ai essayé de dire Long Live the King à ma facture de péage, raconte-t-elle. Elle voulait plutôt Long Live My Debit Card. »",
+      "choice_2": "Comparer et conserver les cartes de péage",
+      "log_2": "Vous conservez les anciennes et les nouvelles cartes de péage et comprenez la décision. La livreuse range sa couronne en plastique. Les couvre-chefs n’ont pas déplacé les frontières de Manhattan.",
+      "overlay_0": "LONG LIVE THE KING"
     }
   },
   "play": {
