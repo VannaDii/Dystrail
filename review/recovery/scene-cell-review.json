@@ -111,7 +111,9 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Retained native cell integrated; external-contact stage only, no traveling-party overlay",
+      "verification": "Desktop/mobile notice, offline scene and acknowledgment checks passed in ally-copy-recovery.spec.ts"
     },
     {
       "unit": "ALLY-02-B",
@@ -167,7 +169,9 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Retained native cell integrated; external-contact stage only, no traveling-party overlay",
+      "verification": "Desktop/mobile notice, offline scene and acknowledgment checks passed in ally-copy-recovery.spec.ts"
     },
     {
       "unit": "ALLY-03-A",
@@ -307,7 +311,9 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Retained native cell integrated; external-contact stage only, no traveling-party overlay",
+      "verification": "Desktop/mobile notice, offline scene and acknowledgment checks passed in ally-copy-recovery.spec.ts"
     },
     {
       "unit": "ALLY-04-C",
@@ -363,7 +369,9 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Retained native cell integrated; external-contact stage only, no traveling-party overlay",
+      "verification": "Desktop/mobile notice, offline scene and acknowledgment checks passed in ally-copy-recovery.spec.ts"
     },
     {
       "unit": "ALLY-05-B",
@@ -19607,5 +19615,25 @@
       "Arabic desktop town and mobile road screenshots visually reviewed"
     ],
     "scope": "Shared scene footer title block only; no UI redesign or art production"
+  },
+  "ally_art_checkpoint": {
+    "status": "Four reviewed retained cells integrated unchanged",
+    "units": [
+      "ALLY-02-A",
+      "ALLY-02-C",
+      "ALLY-04-B",
+      "ALLY-05-A"
+    ],
+    "verification": [
+      "Build 387b00c2834ea64a160d passed",
+      "72 desktop/mobile ally notices verified across all variants and zero/one remaining allies; only four whitelisted scenes illustrated",
+      "All four composed scenes visually inspected; native 3:2 crops, bottom-left captions, no added character bust or van",
+      "Offline reload preserves scene; acknowledgment changes only pending notice, not party or costs"
+    ],
+    "remaining": [
+      "Fourteen ally scene variants retain regional roadside fallback; held/mismatched cells are not production-approved",
+      "Localized sign/message overlays and full ally translation/context acceptance remain open"
+    ],
+    "image_generation_calls": 0
   }
 }

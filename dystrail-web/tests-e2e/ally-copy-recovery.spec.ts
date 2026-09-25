@@ -10,7 +10,8 @@ test('all ally vignettes match the approved source',()=>{
 test('ally notices preserve the traveling crew and acknowledge only once',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);
  for(let family=1;family<=6;family++)for(const variant of ['A','B','C'])for(const remaining of [0,1]){
-  const unit=`ALLY-0${family}-${variant}`;const s=structuredClone(base);s.seed=42;s.stats.allies=remaining;
+  const unit=`ALLY-0${family}-${variant}`;const s=structuredClone(base);s.seed=42;s.stats.allies=remaining;s.day=family===1?6:family-1;
+  s.visual_content={edition:1,selections:{[`ALLY-0${family}/departure/${s.day}`]:unit},outcomes:{},policy_bulletins:[]};
   const entry=structuredClone(s.journal[0]);entry.title=copy[unit].name;entry.message=copy[unit].desc.replace('{name}','Outside Contact')+(remaining===0?' '+copy[unit].last:'');
   entry.before=structuredClone(s.stats);entry.before.allies=remaining+1;entry.after=structuredClone(s.stats);entry.resources=[];entry.details=[];
   s.ally_notice=entry;s.journal.push(entry);
@@ -18,6 +19,19 @@ test('ally notices preserve the traveling crew and acknowledge only once',async(
   await expect(page.getByText(entry.message,{exact:true})).toHaveCount(1);
   const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
   const before=await read();expect(before.party).toEqual(s.party);
+  const illustrated=['ALLY-02-A','ALLY-02-C','ALLY-04-B','ALLY-05-A'].includes(unit);
+  await expect(page.locator('[data-external-contact="true"]')).toHaveCount(illustrated?1:0);
+  if(illustrated){
+   await expect(page.locator('[data-ally-unit]')).toHaveAttribute('data-ally-unit',unit);
+   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
+   await expect(page.locator('.journey-scene .standing-member')).toHaveCount(0);
+   if(remaining===0){
+    await context.setOffline(true);await page.reload();await waitForLaunch(page);
+    await expect(page.locator('[data-ally-unit]')).toHaveAttribute('data-ally-unit',unit);
+    await page.screenshot({path:info.outputPath(`${unit}.png`),fullPage:true});
+    await context.setOffline(false);
+   }
+  }
   if(unit==='ALLY-06-C'&&remaining===0){await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.ally-message')).toHaveText(entry.message);await page.screenshot({path:info.outputPath('last-outside-ally.png'),fullPage:true});await context.setOffline(false);}
   await page.locator('#outcome-continue').click();await expect(page.locator('.ally-message')).toHaveCount(0);
   const after=await read();expect(after.ally_notice).toBeNull();before.ally_notice=null;before.inventory.tags.sort();after.inventory.tags.sort();expect(after).toEqual(before);

@@ -62,7 +62,7 @@ pub fn render(app: &AppState) -> Html {
     let report = Aftermath {
         title: entry.title.clone(),
         message: entry.message.clone(),
-        scene: crate::components::ui::journey_scene::SceneStage::Travel(gs.region),
+        scene: notice_scene(gs),
         before: entry.before.clone(),
         after: entry.after.clone(),
         resources: entry.resources.clone(),
@@ -70,6 +70,14 @@ pub fn render(app: &AppState) -> Html {
         next: super::aftermath::next_phase(&resolved),
     };
     super::view::phases::aftermath::render_aftermath(app, &report)
+}
+
+fn notice_scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneStage {
+    use crate::components::ui::journey_scene::{SceneStage, ally_art};
+    let key = format!("ALLY-{:02}/departure/{}", gs.day % 6 + 1, gs.day);
+    gs.continuity.visual_content.selections.get(&key)
+        .filter(|unit| ally_art::coordinates(unit).is_some())
+        .map_or(SceneStage::Travel(gs.region), |unit| SceneStage::Encounter(unit.clone()))
 }
 
 #[must_use]
