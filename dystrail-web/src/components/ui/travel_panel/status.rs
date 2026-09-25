@@ -44,7 +44,7 @@ pub fn render_status(gs: &GameState) -> Html {
         (
             "play.vehicle",
             format!("{:.0}%", gs.vehicle.health),
-            "static/img/journey/van-crew.png",
+            "static/img/status/vehicle-v2.png",
         ),
         (
             "play.miles",

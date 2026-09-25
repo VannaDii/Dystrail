@@ -17,7 +17,14 @@ pub fn crew_van(p: &Props) -> Html {
         p.party.as_ref().map_or_else(Vec::new, Party::occupants)
     };
     html! {<div class="crew-van" data-occupants={occupants.len().to_string()}>
-        <img class="van-body" src={crate::paths::asset_path("static/img/journey/van-empty.png")} alt="" decoding="sync" />
+        <svg class="van-body" width="100%" height="100%" viewBox="0 0 1536 1024" aria-hidden="true" focusable="false" style="mask-image:none">
+            <defs><mask id="van-body-outline" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1024">
+                // Follow this source's own silhouette; the old occupied-van alpha
+                // is wider and reveals the empty source's baked checkerboard.
+                <path fill="white" stroke="black" stroke-width="6" d="M109 744V727L137 710V696H128V630H139V590L241 382L240 365L253 349L288 331H337V316H327L316 303V266L325 249H369V209L377 191L399 176H487V160L504 147H553L570 161L579 147L593 131H687V116L703 99H749L770 120V129H832L849 147L858 160L871 145H892V136H944L962 152V175H1008L1025 192L1039 209V249H1067L1084 265V301L1070 316H1059V331H1119L1146 340L1165 361V382L1305 558L1377 600L1386 625V641H1392V714H1388V740L1407 755V792L1403 804L1384 821L1362 828L1341 844H1246C1238 900 1200 936 1140 936C1080 936 1040 900 1033 848H584C577 904 536 937 477 937C418 937 379 904 370 849H351L338 860H265L241 853L222 831H187L161 820L127 802L110 787Z"/>
+            </mask></defs>
+            <image href={crate::paths::asset_path("static/img/journey/van-empty.png")} width="1536" height="1024" mask="url(#van-body-outline)"/>
+        </svg>
         <svg class="van-seating" viewBox="0 0 1536 1024" aria-hidden="true" focusable="false">
             <defs><clipPath id="crew-van-window-mask" clipPathUnits="userSpaceOnUse">
                 <rect x="352" y="384" width="232" height="208" rx="12"/>
