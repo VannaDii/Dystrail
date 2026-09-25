@@ -18646,7 +18646,7 @@
       },
       {
         "asset_id": "selected-satire-07",
-        "decision": "proposed_one_generation_needed",
+        "decision": "single_attempt_two_cells_integrated_two_held",
         "canvas": [
           1536,
           1024
@@ -18674,7 +18674,9 @@
             "essential_action": "An oversized donor balloon obstructs the loading door above normal balloons; other scenery stays normal scale.",
             "source_direction_reference": "ENC-S16-C",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "integrated_for_playtest",
+            "review_finding": "Oversized donor balloon blocks an ordinary loading door; normal balloons and shop owner remain readable above the caption at desktop and mobile sizes."
           },
           {
             "unit": "ENC-S17-A",
@@ -18689,7 +18691,9 @@
             "essential_action": "Wrapped sandwiches drift in a spraying demonstration tray; retain separation from the remaining food and no completed cleanup.",
             "source_direction_reference": "ENC-S17-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "integrated_for_playtest",
+            "review_finding": "Showerhead sprays two wrapped sandwiches in a tray while dry food stays separate; the action remains readable at desktop and mobile sizes."
           },
           {
             "unit": "ENC-S17-B",
@@ -18704,7 +18708,9 @@
             "essential_action": "Heavy unassembled fan bases are offered as work while the contractor has iced drinks; do not depict travelers already working.",
             "source_direction_reference": "ENC-S17-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "The outdoor contractor is larger than the approved 224 px scale, and the caption overlaps the unassembled fan bases at mobile size, obscuring the paid-work prop."
           },
           {
             "unit": "ENC-S18-A",
@@ -18719,12 +18725,22 @@
             "essential_action": "Folded department-closure leaflet props the shelf holding educational books; label remains live localized text.",
             "source_direction_reference": "ENC-S18-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "The folded leaflet is under the bookshelf, but it sits in the mobile bottom-left caption zone and the central supporting-paper joke becomes hard to see."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-07.png",
+        "output_sha256": "ce94af36418ec7846957c34b2e1a18398e1bc09d83a179bdb56dcdfb889500ea",
+        "actual_canvas": [
+          1536,
+          1024
+        ],
+        "runtime_binding": "cells 0 and 1 only: ENC-S16-C and ENC-S17-A",
+        "review": "One authorized attempt. Desktop/mobile game captures make the balloon and spraying sandwich jokes readable with bottom-left captions. Fan bases and folded-leaflet support are compromised by mobile caption overlap; cells 2 and 3 stay unbound for user review. No automatic retry."
       },
       {
         "asset_id": "selected-satire-08",
@@ -19738,7 +19754,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 6,
+    "new_image_attempts_used": 7,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -20637,7 +20653,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 108,
-    "dedicated_units": 33,
+    "dedicated_units": 35,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20672,8 +20688,6 @@
       "ENC-S13-B",
       "ENC-S13-C",
       "ENC-S14-B",
-      "ENC-S16-C",
-      "ENC-S17-A",
       "ENC-S17-B",
       "ENC-S18-B",
       "ENC-S19-B",
@@ -20696,8 +20710,8 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 50,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 26 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 48,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 24 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20735,8 +20749,6 @@
       "ENC-S09-A",
       "ENC-S09-C",
       "ENC-S10-A",
-      "ENC-S16-C",
-      "ENC-S17-A",
       "ENC-S17-B",
       "ENC-S19-B",
       "ENC-S20-B",
@@ -20855,7 +20867,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "50 inherited road assignments remain explicit gaps: 24 location contexts and 26 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "48 inherited road assignments remain explicit gaps: 24 location contexts and 24 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
@@ -21060,5 +21072,19 @@
     "verification": "1536x1024 asset matches approved revision SHA; build passed; targeted desktop/mobile browser checks passed for all four cells, choices, crew, saved outcomes and offline reload. Captures inspected for scene frame, bottom-left captions and no embedded words or religious symbols.",
     "known_review": "Earlier concerns about fine pixel detail and adult framing remain recorded for in-game review. The first parallel mobile run failed at an interrupted initial download before entering a scene; a mobile-only rerun passed.",
     "localization": "No new baked text. Existing encounter prose remains English fallback in locales without current translations; blank sign and paper surfaces receive no invented labels."
+  },
+  "sheet7_integration_checkpoint": {
+    "status": "Two of four generated panels integrated for playtesting; two held",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-07.png",
+    "bound_units": [
+      "ENC-S16-C",
+      "ENC-S17-A"
+    ],
+    "held_units": [
+      "ENC-S17-B",
+      "ENC-S18-A"
+    ],
+    "verification": "Build and targeted desktop/mobile browser checks passed for offer, choice, save, crew and offline reload; all four candidate renders inspected at both sizes before binding only cells 0 and 1.",
+    "remaining": "Held panels require user review; no automatic regeneration. Final combined feature acceptance and deployment are separate."
   }
 }
