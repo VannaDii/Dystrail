@@ -7061,7 +7061,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-JOURNALIST-B",
@@ -7087,7 +7088,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-JOURNALIST-C",
@@ -7113,7 +7115,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-LOBBYIST-A",
@@ -7139,7 +7142,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-LOBBYIST-B",
@@ -7165,7 +7169,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-LOBBYIST-C",
@@ -7191,7 +7196,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-ORGANIZER-A",
@@ -7217,7 +7223,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-ORGANIZER-B",
@@ -7243,7 +7250,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-ORGANIZER-C",
@@ -7269,7 +7277,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-pacific",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-SATIRIST-A",
@@ -7295,7 +7304,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-SATIRIST-B",
@@ -7321,7 +7331,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-SATIRIST-C",
@@ -7347,7 +7358,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-STAFFER-A",
@@ -7373,7 +7385,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-STAFFER-B",
@@ -7399,7 +7412,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-STAFFER-C",
@@ -7425,7 +7439,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-WHISTLEBLOWER-A",
@@ -7451,7 +7466,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-WHISTLEBLOWER-B",
@@ -7477,7 +7493,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "OPEN-WHISTLEBLOWER-C",
@@ -7503,7 +7520,8 @@
       "shared_group": "DEPARTURE",
       "production_route": "shared_context_layout",
       "shared_context_binding": "route-california",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current departure copy in English and Spanish; other locales remain open"
     },
     {
       "unit": "HEARING-C-A",
@@ -19953,5 +19971,27 @@
     "verification": "Build b44faf5894826a563140; four focused browser tests covering 76 desktop/mobile flows; representative crops reviewed.",
     "scope": "Nine cafe town conversations and 29 explicit shared road contexts",
     "new_images": 0
+  },
+  "departure_localization_checkpoint": {
+    "status": "All 18 current departure introductions translated into Spanish; other non-English locales remain open",
+    "recovery": "No departure or opening translations in preserved file index; existing Spanish bundle had no OPEN entries. Translated from current canonical English.",
+    "fields": [
+      "name",
+      "desc",
+      "choice_0",
+      "log_0"
+    ],
+    "verification": [
+      "Build a775c6428e6db7d3c81c passed",
+      "All 18 Spanish entries have all four fields, distinct from English",
+      "12 real onboarding flows passed: all six characters on desktop/mobile, localized review and saved journal, endpoint source, six-member crew and offline reload",
+      "Spanish desktop/mobile departure reviews visually inspected"
+    ],
+    "new_images": 0,
+    "remaining": [
+      "18 other non-English locales",
+      "Departure-specific visual staging remains open",
+      "Full-page checkout captures show sticky summary over item rows; verify scrolling in the live browser before classifying as an actual obstruction or screenshot behavior. No-horizontal-overflow assertions do not settle this."
+    ]
   }
 }

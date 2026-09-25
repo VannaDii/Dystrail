@@ -2085,6 +2085,114 @@
       "name": "El estómago clasificado",
       "desc": "Tu contacto {name} decide que criticar la leche MAHA demuestra que trabajas para la FDA y corta el contacto. Tu nueva carrera federal no trae sueldo, pero sí varios retortijones.",
       "last": "Ya no quedan aliados externos. Nadie de la furgoneta se ha marchado por este mensaje."
+    },
+    "OPEN-JOURNALIST-A": {
+      "name": "Seattle: Te añadieron al chat",
+      "desc": "Sales de Seattle con cinco acompañantes y una libreta de periodista. El equipo de Trump envió por accidente planes de bombardeo a un periodista. Esperas que tu gobierno responda preguntas casi con la misma facilidad.",
+      "choice_0": "Rumbo a Washington D. C.",
+      "log_0": "La furgoneta arranca. Compruebas la ruta dos veces, adelantándote así al equipo de seguridad nacional."
+    },
+    "OPEN-JOURNALIST-B": {
+      "name": "Seattle: La edición no autorizada",
+      "desc": "Trump quiere una versión más halagadora de la historia estadounidense. Sales de Seattle para contar la versión actual. Cinco acompañantes suben a la furgoneta; la edición no ha mejorado las circunstancias de nadie.",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Ponéis rumbo a Washington D. C. La libreta se abre por una página en blanco, todavía lo más optimista de la furgoneta."
+    },
+    "OPEN-JOURNALIST-C": {
+      "name": "Seattle: Sigue el dinero, despacio",
+      "desc": "Te dedicas al periodismo y sales de Seattle con cinco acompañantes para seguir el dinero de la política hasta Washington D. C. Los multimillonarios fueron en avión. Tu investigación empieza repartiendo el coste de la gasolina.",
+      "choice_0": "Ponerse en marcha",
+      "log_0": "La furgoneta sale. Seguir el dinero sería más fácil si de vez en cuando parara en un área de descanso."
+    },
+    "OPEN-LOBBYIST-A": {
+      "name": "Los Ángeles: Acceso en clase turista",
+      "desc": "Sabes cómo vende Washington el acceso al poder. Por desgracia, tus cinco acompañantes saben cuánto cuesta la gasolina. Sales de Los Ángeles rumbo a Washington D. C. con experiencia en grupos de presión y una red de donantes que consiste en la guantera.",
+      "choice_0": "Rumbo a Washington D. C.",
+      "log_0": "La furgoneta va hacia el este. La calderilla se hace oír, sobre todo al pasar por un bache."
+    },
+    "OPEN-LOBBYIST-B": {
+      "name": "Los Ángeles: La reunión sin fondos",
+      "desc": "Has oído el discurso de los aranceles: los países extranjeros pagan. Tu grupo paga los suministros. Sales de Los Ángeles con cinco acompañantes para explicar este problema contable en Washington D. C., preferiblemente a alguien que tenga la calculadora.",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Os ponéis en marcha. China ha rechazado compartir el gasto de gasolina."
+    },
+    "OPEN-LOBBYIST-C": {
+      "name": "Los Ángeles: Cena no incluida",
+      "desc": "Washington organiza cenas de recaudación donde el pollo viene con un senador. Llevas a cinco acompañantes de Los Ángeles a Washington D. C. Tu presupuesto para ejercer presión alcanza de momento para el pollo, si todo el mundo respeta el reparto de los muslos.",
+      "choice_0": "Salir hacia el este",
+      "log_0": "Salís. Por una vez, nadie en la furgoneta tiene que fingir que el senador es lo interesante de la cena."
+    },
+    "OPEN-ORGANIZER-A": {
+      "name": "Portland: La plantilla pública",
+      "desc": "DOGE sigue despidiendo a personal público y llamándolo eficiencia. Organizas a cinco acompañantes para viajar de Portland a Washington D. C. Meter todo el equipaje en una sola furgoneta es tu primer servicio sospechosamente público.",
+      "choice_0": "Salir hacia Washington D. C.",
+      "log_0": "Os ponéis en marcha. Nadie ha sido despedido por señalar que la nevera portátil necesita espacio."
+    },
+    "OPEN-ORGANIZER-B": {
+      "name": "Portland: Un super PAC diminuto",
+      "desc": "Los multimillonarios pueden gastar sin límite en actividad política independiente. Tu grupo de Portland tiene un bote para la gasolina. Llevas a cinco acompañantes a Washington D. C. para ver si seis bocas de verdad pueden competir con una cartera enorme.",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Vais hacia el este. El bote de la gasolina lleva la tesorería y ya ha convocado una reunión de emergencia."
+    },
+    "OPEN-ORGANIZER-C": {
+      "name": "Portland: Pruebas de hacer cosas",
+      "desc": "El Congreso quiere más papeleo laboral de quienes solicitan prestaciones. Organizas a cinco acompañantes para ir a Washington D. C. Entre turnos, facturas y este viaje, todo el mundo está agotado. Empiezas a documentar ese trabajo aparentemente hipotético.",
+      "choice_0": "Ponerse rumbo a Washington D. C.",
+      "log_0": "Salís de Portland. Organizar los recibos se ha convertido en el único trabajo que ni siquiera paga mal: no paga."
+    },
+    "OPEN-SATIRIST-A": {
+      "name": "San Diego: El océano conservó su empleo",
+      "desc": "Trump cambió el nombre del golfo. Te dedicas a la sátira y sales de San Diego con cinco acompañantes para preguntar en Washington D. C. si cambiarle el nombre a estar sin dinero también ayuda. La furgoneta vota por «temporalmente presidencial».",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Os ponéis en marcha. El presupuesto, ahora tan prestigioso, sigue necesitando gasolina barata."
+    },
+    "OPEN-SATIRIST-B": {
+      "name": "San Diego: Por favor, dejad de ayudar",
+      "desc": "El gobierno envió por accidente planes de bombardeo a un periodista. Te dedicas a la sátira y vas de San Diego a Washington D. C. con cinco acompañantes. Te gustaría llegar antes de que la realidad se quede con todos los buenos chistes.",
+      "choice_0": "Salir hacia Washington D. C.",
+      "log_0": "Salís. El grupo acuerda mantener la planificación del viaje fuera del chat de seguridad nacional."
+    },
+    "OPEN-SATIRIST-C": {
+      "name": "San Diego: Se busca contrapunto serio",
+      "desc": "Trump llama «guerra» a la defensa y dice que fomenta la paz. Llevas a cinco acompañantes de San Diego a Washington D. C. para preguntar cómo habría que rebautizar la comida para poder pagarla.",
+      "choice_0": "Ponerse en marcha",
+      "log_0": "La furgoneta arranca. Llamar al desayuno «confianza económica» ha dejado a todo el mundo con hambre de detalles."
+    },
+    "OPEN-STAFFER-A": {
+      "name": "Sacramento: La marca sobrevive",
+      "desc": "Trump añadió «Departamento de Guerra» a la imagen del gobierno. Trabajas como asistente y sales de Sacramento con cinco acompañantes para pedir ayuda de verdad en Washington D. C. Llamas a la furgoneta «Fiable». No ocurre nada mecánico.",
+      "choice_0": "Salir hacia Washington D. C.",
+      "log_0": "Os ponéis en marcha. La nueva placa con el nombre pesa menos que un repuesto que funcione y sirve para bastante menos."
+    },
+    "OPEN-STAFFER-B": {
+      "name": "Sacramento: Cero correos, cero servicios",
+      "desc": "Has visto a DOGE convertir recortes de plantilla en un anuncio de éxito. Sales de Sacramento con cinco acompañantes para explicar qué desapareció junto con el personal. A diferencia del anuncio, vuestra furgoneta tiene que llevar su contenido a alguna parte.",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Ponéis rumbo a Washington D. C. El grupo rechaza ganar espacio para las piernas declarando redundantes a dos pasajeros."
+    },
+    "OPEN-STAFFER-C": {
+      "name": "Sacramento: Que coman instrucciones",
+      "desc": "Las nuevas normas del Congreso sobre trabajo y prestaciones necesitan una explicación. Trabajas como asistente y llevas a cinco acompañantes de Sacramento a Washington D. C. Todo el mundo ha trabajado. Nadie ha conseguido todavía comerse el documento de instrucciones.",
+      "choice_0": "Ponerse en marcha",
+      "log_0": "Empieza el viaje. Guardas los formularios junto a la comida, donde podrán observar la diferencia."
+    },
+    "OPEN-WHISTLEBLOWER-A": {
+      "name": "San Francisco: Esencial hasta su eliminación",
+      "desc": "DOGE llama «ahorros» al personal que falta. Tú sabes lo que hacía esa gente. Sales de San Francisco con cinco acompañantes y tu expediente para Washington D. C. La furgoneta tiene menos departamentos, pero conserváis los frenos.",
+      "choice_0": "Conducir hacia Washington D. C.",
+      "log_0": "Os ponéis en marcha. Nadie propone ahorrar combustible eliminando a quien conduce."
+    },
+    "OPEN-WHISTLEBLOWER-B": {
+      "name": "San Francisco: El destinatario equivocado",
+      "desc": "Vas de San Francisco a Washington D. C. con cinco acompañantes para denunciar irregularidades. Las autoridades dicen que la información del gobierno debe tratarse con cuidado. Al parecer, el chat de los planes de bombardeo tenía otro vídeo de formación.",
+      "choice_0": "Empezar el viaje",
+      "log_0": "Empezáis el viaje. La carpeta del caso permanece cerrada: una nueva y ambiciosa norma de seguridad de la información."
+    },
+    "OPEN-WHISTLEBLOWER-C": {
+      "name": "San Francisco: Un anexo incómodo",
+      "desc": "Trump quiere que la historia destaque la grandeza estadounidense. Tu denuncia trata de la letra pequeña. Cinco acompañantes se unen al viaje a Washington D. C.; la carpeta encaja mal entre los gastos reales de vivir de todo el mundo.",
+      "choice_0": "Salir hacia Washington D. C.",
+      "log_0": "Salís de San Francisco. La historia oficial admite mejoras, algo incómodo para quienes la editan."
     }
   },
   "play": {
