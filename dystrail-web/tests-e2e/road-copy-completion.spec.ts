@@ -40,6 +40,7 @@ test('reviewed road settings follow the current variant before and after its cho
  test.setTimeout(300000);const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;
  base.stats={...base.stats,supplies:10,hp:8,sanity:8,morale:8,credibility:8};base.budget_cents=10000;base.budget=100;base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
  const groups:Record<string,string[]>={
+  'enc-motel':['S27-B'],
   'enc-cafe':['C10-A','C12-A','C14-C','C16-A','D01-A','D01-B','D05-B','D05-C','D12-B','S08-A','S08-B','S16-A','C13-C','D03-C','S05-C','C12-B','D11-B'],
   'enc-library':['C15-C','C17-C','D07-C','S02-B','S06-A','S29-A'],
   'enc-service-counter':['C11-B','D07-B','D10-A','S06-B','S11-C','S19-A','S25-A','S27-A','D06-A','D09-B','D11-C','S21-A','S21-C','S34-A'],
@@ -50,6 +51,7 @@ test('reviewed road settings follow the current variant before and after its cho
   'enc-museum':['S15-B','S23-C'],
  };
  for(const [setting,ids] of Object.entries(groups))for(const [index,id] of ids.entries()){
+  if(process.env.ROAD_MOTEL_ONLY==='1'&&setting!=='enc-motel')continue;
   if(process.env.COUNTER_MASK_ONLY==='1'&&(setting!=='enc-service-counter'||index!==0))continue;
   if(process.env.ROAD_COUNTER_ONLY==='1'&&!['enc-cafe','enc-service-counter'].includes(setting))continue;
   if(process.env.ROAD_MUSEUM_ONLY==='1'&&setting!=='enc-museum')continue;

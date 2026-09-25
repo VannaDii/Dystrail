@@ -613,3 +613,9 @@ September 14 — standing crew transparency repair:
 
 - Refreshed both existing preview sheets from baa7fdb/build a866023f15d923d8 with eight actual game captures each, adding the selected safe and fee panels and the retained red-hat ally scene. Both capture projects and sheet image/overflow checks passed; complete sheets reviewed. These remain progress previews, not final acceptance.
 - CARE-07-A retained laptop/table background has all five work props, but the existing Unwell pose produced a head-peeking composition behind the table despite passing state tests. Reverted the runtime trial and rebuilt the stable version. Preserved one rejected capture in held-compositions for review; no generated replacement. A coherent seated/slumped actual-traveler pose remains unresolved.
+
+## Current-scene routing audit — 2026-09-24
+
+- Bound ENC-S27-B to the retained motel instead of inherited scenery. Build and desktop/mobile choice, crew, framing and offline checks passed; both rendered outcomes reviewed.
+- Repaired 16 character-split care labels in editable_overlays. Verified the original source paragraphs and every other field in all 644 records stayed unchanged; the 36 mechanics-dependent units remain inactive. This fixes the inventory, not missing label rendering.
+- Enumerated the 103 active road variants still relying on historical scene routing in the existing review ledger. There are also 60 explicit shared bindings, 28 dedicated bindings and four explicit held-art fallbacks. These counts do not constitute artwork acceptance. Review the explicit remaining list by compatible setting batches.

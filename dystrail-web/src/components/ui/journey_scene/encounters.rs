@@ -2,6 +2,7 @@
 /// Reviewed current variants override the historical runtime event's location.
 pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
     Some(match id {
+        "ENC-S27-B" => "enc-motel",
         "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
         "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
         "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" |
