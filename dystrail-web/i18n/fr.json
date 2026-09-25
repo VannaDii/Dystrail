@@ -1522,6 +1522,76 @@
       "overlay_0": "DONNÉES ANONYMES",
       "overlay_1": "ORDONNANCE FTC : LIEUX SENSIBLES",
       "overlay_2": "GRANDE ROUTE"
+    },
+    "ENC-C02-A": {
+      "name": "Soutenir le dîner",
+      "desc": "Dans une banque alimentaire qui se prépare aux coupes de 2025 dans SNAP, les bénévoles accueillent votre équipe affamée et toute aide possible. Un tract sénatorial sur les baisses d’impôts cale le pied trop court d’une table. Il soutient enfin un repas.",
+      "choice_0": "Manger et emporter des provisions",
+      "log_0": "Vous mangez et emportez des provisions. Le tract reste sous la table : le retirer coûterait leur déjeuner à tout le monde.",
+      "choice_1": "Recueillir le témoignage des bénévoles",
+      "log_1": "Vous recueillez leur témoignage et des provisions. Ils vous demandent de mentionner le gratin avant que Washington ne le classe parmi les dépenses inutiles.",
+      "choice_2": "Donner de la nourriture",
+      "log_2": "Vous donnez de la nourriture. Une bénévole colle votre reçu sur le sourire du sénateur. Enfin quelque chose sur ce tract qui ait nourri quelqu’un.",
+      "fact": "La loi de réconciliation budgétaire de 2025 prévoit des réductions des dépenses de SNAP et des changements d’admissibilité, ainsi que des dispositions fiscales. Elle ne permet pas d’affirmer que toutes les banques alimentaires ont perdu leur financement.",
+      "overlay_0": "BAISSES D’IMPÔTS"
+    },
+    "ENC-C02-B": {
+      "name": "Justificatif de déjeuner",
+      "desc": "Votre équipe est accueillie à un repas pour des travailleurs qui tentent de comprendre les exigences d’emploi élargies de SNAP. Les justificatifs d’une agente d’entretien occupent la seule chaise qu’elle n’a pas nettoyée. Les bénévoles recueillent leurs témoignages pour Washington.",
+      "choice_0": "Manger et emporter des provisions",
+      "log_0": "Vous mangez et prenez des provisions. L’agente d’entretien glisse ses fiches de paie sous une assiette. Pour une fois, elles l’aident à garder un repas.",
+      "choice_1": "Recueillir son témoignage",
+      "log_1": "Vous recueillez son témoignage et prenez des provisions. Elle chronomètre l’entretien. Expliquer qu’elle travaille devient un deuxième emploi.",
+      "choice_2": "Contribuer au repas",
+      "log_2": "Vous ajoutez de la nourriture au repas. Les bénévoles notent le don sur une ligne ; personne ne demande à votre responsable de confirmer que vous teniez la boîte.",
+      "fact": "La loi de réconciliation budgétaire de 2025 élargit les exigences de SNAP et crée des obligations d’activité pour Medicaid. Le déploiement fédéral de ces obligations pour Medicaid commence en janvier 2027, avec la possibilité pour les États de commencer plus tôt ; il ne s’agit pas d’une application nationale en 2026.",
+      "overlay_0": "JUSTIFICATIF D’EMPLOI"
+    },
+    "ENC-C02-C": {
+      "name": "Discours en sauce",
+      "desc": "Une cuisine près de l’autoroute nourrit les voyageurs avec les restes d’un dîner de donateurs d’un super PAC. Votre équipe affamée peut manger ou aider. L’invitation promettait une expression politique illimitée. Elle était surtout composée de steak.",
+      "choice_0": "Manger et emporter des provisions",
+      "log_0": "Vous mangez et prenez des provisions. Un steak rencontre enfin quelqu’un qui n’a pas payé de droit d’entrée pour exercer un droit constitutionnel.",
+      "choice_1": "Recueillir le témoignage des cuisinières",
+      "log_1": "Vous documentez les restes et prenez des provisions. Les cuisinières ont débarrassé en trois minutes ce que les donateurs ont passé quatre heures à appeler de la libre expression.",
+      "choice_2": "Donner de la nourriture",
+      "log_2": "Vous donnez de la nourriture. La cuisinière la verse dans la marmite sans vérifier la puissance vocale de votre compte bancaire.",
+      "fact": "Les décisions Citizens United et SpeechNow fondent les dépenses indépendantes illimitées et les contributions illimitées aux comités qui ne font que de telles dépenses. Les plafonds des contributions directes aux candidats relèvent d’une autre règle.",
+      "overlay_0": "EXPRESSION ILLIMITÉE"
+    },
+    "ENC-C04-A": {
+      "name": "Contact avec le sol",
+      "desc": "Selon la NASA, Athena s’est posée sur le flanc, empêchant sa foreuse d’atteindre le sol lunaire. Lors d’un pique-nique astronomique au bord de la route, des bénévoles cherchent de l’aide pour leur maquette d’atterrisseur. Sa foreuse a déjà terminé la phase de contact avec le sol.",
+      "choice_0": "Aider à déplacer la plateforme",
+      "log_0": "Vous tirez la plateforme jusqu’à en avoir mal aux épaules. Le groupe applaudit son atterrissage réussi à l’autre bout de la table.",
+      "choice_1": "Donner du matériel pour la maquette",
+      "log_1": "Vos provisions stabilisent la plateforme et vous valent le soutien des bénévoles. Leur procédure d’approvisionnement prévoit désormais de vérifier où se trouve le haut.",
+      "choice_2": "Consigner le résultat réel de la mission",
+      "log_2": "Vous consignez l’échec de la foreuse et les données transmises par les autres instruments. Le bénévole abandonne une plaisanterie catastrophiste beaucoup plus simple, mais moins exacte.",
+      "fact": "La documentation de la NASA sur la charge utile d’Athena indique que l’orientation presque horizontale de l’atterrisseur a empêché la foreuse TRIDENT d’atteindre le sol lunaire et de remplir ses objectifs. Cette mission commerciale était sans équipage ; d’autres instruments ont transmis des données."
+    },
+    "ENC-C04-B": {
+      "name": "Adjectifs made in USA",
+      "desc": "La FTC a accusé des vendeurs d’articles patriotiques de fausses allégations de fabrication américaine et proposé un accord. Dans une quincaillerie, une employée répare un support de drapeau retourné et accueille aide ou matériel. La publicité était entièrement américaine. Certains composants auraient fait un plus long voyage.",
+      "choice_0": "Aider à déplacer les éléments du support",
+      "log_0": "Vous déplacez les éléments jusqu’à en avoir mal aux épaules, en bonne compagnie. Le drapeau a davantage besoin d’une base solide que d’un adjectif supplémentaire.",
+      "choice_1": "Donner du matériel de réparation",
+      "log_1": "Votre matériel stabilise le support et inspire confiance. L’employée en note la provenance réelle : une approche étonnamment radicale de la description des produits.",
+      "choice_2": "Consigner la nuance sur la provenance",
+      "log_2": "Vous consignez fidèlement l’accusation et l’accord proposé. L’employée retire une affirmation non étayée sans devoir baisser le drapeau.",
+      "fact": "En avril 2026, la FTC a annoncé une plainte et un accord proposé concernant de fausses allégations d’origine américaine pour des supports de drapeaux. L’annonce présentait des accusations et une ordonnance soumise à l’approbation d’un tribunal, sans conclure que tous les articles patriotiques étaient importés."
+    },
+    "ENC-C04-C": {
+      "name": "Libérés de l’ombre",
+      "desc": "Lors d’une foire itinérante de travailleurs, des couvreurs de Floride montrent à votre équipe la loi qui bloque les protections locales contre la chaleur. Leur auvent de protestation couvre la réserve d’eau. Un sponsor vantant la déréglementation y a installé sa chaise. Les couvreurs cherchent de l’aide pour déplacer le dispositif.",
+      "choice_0": "Aider à déplacer l’auvent",
+      "log_0": "Vous déplacez l’auvent jusqu’à en avoir mal aux bras. Les couvreurs rient en voyant le sponsor suivre son ombre sans jamais soutenir la mesure.",
+      "choice_1": "Donner de l’eau aux travailleurs",
+      "log_1": "Vous donnez de l’eau ; les couvreurs notent votre aide. Le sponsor affirme que s’hydrater relève de la responsabilité individuelle, puis demande à qui appartient la réserve d’eau.",
+      "choice_2": "Documenter la démonstration des couvreurs",
+      "log_2": "Vous enregistrez leur explication de la loi floridienne. Le sponsor continue de se glisser dans le cadre, précisément dans sa partie ombragée.",
+      "fact": "Une loi floridienne de 2024 interdit aux collectivités locales d’imposer certaines protections contre la chaleur au travail et certaines pauses pour boire. Elle n’interdit pas de boire de l’eau et ne supprime pas toutes les obligations fédérales.",
+      "overlay_0": "PROTECTIONS LOCALES CONTRE LA CHALEUR BLOQUÉES"
     }
   },
   "play": {

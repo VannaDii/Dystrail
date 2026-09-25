@@ -197,3 +197,24 @@ test('retained room notices stay blank through an encounter and offline outcome'
   await context.setOffline(false);
  }
 });
+
+test('French pantry and public demonstration copy survives outcomes and offline reload',async({page,context},info)=>{
+ test.setTimeout(120000);const base=await baseline(page),fr=JSON.parse(readFileSync('i18n/fr.json','utf8')).encounter_copy;
+ base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;base.driving_minutes_total=300;
+ base.stats={...base.stats,supplies:10,hp:8,sanity:8,morale:8,credibility:8};
+ for(const family of ['C02','C04'])for(const variant of ['A','B','C']){
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+  const unit=`ENC-${family}-${variant}`,u=source.find((s:any)=>s.id===unit),state=structuredClone(base),key=`ENC-${family}/road/300`;
+  state.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);
+  state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};await importState(page,state);
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','fr'));await page.reload();await waitForLaunch(page);
+  await expect(page.locator('#screen-title')).toContainText(fr[unit].name);
+  await expect(page.locator('.encounter-panel')).toContainText(fr[unit].desc);
+  const actions=page.locator('.encounter-choice button');for(let i=0;i<3;i++)await expect(actions.nth(i)).toContainText(fr[unit][`choice_${i}`]);
+  await actions.first().click();await expect(page.locator('.outcome-copy')).toContainText(fr[unit].log_0);
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);expect(saved.party).toEqual(state.party);expect(saved.visual_content.outcomes[key]).toBe(0);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.outcome-copy')).toContainText(fr[unit].log_0);await context.setOffline(false);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  if(variant==='C')await page.screenshot({path:info.outputPath(`${family}-fr.png`),fullPage:true});
+ }
+});

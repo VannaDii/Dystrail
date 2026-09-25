@@ -20747,5 +20747,28 @@
     ],
     "result": "Nine retained backgrounds are integrated, but required patient compositions are incomplete. Existing tests establish caption/rendering and mechanics, not complete authored care scenes.",
     "prior_hold": "CARE-07-A rejected head-only composition remains excluded; do not retry automatically."
+  },
+  "french_pantry_demonstration_checkpoint": {
+    "units": [
+      "ENC-C02-A",
+      "ENC-C02-B",
+      "ENC-C02-C",
+      "ENC-C04-A",
+      "ENC-C04-B",
+      "ENC-C04-C"
+    ],
+    "strings": 58,
+    "source": "Translated current installed English copy; retained newer barter refresh excluded because it changes current source premises.",
+    "verification": [
+      "Build passed",
+      "12 desktop/mobile encounter flows passed: descriptions, all offered choice labels, first-choice outcomes, saved crew identity, offline reload and document width",
+      "French desktop C04-C and mobile C02-C captures reviewed; captions and wrapping remain contained"
+    ],
+    "remaining": [
+      "Other French narrative entries and interface labels remain incomplete",
+      "Native-language editorial review remains open",
+      "Existing artwork holds remain unchanged"
+    ],
+    "new_images": 0
   }
 }
