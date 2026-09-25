@@ -18263,7 +18263,9 @@
           1536,
           1024
         ],
-        "review": "Held for user review: rigid blank bands replace quiet scene frontage; proportions differ from specified rigs. No religious symbols observed; no automatic retries."
+        "review": "Held for user review: rigid blank bands replace quiet scene frontage; proportions differ from specified rigs. No religious symbols observed; no automatic retries.",
+        "held_candidate_path": "review/recovery/retained-unused-art/selected-satire-03.png",
+        "runtime_binding": "held_candidate_excluded_from_offline_package"
       },
       {
         "asset_id": "selected-satire-04",
