@@ -115,7 +115,7 @@ test('rest returns to preparation; manual saves and modal pauses preserve commit
  const state=arrival(await baseline(page),5);state.boss.presentation='Preparation';state.camp.rest_cooldown=0;
  await importState(page,state);await page.getByRole('button',{name:'Rest before the hearing',exact:true}).click();
  await expect(page.locator('#main')).toHaveAttribute('data-screen','camp');
- await page.getByRole('button',{name:'Rest',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+ await page.getByRole('button',{name:/^(Take a day to rest|Rest for the day|Rest and mute the phones)$/}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
  const rested=(await checkpoint(page)).state;expect(rested.stats.sanity).toBeGreaterThan(5);expect(rested.boss.attempted).toBe(false);
  await next(page);await expect(page.locator('.hearing')).toHaveAttribute('data-hearing-phase','Preparation');
  const staged=committed(rested,[120,90,150]);staged.boss.presentation={RoundRolling:1};

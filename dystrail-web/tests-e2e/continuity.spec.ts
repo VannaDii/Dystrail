@@ -31,12 +31,12 @@ test('stationary rest records actual changes and survives manual loading',async(
  await expect(page.locator('.game-clock')).toContainText('14:30');
  await page.getByRole('button',{name:'Camp',exact:true}).click();
  await expect(page.locator('.game-clock')).toContainText('14:30');
- await expect(page.getByRole('button',{name:/^Rest$/})).toContainText('Sanity +1');
- await page.getByRole('button',{name:/^Rest$/}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
- const rested=await savedState(page);expect(rested.day).toBe(state.day+1);expect(rested.clock_minutes).toBe(480);
+ await expect(page.getByRole('button',{name:/^(Take a day to rest|Rest for the day|Rest and mute the phones)$/})).toContainText('Improves Sanity');
+ await page.getByRole('button',{name:/^(Take a day to rest|Rest for the day|Rest and mute the phones)$/}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
+ const rested=await savedState(page);expect(rested.stats.sanity).toBe(10);expect(rested.day).toBe(state.day+1);expect(rested.clock_minutes).toBe(480);
  expect(rested.miles_traveled_actual).toBe(state.miles_traveled_actual);expect(rested.journal.at(-1).after).toEqual(rested.stats);
  await importState(page,rested);const latest=page.locator('.turn-receipt').first();await expect(latest).toHaveAttribute('data-action','camp');await expect(latest.locator('.receipt-heading')).toHaveText(rested.journal.at(-1).message);
- await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.locator('.trail-log')).toContainText('Camp');
+ await page.getByRole('tab',{name:'Journal',exact:true}).click();await expect(page.getByRole('tabpanel',{name:'Journal',exact:true})).toContainText(rested.journal.at(-1).message);
  await page.reload();await waitForLaunch(page);expect((await savedState(page)).journal).toEqual(rested.journal);
 });
 
@@ -46,7 +46,7 @@ test('late-route camp stays put and never triggers the hearing',async({page})=>{
  state.endgame.active=true;state.endgame.stop_cap_max_full=0;
  await importState(page,state);
  await page.getByRole('button',{name:'Camp',exact:true}).click();
- await page.getByRole('button',{name:'Rest',exact:true}).click();
+ await page.getByRole('button',{name:/^(Take a day to rest|Rest for the day|Rest and mute the phones)$/}).click();
  await expect(page.locator('.aftermath-panel')).toBeVisible();
  const rested=(await recovery(page)).state;
  expect(rested.day).toBe(state.day+1);expect(rested.clock_minutes).toBe(480);
@@ -62,7 +62,8 @@ test('a named crew decision precedes map review and absence persists in later sc
  const state=await baseline(page);state.day=10;state.crew_care={strain:{organizer:2},pending:'organizer',last_check_day:10};
  state.current_encounter=encounters.find((e:{id:string})=>e.id==='classic_mutual_aid');state.scene_subject='organizer';
  await importState(page,state);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
- await expect(page.locator('.scene-speaker')).toHaveAttribute('data-subject','organizer');
+ await expect(page.locator('.scene-caption')).toContainText(state.party.members.find((m:any)=>m.persona==='organizer').name);
+ await expect(page.locator('.scene-speaker')).toHaveCount(0);
  await page.reload();await waitForLaunch(page);await expect(page.locator('#main')).toHaveAttribute('data-screen','crew-care');
  await page.getByRole('button',{name:'Leave a companion with the medics',exact:true}).click();await expect(page.locator('.aftermath-panel')).toBeVisible();
  const departed=await savedState(page);expect(departed.party.members.find((m:{persona:string})=>m.persona==='organizer').status).toBe('Departed');

@@ -20794,5 +20794,19 @@
       "Mobile C04-C outcome capture reviewed; sign text stays within its board"
     ],
     "limits": "This closes the blanket visibility defect. It does not certify every sign in every language for readability or composition."
+  },
+  "integration_runtime_checkpoint": {
+    "runtime_revision": "ebe81c1",
+    "scope": "Focused desktop/mobile continuity and Hearing verification",
+    "verification": [
+      "10 checks passed for named crew departure, quiet travel without replay, six Hearing narratives, three staged rounds and manual-save/modal recovery",
+      "Two stationary-rest checks passed after replacing obsolete generic Camp journal expectation with actual saved rest message",
+      "Updated test expectations for approved qualitative previews, authored rest labels and removed scene bust; retained actual sanity cap, time, distance, party, saved report and outcome assertions"
+    ],
+    "limits": [
+      "Not a complete release acceptance run",
+      "Current care patient compositions, recorded artwork holds, content localization and final previews remain incomplete"
+    ],
+    "retained_pose_search": "Preserved meal-pose brief specifies waist-up friendly figures holding bread, without legs. These do not supply the required full-body seated unwell care poses; no reuse forced and no image generated."
   }
 }
