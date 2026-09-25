@@ -20781,8 +20781,18 @@
     ],
     "remaining": [
       "Other interface and narrative translations remain incomplete",
-      "Older road-scene sign overlays visible on desktop are absent on mobile C02-C/C04-C; investigate responsive visibility before visual acceptance"
+      "Older mobile sign visibility defect resolved by mobile_prop_visibility_checkpoint; all-language sign readability remains part of final acceptance"
     ],
     "new_images": 0
+  },
+  "mobile_prop_visibility_checkpoint": {
+    "cause": "hearing.css hid all road-prop-lettering below 700px",
+    "change": "Removed the mobile-only hiding rule; preserved editable SVG/HTML sign text and existing scene layout",
+    "verification": [
+      "Build passed",
+      "French C02/C04 variants passed on desktop and mobile: 12 flows, visible non-overflowing offered sign text, saved outcomes/crew and offline reload",
+      "Mobile C04-C outcome capture reviewed; sign text stays within its board"
+    ],
+    "limits": "This closes the blanket visibility defect. It does not certify every sign in every language for readability or composition."
   }
 }

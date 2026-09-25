@@ -212,6 +212,11 @@ test('French pantry and public demonstration copy survives outcomes and offline 
   for(const label of ['Provisions','Santé','Équilibre mental','Crédibilité','Alliés'])await expect(page.getByRole('button',{name:`Comment ça fonctionne: ${label}`,exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Campement',exact:true})).toHaveCount(1);
   await expect(page.locator('.encounter-panel')).toContainText(fr[unit].desc);
+  for(const label of await page.locator('.road-prop-lettering').all()){
+   await expect(label).toBeVisible();
+   const text=label.locator('div');await expect(text).toContainText(fr[unit].overlay_0);
+   expect(await text.evaluate(el=>el.scrollWidth<=el.clientWidth+1&&el.scrollHeight<=el.clientHeight+1)).toBe(true);
+  }
   const actions=page.locator('.encounter-choice button');for(let i=0;i<3;i++)await expect(actions.nth(i)).toContainText(fr[unit][`choice_${i}`]);
   await actions.first().click();await expect(page.locator('.outcome-copy')).toContainText(fr[unit].log_0);
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);expect(saved.party).toEqual(state.party);expect(saved.visual_content.outcomes[key]).toBe(0);
