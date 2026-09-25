@@ -12343,21 +12343,29 @@
       "source_direction": [
         "The clerk offers an unfolded trail-leaflet run while gesturing toward the unattended rubbish outside. A raccoon is tangled in a picnic cloth among overflowing food containers beneath a park-beauty sign."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Raccoon tangled in a picnic cloth among overflowing waste; reuse retained park context if suitable, not a new full landscape by default.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-06.png",
+      "candidate_sha256": "44252ac313af951c301c2f6512a0d421d1310b99bcb4bb576c94a27035c3dd4e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: Raccoon, picnic cloth, rubbish and blank park sign are present, but the ranger is substantially taller than the approved 224 px outdoor scale; fine texture also misses the 4x logical pixel rule.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "raccoon_cleanup",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-06",
         "canvas": [
@@ -12505,21 +12513,29 @@
       "source_direction": [
         "The cashier taps a tiny Chinese flag against a blank card reader while the traveler considers the price, wallet still in hand. The flag is offered to the payment terminal as if a country could pay the customer’s bill."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Cashier presents a tiny Chinese flag to a card reader while the traveler still holds their wallet; payment has not happened.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-06.png",
+      "candidate_sha256": "44252ac313af951c301c2f6512a0d421d1310b99bcb4bb576c94a27035c3dd4e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        0,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: Small Chinese flag and blank card reader convey the intended offer, but the cashier dominates the panel instead of occupying the approved right-hand counter rectangle; fine painterly detail misses the pixel rule.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "flag_card_reader",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-06",
         "canvas": [
@@ -12594,21 +12610,29 @@
       "source_direction": [
         "The event worker offers an oversized ceremonial cheque still resting on stands. The enormous blank cheque cannot fit through the small entrance beneath an equal-voice sign."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "Ceremonial cheque on stands is too wide for the ordinary doorway; people and doorway retain normal proportions.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-06.png",
+      "candidate_sha256": "44252ac313af951c301c2f6512a0d421d1310b99bcb4bb576c94a27035c3dd4e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        0,
+        512,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: Blank ceremonial cheque is wider than the doorway, but the worker is nearly door-height instead of the specified 272 px adult against a 344 px door; fine texture misses the pixel rule.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "cheque_doorway",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-06",
         "canvas": [
@@ -12779,21 +12803,29 @@
       "source_direction": [
         "The clerk holds the voucher above an open cash drawer, with unsorted return labels and the DOT guidance beside it; travelers consider the offer. A flimsy voucher hovers over orderly cash compartments where it plainly does not belong."
       ],
-      "candidate_original": null,
-      "candidate_sha256": null,
-      "native_canvas": null,
-      "native_cell_xywh": null,
-      "decision": "visual_gag_component_required",
-      "finding": "A flimsy voucher held over real cash compartments; no refund or cash transfer is implied before resolution.",
+      "candidate_original": "review/recovery/retained-unused-art/selected-satire-06.png",
+      "candidate_sha256": "44252ac313af951c301c2f6512a0d421d1310b99bcb4bb576c94a27035c3dd4e",
+      "native_canvas": [
+        1536,
+        1024
+      ],
+      "native_cell_xywh": [
+        768,
+        512,
+        768,
+        512
+      ],
+      "decision": "generated_candidate_review_hold",
+      "finding": "Hold: Blank voucher and open cash compartments convey the offer without a transfer, but the clerk is oversized and centered rather than right-framed at the approved counter scale; fine painterly detail misses the pixel rule.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "User review of the one-attempt panel; no further automatic generation or runtime binding.",
       "composition_family": "voucher_cash_drawer",
       "staging_scope_resolved": true,
-      "production_route": "proposed_new_atlas_panel",
+      "production_route": "retained_review_hold",
       "production_spec": {
         "asset_id": "selected-satire-06",
         "canvas": [
@@ -18494,7 +18526,7 @@
       },
       {
         "asset_id": "selected-satire-06",
-        "decision": "proposed_one_generation_needed",
+        "decision": "single_attempt_held_for_review",
         "canvas": [
           1536,
           1024
@@ -18522,7 +18554,9 @@
             "essential_action": "Raccoon tangled in a picnic cloth among overflowing waste; reuse retained park context if suitable, not a new full landscape by default.",
             "source_direction_reference": "ENC-S11-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Raccoon, picnic cloth, rubbish and blank park sign are present, but the ranger is substantially taller than the approved 224 px outdoor scale; fine texture also misses the 4x logical pixel rule."
           },
           {
             "unit": "ENC-S13-A",
@@ -18537,7 +18571,9 @@
             "essential_action": "Cashier presents a tiny Chinese flag to a card reader while the traveler still holds their wallet; payment has not happened.",
             "source_direction_reference": "ENC-S13-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Small Chinese flag and blank card reader convey the intended offer, but the cashier dominates the panel instead of occupying the approved right-hand counter rectangle; fine painterly detail misses the pixel rule."
           },
           {
             "unit": "ENC-S14-A",
@@ -18552,7 +18588,9 @@
             "essential_action": "Ceremonial cheque on stands is too wide for the ordinary doorway; people and doorway retain normal proportions.",
             "source_direction_reference": "ENC-S14-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Blank ceremonial cheque is wider than the doorway, but the worker is nearly door-height instead of the specified 272 px adult against a 344 px door; fine texture misses the pixel rule."
           },
           {
             "unit": "ENC-S16-B",
@@ -18567,12 +18605,22 @@
             "essential_action": "A flimsy voucher held over real cash compartments; no refund or cash transfer is implied before resolution.",
             "source_direction_reference": "ENC-S16-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review",
+            "review_finding": "Blank voucher and open cash compartments convey the offer without a transfer, but the clerk is oversized and centered rather than right-framed at the approved counter scale; fine painterly detail misses the pixel rule."
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "review/recovery/retained-unused-art/selected-satire-06.png",
+        "output_sha256": "44252ac313af951c301c2f6512a0d421d1310b99bcb4bb576c94a27035c3dd4e",
+        "actual_canvas": [
+          1536,
+          1024
+        ],
+        "runtime_binding": "none",
+        "review": "One authorized attempt. Four independent blank-text panels and central props are present, but fine painterly detail misses the approved coarse pixel grid and adult scale/framing miss the declared rigs. Hold the sheet for user review; no retry."
       },
       {
         "asset_id": "selected-satire-07",
@@ -19668,7 +19716,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 5,
+    "new_image_attempts_used": 6,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
