@@ -14169,7 +14169,8 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-01-B",
@@ -14192,7 +14193,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-01-C",
@@ -14215,7 +14217,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-02-A",
@@ -14238,7 +14241,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-02-B",
@@ -14270,7 +14274,8 @@
       "production_route": "shared_context_layout",
       "shared_context_binding": "cafe",
       "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
-      "integration_status": "Retained cafe interior with 16:9 viewBox [512,64,512,288]; no invented cast or scene actions"
+      "integration_status": "Retained cafe interior with 16:9 viewBox [512,64,512,288]; no invented cast or scene actions",
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-02-C",
@@ -14293,7 +14298,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "localization_status": "Current town copy and factual qualifications in English, Spanish, Italian and Arabic; other locales remain open"
     },
     {
       "unit": "TOWN-03-A",
@@ -19990,8 +19996,46 @@
     "new_images": 0,
     "remaining": [
       "18 other non-English locales",
-      "Departure-specific visual staging remains open",
-      "Full-page checkout captures show sticky summary over item rows; verify scrolling in the live browser before classifying as an actual obstruction or screenshot behavior. No-horizontal-overflow assertions do not settle this."
-    ]
+      "Departure-specific visual staging remains open"
+    ],
+    "checkout_scroll_review": {
+      "status": "Verified reachable in real desktop/mobile browser; no layout change warranted for captured overlap",
+      "evidence": [
+        "Each purchased item heading passes elementFromPoint visibility after scrolling",
+        "Every enabled quantity button passes browser trial click without obscuration",
+        "Scrolled viewport screenshots visually reviewed on both devices; sticky summary clears final items",
+        "12 onboarding flows and offline persistence still pass"
+      ],
+      "build": "a775c6428e6db7d3c81c"
+    }
+  },
+  "town_localization_checkpoint": {
+    "status": "Six Albuquerque/Amarillo conversations recovered in Spanish, Italian and Arabic",
+    "units": [
+      "TOWN-01-A",
+      "TOWN-01-B",
+      "TOWN-01-C",
+      "TOWN-02-A",
+      "TOWN-02-B",
+      "TOWN-02-C"
+    ],
+    "recovery": "Preserved town-01-02-translations.json matched current premises and factual limits; missing Spanish quotation delimiter repaired during import without modifying archival candidate.",
+    "fields": [
+      "title",
+      "setup",
+      "comment",
+      "text",
+      "source notes"
+    ],
+    "verification": [
+      "Build 31601569b00e572c3649 passed",
+      "Only six records changed; canonical English and existing source metadata unchanged",
+      "36 desktop/mobile flows passed across three locales, checking current story, factual text, source qualification/link, one-time reward, crew, clock and offline persistence",
+      "Arabic desktop/mobile captures reviewed with bottom-left captions and no horizontal overflow"
+    ],
+    "remaining": [
+      "Other town conversations and locales remain open"
+    ],
+    "new_images": 0
   }
 }

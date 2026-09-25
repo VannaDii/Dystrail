@@ -39,6 +39,15 @@ for(const locale of ['en','es']) test(`each character keeps its ${locale} introd
   await expect(page.locator('.viewport-help .endpoint-fact')).toHaveText(fact.text[locale]||fact.text.en);
   await expect(page.locator('.viewport-help a')).toHaveAttribute('href',fact.source);
   await page.keyboard.press('Escape');
+  if(persona==='Satirist'){
+   for(const card of await page.locator('.store-card').all()){
+    const heading=card.locator('h3');
+    await heading.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+    expect(await heading.evaluate(el=>{const r=el.getBoundingClientRect();const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return !!hit&&(el===hit||el.contains(hit));})).toBe(true);
+    for(const control of await card.locator('button:enabled').all())await control.click({trial:true});
+   }
+   await page.screenshot({path:info.outputPath('checkout-scrolled-viewport.png')});
+  }
   if(persona==='Satirist'){await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.waitForFunction(()=>window.scrollY===0);await page.screenshot({path:info.outputPath('departure-review.png'),fullPage:true});}
   await page.getByRole('button',{name:ui.play.depart,exact:true}).click();
   await expect(page.locator('#main')).toHaveAttribute('data-screen','travel');

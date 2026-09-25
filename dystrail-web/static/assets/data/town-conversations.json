@@ -4,16 +4,28 @@
     "family_id": "TOWN-01",
     "town": "Albuquerque",
     "title": {
-      "en": "Pedestrian Funding Rejected"
+      "en": "Pedestrian Funding Rejected",
+      "es": "Financiación peatonal rechazada",
+      "it": "Fondi pedonali respinti",
+      "ar": "رُفض تمويل المشاة"
     },
     "setup": {
-      "en": "At an Albuquerque bus stop, a warehouse picker studies the crew’s walking route."
+      "en": "At an Albuquerque bus stop, a warehouse picker studies the crew’s walking route.",
+      "es": "En una parada de autobús de Albuquerque, una empleada de almacén estudia la ruta a pie del grupo.",
+      "it": "A una fermata dell’autobus di Albuquerque, un’addetta al magazzino studia il percorso a piedi del gruppo.",
+      "ar": "عند موقف حافلات في ألباكركي، تتفحّص عاملة مستودع مسار سير الفريق على الأقدام."
     },
     "text": {
-      "en": "In September 2025, Albuquerque said Trump’s administration tried to withdraw $11.5 million for the Rail Trail while favoring car-based projects."
+      "en": "In September 2025, Albuquerque said Trump’s administration tried to withdraw $11.5 million for the Rail Trail while favoring car-based projects.",
+      "es": "En septiembre de 2025, Albuquerque afirmó que la administración Trump intentó retirar 11,5 millones de dólares destinados al Rail Trail mientras favorecía proyectos para automóviles.",
+      "it": "Nel settembre 2025, Albuquerque ha dichiarato che l’amministrazione Trump aveva tentato di ritirare 11,5 milioni di dollari destinati al Rail Trail, favorendo progetti per le automobili.",
+      "ar": "في سبتمبر 2025، قالت ألباكركي إن إدارة ترامب حاولت سحب 11.5 مليون دولار مخصّصة لمسار ريل تريل، مع تفضيل مشاريع تعتمد على السيارات."
     },
     "comment": {
-      "en": "“Trump wants projects for cars.” She points at your shoes. “Put a license plate on those. We might get you a sidewalk.”"
+      "en": "“Trump wants projects for cars.” She points at your shoes. “Put a license plate on those. We might get you a sidewalk.”",
+      "es": "«Trump quiere proyectos para coches». Señala vuestros zapatos. «Ponedles una matrícula. A lo mejor conseguimos una acera».",
+      "it": "«Trump vuole progetti per le auto». Indica le vostre scarpe. «Metteteci una targa. Forse vi procuriamo un marciapiede».",
+      "ar": "«ترامب يريد مشاريع للسيارات». تشير إلى أحذيتكم. «ضعوا عليها لوحات أرقام. ربما نحصل لكم على رصيف»."
     },
     "sources": [
       {
@@ -21,7 +33,12 @@
         "title": "Trump Administration Attempts to Cancel Money for Rail Trail",
         "date": "2025-09-11",
         "checked": "2026-09-13",
-        "qualification": "City account of an attempted $11.5 million cancellation; not a claim that the entire trail closed or the dispute ended."
+        "qualification": "City account of an attempted $11.5 million cancellation; not a claim that the entire trail closed or the dispute ended.",
+        "notes": {
+          "es": "Versión municipal de un intento de cancelar 11,5 millones de dólares. No implica que cerrara todo el sendero ni que terminara la disputa.",
+          "it": "Resoconto comunale del tentativo di cancellare 11,5 milioni di dollari. Non indica la chiusura dell’intero percorso né la conclusione della controversia.",
+          "ar": "رواية البلدية عن محاولة إلغاء تمويل بقيمة 11.5 مليون دولار؛ لا تعني إغلاق المسار بأكمله أو انتهاء النزاع."
+        }
       }
     ]
   },
@@ -30,16 +47,28 @@
     "family_id": "TOWN-01",
     "town": "Albuquerque",
     "title": {
-      "en": "Law and Order, Terms Apply"
+      "en": "Law and Order, Terms Apply",
+      "es": "Ley y orden, con condiciones",
+      "it": "Legge e ordine, condizioni applicabili",
+      "ar": "القانون والنظام، بشروط"
     },
     "setup": {
-      "en": "Outside an Albuquerque laundromat, a retired machinist discusses the city’s lawsuit while the crew waits for dry clothes."
+      "en": "Outside an Albuquerque laundromat, a retired machinist discusses the city’s lawsuit while the crew waits for dry clothes.",
+      "es": "Frente a una lavandería de Albuquerque, una mecánica industrial jubilada comenta la demanda municipal mientras el grupo espera a que se seque la ropa.",
+      "it": "Davanti a una lavanderia di Albuquerque, un’operaia meccanica in pensione parla della causa del Comune mentre il gruppo aspetta che i vestiti si asciughino.",
+      "ar": "أمام مغسلة في ألباكركي، تناقش عاملة تشغيل آلات متقاعدة دعوى البلدية بينما ينتظر الفريق جفاف الملابس."
     },
     "text": {
-      "en": "In July 2025, Albuquerque challenged Trump’s immigration conditions on police grants supporting officer salaries, evidence processing and crime-victim services."
+      "en": "In July 2025, Albuquerque challenged Trump’s immigration conditions on police grants supporting officer salaries, evidence processing and crime-victim services.",
+      "es": "En julio de 2025, Albuquerque impugnó las condiciones migratorias de Trump sobre subvenciones policiales que financiaban salarios, procesamiento de pruebas y servicios a víctimas de delitos.",
+      "it": "Nel luglio 2025, Albuquerque ha contestato le condizioni sull’immigrazione imposte da Trump ai finanziamenti per stipendi degli agenti, analisi delle prove e servizi alle vittime di reato.",
+      "ar": "في يوليو 2025، طعنت ألباكركي في شروط ترامب المتعلقة بالهجرة على منح للشرطة تموّل رواتب الضباط ومعالجة الأدلة وخدمات ضحايا الجرائم."
     },
     "comment": {
-      "en": "“Trump threatened police money over immigration. So when somebody steals my bike, should I report a theft or ask whether it crossed a border?”"
+      "en": "“Trump threatened police money over immigration. So when somebody steals my bike, should I report a theft or ask whether it crossed a border?”",
+      "es": "«Trump amenazó los fondos de la policía por la inmigración. Si alguien me roba la bici, ¿denuncio un robo o pregunto si cruzó una frontera?»",
+      "it": "«Trump ha minacciato i fondi della polizia per l’immigrazione. Se mi rubano la bici, denuncio un furto o chiedo se ha attraversato un confine?»",
+      "ar": "«ترامب هدّد تمويل الشرطة بسبب الهجرة. إذا سرق أحدهم دراجتي، هل أبلّغ عن سرقة أم أسأل إن كانت قد عبرت الحدود؟»"
     },
     "sources": [
       {
@@ -47,7 +76,12 @@
         "title": "City Joins Lawsuits to Block Federal Cuts to Public Safety, Housing",
         "date": "2025-07-11",
         "checked": "2026-09-13",
-        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped."
+        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped.",
+        "notes": {
+          "es": "Versión municipal de las subvenciones amenazadas y el litigio. No afirma que se perdieran todos los fondos ni que se suspendieran los servicios.",
+          "it": "Resoconto comunale dei finanziamenti minacciati e della causa. Non afferma che tutti i fondi siano andati persi o che i servizi siano cessati.",
+          "ar": "رواية البلدية عن المنح المهدّدة والتقاضي؛ لا تفيد بخسارة التمويل كله أو توقف الخدمات."
+        }
       }
     ]
   },
@@ -56,16 +90,28 @@
     "family_id": "TOWN-01",
     "town": "Albuquerque",
     "title": {
-      "en": "A Roof With Conditions"
+      "en": "A Roof With Conditions",
+      "es": "Un techo con condiciones",
+      "it": "Un tetto con condizioni",
+      "ar": "سقف بشروط"
     },
     "setup": {
-      "en": "Outside an Albuquerque rental office, a grounds worker compares notices with the travelers."
+      "en": "Outside an Albuquerque rental office, a grounds worker compares notices with the travelers.",
+      "es": "Frente a una oficina de alquileres de Albuquerque, una trabajadora de mantenimiento de jardines compara avisos con el grupo.",
+      "it": "Davanti a un ufficio affitti di Albuquerque, un’addetta alla manutenzione del verde confronta gli avvisi con il gruppo.",
+      "ar": "أمام مكتب تأجير في ألباكركي، تقارن عاملة صيانة حدائق الإشعارات مع أفراد الفريق."
     },
     "text": {
-      "en": "Albuquerque’s July 2025 lawsuit challenged Trump administration conditions threatening housing grants that supported rental assistance, eviction prevention and rehousing."
+      "en": "Albuquerque’s July 2025 lawsuit challenged Trump administration conditions threatening housing grants that supported rental assistance, eviction prevention and rehousing.",
+      "es": "La demanda de Albuquerque de julio de 2025 impugnó condiciones de la administración Trump que amenazaban subvenciones de vivienda destinadas a ayudas al alquiler, prevención de desahucios y realojamiento.",
+      "it": "La causa avviata da Albuquerque nel luglio 2025 contestava condizioni dell’amministrazione Trump che minacciavano fondi per contributi all’affitto, prevenzione degli sfratti e ricollocamento abitativo.",
+      "ar": "طعنت دعوى ألباكركي في يوليو 2025 في شروط لإدارة ترامب تهدّد منحاً سكنية تدعم المساعدة في الإيجار ومنع الإخلاء وإعادة الإسكان."
     },
     "comment": {
-      "en": "“Immigration conditions on housing money. I rent a one-bedroom. Apparently it needs a foreign policy.”"
+      "en": "“Immigration conditions on housing money. I rent a one-bedroom. Apparently it needs a foreign policy.”",
+      "es": "«Condiciones migratorias para el dinero de vivienda. Alquilo un piso de un dormitorio. Por lo visto necesita política exterior».",
+      "it": "«Condizioni sull’immigrazione per i fondi abitativi. Affitto un bilocale. A quanto pare gli serve una politica estera».",
+      "ar": "«شروط هجرة على تمويل السكن. أستأجر شقة بغرفة نوم واحدة. يبدو أنها تحتاج إلى سياسة خارجية»."
     },
     "sources": [
       {
@@ -73,7 +119,12 @@
         "title": "City Joins Lawsuits to Block Federal Cuts to Public Safety, Housing",
         "date": "2025-07-11",
         "checked": "2026-09-13",
-        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped."
+        "qualification": "City’s account of threatened grants and litigation; no claim that all funding was lost or services stopped.",
+        "notes": {
+          "es": "Versión municipal de las subvenciones amenazadas y el litigio. No afirma que se perdieran todos los fondos ni que se suspendieran los servicios.",
+          "it": "Resoconto comunale dei finanziamenti minacciati e della causa. Non afferma che tutti i fondi siano andati persi o che i servizi siano cessati.",
+          "ar": "رواية البلدية عن المنح المهدّدة والتقاضي؛ لا تفيد بخسارة التمويل كله أو توقف الخدمات."
+        }
       }
     ]
   },
@@ -82,16 +133,28 @@
     "family_id": "TOWN-02",
     "town": "Amarillo",
     "title": {
-      "en": "America First, Beef Pending"
+      "en": "America First, Beef Pending",
+      "es": "América primero, la carne ya llegará",
+      "it": "Prima l’America, poi forse la carne",
+      "ar": "أمريكا أولاً، واللحم قيد الانتظار"
     },
     "setup": {
-      "en": "At an Amarillo grocery picnic table, a feed-store loader notices the crew dividing a sandwich."
+      "en": "At an Amarillo grocery picnic table, a feed-store loader notices the crew dividing a sandwich.",
+      "es": "En una mesa de picnic de una tienda de alimentación de Amarillo, una empleada que carga sacos de pienso ve al grupo repartirse un sándwich.",
+      "it": "A un tavolo da picnic di un alimentari di Amarillo, un’addetta al carico di un negozio di mangimi nota il gruppo che divide un panino.",
+      "ar": "عند طاولة نزهة بجوار متجر بقالة في أماريلو، تلاحظ عاملة تحميل في متجر أعلاف أن الفريق يتقاسم شطيرة."
     },
     "text": {
-      "en": "Texas Farm Bureau objected in October 2025 to Trump’s proposal for more Argentine beef imports, warning it could hurt Texas ranchers."
+      "en": "Texas Farm Bureau objected in October 2025 to Trump’s proposal for more Argentine beef imports, warning it could hurt Texas ranchers.",
+      "es": "Texas Farm Bureau se opuso en octubre de 2025 a la propuesta de Trump de aumentar las importaciones de carne de vacuno argentina, advirtiendo que podría perjudicar a los ganaderos de Texas.",
+      "it": "Nell’ottobre 2025, Texas Farm Bureau si è opposta alla proposta di Trump di aumentare le importazioni di carne bovina argentina, avvertendo dei possibili danni agli allevatori texani.",
+      "ar": "اعترض اتحاد مزارعي تكساس في أكتوبر 2025 على اقتراح ترامب زيادة واردات لحوم الأبقار الأرجنتينية، محذّراً من احتمال الإضرار بمربّي الماشية في تكساس."
     },
     "comment": {
-      "en": "“Trump’s cheaper-beef plan upset our ranchers.” He inspects his sandwich. “I’ll notify Argentina when the affordable bit arrives.”"
+      "en": "“Trump’s cheaper-beef plan upset our ranchers.” He inspects his sandwich. “I’ll notify Argentina when the affordable bit arrives.”",
+      "es": "«El plan de Trump para abaratar la carne enfadó a nuestros ganaderos». Examina su sándwich. «Avisaré a Argentina cuando llegue la parte barata».",
+      "it": "«Il piano di Trump per abbassare il prezzo della carne ha fatto infuriare i nostri allevatori». Esamina il panino. «Avviserò l’Argentina quando arriverà la parte economica».",
+      "ar": "«خطة ترامب لخفض سعر اللحم أغضبت مربّي الماشية عندنا». تتفحّص الشطيرة. «سأبلغ الأرجنتين عندما يصل الجزء الرخيص»."
     },
     "sources": [
       {
@@ -99,7 +162,12 @@
         "title": "Suggestions to increase Argentinian beef imports harm Texas cattle ranchers",
         "date": "2025-10-20",
         "checked": "2026-09-13",
-        "qualification": "Farm Bureau advocacy statement about a proposed import expansion; statewide relevance, not measured Amarillo job losses."
+        "qualification": "Farm Bureau advocacy statement about a proposed import expansion; statewide relevance, not measured Amarillo job losses.",
+        "notes": {
+          "es": "Declaración de una organización agraria sobre una propuesta de ampliar las importaciones. Tiene relevancia estatal; no mide pérdidas de empleo en Amarillo.",
+          "it": "Dichiarazione di un’organizzazione agricola su un aumento proposto delle importazioni. Riguarda il Texas; non misura posti di lavoro persi ad Amarillo.",
+          "ar": "موقف لاتحاد زراعي من مقترح لزيادة الواردات؛ صلته على مستوى الولاية، وليس قياساً لوظائف فُقدت في أماريلو."
+        }
       }
     ]
   },
@@ -108,16 +176,28 @@
     "family_id": "TOWN-02",
     "town": "Amarillo",
     "title": {
-      "en": "The Government Time Clock"
+      "en": "The Government Time Clock",
+      "es": "El reloj de fichar del Gobierno",
+      "it": "Il cartellino del governo",
+      "ar": "ساعة دوام الحكومة"
     },
     "setup": {
-      "en": "At an Amarillo diner counter, a delivery driver reads a Pantex audit beside the travelers."
+      "en": "At an Amarillo diner counter, a delivery driver reads a Pantex audit beside the travelers.",
+      "es": "En la barra de un restaurante de Amarillo, una repartidora lee una auditoría de Pantex junto al grupo.",
+      "it": "Al bancone di una tavola calda di Amarillo, un’autista addetta alle consegne legge un audit su Pantex accanto al gruppo.",
+      "ar": "عند منضدة مطعم في أماريلو، تقرأ سائقة توصيل تقرير تدقيق عن بانتيكس بجوار الفريق."
     },
     "text": {
-      "en": "A 2025 federal audit reported that Pantex contractor CNS had repaid $18.4 million in 2024 for billing the government for hours not worked."
+      "en": "A 2025 federal audit reported that Pantex contractor CNS had repaid $18.4 million in 2024 for billing the government for hours not worked.",
+      "es": "Una auditoría federal de 2025 informó de que CNS, contratista de Pantex, había reembolsado 18,4 millones de dólares en 2024 por facturar al Gobierno horas no trabajadas.",
+      "it": "Un audit federale del 2025 ha riferito che CNS, appaltatrice di Pantex, aveva restituito 18,4 milioni di dollari nel 2024 per ore fatturate al governo ma non lavorate.",
+      "ar": "أفاد تدقيق اتحادي عام 2025 بأن شركة CNS المتعاقدة مع بانتيكس أعادت 18.4 مليون دولار في 2024 بسبب فوترة الحكومة عن ساعات لم تُعمل."
     },
     "comment": {
-      "en": "“Eighteen million for hours nobody worked.” He looks at your job hunt. “We’ve been asking whether they’re hiring. Ask whether they’re billing.”"
+      "en": "“Eighteen million for hours nobody worked.” He looks at your job hunt. “We’ve been asking whether they’re hiring. Ask whether they’re billing.”",
+      "es": "«Dieciocho millones por horas que nadie trabajó». Mira vuestra búsqueda de empleo. «Preguntábamos si contratan. Preguntad si facturan».",
+      "it": "«Diciotto milioni per ore che nessuno ha lavorato». Guarda la vostra ricerca di impiego. «Chiedevamo se assumono. Chiedete se fatturano».",
+      "ar": "«ثمانية عشر مليوناً مقابل ساعات لم يعملها أحد». تنظر إلى بحثكم عن عمل. «كنا نسأل إن كانوا يوظّفون. اسألوا إن كانوا يصدرون فواتير»."
     },
     "sources": [
       {
@@ -125,7 +205,12 @@
         "title": "Audit: DOE-OIG-25-36",
         "date": "2025-11-26",
         "checked": "2026-09-13",
-        "qualification": "DOE inspector general says CNS paid $18.4 million in a 2024 settlement for claimed hours not worked; report also records operational harm and corrective controls."
+        "qualification": "DOE inspector general says CNS paid $18.4 million in a 2024 settlement for claimed hours not worked; report also records operational harm and corrective controls.",
+        "notes": {
+          "es": "La inspección general del Departamento de Energía sitúa el pago de 18,4 millones en un acuerdo de 2024 por horas facturadas y no trabajadas. El informe también recoge perjuicios operativos y controles correctivos.",
+          "it": "L’ispettorato generale del Dipartimento dell’Energia attribuisce il pagamento di 18,4 milioni a un accordo del 2024 per ore dichiarate ma non lavorate. Il rapporto documenta anche danni operativi e controlli correttivi.",
+          "ar": "يذكر المفتش العام لوزارة الطاقة دفع CNS مبلغ 18.4 مليون دولار في تسوية عام 2024 عن ساعات مُطالَب بها لم تُعمل. ويسجّل التقرير أيضاً أضراراً تشغيلية وضوابط تصحيحية."
+        }
       }
     ]
   },
@@ -134,16 +219,28 @@
     "family_id": "TOWN-02",
     "town": "Amarillo",
     "title": {
-      "en": "Restart the Country"
+      "en": "Restart the Country",
+      "es": "Reiniciar el país",
+      "it": "Riavviare il Paese",
+      "ar": "إعادة تشغيل البلاد"
     },
     "setup": {
-      "en": "While the van cools in Amarillo, an appliance repairer recalls the nuclear-worker firings."
+      "en": "While the van cools in Amarillo, an appliance repairer recalls the nuclear-worker firings.",
+      "es": "Mientras se enfría la furgoneta en Amarillo, una reparadora de electrodomésticos recuerda los despidos del personal nuclear.",
+      "it": "Mentre il furgone si raffredda ad Amarillo, una riparatrice di elettrodomestici ricorda i licenziamenti del personale nucleare.",
+      "ar": "بينما تبرد الشاحنة في أماريلو، تستعيد مصلّحة أجهزة منزلية خبر تسريح العاملين في المجال النووي."
     },
     "text": {
-      "en": "In February 2025, Trump’s administration reversed most NNSA firings; AP reported Pantex near Amarillo among the hardest-hit offices in the DOGE cuts."
+      "en": "In February 2025, Trump’s administration reversed most NNSA firings; AP reported Pantex near Amarillo among the hardest-hit offices in the DOGE cuts.",
+      "es": "En febrero de 2025, la administración Trump revirtió la mayoría de los despidos de la NNSA. AP situó Pantex, cerca de Amarillo, entre las oficinas más afectadas por los recortes de DOGE.",
+      "it": "Nel febbraio 2025, l’amministrazione Trump ha revocato la maggior parte dei licenziamenti della NNSA. AP ha indicato Pantex, vicino ad Amarillo, tra gli uffici più colpiti dai tagli di DOGE.",
+      "ar": "في فبراير 2025، تراجعت إدارة ترامب عن معظم عمليات الفصل في الإدارة الوطنية للأمن النووي. وذكرت أسوشيتد برس أن بانتيكس قرب أماريلو كانت من أكثر المكاتب تضرراً من تخفيضات DOGE."
     },
     "comment": {
-      "en": "“Fire the nuclear staff. Rehire the nuclear staff.” He points at your ignition. “Government efficiency: have we tried turning the country off and on?”"
+      "en": "“Fire the nuclear staff. Rehire the nuclear staff.” He points at your ignition. “Government efficiency: have we tried turning the country off and on?”",
+      "es": "«Despedir al personal nuclear. Volver a contratarlo». Señala el contacto. «Eficiencia gubernamental: ¿hemos probado a apagar y encender el país?»",
+      "it": "«Licenziare il personale nucleare. Riassumere il personale nucleare». Indica l’accensione. «Efficienza governativa: abbiamo provato a spegnere e riaccendere il Paese?»",
+      "ar": "«افصلوا الطاقم النووي. أعيدوا توظيف الطاقم النووي». تشير إلى مفتاح التشغيل. «كفاءة حكومية: هل جرّبنا إطفاء البلاد وإعادة تشغيلها؟»"
     },
     "sources": [
       {
@@ -151,7 +248,12 @@
         "title": "Trump administration tries to bring back fired nuclear weapons workers in DOGE reversal",
         "date": "2025-02-16",
         "checked": "2026-09-13",
-        "qualification": "AP reported Pantex among the hardest-hit NNSA offices; most firings were reversed. Administration and AP sources disputed exact numbers, so none are used."
+        "qualification": "AP reported Pantex among the hardest-hit NNSA offices; most firings were reversed. Administration and AP sources disputed exact numbers, so none are used.",
+        "notes": {
+          "es": "AP situó Pantex entre las oficinas de la NNSA más afectadas; la mayoría de los despidos se revirtieron. La administración y las fuentes de AP discrepaban sobre las cifras exactas, por lo que aquí no se incluyen.",
+          "it": "AP ha indicato Pantex tra gli uffici NNSA più colpiti; la maggior parte dei licenziamenti è stata revocata. L’amministrazione e le fonti di AP contestavano le cifre esatte, qui non riportate.",
+          "ar": "ذكرت أسوشيتد برس بانتيكس ضمن أكثر مكاتب الإدارة الوطنية للأمن النووي تضرراً؛ وأُلغي معظم الفصل. اختلفت الإدارة ومصادر الوكالة على الأعداد الدقيقة، لذلك لا تُذكر هنا."
+        }
       }
     ]
   },

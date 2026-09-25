@@ -92,3 +92,31 @@ test('indoor cafe conversations use the shared native setting',async({page,conte
   await context.setOffline(false);
  }
 });
+
+test('recovered town translations preserve local facts and repeat rewards',async({page,context},info)=>{
+ test.setTimeout(180000);const base=await baseline(page);
+ for(const lang of ['es','it','ar'])for(const story of catalog.filter((c:any)=>/^TOWN-0[12]-/.test(c.id))){
+  const route=routes.find((r:any)=>r.stops.some((s:any)=>s.name===story.town));const stop=route.stops.find((s:any)=>s.name===story.town);
+  const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
+  s.route_services={...s.route_services,route_id:route.id,stop:stop.mile,trading:false,talked_at:null,talk_reward:null};s.activities.local_word=null;
+  s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
+  const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:story.id},outcomes:{},policy_bulletins:[]};
+  await importState(page,s);await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+  await page.locator('.route-stop .action-button').click();
+  const check=async()=>{
+   await expect(page.locator('#screen-title')).toHaveText(story.title[lang]);
+   await expect(page.locator('.local-fact')).toHaveText(story.text[lang]);
+   await expect(page.locator('.resident-remark')).toHaveText(story.comment[lang]);
+   await expect(page.locator('.resident-story > p')).toHaveText(story.setup[lang]);
+   await expect(page.locator('.fact-source > p')).toHaveText(story.sources[0].notes[lang]);
+   await expect(page.locator('.fact-source > a')).toHaveAttribute('href',story.sources[0].url);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  };
+  await check();const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);await check();
+  await page.locator('.conversation-actions button').click();await page.locator('.route-stop .action-button').click();
+  const repeated=await checkpoint(page);expect(repeated.stats).toEqual(after.stats);expect(repeated.clock_minutes).toBe(after.clock_minutes);expect(repeated.journal).toEqual(after.journal);
+  if(story.id==='TOWN-02-B'&&lang==='ar'){await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath('town-ar.png'),fullPage:true});}
+  await context.setOffline(false);await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+ }
+});
