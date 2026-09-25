@@ -18839,7 +18839,7 @@
       },
       {
         "asset_id": "selected-satire-09",
-        "decision": "proposed_one_generation_needed",
+        "decision": "integrated_after_user_authorized_correction",
         "canvas": [
           1536,
           1024
@@ -18916,8 +18916,14 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 2,
+        "production_authorized": true,
+        "additional_attempt_authorized_by_user": true,
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-09.png",
+        "output_sha256": "57aff38c742c1d8e21e06104a687f100c21beb9492dcfb5cfaafa6938bc183aa",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "cells 0-3: ENC-S23-A, ENC-S24-A, ENC-S24-B, ENC-S24-C",
+        "review": "Initial attempt had a show-costume mannequin and blue-pink gateway. User authorized one corrective regeneration. Revised sheet preserves the inspection and fountain panels, and shows a suited mannequin losing its wig and a melting gold gateway. All four mobile scenes were inspected; revised cells 1 and 3 were inspected in game. Targeted desktop/mobile choice, crew, save and offline checks passed."
       },
       {
         "asset_id": "selected-satire-10",
@@ -19767,9 +19773,9 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "additional_user_authorized_calls": 1,
-    "effective_attempt_ceiling": 14,
-    "new_image_attempts_used": 9,
+    "additional_user_authorized_calls": 2,
+    "effective_attempt_ceiling": 15,
+    "new_image_attempts_used": 11,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -20668,7 +20674,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 108,
-    "dedicated_units": 38,
+    "dedicated_units": 42,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20706,10 +20712,6 @@
       "ENC-S17-B",
       "ENC-S18-B",
       "ENC-S19-C",
-      "ENC-S23-A",
-      "ENC-S24-A",
-      "ENC-S24-B",
-      "ENC-S24-C",
       "ENC-S26-A",
       "ENC-S26-B",
       "ENC-S28-A",
@@ -20722,8 +20724,8 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 45,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 21 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 41,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 17 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20762,10 +20764,6 @@
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S17-B",
-      "ENC-S23-A",
-      "ENC-S24-A",
-      "ENC-S24-B",
-      "ENC-S24-C",
       "ENC-S26-B",
       "ENC-S30-C",
       "ENC-S32-B",
@@ -20876,7 +20874,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "45 inherited road assignments remain explicit gaps: 24 location contexts and 21 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "41 inherited road assignments remain explicit gaps: 24 location contexts and 17 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
@@ -21103,5 +21101,12 @@
     "held_unit": "ENC-S21-B",
     "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell, and proportions. Six game captures inspected: seams absent, gags and captions readable, no embedded text or religious symbols observed.",
     "remaining": "Mug cell has duplicate background mugs and is not bound. Final combined feature and playtest acceptance remain separate."
+  },
+  "sheet9_integration_checkpoint": {
+    "status": "Four corrected panels integrated for playtesting",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-09.png",
+    "bound_units": ["ENC-S23-A", "ENC-S24-A", "ENC-S24-B", "ENC-S24-C"],
+    "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell and scene proportions. Four mobile scenes inspected; corrected mannequin and gold gateway inspected after regeneration. No embedded text or religious symbols observed.",
+    "remaining": "Full combined feature and playtest acceptance remain separate."
   }
 }
