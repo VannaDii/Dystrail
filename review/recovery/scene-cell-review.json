@@ -18744,7 +18744,7 @@
       },
       {
         "asset_id": "selected-satire-08",
-        "decision": "proposed_one_generation_needed",
+        "decision": "single_attempt_held_for_review",
         "canvas": [
           1536,
           1024
@@ -18821,8 +18821,13 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "review/recovery/held/selected-satire-08-attempt1.png",
+        "output_sha256": "3a951a981c7d78c40e230e782fe62e50a1af9339a7c6fa9d7da85a43c496d098",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "none",
+        "review": "One authorized attempt produced recognizable gags and no embedded words or religious symbols, but white gutters cross both panel boundaries and the rendering uses finer detail than the approved 192x128 logical grid. Held for user review without automatic regeneration or runtime binding."
       },
       {
         "asset_id": "selected-satire-09",
@@ -19754,7 +19759,7 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "new_image_attempts_used": 7,
+    "new_image_attempts_used": 8,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
