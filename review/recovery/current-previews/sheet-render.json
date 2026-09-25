@@ -1,10 +1,10 @@
 {
-  "revision": "4018aa6 · build 2f1042b1546786205400",
+  "revision": "baa7fdb · build a866023f15d923d8",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 2332,
+      "height": 3036,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -31,6 +31,18 @@
           "complete": true
         },
         {
+          "src": "desktop/safe/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/fees/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
           "src": "desktop/trade/shot-0.png",
           "width": 1230,
           "height": 648,
@@ -47,7 +59,7 @@
     {
       "device": "mobile",
       "width": 1280,
-      "height": 1666,
+      "height": 2272,
       "images": [
         {
           "src": "mobile/road/shot-0.png",
@@ -69,6 +81,18 @@
         },
         {
           "src": "mobile/ally/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/safe/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/fees/shot-0.png",
           "width": 1024,
           "height": 1166,
           "complete": true

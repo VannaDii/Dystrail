@@ -1,5 +1,5 @@
 {
-  "revision": "4018aa6 \u00b7 build 2f1042b1546786205400",
+  "revision": "baa7fdb · build a866023f15d923d8",
   "frames": [
     {
       "id": "road",
@@ -21,9 +21,21 @@
     },
     {
       "id": "ally",
-      "title": "Outside contact",
-      "note": "Reviewed job-loss vignette. The outside contact is not removed from the traveling party.",
-      "status": "Integrated"
+      "title": "Outside-contact referral",
+      "note": "Retained red-hat scene with editable labels; no traveling crew member leaves. Small-label and translation review remains open.",
+      "status": "Partial"
+    },
+    {
+      "id": "safe",
+      "title": "Public comments, secured",
+      "note": "Retained safe-and-comment-box panel with localized live lettering. Final artwork acceptance remains open.",
+      "status": "Partial"
+    },
+    {
+      "id": "fees",
+      "title": "Honest price, hidden fee",
+      "note": "Retained price-display scene; all lettering and dollar amounts are editable UI.",
+      "status": "Partial"
     },
     {
       "id": "trade",

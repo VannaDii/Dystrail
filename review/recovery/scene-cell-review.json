@@ -1038,14 +1038,15 @@
         1024
       ],
       "decision": "reuse_candidate_composition_incomplete",
-      "finding": "1536×1024 roadside laptop/table with keys, glove, brush, map and radio. No baked traveler; left actor area is empty. Reuse candidate. Table left edge about x660, top about y545; fit the affected actual traveler to its depth and contact surface. Laptop and props must remain visible; composition is not yet verified.",
+      "finding": "1536×1024 roadside laptop/table with keys, glove, brush, map and radio. No baked traveler; left actor area is empty. Reuse candidate. Table left edge about x660, top about y545; fit the affected actual traveler to its depth and contact surface. Laptop and props must remain visible; composition is not yet verified. Runtime composition review on 2026-09-24: the existing Unwell cell is predominantly a head/upper-body crop. Occluding it behind the retained table/laptop produced an implausible head-peeking composition. Excluded from runtime; retained background remains suitable. A seated/slumped affected-traveler pose with visible torso and coherent table contact is unresolved. No new image attempt made.",
       "camera": "Preserve the cell camera for reuse. A changed cell uses a single eye-level medium-wide three-quarter view showing the required props and spatial relationships; never mix a close-up person with a distant miniature vehicle.",
       "proportions": "Keep seated/standing adult scale consistent at shared depth. Counters at plausible waist height; doors clear adult heads. Retain stylized cast anatomy, not photorealism.",
       "desktop_mobile": "One 3:2 cell on both. Scale composition as a unit with complete required subject/props visible. Caption overlays bottom-left; no supplemental bust or altered stat UI. Validate at 1440px and 390px widths.",
       "production_authorized": false,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Inventory approval, source-specific composition and desktop/mobile rendered check. No generation authorized.",
-      "production_route": "reuse_retained_candidate"
+      "remaining_gate": "Resolve seated/slumped actual-traveler composition without a detached bust; verify all six identities and table/laptop occlusion on desktop/mobile. Do not treat passing state tests as visual acceptance.",
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Not integrated: actual-cast Unwell pose composition failed rendered review despite passing state checks."
     },
     {
       "unit": "CARE-07-B",
@@ -19864,18 +19865,36 @@
     "image_generation_calls": 0
   },
   "preview_checkpoint": {
-    "status": "Current desktop/mobile progress sheets captured and reviewed; not release acceptance",
-    "build": "2f1042b1546786205400",
-    "source_commit": "4018aa6",
-    "path": "review/recovery/current-previews",
+    "revision": "baa7fdb",
+    "build": "a866023f15d923d8",
+    "status": "Refreshed work-in-progress sheets; not final acceptance",
+    "frames": [
+      "road",
+      "night",
+      "town",
+      "ally",
+      "safe",
+      "fees",
+      "trade",
+      "ending"
+    ],
+    "desktop_viewport": 1440,
+    "mobile_viewport": 390,
     "verification": [
-      "12 current-browser scene captures at 1440px and 390px passed after reload",
-      "Both HTML sheets decode all six captures without horizontal overflow",
-      "Desktop 1520x2332 and mobile 1280x1666 sheets rendered from unchanged browser captures"
+      "Both capture projects passed (16 frames)",
+      "Sheet renderer verified all eight source captures loaded per device and no sheet overflow",
+      "Both complete sheets visually reviewed"
+    ],
+    "outputs": [
+      "review/recovery/current-previews/desktop-preview-sheet.png",
+      "review/recovery/current-previews/mobile-preview-sheet.png"
     ],
     "remaining": [
-      "Refresh final sheets after remaining integration and acceptance work"
-    ]
+      "Full interface/choices and current combined save/replay/offline acceptance",
+      "Explicit remaining artwork and translation items",
+      "Rejected care composition excluded from captured build"
+    ],
+    "new_images": 0
   },
   "town_qualitative_checkpoint": {
     "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",
@@ -20264,6 +20283,18 @@
       "Native-language editorial review; broader vignette translation gaps remain",
       "Final small-phone-label readability acceptance"
     ],
+    "new_images": 0
+  },
+  "care_seated_composition_review": {
+    "unit": "CARE-07-A",
+    "result": "Composition rejected, integration reverted; preserved original image untouched",
+    "verified": [
+      "Background has laptop plus five required work objects",
+      "Native context test and desktop/mobile state tests passed during trial",
+      "Rendered organizer capture revealed unacceptable pose/table relationship; this contradicts visual acceptance"
+    ],
+    "evidence": "review/recovery/held-compositions/care-07-a-pose-rejected.png",
+    "remaining": "Suitable actual-character seated/slumped pose or a coherent approved composition using retained art",
     "new_images": 0
   }
 }

@@ -11,16 +11,23 @@ test('capture current integrated visual-world previews',async({page},info)=>{
  const base=await baseline(page);base.seed=42;base.turn_journal_start=null;
  const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
  const device=info.project.name==='mobile'?'mobile':'desktop';
- for(const id of ['road','night','town','ally','trade','ending']){
+ for(const id of ['road','night','town','ally','safe','fees','trade','ending']){
   const s=structuredClone(base);s.clock_minutes=id==='night'?1380:720;
   if(id==='town'||id==='trade') atTown(s,'Spokane');
   if(id==='ally'){
-   s.day=1;s.stats.allies=0;
-   s.visual_content={edition:1,selections:{'ALLY-02/departure/1':'ALLY-02-A'},outcomes:{},policy_bulletins:[]};
-   const e=structuredClone(s.journal[0]);e.title=copy['ALLY-02-A'].name;
-   e.message=copy['ALLY-02-A'].desc.replace('{name}','Ari')+' '+copy['ALLY-02-A'].last;
+   s.day=6;s.stats.allies=0;
+   s.visual_content={edition:1,selections:{'ALLY-01/departure/6':'ALLY-01-A'},outcomes:{},policy_bulletins:[]};
+   const e=structuredClone(s.journal[0]);e.title=copy['ALLY-01-A'].name;
+   e.message=copy['ALLY-01-A'].desc.replace('{name}','Ari')+' '+copy['ALLY-01-A'].last;
    e.before=structuredClone(s.stats);e.before.allies=1;e.after=structuredClone(s.stats);e.resources=[];e.details=[];
    s.ally_notice=e;s.journal.push(e);
+  }
+  if(id==='safe'||id==='fees'){
+   const unit=id==='safe'?'ENC-C09-C':'ENC-C12-C';
+   const source=JSON.parse(readFileSync('../review/recovery/current-source-records.json','utf8')).units.find((u:any)=>u.id===unit);
+   s.current_encounter=JSON.parse(readFileSync('static/assets/data/game.json','utf8')).find((e:any)=>e.id===source.runtime_key);
+   s.day=6;s.last_encounter_driving_minutes=300;s.driving_minutes_total=300;
+   s.visual_content={edition:1,selections:{[`${unit.slice(0,-2)}/road/300`]:unit},outcomes:{},policy_bulletins:[]};
   }
   if(id==='trade'){
    const key=`ACT-BARTERTIRE/town/${s.route_services.stop}`;

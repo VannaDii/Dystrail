@@ -608,3 +608,8 @@ September 14 — standing crew transparency repair:
 - Integrated ALLY-01-A red-hat referral and ALLY-05-B milk-contact departure from existing 627×418 atlas cells. Live inset/phone labels in all 20 languages replace the baked symbols; no generation. Red-hat courtyard uses outdoor lighting; kitchen remains indoors.
 - Eight desktop/mobile notice flows preserved actual traveling crew, exact saved notice and one-time acknowledgement with zero/one outside ally remaining. Eighty language/device/panel layouts passed offline label and overflow checks. Final phone-cover correction passed EN/AR/TR checks on both devices, with rendered desktop/mobile inspection.
 - Broader translated-story coverage and small-label readability remain final acceptance items; this batch does not complete the feature.
+
+## Current preview refresh and care pose hold — 2026-09-24
+
+- Refreshed both existing preview sheets from baa7fdb/build a866023f15d923d8 with eight actual game captures each, adding the selected safe and fee panels and the retained red-hat ally scene. Both capture projects and sheet image/overflow checks passed; complete sheets reviewed. These remain progress previews, not final acceptance.
+- CARE-07-A retained laptop/table background has all five work props, but the existing Unwell pose produced a head-peeking composition behind the table despite passing state tests. Reverted the runtime trial and rebuilt the stable version. Preserved one rejected capture in held-compositions for review; no generated replacement. A coherent seated/slumped actual-traveler pose remains unresolved.
