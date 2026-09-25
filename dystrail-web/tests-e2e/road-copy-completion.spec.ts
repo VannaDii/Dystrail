@@ -41,9 +41,9 @@ test('reviewed road settings follow the current variant before and after its cho
  base.stats={...base.stats,supplies:10,hp:8,sanity:8,morale:8,credibility:8};base.budget_cents=10000;base.budget=100;base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
  const groups:Record<string,string[]>={
   'enc-motel':['S27-B'],
-  'enc-cafe':['C10-A','C12-A','C14-C','C16-A','D01-A','D01-B','D05-B','D05-C','D12-B','S08-A','S08-B','S16-A','C13-C','D03-C','S05-C','C12-B','D11-B'],
-  'enc-library':['C15-C','C17-C','D07-C','S02-B','S06-A','S29-A'],
-  'enc-service-counter':['C11-B','D07-B','D10-A','S06-B','S11-C','S19-A','S25-A','S27-A','D06-A','D09-B','D11-C','S21-A','S21-C','S34-A'],
+  'enc-cafe':['C10-A','C12-A','C14-C','C16-A','D01-A','D01-B','D05-B','D05-C','D12-B','S08-A','S08-B','S16-A','C13-C','D03-C','S05-C','C12-B','D11-B','C11-C','D01-C','D04-C','C13-B','S31-C'],
+  'enc-library':['C15-C','C17-C','D07-C','S02-B','S06-A','S29-A','S11-B','S18-A','S18-C'],
+  'enc-service-counter':['C11-B','D07-B','D10-A','S06-B','S11-C','S19-A','S25-A','S27-A','D06-A','D09-B','D11-C','S21-A','S21-C','S34-A','C09-B','C13-A','D03-B','D04-A','D04-B','D05-A','D08-C','D10-C','S21-B','S22-A','S22-C','S25-B','S25-C','S27-C','S28-B','S29-B','S29-C','S31-A','S31-B','S32-C'],
   'enc-service':['S01-B','S07-B','S33-C','D13-C'],
   'enc-rest-area':['D03-A','D06-C','D07-A','D09-C','D11-A'],
   'enc-community':['C15-A','C15-B','C17-A','C17-B','S02-A','S02-C','S15-C','S20-A','S20-C'],
@@ -51,6 +51,7 @@ test('reviewed road settings follow the current variant before and after its cho
   'enc-museum':['S15-B','S23-C'],
  };
  for(const [setting,ids] of Object.entries(groups))for(const [index,id] of ids.entries()){
+  if(process.env.ROAD_REVIEW_UNITS&&!process.env.ROAD_REVIEW_UNITS.split(',').includes(id))continue;
   if(process.env.ROAD_MOTEL_ONLY==='1'&&setting!=='enc-motel')continue;
   if(process.env.COUNTER_MASK_ONLY==='1'&&(setting!=='enc-service-counter'||index!==0))continue;
   if(process.env.ROAD_COUNTER_ONLY==='1'&&!['enc-cafe','enc-service-counter'].includes(setting))continue;
@@ -66,7 +67,7 @@ test('reviewed road settings follow the current variant before and after its cho
   await page.locator('.encounter-choice button').first().click();await expect(page.locator('.outcome-copy')).toContainText(copy[unit].log_0);
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);expect(saved.party).toEqual(state.party);expect(saved.visual_content.outcomes[key]).toBe(0);
   await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);
-  if(index===0){await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath(`${setting}.png`),fullPage:true});await context.setOffline(false);}
+  if(index===0||process.env.ROAD_REVIEW_UNITS?.split(',').find(u=>ids.includes(u))===id){await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath(`${setting}.png`),fullPage:true});await context.setOffline(false);}
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }
 });

@@ -6,12 +6,14 @@ pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
         "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
         "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
         "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" |
-        "ENC-C13-C" | "ENC-D03-C" | "ENC-S05-C" | "ENC-C12-B" | "ENC-D11-B" => "enc-cafe",
+        "ENC-C13-C" | "ENC-D03-C" | "ENC-S05-C" | "ENC-C12-B" | "ENC-D11-B" |
+        "ENC-C11-C" | "ENC-D01-C" | "ENC-D04-C" | "ENC-C13-B" | "ENC-S31-C" => "enc-cafe",
         "ENC-C15-C" | "ENC-C17-C" | "ENC-D07-C" | "ENC-S02-B" |
-        "ENC-S06-A" | "ENC-S29-A" => "enc-library",
+        "ENC-S06-A" | "ENC-S29-A" | "ENC-S11-B" | "ENC-S18-A" | "ENC-S18-C" => "enc-library",
         "ENC-C11-B" | "ENC-D07-B" | "ENC-D10-A" | "ENC-S06-B" |
         "ENC-S11-C" | "ENC-S19-A" | "ENC-S25-A" | "ENC-S27-A" |
-        "ENC-D06-A" | "ENC-D09-B" | "ENC-D11-C" | "ENC-S21-A" | "ENC-S21-C" | "ENC-S34-A" => "enc-service-counter",
+        "ENC-D06-A" | "ENC-D09-B" | "ENC-D11-C" | "ENC-S21-A" | "ENC-S21-C" | "ENC-S34-A" |
+        "ENC-C09-B" | "ENC-C13-A" | "ENC-D03-B" | "ENC-D04-A" | "ENC-D04-B" | "ENC-D05-A" | "ENC-D08-C" | "ENC-D10-C" | "ENC-S21-B" | "ENC-S22-A" | "ENC-S22-C" | "ENC-S25-B" | "ENC-S25-C" | "ENC-S27-C" | "ENC-S28-B" | "ENC-S29-B" | "ENC-S29-C" | "ENC-S31-A" | "ENC-S31-B" | "ENC-S32-C" => "enc-service-counter",
         "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" | "ENC-D13-C" => "enc-service",
         "ENC-D03-A" | "ENC-D06-C" | "ENC-D07-A" | "ENC-D09-C" | "ENC-D11-A" => "enc-rest-area",
         "ENC-C15-A" | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" |

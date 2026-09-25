@@ -619,3 +619,9 @@ September 14 — standing crew transparency repair:
 - Bound ENC-S27-B to the retained motel instead of inherited scenery. Build and desktop/mobile choice, crew, framing and offline checks passed; both rendered outcomes reviewed.
 - Repaired 16 character-split care labels in editable_overlays. Verified the original source paragraphs and every other field in all 644 records stayed unchanged; the 36 mechanics-dependent units remain inactive. This fixes the inventory, not missing label rendering.
 - Enumerated the 103 active road variants still relying on historical scene routing in the existing review ledger. There are also 60 explicit shared bindings, 28 dedicated bindings and four explicit held-art fallbacks. These counts do not constitute artwork acceptance. Review the explicit remaining list by compatible setting batches.
+
+## Diner, book-room and retail contexts — 2026-09-24
+
+- Added 28 explicit current-story bindings to the retained café, book-room and shared counter. These are shared dialogue settings; required socket/place-setting/sandwich/shelf/mug gags retain their existing incomplete or held status. No generation.
+- Build passed; 56 desktop/mobile offer/outcome flows across the 28 variants passed, preserving crew and checking representative offline reload, 16:9 framing and document width. Representative café, library and counter captures reviewed.
+- Road routing audit now has 88 explicit shared bindings, 28 dedicated panels, four explicit held fallbacks and 75 historical assignments still requiring review. Counts are not final art acceptance.

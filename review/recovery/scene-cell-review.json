@@ -9569,7 +9569,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -9580,7 +9580,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-C09-C",
@@ -9833,7 +9834,8 @@
         "cell": 3,
         "status": "held_for_user_review",
         "finding": "Duplex wall outlet visibly leaves another socket available. This undermines competition for the sole socket. Do not bind this panel as accepted art; no automatic retry."
-      }
+      },
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-C12-A",
@@ -9930,7 +9932,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -9941,7 +9943,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-C13-B",
@@ -9953,7 +9956,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -9964,7 +9967,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-C13-C",
@@ -10486,7 +10490,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D02-A",
@@ -10591,7 +10596,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -10602,7 +10607,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D03-C",
@@ -10638,7 +10644,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -10649,7 +10655,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D04-B",
@@ -10661,7 +10668,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -10672,7 +10679,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D04-C",
@@ -10709,7 +10717,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D05-A",
@@ -10721,7 +10730,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -10732,7 +10741,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D05-B",
@@ -10994,7 +11004,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11005,7 +11015,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D09-A",
@@ -11148,7 +11159,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11159,7 +11170,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-D11-A",
@@ -12225,7 +12237,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12236,7 +12248,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S11-C",
@@ -12799,7 +12812,8 @@
         ],
         "rig": "room",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S18-B",
@@ -12834,7 +12848,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12845,7 +12859,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S19-A",
@@ -13074,7 +13089,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S21-C",
@@ -13109,7 +13125,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13120,7 +13136,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S22-B",
@@ -13169,7 +13186,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13180,7 +13197,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S23-A",
@@ -13412,7 +13430,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13423,7 +13441,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S25-C",
@@ -13435,7 +13454,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13446,7 +13465,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S26-A",
@@ -13603,7 +13623,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13614,7 +13634,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S28-A",
@@ -13649,7 +13670,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13660,7 +13681,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S28-C",
@@ -13719,7 +13741,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13730,7 +13752,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S29-C",
@@ -13742,7 +13765,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13753,7 +13776,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S30-A",
@@ -13848,7 +13872,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13859,7 +13883,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S31-B",
@@ -13871,7 +13896,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13882,7 +13907,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S31-C",
@@ -13894,7 +13920,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13905,7 +13931,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S32-A",
@@ -13977,7 +14004,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -13988,7 +14015,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
     },
     {
       "unit": "ENC-S33-A",
@@ -20323,7 +20351,7 @@
   "road_binding_audit": {
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
-    "explicit_shared_units": 60,
+    "explicit_shared_units": 88,
     "dedicated_units": 28,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
@@ -20333,30 +20361,18 @@
     ],
     "historical_fallback_review_required": [
       "ENC-C09-A",
-      "ENC-C09-B",
       "ENC-C11-A",
-      "ENC-C11-C",
-      "ENC-C13-A",
-      "ENC-C13-B",
       "ENC-C14-B",
       "ENC-C16-C",
       "ENC-C18-B",
-      "ENC-D01-C",
       "ENC-D02-A",
       "ENC-D02-B",
       "ENC-D02-C",
-      "ENC-D03-B",
-      "ENC-D04-A",
-      "ENC-D04-B",
-      "ENC-D04-C",
-      "ENC-D05-A",
       "ENC-D06-B",
       "ENC-D08-A",
       "ENC-D08-B",
-      "ENC-D08-C",
       "ENC-D09-A",
       "ENC-D10-B",
-      "ENC-D10-C",
       "ENC-D12-A",
       "ENC-D13-B",
       "ENC-S01-A",
@@ -20380,7 +20396,6 @@
       "ENC-S10-B",
       "ENC-S10-C",
       "ENC-S11-A",
-      "ENC-S11-B",
       "ENC-S12-A",
       "ENC-S12-B",
       "ENC-S12-C",
@@ -20396,47 +20411,32 @@
       "ENC-S17-A",
       "ENC-S17-B",
       "ENC-S17-C",
-      "ENC-S18-A",
       "ENC-S18-B",
-      "ENC-S18-C",
       "ENC-S19-B",
       "ENC-S19-C",
       "ENC-S20-B",
-      "ENC-S21-B",
-      "ENC-S22-A",
       "ENC-S22-B",
-      "ENC-S22-C",
       "ENC-S23-A",
       "ENC-S23-B",
       "ENC-S24-A",
       "ENC-S24-B",
       "ENC-S24-C",
-      "ENC-S25-B",
-      "ENC-S25-C",
       "ENC-S26-A",
       "ENC-S26-B",
       "ENC-S26-C",
-      "ENC-S27-C",
       "ENC-S28-A",
-      "ENC-S28-B",
       "ENC-S28-C",
-      "ENC-S29-B",
-      "ENC-S29-C",
       "ENC-S30-A",
       "ENC-S30-B",
       "ENC-S30-C",
-      "ENC-S31-A",
-      "ENC-S31-B",
-      "ENC-S31-C",
       "ENC-S32-A",
       "ENC-S32-B",
-      "ENC-S32-C",
       "ENC-S33-A",
       "ENC-S33-B",
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 103,
+    "remaining_count": 75,
     "requirement": "Every remaining historical mapping must be checked against the current source location; compatible reuse must be explicit, mismatches remain incomplete. Do not count inherited runtime scenery as integration."
   },
   "motel_context_checkpoint": {
@@ -20446,6 +20446,57 @@
       "Desktop/mobile offer and outcome use the motel cell with 16:9 framing",
       "Actual choice, crew continuity, offline reload and document-width checks passed",
       "Desktop/mobile outcome captures reviewed"
+    ],
+    "new_images": 0
+  },
+  "diner_books_retail_checkpoint": {
+    "units": [
+      "ENC-C11-C",
+      "ENC-D01-C",
+      "ENC-D04-C",
+      "ENC-S11-B",
+      "ENC-S18-A",
+      "ENC-S18-C",
+      "ENC-C09-B",
+      "ENC-C13-A",
+      "ENC-D03-B",
+      "ENC-D04-A",
+      "ENC-D04-B",
+      "ENC-D05-A",
+      "ENC-D08-C",
+      "ENC-D10-C",
+      "ENC-S21-B",
+      "ENC-S22-A",
+      "ENC-S22-C",
+      "ENC-S25-B",
+      "ENC-S25-C",
+      "ENC-S27-C",
+      "ENC-S28-B",
+      "ENC-S29-B",
+      "ENC-S29-C",
+      "ENC-S31-A",
+      "ENC-S31-B",
+      "ENC-S32-C",
+      "ENC-C13-B",
+      "ENC-S31-C"
+    ],
+    "scope": "Shared café, book-room and counter contexts for dialogue-led stories; does not illustrate missing essential props",
+    "essential_gags_still_incomplete": [
+      "ENC-C11-C",
+      "ENC-D01-C",
+      "ENC-D04-C",
+      "ENC-S18-A",
+      "ENC-S21-B"
+    ],
+    "verification": [
+      "Build passed for diner/book-room batch",
+      "12 diner/book-room desktop/mobile offer/outcome flows passed; no crew mutation and representative offline reload verified",
+      "Retail/café build passed and 44 additional desktop/mobile offer/outcome flows passed, including representative offline reloads and unchanged crew",
+      "Representative café, book-room and counter captures reviewed; existing 16:9 framing and bottom-left captions retained"
+    ],
+    "remaining": [
+      "Required gag compositions retain their existing production/hold status",
+      "Generic counter reuse does not claim exact shop equipment or signage"
     ],
     "new_images": 0
   }
