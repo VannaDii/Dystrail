@@ -39,6 +39,16 @@ pub(super) fn encounter_setting(
     hour: u8,
     region: Option<Region>,
 ) -> Option<(&'static str, u8, u8, u8)> {
+    if name == "enc-civic-exterior" {
+        return Some(("journey-settings-v1", 2, 3, 2));
+    }
+    if name == "enc-campground" {
+        return Some(match region {
+            Some(Region::Southwest) => ("western-settings-v1", 2, 3, 4),
+            Some(Region::MountainWest) => ("western-settings-v1", 2, 3, 5),
+            _ => ("journey-settings-v1", 2, 3, 3),
+        });
+    }
     let interior = match name {
         "enc-motel" => Some(0),
         "enc-cafe" => Some(1),

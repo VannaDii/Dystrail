@@ -2,7 +2,9 @@
 /// Reviewed current variants override the historical runtime event's location.
 pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
     Some(match id {
-        "ENC-S27-B" => "enc-motel",
+        "ENC-S27-B" | "ENC-S10-C" => "enc-motel",
+        "ENC-S04-B" | "ENC-S07-A" => "enc-campground",
+        "ENC-D02-A" | "ENC-D12-A" => "enc-civic-exterior",
         "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
         "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
         "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" |
@@ -31,7 +33,7 @@ pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
             "enc-farm-office" | "enc-service-counter"))
     }).map(|name| match name {
         "enc-service" | "enc-community" | "enc-civic" => "2",
-        "enc-rest-area" => "2.25",
+        "enc-rest-area" | "enc-campground" | "enc-civic-exterior" => "2.25",
         _ => "1.7777778",
     })
 }

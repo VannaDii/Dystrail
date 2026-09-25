@@ -10503,7 +10503,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -10514,7 +10514,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-civic-exterior. Dialogue carries the satire; optional source prop suggestions remain preserved, not claimed illustrated."
     },
     {
       "unit": "ENC-D02-B",
@@ -11253,7 +11254,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11264,7 +11265,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-civic-exterior. Dialogue carries the satire; optional source prop suggestions remain preserved, not claimed illustrated."
     },
     {
       "unit": "ENC-D12-B",
@@ -11671,7 +11673,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11682,7 +11684,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-campground. Dialogue carries the satire; optional source prop suggestions remain preserved, not claimed illustrated."
     },
     {
       "unit": "ENC-S04-C",
@@ -11872,7 +11875,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -11883,7 +11886,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-campground. Dialogue carries the satire; optional source prop suggestions remain preserved, not claimed illustrated."
     },
     {
       "unit": "ENC-S07-B",
@@ -12177,7 +12181,7 @@
       "candidate_sha256": null,
       "native_canvas": null,
       "native_cell_xywh": null,
-      "decision": "shared_context_candidate_unselected",
+      "decision": "shared_context_selected",
       "finding": "The policy joke and offer can be communicated by the preserved dialogue in a suitable shared setting. Retain the actual task context and available choices; optional source props do not individually require new paintings. Choose a context that does not contradict the setting, activity or current outcome.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
@@ -12188,7 +12192,8 @@
       "staging_scope_resolved": true,
       "production_route": "shared_context_layout",
       "shared_context_binding": "actual_region_context",
-      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work."
+      "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
+      "integration_status": "Explicit current-variant shared setting: enc-motel. Dialogue carries the satire; optional source prop suggestions remain preserved, not claimed illustrated."
     },
     {
       "unit": "ENC-S11-A",
@@ -20351,7 +20356,7 @@
   "road_binding_audit": {
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
-    "explicit_shared_units": 88,
+    "explicit_shared_units": 93,
     "dedicated_units": 28,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
@@ -20365,7 +20370,6 @@
       "ENC-C14-B",
       "ENC-C16-C",
       "ENC-C18-B",
-      "ENC-D02-A",
       "ENC-D02-B",
       "ENC-D02-C",
       "ENC-D06-B",
@@ -20373,7 +20377,6 @@
       "ENC-D08-B",
       "ENC-D09-A",
       "ENC-D10-B",
-      "ENC-D12-A",
       "ENC-D13-B",
       "ENC-S01-A",
       "ENC-S01-C",
@@ -20381,12 +20384,10 @@
       "ENC-S03-B",
       "ENC-S03-C",
       "ENC-S04-A",
-      "ENC-S04-B",
       "ENC-S04-C",
       "ENC-S05-A",
       "ENC-S05-B",
       "ENC-S06-C",
-      "ENC-S07-A",
       "ENC-S07-C",
       "ENC-S08-C",
       "ENC-S09-A",
@@ -20394,7 +20395,6 @@
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S10-B",
-      "ENC-S10-C",
       "ENC-S11-A",
       "ENC-S12-A",
       "ENC-S12-B",
@@ -20436,7 +20436,7 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 75,
+    "remaining_count": 70,
     "requirement": "Every remaining historical mapping must be checked against the current source location; compatible reuse must be explicit, mismatches remain incomplete. Do not count inherited runtime scenery as integration."
   },
   "motel_context_checkpoint": {
@@ -20499,5 +20499,22 @@
       "Generic counter reuse does not claim exact shop equipment or signage"
     ],
     "new_images": 0
+  },
+  "outdoor_context_checkpoint": {
+    "units": {
+      "ENC-S04-B": "enc-campground",
+      "ENC-S07-A": "enc-campground",
+      "ENC-D02-A": "enc-civic-exterior",
+      "ENC-D12-A": "enc-civic-exterior",
+      "ENC-S10-C": "enc-motel"
+    },
+    "scope": "Reuse retained campground, courthouse square and motel settings for dialogue-led encounters. Campgrounds use the existing regional campsite cells.",
+    "verification": [
+      "Build passed",
+      "Five variants on desktop and mobile: ten offer/outcome flows passed, crew unchanged, representative offline reloads passed",
+      "Campground mobile and courthouse desktop captures reviewed; wide framing and bottom-left captions preserved"
+    ],
+    "new_images": 0,
+    "remaining": "Optional props remain source suggestions. Remaining historical assignments and essential-gag holds are not accepted by these checks."
   }
 }
