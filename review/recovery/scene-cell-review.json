@@ -9815,19 +9815,20 @@
         752,
         496
       ],
-      "decision": "visual_gag_component_required",
+      "decision": "reuse_with_layers",
       "finding": "Recovered freezer atlas directly inspected: unplugged freezer, melting demonstration ice, empty tray and two external locals convey the overhead gag. Reuse the offer panel; the extra fan is optional under approved selective staging. Never show paid/moved outcomes before success. No obvious religious symbols. Crop excludes the white grid divider; preserve native aspect.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
-      "production_authorized": false,
+      "production_authorized": true,
       "generation_attempts_authorized": 0,
-      "remaining_gate": "Recover suitable settings/poses/props first; specify exact dimensions and placement for any necessary new image. Approval required before production; at most one attempt per necessary image, never an automatic retry.",
+      "remaining_gate": "Offer scene uses unchanged retained art and live English label. Final source-prop and locale review remain open; no new generation.",
       "composition_family": "overhead_freezer",
       "staging_scope_resolved": true,
       "production_route": "reuse_retained",
-      "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
-      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
+      "routing_review_status": "Retained primary freezer-and-ice joke integrated; historical runtime fallback no longer used.",
+      "routing_gap": "Secondary cost-sheet/chair props and non-English narrative/overlay translations remain for final acceptance.",
+      "integration_status": "Retained 752x496 offer cell bound to saved ENC-C11-A and all three committed choices. Same offer art persists through outcomes; editable OVERHEAD label, bottom-left caption, desktop/mobile and offline checks passed. Cost sheets and empty chairs are described in dialogue but not illustrated."
     },
     {
       "unit": "ENC-C11-B",
@@ -20523,7 +20524,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 108,
-    "dedicated_units": 28,
+    "dedicated_units": 29,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20531,7 +20532,6 @@
       "ENC-C08-A"
     ],
     "historical_fallback_review_required": [
-      "ENC-C11-A",
       "ENC-C14-B",
       "ENC-C16-C",
       "ENC-C18-B",
@@ -20587,8 +20587,8 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 55,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 31 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 54,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 30 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20616,7 +20616,6 @@
       "ENC-S34-C": "Baby-goods warehouse"
     },
     "reviewed_essential_gag_gaps": [
-      "ENC-C11-A",
       "ENC-C16-C",
       "ENC-C18-B",
       "ENC-D06-B",
@@ -20751,7 +20750,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "55 inherited road assignments are explicit gaps, not accepted shared scenes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "54 inherited road assignments remain explicit gaps: 24 location contexts and 30 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",

@@ -1791,6 +1791,7 @@
     },
     "ENC-C11-A": {
       "name": "The cost of the plug",
+      "overlay_0": "OVERHEAD",
       "desc": "Your crew stops at a public briefing on the Trump administration’s proposed NIH overhead cap. A researcher has brought itemized costs, chairs, and an unplugged freezer to explain what “overhead” pays for. The demonstration ice is providing a floor-level impact assessment.",
       "choice_0": "Check the cost breakdown",
       "log_0": "You verify the figures with a headache. The researcher adds electricity to the example. The ice has already submitted its objection.",

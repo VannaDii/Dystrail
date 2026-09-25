@@ -101,3 +101,32 @@ test('custom imported wording survives a stale shipped variant identity',async({
  expect(saved.journal.at(-1).title).toBe('Imported community visit');
  expect(saved.visual_content.outcomes?.['ENC-C07/road/300']).toBeUndefined();
 });
+
+test('retained overhead demonstration follows the selected road encounter',async({page,context},info)=>{
+ test.setTimeout(90000);
+ await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ const event=bank.find((e:any)=>e.id==='classic_press_briefing');
+ const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy['ENC-C11-A'];
+ const base=await baseline(page);base.seed=42;base.current_encounter=event;base.last_encounter_driving_minutes=300;base.driving_minutes_total=300;
+ for(let choice=0;choice<event.choices.length;choice++){
+  const state=structuredClone(base);state.visual_content={edition:1,selections:{'ENC-C11/road/300':'ENC-C11-A'}};
+  await importState(page,state);
+  await expect(page.locator('#screen-title')).toContainText(copy.name);
+  const scene=page.locator('.scene-atlas[data-atlas="road-c11-a-20260914"]');
+  await expect(scene).toHaveAttribute('data-cell','0');
+  await page.locator('image[href*="road-c11-a-20260914.png"]').evaluate(async image=>{
+   const response=await fetch(image.getAttribute('href')!);if(!response.ok)throw Error('Retained scene unavailable');
+  });
+  await expect(scene.locator('.road-prop-lettering')).toContainText(copy.overlay_0);
+  if(choice===0)await page.locator('.world-view').screenshot({path:info.outputPath('overhead-offer.png'),animations:'disabled'});
+  await page.locator('.encounter-choice button').nth(choice).click();
+  await expect(scene).toHaveAttribute('data-cell','0');
+  await expect(page.locator('.outcome-copy')).toContainText(copy[`log_${choice}`]);
+  await openMenu(page);await page.getByRole('button',{name:'Save',exact:true}).click();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.save.default')!));
+  expect(saved.visual_content.outcomes['ENC-C11/road/300']).toBe(choice);
+ }
+ await context.setOffline(true);await page.reload();await waitForLaunch(page);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});

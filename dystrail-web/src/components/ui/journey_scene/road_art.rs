@@ -34,6 +34,7 @@ pub fn supported(unit: &str) -> bool {
             | "ENC-C07-B"
             | "ENC-C08-B"
             | "ENC-C08-C"
+            | "ENC-C11-A"
     )
 }
 
@@ -53,6 +54,7 @@ pub fn is_indoors(unit: &str) -> bool {
             | "ENC-C07-A"
             | "ENC-C07-B"
             | "ENC-C08-B"
+            | "ENC-C11-A"
     )
 }
 
@@ -71,6 +73,7 @@ pub fn label_description(stage: &SceneStage) -> Option<String> {
         "ENC-C07-B" | "ENC-C08-B" | "ENC-C08-C" | "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C"
         | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
         | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
+        "ENC-C11-A" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };
@@ -111,6 +114,16 @@ fn labels(unit: &str, worked: bool) -> Html {
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
     if let Some((sheet, cell)) = selected_cell(unit) { return Some(render_selected(unit,sheet,cell)); }
+    if unit == "ENC-C11-A" {
+        // The retained offer cell shows the demonstration before any action.
+        // All outcomes keep that same scene; the committed result is in the narrative.
+        return Some(html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas="road-c11-a-20260914" data-cell="0" viewBox="8 8 752 496" preserveAspectRatio="xMidYMid meet">
+            <image href={crate::paths::asset_path("static/img/scenes-v2/road-c11-a-20260914.png")} width="1536" height="1024"/>
+            <foreignObject class="road-prop-lettering" x="622" y="132" width="126" height="82">
+                <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 17px/1.1 sans-serif;overflow-wrap:anywhere">{crate::i18n::t("encounter_copy.ENC-C11-A.overlay_0")}</div>
+            </foreignObject>
+        </svg>});
+    }
     if unit.starts_with("ENC-C07-") || unit.starts_with("ENC-C08-") {
         return Some(render_c07_c08(unit, choice));
     }
@@ -177,6 +190,7 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
+        "ENC-C11-A" => "752 / 496",
         "ENC-C02-B" => "760 / 308",
         "ENC-C02-C" => "760 / 326",
         "ENC-C08-C" => {
