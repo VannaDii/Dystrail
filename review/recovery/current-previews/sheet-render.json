@@ -1,10 +1,10 @@
 {
-  "revision": "baa7fdb · build a866023f15d923d8",
+  "revision": "9fb511e · build f56ca63e5d66ddae018e",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 3036,
+      "height": 4129,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -49,6 +49,24 @@
           "complete": true
         },
         {
+          "src": "desktop/pantry/shot-0.png",
+          "width": 1230,
+          "height": 511,
+          "complete": true
+        },
+        {
+          "src": "desktop/cleanup/shot-0.png",
+          "width": 1230,
+          "height": 511,
+          "complete": true
+        },
+        {
+          "src": "desktop/crossing/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
           "src": "desktop/ending/shot-0.png",
           "width": 1230,
           "height": 382,
@@ -59,7 +77,7 @@
     {
       "device": "mobile",
       "width": 1280,
-      "height": 2272,
+      "height": 2790,
       "images": [
         {
           "src": "mobile/road/shot-0.png",
@@ -101,6 +119,24 @@
           "src": "mobile/trade/shot-0.png",
           "width": 1024,
           "height": 932,
+          "complete": true
+        },
+        {
+          "src": "mobile/pantry/shot-0.png",
+          "width": 1024,
+          "height": 819,
+          "complete": true
+        },
+        {
+          "src": "mobile/cleanup/shot-0.png",
+          "width": 1024,
+          "height": 819,
+          "complete": true
+        },
+        {
+          "src": "mobile/crossing/shot-0.png",
+          "width": 1024,
+          "height": 1166,
           "complete": true
         },
         {

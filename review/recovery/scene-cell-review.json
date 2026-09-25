@@ -20081,36 +20081,20 @@
     "image_generation_calls": 0
   },
   "preview_checkpoint": {
-    "revision": "baa7fdb",
-    "build": "a866023f15d923d8",
-    "status": "Refreshed work-in-progress sheets; not final acceptance",
-    "frames": [
-      "road",
-      "night",
-      "town",
-      "ally",
-      "safe",
-      "fees",
-      "trade",
-      "ending"
+    "status": "Current progress sheets; not release acceptance",
+    "source_revision": "9fb511e",
+    "build": "f56ca63e5d66ddae018e",
+    "frames_per_device": 11,
+    "viewports": {
+      "desktop": 1440,
+      "mobile": 390
+    },
+    "sheets": [
+      "current-previews/desktop-preview-sheet.png",
+      "current-previews/mobile-preview-sheet.png"
     ],
-    "desktop_viewport": 1440,
-    "mobile_viewport": 390,
-    "verification": [
-      "Both capture projects passed (16 frames)",
-      "Sheet renderer verified all eight source captures loaded per device and no sheet overflow",
-      "Both complete sheets visually reviewed"
-    ],
-    "outputs": [
-      "review/recovery/current-previews/desktop-preview-sheet.png",
-      "review/recovery/current-previews/mobile-preview-sheet.png"
-    ],
-    "remaining": [
-      "Full interface/choices and current combined save/replay/offline acceptance",
-      "Explicit remaining artwork and translation items",
-      "Rejected care composition excluded from captured build"
-    ],
-    "new_images": 0
+    "verification": "22 current browser captures passed; all six standing cast sheets fetched successfully offline on desktop and mobile. Sheets contain raw browser captures; no image generation or raster editing.",
+    "scope": "Road, night, town, ally, selected satire props, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
   },
   "town_qualitative_checkpoint": {
     "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",
@@ -20948,5 +20932,15 @@
       "/tmp/dystrail-french-ally-final"
     ],
     "limits": "This closes the French ally-copy gap only. Ten variants in the other previously incomplete languages and twelve mismatched retained ally scenes remain open. No new artwork generated."
+  },
+  "offline_asset_retirement_checkpoint": {
+    "source_revision": "9fb511e",
+    "build": "f56ca63e5d66ddae018e",
+    "before_mb": 237.8,
+    "after_mb": 222.6,
+    "assets": 171,
+    "change": "Thirteen unused legacy occupant and standing sheets moved unchanged from served static/img/journey to review/recovery/retained-unused-art. Current cast-v2 sheets and all referenced runtime images retained.",
+    "evidence": "Active Rust/CSS/JS/site reference inspection; build manifest includes six current cast sheets and excludes the thirteen moved files; desktop/mobile offline cast fetches and 22 rendered frames passed.",
+    "limitations": "A 15.2 MB reduction, not resolution of total delivery-performance acceptance. Remaining package size and final combined release checks still require assessment."
   }
 }

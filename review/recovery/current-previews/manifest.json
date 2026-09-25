@@ -1,5 +1,5 @@
 {
-  "revision": "baa7fdb · build a866023f15d923d8",
+  "revision": "9fb511e · build f56ca63e5d66ddae018e",
   "frames": [
     {
       "id": "road",
@@ -44,10 +44,28 @@
       "status": "Partial"
     },
     {
+      "id": "pantry",
+      "title": "Completed pantry work",
+      "note": "Retained sorting outcome after the actual activity succeeds. Offer-specific art remains incomplete.",
+      "status": "Partial"
+    },
+    {
+      "id": "cleanup",
+      "title": "Completed cleanup shift",
+      "note": "Cleaned dishes and empty runtime tip jar; cash, time and sanity follow the existing activity handler.",
+      "status": "Integrated"
+    },
+    {
+      "id": "crossing",
+      "title": "Concrete inspection",
+      "note": "Retained inspector over the current route. Four surviving occupants remain; departed and dead travelers are absent.",
+      "status": "Integrated"
+    },
+    {
       "id": "ending",
       "title": "Journey ending",
-      "note": "Recorded regional scene and ending copy, without the removed portrait inset.",
-      "status": "Integrated"
+      "note": "Recorded regional scene and ending copy; portrait inset removed. Ending-specific editorial props remain incomplete.",
+      "status": "Partial"
     }
   ]
 }
