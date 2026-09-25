@@ -27,7 +27,8 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Bound to saved outside-contact notice via ally_art; live editable labels in all supported languages; crew unchanged. Final release visual acceptance remains separate."
     },
     {
       "unit": "ALLY-01-B",
@@ -399,7 +400,8 @@
       "production_authorized": false,
       "generation_attempts_authorized": 0,
       "remaining_gate": "For changes, search other preserved candidates before specifying any new generation. For reuse, verify composed scene and obtain inventory approval.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "integration_status": "Bound to saved outside-contact notice via ally_art; live editable labels in all supported languages; crew unchanged. Final release visual acceptance remains separate."
     },
     {
       "unit": "ALLY-05-C",
@@ -20242,6 +20244,25 @@
       "These fixtures verify retained rooms, not acceptance of every current variant assigned to them",
       "Known historical fallback mismatches include C13-A shoe shop and C13-B catering depot inheriting radio-room art; context integration remains incomplete",
       "Radio desk sheet and media flip-chart retain faint paper marks; assess whether these are writing versus paper rules before claiming every raster surface is blank."
+    ],
+    "new_images": 0
+  },
+  "ally_retained_layers_checkpoint": {
+    "units": [
+      "ALLY-01-A",
+      "ALLY-05-B"
+    ],
+    "status": "Retained cells integrated with live editable inset/phone labels; no new images",
+    "verification": [
+      "Build passed",
+      "Eight notice/acknowledgement flows passed across desktop/mobile with zero or one ally remaining, unchanged crew and saved state, and offline reload",
+      "All 20 supported languages checked in both panels on desktop/mobile (80 label layouts), without overflow",
+      "Rendered red-hat desktop and Turkish mobile captures reviewed; phone cover widened following desktop review",
+      "Final widened phone: EN/AR/TR desktop/mobile checks passed, including acknowledgement, preserved crew/state and offline reload; English desktop and Arabic mobile captures reviewed."
+    ],
+    "remaining": [
+      "Native-language editorial review; broader vignette translation gaps remain",
+      "Final small-phone-label readability acceptance"
     ],
     "new_images": 0
   }

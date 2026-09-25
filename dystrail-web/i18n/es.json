@@ -2831,5 +2831,9 @@
       "activation": "The education department is eliminated. Officials promise to preserve learning. The exit sign has been assigned the remaining teaching hours.",
       "expiration": "The order ends. The exit sign returns to its specialist subject."
     }
+  },
+  "ally_art": {
+    "affiliate_link": "Enlace de afiliación",
+    "fda_operative": "¿Agente de la FDA?"
   }
 }

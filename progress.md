@@ -602,3 +602,9 @@ September 14 — standing crew transparency repair:
 - Added runtime blank covers for written notices/clipboards in four retained settings without modifying images or generating art. Covers share atlas coordinates, lighting and scene transforms.
 - Existing browser fixtures exercise each setting before a choice and after offline reload on desktop/mobile, preserving the crew. Visual review corrected two cover placements and removed an unnecessary garage-tool cover.
 - This does not accept all scene assignments: current shoe-shop/catering variants still inherit a radio room and remain integration gaps. Faint radio desk/flip-chart marks remain a separate final artwork review item.
+
+## Retained ally layers — 2026-09-24
+
+- Integrated ALLY-01-A red-hat referral and ALLY-05-B milk-contact departure from existing 627×418 atlas cells. Live inset/phone labels in all 20 languages replace the baked symbols; no generation. Red-hat courtyard uses outdoor lighting; kitchen remains indoors.
+- Eight desktop/mobile notice flows preserved actual traveling crew, exact saved notice and one-time acknowledgement with zero/one outside ally remaining. Eighty language/device/panel layouts passed offline label and overflow checks. Final phone-cover correction passed EN/AR/TR checks on both devices, with rendered desktop/mobile inspection.
+- Broader translated-story coverage and small-label readability remain final acceptance items; this batch does not complete the feature.

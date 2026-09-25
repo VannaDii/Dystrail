@@ -10,7 +10,7 @@ test('all ally vignettes match the approved source',()=>{
 test('ally notices preserve the traveling crew and acknowledge only once',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);
  for(let family=1;family<=6;family++)for(const variant of ['A','B','C'])for(const remaining of [0,1]){
-  const unit=`ALLY-0${family}-${variant}`;const s=structuredClone(base);s.seed=42;s.stats.allies=remaining;s.day=family===1?6:family-1;
+  const unit=`ALLY-0${family}-${variant}`;if(process.env.ALLY_PHONE_ONLY==='1'&&unit!=='ALLY-05-B')continue;if(process.env.ALLY_NEW_PANELS_ONLY==='1'&&!['ALLY-01-A','ALLY-05-B'].includes(unit))continue;const s=structuredClone(base);s.seed=42;s.stats.allies=remaining;s.day=family===1?6:family-1;
   s.visual_content={edition:1,selections:{[`ALLY-0${family}/departure/${s.day}`]:unit},outcomes:{},policy_bulletins:[]};
   const entry=structuredClone(s.journal[0]);entry.title=copy[unit].name;entry.message=copy[unit].desc.replace('{name}','Outside Contact')+(remaining===0?' '+copy[unit].last:'');
   entry.before=structuredClone(s.stats);entry.before.allies=remaining+1;entry.after=structuredClone(s.stats);entry.resources=[];entry.details=[];
@@ -19,16 +19,31 @@ test('ally notices preserve the traveling crew and acknowledge only once',async(
   await expect(page.getByText(entry.message,{exact:true})).toHaveCount(1);
   const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
   const before=await read();expect(before.party).toEqual(s.party);
-  const illustrated=['ALLY-02-A','ALLY-02-C','ALLY-04-B','ALLY-05-A'].includes(unit);
+  const illustrated=['ALLY-01-A','ALLY-02-A','ALLY-02-C','ALLY-04-B','ALLY-05-A','ALLY-05-B'].includes(unit);
   await expect(page.locator('[data-external-contact="true"]')).toHaveCount(illustrated?1:0);
   if(illustrated){
    await expect(page.locator('[data-ally-unit]')).toHaveAttribute('data-ally-unit',unit);
-   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
+   await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ALLY-01-A'?'false':'true');
    await expect(page.locator('.journey-scene .standing-member')).toHaveCount(0);
    if(remaining===0){
     await context.setOffline(true);await page.reload();await waitForLaunch(page);
     await expect(page.locator('[data-ally-unit]')).toHaveAttribute('data-ally-unit',unit);
-    await page.screenshot({path:info.outputPath(`${unit}.png`),fullPage:true});
+    await page.locator('.journey-scene').screenshot({path:info.outputPath(`${unit}.png`)});
+    if(['ALLY-01-A','ALLY-05-B'].includes(unit)){
+     const locales=['en','ar','bn','de','es','fr','hi','id','it','ja','jv','ko','mr','pa','pt','ru','ta','te','tr','zh'];
+     for(const lang of locales){
+      if(process.env.ALLY_PHONE_ONLY==='1'&&!['en','ar','tr'].includes(lang))continue;
+      await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+      const labels=JSON.parse(readFileSync(`i18n/${lang}.json`,'utf8')).ally_art;
+      await expect(page.locator('.ally-prop-label')).toHaveText(unit==='ALLY-01-A'?labels.affiliate_link:labels.fda_operative);
+      expect(await page.locator('.ally-prop-label').evaluate(el=>{
+       const box=el.getBoundingClientRect(),surface=el.closest('foreignObject')!.getBoundingClientRect();
+       return box.bottom<=surface.bottom+1&&box.right<=surface.right+1&&el.scrollWidth<=el.clientWidth+1;
+      }),`${unit}/${lang} label fits its surface`).toBe(true);
+      if(['ar','tr'].includes(lang))await page.locator('.journey-scene').screenshot({path:info.outputPath(`${unit}-${lang}.png`)});
+     }
+     await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+    }
     await context.setOffline(false);
    }
   }

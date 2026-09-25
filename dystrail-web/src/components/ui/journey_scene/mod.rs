@@ -130,7 +130,7 @@ pub fn journey_scene(p: &Props) -> Html {
         crate::game::weather::Weather::Smoke => "smoke",
     });
     let light = lighting::profile(p.hour);
-    let indoors = town_art::context(&p.stage).map(|(_, indoors)| indoors).or_else(|| ally_art::context(&p.stage).map(|_| true)).or_else(|| care_art::indoors(&p.stage)).unwrap_or_else(|| road_art::context(&p.stage).map_or_else(
+    let indoors = town_art::context(&p.stage).map(|(_, indoors)| indoors).or_else(|| ally_art::context(&p.stage).map(|(unit, _, _)| unit != "ALLY-01-A")).or_else(|| care_art::indoors(&p.stage)).unwrap_or_else(|| road_art::context(&p.stage).map_or_else(
         || name.is_some_and(composition::is_indoors),
         |(unit, _)| road_art::is_indoors(unit),
     ));
