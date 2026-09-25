@@ -2195,33 +2195,98 @@
       "log_0": "Salís de San Francisco. La historia oficial admite mejoras, algo incómodo para quienes la editan."
     },
     "ENC-C09-C": {
-      "overlay_0": "COMENTARIOS PÚBLICOS"
+      "overlay_0": "COMENTARIOS PÚBLICOS",
+      "name": "Mensajes para el público",
+      "desc": "Una biblioteca organiza una demostración de seguridad pública tras la filtración de mensajes de Signal entre funcionarios de Trump. Invitan a tu grupo, que se ha detenido allí, a grabarla o a mover armarios a cambio de comida. La bibliotecaria ha metido el buzón de comentarios públicos en una caja fuerte. «No conseguimos hacer llegar nada a su chat».",
+      "choice_0": "Grabar la demostración de seguridad",
+      "log_0": "Grabáis la demostración con precisión. La bibliotecaria abre la caja fuerte para recibir una queja sobre los baches. Requiere más pasos que entrar en aquel chat.",
+      "choice_1": "Mover armarios a cambio de comida",
+      "log_1": "Movéis armarios hasta que os duele la espalda y conseguís algo de comida. La opinión pública ya está a salvo de cualquiera que intente escucharla.",
+      "choice_2": "Ver cómo funciona el buzón",
+      "log_2": "Os reís cuando la bibliotecaria intenta meter una postal en la caja fuerte. Acepta preocupaciones de seguridad nacional, pero se atasca con una marquesina de autobús que falta."
     },
     "ENC-C10-B": {
-      "overlay_0": "ELECCIÓN DEL PACIENTE"
+      "overlay_0": "ELECCIÓN DEL PACIENTE",
+      "name": "La cama que encoge",
+      "desc": "En una recaudación de fondos junto a la carretera, unas enfermeras muestran los recortes previstos a Medicaid por la ley de 2025 con una cama ajustable. Piden a tu grupo que aporte un testimonio o ayude a moverla. Una voluntaria acorta el colchón y deja la almohada, rotulada «elección del paciente», espléndidamente mullida.",
+      "choice_0": "Añadir vuestro testimonio al registro",
+      "log_0": "Añadís vuestra experiencia al registro de las enfermeras. La voluntaria pregunta si preferís dejar la cabeza o los pies fuera de la cobertura del modelo.",
+      "choice_1": "Ayudar a mover la cama de muestra",
+      "log_1": "Cargáis con la cama hasta que os duelen los brazos. Todos se ríen cuando la almohada se cae. La elección del paciente ha sido la primera en salir del edificio."
     },
     "ENC-C10-C": {
-      "overlay_0": "DECLARACIÓN DE REGALO"
+      "overlay_0": "DECLARACIÓN DE REGALO",
+      "name": "Declare su aeronave",
+      "desc": "Unos trabajadores que protestan contra la prohibición de propinas de su empresa han construido un avión de cartón después de que el Pentágono aceptara el avión de Catar. Detienen a tu grupo para pedir testimonio o ayuda para empujarlo. Las alas están hechas con declaraciones de regalos rechazadas. Una era sobre una galleta.",
+      "choice_0": "Registrar lo que cuentan los trabajadores",
+      "log_0": "Registráis la norma de la empresa y el relato de los trabajadores. La declaración de la galleta incluye su valor aproximado. Nadie ha rellenado la altitud de crucero.",
+      "choice_1": "Ayudar a empujar el avión de cartón",
+      "log_1": "Empujáis hasta que os duele el hombro y la multitud aplaude. Un bote de propinas rueda por la pista en clase ejecutiva."
     },
     "ENC-C12-C": {
       "overlay_0": "PRECIO HONESTO",
       "overlay_1": "$79",
-      "overlay_2": "SERVICIO OBLIGATORIO: $40"
+      "overlay_2": "SERVICIO OBLIGATORIO: $40",
+      "name": "El total, más lo demás",
+      "desc": "La FTC exige que los cargos obligatorios de alojamiento figuren en el precio inicial. En un motel de carretera, el dueño te enseña su presupuesto «honesto»: 79 $ por la habitación, más un cargo obligatorio de servicio de 40 $. Ha puesto HONESTO en letras enormes. El total sigue escondido.",
+      "choice_0": "Explicar el presupuesto en el vestíbulo",
+      "log_0": "Explicáis que el total que debe mostrarse desde el principio es de 119 $. Os duele la cabeza. El dueño pregunta si la FTC aceptará los 79 $ con una tipografía más sincera.",
+      "choice_1": "Repetir que la habitación cuesta solo 79 $",
+      "log_1": "Elogiáis el precio y dejáis de discutir. El dueño anuncia que viajeros independientes lo han verificado. Vuestro respaldo es lo primero por lo que no cobra un extra.",
+      "choice_2": "Descansar en la furgoneta",
+      "log_2": "Descansáis en la furgoneta. No cobra tasa de complejo turístico. Se disculpa por no ser un complejo turístico."
     },
     "ENC-C14-A": {
-      "overlay_0": "LIBERTAD FRENTE A LAS NORMAS LOCALES SOBRE EL CALOR"
+      "overlay_0": "LIBERTAD FRENTE A LAS NORMAS LOCALES SOBRE EL CALOR",
+      "name": "El gobierno del descanso",
+      "desc": "Tu grupo, acalorado y dolorido, se detiene junto a una protesta itinerante de techadores contra la prohibición en Florida de imponer normas locales sobre el calor. Los voluntarios tienen sombra y toallas, pero necesitan agua. Su exhibición muestra a un político celebrando la libertad frente a las normas bajo una sombrilla que sostiene otra persona.",
+      "choice_0": "Gastar algo de agua para refrescaros",
+      "log_0": "Gastáis algo de agua y os recuperáis a la sombra. Un voluntario escurre una toalla. La responsabilidad individual ha empapado el cubo.",
+      "choice_1": "Registrar el testimonio de los techadores",
+      "log_1": "Registráis la norma de Florida y el testimonio de los techadores. El político de cartón tiene sombrilla permanente; todos los demás se turnan para sostenerla.",
+      "choice_2": "Dejar agua para los trabajadores",
+      "log_2": "Dejáis algo de agua para los trabajadores. Una techadora la vierte en la nevera sin comprobar antes si el condado ha aprobado la compasión."
     },
     "ENC-C16-B": {
-      "overlay_0": "AMÉRICA"
+      "overlay_0": "AMÉRICA",
+      "name": "Una mano de pintura americana",
+      "desc": "Un club náutico que sigue el cambio de nombre del golfo impulsado por Trump necesita provisiones o ayuda para mover sus nuevos letreros. Hacen parar vuestra furgoneta y ofrecen comida a cambio de cargarlos. Un voluntario ha pintado «América» sobre un agujero de óxido. Sigue entrando la luz.",
+      "choice_0": "Donar materiales para los letreros",
+      "log_0": "Donáis provisiones y el club registra vuestra ayuda. El voluntario tapa el agujero. América deja por fin de silbar con el viento.",
+      "choice_1": "Mover los letreros a cambio de comida",
+      "log_1": "Conseguís comida y dolor de brazos al mover los letreros. El nombre anterior debajo está haciendo casi todo el trabajo estructural."
     },
     "ENC-D12-C": {
       "overlay_0": "PREMOM: ACUERDO CON LA FTC",
-      "overlay_1": "VÍAS LOCALES"
+      "overlay_1": "VÍAS LOCALES",
+      "name": "La pantalla es lo fácil de reparar",
+      "desc": "En un puesto de reparación de móviles, una clienta pregunta cómo borrar datos de fertilidad ya compartidos. El técnico señala el acuerdo de la FTC con Premom, echa purpurina en un ventilador de mesa y le entrega un recogedor. «Ahora pídeles que te la devuelvan».",
+      "choice_0": "Compartir comida y seguir sus indicaciones",
+      "log_0": "Compartís comida y seguís sus indicaciones directas para la ruta. Puede reparar la pantalla; el público que se ha reunido detrás pertenece a otro departamento.",
+      "choice_1": "Consultar el acuerdo antes de marcharos",
+      "log_1": "Recuperáis terreno y credibilidad. El técnico cambia una pantalla rota más rápido de lo que un anunciante olvida un secreto útil."
     },
     "ENC-D13-A": {
       "overlay_0": "DATOS ANÓNIMOS",
       "overlay_1": "ORDEN DE LA FTC SOBRE UBICACIONES SENSIBLES",
-      "overlay_2": "CARRETERA"
+      "overlay_2": "CARRETERA",
+      "name": "Puntos más pequeños, la misma clínica",
+      "desc": "La FTC prohibió a X-Mode vender datos de ubicación sensibles. En una cafetería de carretera, un promotor insiste en que los puntos de localización son anónimos. La camarera señala la clínica de enfrente. Él se ofrece a hacer los puntos más pequeños.",
+      "choice_0": "Seguir las indicaciones de la camarera",
+      "log_0": "Recuperáis terreno. Sus indicaciones llevan a la autopista; el mapa del promotor sigue intentando explicar por qué todo el mundo se detuvo junto a la clínica.",
+      "choice_1": "Esperar al carril de salida señalizado",
+      "log_1": "Recuperáis algo de terreno y despejáis la cabeza. Ella dobla el mapa del promotor hasta que su argumento es el punto más pequeño del pueblo."
+    },
+    "ENC-C11-A": {
+      "name": "El coste de lo indirecto",
+      "overlay_0": "GASTOS INDIRECTOS",
+      "desc": "Tu grupo se detiene en una charla pública sobre el límite a los gastos indirectos de los NIH propuesto por el gobierno de Trump. Una investigadora ha traído un desglose de costes, sillas y un congelador desenchufado para explicar qué pagan esos «gastos indirectos». El hielo de muestra ya está presentando una evaluación de impacto a ras de suelo.",
+      "choice_0": "Revisar el desglose de costes",
+      "log_0": "Comprobáis las cifras con dolor de cabeza. La investigadora añade la electricidad al ejemplo. El hielo ya ha presentado su objeción.",
+      "choice_1": "Sentaros mientras habla la investigadora",
+      "log_1": "Os sentáis y descansáis las piernas. La investigadora enchufa un ventilador sin hacer ruido. Los gastos indirectos mejoran enseguida las condiciones del contribuyente.",
+      "choice_2": "Guardar la estimación documentada",
+      "log_2": "Guardáis la estimación fechada y su condición de propuesta. La investigadora pone los papeles por encima del charco. Eso también son gastos indirectos."
     }
   },
   "play": {

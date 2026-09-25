@@ -1495,33 +1495,87 @@
       "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
     },
     "ENC-C09-C": {
-      "overlay_0": "COMMENTAIRES DU PUBLIC"
+      "overlay_0": "COMMENTAIRES DU PUBLIC",
+      "name": "Messages pour le public",
+      "desc": "Une bibliothèque organise une démonstration de sécurité publique après la fuite de messages Signal entre responsables de Trump. Elle invite votre équipe arrêtée là à filmer la scène ou à déplacer des armoires contre de la nourriture. La bibliothécaire a enfermé la boîte à commentaires du public dans un coffre. « Impossible de faire entrer quoi que ce soit dans leur conversation. »",
+      "choice_0": "Filmer la démonstration de sécurité",
+      "log_0": "Vous filmez la démonstration avec précision. La bibliothécaire ouvre le coffre pour une plainte sur les nids-de-poule. Il faut plus d’étapes que pour rejoindre leur conversation.",
+      "choice_1": "Déplacer des armoires contre un repas",
+      "log_1": "Vous déplacez des armoires jusqu’à avoir mal au dos et recevez de quoi manger. L’opinion publique est désormais protégée contre toute tentative de l’entendre.",
+      "choice_2": "Observer la boîte à commentaires",
+      "log_2": "Vous riez quand la bibliothécaire tente de glisser une carte postale dans le coffre. Il accepte les questions de sécurité nationale, mais bloque sur un abribus manquant."
     },
     "ENC-C10-B": {
-      "overlay_0": "CHOIX DU PATIENT"
+      "overlay_0": "CHOIX DU PATIENT",
+      "name": "Le lit qui rétrécit",
+      "desc": "Lors d’une collecte de fonds au bord de la route, des infirmières illustrent avec un lit réglable les réductions de Medicaid prévues par la loi de 2025. Elles demandent à votre équipe un témoignage ou un coup de main pour déplacer le lit. Une bénévole raccourcit le matelas tout en laissant l’oreiller « choix du patient » remarquablement gonflé.",
+      "choice_0": "Ajouter votre témoignage au dossier",
+      "log_0": "Vous ajoutez votre expérience au dossier des infirmières. La bénévole demande si vous préférez que la tête ou les pieds dépassent de la couverture du modèle.",
+      "choice_1": "Aider à déplacer le lit de démonstration",
+      "log_1": "Vous portez le lit jusqu’à en avoir mal aux bras. Tout le monde rit quand l’oreiller tombe. Le choix du patient a quitté la pièce en premier."
     },
     "ENC-C10-C": {
-      "overlay_0": "DÉCLARATION DE CADEAU"
+      "overlay_0": "DÉCLARATION DE CADEAU",
+      "name": "Veuillez déclarer votre avion",
+      "desc": "Des salariés qui protestent contre l’interdiction des pourboires chez leur employeur ont construit un avion en carton après l’acceptation par le Pentagone de l’avion du Qatar. Ils arrêtent votre équipe pour recueillir un témoignage ou un coup de main. Les ailes sont faites de déclarations de cadeaux refusées. L’une portait sur un biscuit.",
+      "choice_0": "Recueillir le récit des salariés",
+      "log_0": "Vous consignez la règle de l’employeur et le récit des salariés. La déclaration du biscuit précise sa valeur approximative. Personne n’a renseigné l’altitude de croisière.",
+      "choice_1": "Pousser l’avion en carton",
+      "log_1": "Vous poussez jusqu’à avoir mal à l’épaule, sous les applaudissements. Un pot à pourboires dévale la piste en classe affaires."
     },
     "ENC-C12-C": {
       "overlay_0": "PRIX HONNÊTE",
       "overlay_1": "$79",
-      "overlay_2": "SERVICE OBLIGATOIRE : $40"
+      "overlay_2": "SERVICE OBLIGATOIRE : $40",
+      "name": "Le total, plus le reste",
+      "desc": "La FTC exige désormais que les frais d’hébergement obligatoires figurent dans le prix annoncé d’emblée. Dans un motel routier, le propriétaire vous présente son devis « honnête » : 79 $ la chambre, plus 40 $ de frais de service obligatoires. Il a écrit HONNÊTE en très grand. Le total se cache toujours.",
+      "choice_0": "Expliquer le devis dans le hall",
+      "log_0": "Vous expliquez que le total à annoncer dès le départ est de 119 $. Vous en avez mal à la tête. Le propriétaire demande si la FTC acceptera 79 $ dans une police plus sincère.",
+      "choice_1": "Répéter que la chambre ne coûte que 79 $",
+      "log_1": "Vous vantez le prix et cessez de discuter. Il annonce que des voyageurs indépendants l’ont confirmé. Votre approbation est la première chose qu’il ne facture pas en supplément.",
+      "choice_2": "Vous reposer dans le fourgon",
+      "log_2": "Vous vous reposez dans le fourgon. Il ne facture pas de frais de complexe hôtelier. Il s’excuse de ne pas être un complexe hôtelier."
     },
     "ENC-C14-A": {
-      "overlay_0": "LIBÉRÉS DES RÈGLES LOCALES SUR LA CHALEUR"
+      "overlay_0": "LIBÉRÉS DES RÈGLES LOCALES SUR LA CHALEUR",
+      "name": "Le gouvernement de la pause",
+      "desc": "Votre équipe, épuisée par la chaleur, s’arrête près d’une manifestation itinérante de couvreurs contre l’interdiction faite en Floride d’imposer des règles locales sur la chaleur. Les bénévoles ont de l’ombre et des serviettes, mais manquent d’eau. Leur panneau montre un élu vantant la liberté face aux règles sous un parasol tenu par quelqu’un d’autre.",
+      "choice_0": "Utiliser un peu d’eau pour vous rafraîchir",
+      "log_0": "Vous utilisez un peu d’eau et récupérez à l’ombre. Une bénévole essore une serviette. La responsabilité individuelle a trempé le seau.",
+      "choice_1": "Recueillir le récit des couvreurs",
+      "log_1": "Vous consignez la règle floridienne et le témoignage des couvreurs. L’élu en carton a un parasol permanent ; tous les autres ont un planning de service.",
+      "choice_2": "Laisser de l’eau aux travailleurs",
+      "log_2": "Vous laissez de l’eau aux travailleurs. Une couvreuse la verse dans la glacière sans vérifier d’abord si le comté a autorisé la compassion."
     },
     "ENC-C16-B": {
-      "overlay_0": "AMÉRIQUE"
+      "overlay_0": "AMÉRIQUE",
+      "name": "Une nouvelle couche d’Amérique",
+      "desc": "Un club nautique qui suit le changement de nom du golfe voulu par Trump a besoin de provisions ou d’aide pour déplacer ses nouveaux panneaux. Ses membres arrêtent votre fourgon et offrent de la nourriture contre un coup de main. Un bénévole a peint « Amérique » sur un trou de rouille. La lumière passe encore.",
+      "choice_0": "Donner du matériel pour les panneaux",
+      "log_0": "Vous donnez des provisions ; le club consigne votre aide. Le bénévole rebouche le trou. L’Amérique cesse enfin de siffler dans le vent.",
+      "choice_1": "Déplacer les panneaux contre un repas",
+      "log_1": "Vous gagnez de la nourriture et des courbatures en déplaçant les panneaux. L’ancien nom, dessous, fait l’essentiel du travail de structure."
     },
     "ENC-D12-C": {
       "overlay_0": "PREMOM : ACCORD AVEC LA FTC",
-      "overlay_1": "ROUTES LOCALES"
+      "overlay_1": "ROUTES LOCALES",
+      "name": "L’écran est la réparation facile",
+      "desc": "Dans un kiosque de réparation de téléphones, une cliente demande comment effacer des données de fertilité déjà partagées. Le réparateur montre l’accord de la FTC avec Premom, verse des paillettes dans un ventilateur de bureau et lui tend une pelle. « Maintenant, demandez qu’on vous les rende. »",
+      "choice_0": "Partager un repas et suivre ses indications",
+      "log_0": "Vous partagez de la nourriture et prenez ses indications directes. Il sait réparer l’écran ; le public rassemblé derrière relève d’un autre service.",
+      "choice_1": "Vérifier l’accord avant de partir",
+      "log_1": "Vous regagnez du terrain et de la crédibilité. Il remplace un écran fissuré plus vite qu’un annonceur n’oublie un secret utile."
     },
     "ENC-D13-A": {
       "overlay_0": "DONNÉES ANONYMES",
       "overlay_1": "ORDONNANCE FTC : LIEUX SENSIBLES",
-      "overlay_2": "GRANDE ROUTE"
+      "overlay_2": "GRANDE ROUTE",
+      "name": "Des points plus petits, la même clinique",
+      "desc": "La FTC a interdit à X-Mode de vendre des données de localisation sensibles. Dans un café routier, un promoteur assure que les points de localisation sont anonymes. La serveuse désigne la clinique d’en face. Il propose de réduire les points.",
+      "choice_0": "Suivre les indications de la serveuse",
+      "log_0": "Vous regagnez du terrain. Ses indications mènent à l’autoroute ; la carte du promoteur cherche encore à expliquer pourquoi tout le monde s’est arrêté devant la clinique.",
+      "choice_1": "Attendre la voie de sortie indiquée",
+      "log_1": "Vous regagnez du terrain et retrouvez vos esprits. Elle plie la carte du promoteur jusqu’à ce que son argument soit le plus petit point de la ville."
     },
     "ENC-C02-A": {
       "name": "Soutenir le dîner",
@@ -1642,6 +1696,17 @@
       "name": "Le poids de la liberté d’expression",
       "desc": "Votre contact {name} se blesse à l’épaule en transportant du matériel pour une manifestation contre l’argent des milliardaires en politique. La liberté d’expression pèse plus lourd quand personne ne vous la livre.",
       "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ENC-C11-A": {
+      "name": "Le coût des frais indirects",
+      "overlay_0": "FRAIS INDIRECTS",
+      "desc": "Votre équipe s’arrête à une réunion publique sur le plafonnement des frais indirects des NIH proposé par l’administration Trump. Une chercheuse a apporté un relevé de coûts, des chaises et un congélateur débranché pour expliquer ce que paient ces « frais indirects ». La glace de démonstration livre déjà son évaluation d’impact au ras du sol.",
+      "choice_0": "Vérifier le détail des coûts",
+      "log_0": "Vous vérifiez les chiffres au prix d’un mal de tête. La chercheuse ajoute l’électricité à son exemple. La glace a déjà déposé son objection.",
+      "choice_1": "Vous asseoir pendant la présentation",
+      "log_1": "Vous vous asseyez et soulagez vos jambes. La chercheuse branche discrètement un ventilateur. Les frais indirects améliorent aussitôt les conditions du contribuable.",
+      "choice_2": "Conserver l’estimation documentée",
+      "log_2": "Vous gardez l’estimation datée et son statut de proposition. La chercheuse place les documents au-dessus de la flaque. Cela aussi, c’est des frais indirects."
     }
   },
   "play": {
