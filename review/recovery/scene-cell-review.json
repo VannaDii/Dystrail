@@ -12532,7 +12532,7 @@
       "shared_context_binding": "museum",
       "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
       "integration_status": "Retained context explicitly bound before/after current variant choice; dialogue carries satire. Source prop suggestions remain unillustrated, not fulfilled by this binding.",
-      "artwork_review_hold": "Museum source has letter-like markings on exhibit papers; verify or cover with approved blank surfaces before final no-embedded-text acceptance. No image generation or automatic retry authorized by this finding."
+      "artwork_review_hold": "Paper marking concern resolved by shared blank-label compositor; optional scene prop suggestions remain unillustrated."
     },
     {
       "unit": "ENC-S15-C",
@@ -13254,7 +13254,7 @@
       "shared_context_binding": "museum",
       "shared_context_rule": "Use the actual region/location and source setting. Town conversations use the regional exterior, with indoor counter/cafe/library/workshop contexts only when the source calls for them. Never substitute an unrelated literal scene. Specific existing candidate crops take precedence when suitable; no new generation is implied by selection or layout work.",
       "integration_status": "Retained context explicitly bound before/after current variant choice; dialogue carries satire. Source prop suggestions remain unillustrated, not fulfilled by this binding.",
-      "artwork_review_hold": "Museum source has letter-like markings on exhibit papers; verify or cover with approved blank surfaces before final no-embedded-text acceptance. No image generation or automatic retry authorized by this finding."
+      "artwork_review_hold": "Paper marking concern resolved by shared blank-label compositor; optional scene prop suggestions remain unillustrated."
     },
     {
       "unit": "ENC-S24-A",
@@ -20025,7 +20025,7 @@
       "102 desktop/mobile flows passed across all 51 explicit settings: current copy, indoor/outdoor flag, native wide or 16:9 square-cell crop, actual crew preservation, first-choice outcome and representative offline reload",
       "Desktop rest-area/community and mobile civic/museum captures visually reviewed"
     ],
-    "artwork_review_hold": "Museum source has letter-like markings on exhibit papers; verify or cover with approved blank surfaces before final no-embedded-text acceptance. No image generation or automatic retry authorized by this finding."
+    "artwork_review_hold": "Museum paper markings resolved by blank compositor surfaces; see museum_label_checkpoint. Optional visual jokes remain outside shared-setting acceptance."
   },
   "scene_height_checkpoint": {
     "rule": "Shared square interior sources use a 16:9 landscape viewport with a focal crop, never stretching. Native image dimensions do not determine page height. Existing wide garage cells retain 2:1.",
@@ -20092,5 +20092,16 @@
       "Other town conversations and locales remain open"
     ],
     "new_images": 0
+  },
+  "museum_label_checkpoint": {
+    "status": "Exhibit papers covered by ten blank SVG surfaces in original atlas coordinates; retained raster unchanged",
+    "scope": "Shared enc-museum compositor, including its current variant bindings",
+    "verification": [
+      "Build d663ccc6b5a0142376be passed",
+      "Four desktop/mobile encounter flows passed: both current museum variants, choice outcome, crew preservation and representative offline reload",
+      "Final desktop/mobile captures visually reviewed; corrected missed upper label and partial left-paper coverage before accepting this batch"
+    ],
+    "new_images": 0,
+    "remaining": "Other retained assets still need their own no-text review; this is not global asset acceptance"
   }
 }

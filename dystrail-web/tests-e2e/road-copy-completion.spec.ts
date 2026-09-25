@@ -50,10 +50,12 @@ test('reviewed road settings follow the current variant before and after its cho
   'enc-museum':['S15-B','S23-C'],
  };
  for(const [setting,ids] of Object.entries(groups))for(const [index,id] of ids.entries()){
+  if(process.env.ROAD_MUSEUM_ONLY==='1'&&setting!=='enc-museum')continue;
   const unit=`ENC-${id}`,u=source.find((s:any)=>s.id===unit);expect(u.disposition).toBe('compatible_narrative');
   const state=structuredClone(base),event=bank.find((e:any)=>e.id===u.runtime_key),key=`${unit.slice(0,-2)}/road/300`;state.current_encounter=event;
   state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};await importState(page,state);
   await expect(page.locator('.journey-scene')).toHaveAttribute('data-scene',setting);await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',['enc-rest-area','enc-community'].includes(setting)?'false':'true');
+  if(setting==='enc-museum')await expect(page.locator('[data-blank-exhibit-labels] path')).toHaveCount(10);
   const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(setting==='enc-rest-area'?2.25:['enc-service','enc-community','enc-civic'].includes(setting)?2:16/9,1);
   await expect(page.locator('.encounter-panel')).toContainText(copy[unit].desc);
   await page.locator('.encounter-choice button').first().click();await expect(page.locator('.outcome-copy')).toContainText(copy[unit].log_0);

@@ -145,8 +145,24 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
     let y = f64::from(cell / columns) * height;
     // Crop surplus ceiling/floor in shared interiors; keep scale uniform.
     let (y, height) = if landscape_shared { (y + 64.0, width * 9.0 / 16.0) } else { (y, height) };
+    // Blank the retained exhibit-paper marks in the atlas coordinate space.
+    // These surfaces inherit the scene's one uniform transform and lighting.
+    let blank_labels = (name == "enc-museum").then(|| html! {
+        <g data-blank-exhibit-labels="true" shape-rendering="crispEdges">
+            <path d="M44 781 L81 779 L94 813 L53 816 Z" fill="#e5dac3"/>
+            <path d="M119 743 L137 740 L144 762 L126 766 Z" fill="#e4d7b7"/>
+            <path d="M25 752 L48 750 L56 774 L32 780 Z" fill="#e4d7b7"/>
+            <path d="M302 653 H322 V667 H302 Z" fill="#e4d6b4"/>
+            <path d="M261 694 L297 693 L301 731 L264 733 Z" fill="#cdbb97"/>
+            <path d="M278 729 H305 V737 H278 Z" fill="#e4d6b4"/>
+            <path d="M355 723 H381 V736 H355 Z" fill="#e4d6b4"/>
+            <path d="M452 700 L470 701 L462 727 L446 725 Z" fill="#e4d6b4"/>
+            <path d="M184 767 L219 765 L230 795 L194 797 Z" fill="#dbc99f"/>
+            <path d="M322 767 H352 V782 H322 Z" fill="#e4d6b4"/>
+        </g>
+    });
     Some(
-        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/></svg>},
+        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}</svg>},
     )
 }
 
