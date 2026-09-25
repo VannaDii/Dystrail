@@ -20123,7 +20123,17 @@
       "Ten desktop/mobile flows passed across five fallback settings: before choice, outcome and offline reload; crew unchanged and no horizontal overflow",
       "Desktop farm office and mobile cafe screenshots visually reviewed"
     ],
-    "remaining": "Historical fallback setting assignments still require content alignment. Farm-office clipboard has letter-like marks requiring a blank compositor surface before final asset acceptance.",
+    "remaining": "Historical fallback setting assignments still require content alignment; farm clipboard issue resolved by farm_paper_checkpoint.",
+    "new_images": 0
+  },
+  "farm_paper_checkpoint": {
+    "status": "Farm-office clipboard markings covered by a blank SVG surface in atlas coordinates; raster unchanged",
+    "verification": [
+      "Build passed",
+      "Ten desktop/mobile fallback flows passed with the farm-paper surface present before choice, after outcome and after offline reload",
+      "Farm-office desktop and mobile captures reviewed: paper is blank; clip, frame, scene lighting and proportions retained"
+    ],
+    "remaining": "Historical setting mismatches and other retained-asset no-text review remain open. This is not global artwork acceptance.",
     "new_images": 0
   }
 }

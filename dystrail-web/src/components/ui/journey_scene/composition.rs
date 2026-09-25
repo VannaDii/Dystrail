@@ -161,8 +161,13 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
             <path d="M322 767 H352 V782 H322 Z" fill="#e4d6b4"/>
         </g>
     });
+    let blank_farm_paper = (name == "enc-farm-office").then(|| html! {
+        <g data-blank-farm-paper="true" shape-rendering="crispEdges">
+            <path d="M672 632 H700 V672 H672 Z" fill="#cdb69d"/>
+        </g>
+    });
     Some(
-        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}</svg>},
+        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}{blank_farm_paper}</svg>},
     )
 }
 

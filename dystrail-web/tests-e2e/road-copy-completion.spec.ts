@@ -105,6 +105,7 @@ test('fallback square interiors retain landscape framing through outcomes',async
   state.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
   await importState(page,state);
   const check=async()=>{
+   if(id==='ENC-S06-C')await expect(page.locator('[data-blank-farm-paper] path')).toHaveCount(1);
    const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(16/9,1);
    const vb=(await page.locator('.scene-atlas').first().getAttribute('viewBox'))!.split(' ').map(Number);
    expect(vb[2]/vb[3]).toBeCloseTo(16/9,5);
