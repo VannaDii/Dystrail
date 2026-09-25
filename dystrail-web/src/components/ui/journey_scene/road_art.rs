@@ -42,7 +42,7 @@ pub fn is_indoors(unit: &str) -> bool {
     (selected_cell(unit).is_some()
         && !matches!(
             unit,
-            "ENC-C14-A" | "ENC-C16-B" | "ENC-S11-A" | "ENC-S16-C" | "ENC-S23-A" | "ENC-S30-C" | "ENC-S32-B"
+            "ENC-C14-A" | "ENC-C16-B" | "ENC-S11-A" | "ENC-S16-C" | "ENC-S23-A" | "ENC-S30-C" | "ENC-S32-B" | "ENC-S33-A" | "ENC-S33-B"
         ))
         || matches!(
         unit,
@@ -378,6 +378,8 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
         "ENC-S27-B" => ("selected-satire-10",1),
         "ENC-S30-C" => ("selected-satire-10",2),
         "ENC-S32-B" => ("selected-satire-10",3),
+        "ENC-S33-A" => ("selected-satire-11",0),
+        "ENC-S33-B" => ("selected-satire-11",1),
         _ => return None,
     })
 }

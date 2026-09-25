@@ -14398,7 +14398,7 @@
       "native_canvas": null,
       "native_cell_xywh": null,
       "decision": "visual_gag_component_required",
-      "finding": "Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.",
+      "finding": "Current encounter prose specifies a hotel owner's arm caught in a fitted sheet after discarding folding instructions; a folding chair does not illustrate this joke.",
       "camera": "Single coherent eye-level setting perspective; use retained scene camera where compatible. Exact principal actor/vehicle/prop rectangles must be supplied when selecting the production candidate.",
       "proportions": "Preserve normal adult, vehicle, door and furniture scale. Exaggerate only the specific gag prop identified in this record, never the whole NPC or world. All travelers come from the active roster.",
       "desktop_mobile": "Same native-aspect composition on desktop/mobile, with essential action visible above the bottom-left caption. No supplementary bust, independent actor scaling or altered stats design.",
@@ -19014,7 +19014,7 @@
       },
       {
         "asset_id": "selected-satire-11",
-        "decision": "proposed_one_generation_needed",
+        "decision": "two_integrated_two_held_after_single_attempt",
         "canvas": [
           1536,
           1024
@@ -19069,7 +19069,7 @@
               512
             ],
             "rig": "room",
-            "essential_action": "Owner caught inside an ordinary folding object after removing instructions; clearly comic demonstration, no injury or invented crew entrapment.",
+            "essential_action": "Hotel owner's arm caught in a fitted sheet while holding a blank altered folding chart; no folding chair, injury or invented crew entrapment.",
             "source_direction_reference": "ENC-S34-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true
@@ -19091,8 +19091,17 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-11.png",
+        "output_sha256": "07ee19118a513e9eab3f4d4a0b7352643152d006d36bccdecf186aedfba311af",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "cells 0-1 only: ENC-S33-A, ENC-S33-B",
+        "held_cells": [
+          {"unit": "ENC-S34-B", "cell": 2, "reason": "Generated folding-chair trap conflicts with current fitted-sheet encounter."},
+          {"unit": "TOWN-01-A", "cell": 3, "reason": "Fixed visitor substitutes for a traveler whose identity must come from the active crew."}
+        ],
+        "review": "Desktop/mobile road scenes inspected in game. Tank and straw gags read at mobile size; other two cells held, with no automatic regeneration."
       },
       {
         "asset_id": "selected-satire-12",
@@ -19780,7 +19789,7 @@
     "max_new_image_calls": 13,
     "additional_user_authorized_calls": 2,
     "effective_attempt_ceiling": 15,
-    "new_image_attempts_used": 12,
+    "new_image_attempts_used": 13,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -20679,7 +20688,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 107,
-    "dedicated_units": 46,
+    "dedicated_units": 48,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20721,13 +20730,11 @@
       "ENC-S28-A",
       "ENC-S30-A",
       "ENC-S32-A",
-      "ENC-S33-A",
-      "ENC-S33-B",
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 38,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 14 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 36,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 12 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20766,8 +20773,6 @@
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S17-B",
-      "ENC-S33-A",
-      "ENC-S33-B",
       "ENC-S34-B"
     ]
   },
@@ -20873,7 +20878,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "38 inherited road assignments remain explicit gaps: 24 location contexts and 14 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "36 inherited road assignments remain explicit gaps: 24 location contexts and 12 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
@@ -21114,5 +21119,13 @@
     "bound_units": ["ENC-S26-B", "ENC-S27-B", "ENC-S30-C", "ENC-S32-B"],
     "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell and scene proportions. Four mobile scene captures inspected; no embedded text or religious symbols observed.",
     "remaining": "Three historical road visual-gag gaps close; the motel panel replaces one shared setting. Full combined feature acceptance remains open."
+  },
+  "sheet11_integration_checkpoint": {
+    "status": "Two panels integrated; two held after one attempt",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-11.png",
+    "bound_units": ["ENC-S33-A", "ENC-S33-B"],
+    "held_units": ["ENC-S34-B", "TOWN-01-A"],
+    "verification": "Release/offline build and targeted desktop/mobile browser checks passed for road choices, crew, saved outcomes, offline reload, atlas cells and proportions. Three road mobile captures inspected, including the mismatched fitted-sheet panel that was then unbound.",
+    "remaining": "Fitted-sheet joke and active-crew bus-shelter composition remain open. No repeat generation authorized automatically."
   }
 }
