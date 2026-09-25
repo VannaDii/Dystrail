@@ -1943,6 +1943,54 @@
       "desc": "El grupo puede pasar un día fuera de la carretera. Silenciáis los teléfonos antes de otro titular sobre los chats de Signal del gabinete. Que otra persona dirija el Pentágono por accidente.",
       "choice_0": "Descansar y silenciar los teléfonos",
       "log_0": "El grupo descansa. En el pedido de bocadillos no aparece ningún plan de ataque aéreo. Un discreto éxito diplomático."
+    },
+    "ACT-CASHWORK-B": {
+      "name": "El escenario hecho a sí mismo",
+      "desc": "Un recinto ofrece $18 por descargar el material del escenario para una recaudación política de una multimillonaria. La pancarta dice que lo construyó todo sola. Hacen falta seis personas para levantarla.",
+      "choice_0": "Descargar el equipo del escenario",
+      "log_0": "Termináis el turno con $18 y menos paciencia. La multimillonaria sube sola al escenario, manteniendo la ilusión."
+    },
+    "ACT-CASHWORK-C": {
+      "name": "Otra Semana de las Infraestructuras",
+      "desc": "Una tienda ofrece $18 por descargar un pedido retrasado por los accesos locales destrozados. La dueña lo llama la Semana de las Infraestructuras de Trump. Quien conduce lo llama jueves.",
+      "choice_0": "Descargar el pedido",
+      "log_0": "Cobráis $18, hartos de los discursos. El camión de reparto ha hecho más obra pública que el eslogan."
+    },
+    "ACT-FOODWORK-B": {
+      "name": "Las sobras de los donantes",
+      "desc": "Una cocina comunitaria ofrece comida por clasificar las sobras de una cena de un super-PAC. La libertad de expresión política ilimitada parece incluir una cantidad extraordinaria de pollo.",
+      "choice_0": "Clasificar las sobras",
+      "log_0": "Ganáis comida y perdéis paciencia. Un muslo llega por fin a alguien sin acreditación de donante."
+    },
+    "ACT-FOODWORK-C": {
+      "name": "Hambre de fabricación nacional",
+      "desc": "Un banco de alimentos ofrece comida por un turno de clasificación. Una voluntaria señala las facturas de comestibles encarecidos por los aranceles. «China paga», dice, mostrando una caja vacía. «Estamos esperando».",
+      "choice_0": "Clasificar comida para el banco de alimentos",
+      "log_0": "El trabajo cuesta paciencia, pero proporciona comida. La caja sigue siendo impresionantemente internacional en su vacío."
+    },
+    "ACT-FORAGE-B": {
+      "name": "La botánica prescindible",
+      "desc": "Una botánica despedida con los recortes de DOGE enseña al grupo qué puede recolectar sin peligro. Señala una planta parecida pero peligrosa. «Antes consideraban un despilfarro este consejo».",
+      "choice_0": "Seguir las indicaciones de la botánica",
+      "log_0": "Recogéis comida y evitáis las plantas peligrosas. Los ahorros siguen siendo difíciles de comer."
+    },
+    "ACT-FORAGE-C": {
+      "name": "Una opción pública con espinas",
+      "desc": "Durante una salida de recolección, quien os guía dice que los lobistas cenan por hablar de política alimentaria. Vosotros vais a cenar de un arbusto. El arbusto tiene menos patrocinadores.",
+      "choice_0": "Recolectar con la guía",
+      "log_0": "Volvéis con algo de comida. Nada de ella exige un puesto en la comisión."
+    },
+    "ACT-GLEAN-B": {
+      "name": "La zanahoria del libre mercado",
+      "desc": "Una agricultora ofrece al grupo las verduras que quedan mientras la radio informa de los recortes del Congreso a la ayuda alimentaria. «Comida sobra», dice. «Nos está faltando permiso para comerla».",
+      "choice_0": "Recoger los restos de la cosecha con permiso",
+      "log_0": "Recogéis comida y acabáis agotados. Todas las zanahorias superan el comité de elegibilidad."
+    },
+    "ACT-GLEAN-C": {
+      "name": "Trabajo del Día de la Independencia",
+      "desc": "Una agricultora deja al grupo recoger lo que queda mientras el vecindario habla de los requisitos laborales de SNAP. Quien compra ha rechazado una zanahoria torcida. Esta pide que le reconozcan las horas bajo tierra.",
+      "choice_0": "Recoger los productos rechazados",
+      "log_0": "Recogéis comida a costa de músculos doloridos. El historial laboral de la zanahoria sigue impecable."
     }
   },
   "play": {

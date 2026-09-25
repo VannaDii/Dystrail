@@ -42,3 +42,35 @@ test('recovered barter and rest translations survive choices and offline reload'
   }
  }
 });
+
+test('recovered gathering and work translations keep real action effects',async({page,context})=>{
+ test.setTimeout(180000);const original=await baseline(page);
+ for(const lang of ['es','it','ar']) {
+  const copy=JSON.parse(readFileSync(join(__dirname,`../i18n/${lang}.json`),'utf8')).encounter_copy;
+  for(const family of ['FORAGE','GLEAN','FOODWORK','CASHWORK']) for(const variant of ['B','C']) {
+   await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+   const s=structuredClone(original);s.seed=42;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
+   s.stats.supplies=5;s.stats.hp=8;s.stats.sanity=6;s.activities={foraged_on:null,worked_at:null,local_word:null};
+   const town=family.endsWith('WORK');if(town)atTown(s,'Spokane');
+   const unit=`ACT-${family}-${variant}`,key=`ACT-${family}/${town?'town':'day'}/${town?s.route_services.stop:s.day}`;
+   s.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
+   await importState(page,s);if(!town)await page.getByRole('button',{name:'Camp',exact:true}).click();
+   await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+   await expect(page.getByText(copy[unit].desc,{exact:true})).toBeVisible();
+   await page.getByRole('button',{name:copy[unit].choice_0,exact:true}).click();
+   await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
+   const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+   expect(after.visual_content.outcomes[key]).toBe(0);expect(after.party).toEqual(s.party);
+   expect(after.clock_minutes).toBe(600+(town?180:120));
+   expect(after.stats.supplies).toBe(5+(family==='FORAGE'?2:family==='CASHWORK'?0:4));
+   expect(after.stats.hp).toBe(8-(family==='GLEAN'?1:0));
+   expect(after.stats.sanity).toBe(6+(family==='FORAGE'?1:town?-1:0));
+   expect(after.budget_cents).toBe(s.budget_cents+(family==='CASHWORK'?1800:0));
+   await context.setOffline(true);await page.reload();await waitForLaunch(page);
+   await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   if(unit==='ACT-CASHWORK-B') {await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await snap(page,`work-${lang}`);}
+   await context.setOffline(false);
+  }
+ }
+});

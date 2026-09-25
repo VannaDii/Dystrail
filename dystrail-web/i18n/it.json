@@ -1809,6 +1809,54 @@
       "desc": "Il gruppo può prendersi un giorno lontano dalla strada. Silenziate i telefoni prima dell’ennesimo titolo sulle chat Signal del governo. Che sia qualcun altro a dirigere il Pentagono per sbaglio.",
       "choice_0": "Riposare e silenziare i telefoni",
       "log_0": "Il gruppo riposa. Nell’ordine dei panini non compaiono piani di attacchi aerei. Un tranquillo successo diplomatico."
+    },
+    "ACT-CASHWORK-B": {
+      "name": "Il palco che si è fatto da sé",
+      "desc": "Un locale offre $18 per scaricare il materiale del palco per una raccolta fondi politica di una miliardaria. Lo striscione dice che ha costruito tutto da sola. Servono sei persone per sollevarlo.",
+      "choice_0": "Scaricare le attrezzature del palco",
+      "log_0": "Finite il turno con $18 e meno pazienza. La miliardaria sale sul palco da sola, mantenendo l’illusione."
+    },
+    "ACT-CASHWORK-C": {
+      "name": "Ancora la Settimana delle Infrastrutture",
+      "desc": "Un negozio offre $18 per scaricare una consegna ritardata dalle strade d’accesso dissestate. La proprietaria la chiama la Settimana delle Infrastrutture di Trump. Chi guida la chiama giovedì.",
+      "choice_0": "Scaricare la consegna",
+      "log_0": "Incassate $18, stanchi dei discorsi. Il camion delle consegne ha realizzato più opere pubbliche dello slogan."
+    },
+    "ACT-FOODWORK-B": {
+      "name": "Gli avanzi dei donatori",
+      "desc": "Una cucina comunitaria offre cibo in cambio dello smistamento degli avanzi di una cena di un super-PAC. La libertà di espressione politica illimitata pare includere una quantità straordinaria di pollo.",
+      "choice_0": "Smistare gli avanzi",
+      "log_0": "Guadagnate cibo e perdete pazienza. Una coscia arriva finalmente a qualcuno senza tesserino da donatore."
+    },
+    "ACT-FOODWORK-C": {
+      "name": "Fame made in America",
+      "desc": "Un banco alimentare offre cibo per un turno di smistamento. Una volontaria indica le fatture della spesa gonfiate dai dazi. «Paga la Cina», dice, mostrando una cassa vuota. «Stiamo aspettando».",
+      "choice_0": "Smistare cibo per il banco alimentare",
+      "log_0": "Il lavoro costa pazienza ma procura cibo. La cassa resta straordinariamente internazionale nel suo vuoto."
+    },
+    "ACT-FORAGE-B": {
+      "name": "La botanica superflua",
+      "desc": "Una botanica licenziata con i tagli di DOGE mostra al gruppo cosa raccogliere in sicurezza. Indica una pianta simile ma pericolosa. «Questo consiglio una volta era considerato uno spreco».",
+      "choice_0": "Seguire le indicazioni della botanica",
+      "log_0": "Raccogliete del cibo ed evitate le piante pericolose. I risparmi restano difficili da mangiare."
+    },
+    "ACT-FORAGE-C": {
+      "name": "Un’opzione pubblica con le spine",
+      "desc": "Durante una passeggiata di raccolta, la guida dice che i lobbisti ottengono una cena discutendo di politica alimentare. Voi la otterrete da un cespuglio. Il cespuglio ha meno sponsor.",
+      "choice_0": "Raccogliere con la guida",
+      "log_0": "Tornate con del cibo. Niente di ciò che avete raccolto pretende un posto in commissione."
+    },
+    "ACT-GLEAN-B": {
+      "name": "La carota del libero mercato",
+      "desc": "Un’agricoltrice offre al gruppo gli ortaggi rimasti mentre la radio parla dei tagli del Congresso agli aiuti alimentari. «Cibo in abbondanza», dice. «È il permesso di mangiarlo che scarseggia».",
+      "choice_0": "Spigolare con il permesso",
+      "log_0": "Raccogliete cibo e vi sfinite. Ogni carota supera la commissione per l’ammissibilità."
+    },
+    "ACT-GLEAN-C": {
+      "name": "Lavoro del Giorno dell’Indipendenza",
+      "desc": "Un’agricoltrice lascia spigolare il gruppo mentre il vicinato discute dei requisiti lavorativi di SNAP. Una carota storta è stata scartata da chi compra. Vorrebbe farsi riconoscere le ore sottoterra.",
+      "choice_0": "Raccogliere i prodotti scartati",
+      "log_0": "Raccogliete cibo al prezzo di muscoli doloranti. Il curriculum della carota resta impeccabile."
     }
   },
   "play": {
