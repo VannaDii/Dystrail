@@ -4,12 +4,18 @@ use super::{Props, Region, SceneStage, reviewed_road};
 use yew::prelude::*;
 
 pub fn supported(unit: &str) -> bool {
-    matches!(unit, "CROSS-02C-A" | "CROSS-02D-A")
+    matches!(unit, "CROSS-01-B" | "CROSS-02C-A" | "CROSS-02C-B" | "CROSS-02D-A" | "CROSS-02D-B" | "CROSS-02D-C" | "CROSS-03-B" | "CROSS-03-C")
 }
 
 pub fn render(p: &Props) -> Option<Html> {
     let SceneStage::Crossing { unit, passed } = &p.stage else { return None; };
     let asset = match unit.as_str() {
+        "CROSS-01-B" => "crossing-map-v2".to_owned(),
+        "CROSS-02C-B" => "crossing-inspection-v2".to_owned(),
+        "CROSS-02D-B" => "crossing-identity-v2".to_owned(),
+        "CROSS-02D-C" => "crossing-chair-v2".to_owned(),
+        "CROSS-03-B" => "crossing-folder-v2".to_owned(),
+        "CROSS-03-C" => "crossing-bucket-v2".to_owned(),
         "CROSS-02D-A" => "crossing-privacy-v2".to_owned(),
         "CROSS-02C-A" => format!("crossing-workers-{}-v2", if *passed { "raised" } else { "lowered" }),
         _ => return None,
@@ -37,6 +43,8 @@ pub fn render(p: &Props) -> Option<Html> {
                         }else{
                             <path d="M563 466H1095V489H563Z M593 425L608 432L599 460L602 473H586L583 457Z M643 427L655 436L660 460L657 473H643L644 457Z M1013 425L1027 433L1020 459L1022 474H1007L1006 453Z M1054 426L1069 440L1077 464L1074 473H1061L1062 455Z" />
                         }
+                    }else if unit == "CROSS-02C-B" {
+                        <path d="M674 291L695 275H1036V301H1001V561H699V328H677Z" />
                     }else{
                         <path d="M674 291L695 275H1036V301H1001V542H1008V561H699V545H660V468H714V328H677Z" />
                     }

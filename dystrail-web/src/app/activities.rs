@@ -69,7 +69,7 @@ fn choose(app: &AppState, action: Activity) -> Callback<MouseEvent> {
         }
         session.with_state_mut(|gs| super::visual_content::record_activity(&before, gs, action));
         let unit = super::visual_content::activity_unit(&before, action);
-        let scene = if unit == "ACT-FOODWORK-A" {
+        let scene = if matches!(unit.as_str(), "ACT-FOODWORK-A" | "ACT-CASHWORK-A") {
             crate::components::ui::journey_scene::SceneStage::EncounterOutcome { unit, choice: 0 }
         } else if before.continuity.route_services.stop.is_some() {
             crate::components::ui::journey_scene::SceneStage::Town

@@ -94,3 +94,27 @@ test('crossing narratives acknowledge committed telemetry without changing the j
   after.visual_content=before.visual_content;expect(after).toEqual(before);
  }
 });
+
+test('retained checkpoint props preserve outcomes crew and offline state',async({page,context},info)=>{
+ test.setTimeout(180000);const base=await baseline(page);
+ for(const [unit,asset] of [['CROSS-01-B','map'],['CROSS-02C-B','inspection'],['CROSS-02D-B','identity'],['CROSS-02D-C','chair'],['CROSS-03-B','folder'],['CROSS-03-C','bucket']])for(const outcome of ['passed','detoured']){
+  const s=structuredClone(base);s.seed=42;s.party.members[1].status='Departed';s.party.members[2].status='Dead';
+  s.crossing_events=[{day:s.day,region:s.region,season:s.season,kind:'checkpoint',permit_used:false,bribe_attempted:false,bribe_success:null,bribe_cost_cents:0,bribe_chance:null,bribe_roll:null,detour_reason:outcome==='detoured'?'route_diversion':null,detour_taken:outcome==='detoured',detour_hours:outcome==='detoured'?2:null,detour_base_supplies_delta:null,detour_extra_supplies_loss:null,terminal_threshold:0,terminal_roll:null,outcome}];
+  s.visual_content={edition:1,selections:{},outcomes:{},policy_bulletins:[],crossing_presentations:[{event_index:0,unit,permit_receipt:false,acknowledged:false}]};
+  await importState(page,s);
+  await expect(page.locator('.crossing-authored-outcome')).toHaveAttribute('href',new RegExp(`crossing-${asset}-v2.png$`));
+  await expect(page.locator('.crossing-message')).toContainText(copy[unit][outcome==='passed'?'passage':'diversion']);
+  await expect(page.locator('.van-occupant')).toHaveCount(4);
+  for(const m of s.party.members.filter((m:any)=>m.status!=='Active'))await expect(page.locator(`.van-occupant[data-member="${m.persona}"]`)).toHaveCount(0);
+  const before=await saved(page);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.locator('.crossing-authored-outcome')).toBeVisible();
+  const scene=await page.locator('.scene-art').boundingBox();expect(scene!.width/scene!.height).toBeCloseTo(1.5,1);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  if(outcome==='passed')await page.locator('.journey-scene').screenshot({path:info.outputPath(`${unit}.png`)});
+  await page.locator('#crossing-continue').click();
+  const after=await saved(page);expect(after.visual_content.crossing_presentations[0].acknowledged).toBe(true);
+  before.inventory.tags.sort();after.inventory.tags.sort();after.visual_content=before.visual_content;expect(after).toEqual(before);
+  await context.setOffline(false);
+ }
+});

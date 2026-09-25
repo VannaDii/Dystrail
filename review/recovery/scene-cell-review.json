@@ -4313,6 +4313,12 @@
         "art": "Existing shared Camp/Town scenes; retained activity candidates not yet composed",
         "translations": "Preserved refresh translations conflict with approved source and were not imported",
         "mechanics": "Existing Activity handler unchanged"
+      },
+      "runtime_art_checkpoint": {
+        "status": "Completed cleanup outcome integrated; offer remains shared town context",
+        "composition": "Retained cleaned-dishes panel; empty unlettered tip jar rendered separately on right counter, clear of Spanish mobile caption",
+        "verification": "es/it/ar on desktop/mobile with unchanged cash/time/stats and offline restoration",
+        "evidence": "/tmp/dystrail-retained-batch"
       }
     },
     {
@@ -4931,7 +4937,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "CROSS-01-C",
@@ -5018,7 +5031,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "CROSS-02C-C",
@@ -5097,7 +5117,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "CROSS-02D-C",
@@ -5126,7 +5153,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "CROSS-03-A",
@@ -5184,7 +5218,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "retained_review_hold"
+      "production_route": "retained_review_hold",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "CROSS-03-C",
@@ -5213,7 +5254,14 @@
       "generation_attempts_authorized": 0,
       "remaining_gate": "Inventory approval and composed desktop/mobile inspection required. A hold is not authorization for replacement generation.",
       "shared_review_hold": "NPC outlines and shading are smoother than the background pixel clusters. Mountain setting is not a universal route substitute. Resolve style/geography and interaction placement before acceptance; no automatic regeneration.",
-      "production_route": "reuse_retained_candidate"
+      "production_route": "reuse_retained_candidate",
+      "runtime_art_checkpoint": {
+        "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+        "build": "281dc9f2a0ae44a4faf7",
+        "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+        "evidence": "/tmp/dystrail-retained-batch",
+        "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background."
+      }
     },
     {
       "unit": "ENC-C01-A",
@@ -20817,5 +20865,49 @@
     "validation": "Build passed; 2 Playwright projects passed covering es/it/ar, committed resource effects and offline reload; desktop and mobile Spanish captures visually reviewed",
     "evidence": "/tmp/dystrail-pantry-wired",
     "limitations": "Offer scene and other activity-specific props/compositions remain as previously recorded."
+  },
+  "retained_crossing_batch_checkpoint": {
+    "status": "Integrated retained art; reviewed desktop/mobile at committed passage and diversion",
+    "build": "281dc9f2a0ae44a4faf7",
+    "verification": "24 crossing flows on desktop/mobile: exact narrative/outcome, four actual surviving occupants, no departed/dead occupants, offline reload and acknowledgment without other state changes",
+    "evidence": "/tmp/dystrail-retained-batch",
+    "composition": "Unchanged 1536x1024 retained originals clipped around booth over actual route scenery; existing van camera, 3:2 presentation and bottom-left captions. Concrete inspection has a dedicated crop to remove stray background.",
+    "units": [
+      "CROSS-01-B",
+      "CROSS-02C-B",
+      "CROSS-02D-B",
+      "CROSS-02D-C",
+      "CROSS-03-B",
+      "CROSS-03-C"
+    ],
+    "integrated_crossing_units": [
+      "CROSS-02C-A",
+      "CROSS-02D-A",
+      "CROSS-01-B",
+      "CROSS-02C-B",
+      "CROSS-02D-B",
+      "CROSS-02D-C",
+      "CROSS-03-B",
+      "CROSS-03-C"
+    ],
+    "remaining_required_compositions": {
+      "CROSS-01-A": "Officer inspecting open hood and ordinary alternator of actual stopped van; no dismantling or damage",
+      "CROSS-01-C": "Officer at actual van manufacturer plate; actual waiting travelers and disproportionately tall blank forms stack",
+      "CROSS-02C-C": "Steel quote, solitary cone and unfinished repair area with actual van safely on approach",
+      "CROSS-03-A": "Official looking into actual van; cash tray and travelers case folder visible"
+    },
+    "generation_calls": 0,
+    "limits": "This is crossing integration evidence, not feature acceptance. Terminal-failure art, full localization and other categories retain their previous open items."
+  },
+  "work_outcome_batch_checkpoint": {
+    "units": [
+      "ACT-FOODWORK-A",
+      "ACT-CASHWORK-A"
+    ],
+    "build": "281dc9f2a0ae44a4faf7",
+    "verification": "12 es/it/ar desktop/mobile flows passed; effects, aspect, persisted identity and offline restoration checked; desktop/mobile captures reviewed",
+    "evidence": "/tmp/dystrail-retained-batch",
+    "remaining": "Offer illustrations and other work/gather/rest compositions remain incomplete; mismatched retained panels were not substituted.",
+    "generation_calls": 0
   }
 }

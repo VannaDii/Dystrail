@@ -49,6 +49,7 @@ test('recovered gathering and work translations keep real action effects',async(
   const copy=JSON.parse(readFileSync(join(__dirname,`../i18n/${lang}.json`),'utf8')).encounter_copy;
   for(const family of ['FORAGE','GLEAN','FOODWORK','CASHWORK']) for(const variant of (process.env.ACTIVITY_FINAL_BATCH?['A']:['A','B','C'])) {
    if(process.env.ACTIVITY_PANTRY_ONLY&&(family!=='FOODWORK'||variant!=='A'))continue;
+   if(process.env.ACTIVITY_WORK_ART_ONLY&&(!family.endsWith('WORK')||variant!=='A'))continue;
    await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
    const s=structuredClone(original);s.seed=42;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
    s.stats.supplies=5;s.stats.hp=8;s.stats.sanity=6;s.activities={foraged_on:null,worked_at:null,local_word:null};
@@ -67,14 +68,16 @@ test('recovered gathering and work translations keep real action effects',async(
    expect(after.stats.hp).toBe(8-(family==='GLEAN'?1:0));
    expect(after.stats.sanity).toBe(6+(family==='FORAGE'?1:town?-1:0));
    expect(after.budget_cents).toBe(s.budget_cents+(family==='CASHWORK'?1800:0));
-   if(unit==='ACT-FOODWORK-A'){
+   if(['ACT-FOODWORK-A','ACT-CASHWORK-A'].includes(unit)){
     await expect(page.locator('[data-activity-unit]')).toHaveAttribute('data-activity-unit',unit);
     await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
     const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(760/248,1);
-    await page.locator('.journey-scene').screenshot({path:info.outputPath(`pantry-${lang}.png`)});
+    if(family==='CASHWORK')await expect(page.locator('[data-empty-tip-jar]')).toBeVisible();
+    await page.locator('.journey-scene').screenshot({path:info.outputPath(`${family}-${lang}.png`)});
    }
    await context.setOffline(true);await page.reload();await waitForLaunch(page);
    await expect(page.getByText(copy[unit].log_0,{exact:true})).toBeVisible();
+   if(['ACT-FOODWORK-A','ACT-CASHWORK-A'].includes(unit))await expect(page.locator('[data-activity-unit]')).toHaveAttribute('data-activity-unit',unit);
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    if(unit==='ACT-CASHWORK-B') {await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await snap(page,`work-${lang}`);}
    await context.setOffline(false);
