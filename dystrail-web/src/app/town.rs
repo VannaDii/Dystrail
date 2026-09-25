@@ -115,7 +115,14 @@ pub fn talk_button(app: &AppState, gs: &GameState) -> Html {
                 LocalReward::Receipt => "ux.receipt",
                 LocalReward::Ally => "play.allies",
             };
-            format!("{} +1", i18n::t(key))
+            if claimed {
+                format!("{} +1", i18n::t(key))
+            } else if matches!(reward, LocalReward::Receipt) {
+                i18n::t("qualitative.evidence")
+            } else {
+                let stat = i18n::t(key);
+                i18n::tr("qualitative.gain", Some(&std::collections::BTreeMap::from([("stat", stat.as_str())])))
+            }
         },
     );
     html! {<ActionButton onclick={talk(app)} {claimed} label={i18n::t("journey.talk")} {detail} />}

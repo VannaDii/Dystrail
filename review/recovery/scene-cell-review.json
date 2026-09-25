@@ -19696,5 +19696,14 @@
     "remaining": [
       "Refresh final sheets after remaining integration and acceptance work"
     ]
+  },
+  "town_qualitative_checkpoint": {
+    "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",
+    "verification": [
+      "Build 7e1c3bfe9cdd97af28d0 passed",
+      "All 51 town buttons visible and free of numeric +1 previews on desktop/mobile; profile references and unchanged-state checks passed",
+      "Mobile Collect evidence subtitle visually reviewed"
+    ],
+    "scope": "Reward mechanics and claimed/outcome numeric reporting unchanged"
   }
 }

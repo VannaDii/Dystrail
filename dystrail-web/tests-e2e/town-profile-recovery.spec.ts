@@ -20,6 +20,8 @@ test('all town profiles show dated population, attraction and source links witho
   s.activities.local_word=null;s.miles_traveled_actual=stop.mile/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
   await importState(page,s);
   const profile=page.locator('.town-profile');await expect(profile).toBeVisible();
+  const talk=page.getByRole('button',{name:/Talk to locals/});
+  await expect(talk).toBeVisible();await expect(talk).not.toContainText('+1');
   await expect(profile.locator('.town-vitals')).toContainText(p.state);await expect(profile.locator('.town-vitals')).toContainText(String(p.population_year));
   await expect(profile.locator('.town-vitals a')).toHaveAttribute('href',p.population_source);
   expect((await profile.locator('.town-vitals a').innerText()).replace(/\D/g,'')).toBe(String(p.population));
