@@ -20808,5 +20808,14 @@
       "Current care patient compositions, recorded artwork holds, content localization and final previews remain incomplete"
     ],
     "retained_pose_search": "Preserved meal-pose brief specifies waist-up friendly figures holding bread, without legs. These do not supply the required full-body seated unwell care poses; no reuse forced and no image generated."
+  },
+  "pantry_outcome_checkpoint": {
+    "unit": "ACT-FOODWORK-A",
+    "status": "retained completed-work panel integrated; full activity art remains incomplete",
+    "scope": "Successful foodwork A only; original town/camp context retained for all other activities. No image generation. Carton-top markings masked with runtime plain blue shapes.",
+    "presentation": "760 / 248 landscape crop; indoor lighting; existing bottom-left caption and approved result UI",
+    "validation": "Build passed; 2 Playwright projects passed covering es/it/ar, committed resource effects and offline reload; desktop and mobile Spanish captures visually reviewed",
+    "evidence": "/tmp/dystrail-pantry-wired",
+    "limitations": "Offer scene and other activity-specific props/compositions remain as previously recorded."
   }
 }

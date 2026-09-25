@@ -6,6 +6,7 @@ use crate::game::Region;
 use yew::prelude::*;
 pub mod billboard;
 pub mod composition;
+mod activity_art;
 pub mod care_art;
 pub mod crossing_art;
 mod lighting;
@@ -130,19 +131,19 @@ pub fn journey_scene(p: &Props) -> Html {
         crate::game::weather::Weather::Smoke => "smoke",
     });
     let light = lighting::profile(p.hour);
-    let indoors = town_art::context(&p.stage).map(|(_, indoors)| indoors).or_else(|| ally_art::context(&p.stage).map(|(unit, _, _)| unit != "ALLY-01-A")).or_else(|| care_art::indoors(&p.stage)).unwrap_or_else(|| road_art::context(&p.stage).map_or_else(
+    let indoors = activity_art::supported(&p.stage).then_some(true).or_else(|| town_art::context(&p.stage).map(|(_, indoors)| indoors)).or_else(|| ally_art::context(&p.stage).map(|(unit, _, _)| unit != "ALLY-01-A")).or_else(|| care_art::indoors(&p.stage)).unwrap_or_else(|| road_art::context(&p.stage).map_or_else(
         || name.is_some_and(composition::is_indoors),
         |(unit, _)| road_art::is_indoors(unit),
     ));
     let crossing = matches!(p.stage, SceneStage::Crossing { .. });
     let barter_ratio = barter_art::aspect(&p.stage);
-    let authored = barter_ratio.as_deref().or_else(|| town_art::aspect(&p.stage)).or_else(|| ally_art::context(&p.stage).map(|_| "1.5")).or_else(|| crossing.then_some("1.5")).or_else(|| care_art::context(&p.stage).map(|_| "1.5")).or_else(|| road_art::aspect(&p.stage)).or_else(|| match &p.stage { SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => encounters::shared_aspect(unit), _ => None });
+    let authored = activity_art::supported(&p.stage).then_some("760 / 248").or(barter_ratio.as_deref()).or_else(|| town_art::aspect(&p.stage)).or_else(|| ally_art::context(&p.stage).map(|_| "1.5")).or_else(|| crossing.then_some("1.5")).or_else(|| care_art::context(&p.stage).map(|_| "1.5")).or_else(|| road_art::aspect(&p.stage)).or_else(|| match &p.stage { SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => encounters::shared_aspect(unit), _ => None });
     let authored_style =
         authored.map_or(String::new(), |ratio| format!("--authored-ratio:{ratio}"));
     html! { <figure style={authored_style} data-weather={weather} data-time={light} data-hour={p.hour.to_string()} data-indoors={indoors.to_string()} data-scene={name.unwrap_or("unillustrated").to_owned()} class={classes!("journey-scene",authored.is_some().then_some("scene-authored"),road.then_some("scene-road"),p.moving.then_some("scene-moving"))}>
         <div class="scene-art" aria-hidden="true">
             if crossing {{crossing_art::render(p).unwrap_or_default()} <van::CrewVan party={p.party.clone()} />} else {
-            if let Some(art)=town_art::render(p) {{art}} else if let Some(art)=barter_art::render(&p.stage) {{art}} else if let Some(art)=ally_art::render(&p.stage) {{art}} else if let Some(art)=care_art::render(p) {{art}} else if let Some(art)=road_art::render(&p.stage) {{art}} else if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
+            if let Some(art)=activity_art::render(&p.stage) {{art}} else if let Some(art)=town_art::render(p) {{art}} else if let Some(art)=barter_art::render(&p.stage) {{art}} else if let Some(art)=ally_art::render(&p.stage) {{art}} else if let Some(art)=care_art::render(p) {{art}} else if let Some(art)=road_art::render(&p.stage) {{art}} else if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
             if let SceneStage::Travel(region) = p.stage {{billboard::render(billboard::selected(region, p.seed, p.day), p.day)}}
             if stopped {{parked::render(p.party.as_ref())}} else if road && !early_ending {<van::CrewVan party={p.party.clone()} />}
             if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
