@@ -209,6 +209,8 @@ test('French pantry and public demonstration copy survives outcomes and offline 
   state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};await importState(page,state);
   await page.evaluate(()=>localStorage.setItem('dystrail.locale','fr'));await page.reload();await waitForLaunch(page);
   await expect(page.locator('#screen-title')).toContainText(fr[unit].name);
+  for(const label of ['Provisions','Santé','Équilibre mental','Crédibilité','Alliés'])await expect(page.getByRole('button',{name:`Comment ça fonctionne: ${label}`,exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Campement',exact:true})).toHaveCount(1);
   await expect(page.locator('.encounter-panel')).toContainText(fr[unit].desc);
   const actions=page.locator('.encounter-choice button');for(let i=0;i<3;i++)await expect(actions.nth(i)).toContainText(fr[unit][`choice_${i}`]);
   await actions.first().click();await expect(page.locator('.outcome-copy')).toContainText(fr[unit].log_0);

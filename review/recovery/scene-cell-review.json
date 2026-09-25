@@ -20770,5 +20770,19 @@
       "Existing artwork holds remain unchanged"
     ],
     "new_images": 0
+  },
+  "french_interface_checkpoint": {
+    "strings": 78,
+    "scope": "Status, travel controls, timing, outcome and source-help labels",
+    "verification": [
+      "Build passed; interpolation placeholders preserved",
+      "12 desktop/mobile French encounter flows passed, including localized accessible stat labels, Campement control, outcomes, saved crew, offline reload and viewport containment",
+      "Desktop C02-C and mobile C04-C captures reviewed: French labels wrap within existing controls"
+    ],
+    "remaining": [
+      "Other interface and narrative translations remain incomplete",
+      "Older road-scene sign overlays visible on desktop are absent on mobile C02-C/C04-C; investigate responsive visibility before visual acceptance"
+    ],
+    "new_images": 0
   }
 }
