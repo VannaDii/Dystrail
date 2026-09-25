@@ -21,6 +21,7 @@ html.rust,
 html.coal,
 html.ayu {
   color-scheme: dark;
+  font-size: 100%;
   --bg: #09131e;
   --fg: #fff6df;
   --sidebar-bg: #102533;
@@ -54,20 +55,34 @@ html.ayu {
 }
 
 html { background: #09131e; }
-body { font: 400 1.08rem/1.68 "Space Grotesk", "Trebuchet MS", sans-serif; }
+body { font: 400 1.0625rem/1.65 "Space Grotesk", "Trebuchet MS", sans-serif; }
 button, input { font: inherit; }
 a { text-underline-offset: .2em; }
 a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
   outline: 3px solid #f3ce69;
   outline-offset: 3px;
 }
+.guide-skip {
+  position: fixed;
+  z-index: 1000;
+  top: -6rem;
+  left: 1rem;
+  padding: .75rem 1rem;
+  border: 2px solid #f3ce69;
+  border-radius: 4px;
+  background: #09131e;
+  color: #fff6df;
+  font-weight: 700;
+}
+.guide-skip:focus { top: .5rem; }
 
 #mdbook-sidebar { border-right: 1px solid #355567; }
+.sidebar { font-size: 1rem; }
 .sidebar .chapter { padding-top: 1.2rem; }
-.sidebar .chapter li > a { border-radius: 4px; line-height: 1.35; padding-block: .48rem; }
+.sidebar .chapter li > a { border-radius: 4px; line-height: 1.4; padding: .65rem .5rem; }
 .sidebar .chapter li > a:hover { background: #203d50; text-decoration: none; }
 .sidebar .chapter li > a.active { background: #294250; color: #f3ce69; font-weight: 700; }
-.sidebar .chapter li > a strong { color: #f3ce69; font-size: .78em; }
+.sidebar .chapter li > a strong { color: #f3ce69; font-size: 1em; }
 .sidebar .section { border-left: 1px solid #355567; margin-left: .95rem; }
 
 #mdbook-menu-bar {
@@ -75,28 +90,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible 
   border-bottom: 1px solid #355567;
   backdrop-filter: blur(8px);
 }
+#mdbook-menu-bar .icon-button { min-width: 2.75rem; min-height: 2.75rem; }
 #mdbook-menu-bar .menu-title {
   color: #f3ce69;
-  font: 400 .72rem/1.6 "Press Start 2P", "Courier New", monospace;
-  letter-spacing: -.03em;
+  font: 700 1rem/1.4 "Space Grotesk", "Trebuchet MS", sans-serif;
+  letter-spacing: .01em;
 }
 #mdbook-theme-toggle, #mdbook-theme-list { display: none; }
 #mdbook-searchbar { border-radius: 4px; }
 
 .content main { padding: 2.25rem 0 5rem; }
+.content main > p, .content main > ul, .content main > ol { max-width: 70ch; }
 .content main > h1:first-child,
 .content main > .guide-hero + h1 { margin-top: 0; }
-.content h1, .content h2 {
+.content h1 {
   color: #fff6df;
   font-family: "Press Start 2P", "Courier New", monospace;
   font-weight: 400;
   letter-spacing: -.04em;
   text-wrap: balance;
 }
-.content h1 { font-size: clamp(1.45rem, 3.2vw, 2.35rem); line-height: 1.5; margin-bottom: 1.3rem; }
-.content h2 { font-size: clamp(.92rem, 1.55vw, 1.22rem); line-height: 1.8; margin-top: 2.7rem; margin-bottom: 1.2rem; }
+.content h1 { font-size: clamp(1.875rem, 2.5vw, 2.25rem); line-height: 1.5; margin-bottom: 1.3rem; }
+.content h2 { color: #fff6df; font: 700 1.5rem/1.3 "Space Grotesk", "Trebuchet MS", sans-serif; margin-top: 2.7rem; margin-bottom: 1.2rem; text-wrap: balance; }
 .content h2::after { content: ""; display: block; width: 4rem; height: 4px; margin-top: .6rem; background: #f3ce69; }
-.content h3 { color: #fff6df; font-size: 1.35rem; line-height: 1.3; }
+.content h3 { color: #fff6df; font-size: 1.25rem; line-height: 1.35; margin-top: 2rem; }
 .content p, .content li { line-height: 1.7; }
 .content p { margin-block: 1.05rem; }
 .content a { text-decoration: underline; }
@@ -106,7 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible 
 .content li { margin-block: .65rem; }
 .content li::marker { color: #f3ce69; font-weight: 700; }
 .content main > p:has(img) { margin: 1.8rem 0 2rem; }
-.content main > p img { display: block; width: 100%; border: 1px solid #355567; border-radius: 5px; }
+.content main > p img { display: block; width: 100%; max-width: 42rem; border: 1px solid #355567; border-radius: 5px; }
 .content .table-wrapper { margin: 1.5rem 0; border: 1px solid #355567; border-radius: 5px; }
 .content table { width: 100%; margin: 0; }
 .content th { color: #f3ce69; text-align: left; }
@@ -127,12 +144,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible 
   border-radius: 6px;
   background: linear-gradient(100deg, #041c34ee 0%, #041c34c4 51%, #041c3440 100%), url("/assets/prairie-small.webp") center / cover;
 }
-.guide-hero-copy { position: relative; z-index: 1; width: 64%; }
+.guide-hero-copy { position: relative; z-index: 1; width: 46%; }
 .guide-hero .guide-eyebrow { color: #f3ce69; font-size: .88rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
-.guide-hero h1 { max-width: 22rem; font-size: clamp(1.55rem, 3.1vw, 2.55rem); line-height: 1.45; text-shadow: 0 3px 0 #04121e; }
+.guide-hero h1 { max-width: 22rem; font-size: clamp(1.5rem, 2.8vw, 2.25rem); line-height: 1.45; text-shadow: 0 3px 0 #04121e; }
 .guide-hero h1::after { content: ""; display: block; width: 4rem; height: 4px; margin-top: .7rem; background: #f3ce69; }
-.guide-hero p { max-width: 29rem; font-size: 1.1rem; line-height: 1.52; }
-.guide-hero img { position: absolute; right: -2%; bottom: -8%; width: 60%; height: auto; border: 0; }
+.guide-hero p { max-width: 29rem; font-size: 1.0625rem; line-height: 1.55; }
+.guide-hero img { position: absolute; right: 0; bottom: -8%; width: 52%; height: auto; border: 0; }
 .guide-play {
   display: inline-flex;
   align-items: center;
@@ -151,13 +168,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible 
 .guide-play:hover { background: #ffdc7c; transform: translateY(-2px); }
 
 @media (max-width: 760px) {
-  #mdbook-menu-bar .menu-title { font-size: .54rem; }
+  #mdbook-menu-bar .menu-title { font-size: .9375rem; }
   .content main { padding-top: 1.5rem; }
   .guide-hero { display: block; min-height: 0; padding: 1.5rem 1.35rem 0; background: linear-gradient(180deg, #041c34df 0%, #041c34b5 62%, #041c3430 100%), url("/assets/prairie-small.webp") center / cover; }
   .guide-hero-copy { width: 100%; }
   .guide-hero h1 { max-width: 100%; font-size: clamp(1.4rem, 5vw, 2rem); }
   .guide-hero img { position: relative; display: block; right: auto; bottom: auto; width: 100%; max-width: none; margin: 1rem 0 -8%; }
-  .content td, .content th { min-width: 9rem; padding: .7rem; }
+  .content td, .content th { padding: .7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

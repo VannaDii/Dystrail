@@ -44,6 +44,9 @@ jobs:
           rm -rf build
           mkdir -p build/play build/docs
 
+      - name: Verify shared help
+        run: python3 help/build.py check
+
       - name: Build playable web client
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}

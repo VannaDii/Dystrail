@@ -1,0 +1,110 @@
+{
+  "travel": {
+    "i18n_key": "play.travel_help",
+    "text": "Set your pace and information diet, then travel. The road runs briefly before stopping at your next decision. Watch the gauges; choices and repairs report their actual costs."
+  },
+  "outfitting": {
+    "i18n_key": "play.outfit_help",
+    "text": "Your starting funds pay for the selected cart. There are no free supplies underneath it. Add or remove food, water, parts and protection; you may leave empty. Purchases are charged when you depart. A spare is consumed only when fitted."
+  },
+  "food_and_water": {
+    "i18n_key": "play.fuel_food_help",
+    "text": "Food and water add shared supply units. Water jugs also reduce heat exposure."
+  },
+  "spares": {
+    "i18n_key": "play.vehicle_help",
+    "text": "One matching spare is consumed when fitted. Without one, repairs may cost cash, time, or vehicle condition."
+  },
+  "protection": {
+    "i18n_key": "play.ppe_help",
+    "text": "Warm coats protect against cold's sanity cost and health damage from prolonged cold exposure. Ponchos protect against storm sanity loss. Masks protect against smoke's sanity cost and reduce illness risk. Other weather costs can still apply."
+  },
+  "documents": {
+    "i18n_key": "play.docs_help",
+    "text": "A press pass can help at permit checks. A legal fund adds credibility."
+  },
+  "pace": {
+    "i18n_key": "play.pace_help",
+    "text": "Steady adds no pace fatigue. Heated costs 1 Sanity and Blitz costs 2 per 5 hours of driving; unfinished fatigue carries into later drives. Weather and vehicle condition affect distance, and activities use available driving time."
+  },
+  "news": {
+    "i18n_key": "play.diet_help",
+    "text": "Your information diet is your news intake. Its Sanity effect applies once per day. Quieter coverage supports Sanity; doomscrolling improves your chances of finding receipts but costs Sanity."
+  },
+  "weather": {
+    "i18n_key": "play.weather_help",
+    "text": "Weather can affect travel distance and the crew. Conditions can change as the next day begins. Matching gear protects against only the penalties named for that item."
+  },
+  "supplies": {
+    "i18n_key": "play.supplies_help",
+    "text": "Food and water share a 20-unit capacity. Travel, weather, care and barter use supplies. Buy provisions, gather outside town, trade or work for food to replenish them."
+  },
+  "health": {
+    "i18n_key": "play.health_help",
+    "text": "Health falls through injury, hunger and hard physical work. Care, recovery days and some encounters restore it. At zero the journey ends."
+  },
+  "sanity": {
+    "i18n_key": "play.sanity_help",
+    "text": "News intake, rushed travel, illness and stressful choices can lower sanity. Quiet news, camp recovery and helpful encounters restore it. A warning appears at 2 or less."
+  },
+  "credibility": {
+    "i18n_key": "play.cred_help",
+    "text": "Credibility rises by listening to locals, documenting events and useful encounter choices. Misleading claims and some shortcuts reduce it. It affects the final hearing."
+  },
+  "morale": {
+    "i18n_key": "play.morale_help",
+    "text": "Morale is the crew’s shared spirit. Care, rest, cooperation and successful encounters raise it. Losses, departures, hunger and difficult choices lower it."
+  },
+  "allies": {
+    "i18n_key": "play.allies_help",
+    "text": "Allies are outside supporters, separate from the people in your van. Helpful encounter choices build support; choices that spend or alienate support reduce it. Allies contribute to the final hearing."
+  },
+  "receipts": {
+    "i18n_key": "play.receipts_help",
+    "text": "Receipts are evidence for your D.C. hearing. Earn them from encounter choices showing Receipts +1. Each receipt you keep adds 8 points to your journey score. They decrease only when a choice explicitly spends one. Your character and news diet affect the displayed chance of finding an extra receipt."
+  },
+  "camp": {
+    "i18n_key": "journey.camp_forecast",
+    "text": "Rest helps every present crew member, with recovery based on their current condition. One stationary day passes; weather and hunger can still affect the crew."
+  },
+  "town": {
+    "i18n_key": "journey.arrival_help",
+    "text": "The road can wait. Restock, exchange goods or hear what the locals know before departing."
+  },
+  "gather": {
+    "i18n_key": "trail.gather_help",
+    "text": "Outside town, gather once every three completed days. Choose a short forage or harder work with more food. In towns, choose one paid or food-for-work offer per stop. Supplies cannot exceed 20; unavailable choices show their costs before you commit."
+  },
+  "repair": {
+    "i18n_key": "trail.repair_help",
+    "text": "A fitted spare is consumed. Buying outside town includes $10 delivery. Barter consumes four supplies. Radio contacts arrange a used part in exchange for four hours of work, costing sanity and morale. The radio option remains available without cash or spares."
+  },
+  "offline": {
+    "i18n_key": "offline.help",
+    "text": "All game scenes, maps and rules download automatically. Wait for Ready for offline play before disconnecting. The game checks for a complete update before starting online. Your browser stores the game and saves locally; clearing site data removes them."
+  },
+  "install": {
+    "i18n_key": "offline.install_help",
+    "text": "On iPhone or iPad, use Share → Add to Home Screen. On a supported desktop browser, use its Install app or Add to Dock command. Installation options depend on your browser."
+  },
+  "classic": {
+    "i18n_key": "ux.classic_desc",
+    "text": "Broken systems. Dubious advice. A fighting chance. The original trail, with plenty of political absurdity."
+  },
+  "deep": {
+    "i18n_key": "ux.deep_desc",
+    "text": "The same road, a worse reality. Darker satire about attacks on trans rights, abortion restrictions, surveillance abuse, detention, and denied care. Choose this trail to opt in to those themes."
+  },
+  "code": {
+    "i18n_key": "ux.code_help",
+    "text": "The same code and choices replay the same journey. CL is Classic; DP is The Deep End."
+  },
+  "capacity": {
+    "i18n_key": "journey.capacity",
+    "text": "The van holds 20 supply units. Remove surplus packs before checkout; you will not be charged for goods you cannot carry."
+  },
+  "trade": {
+    "i18n_key": "trail.trade_help",
+    "text": "Community trading. Exchange goods or work for supplies; local offers are available once per stop."
+  }
+}
