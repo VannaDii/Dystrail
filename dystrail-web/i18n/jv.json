@@ -1355,6 +1355,35 @@
       "name": "Weteng Rahasia Negara",
       "desc": "Kontakmu, {name}, nganggep kritikmu marang susu MAHA minangka bukti yen kowe kerja kanggo FDA, banjur medhot kontak. Karier federal anyarmu ora ana gajine, nanging ana weteng mules pirang-pirang.",
       "last": "Ora ana sekutu njaba sing kari. Ora ana wong ing van sing lunga amarga pesen iki."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "PANEMU UMUM"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "PILIHANE PASIEN"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "LAPORAN HADIAH"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "REGA JUJUR",
+      "overlay_1": "$79",
+      "overlay_2": "LAYANAN WAJIB: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "BEBAS SAKA ATURAN PANAS LOKAL"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMERIKA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: KESEPAKATAN KARO FTC",
+      "overlay_1": "DALAN LOKAL"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DATA ANONIM",
+      "overlay_1": "PRENTAH FTC BAB LOKASI SENSITIF",
+      "overlay_2": "DALAN GEDHE"
     }
   },
   "play": {

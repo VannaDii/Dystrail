@@ -339,11 +339,11 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
 // Panel-local blank surfaces: x, y, width, height, font size.
 fn selected_labels(unit: &str) -> Vec<(u16,u16,u16,u16,u8)> {
     match unit {
-        "ENC-C09-C" => vec![(354,291,69,31,9)],
+        "ENC-C09-C" => vec![(354,291,69,31,8)],
         "ENC-C10-B" => vec![(425,240,42,27,7)],
         "ENC-C10-C" => vec![(196,258,88,22,9)],
         "ENC-C12-C" => vec![(84,92,273,175,36),(435,239,145,40,30),(612,258,53,22,6)],
-        "ENC-C14-A" => vec![(198,330,155,52,13)],
+        "ENC-C14-A" => vec![(198,330,155,52,12)],
         "ENC-C16-B" => vec![(321,166,247,62,36)],
         "ENC-D12-C" => vec![(216,77,91,83,13),(609,310,52,65,10)],
         "ENC-D13-A" => vec![(401,664-512,238,22,14),(493,526-512,79,65,10),(218,697-512,43,24,8)],
@@ -358,7 +358,7 @@ fn render_selected(unit: &str, sheet: &'static str, cell:u8) -> Html {
         {for selected_labels(unit).into_iter().enumerate().map(|(i,(lx,ly,w,h,size))|html!{
             <foreignObject x={(x+lx).to_string()} y={(y+ly).to_string()} width={w.to_string()} height={h.to_string()}>
                 <div xmlns="http://www.w3.org/1999/xhtml" class="selected-prop-label" dir="auto" style={format!("height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#302719;font:700 {size}px/1.05 sans-serif;overflow-wrap:anywhere;hyphens:auto;")}>
-                    {crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}"))}
+                    <span style="display:block;min-width:0;width:100%;overflow-wrap:anywhere;hyphens:auto;">{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}"))}</span>
                 </div>
             </foreignObject>
         })}

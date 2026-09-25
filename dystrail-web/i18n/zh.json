@@ -1362,6 +1362,35 @@
       "name": "涉密的胃",
       "desc": "联络人{name}认定你批评MAHA牛奶就证明你为FDA工作，于是切断联系。你的新联邦职业没有工资，只附送几次胃痉挛。",
       "last": "外部盟友已经没有了。这条消息没有让车里的任何人离队。"
+    },
+    "ENC-C09-C": {
+      "overlay_0": "公众意见"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "患者选择"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "礼物申报"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "诚实价格",
+      "overlay_1": "$79",
+      "overlay_2": "强制服务费：$40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "摆脱地方高温保护规定"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "美洲"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM：FTC和解协议",
+      "overlay_1": "本地道路"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "匿名数据",
+      "overlay_1": "FTC敏感地点数据禁令",
+      "overlay_2": "公路"
     }
   },
   "play": {

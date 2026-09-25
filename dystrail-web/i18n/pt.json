@@ -1362,6 +1362,35 @@
       "name": "O estômago sigiloso",
       "desc": "Seu contato {name} decide que suas críticas ao leite MAHA provam que você trabalha para a FDA e corta o contato. Sua nova carreira federal vem sem salário e com várias cólicas estomacais.",
       "last": "Não restam aliados externos. Ninguém saiu da van por causa desta mensagem."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "COMENTÁRIOS PÚBLICOS"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "ESCOLHA DO PACIENTE"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "DECLARAÇÃO DE PRESENTE"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "PREÇO HONESTO",
+      "overlay_1": "$79",
+      "overlay_2": "SERVIÇO OBRIGATÓRIO: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "LIBERDADE DAS REGRAS LOCAIS SOBRE O CALOR"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMÉRICA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: ACORDO COM A FTC",
+      "overlay_1": "VIAS LOCAIS"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DADOS ANÔNIMOS",
+      "overlay_1": "ORDEM DA FTC SOBRE LOCAIS SENSÍVEIS",
+      "overlay_2": "RODOVIA"
     }
   },
   "play": {

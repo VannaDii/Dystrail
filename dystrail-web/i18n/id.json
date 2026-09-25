@@ -1355,6 +1355,35 @@
       "name": "Perut Rahasia Negara",
       "desc": "Kontakmu, {name}, menganggap kritikmu terhadap susu MAHA membuktikan kamu bekerja untuk FDA, lalu memutus kontak. Karier federal barumu tak memberi gaji, hanya beberapa kram perut.",
       "last": "Tak ada sekutu luar yang tersisa. Tidak seorang pun meninggalkan van akibat pesan ini."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "KOMENTAR PUBLIK"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "PILIHAN PASIEN"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "PELAPORAN HADIAH"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "HARGA JUJUR",
+      "overlay_1": "$79",
+      "overlay_2": "LAYANAN WAJIB: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "BEBAS DARI ATURAN PANAS SETEMPAT"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMERIKA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: PENYELESAIAN DENGAN FTC",
+      "overlay_1": "JALAN LOKAL"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DATA ANONIM",
+      "overlay_1": "PERINTAH FTC TENTANG LOKASI SENSITIF",
+      "overlay_2": "JALAN RAYA"
     }
   },
   "play": {

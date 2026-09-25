@@ -1355,6 +1355,35 @@
       "name": "Gizli Mide",
       "desc": "Bağlantınız {name}, MAHA sütünü eleştirmenizin FDA için çalıştığınızı kanıtladığına karar verip iletişimi kesiyor. Yeni federal kariyeriniz maaş getirmiyor ama birkaç mide krampı getiriyor.",
       "last": "Dışarıda müttefik kalmadı. Bu mesaj yüzünden minibüsten kimse ayrılmadı."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "HALKIN GÖRÜŞLERİ"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "HASTANIN SEÇİMİ"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "HEDİYE BEYANI"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "DÜRÜST FİYAT",
+      "overlay_1": "$79",
+      "overlay_2": "ZORUNLU HİZMET: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "YEREL SICAKTAN KORUNMA KURALLARINDAN ÖZGÜRLÜK"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMERİKA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: FTC UZLAŞMASI",
+      "overlay_1": "YEREL YOLLAR"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "ANONİM VERİLER",
+      "overlay_1": "HASSAS KONUMLAR HAKKINDA FTC KARARI",
+      "overlay_2": "ANA YOL"
     }
   },
   "play": {

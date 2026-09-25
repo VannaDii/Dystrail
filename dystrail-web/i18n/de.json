@@ -1355,6 +1355,35 @@
       "name": "Der geheime Magen",
       "desc": "Eure Kontaktperson {name} hält eure Kritik an MAHA-Milch für den Beweis, dass ihr für die FDA arbeitet, und bricht den Kontakt ab. Eure neue Bundeskarriere bringt kein Gehalt, aber mehrere Magenkrämpfe.",
       "last": "Es gibt keine Verbündeten außerhalb der Reisegruppe mehr. Wegen dieser Nachricht hat niemand den Van verlassen."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "ÖFFENTLICHE KOMMENTARE"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "PATIENTENWAHL"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "GESCHENKMELDUNG"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "EHRLICHER PREIS",
+      "overlay_1": "$79",
+      "overlay_2": "PFLICHTSERVICE: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "FREIHEIT VON ÖRTLICHEN HITZESCHUTZREGELN"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMERIKA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: FTC-VERGLEICH",
+      "overlay_1": "ÖRTLICHE STRASSEN"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "ANONYME DATEN",
+      "overlay_1": "FTC-ANORDNUNG ZU SENSIBLEN ORTEN",
+      "overlay_2": "FERNSTRASSE"
     }
   },
   "play": {

@@ -2193,6 +2193,35 @@
       "desc": "Trump quiere que la historia destaque la grandeza estadounidense. Tu denuncia trata de la letra pequeña. Cinco acompañantes se unen al viaje a Washington D. C.; la carpeta encaja mal entre los gastos reales de vivir de todo el mundo.",
       "choice_0": "Salir hacia Washington D. C.",
       "log_0": "Salís de San Francisco. La historia oficial admite mejoras, algo incómodo para quienes la editan."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "COMENTARIOS PÚBLICOS"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "ELECCIÓN DEL PACIENTE"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "DECLARACIÓN DE REGALO"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "PRECIO HONESTO",
+      "overlay_1": "$79",
+      "overlay_2": "SERVICIO OBLIGATORIO: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "LIBERTAD FRENTE A LAS NORMAS LOCALES SOBRE EL CALOR"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMÉRICA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: ACUERDO CON LA FTC",
+      "overlay_1": "VÍAS LOCALES"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DATOS ANÓNIMOS",
+      "overlay_1": "ORDEN DE LA FTC SOBRE UBICACIONES SENSIBLES",
+      "overlay_2": "CARRETERA"
     }
   },
   "play": {

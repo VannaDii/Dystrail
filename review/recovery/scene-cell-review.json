@@ -20206,12 +20206,27 @@
     "verification": [
       "Build passed",
       "16 desktop/mobile flows passed for exact selected cells, live text overlays, 3:2 framing, actual choice outcome, unchanged crew and offline reload",
-      "Rendered captures reviewed for all eight panels; aircraft label corrected onto wing paper and focused desktop/mobile checks passed"
+      "Rendered captures reviewed for all eight panels; aircraft label corrected onto wing paper and focused desktop/mobile checks passed",
+      "All 13 editable labels translated into the remaining 19 supported locales; localized label checks recorded separately"
     ],
     "remaining": [
-      "Overlay translations beyond English",
       "Final visual acceptance including small-label readability and inherited caption-band treatment",
       "Eight failed sibling panels retain user-review holds; no automatic regeneration"
+    ],
+    "new_images": 0
+  },
+  "selected_panel_localization_checkpoint": {
+    "status": "247 localized editable labels added; no raster changes or image generation",
+    "verification": [
+      "Build passed after label wrapping and font-size corrections",
+      "Full desktop/mobile pass exercised 8 panels in 20 languages (320 combinations); only Russian C09-C and Turkish C14-A labels overflowed",
+      "Reduced the two affected label font sizes; focused final desktop/mobile checks passed for all four affected combinations",
+      "Reviewed final Russian mobile and Turkish desktop captures, plus Arabic mobile sensitive-location panel"
+    ],
+    "remaining": [
+      "Native-language editorial review",
+      "Full encounter prose translations remain separate; untranslated prose continues its existing English fallback",
+      "Final visual acceptance, including small-label readability and inherited caption-band treatment"
     ],
     "new_images": 0
   }

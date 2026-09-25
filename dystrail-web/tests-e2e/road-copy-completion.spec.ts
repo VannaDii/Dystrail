@@ -142,3 +142,22 @@ test('retained selected satire panels preserve choices and crew',async({page,con
   await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(art).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await context.setOffline(false);
  }
 });
+
+test('selected satire labels fit their surfaces in every supported language',async({page,context},info)=>{
+ test.setTimeout(600000);const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;base.driving_minutes_total=300;base.last_encounter_driving_minutes=300;
+ const languages=[...readFileSync('src/i18n/locales.rs','utf8').matchAll(/code: "([a-z]+)"/g)].map(m=>m[1]);
+ for(const unit of ['ENC-C09-C','ENC-C10-B','ENC-C10-C','ENC-C12-C','ENC-C14-A','ENC-C16-B','ENC-D12-C','ENC-D13-A']){
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+  const u=source.find((s:any)=>s.id===unit),s=structuredClone(base),key=`${unit.slice(0,-2)}/road/300`;s.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);s.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};await importState(page,s);
+  for(const lang of languages){
+   if(process.env.LABEL_OVERFLOW_ONLY==='1'&&!((unit==='ENC-C09-C'&&lang==='ru')||(unit==='ENC-C14-A'&&lang==='tr')))continue;
+   const translations=JSON.parse(readFileSync(`i18n/${lang}.json`,'utf8')).encounter_copy[unit];
+   const labels=Object.keys(copy[unit]).filter(k=>k.startsWith('overlay_')).map(k=>translations[k]);expect(labels.every(Boolean)).toBe(true);
+   await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await context.setOffline(true);await page.reload();await waitForLaunch(page);
+   const rendered=page.locator(`[data-selected-unit="${unit}"] .selected-prop-label`);await expect(rendered).toHaveText(labels);
+   const overflow=await rendered.evaluateAll(nodes=>nodes.filter(n=>n.scrollHeight>n.clientHeight+1||n.scrollWidth>n.clientWidth+1).map(n=>n.textContent));expect.soft(overflow,`${lang} ${unit}`).toEqual([]);
+   if((unit==='ENC-D13-A'&&['ar','de'].includes(lang))||process.env.LABEL_OVERFLOW_ONLY==='1'){await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.locator('.journey-scene').screenshot({path:info.outputPath(`labels-${lang}.png`)});}
+   await context.setOffline(false);
+  }
+ }
+});

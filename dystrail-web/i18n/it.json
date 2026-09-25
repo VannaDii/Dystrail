@@ -1951,6 +1951,35 @@
       "name": "Lo stomaco classificato",
       "desc": "Il vostro contatto {name} decide che criticare il latte MAHA dimostra che lavorate per la FDA e interrompe i contatti. La vostra nuova carriera federale non prevede stipendio, ma diversi crampi allo stomaco.",
       "last": "Non restano alleati esterni. Nessuno ha lasciato il furgone a causa di questo messaggio."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "COMMENTI PUBBLICI"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "SCELTA DEL PAZIENTE"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "DICHIARAZIONE DI DONO"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "PREZZO ONESTO",
+      "overlay_1": "$79",
+      "overlay_2": "SERVIZIO OBBLIGATORIO: $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "LIBERTÀ DALLE NORME LOCALI SUL CALDO"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMERICA"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM: ACCORDO CON LA FTC",
+      "overlay_1": "STRADE LOCALI"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DATI ANONIMI",
+      "overlay_1": "ORDINE FTC SUI LUOGHI SENSIBILI",
+      "overlay_2": "STRADA PRINCIPALE"
     }
   },
   "play": {

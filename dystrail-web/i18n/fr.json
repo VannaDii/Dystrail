@@ -1493,6 +1493,35 @@
       "name": "L'estomac classifié",
       "desc": "Votre contact {name} décide que vos critiques du lait MAHA prouvent que vous travaillez pour la FDA et coupe le contact. Votre nouvelle carrière fédérale ne comprend aucun salaire, mais plusieurs crampes d'estomac.",
       "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ENC-C09-C": {
+      "overlay_0": "COMMENTAIRES DU PUBLIC"
+    },
+    "ENC-C10-B": {
+      "overlay_0": "CHOIX DU PATIENT"
+    },
+    "ENC-C10-C": {
+      "overlay_0": "DÉCLARATION DE CADEAU"
+    },
+    "ENC-C12-C": {
+      "overlay_0": "PRIX HONNÊTE",
+      "overlay_1": "$79",
+      "overlay_2": "SERVICE OBLIGATOIRE : $40"
+    },
+    "ENC-C14-A": {
+      "overlay_0": "LIBÉRÉS DES RÈGLES LOCALES SUR LA CHALEUR"
+    },
+    "ENC-C16-B": {
+      "overlay_0": "AMÉRIQUE"
+    },
+    "ENC-D12-C": {
+      "overlay_0": "PREMOM : ACCORD AVEC LA FTC",
+      "overlay_1": "ROUTES LOCALES"
+    },
+    "ENC-D13-A": {
+      "overlay_0": "DONNÉES ANONYMES",
+      "overlay_1": "ORDONNANCE FTC : LIEUX SENSIBLES",
+      "overlay_2": "GRANDE ROUTE"
     }
   },
   "play": {
