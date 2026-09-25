@@ -103,7 +103,7 @@ mod tests {
             gs.continuity.visual_content.selections.insert(
                 format!("{}/town/{}", story.family_id, gs.continuity.route_services.stop.unwrap()), story.id.clone());
             let before = serde_json::to_value(&gs).unwrap();
-            let expected = if matches!(story.id.as_str(), "TOWN-41-B" | "TOWN-41-C") {
+            let expected = if matches!(story.id.as_str(), "TOWN-41-B" | "TOWN-41-C" | "TOWN-02-B" | "TOWN-17-C" | "TOWN-18-A" | "TOWN-19-C" | "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C" | "TOWN-36-A") {
                 crate::components::ui::journey_scene::SceneStage::Encounter(story.id)
             } else { crate::components::ui::journey_scene::SceneStage::Town };
             assert_eq!(scene(&gs), expected);

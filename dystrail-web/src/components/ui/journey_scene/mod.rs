@@ -136,7 +136,7 @@ pub fn journey_scene(p: &Props) -> Html {
     ));
     let crossing = matches!(p.stage, SceneStage::Crossing { .. });
     let barter_ratio = barter_art::aspect(&p.stage);
-    let authored = barter_ratio.as_deref().or_else(|| town_art::context(&p.stage).map(|_| "1.5")).or_else(|| ally_art::context(&p.stage).map(|_| "1.5")).or_else(|| crossing.then_some("1.5")).or_else(|| care_art::context(&p.stage).map(|_| "1.5")).or_else(|| road_art::aspect(&p.stage));
+    let authored = barter_ratio.as_deref().or_else(|| town_art::aspect(&p.stage)).or_else(|| ally_art::context(&p.stage).map(|_| "1.5")).or_else(|| crossing.then_some("1.5")).or_else(|| care_art::context(&p.stage).map(|_| "1.5")).or_else(|| road_art::aspect(&p.stage));
     let authored_style =
         authored.map_or(String::new(), |ratio| format!("--authored-ratio:{ratio}"));
     html! { <figure style={authored_style} data-weather={weather} data-time={light} data-hour={p.hour.to_string()} data-indoors={indoors.to_string()} data-scene={name.unwrap_or("unillustrated").to_owned()} class={classes!("journey-scene",authored.is_some().then_some("scene-authored"),road.then_some("scene-road"),p.moving.then_some("scene-moving"))}>

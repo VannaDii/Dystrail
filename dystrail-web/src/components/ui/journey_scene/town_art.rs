@@ -3,17 +3,35 @@ use super::{Props, SceneStage};
 use crate::{components::ui::cast_art, game::party::MemberStatus};
 use yew::prelude::*;
 
+pub fn shared_setting(unit: &str) -> bool {
+    matches!(unit, "TOWN-02-B" | "TOWN-17-C" | "TOWN-18-A" | "TOWN-19-C" |
+        "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C" | "TOWN-36-A")
+}
+
+pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
+    context(stage).map(|(unit, _)| if shared_setting(unit) { "1" } else { "1.5" })
+}
+
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
     let SceneStage::Encounter(unit) = stage else { return None; };
     match unit.as_str() {
         "TOWN-41-B" => Some((unit, true)),
         "TOWN-41-C" => Some((unit, false)),
+        unit if shared_setting(unit) => Some((unit, true)),
         _ => None,
     }
 }
 
 pub fn render(p: &Props) -> Option<Html> {
     let (unit, indoors) = context(&p.stage)?;
+    if shared_setting(unit) {
+        return Some(html! {
+            <svg class="scene-background town-setting" data-town-unit={unit.to_owned()} data-town-context="cafe"
+                viewBox="512 0 512 512" preserveAspectRatio="xMidYMid meet">
+                <image href={crate::paths::asset_path("static/img/journey/encounter-settings-v3.png")} width="1536" height="1024"/>
+            </svg>
+        });
+    }
     let path = crate::paths::asset_path(&format!("static/img/scenes-v2/{}.png", unit.to_ascii_lowercase()));
     let (xs, top, width, table) = if indoors { ([325, 690], 410, 350, 728) } else { ([20, 500], 320, 440, 710) };
     let foreground = if indoors {
