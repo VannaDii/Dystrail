@@ -56,7 +56,8 @@ test('ally notices preserve the traveling crew and acknowledge only once',async(
 test('localized ally notices preserve saved receipts and crew',async({page,context},info)=>{
  test.setTimeout(300000);const base=await baseline(page);
  const units=['ALLY-01-A','ALLY-02-A','ALLY-02-C','ALLY-03-B','ALLY-03-C','ALLY-04-B','ALLY-05-A','ALLY-05-B'];
- const languages=[...readFileSync('src/i18n/locales.rs','utf8').matchAll(/code: "([a-z]+)"/g)].map(m=>m[1]).filter(l=>l!=='en');
+ const frenchComplete=process.env.ALLY_FRENCH_COMPLETE==='1';
+ const languages=frenchComplete?['fr']:[...readFileSync('src/i18n/locales.rs','utf8').matchAll(/code: "([a-z]+)"/g)].map(m=>m[1]).filter(l=>l!=='en');
  for(const [index,lang] of languages.entries()){
   const translations=JSON.parse(readFileSync(`i18n/${lang}.json`,'utf8')).encounter_copy;
   const retained=JSON.parse(readFileSync(`../review/recovery/recorded-files/review/art-satire/ally-translation-${lang}.json`,'utf8'));
@@ -64,7 +65,11 @@ test('localized ally notices preserve saved receipts and crew',async({page,conte
    const [,family,variant]=unit.split('-'),row=retained.rows[(Number(family)-1)*3+variant.charCodeAt(0)-65];
    expect(translations[unit]).toEqual({name:row[0],desc:row[1],last:retained.final[variant]});
   }
-  const unit=units[index%units.length],family=Number(unit.split('-')[1]),text=translations[unit];
+  for(const unit of frenchComplete?(process.env.ALLY_UNITS?.split(',')??Object.keys(copy).filter(k=>k.startsWith('ALLY-'))):[units[index%units.length]]){
+  const family=Number(unit.split('-')[1]),text=translations[unit];
+  for(const field of ['name','desc','last'])expect(text[field]).toBeTruthy();
+  expect(text.desc).not.toBe(copy[unit].desc);
+  expect(text.desc).toContain('{name}');
   for(const remaining of [0,1]){
    await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
    const s=structuredClone(base);s.seed=42;s.stats.allies=remaining;s.day=family===1?6:family-1;
@@ -74,15 +79,17 @@ test('localized ally notices preserve saved receipts and crew',async({page,conte
    s.ally_notice=entry;s.journal.push(entry);await importState(page,s);
    await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
    await expect(page.locator('.ally-message')).toHaveText(entry.message);await expect(page.locator('#screen-title')).toContainText(text.name);
+   if(frenchComplete)await expect(page.getByText('Un soutien extérieur se retire',{exact:true})).toBeVisible();
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
    const before=await read();expect(before.party).toEqual(s.party);
    await context.setOffline(true);await page.reload();await waitForLaunch(page);
    await expect(page.locator('.ally-message')).toHaveText(entry.message);
-   if(remaining===0&&['ar','de','ja'].includes(lang))await page.screenshot({path:info.outputPath(`ally-${lang}.png`),fullPage:true});
+   if(remaining===0&&(['ar','de','ja'].includes(lang)||(frenchComplete&&['ALLY-01-B','ALLY-02-B','ALLY-06-C'].includes(unit))))await page.screenshot({path:info.outputPath(`ally-${lang}-${unit}.png`),fullPage:true});
    await page.locator('#outcome-continue').click();await expect(page.locator('.ally-message')).toHaveCount(0);
    const after=await read();before.ally_notice=null;before.inventory.tags.sort();after.inventory.tags.sort();expect(after).toEqual(before);
    await context.setOffline(false);
+  }
   }
  }
 });

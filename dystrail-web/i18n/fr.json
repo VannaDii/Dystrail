@@ -1592,6 +1592,56 @@
       "log_2": "Vous enregistrez leur explication de la loi floridienne. Le sponsor continue de se glisser dans le cadre, précisément dans sa partie ombragée.",
       "fact": "Une loi floridienne de 2024 interdit aux collectivités locales d’imposer certaines protections contre la chaleur au travail et certaines pauses pour boire. Elle n’interdit pas de boire de l’eau et ne supprime pas toutes les obligations fédérales.",
       "overlay_0": "PROTECTIONS LOCALES CONTRE LA CHALEUR BLOQUÉES"
+    },
+    "ALLY-01-B": {
+      "name": "L’Amérique d’abord, les proches après",
+      "desc": "Votre contact {name} abandonne le voyage pour vendre des casquettes America First. On vous demande de rembourser les droits de douane sur la livraison. La Chine semble avoir désigné les proches pour payer.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ALLY-01-C": {
+      "name": "La conversion aux donateurs",
+      "desc": "Votre contact {name} cesse de soutenir le voyage pour démarcher les donateurs d’un super PAC. Votre voix compte toujours. Mais le bouton du volume vient de changer de mains.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ALLY-02-B": {
+      "name": "Personne au bout du fil",
+      "desc": "Votre contact {name} perd son emploi dans un service public après les coupes du DOGE et doit cesser de vous aider. Le message de départ de l’agence invite à appeler pour toute question. Répondre, c’était justement son travail.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ALLY-03-A": {
+      "name": "L’Amérique paie d’abord",
+      "desc": "Votre contact {name} prend des heures supplémentaires pour payer des réparations renchéries par les droits de douane et ne peut plus vous aider. Le pays étranger qui paie est enfin identifié : c’est celui qui figure dans son adresse.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-04-A": {
+      "name": "Une caisse pour chaque camp",
+      "desc": "Votre contact {name} part vendre des produits dérivés lors de rassemblements politiques rivaux. Deux terminaux de paiement ont résolu le problème du bipartisme.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-04-C": {
+      "name": "Appel d’urgence",
+      "desc": "Votre contact {name} part rédiger des courriels de collecte de fonds politiques. Chaque message annonce la fin de la démocratie à minuit. Le contrat se renouvelle tous les mois.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ALLY-05-C": {
+      "name": "L’éveil douanier",
+      "desc": "Votre contact {name} affirme que les droits de douane ne peuvent pas faire monter les prix américains puisque Trump dit que la Chine paie. Après l’envoi d’un ticket de caisse par le groupe, votre numéro est bloqué. Les preuves semblent être un produit importé.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
+    },
+    "ALLY-06-A": {
+      "name": "Un obstacle à la contestation",
+      "desc": "Votre contact {name} se tord la cheville devant une collecte de fonds politique et doit se retirer. L’entrée accessible était réservée aux donateurs. L’égalité d’accès exigeait le niveau de parrainage supérieur.",
+      "last": "C'était votre dernier contact extérieur. Le groupe reste dans le fourgon ; votre réseau de soutien est désormais vide."
+    },
+    "ALLY-06-B": {
+      "name": "Le ministère du bénévolat",
+      "desc": "Votre contact {name} se blesse au dos en faisant du bénévolat après les suppressions de postes du DOGE et doit cesser de vous aider. La blessure est survenue en faisant un travail que le gouvernement avait jugé inutile.",
+      "last": "Il ne reste aucun allié extérieur. Personne n'a quitté le fourgon à cause de ce message."
+    },
+    "ALLY-06-C": {
+      "name": "Le poids de la liberté d’expression",
+      "desc": "Votre contact {name} se blesse à l’épaule en transportant du matériel pour une manifestation contre l’argent des milliardaires en politique. La liberté d’expression pèse plus lourd quand personne ne vous la livre.",
+      "last": "Votre dernier soutien extérieur s'est retiré. Les personnes encore en voyage devront continuer sans ce réseau."
     }
   },
   "play": {
@@ -1957,8 +2007,8 @@
     "attractions": "Worth a look"
   },
   "ally_loss": {
-    "title": "Word from your allies",
-    "notice": "An ally has left",
+    "title": "Des nouvelles de vos soutiens",
+    "notice": "Un soutien extérieur se retire",
     "reason_0": "{name} quits for MAGA. Their goodbye text includes a discount code for red hats. Even the betrayal has a checkout page.",
     "reason_1": "{name} is laid off in a DOGE-style cut. They leave to job-hunt. Efficiency has created forty hours of unpaid work.",
     "reason_2": "A repair tariff forces {name} to quit helping and take evening shifts. “They said China would pay. China can cover my fucking shift.”",

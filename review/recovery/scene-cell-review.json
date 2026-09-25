@@ -17799,8 +17799,8 @@
     "source_staging_unresolved": 0,
     "other_reviewed_or_proposed_records": 308,
     "necessary_image_inventory_complete": true,
-    "production_approved": false,
-    "note": "Finite proposed production inventory assembled: 13 new atlas sheets, retained reuse/layout routes and explicit review holds. Completion here means a reviewable proposal, not accepted art, completed integration or permission to generate.",
+    "production_approved": true,
+    "note": "Inventory approved by the user. Approval does not mean accepted art or completed integration. Current goal prohibits generation until retained assets are integrated and exact unavoidable gaps are identified.",
     "staging_classified_candidate_unselected": 300
   },
   "staging_policy": {
@@ -17810,9 +17810,9 @@
     "one_attempt_per_necessary_image": true
   },
   "production_proposal": {
-    "status": "proposed_for_approval",
+    "status": "approved_integration_incomplete",
     "production_authorized": true,
-    "scope": "52 selected compositions in 13 fixed atlas sheets, plus retained reuse and explicit review holds. Exact per-panel rigs and actions are recorded below. No production is authorized until user approval.",
+    "scope": "52 selected compositions in 13 fixed atlas sheets, plus retained reuse and explicit review holds. The user approved this package; current generation remains gated by retained integration, an exact unavoidable-gap list and the one-attempt limit.",
     "rig_coordinate_space": [
       768,
       512
@@ -20909,5 +20909,44 @@
     "evidence": "/tmp/dystrail-retained-batch",
     "remaining": "Offer illustrations and other work/gather/rest compositions remain incomplete; mismatched retained panels were not substituted.",
     "generation_calls": 0
+  },
+  "ally_retained_gap_checkpoint": {
+    "integrated_units": [
+      "ALLY-01-A",
+      "ALLY-02-A",
+      "ALLY-02-C",
+      "ALLY-04-B",
+      "ALLY-05-A",
+      "ALLY-05-B"
+    ],
+    "held_mismatches": {
+      "ALLY-01-B": "Straw-hat stall replaces plain hat cartons, customs bill and crew phone request.",
+      "ALLY-01-C": "Route map and lunch replace enormous donor microphone and disconnected small microphone.",
+      "ALLY-02-B": "Opposing arrow sheets replace disconnected headset and packed belongings.",
+      "ALLY-03-A": "Bank/mailbox lobby replaces required garage invoice, apron and overnight-shift alarm.",
+      "ALLY-03-B": "Cash-register scene lacks the medical bill under a second-job timecard.",
+      "ALLY-03-C": "Apron is present but groceries look abundant, contradicting sparse food budget. Preserve identity; revise bag/second-job context.",
+      "ALLY-04-A": "Gaming classroom replaces rival-color merchandise tables and paired card readers.",
+      "ALLY-04-C": "Miniature objects replace laptop, monthly calendar and theatrical countdown.",
+      "ALLY-05-C": "Football trophy and award replace discarded receipt and blocked phone message.",
+      "ALLY-06-A": "Industrial shoulder injury replaces injured ankle, closed ramp and privileged entry.",
+      "ALLY-06-B": "Machine-shop consultation replaces cleaning equipment and empty service desk.",
+      "ALLY-06-C": "Sore back and ice pack replace sore shoulder, speaker handcart and distant donor stagehands."
+    },
+    "scope": "Mapped retained candidates reviewed against current approved directions; mismatched art remains unused. No new generation authorized by this review."
+  },
+  "french_ally_completion_checkpoint": {
+    "status": "All 18 French ally names, descriptions and final-contact explanations integrated; native-language editorial review remains open",
+    "changes": "Ten current-premise notices translated; eight matching retained translations preserved. Notice heading and title translated. Exact name-token parity verified.",
+    "validation": [
+      "72 desktop/mobile flows covering all 18 variants with zero/one outside ally remaining passed; receipts restored offline and acknowledgment preserved the traveling crew and all other saved state",
+      "Final build 8c5ea28c3caa9d1bbf4b passed; eight focused flows rechecked the corrected sentence and translated heading on desktop/mobile",
+      "Desktop and mobile French captures visually reviewed; no horizontal overflow; mobile Campement wraps with hyphenation"
+    ],
+    "evidence": [
+      "/tmp/dystrail-french-ally",
+      "/tmp/dystrail-french-ally-final"
+    ],
+    "limits": "This closes the French ally-copy gap only. Ten variants in the other previously incomplete languages and twelve mismatched retained ally scenes remain open. No new artwork generated."
   }
 }
