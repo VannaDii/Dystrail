@@ -20154,5 +20154,25 @@
     ],
     "remaining": "Eleven other ally premises need current matching source explanations; source URLs and other note translations remain open. Saved notice text remains as originally recorded.",
     "new_images": 0
+  },
+  "counter_context_checkpoint": {
+    "status": "Eight dialogue-led counter variants explicitly bound to retained cafe or service-counter settings",
+    "units": [
+      "ENC-C12-B",
+      "ENC-D11-B",
+      "ENC-D06-A",
+      "ENC-D09-B",
+      "ENC-D11-C",
+      "ENC-S21-A",
+      "ENC-S21-C",
+      "ENC-S34-A"
+    ],
+    "verification": [
+      "Build passed",
+      "62 desktop/mobile cafe and service-counter flows passed: variant copy, choices, outcomes, crew preservation, landscape proportions and representative offline reload",
+      "Final two desktop/mobile checks passed after completing four blank paper surfaces; final captures reviewed"
+    ],
+    "remaining": "Shared settings do not illustrate optional prop suggestions. Other unresolved setting assignments and artwork failures remain open.",
+    "new_images": 0
   }
 }

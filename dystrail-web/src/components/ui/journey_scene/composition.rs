@@ -166,8 +166,16 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
             <path d="M672 632 H700 V672 H672 Z" fill="#cdb69d"/>
         </g>
     });
+    let blank_counter_papers = (name == "enc-service-counter").then(|| html! {
+        <g data-blank-counter-papers="true" shape-rendering="crispEdges">
+            <path d="M1032 610 L1047 612 L1047 631 L1032 630 Z" fill="#d6c7ac"/>
+            <path d="M1217 618 H1248 V632 H1217 Z" fill="#cfc0a6"/>
+            <path d="M1217 637 H1248 V662 H1217 Z" fill="#c5bda9"/>
+            <path d="M1278 747 H1310 L1312 758 H1276 Z" fill="#e4dfc9"/>
+        </g>
+    });
     Some(
-        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}{blank_farm_paper}</svg>},
+        html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={atlas} data-cell={cell.to_string()} viewBox={format!("{x} {y} {width} {height}")} preserveAspectRatio="xMidYMid slice"><image href={crate::paths::asset_path(&format!("static/img/journey/{atlas}.png"))} width="1536" height="1024"/>{blank_labels}{blank_farm_paper}{blank_counter_papers}</svg>},
     )
 }
 
