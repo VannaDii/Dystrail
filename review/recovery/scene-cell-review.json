@@ -13843,7 +13843,7 @@
         "rig": "room",
         "approval": "pending"
       },
-      "integration_status": "Explicit retained motel binding; desktop/mobile offer, actual outcome, crew continuity and offline checks passed; both rendered captures reviewed. Shared dialogue setting, not a claim of bespoke gag illustration."
+      "integration_status": "Selected satire sheet 10 cell 1 now illustrates the towel cupboard and blank review banner; desktop/mobile choice, outcome, crew and offline checks passed. The prior retained motel scene remains historical evidence, not the current binding."
     },
     {
       "unit": "ENC-S27-C",
@@ -18927,7 +18927,7 @@
       },
       {
         "asset_id": "selected-satire-10",
-        "decision": "proposed_one_generation_needed",
+        "decision": "integrated_after_single_approved_attempt",
         "canvas": [
           1536,
           1024
@@ -19004,8 +19004,13 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-10.png",
+        "output_sha256": "b352365c43b87c27ebaafc78711b1e5e0f2e3ab63e186139e7dca4a606deb15f",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "cells 0-3: ENC-S26-B, ENC-S27-B, ENC-S30-C, ENC-S32-B",
+        "review": "Four cells reviewed in mobile game captures. Phone photographs empty tray, towels fill a cupboard, wind carries a blank banner over unopened boxes, and one visible cable links panel to screen. Targeted desktop/mobile choice, crew, save, offline and framing checks passed."
       },
       {
         "asset_id": "selected-satire-11",
@@ -19775,7 +19780,7 @@
     "max_new_image_calls": 13,
     "additional_user_authorized_calls": 2,
     "effective_attempt_ceiling": 15,
-    "new_image_attempts_used": 11,
+    "new_image_attempts_used": 12,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -20673,8 +20678,8 @@
   "road_binding_audit": {
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
-    "explicit_shared_units": 108,
-    "dedicated_units": 42,
+    "explicit_shared_units": 107,
+    "dedicated_units": 46,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20713,19 +20718,16 @@
       "ENC-S18-B",
       "ENC-S19-C",
       "ENC-S26-A",
-      "ENC-S26-B",
       "ENC-S28-A",
       "ENC-S30-A",
-      "ENC-S30-C",
       "ENC-S32-A",
-      "ENC-S32-B",
       "ENC-S33-A",
       "ENC-S33-B",
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 41,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 17 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 38,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 14 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20764,9 +20766,6 @@
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S17-B",
-      "ENC-S26-B",
-      "ENC-S30-C",
-      "ENC-S32-B",
       "ENC-S33-A",
       "ENC-S33-B",
       "ENC-S34-B"
@@ -20874,7 +20873,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "41 inherited road assignments remain explicit gaps: 24 location contexts and 17 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "38 inherited road assignments remain explicit gaps: 24 location contexts and 14 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
@@ -21108,5 +21107,12 @@
     "bound_units": ["ENC-S23-A", "ENC-S24-A", "ENC-S24-B", "ENC-S24-C"],
     "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell and scene proportions. Four mobile scenes inspected; corrected mannequin and gold gateway inspected after regeneration. No embedded text or religious symbols observed.",
     "remaining": "Full combined feature and playtest acceptance remain separate."
+  },
+  "sheet10_integration_checkpoint": {
+    "status": "Four panels integrated after one attempt",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-10.png",
+    "bound_units": ["ENC-S26-B", "ENC-S27-B", "ENC-S30-C", "ENC-S32-B"],
+    "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell and scene proportions. Four mobile scene captures inspected; no embedded text or religious symbols observed.",
+    "remaining": "Three historical road visual-gag gaps close; the motel panel replaces one shared setting. Full combined feature acceptance remains open."
   }
 }
