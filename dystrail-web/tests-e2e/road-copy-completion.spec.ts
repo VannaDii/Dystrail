@@ -134,12 +134,14 @@ test('fallback square interiors retain landscape framing through outcomes',async
 
 test('retained selected satire panels preserve choices and crew',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;base.driving_minutes_total=300;base.last_encounter_driving_minutes=300;
- const panels:any={'ENC-C09-C':['01',0],'ENC-C10-B':['01',1],'ENC-C10-C':['01',2],'ENC-C12-C':['02',0],'ENC-C14-A':['02',1],'ENC-C16-B':['02',2],'ENC-D12-C':['04',1],'ENC-D13-A':['04',2]};
+ const panels:any={'ENC-C09-C':['01',0],'ENC-C10-B':['01',1],'ENC-C10-C':['01',2],'ENC-C12-C':['02',0],'ENC-C14-A':['02',1],'ENC-C16-B':['02',2],'ENC-D12-C':['04',1],'ENC-D13-A':['04',2],'ENC-S11-A':['06',0],'ENC-S13-A':['06',1],'ENC-S14-A':['06',2],'ENC-S16-B':['06',3]};
  for(const [unit,[sheet,cell]] of Object.entries(panels) as any){
   if(process.env.SELECTED_PLANE_ONLY==='1'&&unit!=='ENC-C10-C')continue;
+  if(process.env.SELECTED_SHEET6_ONLY==='1'&&sheet!=='06')continue;
   const u=source.find((s:any)=>s.id===unit),s=structuredClone(base),key=`${unit.slice(0,-2)}/road/300`;s.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);
   s.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};await importState(page,s);
   const art=page.locator(`[data-selected-unit="${unit}"]`);await expect(art).toHaveAttribute('data-atlas',`selected-satire-${sheet}`);await expect(art).toHaveAttribute('data-cell',String(cell));
+  if(sheet==='06')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ENC-S11-A'?'false':'true');
   const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(1.5,1);
   const overlays=Object.entries(copy[unit]).filter(([key])=>key.startsWith('overlay_')).map(([,value])=>value);
   await expect(art.locator('.selected-prop-label')).toHaveText(overlays);

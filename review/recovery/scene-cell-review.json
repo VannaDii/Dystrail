@@ -18526,7 +18526,7 @@
       },
       {
         "asset_id": "selected-satire-06",
-        "decision": "user_directed_revision_held_for_review",
+        "decision": "user_approved_revision_integrated_for_playtest",
         "canvas": [
           1536,
           1024
@@ -18557,7 +18557,7 @@
             "production_authorized": true,
             "review_status": "held_for_user_review",
             "review_finding": "Raccoon, picnic cloth, rubbish and blank park sign are present, but the ranger is substantially taller than the approved 224 px outdoor scale; fine texture also misses the 4x logical pixel rule.",
-            "revision_review_status": "held_for_user_review",
+            "revision_review_status": "user_approved_for_playtest",
             "revision_review_finding": "Revision retains raccoon, cloth, waste, blank sign and leaflets, but ranger remains about 330 px tall rather than the specified 224 px outdoor adult; leaf and ground detail still uses sub-4 px strokes."
           },
           {
@@ -18576,7 +18576,7 @@
             "production_authorized": true,
             "review_status": "held_for_user_review",
             "review_finding": "Small Chinese flag and blank card reader convey the intended offer, but the cashier dominates the panel instead of occupying the approved right-hand counter rectangle; fine painterly detail misses the pixel rule.",
-            "revision_review_status": "held_for_user_review",
+            "revision_review_status": "user_approved_for_playtest",
             "revision_review_finding": "Revision retains tiny flag and blank reader, but cashier sits around local x350-600 rather than the right-hand x520-696 counter box; head and torso still dominate; props and shelves use fine-scale detail."
           },
           {
@@ -18595,7 +18595,7 @@
             "production_authorized": true,
             "review_status": "held_for_user_review",
             "review_finding": "Blank ceremonial cheque is wider than the doorway, but the worker is nearly door-height instead of the specified 272 px adult against a 344 px door; fine texture misses the pixel rule.",
-            "revision_review_status": "held_for_user_review",
+            "revision_review_status": "user_approved_for_playtest",
             "revision_review_finding": "Revision retains the giant blank cheque and ordinary doorway, but worker remains roughly 350 px tall rather than 272 px beside the 344 px doorway; wall and floor shading violate the coarse grid."
           },
           {
@@ -18614,7 +18614,7 @@
             "production_authorized": true,
             "review_status": "held_for_user_review",
             "review_finding": "Blank voucher and open cash compartments convey the offer without a transfer, but the clerk is oversized and centered rather than right-framed at the approved counter scale; fine painterly detail misses the pixel rule.",
-            "revision_review_status": "held_for_user_review",
+            "revision_review_status": "user_approved_for_playtest",
             "revision_review_finding": "Revision retains blank voucher above open cash compartments without transfer, but clerk sits too centrally and remains too large for the right-hand x520-696 counter box; drawers and shelves use fine-scale detail."
           }
         ],
@@ -18627,7 +18627,7 @@
           1536,
           1024
         ],
-        "runtime_binding": "none",
+        "runtime_binding": "dystrail-web/static/img/satire-v2/selected-satire-06.png; cells 0-3 bound to ENC-S11-A, ENC-S13-A, ENC-S14-A, ENC-S16-B",
         "review": "One authorized attempt. Four independent blank-text panels and central props are present, but fine painterly detail misses the approved coarse pixel grid and adult scale/framing miss the declared rigs. Hold the sheet for user review; no retry.",
         "user_directed_revision": {
           "authorization": "User explicitly agreed to correct pixel scale and proportions on 2026-09-25; this was a requested revision after the one automatic attempt, not a second automatic attempt.",
@@ -18638,8 +18638,10 @@
             1536,
             1024
           ],
-          "decision": "held_for_user_review",
-          "review": "The same four jokes, blank text surfaces and panel boundaries survive. The rendered detail is still much finer than the required 192x128 logical grid enlarged 4x. Ranger and doorway worker still exceed approved proportions; counter clerks remain too central. Do not bind this atlas or make another automatic attempt."
+          "decision": "user_approved_for_playtest",
+          "review": "The same four jokes, blank text surfaces and panel boundaries survive. The rendered detail is still much finer than the required 192x128 logical grid enlarged 4x. Ranger and doorway worker still exceed approved proportions; counter clerks remain too central. Do not bind this atlas or make another automatic attempt.",
+          "approval": "User reviewed the revision and approved sheet 6 for inclusion, with possible play-time tweaks (2026-09-25).",
+          "runtime_asset_path": "dystrail-web/static/img/satire-v2/selected-satire-06.png"
         }
       },
       {
@@ -20635,7 +20637,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 108,
-    "dedicated_units": 29,
+    "dedicated_units": 33,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20664,16 +20666,12 @@
       "ENC-S09-C",
       "ENC-S10-A",
       "ENC-S10-B",
-      "ENC-S11-A",
       "ENC-S12-A",
       "ENC-S12-B",
       "ENC-S12-C",
-      "ENC-S13-A",
       "ENC-S13-B",
       "ENC-S13-C",
-      "ENC-S14-A",
       "ENC-S14-B",
-      "ENC-S16-B",
       "ENC-S16-C",
       "ENC-S17-A",
       "ENC-S17-B",
@@ -20698,8 +20696,8 @@
       "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 54,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 30 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 50,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 26 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20737,10 +20735,6 @@
       "ENC-S09-A",
       "ENC-S09-C",
       "ENC-S10-A",
-      "ENC-S11-A",
-      "ENC-S13-A",
-      "ENC-S14-A",
-      "ENC-S16-B",
       "ENC-S16-C",
       "ENC-S17-A",
       "ENC-S17-B",
@@ -20861,7 +20855,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "54 inherited road assignments remain explicit gaps: 24 location contexts and 30 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "50 inherited road assignments remain explicit gaps: 24 location contexts and 26 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
@@ -21052,5 +21046,19 @@
     "change": "Thirteen unused legacy occupant and standing sheets moved unchanged from served static/img/journey to review/recovery/retained-unused-art. Current cast-v2 sheets and all referenced runtime images retained.",
     "evidence": "Active Rust/CSS/JS/site reference inspection; build manifest includes six current cast sheets and excludes the thirteen moved files; desktop/mobile offline cast fetches and 22 rendered frames passed.",
     "limitations": "A 15.2 MB reduction, not resolution of total delivery-performance acceptance. Remaining package size and final combined release checks still require assessment."
+  },
+  "sheet6_integration_checkpoint": {
+    "approval": "User approved the revised sheet for inclusion and play-time review on 2026-09-25.",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-06.png",
+    "units": [
+      "ENC-S11-A",
+      "ENC-S13-A",
+      "ENC-S14-A",
+      "ENC-S16-B"
+    ],
+    "status": "Integrated for playtesting, not deployed or final visual acceptance",
+    "verification": "1536x1024 asset matches approved revision SHA; build passed; targeted desktop/mobile browser checks passed for all four cells, choices, crew, saved outcomes and offline reload. Captures inspected for scene frame, bottom-left captions and no embedded words or religious symbols.",
+    "known_review": "Earlier concerns about fine pixel detail and adult framing remain recorded for in-game review. The first parallel mobile run failed at an interrupted initial download before entering a scene; a mobile-only rerun passed.",
+    "localization": "No new baked text. Existing encounter prose remains English fallback in locales without current translations; blank sign and paper surfaces receive no invented labels."
   }
 }

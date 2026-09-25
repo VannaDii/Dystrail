@@ -39,7 +39,9 @@ pub fn supported(unit: &str) -> bool {
 }
 
 pub fn is_indoors(unit: &str) -> bool {
-    (selected_cell(unit).is_some() && !matches!(unit,"ENC-C14-A"|"ENC-C16-B")) || matches!(
+    (selected_cell(unit).is_some()
+        && !matches!(unit, "ENC-C14-A" | "ENC-C16-B" | "ENC-S11-A"))
+        || matches!(
         unit,
         "ENC-C01-B"
             | "ENC-C02-B"
@@ -68,7 +70,17 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
-    if selected_cell(unit).is_some() { return Some(selected_labels(unit).iter().enumerate().map(|(i,_)|crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}"))).collect::<Vec<_>>().join(" · ")); }
+    if selected_cell(unit).is_some() {
+        let labels = selected_labels(unit);
+        return (!labels.is_empty()).then(|| {
+            labels
+                .iter()
+                .enumerate()
+                .map(|(i, _)| crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}")))
+                .collect::<Vec<_>>()
+                .join(" · ")
+        });
+    }
     let count = match unit {
         "ENC-C07-B" | "ENC-C08-B" | "ENC-C08-C" | "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C"
         | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
@@ -346,6 +358,10 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
         "ENC-C16-B" => ("selected-satire-02",2),
         "ENC-D12-C" => ("selected-satire-04",1),
         "ENC-D13-A" => ("selected-satire-04",2),
+        "ENC-S11-A" => ("selected-satire-06",0),
+        "ENC-S13-A" => ("selected-satire-06",1),
+        "ENC-S14-A" => ("selected-satire-06",2),
+        "ENC-S16-B" => ("selected-satire-06",3),
         _ => return None,
     })
 }
