@@ -1760,7 +1760,8 @@
       "choice_1": "Shift cabinets for some food",
       "log_1": "You move cabinets until your back aches and collect some food. Public opinion is now secure against anyone attempting to hear it.",
       "choice_2": "Watch the comment-box demonstration",
-      "log_2": "You laugh when the librarian tries feeding the safe a postcard. It accepts national-security concerns but jams on a missing bus shelter."
+      "log_2": "You laugh when the librarian tries feeding the safe a postcard. It accepts national-security concerns but jams on a missing bus shelter.",
+      "overlay_0": "PUBLIC COMMENTS"
     },
     "ENC-C10-A": {
       "name": "Customers sold separately",
@@ -1776,7 +1777,8 @@
       "choice_0": "Add testimony to the nurses’ record",
       "log_0": "You add your experience to the nurses’ record. The volunteer asks whether you prefer your feet or head outside the model’s coverage.",
       "choice_1": "Help move the demonstration bed",
-      "log_1": "You haul the bed until your arms ache. Everyone laughs when the pillow slides off. Patient choice has left the building first."
+      "log_1": "You haul the bed until your arms ache. Everyone laughs when the pillow slides off. Patient choice has left the building first.",
+      "overlay_0": "PATIENT CHOICE"
     },
     "ENC-C10-C": {
       "name": "Please declare your aircraft",
@@ -1784,7 +1786,8 @@
       "choice_0": "Record the workers’ account",
       "log_0": "You record the employer’s rule and the workers’ account. The biscuit declaration includes its approximate value. Nobody has filled in cruising altitude.",
       "choice_1": "Help push the cardboard jet",
-      "log_1": "You push until your shoulder aches and the crowd cheers. A tip jar rolls down the runway in business class."
+      "log_1": "You push until your shoulder aches and the crowd cheers. A tip jar rolls down the runway in business class.",
+      "overlay_0": "GIFT DECLARATION"
     },
     "ENC-C11-A": {
       "name": "The cost of the plug",
@@ -1844,7 +1847,10 @@
       "choice_1": "Repeat that the room is only $79",
       "log_1": "You praise the price and stop arguing. He announces that an independent traveler has verified it. Your endorsement is the first thing he hasn’t charged extra for.",
       "choice_2": "Rest in the van",
-      "log_2": "You rest in the van. It has no resort fee. It apologizes for the missing resort."
+      "log_2": "You rest in the van. It has no resort fee. It apologizes for the missing resort.",
+      "overlay_0": "HONEST PRICE",
+      "overlay_1": "$79",
+      "overlay_2": "MANDATORY SERVICE: $40"
     },
     "ENC-C13-A": {
       "name": "Airport-ready feet",
@@ -1884,7 +1890,8 @@
       "choice_1": "Record the roofers’ account",
       "log_1": "You record the Florida rule and the roofers’ account. The display’s politician has a permanent parasol; everyone else has a shift rota.",
       "choice_2": "Leave some water for workers",
-      "log_2": "You leave some water for the workers. A roofer pours it into the cooler without first checking whether the county approved compassion."
+      "log_2": "You leave some water for the workers. A roofer pours it into the cooler without first checking whether the county approved compassion.",
+      "overlay_0": "FREEDOM FROM LOCAL HEAT RULES"
     },
     "ENC-C14-B": {
       "name": "Count the fingers",
@@ -1950,7 +1957,8 @@
       "choice_0": "Donate materials for the signs",
       "log_0": "You donate some supplies; the club records your help. The volunteer patches the hole. America finally stops whistling in the wind.",
       "choice_1": "Move the signs for some food",
-      "log_1": "You earn some food and aching arms moving the signs. The old name underneath is doing most of the structural work."
+      "log_1": "You earn some food and aching arms moving the signs. The old name underneath is doing most of the structural work.",
+      "overlay_0": "AMERICA"
     },
     "ENC-C16-C": {
       "name": "Special custody for phones",
@@ -2360,7 +2368,9 @@
       "choice_0": "Share food; take his direct directions",
       "log_0": "You share food and take his direct road directions. He can repair the screen; the audience assembled behind it is another department.",
       "choice_1": "Check the settlement before leaving",
-      "log_1": "You regain some road and credibility. The technician can replace a cracked screen faster than an advertiser can forget a useful secret."
+      "log_1": "You regain some road and credibility. The technician can replace a cracked screen faster than an advertiser can forget a useful secret.",
+      "overlay_0": "PREMOM: FTC SETTLEMENT",
+      "overlay_1": "LOCAL ROADS"
     },
     "ENC-D13-A": {
       "name": "Smaller dots, same clinic",
@@ -2368,7 +2378,10 @@
       "choice_0": "Take the waitress’s highway directions",
       "log_0": "You regain road. Her directions point to the highway; the promoter’s map keeps trying to explain why everyone stopped beside the clinic.",
       "choice_1": "Wait for the signed exit lane",
-      "log_1": "You regain some road and clear your head. She folds the promoter’s map until his pitch is the smallest dot in town."
+      "log_1": "You regain some road and clear your head. She folds the promoter’s map until his pitch is the smallest dot in town.",
+      "overlay_0": "ANONYMOUS INSIGHTS",
+      "overlay_1": "FTC SENSITIVE-LOCATION ORDER",
+      "overlay_2": "HIGHWAY"
     },
     "ENC-D13-B": {
       "name": "The tolerant detour sign",

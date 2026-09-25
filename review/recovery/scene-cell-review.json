@@ -9620,7 +9620,8 @@
         "cell": 0,
         "status": "candidate_for_rendered_review",
         "finding": "Safe and small public-comment box are distinct, with separate ordinary phone and blank label. Validate live label and mobile framing."
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C10-A",
@@ -9687,7 +9688,8 @@
         "cell": 1,
         "status": "candidate_for_rendered_review",
         "finding": "Empty shortened bed with oversized pillow; two external nurses, no medical emblems observed. Validate crop/contact and mobile proportions."
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C10-C",
@@ -9730,7 +9732,8 @@
         "cell": 2,
         "status": "candidate_for_rendered_review",
         "finding": "Clearly handmade cardboard plane, blank forms, trolley and modest tip jar. Validate crop and mobile joke readability."
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C11-A",
@@ -9911,7 +9914,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C13-A",
@@ -10018,7 +10022,8 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C14-B",
@@ -10198,7 +10203,8 @@
         ],
         "rig": "outdoor",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-C16-C",
@@ -11304,7 +11310,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-D13-A",
@@ -11341,7 +11348,8 @@
         ],
         "rig": "counter",
         "approval": "pending"
-      }
+      },
+      "integration_status": "Retained selected-satire panel bound before/after choices at native 3:2; editable English overlays, no crew baked in or invented; localization and final acceptance remain open."
     },
     {
       "unit": "ENC-D13-B",
@@ -17766,7 +17774,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Safe and small public-comment box are distinct, with separate ordinary phone and blank label. Validate live label and mobile framing."
+            "review_finding": "Safe and small public-comment box are distinct, with separate ordinary phone and blank label. Validate live label and mobile framing.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C10-B",
@@ -17783,7 +17792,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Empty shortened bed with oversized pillow; two external nurses, no medical emblems observed. Validate crop/contact and mobile proportions."
+            "review_finding": "Empty shortened bed with oversized pillow; two external nurses, no medical emblems observed. Validate crop/contact and mobile proportions.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C10-C",
@@ -17800,7 +17810,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Clearly handmade cardboard plane, blank forms, trolley and modest tip jar. Validate crop and mobile joke readability."
+            "review_finding": "Clearly handmade cardboard plane, blank forms, trolley and modest tip jar. Validate crop and mobile joke readability.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C11-C",
@@ -17865,7 +17876,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Large blank honesty sign conceals smaller panel; verify localized text fits visible surcharge strip and primary price field."
+            "review_finding": "Large blank honesty sign conceals smaller panel; verify localized text fits visible surcharge strip and primary price field.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C14-A",
@@ -17882,7 +17894,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Flat cardboard politician has dedicated umbrella; two real volunteers share canopy. Verify comparable adult scale and source joke readability in game."
+            "review_finding": "Flat cardboard politician has dedicated umbrella; two real volunteers share canopy. Verify comparable adult scale and source joke readability in game.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C16-B",
@@ -17899,7 +17912,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Rust hole visibly shows lake through fresh-painted sign; blank upper field allows live lettering. Verify mobile text and scene crop."
+            "review_finding": "Rust hole visibly shows lake through fresh-painted sign; blank upper field allows live lettering. Verify mobile text and scene crop.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-C16-C",
@@ -18080,7 +18094,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Fan scatters glitter well beyond a small dustpan; customer and technician are distinct external adults. Counter has natural occlusion. Review close foreground crop, live notice and phone composition before acceptance."
+            "review_finding": "Fan scatters glitter well beyond a small dustpan; customer and technician are distinct external adults. Counter has natural occlusion. Review close foreground crop, live notice and phone composition before acceptance.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-D13-A",
@@ -18097,7 +18112,8 @@
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
             "review_status": "candidate_for_rendered_review",
-            "review_finding": "Paired fictional diagrams retain positions while dots shrink; waitress indicates empty civic/clinic facade. No real visitor data. Review sign placement and foreground counter crop before acceptance."
+            "review_finding": "Paired fictional diagrams retain positions while dots shrink; waitress indicates empty civic/clinic facade. No real visitor data. Review sign placement and foreground counter crop before acceptance.",
+            "runtime_binding": "Integrated via road_art::selected_cell; runtime captures reviewed; not final multilingual acceptance"
           },
           {
             "unit": "ENC-S03-B",
@@ -20173,6 +20189,30 @@
       "Final two desktop/mobile checks passed after completing four blank paper surfaces; final captures reviewed"
     ],
     "remaining": "Shared settings do not illustrate optional prop suggestions. Other unresolved setting assignments and artwork failures remain open.",
+    "new_images": 0
+  },
+  "selected_retained_panels_checkpoint": {
+    "units": [
+      "ENC-C09-C",
+      "ENC-C10-B",
+      "ENC-C10-C",
+      "ENC-C12-C",
+      "ENC-C14-A",
+      "ENC-C16-B",
+      "ENC-D12-C",
+      "ENC-D13-A"
+    ],
+    "status": "Eight usable retained panels integrated; eight held siblings remain excluded",
+    "verification": [
+      "Build passed",
+      "16 desktop/mobile flows passed for exact selected cells, live text overlays, 3:2 framing, actual choice outcome, unchanged crew and offline reload",
+      "Rendered captures reviewed for all eight panels; aircraft label corrected onto wing paper and focused desktop/mobile checks passed"
+    ],
+    "remaining": [
+      "Overlay translations beyond English",
+      "Final visual acceptance including small-label readability and inherited caption-band treatment",
+      "Eight failed sibling panels retain user-review holds; no automatic regeneration"
+    ],
     "new_images": 0
   }
 }

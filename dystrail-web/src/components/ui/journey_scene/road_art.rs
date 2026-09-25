@@ -12,7 +12,7 @@ pub fn context(stage: &SceneStage) -> Option<(&str, Option<usize>)> {
 }
 
 pub fn supported(unit: &str) -> bool {
-    matches!(
+    selected_cell(unit).is_some() || matches!(
         unit,
         "ENC-C01-A"
             | "ENC-C01-B"
@@ -38,7 +38,7 @@ pub fn supported(unit: &str) -> bool {
 }
 
 pub fn is_indoors(unit: &str) -> bool {
-    matches!(
+    (selected_cell(unit).is_some() && !matches!(unit,"ENC-C14-A"|"ENC-C16-B")) || matches!(
         unit,
         "ENC-C01-B"
             | "ENC-C02-B"
@@ -66,6 +66,7 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
 
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
+    if selected_cell(unit).is_some() { return Some(selected_labels(unit).iter().enumerate().map(|(i,_)|crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}"))).collect::<Vec<_>>().join(" · ")); }
     let count = match unit {
         "ENC-C07-B" | "ENC-C08-B" | "ENC-C08-C" | "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C"
         | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
@@ -109,6 +110,7 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
+    if let Some((sheet, cell)) = selected_cell(unit) { return Some(render_selected(unit,sheet,cell)); }
     if unit.starts_with("ENC-C07-") || unit.starts_with("ENC-C08-") {
         return Some(render_c07_c08(unit, choice));
     }
@@ -171,6 +173,7 @@ mod tests {
 
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     let (unit, _) = context(stage)?;
+    if selected_cell(unit).is_some() { return Some("1.5"); }
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
@@ -314,5 +317,50 @@ fn render_c07_c08(unit: &str, choice: Option<usize>) -> Html {
                 <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style={format!("height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold {size}px/1.05 sans-serif;overflow-wrap:anywhere")}>{crate::i18n::t(&format!("encounter_copy.{unit}.overlay_0"))}</div>
             </foreignObject>})}
         </g>
+    </svg>}
+}
+
+
+// Only reviewed candidate cells are bound; failed siblings never enter this map.
+fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
+    Some(match unit {
+        "ENC-C09-C" => ("selected-satire-01",0),
+        "ENC-C10-B" => ("selected-satire-01",1),
+        "ENC-C10-C" => ("selected-satire-01",2),
+        "ENC-C12-C" => ("selected-satire-02",0),
+        "ENC-C14-A" => ("selected-satire-02",1),
+        "ENC-C16-B" => ("selected-satire-02",2),
+        "ENC-D12-C" => ("selected-satire-04",1),
+        "ENC-D13-A" => ("selected-satire-04",2),
+        _ => return None,
+    })
+}
+
+// Panel-local blank surfaces: x, y, width, height, font size.
+fn selected_labels(unit: &str) -> Vec<(u16,u16,u16,u16,u8)> {
+    match unit {
+        "ENC-C09-C" => vec![(354,291,69,31,9)],
+        "ENC-C10-B" => vec![(425,240,42,27,7)],
+        "ENC-C10-C" => vec![(196,258,88,22,9)],
+        "ENC-C12-C" => vec![(84,92,273,175,36),(435,239,145,40,30),(612,258,53,22,6)],
+        "ENC-C14-A" => vec![(198,330,155,52,13)],
+        "ENC-C16-B" => vec![(321,166,247,62,36)],
+        "ENC-D12-C" => vec![(216,77,91,83,13),(609,310,52,65,10)],
+        "ENC-D13-A" => vec![(401,664-512,238,22,14),(493,526-512,79,65,10),(218,697-512,43,24,8)],
+        _ => vec![],
+    }
+}
+
+fn render_selected(unit: &str, sheet: &'static str, cell:u8) -> Html {
+    let x=u16::from(cell%2)*768;let y=u16::from(cell/2)*512;
+    html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={sheet} data-selected-unit={unit.to_owned()} data-cell={cell.to_string()} viewBox={format!("{x} {y} 768 512")} preserveAspectRatio="xMidYMid meet">
+        <image href={crate::paths::asset_path(&format!("static/img/satire-v2/{sheet}.png"))} width="1536" height="1024"/>
+        {for selected_labels(unit).into_iter().enumerate().map(|(i,(lx,ly,w,h,size))|html!{
+            <foreignObject x={(x+lx).to_string()} y={(y+ly).to_string()} width={w.to_string()} height={h.to_string()}>
+                <div xmlns="http://www.w3.org/1999/xhtml" class="selected-prop-label" dir="auto" style={format!("height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#302719;font:700 {size}px/1.05 sans-serif;overflow-wrap:anywhere;hyphens:auto;")}>
+                    {crate::i18n::t(&format!("encounter_copy.{unit}.overlay_{i}"))}
+                </div>
+            </foreignObject>
+        })}
     </svg>}
 }
