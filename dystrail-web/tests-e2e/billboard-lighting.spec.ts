@@ -8,7 +8,7 @@ test('billboards keep replay identity, readable localized text and clock lightin
  const state=await baseline(page);
  // Use a JS-safe seed: this helper parses saves through JavaScript numbers.
  state.seed=42;await importState(page,state);
- const ad=page.locator('.scene-art .road-billboard');
+ const ad=page.locator('.scene-art .road-billboard').first();
  const first=await ad.getAttribute('data-billboard');
  for(const [hour,light] of [[8,'morning'],[13,'day'],[16,'afternoon'],[19,'dusk'],[23,'night']] as const){
   state.clock_minutes=hour*60;
@@ -63,7 +63,10 @@ test('all billboard ads are localized and fit in every supported language',async
   state.miles_traveled_actual=(stop.mile+1)*state.trail_distance/route.total_miles;
   state.region=region;state.day=day;await importState(page,state);
   await expect(page.locator('.world-view')).toHaveAttribute('data-region',region);
-  const ad=page.locator('.road-billboard');const id=(await ad.getAttribute('data-billboard'))!;seen.add(id);
+  const ad=page.locator('.road-billboard').first();const id=(await ad.getAttribute('data-billboard'))!;seen.add(id);
+  const illustrated=ad.locator('.billboard-art img');
+  await expect(illustrated).toHaveJSProperty('complete',true);
+  expect(await illustrated.evaluate((node:HTMLImageElement)=>node.naturalWidth),`${region}/${id} has reusable art`).toBeGreaterThan(0);
   for(const language of languages) {
    await changeLanguage(language);
    const lang=(await page.locator('html').getAttribute('lang'))!;
@@ -88,7 +91,57 @@ test('all billboard ads are localized and fit in every supported language',async
  expect(seen.size).toBe(12);
  await changeLanguage('தமிழ்');
  await page.locator('.world-view').screenshot({path:info.outputPath('billboard-tamil.png')});
- const lastId=(await page.locator('.road-billboard').getAttribute('data-billboard'))!;
+ const lastId=(await page.locator('.road-billboard').first().getAttribute('data-billboard'))!;
  await context.setOffline(true);await page.reload();await waitForLaunch(page);
- await expect(page.locator('.billboard-headline-compact')).toHaveText(JSON.parse(readFileSync('i18n/ta.json','utf8')).road_ad[lastId].compact);
+ await expect(page.locator('.billboard-headline-compact').first()).toHaveText(JSON.parse(readFileSync('i18n/ta.json','utf8')).road_ad[lastId].compact);
+});
+
+test('illustrated signs pass the van with the road and repeat without a visual jump',async({page},info)=>{
+ await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
+ await baseline(page);
+ const scene=page.locator('.scene-road');
+ const track=scene.locator('.scene-art > .road-pan-track');
+ const signs=track.locator('.road-billboard');
+ await expect(signs).toHaveCount(4);
+ const ids=await signs.evaluateAll(nodes=>nodes.map(node=>node.getAttribute('data-billboard')));
+ expect(ids[0]).not.toBe(ids[1]);
+ expect(ids[0]).toBe(ids[2]);expect(ids[1]).toBe(ids[3]);
+ for(const sign of await signs.all()){
+  const image=sign.locator('img');
+  await expect(image).toHaveJSProperty('complete',true);
+  expect(await image.evaluate((node:HTMLImageElement)=>node.naturalWidth)).toBeGreaterThan(0);
+  await expect(sign.locator('.billboard-headline-full')).not.toBeEmpty();
+ }
+ await page.getByRole('button',{name:'Travel',exact:true}).click();
+ await expect(scene).toHaveClass(/scene-moving/);
+ const positions=await track.evaluate(el=>{
+  const animation=el.getAnimations()[0];
+  const sign=el.querySelector('.road-billboard')!;
+  const road=el.querySelector('.scene-background')!;
+  const van=el.parentElement!.querySelector('.crew-van')!;
+  const secondSign=el.querySelectorAll('.road-billboard')[1];
+  const read=()=>({sign:sign.getBoundingClientRect().left,second:secondSign.getBoundingClientRect().left,road:road.getBoundingClientRect().left,van:van.getBoundingClientRect().left});
+  animation.pause();animation.currentTime=0;const start=read();
+  animation.currentTime=16000;const middle=read();
+  animation.currentTime=31999;const end=read();
+  animation.currentTime=0;const next=read();animation.play();
+  return {start,middle,end,next,sceneRight:el.parentElement!.getBoundingClientRect().right};
+ });
+ expect(positions.middle.sign).toBeLessThan(positions.start.sign);
+ expect(positions.middle.sign-positions.start.sign).toBeCloseTo(positions.middle.road-positions.start.road,0);
+  expect(Math.abs(positions.middle.van-positions.start.van)).toBeLessThan(2);
+  expect(positions.start.second).toBeGreaterThan(positions.sceneRight);
+  expect(positions.middle.second).toBeLessThan(positions.sceneRight);
+ expect(positions.end.sign).toBeLessThan(positions.middle.sign);
+ expect(positions.next.sign).toBeCloseTo(positions.start.sign,0);
+ await page.screenshot({path:info.outputPath('illustrated-billboards.png'),fullPage:true});
+ await track.evaluate(el=>{const animation=el.getAnimations()[0];animation.pause();animation.currentTime=16000;});
+ await page.screenshot({path:info.outputPath('second-billboard.png'),fullPage:true});
+ await track.evaluate(el=>el.getAnimations()[0].play());
+ await page.getByRole('button',{name:'Pause travel',exact:true}).click();
+ await expect(scene).not.toHaveClass(/scene-moving/);
+ await expect(track).toHaveCSS('animation-play-state','paused');
+ await page.getByRole('button',{name:'Travel',exact:true}).click();
+ await expect(scene).toHaveClass(/scene-moving/);
+ await expect(track).toHaveCSS('animation-play-state','running');
 });

@@ -625,3 +625,8 @@ September 14 — standing crew transparency repair:
 - Added 28 explicit current-story bindings to the retained café, book-room and shared counter. These are shared dialogue settings; required socket/place-setting/sandwich/shelf/mug gags retain their existing incomplete or held status. No generation.
 - Build passed; 56 desktop/mobile offer/outcome flows across the 28 variants passed, preserving crew and checking representative offline reload, 16:9 framing and document width. Representative café, library and counter captures reviewed.
 - Road routing audit now has 88 explicit shared bindings, 28 dedicated panels, four explicit held fallbacks and 75 historical assignments still requiring review. Counts are not final art acceptance.
+
+## Moving illustrated roadside ads — 2026-09-26
+
+- Moved roadside signs into the panning road layer so they pass the stationary van. Two region-specific illustrated ads alternate and loop through longer travel; rendered text remains localized and is available through the scene information control on narrow screens.
+- Reused retained pixel-art item/status images only; no image generation or embedded text. Native billboard selection and desktop/mobile browser checks pass, including image loading, relative motion, loop continuity, pause/resume, all 12 ads, 20 locales and offline reload. Current preview captures reviewed.

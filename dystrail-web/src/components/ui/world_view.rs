@@ -52,9 +52,8 @@ pub fn world_view(p: &Props) -> Html {
     };
     let prop_labels = super::journey_scene::road_art::label_description(&stage);
     let road_ad = if matches!(stage, SceneStage::Travel(_)) {
-        Some(super::journey_scene::billboard::selected(
-            gs.region, gs.seed, gs.day,
-        ))
+        Some((super::journey_scene::billboard::selected(gs.region, gs.seed, gs.day),
+            super::journey_scene::billboard::companion(gs.region, gs.seed, gs.day)))
     } else {
         None
     };
@@ -66,9 +65,9 @@ pub fn world_view(p: &Props) -> Html {
                 <div class="scene-caption"><p class="scene-location">{super::route_map::location::location(gs)}</p><h1 id="screen-title" tabindex="-1">{&p.title}if let Some(text)=&p.help_text {<super::context_help::ContextHelp title={p.title.clone()} text={text.clone()} />}if let Some(labels) = prop_labels {
                     <super::context_help::ContextHelp title={p.title.clone()} text={labels} informational={true}
                         trigger_label={p.title.clone()} graphic={Some(html!{<span class="info-glyph" aria-hidden="true">{"i"}</span>})} />
-                }if let Some(ad) = road_ad {
+                }if let Some((first, second)) = road_ad {
                     <super::context_help::ContextHelp title={crate::i18n::t("road_ad.label")}
-                        text={super::journey_scene::billboard::description(ad)} icon={"i".to_owned()} informational={true}
+                        text={format!("{}\n\n{}",super::journey_scene::billboard::description(first),super::journey_scene::billboard::description(second))} icon={"i".to_owned()} informational={true}
                         trigger_label={crate::i18n::t("road_ad.label")}
                         graphic={Some(html!{<span class="info-glyph" aria-hidden="true">{"i"}</span>})} />
                 }</h1></div>
