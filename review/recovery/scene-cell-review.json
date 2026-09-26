@@ -19930,14 +19930,14 @@
     }
   },
   "repair_copy_checkpoint": {
-    "status": "12 approved English repair variants integrated; artwork, factual links and remaining languages incomplete",
+    "status": "12 approved English repair variants integrated; battery and tire narratives translated in es/it/ar; artwork, factual links and other languages incomplete",
     "source": "Current-source-records REPAIR-TIRE/BATTERY/ALTERNATOR/FUELPUMP A/B/C",
     "behavior": "Seed-stable selection by part, incident start day and driving minutes; recorded only after successful existing repair handler. No mechanics or RNG changes. Separate roadside purchase and shop outcomes.",
     "remaining": [
       "Retained repair scene integration and actual-crew composition",
-      "Translation recovery with premise matching",
+      "Current-premise translations for alternator/fuel-pump variants and other locales",
       "Variant-specific factual context links",
-      "Review qualitative repair option subtitles against approved interaction copy"
+      "Native-language editorial review of qualitative repair option subtitles"
     ],
     "verification": [
       "All 12 variants and four choices passed desktop/mobile cost, time, RNG, identity and offline-outcome checks before outcome-footer fix",
@@ -19946,6 +19946,11 @@
     ],
     "layout_fix": "Existing outcome return bar moved from sticky overlay to normal flow to prevent covering narrative and stat labels; existing styling and controls preserved.",
     "translations": {
+      "current_fresh": [
+        "REPAIR-TIRE-A",
+        "REPAIR-TIRE-B",
+        "REPAIR-TIRE-C"
+      ],
       "recovered": [
         "REPAIR-BATTERY-A",
         "REPAIR-BATTERY-B",
@@ -19977,7 +19982,8 @@
         "REPAIR-TIRE-C"
       ],
       "reason": "Preserved translations for these nine describe different factual premises from the approved current English records; do not bulk-import them.",
-      "verification": "Build 91974db088c1096b877b; desktop/mobile checks passed for all 3 battery variants in es/it/ar, disabled paid options when broke, successful cashless repair, and offline localized outcomes (2 tests, 57.4s). Arabic mobile screenshot reviewed: readable RTL narrative and stat labels, no overlapping return bar."
+      "verification": "Build 91974db088c1096b877b; desktop/mobile checks passed for all 3 battery variants in es/it/ar, disabled paid options when broke, successful cashless repair, and offline localized outcomes (2 tests, 57.4s). Arabic mobile screenshot reviewed: readable RTL narrative and stat labels, no overlapping return bar.",
+      "current_verification": "Build 8f1537d4d632e6c80556; 18 battery/tire variant-language flows passed on desktop and mobile, including current satire text, cashless effects, offline reload and viewport width. Outcome values stay on one line; Spanish desktop and Arabic mobile renders inspected. Old retained tire translations remain excluded."
     }
   },
   "crossing_copy_checkpoint": {

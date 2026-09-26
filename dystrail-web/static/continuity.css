@@ -735,6 +735,7 @@ html.hc .van-item,html.hc .van-crew-member { color:#fff; background:#000; border
  .journal-narrative,.receipt-narrative { flex-basis:100%; }
  .journal .trail-log .resource-changes,.turn-receipt .resource-changes { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(110px,100%),1fr)); width:100%; }
  .journal .trail-log .resource-changes>.stat-card,.turn-receipt .resource-changes>.stat-card { width:auto; min-width:0; min-height:102px; }
+ .aftermath-panel .resource-changes>.stat-card>strong { font-size:clamp(17px,4.5vw,22px); white-space:nowrap; }
 }
 
 /* One compact lower HUD row; the scene ends directly at the journey controls. */

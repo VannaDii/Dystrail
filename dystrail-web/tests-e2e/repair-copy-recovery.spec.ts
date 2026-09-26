@@ -35,21 +35,31 @@ test('all twelve repair stories preserve four costed choices and current saves',
  }
 });
 
-test('recovered battery translations retain the cashless exit and offline outcome',async({page,context},info)=>{
+test('localized battery and tire repairs retain the cashless exit and offline outcome',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);
- for(const lang of ['es','it','ar'])for(const v of ['A','B','C']){
+ for(const part of ['Battery','Tire'])for(const lang of ['es','it','ar'])for(const v of ['A','B','C']){
   await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
   const s=structuredClone(base);s.seed=42;s.day=3;s.clock_minutes=480;s.driving_minutes_total=180;
-  s.breakdown={part:'Battery',day_started:3};s.last_breakdown_part='Battery';s.vehicle.health=60;s.vehicle.wear=30;s.budget_cents=0;s.budget=0;
+  s.breakdown={part,day_started:3};s.last_breakdown_part=part;s.vehicle.health=60;s.vehicle.wear=30;s.budget_cents=0;s.budget=0;
   s.inventory.spares={tire:0,battery:0,alt:0,pump:0};s.stats.supplies=0;s.stats.sanity=10;s.stats.morale=8;s.route_services.stop=null;
-  const unit=`REPAIR-BATTERY-${v}`,key='REPAIR-BATTERY/repair/180/3';
+  const unit=`REPAIR-${part.toUpperCase()}-${v}`,key=`REPAIR-${part.toUpperCase()}/repair/180/3`;
   s.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
   await importState(page,s);await page.evaluate(lang=>localStorage.setItem('dystrail.locale',lang),lang);await page.reload();await waitForLaunch(page);
   const translated=JSON.parse(readFileSync(`i18n/${lang}.json`,'utf8')).encounter_copy[unit];
   await expect(page.locator('#repair-title')).toHaveText(translated.name);await expect(page.locator('.roadside-options')).toContainText(translated.desc);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   const buttons=page.locator('.roadside-options .action-button');for(let i=0;i<3;i++)await expect(buttons.nth(i)).toBeDisabled();await buttons.nth(3).click();
   await expect(page.locator('.outcome-copy')).toContainText(translated.log_3);const after=await saved(page);
   expect(after.budget_cents).toBe(0);expect(after.stats.supplies).toBe(0);expect(after.stats.sanity).toBe(8);expect(after.breakdown).toBeNull();
-  if(v==='C'){await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator('.outcome-copy')).toContainText(translated.log_3);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:info.outputPath(`battery-${lang}.png`),fullPage:true});await context.setOffline(false);}
+  if(v==='C'){
+   const values=await page.locator('.aftermath-panel .stat-card>strong').evaluateAll(nodes=>nodes.map(node=>({height:node.getBoundingClientRect().height,lineHeight:parseFloat(getComputedStyle(node).lineHeight)})));
+   expect(values.length).toBeGreaterThan(0);
+   for(const value of values)expect(value.height).toBeLessThanOrEqual(value.lineHeight+1);
+   await context.setOffline(true);await page.reload();await waitForLaunch(page);
+   await expect(page.locator('.outcome-copy')).toContainText(translated.log_3);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   await page.screenshot({path:info.outputPath(`${part.toLowerCase()}-${lang}.png`),fullPage:true});
+   await context.setOffline(false);
+  }
  }
 });

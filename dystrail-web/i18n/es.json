@@ -1741,6 +1741,33 @@
       "continuing": "La lesión de {name} continúa. Quedan sacos por mover y no ha caído ningún multimillonario del techo.",
       "log_0": "Los cuidados ayudan a {name} a recuperarse. El siguiente saco puede esperar a la mano invisible."
     },
+    "REPAIR-TIRE-A": {
+      "name": "La banda de rodadura del goteo",
+      "desc": "Un neumático revienta junto a una valla de recortes fiscales pagada por un multimillonario. Encuentras la banda de rodadura debajo de «prosperidad». Así que eso era lo que caía desde arriba.",
+      "log_0": "Montas el repuesto. La riqueza no se redistribuye, pero el peso sí.",
+      "log_1": "El taller monta el recambio. La valla del multimillonario sigue sin querer avalarte.",
+      "log_2": "Cambias provisiones por un neumático usado y lo montas. Un intercambio con dos beneficiarios reales suena sospechosamente radical.",
+      "log_3": "Terminas el trabajo acordado y montas un neumático usado. La furgoneta hecha a sí misma volvió a necesitar a otras personas.",
+      "roadside": "Llega el recambio y lo montan. La repartidora trae caucho; la economía del goteo no mandó nada."
+    },
+    "REPAIR-TIRE-B": {
+      "name": "Protegidos de los neumáticos",
+      "desc": "Falla un neumático. El presupuesto del recambio incluye los aranceles de Trump. Buscas patriotismo en el viejo. Sigue siendo, sobre todo, un agujero.",
+      "log_0": "Montas el repuesto. Su país de origen importa menos que el hecho de que todavía sea un neumático.",
+      "log_1": "El taller monta el recambio. Estados Unidos tiene un neumático más y tú bastante menos dinero.",
+      "log_2": "Cambias provisiones por uno usado y lo montas. El neumático ya sobrevivió a una economía.",
+      "log_3": "Terminas el trabajo acordado a cambio de un neumático usado y la reparación. Traer la fabricación de vuelta empieza, al parecer, barriendo el taller.",
+      "roadside": "Entregan y montan el recambio. China no acompaña a la repartidora con tu cambio."
+    },
+    "REPAIR-TIRE-C": {
+      "name": "Un neumático más favorecedor",
+      "desc": "El neumático se abre. En la radio, Trump quiere que los museos destaquen la grandeza estadounidense. Giras hacia fuera el lado bueno. La furgoneta sigue siendo difícil de conducir como pieza de museo.",
+      "log_0": "Montas el repuesto. Corregir el problema funciona mejor que darle una exposición.",
+      "log_1": "El taller monta un recambio. El neumático viejo se jubila antes de escribir su propia cartela de museo.",
+      "log_2": "Cambias provisiones por uno usado y lo montas. Su difícil historia incluye varios años útiles siendo redondo.",
+      "log_3": "Terminas el trabajo acordado y montas el neumático usado. El viejo ya puede dedicarse a su legado.",
+      "roadside": "Llega el recambio y lo montan. La repartidora rechaza una visita guiada por el lado bueno."
+    },
     "REPAIR-BATTERY-A": {
       "name": "Cinco logros, cero voltios",
       "desc": "La batería muere. Inspirándose en DOGE, alguien de la tripulación le pide que enumere cinco logros. Ha alimentado cada salida. La dirección pregunta qué ha hecho hoy.",

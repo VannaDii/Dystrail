@@ -1741,6 +1741,33 @@
       "continuing": "La schiena di {name} fa ancora male. Restano sacchi da spostare e dal soffitto non è sgocciolato nessun miliardario.",
       "log_0": "Le cure aiutano {name} a riprendersi. Il prossimo sacco può aspettare la mano invisibile."
     },
+    "REPAIR-TIRE-A": {
+      "name": "Battistrada a cascata",
+      "desc": "Uno pneumatico scoppia accanto a un cartellone sui tagli fiscali finanziato da un miliardario. Trovi il battistrada sotto la parola «prosperità». Ecco cosa è ricaduto dall’alto.",
+      "log_0": "Monti la ruota di scorta. La ricchezza non si ridistribuisce, ma il peso sì.",
+      "log_1": "L’officina monta il ricambio. Il cartellone del miliardario continua a rifiutarsi di farti da garante.",
+      "log_2": "Scambi provviste per uno pneumatico usato e lo monti. Uno scambio con due beneficiari reali sembra sospettosamente radicale.",
+      "log_3": "Completi il lavoro concordato e monti uno pneumatico usato. Il furgone che si è fatto da sé ha avuto di nuovo bisogno degli altri.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne porta gomma; l’economia a cascata non ha mandato niente."
+    },
+    "REPAIR-TIRE-B": {
+      "name": "Protetti dagli pneumatici",
+      "desc": "Uno pneumatico cede. Il preventivo del ricambio comprende i dazi di Trump. Cerchi tracce di patriottismo nel vecchio pneumatico. È ancora soprattutto un buco.",
+      "log_0": "Monti la ruota di scorta. Il paese d’origine conta meno del fatto che sia ancora una ruota.",
+      "log_1": "L’officina monta il ricambio. L’America ha uno pneumatico in più e tu molti meno soldi.",
+      "log_2": "Scambi provviste per uno pneumatico usato e lo monti. Ha già superato un’economia.",
+      "log_3": "Completi il lavoro concordato in cambio di uno pneumatico usato e della riparazione. Riportare la produzione a casa comincia, a quanto pare, spazzando l’officina.",
+      "roadside": "Il ricambio viene consegnato e montato. La Cina non accompagna la persona delle consegne con il tuo resto."
+    },
+    "REPAIR-TIRE-C": {
+      "name": "Uno pneumatico più lusinghiero",
+      "desc": "Lo pneumatico si squarcia. Alla radio, Trump vuole che i musei mettano in risalto la grandezza americana. Giri verso l’esterno il lato buono. Il furgone resta difficile da guidare come pezzo da museo.",
+      "log_0": "Monti la ruota di scorta. Risolvere il problema funziona meglio che allestirlo.",
+      "log_1": "L’officina monta il ricambio. Il vecchio pneumatico va in pensione prima di scrivere la propria didascalia museale.",
+      "log_2": "Scambi provviste per uno pneumatico usato e lo monti. La sua storia difficile comprende anni utili passati a essere rotondo.",
+      "log_3": "Completi il lavoro concordato e monti lo pneumatico usato. Quello vecchio può finalmente dedicarsi alla propria eredità.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne rifiuta una visita guidata del lato buono."
+    },
     "REPAIR-BATTERY-A": {
       "name": "Cinque risultati, zero volt",
       "desc": "La batteria muore. Ispirandosi a DOGE, qualcuno dell’equipaggio le chiede cinque risultati ottenuti. Ha alimentato ogni partenza. La direzione chiede cosa abbia fatto oggi.",
