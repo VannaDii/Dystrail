@@ -59,11 +59,15 @@ fn collect_keys(prefix: &str, value: &Value, out: &mut BTreeSet<String>) {
 }
 
 #[test]
-fn locales_have_matching_keys() {
+fn locales_have_matching_interface_keys() {
     let locales = locale_codes();
     let (_, base_json) = load_locale("en");
     let mut base_keys = BTreeSet::new();
-    collect_keys("", &base_json, &mut base_keys);
+    // Encounter stories are added incrementally and intentionally fall back to
+    // English; interface keys still need a translation in every locale.
+    let mut interface = base_json.clone();
+    interface.as_object_mut().unwrap().remove("encounter_copy");
+    collect_keys("", &interface, &mut base_keys);
 
     for locale in locales {
         let (_, json) = load_locale(&locale);
