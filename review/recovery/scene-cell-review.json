@@ -20479,16 +20479,20 @@
     }
   },
   "town_localization_checkpoint": {
-    "status": "Six Albuquerque/Amarillo conversations recovered in Spanish, Italian and Arabic",
+    "status": "Ten town conversations have Spanish, Italian and Arabic story and source-note copy",
     "units": [
       "TOWN-01-A",
       "TOWN-01-B",
       "TOWN-01-C",
       "TOWN-02-A",
       "TOWN-02-B",
-      "TOWN-02-C"
+      "TOWN-02-C",
+      "TOWN-29-C",
+      "TOWN-34-C",
+      "TOWN-35-B",
+      "TOWN-44-A"
     ],
-    "recovery": "Preserved town-01-02-translations.json matched current premises and factual limits; missing Spanish quotation delimiter repaired during import without modifying archival candidate.",
+    "recovery": "Preserved town-01-02-translations.json matched current premises and factual limits; missing Spanish quotation delimiter repaired during import without modifying archival candidate. Four newly illustrated town stories and their source notes were translated from the current approved English.",
     "fields": [
       "title",
       "setup",
@@ -20500,10 +20504,14 @@
       "Build 31601569b00e572c3649 passed",
       "Only six records changed; canonical English and existing source metadata unchanged",
       "36 desktop/mobile flows passed across three locales, checking current story, factual text, source qualification/link, one-time reward, crew, clock and offline persistence",
-      "Arabic desktop/mobile captures reviewed with bottom-left captions and no horizontal overflow"
+      "Arabic desktop/mobile captures reviewed with bottom-left captions and no horizontal overflow",
+      "Four newly illustrated town stories translated against their approved English and dated source qualifications; original English and source links unchanged",
+      "Build 0afc7571470d18340375 passed; 24 desktop/mobile locale-story flows passed with localized scene text, source notes, saved crew, clock, offline reload and no viewport overflow",
+      "Arabic desktop/mobile and Spanish mobile captures reviewed for caption placement, wrapping and source-note legibility"
     ],
     "remaining": [
-      "Other town conversations and locales remain open"
+      "Other town conversations and locales remain open",
+      "Native-speaker editorial review of the four newly translated stories remains open"
     ],
     "new_images": 0
   },

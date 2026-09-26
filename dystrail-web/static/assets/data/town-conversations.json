@@ -2424,16 +2424,28 @@
     "family_id": "TOWN-29",
     "town": "Phoenix",
     "title": {
-      "en": "Shade, Estimated Arrival"
+      "en": "Shade, Estimated Arrival",
+      "es": "Sombra, llegada estimada",
+      "it": "Ombra, arrivo previsto",
+      "ar": "الظل، موعد الوصول المتوقع"
     },
     "setup": {
-      "en": "At a Phoenix bus stop, a delivery worker shifts with the narrow shadow of a pole."
+      "en": "At a Phoenix bus stop, a delivery worker shifts with the narrow shadow of a pole.",
+      "es": "En una parada de autobús de Phoenix, una repartidora se mueve siguiendo la estrecha sombra de un poste.",
+      "it": "A una fermata dell’autobus di Phoenix, un’addetta alle consegne si sposta seguendo la stretta ombra di un palo.",
+      "ar": "عند موقف حافلات في فينيكس، تتحرك عاملة توصيل مع الظل الضيق لعمود."
     },
     "text": {
-      "en": "Phoenix’s November 2024 shade plan committed to at least 27,000 trees over five years, while acknowledging that projected planting would still leave unmet shade needs."
+      "en": "Phoenix’s November 2024 shade plan committed to at least 27,000 trees over five years, while acknowledging that projected planting would still leave unmet shade needs.",
+      "es": "El plan de sombra de Phoenix de noviembre de 2024 se comprometió a plantar al menos 27.000 árboles en cinco años, aunque reconocía que la plantación prevista aún dejaría necesidades de sombra sin cubrir.",
+      "it": "Il piano di Phoenix per l’ombra del novembre 2024 prevedeva almeno 27.000 alberi in cinque anni, pur riconoscendo che le piantumazioni previste avrebbero lasciato ancora bisogni di ombra insoddisfatti.",
+      "ar": "التزمت خطة فينيكس للظل الصادرة في نوفمبر 2024 بزراعة ما لا يقل عن 27,000 شجرة خلال خمس سنوات، مع إقرارها بأن الزراعة المتوقعة لن تسد كل الحاجة إلى الظل."
     },
     "comment": {
-      "en": "“The city promised thousands of trees over five years. My bus arrives in twenty minutes. Can the shade plan start with this square foot?”"
+      "en": "“The city promised thousands of trees over five years. My bus arrives in twenty minutes. Can the shade plan start with this square foot?”",
+      "es": "«La ciudad prometió miles de árboles en cinco años. Mi autobús llega en veinte minutos. ¿Puede empezar el plan de sombra por este pie cuadrado?»",
+      "it": "«La città ha promesso migliaia di alberi in cinque anni. Il mio autobus arriva tra venti minuti. Il piano per l’ombra può cominciare da questo piede quadrato?»",
+      "ar": "«وعدت المدينة بآلاف الأشجار خلال خمس سنوات. تصل حافلتي بعد عشرين دقيقة. هل يمكن لخطة الظل أن تبدأ بهذه القدم المربعة؟»"
     },
     "sources": [
       {
@@ -2441,7 +2453,12 @@
         "title": "Shade Phoenix: An Action Plan for Trees and Built Shade",
         "date": "2024-11-13",
         "checked": "2026-09-13",
-        "qualification": "Council draft plan states a five-year commitment to at least 27,000 trees and says projected planting remains insufficient; a target, not completed planting."
+        "qualification": "Council draft plan states a five-year commitment to at least 27,000 trees and says projected planting remains insufficient; a target, not completed planting.",
+        "notes": {
+          "es": "El borrador del plan municipal fija una meta de al menos 27.000 árboles en cinco años y reconoce que la plantación prevista sería insuficiente. Es una meta, no árboles ya plantados.",
+          "it": "La bozza del piano comunale prevede almeno 27.000 alberi in cinque anni e riconosce che le piantumazioni previste restano insufficienti. È un obiettivo, non alberi già piantati.",
+          "ar": "تحدد مسودة خطة مجلس المدينة هدفاً لا يقل عن 27,000 شجرة خلال خمس سنوات، وتقر بأن الزراعة المتوقعة لا تكفي. هذا هدف، وليس أشجاراً زُرعت بالفعل."
+        }
       }
     ]
   },
@@ -2835,16 +2852,28 @@
     "family_id": "TOWN-34",
     "town": "San Antonio",
     "title": {
-      "en": "The Fee Passed Inspection"
+      "en": "The Fee Passed Inspection",
+      "es": "La tasa pasó la inspección",
+      "it": "La tassa ha superato l’ispezione",
+      "ar": "الرسوم اجتازت الفحص"
     },
     "setup": {
-      "en": "At a San Antonio garage, a mechanic taps a registration receipt while you ask about the new rules."
+      "en": "At a San Antonio garage, a mechanic taps a registration receipt while you ask about the new rules.",
+      "es": "En un taller de San Antonio, una mecánica da golpecitos a un recibo de matriculación mientras preguntas por las nuevas normas.",
+      "it": "In un’officina di San Antonio, una meccanica picchietta una ricevuta di immatricolazione mentre chiedi delle nuove regole.",
+      "ar": "في ورشة سيارات بسان أنطونيو، تنقر فنّية على إيصال تسجيل بينما تسأل عن القواعد الجديدة."
     },
     "text": {
-      "en": "Texas ended most noncommercial vehicle safety inspections in January 2025 but kept a $7.50 replacement fee; emissions and commercial inspection requirements remain."
+      "en": "Texas ended most noncommercial vehicle safety inspections in January 2025 but kept a $7.50 replacement fee; emissions and commercial inspection requirements remain.",
+      "es": "Texas eliminó la mayoría de las inspecciones de seguridad de vehículos no comerciales en enero de 2025, pero mantuvo una tasa sustitutiva de 7,50 dólares; siguen vigentes los requisitos de emisiones y de inspección de vehículos comerciales.",
+      "it": "Il Texas ha eliminato la maggior parte delle ispezioni di sicurezza per i veicoli non commerciali nel gennaio 2025, ma ha mantenuto una tassa sostitutiva di 7,50 dollari; restano i requisiti sulle emissioni e per i veicoli commerciali.",
+      "ar": "أنهت تكساس معظم فحوص سلامة المركبات غير التجارية في يناير 2025، لكنها أبقت رسماً بديلاً قدره 7.50 دولارات؛ ولا تزال متطلبات الانبعاثات وفحص المركبات التجارية سارية."
     },
     "comment": {
-      "en": "“They scrapped most safety inspections and kept the fee. The car stays outside. Open your wallet and say ‘ah.’”"
+      "en": "“They scrapped most safety inspections and kept the fee. The car stays outside. Open your wallet and say ‘ah.’”",
+      "es": "«Eliminaron la mayoría de las inspecciones de seguridad y conservaron la tasa. El coche se queda fuera. Abre la cartera y di “ah”.»",
+      "it": "«Hanno abolito la maggior parte delle ispezioni di sicurezza e tenuto la tassa. L’auto resta fuori. Apri il portafoglio e di’ “ah”.»",
+      "ar": "«ألغوا معظم فحوص السلامة وأبقوا الرسوم. السيارة تنتظر في الخارج. افتح محفظتك وقل: آه»."
     },
     "sources": [
       {
@@ -2852,7 +2881,12 @@
         "title": "Texas DPS: Vehicle Safety Inspection Changes Take Effect January 2025",
         "date": "undated",
         "checked": "2026-09-14",
-        "qualification": "Most noncommercial safety inspections ended; applicable emissions and commercial rules remain. The fee is not represented as the entire vehicle-registration bill."
+        "qualification": "Most noncommercial safety inspections ended; applicable emissions and commercial rules remain. The fee is not represented as the entire vehicle-registration bill.",
+        "notes": {
+          "es": "Terminaron la mayoría de las inspecciones de seguridad de vehículos no comerciales. Siguen aplicándose los requisitos de emisiones y para vehículos comerciales. La tasa no representa toda la factura de matriculación.",
+          "it": "La maggior parte delle ispezioni di sicurezza per i veicoli non commerciali è terminata. Restano le norme applicabili sulle emissioni e sui veicoli commerciali. La tassa non è l’intera spesa di immatricolazione.",
+          "ar": "انتهت معظم فحوص السلامة للمركبات غير التجارية. وتظل قواعد الانبعاثات والمركبات التجارية المعمول بها سارية. الرسم ليس كامل فاتورة تسجيل المركبة."
+        }
       }
     ]
   },
@@ -2887,16 +2921,28 @@
     "family_id": "TOWN-35",
     "town": "Sioux Falls",
     "title": {
-      "en": "The State Came for Dinner"
+      "en": "The State Came for Dinner",
+      "es": "El estado vino a cenar",
+      "it": "Lo Stato è venuto a cena",
+      "ar": "الولاية جاءت للعشاء"
     },
     "setup": {
-      "en": "At a Sioux Falls grocery checkout, a school cook separates onions from a sprawling receipt."
+      "en": "At a Sioux Falls grocery checkout, a school cook separates onions from a sprawling receipt.",
+      "es": "En la caja de un supermercado de Sioux Falls, una cocinera escolar separa unas cebollas de un recibo interminable.",
+      "it": "Alla cassa di un supermercato di Sioux Falls, una cuoca scolastica separa delle cipolle da uno scontrino interminabile.",
+      "ar": "عند صندوق متجر بقالة في سيوكس فولز، تفصل طاهية مدرسة البصل عن إيصال طويل."
     },
     "text": {
-      "en": "South Dakota voters rejected Initiated Measure 28 in 2024. It proposed barring state taxes on many human-consumption goods, excluding alcohol and prepared food."
+      "en": "South Dakota voters rejected Initiated Measure 28 in 2024. It proposed barring state taxes on many human-consumption goods, excluding alcohol and prepared food.",
+      "es": "Los votantes de Dakota del Sur rechazaron la Medida Iniciada 28 en 2024. Proponía prohibir impuestos estatales sobre muchos bienes de consumo humano, excluidos el alcohol y la comida preparada.",
+      "it": "Gli elettori del South Dakota hanno respinto la Misura d’iniziativa 28 nel 2024. Proponeva di vietare le imposte statali su molti beni destinati al consumo umano, esclusi alcol e cibi preparati.",
+      "ar": "رفض ناخبو داكوتا الجنوبية التدبير المقترح رقم 28 في عام 2024. وكان يقترح منع ضرائب الولاية على كثير من السلع المخصصة للاستهلاك البشري، مع استثناء الكحول والطعام الجاهز."
     },
     "comment": {
-      "en": "“The grocery-tax repeal lost. State still comes to dinner. Never chops an onion, never washes a plate, always gets served before I do.”"
+      "en": "“The grocery-tax repeal lost. State still comes to dinner. Never chops an onion, never washes a plate, always gets served before I do.”",
+      "es": "«La derogación del impuesto a los comestibles perdió. El estado sigue viniendo a cenar. Nunca pica una cebolla, nunca lava un plato y siempre come antes que yo».",
+      "it": "«L’abolizione della tassa sulla spesa è stata bocciata. Lo Stato viene ancora a cena. Non taglia mai una cipolla, non lava mai un piatto e si serve sempre prima di me.»",
+      "ar": "«خسر اقتراح إلغاء ضريبة البقالة. وما زالت الولاية تأتي للعشاء. لا تقطع بصلة ولا تغسل طبقاً، لكنها تُقدَّم لها الوجبة قبلي دائماً»."
     },
     "sources": [
       {
@@ -2904,14 +2950,24 @@
         "title": "South Dakota Secretary of State: 2024 Ballot Questions",
         "date": "2024",
         "checked": "2026-09-14",
-        "qualification": "Official result: Measure 28 failed, 129,261 to 290,969. The proposal was broader than groceries alone; no claim that it would have eliminated every local tax."
+        "qualification": "Official result: Measure 28 failed, 129,261 to 290,969. The proposal was broader than groceries alone; no claim that it would have eliminated every local tax.",
+        "notes": {
+          "es": "Resultado oficial: la Medida 28 perdió por 129.261 votos frente a 290.969. La propuesta abarcaba más que los comestibles; no habría eliminado todos los impuestos locales.",
+          "it": "Risultato ufficiale: la Misura 28 è stata respinta con 129.261 voti favorevoli e 290.969 contrari. La proposta riguardava più della sola spesa alimentare; non avrebbe eliminato ogni imposta locale.",
+          "ar": "النتيجة الرسمية: رُفض التدبير 28 بأصوات 129,261 مؤيداً مقابل 290,969 معارضاً. وكان نطاق المقترح أوسع من البقالة وحدها؛ ولا ادعاء بأنه كان سيلغي جميع الضرائب المحلية."
+        }
       },
       {
         "url": "https://sdsos.gov/elections-voting/assets/2024%20Assets/2024GeneralBQPamphlet.FINALdocx.pdf",
         "title": "South Dakota 2024 General Election Ballot Question Pamphlet",
         "date": "2024",
         "qualification": "Attorney General’s explanation describes the state-tax proposal and excludes alcoholic beverages and prepared food. Competing campaign arguments are not treated as established facts.",
-        "checked": "2026-09-14"
+        "checked": "2026-09-14",
+        "notes": {
+          "es": "La explicación de la Fiscalía General describe la propuesta sobre impuestos estatales y excluye las bebidas alcohólicas y la comida preparada. No se tratan como hechos las afirmaciones contrapuestas de campaña.",
+          "it": "La spiegazione della procuratrice generale descrive la proposta sulle imposte statali ed esclude bevande alcoliche e cibi preparati. Le tesi contrapposte della campagna non sono trattate come fatti accertati.",
+          "ar": "يشرح النائب العام مقترح ضريبة الولاية ويستثني المشروبات الكحولية والطعام الجاهز. ولا تُعامل حجج الحملتين المتعارضتين على أنها حقائق مثبتة."
+        }
       }
     ]
   },
@@ -3611,16 +3667,28 @@
     "family_id": "TOWN-44",
     "town": "Waco",
     "title": {
-      "en": "Half the Benefits, Twice the Sandwich"
+      "en": "Half the Benefits, Twice the Sandwich",
+      "es": "La mitad de la ayuda, el doble de sándwich",
+      "it": "Metà sussidi, il doppio del panino",
+      "ar": "نصف الإعانات، وضعف الشطيرة"
     },
     "setup": {
-      "en": "At a Waco food pantry bench, a cook recalls November’s delayed food assistance."
+      "en": "At a Waco food pantry bench, a cook recalls November’s delayed food assistance.",
+      "es": "En un banco de una despensa de alimentos de Waco, una cocinera recuerda el retraso de la ayuda alimentaria de noviembre.",
+      "it": "Su una panca di un banco alimentare di Waco, una cuoca ricorda il ritardo degli aiuti alimentari di novembre.",
+      "ar": "على مقعد في مخزن مساعدات غذائية في واكو، تتذكر طاهية تأخر مساعدات الطعام في نوفمبر."
     },
     "text": {
-      "en": "On November 4, 2025, KWBU reported over 31,000 McLennan County residents lacked November SNAP access during the shutdown; half payments were announced, but arrival remained unclear."
+      "en": "On November 4, 2025, KWBU reported over 31,000 McLennan County residents lacked November SNAP access during the shutdown; half payments were announced, but arrival remained unclear.",
+      "es": "El 4 de noviembre de 2025, KWBU informó de que más de 31.000 residentes del condado de McLennan no habían recibido la ayuda SNAP de noviembre durante el cierre gubernamental; se anunciaron pagos de la mitad, pero no estaba claro cuándo llegarían.",
+      "it": "Il 4 novembre 2025 KWBU ha riferito che oltre 31.000 residenti della contea di McLennan non avevano accesso ai sussidi SNAP di novembre durante la chiusura del governo; erano stati annunciati pagamenti dimezzati, ma i tempi restavano incerti.",
+      "ar": "في 4 نوفمبر 2025، أفادت KWBU بأن أكثر من 31,000 من سكان مقاطعة مكلينان لم يحصلوا على إعانات SNAP لشهر نوفمبر أثناء إغلاق الحكومة؛ وأُعلنت دفعات بنصف القيمة، لكن موعد وصولها ظل غير واضح."
     },
     "comment": {
-      "en": "“Washington announced half the benefits. I cut one sandwich into two. Same accounting method, but mine comes with crusts.”"
+      "en": "“Washington announced half the benefits. I cut one sandwich into two. Same accounting method, but mine comes with crusts.”",
+      "es": "«Washington anunció la mitad de las prestaciones. Yo corté un sándwich en dos. El mismo método contable, pero el mío tiene corteza».",
+      "it": "«Washington ha annunciato metà dei sussidi. Io ho tagliato un panino in due. Stessa contabilità, ma il mio ha anche la crosta.»",
+      "ar": "«أعلنت واشنطن نصف الإعانات. قسمتُ شطيرة واحدة إلى نصفين. إنها طريقة المحاسبة نفسها، لكن شطيرتي لها قشرة»."
     },
     "sources": [
       {
@@ -3628,7 +3696,12 @@
         "title": "Central Texas Food Banks brace for surge after SNAP benefits cut",
         "date": "2025-11-04",
         "checked": "2026-09-13",
-        "qualification": "Contemporaneous shutdown report: more than 31,000 McLennan County residents faced interrupted November benefits; half payments were announced but timing remained unclear."
+        "qualification": "Contemporaneous shutdown report: more than 31,000 McLennan County residents faced interrupted November benefits; half payments were announced but timing remained unclear.",
+        "notes": {
+          "es": "Según el informe publicado durante el cierre gubernamental, más de 31.000 residentes del condado de McLennan sufrieron una interrupción de sus prestaciones de noviembre; se anunciaron pagos de la mitad, pero el calendario seguía sin aclararse.",
+          "it": "Secondo il resoconto pubblicato durante la chiusura del governo, oltre 31.000 residenti della contea di McLennan avevano subito un’interruzione dei sussidi di novembre. I pagamenti dimezzati erano stati annunciati, ma i tempi restavano incerti.",
+          "ar": "وفق تقرير نُشر أثناء إغلاق الحكومة، واجه أكثر من 31,000 من سكان مقاطعة مكلينان انقطاعاً في إعانات نوفمبر. أُعلنت دفعات بنصف القيمة، لكن توقيت وصولها ظل غير واضح."
+        }
       }
     ]
   },

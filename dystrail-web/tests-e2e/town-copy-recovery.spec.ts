@@ -143,3 +143,36 @@ test('recovered town translations preserve local facts and repeat rewards',async
   await context.setOffline(false);await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
  }
 });
+
+test('newly illustrated town satire keeps localized copy and source qualifications',async({page,context},info)=>{
+ test.setTimeout(240_000);const base=await baseline(page);
+ const ids=['TOWN-29-C','TOWN-34-C','TOWN-35-B','TOWN-44-A'];
+ for(const lang of ['es','it','ar'])for(const id of ids){
+  const story=catalog.find((item:any)=>item.id===id);
+  const route=routes.find((item:any)=>item.stops.some((stop:any)=>stop.name===story.town));
+  const stop=route.stops.find((item:any)=>item.name===story.town);
+  const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
+  s.route_services={...s.route_services,route_id:route.id,stop:stop.mile,trading:false,talked_at:null,talk_reward:null};s.activities.local_word=null;
+  s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
+  const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
+  await importState(page,s);await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+  await page.locator('.route-stop .action-button').click();
+  await expect(page.locator('#screen-title')).toHaveText(story.title[lang]);
+  await expect(page.locator('.resident-story > p')).toHaveText(story.setup[lang]);
+  await expect(page.locator('.resident-remark')).toHaveText(story.comment[lang]);
+  await expect(page.locator('.local-fact')).toHaveText(story.text[lang]);
+  await expect(page.locator('.fact-source > p')).toHaveText(story.sources.map((source:any)=>source.notes[lang]));
+  await expect(page.locator(`[data-selected-unit="${id}"]`)).toHaveAttribute('data-atlas','selected-satire-13');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.locator('#screen-title')).toHaveText(story.title[lang]);
+  await expect(page.locator('.local-fact')).toHaveText(story.text[lang]);
+  await context.setOffline(false);
+  if((id==='TOWN-35-B'&&lang==='ar')||(id==='TOWN-44-A'&&lang==='es')){
+   await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+   await page.screenshot({path:info.outputPath(`${id}-${lang}.png`),fullPage:true});
+  }
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+ }
+});
