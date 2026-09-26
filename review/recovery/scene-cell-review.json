@@ -20663,6 +20663,11 @@
       "Reduced the two affected label font sizes; focused final desktop/mobile checks passed for all four affected combinations",
       "Reviewed final Russian mobile and Turkish desktop captures, plus Arabic mobile sensitive-location panel"
     ],
+    "recent_prose": {
+      "units": ["ENC-S21-B", "ENC-S34-B"],
+      "languages": ["es", "it", "ar"],
+      "verification": "Release/offline build 6d8865b19cdc602d7298 passed; six translated offer/outcome flows per desktop/mobile viewport passed with correct localized title, description and choice, no document overflow, and offline outcome reload. English customer/owner pronouns aligned with the corrected art."
+    },
     "remaining": [
       "Native-language editorial review",
       "Full encounter prose translations remain separate; untranslated prose continues its existing English fallback",

@@ -3012,7 +3012,7 @@
     },
     "ENC-S21-B": {
       "name": "The second name needs a second mug",
-      "desc": "Trump authorized Department of War as a second name for Defense. At a surplus shop, a customer wants both departmental mugs because he supports both departments. The clerk has the order and one mug with a removable paper sleeve.",
+      "desc": "Trump authorized Department of War as a second name for Defense. At a surplus shop, a customer wants both departmental mugs because they support both departments. The clerk has the order and one mug with a removable paper sleeve.",
       "choice_0": "Read and save the actual order",
       "log_0": "You preserve the secondary-title detail, head aching. The clerk slides the sleeve off, giving the customer a remarkably affordable tour of the bureaucracy.",
       "choice_1": "Give both departments grand voices",
@@ -3405,7 +3405,7 @@
       "desc": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost her ten folding instructions. She offers $16 to sort linen labels. Her fitted sheet has captured one arm. Deregulation is reaching for the other.",
       "choice_0": "Sort linen labels for $16",
       "log_0": "You earn $16 and rest your aching eyes. The sorted tags say FITTED. The owner asks whether you could repeal that part too.",
-      "choice_1": "Compare his claim with the old instructions",
+      "choice_1": "Compare her claim with the old instructions",
       "log_1": "You save her boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
       "choice_2": "Keep moving",
       "log_2": "You leave the offer behind. She announces that she has eliminated red tape. The elastic captures her other arm."

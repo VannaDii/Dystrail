@@ -183,6 +183,30 @@ test('selected satire labels fit their surfaces in every supported language',asy
  }
 });
 
+test('corrected mug and fitted-sheet scenes use priority-language copy without overflow',async({page,context})=>{
+ test.setTimeout(180000);
+ const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;base.driving_minutes_total=300;base.last_encounter_driving_minutes=300;
+ for(const lang of ['es','it','ar']) for(const unit of ['ENC-S21-B','ENC-S34-B']){
+  await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
+  const u=source.find((s:any)=>s.id===unit),state=structuredClone(base),key=`${unit.slice(0,-2)}/road/300`;
+  state.current_encounter=bank.find((e:any)=>e.id===u.runtime_key);
+  state.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
+  await importState(page,state);
+  await page.evaluate(l=>localStorage.setItem('dystrail.locale',l),lang);await page.reload();await waitForLaunch(page);
+  const translated=JSON.parse(readFileSync(`i18n/${lang}.json`,'utf8')).encounter_copy[unit];
+  await expect(page.locator('#screen-title')).toHaveText(translated.name);
+  await expect(page.locator('.encounter-panel')).toContainText(translated.desc);
+  await expect(page.locator('.encounter-choice button').first()).toContainText(translated.choice_0);
+  await expect(page.locator(`[data-selected-unit="${unit}"]`)).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${lang} ${unit}`).toBe(true);
+  await page.locator('.encounter-choice button').first().click();
+  await expect(page.locator('.outcome-copy')).toContainText(translated.log_0);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);
+  await expect(page.locator('.outcome-copy')).toContainText(translated.log_0);
+  await context.setOffline(false);
+ }
+});
+
 
 test('retained room notices stay blank through an encounter and offline outcome',async({page,context},info)=>{
  const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;

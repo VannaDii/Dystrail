@@ -2368,6 +2368,26 @@
       "log_1": "Os sentáis y descansáis las piernas. La investigadora enchufa un ventilador sin hacer ruido. Los gastos indirectos mejoran enseguida las condiciones del contribuyente.",
       "choice_2": "Guardar la estimación documentada",
       "log_2": "Guardáis la estimación fechada y su condición de propuesta. La investigadora pone los papeles por encima del charco. Eso también son gastos indirectos."
+    },
+    "ENC-S21-B": {
+      "name": "El segundo nombre exige otra taza",
+      "desc": "Trump autorizó «Departamento de Guerra» como segundo nombre para Defensa. En una tienda de excedentes, una clienta quiere tazas de ambos departamentos porque apoya a los dos. La dependienta tiene la orden y una sola taza con una funda de papel extraíble.",
+      "choice_0": "Leer y guardar la orden original",
+      "log_0": "Conserváis el detalle del título secundario, aunque os duele la cabeza. La dependienta quita la funda y ofrece a la clienta un recorrido sorprendentemente barato por la burocracia.",
+      "choice_1": "Dar voz solemne a ambos departamentos",
+      "log_1": "El grupo se ríe. Inventáis una rivalidad entre los dos nombres; la clienta pregunta qué taza tiene más presupuesto.",
+      "choice_2": "Terminar la conversación",
+      "log_2": "Os vais irritados. La clienta señala los dos nombres para comprarse una certeza mientras la dependienta sigue sosteniendo exactamente una taza."
+    },
+    "ENC-S34-B": {
+      "name": "Diez maneras menos de doblar",
+      "desc": "Trump pidió a las agencias identificar diez reglas que eliminar por cada nueva regla. Una dueña de hotel lo imita: una nueva norma sobre toallas le ha costado diez instrucciones para doblarlas. Ofrece $16 por ordenar etiquetas de ropa de cama. Una sábana ajustable le ha atrapado un brazo. La desregulación ya va por el otro.",
+      "choice_0": "Ordenar etiquetas de ropa de cama por $16",
+      "log_0": "Ganáis $16 y descansáis la vista dolorida. Las etiquetas ordenadas dicen «AJUSTABLE». La dueña pregunta si también podríais derogar esa parte.",
+      "choice_1": "Comparar su afirmación con las instrucciones antiguas",
+      "log_1": "Guardáis su alarde, la orden y ambas tarjetas de instrucciones, con dolor de cabeza. Una norma nueva eliminó diez pasos útiles. La sábana contiene ahora menos regulación y a una dueña entera.",
+      "choice_2": "Seguir adelante",
+      "log_2": "Dejáis atrás la oferta. Ella anuncia que ha eliminado la burocracia. El elástico le atrapa el otro brazo."
     }
   },
   "play": {

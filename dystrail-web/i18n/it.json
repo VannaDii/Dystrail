@@ -2061,6 +2061,26 @@
       "overlay_0": "DATI ANONIMI",
       "overlay_1": "ORDINE FTC SUI LUOGHI SENSIBILI",
       "overlay_2": "STRADA PRINCIPALE"
+    },
+    "ENC-S21-B": {
+      "name": "Il secondo nome vuole una seconda tazza",
+      "desc": "Trump ha autorizzato «Dipartimento della Guerra» come secondo nome della Difesa. In un negozio di surplus, una cliente vuole le tazze di entrambi i dipartimenti perché sostiene entrambi. La commessa ha l’ordine e un’unica tazza con una fascetta di carta rimovibile.",
+      "choice_0": "Leggere e conservare l’ordine originale",
+      "log_0": "Conservate il dettaglio del titolo secondario, con il mal di testa. La commessa sfila la fascetta e offre alla cliente un giro sorprendentemente economico della burocrazia.",
+      "choice_1": "Dare a entrambi i dipartimenti voci solenni",
+      "log_1": "L’equipaggio ride. Inventate una rivalità tra i due nomi; la cliente chiede quale tazza abbia il budget più alto.",
+      "choice_2": "Chiudere la conversazione",
+      "log_2": "Ve ne andate irritati. La cliente indica entrambi i nomi per sentirsi sicura, mentre la commessa continua a tenere in mano esattamente una tazza."
+    },
+    "ENC-S34-B": {
+      "name": "Dieci modi in meno per piegare",
+      "desc": "Trump ha chiesto alle agenzie di individuare dieci regole da eliminare per ogni nuova regola. La proprietaria di un albergo lo imita: una nuova regola sugli asciugamani le è costata dieci istruzioni per piegarli. Offre $16 per riordinare le etichette della biancheria. Un lenzuolo con angoli le ha intrappolato un braccio. La deregolamentazione punta già all’altro.",
+      "choice_0": "Riordinare le etichette per $16",
+      "log_0": "Guadagnate $16 e riposate gli occhi stanchi. Le etichette riordinate dicono «CON ANGOLI». La proprietaria chiede se potreste abrogare anche quella parte.",
+      "choice_1": "Confrontare la sua tesi con le vecchie istruzioni",
+      "log_1": "Conservate la sua vanteria, l’ordine e entrambe le schede di istruzioni, con il mal di testa. Una nuova regola ha eliminato dieci passaggi utili. Il lenzuolo contiene meno norme e una proprietaria intera.",
+      "choice_2": "Proseguire",
+      "log_2": "Lasciate perdere l’offerta. Lei annuncia di aver eliminato la burocrazia. L’elastico le intrappola l’altro braccio."
     }
   },
   "play": {
