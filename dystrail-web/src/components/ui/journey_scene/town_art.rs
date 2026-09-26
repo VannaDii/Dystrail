@@ -8,12 +8,25 @@ pub fn shared_setting(unit: &str) -> bool {
         "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C")
 }
 
+fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
+    Some(match unit {
+        "TOWN-03-C" => ("selected-satire-12", 0),
+        "TOWN-14-A" => ("selected-satire-12", 1),
+        "TOWN-14-B" => ("selected-satire-12", 2),
+        "TOWN-23-C" => ("selected-satire-12", 3),
+        _ => return None,
+    })
+}
+
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     context(stage).map(|(unit, _)| if shared_setting(unit) { "1.7777778" } else { "1.5" })
 }
 
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
     let SceneStage::Encounter(unit) = stage else { return None; };
+    if selected_cell(unit).is_some() {
+        return Some((unit, matches!(unit.as_str(), "TOWN-14-B" | "TOWN-23-C")));
+    }
     match unit.as_str() {
         "TOWN-41-B" => Some((unit, true)),
         "TOWN-41-C" => Some((unit, false)),
@@ -24,6 +37,18 @@ pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
 
 pub fn render(p: &Props) -> Option<Html> {
     let (unit, indoors) = context(&p.stage)?;
+    if let Some((atlas, cell)) = selected_cell(unit) {
+        let x = u32::from(cell % 2) * 768;
+        let y = u32::from(cell / 2) * 512;
+        let path = crate::paths::asset_path(&format!("static/img/satire-v2/{atlas}.png"));
+        return Some(html! {
+            <svg class="scene-background town-setting" data-town-unit={unit.to_owned()}
+                data-selected-unit={unit.to_owned()} data-atlas={atlas} data-cell={cell.to_string()}
+                viewBox={format!("{x} {y} 768 512")} preserveAspectRatio="xMidYMid meet">
+                <image href={path} width="1536" height="1024"/>
+            </svg>
+        });
+    }
     if shared_setting(unit) {
         return Some(html! {
             <svg class="scene-background town-setting" data-town-unit={unit.to_owned()} data-town-context="cafe"

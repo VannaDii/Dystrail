@@ -4,6 +4,29 @@ import {baseline,importState,waitForLaunch} from './helpers';
 const catalog=JSON.parse(readFileSync('static/assets/data/town-conversations.json','utf8'));
 const routes=JSON.parse(readFileSync('../dystrail-game/data/routes.json','utf8'));
 const checkpoint=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
+test('selected town satire panels retain facts, crew and offline scene framing',async({page,context},info)=>{
+ test.setTimeout(120_000);const base=await baseline(page);
+ const cells:any={'TOWN-03-C':0,'TOWN-14-A':1,'TOWN-14-B':2,'TOWN-23-C':3};
+ for(const [id,cell] of Object.entries(cells) as any){
+  const story=catalog.find((c:any)=>c.id===id),route=routes.find((r:any)=>r.stops.some((s:any)=>s.name===story.town)),stop=route.stops.find((s:any)=>s.name===story.town);
+  const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
+  s.party.members.forEach((m:any,i:number)=>m.status=i<2?'Active':i%2?'Departed':'Dead');
+  s.route_services={...s.route_services,route_id:route.id,stop:stop.mile,trading:false,talked_at:null,talk_reward:null};s.activities.local_word=null;
+  s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
+  const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
+  await importState(page,s);await page.locator('.route-stop .action-button').click();
+  const art=page.locator(`[data-selected-unit="${id}"]`);await expect(art).toHaveAttribute('data-atlas','selected-satire-12');await expect(art).toHaveAttribute('data-cell',String(cell));
+  await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',String(cell>=2));
+  await expect(page.locator('.resident-story > p')).toHaveText(story.setup.en);await expect(page.locator('.local-fact')).toHaveText(story.text.en);
+  expect(await page.locator('[data-seated-traveler]').count()).toBe(0);
+  const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(1.5,1);
+  const after=await checkpoint(page);expect(after.party).toEqual(s.party);expect(after.clock_minutes).toBe(630);
+  await context.setOffline(true);await page.reload();await waitForLaunch(page);await expect(page.locator(`[data-selected-unit="${id}"]`)).toHaveAttribute('data-cell',String(cell));
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:info.outputPath(`${id}.png`),fullPage:true});
+  await context.setOffline(false);
+ }
+});
 test('all 132 town conversations retain the approved story, matching sources and one-time reward',async({page,context},info)=>{
  test.setTimeout(360_000);const base=await baseline(page);
  for(const [index,story] of catalog.entries()){

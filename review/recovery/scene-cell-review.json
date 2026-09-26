@@ -19105,7 +19105,7 @@
       },
       {
         "asset_id": "selected-satire-12",
-        "decision": "proposed_one_generation_needed",
+        "decision": "integrated_after_single_approved_attempt",
         "canvas": [
           1536,
           1024
@@ -19182,8 +19182,13 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-12.png",
+        "output_sha256": "a577b83dd803b34351e116df8ce3bd52862a761a1cba1375f2920de7a5aaf2f1",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "cells 0-3: TOWN-03-C, TOWN-14-A, TOWN-14-B, TOWN-23-C",
+        "review": "All four panels inspected in mobile town captures. Coin and lunch bag, fare-free boarding gesture, tie on refrigerator, and card above open washer read at game size. No baked crew, embedded text or religious symbols observed."
       },
       {
         "asset_id": "selected-satire-13",
@@ -19789,7 +19794,7 @@
     "max_new_image_calls": 13,
     "additional_user_authorized_calls": 2,
     "effective_attempt_ceiling": 15,
-    "new_image_attempts_used": 13,
+    "new_image_attempts_used": 14,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -21127,5 +21132,12 @@
     "held_units": ["ENC-S34-B", "TOWN-01-A"],
     "verification": "Release/offline build and targeted desktop/mobile browser checks passed for road choices, crew, saved outcomes, offline reload, atlas cells and proportions. Three road mobile captures inspected, including the mismatched fitted-sheet panel that was then unbound.",
     "remaining": "Fitted-sheet joke and active-crew bus-shelter composition remain open. No repeat generation authorized automatically."
+  },
+  "sheet12_integration_checkpoint": {
+    "status": "Four town panels integrated after one attempt",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-12.png",
+    "bound_units": ["TOWN-03-C", "TOWN-14-A", "TOWN-14-B", "TOWN-23-C"],
+    "verification": "Release/offline build and targeted desktop/mobile town checks passed for fact text, one-time reward, saved crew, offline reload, atlas cell, 3:2 framing and no viewport overflow. Four mobile captures inspected; no player crew baked into art.",
+    "remaining": "Full combined feature and editorial acceptance remain open."
   }
 }
