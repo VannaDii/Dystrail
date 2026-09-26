@@ -20747,7 +20747,7 @@
     "status": "Current routing audit; counts are not art acceptance",
     "active_units": 195,
     "explicit_shared_units": 107,
-    "dedicated_units": 48,
+    "dedicated_units": 49,
     "explicit_held_fallback_units": [
       "ENC-C02-A",
       "ENC-C04-A",
@@ -20789,11 +20789,10 @@
       "ENC-S28-A",
       "ENC-S30-A",
       "ENC-S32-A",
-      "ENC-S34-B",
       "ENC-S34-C"
     ],
-    "remaining_count": 36,
-    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 12 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
+    "remaining_count": 35,
+    "requirement": "All remaining historical mappings have been reviewed against current sources. The listed 24 location gaps and 11 essential-gag gaps remain incomplete; inspect retained dedicated candidates before generation. Counts do not imply acceptance.",
     "reviewed_location_gaps": {
       "ENC-C14-B": "Outdoor repair fair and first-aid chair",
       "ENC-D02-B": "Indoor school gym equipment sale",
@@ -20831,8 +20830,7 @@
       "ENC-S09-A",
       "ENC-S09-C",
       "ENC-S10-A",
-      "ENC-S17-B",
-      "ENC-S34-B"
+      "ENC-S17-B"
     ]
   },
   "motel_context_checkpoint": {
@@ -20937,7 +20935,7 @@
       "15 variants across desktop/mobile: 30 offer/outcome flows passed, saved crew unchanged, representative offline reload and viewport-width checks passed",
       "Truck-stop mobile, checkpoint desktop and community mobile captures reviewed; wide scene framing and bottom-left captions preserved"
     ],
-    "remaining": "36 inherited road assignments remain explicit gaps: 24 location contexts and 12 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
+    "remaining": "35 inherited road assignments remain explicit gaps: 24 location contexts and 11 essential visual jokes. This road-only review is not the full-feature unavoidable-gap list."
   },
   "retained_location_search_checkpoint": {
     "scope": "24 remaining road location gaps",
