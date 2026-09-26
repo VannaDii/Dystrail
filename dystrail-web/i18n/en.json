@@ -3402,13 +3402,13 @@
     },
     "ENC-S34-B": {
       "name": "Ten fewer ways to fold",
-      "desc": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost him ten folding instructions. He offers $16 to sort linen labels. His fitted sheet has captured one arm. Deregulation is reaching for the other.",
+      "desc": "Trump told agencies to identify ten rules to scrap for each new one. A hotel owner is copying him: one new towel rule has cost her ten folding instructions. She offers $16 to sort linen labels. Her fitted sheet has captured one arm. Deregulation is reaching for the other.",
       "choice_0": "Sort linen labels for $16",
       "log_0": "You earn $16 and rest your aching eyes. The sorted tags say FITTED. The owner asks whether you could repeal that part too.",
       "choice_1": "Compare his claim with the old instructions",
-      "log_1": "You save his boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
+      "log_1": "You save her boast, the order and both instruction cards, head aching. One new rule removed ten useful steps. The sheet now contains less regulation and one whole owner.",
       "choice_2": "Keep moving",
-      "log_2": "You leave the offer behind. He announces that he has eliminated red tape. The elastic captures his other arm."
+      "log_2": "You leave the offer behind. She announces that she has eliminated red tape. The elastic captures her other arm."
     },
     "ENC-S34-C": {
       "name": "Tomorrow’s investor needs today’s invoice",

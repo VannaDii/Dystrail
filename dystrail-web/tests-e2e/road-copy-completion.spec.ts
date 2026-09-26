@@ -134,8 +134,9 @@ test('fallback square interiors retain landscape framing through outcomes',async
 
 test('retained selected satire panels preserve choices and crew',async({page,context},info)=>{
  test.setTimeout(180000);const base=await baseline(page);base.seed=42;base.day=6;base.clock_minutes=600;base.turn_journal_start=null;base.driving_minutes_total=300;base.last_encounter_driving_minutes=300;
- const panels:any={'ENC-C09-C':['01',0],'ENC-C10-B':['01',1],'ENC-C10-C':['01',2],'ENC-C12-C':['02',0],'ENC-C14-A':['02',1],'ENC-C16-B':['02',2],'ENC-D12-C':['04',1],'ENC-D13-A':['04',2],'ENC-S11-A':['06',0],'ENC-S13-A':['06',1],'ENC-S14-A':['06',2],'ENC-S16-B':['06',3],'ENC-S16-C':['07',0],'ENC-S17-A':['07',1],'ENC-S19-B':['08',0],'ENC-S20-B':['08',1],'ENC-S22-B':['08',3],'ENC-S23-A':['09',0],'ENC-S24-A':['09',1],'ENC-S24-B':['09',2],'ENC-S24-C':['09',3],'ENC-S26-B':['10',0],'ENC-S27-B':['10',1],'ENC-S30-C':['10',2],'ENC-S32-B':['10',3],'ENC-S33-A':['11',0],'ENC-S33-B':['11',1]};
+ const panels:any={'ENC-C09-C':['01',0],'ENC-C10-B':['01',1],'ENC-C10-C':['01',2],'ENC-C12-C':['02',0],'ENC-C14-A':['02',1],'ENC-C16-B':['02',2],'ENC-D12-C':['04',1],'ENC-D13-A':['04',2],'ENC-S11-A':['06',0],'ENC-S13-A':['06',1],'ENC-S14-A':['06',2],'ENC-S16-B':['06',3],'ENC-S16-C':['07',0],'ENC-S17-A':['07',1],'ENC-S19-B':['08',0],'ENC-S20-B':['08',1],'ENC-S21-B':['08-r3',2],'ENC-S22-B':['08',3],'ENC-S23-A':['09',0],'ENC-S24-A':['09',1],'ENC-S24-B':['09',2],'ENC-S24-C':['09',3],'ENC-S26-B':['10',0],'ENC-S27-B':['10',1],'ENC-S30-C':['10',2],'ENC-S32-B':['10',3],'ENC-S33-A':['11',0],'ENC-S33-B':['11',1],'ENC-S34-B':['11-r2',2]};
  for(const [unit,[sheet,cell]] of Object.entries(panels) as any){
+  if(process.env.SELECTED_NEW_ONLY==='1'&&!['ENC-S21-B','ENC-S34-B'].includes(unit))continue;
   if(process.env.SELECTED_PLANE_ONLY==='1'&&unit!=='ENC-C10-C')continue;
   if(process.env.SELECTED_SHEET6_ONLY==='1'&&sheet!=='06')continue;
   if(process.env.SELECTED_SHEET7_ONLY==='1'&&sheet!=='07')continue;
@@ -148,10 +149,11 @@ test('retained selected satire panels preserve choices and crew',async({page,con
   const art=page.locator(`[data-selected-unit="${unit}"]`);await expect(art).toHaveAttribute('data-atlas',`selected-satire-${sheet}`);await expect(art).toHaveAttribute('data-cell',String(cell));
   if(sheet==='06')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ENC-S11-A'?'false':'true');
   if(sheet==='07')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ENC-S16-C'?'false':'true');
-  if(sheet==='08')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
+  if(sheet.startsWith('08'))await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
   if(sheet==='09')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ENC-S23-A'?'false':'true');
   if(sheet==='10')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',unit==='ENC-S26-B'||unit==='ENC-S27-B'?'true':'false');
   if(sheet==='11')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','false');
+  if(sheet==='11-r2')await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors','true');
   const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(1.5,1);
   const overlays=Object.entries(copy[unit]).filter(([key])=>key.startsWith('overlay_')).map(([,value])=>value);
   await expect(art.locator('.selected-prop-label')).toHaveText(overlays);

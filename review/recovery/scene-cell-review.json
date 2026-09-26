@@ -13306,7 +13306,7 @@
         "rig": "counter",
         "approval": "pending"
       },
-      "integration_status": "Explicit shared café/book-room/counter context; targeted desktop/mobile offer/outcome, crew, width and representative offline checks passed. Shared background only; any required gag/held candidate remains unresolved."
+      "integration_status": "Corrected one-mug panel bound from selected-satire-08-r3 cell 2; desktop/mobile choice, crew, save and offline checks passed."
     },
     {
       "unit": "ENC-S21-C",
@@ -14424,7 +14424,8 @@
         "approval": "pending"
       },
       "routing_review_status": "Reviewed against current source; historical runtime fallback is not accepted as final integration.",
-      "routing_gap": "Essential visual joke remains required. Existing production/hold decision and source composition remain authoritative; a generic setting cannot close this record."
+      "routing_gap": "Resolved for ENC-S34-B by the corrected fitted-sheet panel; source direction retains workshop wording, while current game copy uses feminine pronouns.",
+      "integration_status": "Corrected fitted-sheet panel bound from selected-satire-11-r2 cell 2; desktop/mobile choice, crew, save and offline checks passed."
     },
     {
       "unit": "ENC-S34-C",
@@ -18740,7 +18741,14 @@
           1024
         ],
         "runtime_binding": "cells 0 and 1 only: ENC-S16-C and ENC-S17-A",
-        "review": "One authorized attempt. Desktop/mobile game captures make the balloon and spraying sandwich jokes readable with bottom-left captions. Fan bases and folded-leaflet support are compromised by mobile caption overlap; cells 2 and 3 stay unbound for user review. No automatic retry."
+        "review": "One authorized attempt. Desktop/mobile game captures make the balloon and spraying sandwich jokes readable with bottom-left captions. Fan bases and folded-leaflet support are compromised by mobile caption overlap; cells 2 and 3 stay unbound for user review. No automatic retry.",
+        "approved_regeneration": {
+          "attempts": 1,
+          "path": "review/recovery/held/selected-satire-07-regen1.png",
+          "sha256": "874e113ca4a87dce3be7c8ccda8368c9b52cf1edc1d65b06997e78560ab00bda",
+          "decision": "held_unbound",
+          "reason": "Cell 2 assembles the fan before the work offer; cell 3 keeps the paper support in the bottom-left caption zone."
+        }
       },
       {
         "asset_id": "selected-satire-08",
@@ -18805,8 +18813,8 @@
             "source_direction_reference": "ENC-S21-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
             "production_authorized": true,
-            "review_status": "held_for_user_review",
-            "review_finding": "The second attempt contains multiple background mugs, contradicting the one-mug visual joke."
+            "review_status": "integrated_for_playtest",
+            "review_finding": "Third, user-authorized correction shows exactly one mug and a separate blank sleeve above the bottom-left caption at desktop and mobile sizes."
           },
           {
             "unit": "ENC-S22-B",
@@ -18835,7 +18843,13 @@
         "output_sha256": "561b66f69a7406bea4e6f2593f623bde011551ce85c38c10cb975952c2a2bbc8",
         "actual_canvas": [1536, 1024],
         "runtime_binding": "cells 0, 1 and 3 only: ENC-S19-B, ENC-S20-B and ENC-S22-B",
-        "review": "The user-authorized second attempt removed gutters and improved the pixel scale. Desktop and mobile game captures show the leak, empty bowl and one-building/two-pins gags with bottom-left captions. Cell 2 stays unbound because its background duplicates the mug; no further automatic regeneration."
+        "review": "The original sheet continues to serve cells 0, 1 and 3. The user-authorized third correction supplies cell 2 in a separate versioned sheet; targeted desktop/mobile choice, crew, save and offline checks passed.",
+        "approved_regeneration": {
+          "attempts": 1,
+          "path": "dystrail-web/static/img/satire-v2/selected-satire-08-r3.png",
+          "sha256": "72d0e88089de6e4426d7528101c69f19b6009d32475c651fc1a1e8a8e2602af4",
+          "runtime_binding": "cell 2 only: ENC-S21-B"
+        }
       },
       {
         "asset_id": "selected-satire-09",
@@ -19072,7 +19086,8 @@
             "essential_action": "Hotel owner's arm caught in a fitted sheet while holding a blank altered folding chart; no folding chair, injury or invented crew entrapment.",
             "source_direction_reference": "ENC-S34-B",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "integrated_for_playtest"
           },
           {
             "unit": "TOWN-01-A",
@@ -19087,7 +19102,8 @@
             "essential_action": "A small license-plate-shaped scrap held over ordinary shoes is the visual premise. Keep both at plausible hand/foot scale; no actual plate installation, visible identifier, or invented road hazard.",
             "source_direction_reference": "TOWN-01-A",
             "cast": "Only the external adults required by the source, feminine or gender-neutral and racially diverse. No player crew, player hands or vehicle baked in. Any source visitor is clearly an external NPC.",
-            "production_authorized": true
+            "production_authorized": true,
+            "review_status": "held_for_user_review"
           }
         ],
         "attempt_limit_if_approved": 1,
@@ -19098,10 +19114,16 @@
         "actual_canvas": [1536, 1024],
         "runtime_binding": "cells 0-1 only: ENC-S33-A, ENC-S33-B",
         "held_cells": [
-          {"unit": "ENC-S34-B", "cell": 2, "reason": "Generated folding-chair trap conflicts with current fitted-sheet encounter."},
-          {"unit": "TOWN-01-A", "cell": 3, "reason": "Fixed visitor substitutes for a traveler whose identity must come from the active crew."}
+          {"unit": "TOWN-01-A", "cell": 3, "reason": "The corrected shoe-and-scrap action remains in the bottom-left caption zone."}
         ],
-        "review": "Desktop/mobile road scenes inspected in game. Tank and straw gags read at mobile size; other two cells held, with no automatic regeneration."
+        "review": "The original sheet serves cells 0 and 1. A separate user-authorized correction supplies cell 2 with the owner's arm caught in a fitted sheet; desktop/mobile choice, crew, save and offline checks passed. Cell 3 remains held.",
+        "approved_regeneration": {
+          "attempts": 1,
+          "path": "dystrail-web/static/img/satire-v2/selected-satire-11-r2.png",
+          "sha256": "4efed588874a2755985bff4c31be42f3783ae6e9de35a1d4fe6464ef7c4a78ca",
+          "runtime_binding": "cell 2 only: ENC-S34-B",
+          "held_cell": "TOWN-01-A"
+        }
       },
       {
         "asset_id": "selected-satire-12",
