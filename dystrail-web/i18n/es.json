@@ -1741,6 +1741,33 @@
       "continuing": "La lesión de {name} continúa. Quedan sacos por mover y no ha caído ningún multimillonario del techo.",
       "log_0": "Los cuidados ayudan a {name} a recuperarse. El siguiente saco puede esperar a la mano invisible."
     },
+    "REPAIR-ALTERNATOR-A": {
+      "name": "China llega tarde",
+      "desc": "Falla el alternador. El recambio cuesta más tras los aranceles de Trump. La mecánica por radio pregunta quién paga. Dices que China. Ella pide un chiste más corto.",
+      "log_0": "Instalas el repuesto que llevabas. China queda exenta de esta factura concreta.",
+      "log_1": "El taller monta el recambio. Tu dinero cruza el mostrador con una confianza internacional admirable.",
+      "log_2": "Cambias provisiones por un alternador usado y lo montas. La comida asume la responsabilidad del arancel.",
+      "log_3": "Haces el trabajo acordado a cambio de un alternador usado y la reparación. El turno de China se parece mucho al de tu tripulación.",
+      "roadside": "Llega el recambio y lo montan. La repartidora pregunta por tu nombre, y queda claro quién paga."
+    },
+    "REPAIR-ALTERNATOR-B": {
+      "name": "El departamento de una sola persona",
+      "desc": "El alternador deja de funcionar. Llevabas tiempo pidiendo a una sola pieza agotada que cargara la batería y alimentara todo lo demás. También es el plan de personal de DOGE.",
+      "log_0": "Montas el repuesto. La nueva jefa del departamento recibe de inmediato todo el trabajo del anterior.",
+      "log_1": "El taller monta un recambio. Recuperar capacidad se confunde por un momento con despilfarro.",
+      "log_2": "Cambias provisiones por un alternador usado y lo montas. La furgoneta acepta a regañadientes conservar a una trabajadora con experiencia.",
+      "log_3": "Terminas el trabajo acordado y montas un alternador usado. La tripulación asume la carga de la que se desentendió el lema de eficiencia.",
+      "roadside": "Llega el recambio y lo montan. La repartidora se libra de una presentación sobre hacer más con menos."
+    },
+    "REPAIR-ALTERNATOR-C": {
+      "name": "Cobrar por el acceso",
+      "desc": "Muere el alternador. Una recaudadora de fondos políticos anuncia por radio una cena con una senadora. Tú preferirías acceso a doce voltios, pero nadie les ha comprado un salón de baile.",
+      "log_0": "Montas el repuesto. La furgoneta acepta una contribución dentro del vano motor.",
+      "log_1": "El taller monta el recambio. Tu pago te da acceso a la electricidad y a ninguna senadora.",
+      "log_2": "Cambias provisiones por un alternador usado y lo montas. La comida ofrece un rendimiento más medible que una cena de donantes.",
+      "log_3": "Terminas el trabajo acordado y montas la pieza usada. Barrer un taller compra más movimiento que conocer a una senadora.",
+      "roadside": "Llega el recambio y lo montan. La repartidora no llama audiencia privada a la entrega."
+    },
     "REPAIR-TIRE-A": {
       "name": "La banda de rodadura del goteo",
       "desc": "Un neumático revienta junto a una valla de recortes fiscales pagada por un multimillonario. Encuentras la banda de rodadura debajo de «prosperidad». Así que eso era lo que caía desde arriba.",

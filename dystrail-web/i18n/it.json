@@ -1741,6 +1741,33 @@
       "continuing": "La schiena di {name} fa ancora male. Restano sacchi da spostare e dal soffitto non è sgocciolato nessun miliardario.",
       "log_0": "Le cure aiutano {name} a riprendersi. Il prossimo sacco può aspettare la mano invisibile."
     },
+    "REPAIR-ALTERNATOR-A": {
+      "name": "La Cina è in ritardo",
+      "desc": "L’alternatore si guasta. Il ricambio costa di più dopo i dazi di Trump. La meccanica alla radio chiede chi paga. Rispondi: la Cina. Lei chiede una battuta più breve.",
+      "log_0": "Monti il ricambio di bordo. La Cina è esentata da questa specifica fattura.",
+      "log_1": "L’officina monta il ricambio. I tuoi soldi attraversano il bancone con notevole sicurezza internazionale.",
+      "log_2": "Scambi provviste per un alternatore usato e lo monti. Il cibo si assume la responsabilità del dazio.",
+      "log_3": "Svolgi il lavoro concordato in cambio di un alternatore usato e della riparazione. Il turno della Cina somiglia moltissimo a quello del tuo equipaggio.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne chiede il tuo nome: è chiaro chi paga."
+    },
+    "REPAIR-ALTERNATOR-B": {
+      "name": "Il dipartimento di una persona sola",
+      "desc": "L’alternatore smette di funzionare. A un solo pezzo stanco chiedevi di caricare la batteria e alimentare tutto il resto. È anche il piano del personale di DOGE.",
+      "log_0": "Monti il ricambio. La nuova responsabile del dipartimento riceve subito tutto il lavoro del vecchio.",
+      "log_1": "L’officina monta un ricambio. Ripristinare la capacità viene brevemente scambiato per uno spreco.",
+      "log_2": "Scambi provviste per un alternatore usato e lo monti. Il furgone accetta a malincuore di trattenere una lavoratrice esperta.",
+      "log_3": "Completi il lavoro concordato e monti un alternatore usato. L’equipaggio sostiene il carico che lo slogan sull’efficienza ha rifiutato.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne si risparmia una presentazione sul fare di più con meno."
+    },
+    "REPAIR-ALTERNATOR-C": {
+      "name": "Far pagare l’accesso",
+      "desc": "L’alternatore muore. Una raccolta fondi politica alla radio offre una cena con una senatrice. Preferiresti accedere a dodici volt, ma nessuno ha comprato loro una sala da ballo.",
+      "log_0": "Monti il ricambio di bordo. Il furgone accetta un contributo dentro il vano motore.",
+      "log_1": "L’officina monta il ricambio. Il pagamento ti garantisce l’elettricità e nessuna senatrice.",
+      "log_2": "Scambi provviste per un alternatore usato e lo monti. Il cibo rende più di una cena per donatori, e lo si può misurare.",
+      "log_3": "Completi il lavoro concordato e monti il pezzo usato. Spazzare un’officina compra più movimento che conoscere una senatrice.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne non definisce la consegna un’udienza privata."
+    },
     "REPAIR-TIRE-A": {
       "name": "Battistrada a cascata",
       "desc": "Uno pneumatico scoppia accanto a un cartellone sui tagli fiscali finanziato da un miliardario. Trovi il battistrada sotto la parola «prosperità». Ecco cosa è ricaduto dall’alto.",

@@ -35,9 +35,9 @@ test('all twelve repair stories preserve four costed choices and current saves',
  }
 });
 
-test('localized battery and tire repairs retain the cashless exit and offline outcome',async({page,context},info)=>{
- test.setTimeout(180000);const base=await baseline(page);
- for(const part of ['Battery','Tire'])for(const lang of ['es','it','ar'])for(const v of ['A','B','C']){
+test('localized repair families retain the cashless exit and offline outcome',async({page,context},info)=>{
+ test.setTimeout(240000);const base=await baseline(page);
+ for(const part of ['Battery','Tire','Alternator'])for(const lang of ['es','it','ar'])for(const v of ['A','B','C']){
   await page.evaluate(()=>localStorage.setItem('dystrail.locale','en'));await page.reload();await waitForLaunch(page);
   const s=structuredClone(base);s.seed=42;s.day=3;s.clock_minutes=480;s.driving_minutes_total=180;
   s.breakdown={part,day_started:3};s.last_breakdown_part=part;s.vehicle.health=60;s.vehicle.wear=30;s.budget_cents=0;s.budget=0;

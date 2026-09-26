@@ -3566,7 +3566,7 @@
     },
     "REPAIR-ALTERNATOR-A": {
       "name": "China Is Running Late",
-      "desc": "The alternator fails. The replacement costs more after Trump’s tariffs. The mechanic on the radio asks who’s paying. You say China. He asks for a shorter joke.",
+      "desc": "The alternator fails. The replacement costs more after Trump’s tariffs. The mechanic on the radio asks who’s paying. You say China. She asks for a shorter joke.",
       "choice_0": "Fit the onboard spare",
       "log_0": "You fit the onboard spare. China is excused from this particular invoice.",
       "choice_1": "Buy and fit a replacement",
