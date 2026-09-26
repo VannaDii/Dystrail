@@ -19821,9 +19821,9 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "additional_user_authorized_calls": 3,
-    "effective_attempt_ceiling": 16,
-    "new_image_attempts_used": 16,
+    "additional_user_authorized_calls": 6,
+    "effective_attempt_ceiling": 19,
+    "new_image_attempts_used": 19,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -19851,7 +19851,7 @@
     ],
     "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate.",
     "approval_source": "User: The production package is approved (2026-09-21)",
-    "user_directed_revisions_used": 2
+    "user_directed_revisions_used": 5
   },
   "shared_atlas_checkpoint": {
     "build": "f26020f7d8e2099037a5",
@@ -19884,7 +19884,7 @@
     "selection": "Seed/family/stop, sealed before the existing conversation reward and clock handler; repeated conversations retain the story without extra rewards",
     "remaining": [
       "Per-variant artwork and surviving-crew composition",
-      "Translations; preserved town-01-02 translation file is malformed and has not been imported",
+      "Translations for the other town variants and languages; six TOWN-01/02 variants already have es/it/ar runtime copy despite a malformed preserved source file",
       "Final desktop/mobile visual acceptance"
     ],
     "checks": [
