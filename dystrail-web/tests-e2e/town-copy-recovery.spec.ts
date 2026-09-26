@@ -5,9 +5,9 @@ const catalog=JSON.parse(readFileSync('static/assets/data/town-conversations.jso
 const routes=JSON.parse(readFileSync('../dystrail-game/data/routes.json','utf8'));
 const checkpoint=(page:any)=>page.evaluate(()=>JSON.parse(localStorage.getItem('dystrail.autosave.v1')!).state);
 test('selected town satire panels retain facts, crew and offline scene framing',async({page,context},info)=>{
- test.setTimeout(120_000);const base=await baseline(page);
- const cells:any={'TOWN-03-C':0,'TOWN-14-A':1,'TOWN-14-B':2,'TOWN-23-C':3};
- for(const [id,cell] of Object.entries(cells) as any){
+ test.setTimeout(180_000);const base=await baseline(page);
+ const cells:any={'TOWN-03-C':['selected-satire-12',0,false],'TOWN-14-A':['selected-satire-12',1,false],'TOWN-14-B':['selected-satire-12',2,true],'TOWN-23-C':['selected-satire-12',3,true],'TOWN-29-C':['selected-satire-13',0,false],'TOWN-34-C':['selected-satire-13',1,true],'TOWN-35-B':['selected-satire-13',2,true],'TOWN-44-A':['selected-satire-13',3,true]};
+ for(const [id,[atlas,cell,indoors]] of Object.entries(cells) as any){
   const story=catalog.find((c:any)=>c.id===id),route=routes.find((r:any)=>r.stops.some((s:any)=>s.name===story.town)),stop=route.stops.find((s:any)=>s.name===story.town);
   const s=structuredClone(base);s.seed=42;s.persona_id=route.id;s.day=6;s.clock_minutes=600;s.turn_journal_start=null;
   s.party.members.forEach((m:any,i:number)=>m.status=i<2?'Active':i%2?'Departed':'Dead');
@@ -15,8 +15,8 @@ test('selected town satire panels retain facts, crew and offline scene framing',
   s.miles_traveled_actual=(stop.mile+1)/route.total_miles*s.trail_distance;s.miles_traveled=Math.round(s.miles_traveled_actual);
   const key=`${story.family_id}/town/${stop.mile}`;s.visual_content={edition:1,selections:{[key]:id},outcomes:{},policy_bulletins:[]};
   await importState(page,s);await page.locator('.route-stop .action-button').click();
-  const art=page.locator(`[data-selected-unit="${id}"]`);await expect(art).toHaveAttribute('data-atlas','selected-satire-12');await expect(art).toHaveAttribute('data-cell',String(cell));
-  await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',String(cell>=2));
+  const art=page.locator(`[data-selected-unit="${id}"]`);await expect(art).toHaveAttribute('data-atlas',atlas);await expect(art).toHaveAttribute('data-cell',String(cell));
+  await expect(page.locator('.journey-scene')).toHaveAttribute('data-indoors',String(indoors));
   await expect(page.locator('.resident-story > p')).toHaveText(story.setup.en);await expect(page.locator('.local-fact')).toHaveText(story.text.en);
   expect(await page.locator('[data-seated-traveler]').count()).toBe(0);
   const box=await page.locator('.scene-art').boundingBox();expect(box!.width/box!.height).toBeCloseTo(1.5,1);

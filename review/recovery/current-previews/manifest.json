@@ -1,5 +1,5 @@
 {
-  "revision": "66bcbed · build 53a5b3108eae8c50d53b",
+  "revision": "ae95c1f9f47c13473538",
   "frames": [
     {
       "id": "road",
@@ -18,6 +18,36 @@
       "title": "Town setting",
       "note": "Shared regional setting. Encounter-specific art and localized content remain incomplete.",
       "status": "Partial"
+    },
+    {
+      "id": "town-fridge",
+      "title": "Dress the fridge for subsidies",
+      "note": "Current El Paso encounter with the tie on the refrigerator; no player crew is baked into the art.",
+      "status": "Integrated"
+    },
+    {
+      "id": "town-shade",
+      "title": "Shade, estimated arrival",
+      "note": "The delivery worker fits into a bus-pole shadow while the newly planted tree cannot shade anyone yet.",
+      "status": "Integrated"
+    },
+    {
+      "id": "town-wallet",
+      "title": "The fee passed inspection",
+      "note": "The mechanic inspects their wallet; the car waits outside untouched.",
+      "status": "Integrated"
+    },
+    {
+      "id": "town-receipt",
+      "title": "The state came for dinner",
+      "note": "A long blank receipt claims more counter space than the groceries.",
+      "status": "Integrated"
+    },
+    {
+      "id": "town-sandwich",
+      "title": "Half the benefits, twice the sandwich",
+      "note": "One sandwich becomes two equal halves, with no extra food pictured.",
+      "status": "Integrated"
     },
     {
       "id": "ally",
@@ -71,6 +101,24 @@
       "id": "guide",
       "title": "A second name costs six dollars",
       "note": "Two pins point to one generic building; the itinerary stays blank for live copy.",
+      "status": "Integrated"
+    },
+    {
+      "id": "gold",
+      "title": "The welcome is dripping",
+      "note": "The gold-colored hotel gateway melts while the mop remains unused; text is live UI.",
+      "status": "Integrated"
+    },
+    {
+      "id": "solar",
+      "title": "The unreliable panel is doing the work",
+      "note": "A visible cable links the solar panel to the presentation screen it powers.",
+      "status": "Integrated"
+    },
+    {
+      "id": "straw",
+      "title": "A nationally protected blockage",
+      "note": "The oversized straw obstructs the drinking-water doorway without enlarging people.",
       "status": "Integrated"
     },
     {

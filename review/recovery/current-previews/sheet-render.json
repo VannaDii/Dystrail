@@ -1,10 +1,10 @@
 {
-  "revision": "66bcbed · build 53a5b3108eae8c50d53b",
+  "revision": "ae95c1f9f47c13473538",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 6242,
+      "height": 9059,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -22,6 +22,36 @@
           "src": "desktop/town/shot-0.png",
           "width": 1230,
           "height": 496,
+          "complete": true
+        },
+        {
+          "src": "desktop/town-fridge/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/town-shade/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/town-wallet/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/town-receipt/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/town-sandwich/shot-0.png",
+          "width": 1230,
+          "height": 929,
           "complete": true
         },
         {
@@ -79,6 +109,24 @@
           "complete": true
         },
         {
+          "src": "desktop/gold/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/solar/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/straw/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
           "src": "desktop/trade/shot-0.png",
           "width": 1230,
           "height": 648,
@@ -113,7 +161,7 @@
     {
       "device": "mobile",
       "width": 1280,
-      "height": 4024,
+      "height": 6015,
       "images": [
         {
           "src": "mobile/road/shot-0.png",
@@ -131,6 +179,36 @@
           "src": "mobile/town/shot-0.png",
           "width": 1024,
           "height": 1341,
+          "complete": true
+        },
+        {
+          "src": "mobile/town-fridge/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/town-shade/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/town-wallet/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/town-receipt/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/town-sandwich/shot-0.png",
+          "width": 1024,
+          "height": 1166,
           "complete": true
         },
         {
@@ -183,6 +261,24 @@
         },
         {
           "src": "mobile/guide/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/gold/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/solar/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/straw/shot-0.png",
           "width": 1024,
           "height": 1166,
           "complete": true

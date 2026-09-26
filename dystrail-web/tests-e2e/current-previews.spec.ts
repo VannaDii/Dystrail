@@ -1,20 +1,33 @@
 import {test,expect} from '@playwright/test';
 import {baseline,importState,waitForLaunch} from './helpers';
-import {atTown} from './geography';
+import {atTown,routes} from './geography';
 import {mkdirSync,readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
 test('capture current integrated visual-world previews',async({page,context},info)=>{
- test.setTimeout(90000);
+ test.setTimeout(180000);
  await page.setViewportSize({width:info.project.name==='mobile'?390:1440,height:1000});
  await page.emulateMedia({reducedMotion:'reduce'});
  const base=await baseline(page);base.seed=42;base.turn_journal_start=null;
  const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
  const device=info.project.name==='mobile'?'mobile':'desktop';
- const roadScenes:Record<string,string>={safe:'ENC-C09-C',overhead:'ENC-C11-A',fees:'ENC-C12-C',balloon:'ENC-S16-C',sandwich:'ENC-S17-A',leak:'ENC-S19-B',bowl:'ENC-S20-B',guide:'ENC-S22-B'};
- for(const id of ['road','night','town','ally','safe','overhead','fees','balloon','sandwich','leak','bowl','guide','trade','pantry','cleanup','crossing','ending']){
+ const roadScenes:Record<string,string>={safe:'ENC-C09-C',overhead:'ENC-C11-A',fees:'ENC-C12-C',balloon:'ENC-S16-C',sandwich:'ENC-S17-A',leak:'ENC-S19-B',bowl:'ENC-S20-B',guide:'ENC-S22-B',gold:'ENC-S24-C',solar:'ENC-S32-B',straw:'ENC-S33-B'};
+ const townScenes:Record<string,[string,string]>={'town-shade':['TOWN-29-C','Phoenix'],'town-wallet':['TOWN-34-C','San Antonio'],'town-receipt':['TOWN-35-B','Sioux Falls'],'town-sandwich':['TOWN-44-A','Waco']};
+ const frames=['road','night','town','town-fridge','town-shade','town-wallet','town-receipt','town-sandwich','ally','safe','overhead','fees','balloon','sandwich','leak','bowl','guide','gold','solar','straw','trade','pantry','cleanup','crossing','ending'];
+ const selected=process.env.PREVIEW_IDS?.split(',')??frames;
+ for(const id of frames.filter(frame=>selected.includes(frame))){
   const s=structuredClone(base);s.clock_minutes=id==='night'?1380:720;
   if(['town','trade','pantry','cleanup'].includes(id)) atTown(s,'Spokane');
+  if(id==='town-fridge'){
+   s.persona_id=routes.find((route:any)=>route.stops.some((stop:any)=>stop.name==='El Paso')).id;
+   const stop=atTown(s,'El Paso');s.activities.local_word=null;
+   s.visual_content={edition:1,selections:{[`TOWN-14/town/${stop.mile}`]:'TOWN-14-B'},outcomes:{},policy_bulletins:[]};
+  }
+  if(townScenes[id]){
+   const [unit,town]=townScenes[id];s.persona_id=routes.find((route:any)=>route.stops.some((stop:any)=>stop.name===town)).id;
+   const stop=atTown(s,town);s.activities.local_word=null;
+   s.visual_content={edition:1,selections:{[`${unit.slice(0,-2)}/town/${stop.mile}`]:unit},outcomes:{},policy_bulletins:[]};
+  }
   if(id==='pantry'||id==='cleanup'){
    const family=id==='pantry'?'ACT-FOODWORK':'ACT-CASHWORK';
    s.activities={foraged_on:null,worked_at:null,local_word:null};
@@ -48,6 +61,14 @@ test('capture current integrated visual-world previews',async({page,context},inf
   }
   if(id==='ending')s.ending={type:'collapse',cause:'hunger'};
   await importState(page,s);await page.reload();await waitForLaunch(page);
+  if(id==='town-fridge'){
+   await page.locator('.route-stop .action-button').click();
+   await expect(page.locator('[data-selected-unit="TOWN-14-B"]')).toHaveAttribute('data-atlas','selected-satire-12');
+  }
+  if(townScenes[id]){
+   await page.locator('.route-stop .action-button').click();
+   await expect(page.locator(`[data-selected-unit="${townScenes[id][0]}"]`)).toHaveAttribute('data-atlas','selected-satire-13');
+  }
   if(id==='road'){
    await context.setOffline(true);await page.reload();await waitForLaunch(page);
    await expect(page.locator('.standing-member')).toHaveCount(6);

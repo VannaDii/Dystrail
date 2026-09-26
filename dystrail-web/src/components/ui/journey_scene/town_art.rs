@@ -14,6 +14,10 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
         "TOWN-14-A" => ("selected-satire-12", 1),
         "TOWN-14-B" => ("selected-satire-12", 2),
         "TOWN-23-C" => ("selected-satire-12", 3),
+        "TOWN-29-C" => ("selected-satire-13", 0),
+        "TOWN-34-C" => ("selected-satire-13", 1),
+        "TOWN-35-B" => ("selected-satire-13", 2),
+        "TOWN-44-A" => ("selected-satire-13", 3),
         _ => return None,
     })
 }
@@ -25,7 +29,7 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
     let SceneStage::Encounter(unit) = stage else { return None; };
     if selected_cell(unit).is_some() {
-        return Some((unit, matches!(unit.as_str(), "TOWN-14-B" | "TOWN-23-C")));
+        return Some((unit, matches!(unit.as_str(), "TOWN-14-B" | "TOWN-23-C" | "TOWN-34-C" | "TOWN-35-B" | "TOWN-44-A")));
     }
     match unit.as_str() {
         "TOWN-41-B" => Some((unit, true)),

@@ -16588,9 +16588,9 @@
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
       "desktop_mobile": "Use one composition at its native aspect ratio on both viewports. Keep essential action above the bottom-left caption; no cropped-off hands/props, supplementary bust, or new stat design.",
-      "production_authorized": false,
-      "generation_attempts_authorized": 0,
-      "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
+      "production_authorized": true,
+      "generation_attempts_authorized": 2,
+      "remaining_gate": "Final user visual acceptance and combined release checks remain; no further generation is authorized.",
       "staging_scope_resolved": true,
       "production_route": "proposed_new_atlas_panel",
       "production_spec": {
@@ -16606,7 +16606,7 @@
           512
         ],
         "rig": "outdoor",
-        "approval": "pending"
+        "approval": "integrated_for_playtest"
       }
     },
     {
@@ -16946,9 +16946,9 @@
       "camera": null,
       "proportions": null,
       "desktop_mobile": "Pending exact candidate selection. Any resulting composition must preserve the same scene geometry on desktop/mobile, actual surviving crew, and bottom-left caption.",
-      "production_authorized": false,
-      "generation_attempts_authorized": 0,
-      "remaining_gate": "Apply approved staging policy, select existing candidates or complete necessary-image briefs, then obtain production approval.",
+      "production_authorized": true,
+      "generation_attempts_authorized": 2,
+      "remaining_gate": "Final user visual acceptance and combined release checks remain; no further generation is authorized.",
       "staging_scope_resolved": true,
       "production_route": "proposed_new_atlas_panel",
       "production_spec": {
@@ -16964,7 +16964,7 @@
           512
         ],
         "rig": "counter",
-        "approval": "pending"
+        "approval": "integrated_for_playtest"
       }
     },
     {
@@ -17005,9 +17005,9 @@
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
       "desktop_mobile": "Use one composition at its native aspect ratio on both viewports. Keep essential action above the bottom-left caption; no cropped-off hands/props, supplementary bust, or new stat design.",
-      "production_authorized": false,
-      "generation_attempts_authorized": 0,
-      "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
+      "production_authorized": true,
+      "generation_attempts_authorized": 2,
+      "remaining_gate": "Final user visual acceptance and combined release checks remain; no further generation is authorized.",
       "staging_scope_resolved": true,
       "production_route": "proposed_new_atlas_panel",
       "production_spec": {
@@ -17023,7 +17023,7 @@
           512
         ],
         "rig": "counter",
-        "approval": "pending"
+        "approval": "integrated_for_playtest"
       }
     },
     {
@@ -17548,9 +17548,9 @@
       "camera": "Use the chosen setting’s existing eye-level perspective, with one ground plane and consistent adult scale; exact actor and prop rectangles await candidate selection.",
       "proportions": "No oversized NPCs or miniature van. Props fit ordinary hands; seated and standing figures must agree with furniture scale. Only actual present crew may appear as travelers.",
       "desktop_mobile": "Use one composition at its native aspect ratio on both viewports. Keep essential action above the bottom-left caption; no cropped-off hands/props, supplementary bust, or new stat design.",
-      "production_authorized": false,
-      "generation_attempts_authorized": 0,
-      "remaining_gate": "Choose the retained regional setting and compatible pose/prop assets. Only a verified gap may become an individually specified one-attempt image brief; user production approval remains required.",
+      "production_authorized": true,
+      "generation_attempts_authorized": 2,
+      "remaining_gate": "Final user visual acceptance and combined release checks remain; no further generation is authorized.",
       "staging_scope_resolved": true,
       "production_route": "proposed_new_atlas_panel",
       "production_spec": {
@@ -17566,7 +17566,7 @@
           512
         ],
         "rig": "counter",
-        "approval": "pending"
+        "approval": "integrated_for_playtest"
       }
     },
     {
@@ -19192,7 +19192,7 @@
       },
       {
         "asset_id": "selected-satire-13",
-        "decision": "held_after_single_approved_attempt",
+        "decision": "integrated_after_user_authorized_regeneration",
         "canvas": [
           1536,
           1024
@@ -19269,13 +19269,15 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 1,
+        "attempts_in_this_recovery": 2,
+        "additional_attempt_authorized_by_user": true,
+        "first_attempt_sha256": "f050ab251976a51c766ad3bc5e2d2297c1c70e01f9488629bc2ab2a80b9ab6f8",
         "production_authorized": true,
-        "output_path": "review/recovery/held/selected-satire-13-attempt1.png",
-        "output_sha256": "f050ab251976a51c766ad3bc5e2d2297c1c70e01f9488629bc2ab2a80b9ab6f8",
+        "output_path": "dystrail-web/static/img/satire-v2/selected-satire-13.png",
+        "output_sha256": "82f293458f06d77ee4607f70d6b79cf96b65f743874ca6d97562fd76e60260fb",
         "actual_canvas": [1536, 1024],
-        "runtime_binding": "none; all four cells held",
-        "review": "Mobile game captures showed realistic fine shading inconsistent with approved pixel-art scale in all four panels. Receipt cell also has printed-looking markings rather than an unambiguously blank receipt. Provisional bindings were removed; no automatic regeneration."
+        "runtime_binding": "cells 0-3: TOWN-29-C, TOWN-34-C, TOWN-35-B, TOWN-44-A",
+        "review": "User authorized one regeneration of the held atlas. New 1536x1024 sheet inspected in desktop/mobile game captures: single-scale adults and props, blank receipt, no embedded words or religious symbols observed. Targeted town browser checks passed for offer text, crew, save, offline reload, scene framing and no viewport overflow. Playtest acceptance remains open."
       }
     ]
   },
@@ -19797,9 +19799,9 @@
     "status": "approved_for_bounded_production",
     "approved": true,
     "max_new_image_calls": 13,
-    "additional_user_authorized_calls": 2,
-    "effective_attempt_ceiling": 15,
-    "new_image_attempts_used": 15,
+    "additional_user_authorized_calls": 3,
+    "effective_attempt_ceiling": 16,
+    "new_image_attempts_used": 16,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -19827,7 +19829,7 @@
     ],
     "completion": "This approves proposed work only. Release acceptance still requires real desktop/mobile rendering, localization, saved-state/crew/outcome correctness, save/import/replay/offline checks and a committed release candidate.",
     "approval_source": "User: The production package is approved (2026-09-21)",
-    "user_directed_revisions_used": 1
+    "user_directed_revisions_used": 2
   },
   "shared_atlas_checkpoint": {
     "build": "f26020f7d8e2099037a5",
@@ -20256,10 +20258,10 @@
     "image_generation_calls": 0
   },
   "preview_checkpoint": {
-    "status": "Current progress sheets; not release acceptance",
-    "source_revision": "66bcbed",
-    "build": "53a5b3108eae8c50d53b",
-    "frames_per_device": 17,
+    "status": "Current candidate progress sheets; not release acceptance",
+    "source_revision": "6978264 plus regenerated sheet thirteen integration",
+    "build": "ae95c1f9f47c13473538",
+    "frames_per_device": 25,
     "viewports": {
       "desktop": 1440,
       "mobile": 390
@@ -20268,8 +20270,8 @@
       "current-previews/desktop-preview-sheet.png",
       "current-previews/mobile-preview-sheet.png"
     ],
-    "verification": "34 current browser captures completed on desktop/mobile, including six standing cast sheets fetched offline and five newly selected satire panels. Both sheets rendered with 17 complete images and were visually inspected.",
-    "scope": "Road, night, town, ally, selected satire props including sheets seven and eight, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
+    "verification": "50 actual game frames are complete across desktop/mobile. Both 25-card sheets rendered without overflow and were visually inspected. Eight selected town panels include four regenerated sheet-thirteen scenes; targeted town tests passed on both viewports.",
+    "scope": "Road, night, shared town, eight selected town scenes, ally, selected road satire, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
   },
   "town_qualitative_checkpoint": {
     "status": "Unclaimed conversation choices reuse qualitative localized wording instead of +1 previews",
@@ -21145,11 +21147,17 @@
     "verification": "Release/offline build and targeted desktop/mobile town checks passed for fact text, one-time reward, saved crew, offline reload, atlas cell, 3:2 framing and no viewport overflow. Four mobile captures inspected; no player crew baked into art.",
     "remaining": "Full combined feature and editorial acceptance remain open."
   },
-  "sheet13_review_checkpoint": {
-    "status": "Four town panels held after one attempt",
-    "asset": "review/recovery/held/selected-satire-13-attempt1.png",
-    "held_units": ["TOWN-29-C", "TOWN-34-C", "TOWN-35-B", "TOWN-44-A"],
-    "verification": "Release/offline build and targeted mobile town checks passed mechanically. All four mobile captures visually inspected; the atlas fails the approved pixel-art style, and receipt markings are not safely blank. No runtime binding remains.",
-    "remaining": "One-attempt image package is exhausted: 15 of 15 calls including two separately user-authorized corrections. User review or a new decision is required before any replacement generation."
+  "sheet13_integration_checkpoint": {
+    "status": "Four regenerated town panels integrated for playtesting after one separately user-authorized regeneration",
+    "asset": "dystrail-web/static/img/satire-v2/selected-satire-13.png",
+    "prior_held_attempt": "review/recovery/held/selected-satire-13-attempt1.png",
+    "bound_units": [
+      "TOWN-29-C",
+      "TOWN-34-C",
+      "TOWN-35-B",
+      "TOWN-44-A"
+    ],
+    "verification": "Release/offline build and targeted desktop/mobile town browser checks passed for facts, crew, save, offline reload, atlas cells, 3:2 framing and no overflow. Four mobile game captures and two desktop examples inspected; receipt is blank and panel proportions are acceptable for playtest.",
+    "remaining": "Final combined feature and playtest visual acceptance remain open. Image generation budget is exhausted at 16 of 16 calls; no automatic retry."
   }
 }
