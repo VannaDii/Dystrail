@@ -1768,6 +1768,33 @@
       "log_3": "Completi il lavoro concordato e monti il pezzo usato. Spazzare un’officina compra più movimento che conoscere una senatrice.",
       "roadside": "Il ricambio arriva e viene montato. La persona delle consegne non definisce la consegna un’udienza privata."
     },
+    "REPAIR-FUELPUMP-A": {
+      "name": "Trivella, baby, niente",
+      "desc": "La pompa del carburante si guasta. Alla radio risuona il «Drill, baby, drill» di Trump. Cercare altro petrolio è una risposta molto rumorosa al pezzo sbagliato.",
+      "log_0": "Monti la pompa di scorta. Il carburante raggiunge il motore senza trovare un nuovo giacimento.",
+      "log_1": "L’officina monta il ricambio. Per un momento la distribuzione riceve più attenzione delle trivelle.",
+      "log_2": "Scambi provviste per una pompa usata e la monti. Le riserve già nel serbatoio arrivano finalmente al pubblico.",
+      "log_3": "Completi il lavoro concordato e monti una pompa usata. Le tue braccia risolvono un problema che il discorso sulle trivelle non poteva raggiungere.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne ripara il percorso tra il carburante che hai e il motore che ne ha bisogno."
+    },
+    "REPAIR-FUELPUMP-B": {
+      "name": "Un ostacolo molto patriottico",
+      "desc": "La pompa del carburante si guasta. Secondo la proposta sui dazi di Trump, le barriere proteggono l’industria americana. Il motore ora è protetto dalla benzina e non ha altre domande.",
+      "log_0": "Monti la pompa di scorta. Il carburante negozia il passaggio verso il motore.",
+      "log_1": "L’officina monta il ricambio. Paghi la pompa, compresa la protezione dalle pompe meno costose.",
+      "log_2": "Scambi provviste per una pompa usata e la monti. Gli avanzi nazionali riaprono il percorso del carburante.",
+      "log_3": "Il lavoro concordato procura una pompa usata e la riparazione. L’equipaggio fornisce la manodopera; la Cina resta indisponibile per i turni.",
+      "roadside": "La pompa viene consegnata e montata. Cade anche la barriera fra te e i tuoi soldi."
+    },
+    "REPAIR-FUELPUMP-C": {
+      "name": "La chat interna del gruppo",
+      "desc": "La pompa smette di mandare carburante al motore. Dopo la fuga di notizie sulla chat dei piani di bombardamento, controlli lo scarico. Forse le cose importanti sono arrivate alla destinataria sbagliata.",
+      "log_0": "Monti la pompa di scorta. Il motore viene finalmente incluso nella lista di distribuzione.",
+      "log_1": "L’officina monta il ricambio. Il carburante raggiunge il motore: a quanto pare, sicurezza operativa d’élite.",
+      "log_2": "Scambi provviste per una pompa usata e la monti. Il motore riceve il briefing in un formato che può bruciare.",
+      "log_3": "Completi il lavoro concordato e monti una pompa usata. Il furgone torna a tenere i suoi piani di combustione dentro il motore.",
+      "roadside": "Il ricambio arriva e viene montato. La persona delle consegne riesce a recapitare un oggetto sensibile alla destinataria prevista."
+    },
     "REPAIR-TIRE-A": {
       "name": "Battistrada a cascata",
       "desc": "Uno pneumatico scoppia accanto a un cartellone sui tagli fiscali finanziato da un miliardario. Trovi il battistrada sotto la parola «prosperità». Ecco cosa è ricaduto dall’alto.",

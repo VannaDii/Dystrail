@@ -19930,12 +19930,12 @@
     }
   },
   "repair_copy_checkpoint": {
-    "status": "12 approved English repair variants integrated; battery, tire and alternator narratives translated in es/it/ar; artwork, factual links and other languages incomplete",
+    "status": "All 12 approved repair narratives integrated in en/es/it/ar; artwork, factual links and other languages incomplete",
     "source": "Current-source-records REPAIR-TIRE/BATTERY/ALTERNATOR/FUELPUMP A/B/C",
     "behavior": "Seed-stable selection by part, incident start day and driving minutes; recorded only after successful existing repair handler. No mechanics or RNG changes. Separate roadside purchase and shop outcomes.",
     "remaining": [
       "Retained repair scene integration and actual-crew composition",
-      "Current-premise translations for fuel-pump variants and other locales",
+      "Current-premise translations for the other 16 locales",
       "Variant-specific factual context links",
       "Native-language editorial review of qualitative repair option subtitles"
     ],
@@ -19950,6 +19950,9 @@
         "REPAIR-ALTERNATOR-A",
         "REPAIR-ALTERNATOR-B",
         "REPAIR-ALTERNATOR-C",
+        "REPAIR-FUELPUMP-A",
+        "REPAIR-FUELPUMP-B",
+        "REPAIR-FUELPUMP-C",
         "REPAIR-TIRE-A",
         "REPAIR-TIRE-B",
         "REPAIR-TIRE-C"
@@ -19986,7 +19989,7 @@
       ],
       "reason": "Preserved translations for these nine describe different factual premises from the approved current English records; do not bulk-import them.",
       "verification": "Build 91974db088c1096b877b; desktop/mobile checks passed for all 3 battery variants in es/it/ar, disabled paid options when broke, successful cashless repair, and offline localized outcomes (2 tests, 57.4s). Arabic mobile screenshot reviewed: readable RTL narrative and stat labels, no overlapping return bar.",
-      "current_verification": "Build 04e94d03fe0a1a4b63ba; 27 battery/tire/alternator variant-language flows passed on desktop and mobile, including current satire text, cashless effects, offline reload and viewport width. Outcome values stay on one line; Arabic mobile render inspected. Stale retained translations remain excluded."
+      "current_verification": "Build 5661627499bdb102306f; nine new fuel-pump variant-language flows passed on desktop and mobile, including current satire text, cashless effects, offline reload and viewport width. Arabic mobile render inspected; prior battery/tire/alternator checks remain valid. Stale retained translations remain excluded."
     }
   },
   "crossing_copy_checkpoint": {

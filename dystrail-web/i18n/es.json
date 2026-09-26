@@ -1768,6 +1768,33 @@
       "log_3": "Terminas el trabajo acordado y montas la pieza usada. Barrer un taller compra más movimiento que conocer a una senadora.",
       "roadside": "Llega el recambio y lo montan. La repartidora no llama audiencia privada a la entrega."
     },
+    "REPAIR-FUELPUMP-A": {
+      "name": "Perfora, cariño, nada",
+      "desc": "Falla la bomba de combustible. La radio repite el «Perfora, cariño, perfora» de Trump. Buscar más petróleo es una respuesta muy ruidosa a la pieza equivocada.",
+      "log_0": "Montas la bomba de repuesto. El combustible llega al motor sin descubrir otro yacimiento.",
+      "log_1": "El taller monta un recambio. La distribución recibe por un momento más atención que la perforación.",
+      "log_2": "Cambias provisiones por una bomba usada y la montas. Las reservas que ya estaban en el depósito por fin llegan al público.",
+      "log_3": "Terminas el trabajo acordado y montas una bomba usada. Tus brazos resuelven un problema al que el discurso sobre perforaciones no llegaba.",
+      "roadside": "Llega el recambio y lo montan. La repartidora repara la ruta entre el combustible que ya tienes y el motor que lo necesita."
+    },
+    "REPAIR-FUELPUMP-B": {
+      "name": "Un obstáculo muy patriótico",
+      "desc": "Falla la bomba de combustible. Según el discurso arancelario de Trump, las barreras protegen la industria estadounidense. El motor ahora está protegido de la gasolina y no tiene más preguntas.",
+      "log_0": "Montas la bomba de repuesto. El combustible negocia su entrada al motor.",
+      "log_1": "El taller monta un recambio. Pagas la bomba, incluida la protección frente a bombas más baratas.",
+      "log_2": "Cambias provisiones por una bomba usada y la montas. Los restos nacionales reabren la ruta del combustible.",
+      "log_3": "El trabajo acordado te da una bomba usada y la reparación. La tripulación aporta la mano de obra; China sigue sin ofrecer turnos.",
+      "roadside": "Entregan y montan la bomba. También cae la barrera entre tú y tu dinero."
+    },
+    "REPAIR-FUELPUMP-C": {
+      "name": "El chat interno del grupo",
+      "desc": "La bomba deja de enviar combustible al motor. Tras la filtración del chat sobre planes de bombardeo, revisas el tubo de escape. Quizá lo importante llegó a la destinataria equivocada.",
+      "log_0": "Montas la bomba de repuesto. Por fin incluyen al motor en la lista de distribución.",
+      "log_1": "El taller monta un recambio. El combustible llega al motor: al parecer, seguridad operativa de élite.",
+      "log_2": "Cambias provisiones por una bomba usada y la montas. El motor recibe la información en un formato que puede quemar.",
+      "log_3": "Terminas el trabajo acordado y montas una bomba usada. La furgoneta vuelve a guardar sus planes de combustión dentro del motor.",
+      "roadside": "Llega el recambio y lo montan. La repartidora consigue entregar un objeto delicado a su destinatario previsto."
+    },
     "REPAIR-TIRE-A": {
       "name": "La banda de rodadura del goteo",
       "desc": "Un neumático revienta junto a una valla de recortes fiscales pagada por un multimillonario. Encuentras la banda de rodadura debajo de «prosperidad». Así que eso era lo que caía desde arriba.",
