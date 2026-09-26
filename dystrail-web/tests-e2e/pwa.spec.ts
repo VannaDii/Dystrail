@@ -25,7 +25,9 @@ test('all assets, saved play and town scenes work after an offline relaunch',asy
  const failed=await offline.evaluate(async(assets:any[])=>{
    const failures=[];for(const asset of assets){try{const r=await fetch(new URL(asset.path,document.baseURI));if(!r.ok||(await r.arrayBuffer()).byteLength!==asset.bytes)failures.push(asset.path);}catch{failures.push(asset.path);}}return failures;
  },manifest.assets);expect(failed).toEqual([]);
- atTown(gs,'Madison');await importState(offline,gs);await offline.getByRole('button',{name:/^Talk to locals/}).click();await expect(offline.locator('.local-fact')).toContainText('UW–Madison');await snap(offline,'offline-town');
+ atTown(gs,'Madison');await importState(offline,gs);await offline.getByRole('button',{name:/^Talk to locals/}).click();
+ const madison=JSON.parse(readFileSync(resolve(__dirname,'../static/assets/data/town-conversations.json'),'utf8')).filter((row:any)=>row.town==='Madison').map((row:any)=>row.text.en);
+ expect(madison).toContain(await offline.locator('.local-fact').innerText());await snap(offline,'offline-town');
  await openMenu(offline);await expect(offline.locator('.offline-status')).toContainText('Ready for offline play');
  } finally {await context.close();rmSync(profile,{recursive:true,force:true});}
 });

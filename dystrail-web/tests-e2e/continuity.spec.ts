@@ -121,10 +121,10 @@ test('outfitting cannot charge for supplies beyond capacity',async({page})=>{
  await expect(page.getByRole('button',{name:'Start the journey',exact:true})).toBeDisabled();
 });
 
-test('encounter forecasts and the journal agree at stat caps',async({page})=>{
+test('qualitative encounter previews and the journal agree at stat caps',async({page})=>{
  const state=await baseline(page);state.stats.sanity=10;state.stats.credibility=19;
  state.current_encounter=encounters.find((e:{id:string})=>e.id==='classic_media_training');await importState(page,state);
- await expect(page.locator('.choice-effects').first()).toContainText('Sanity +0');await expect(page.locator('.choice-effects').first()).toContainText('Credibility +1');
+ await expect(page.locator('.choice-effects').first()).toContainText('Sanity already full');await expect(page.locator('.choice-effects').first()).toContainText('Improves Credibility');
  await page.locator('.encounter-choice button').first().click();const after=await savedState(page);
  expect(after.stats.sanity).toBe(10);expect(after.stats.credibility).toBe(20);expect(after.journal.at(-1).after).toEqual(after.stats);
 });

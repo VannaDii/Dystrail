@@ -95,7 +95,8 @@ test('short hearings, failed vote, secured victory and exhaustion have distinct 
   await expect(page.locator('.hearing-draw')).toHaveCount(0);
   const mood=['short-one','secured'].includes(sample.name)?'happy':'defeated';
   await expect(page.locator(`.hearing-stage .character-art[data-expression="${mood}"]`)).toHaveCount(6);await snap(page,`hearing-ending-${sample.name}`);
-  await page.getByRole('button',{name:'View scorecard',exact:true}).click();await expect(page.locator('.result-headline')).toHaveText(sample.title);
+  await page.getByRole('button',{name:'View scorecard',exact:true}).click();await expect(page.locator('.hearing-scorecard')).toContainText(sample.title);
+  await expect(page.locator('.result-headline')).not.toBeEmpty();
  }
 });
 test('reduced motion, guaranteed approval and legacy results preserve outcomes',async({page})=>{
@@ -171,25 +172,27 @@ test('all six characters carry their ending expression into the downloaded PNG o
  test.setTimeout(150_000);
  const base=await baseline(page);await page.context().setOffline(true);
  for(const persona of ['journalist','organizer','whistleblower','lobbyist','staffer','satirist']){
-  for(const [mood,draw,cell] of [['happy',48,0],['defeated',99,1]] as const){
+  for(const [mood,draw,cell] of [['happy',48,1],['defeated',99,2]] as const){
    const state=committed(structuredClone(base),[117],10,.55,draw);state.persona_id=persona;state.boss.presentation='Complete';
    state.party.members.find((m:any)=>m.persona!==persona).status='Departed';
    await importState(page,state);
-   await expect(page.locator('.result-profile .character-art')).toHaveAttribute('data-expression',mood);
+   await expect(page.locator(`.ending-crew [data-member="${persona}"] .character-art`)).toHaveAttribute('data-expression',mood);
    await expect(page.locator('.ending-crew [data-fate="crew.departed"] .character-art')).toHaveAttribute('data-expression','standard');
    await expect(page.locator(`.ending-crew [data-expression="${mood}"]`)).toHaveCount(5);
    await page.locator('#result-share-open').click();
    const preview=page.locator('.share-preview img');await expect(preview).toBeVisible();
    const matching=await preview.evaluate(async (node:HTMLImageElement,{persona,cell})=>{
     await node.decode();
-    const source=new Image();source.src=(window as any).dystrailAssetUrls[`static/img/journey/occupant-${persona}-expressions-v1.png`];await source.decode();
+    const source=new Image();source.src=(window as any).dystrailAssetUrls[`static/img/cast-v2/${persona}.png`];await source.decode();
     const actual=document.createElement('canvas');actual.width=actual.height=1200;const actualCtx=actual.getContext('2d')!;actualCtx.drawImage(node,0,0);
-    const expected=document.createElement('canvas');expected.width=expected.height=284;const expectedCtx=expected.getContext('2d')!;expectedCtx.imageSmoothingEnabled=false;
-    expectedCtx.drawImage(source,cell*source.naturalWidth/2,0,source.naturalWidth/2,source.naturalHeight,0,0,284,284);
-    const a=actualCtx.getImageData(66,166,284,284).data,b=expectedCtx.getImageData(0,0,284,284).data;
-    return a.every((value,index)=>value===b[index]);
+    const expected=document.createElement('canvas');expected.width=284;expected.height=Math.round(284*470/512);const expectedCtx=expected.getContext('2d')!;expectedCtx.imageSmoothingEnabled=false;
+    expectedCtx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--panel-inset').trim();expectedCtx.fillRect(0,0,expected.width,expected.height);
+    expectedCtx.drawImage(source,cell*source.naturalWidth/4,0,source.naturalWidth/4,source.naturalHeight*470/1024,0,0,284,284*470/512);
+    const a=actualCtx.getImageData(66,166,284,expected.height).data,b=expectedCtx.getImageData(0,0,284,expected.height).data;
+    let mismatches=0;for(let i=0;i<b.length;i+=4){if(a[i]!==b[i]||a[i+1]!==b[i+1]||a[i+2]!==b[i+2])mismatches++;}
+    return mismatches;
    },{persona,cell});
-   expect(matching).toBe(true);
+   expect(matching).toBe(0);
    if(persona==='organizer'){
     const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('link',{name:'Save image',exact:true}).click()]);
     await download.saveAs(test.info().outputPath(`share-${mood}.png`));await snap(page,`hearing-share-${mood}`);
