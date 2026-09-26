@@ -11,9 +11,9 @@ test('capture current integrated visual-world previews',async({page,context},inf
  const base=await baseline(page);base.seed=42;base.turn_journal_start=null;
  const copy=JSON.parse(readFileSync('i18n/en.json','utf8')).encounter_copy;
  const device=info.project.name==='mobile'?'mobile':'desktop';
- const roadScenes:Record<string,string>={safe:'ENC-C09-C',overhead:'ENC-C11-A',fees:'ENC-C12-C',balloon:'ENC-S16-C',sandwich:'ENC-S17-A',leak:'ENC-S19-B',bowl:'ENC-S20-B',guide:'ENC-S22-B',gold:'ENC-S24-C',solar:'ENC-S32-B',straw:'ENC-S33-B'};
+ const roadScenes:Record<string,string>={safe:'ENC-C09-C',overhead:'ENC-C11-A',fees:'ENC-C12-C',balloon:'ENC-S16-C',sandwich:'ENC-S17-A',leak:'ENC-S19-B',bowl:'ENC-S20-B',mug:'ENC-S21-B',guide:'ENC-S22-B',gold:'ENC-S24-C',solar:'ENC-S32-B',straw:'ENC-S33-B',fitted:'ENC-S34-B'};
  const townScenes:Record<string,[string,string]>={'town-shade':['TOWN-29-C','Phoenix'],'town-wallet':['TOWN-34-C','San Antonio'],'town-receipt':['TOWN-35-B','Sioux Falls'],'town-sandwich':['TOWN-44-A','Waco']};
- const frames=['road','night','town','town-fridge','town-shade','town-wallet','town-receipt','town-sandwich','ally','safe','overhead','fees','balloon','sandwich','leak','bowl','guide','gold','solar','straw','trade','pantry','cleanup','crossing','ending'];
+ const frames=['road','night','town','town-fridge','town-shade','town-wallet','town-receipt','town-sandwich','ally','safe','overhead','fees','balloon','sandwich','leak','bowl','mug','guide','gold','solar','straw','fitted','trade','pantry','cleanup','crossing','ending'];
  const selected=process.env.PREVIEW_IDS?.split(',')??frames;
  for(const id of frames.filter(frame=>selected.includes(frame))){
   const s=structuredClone(base);s.clock_minutes=id==='night'?1380:720;

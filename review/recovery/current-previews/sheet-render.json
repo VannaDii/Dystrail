@@ -1,10 +1,10 @@
 {
-  "revision": "ae95c1f9f47c13473538",
+  "revision": "b1d0fbd",
   "outputs": [
     {
       "device": "desktop",
       "width": 1520,
-      "height": 9059,
+      "height": 9763,
       "images": [
         {
           "src": "desktop/road/shot-0.png",
@@ -103,6 +103,12 @@
           "complete": true
         },
         {
+          "src": "desktop/mug/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
           "src": "desktop/guide/shot-0.png",
           "width": 1230,
           "height": 929,
@@ -122,6 +128,12 @@
         },
         {
           "src": "desktop/straw/shot-0.png",
+          "width": 1230,
+          "height": 929,
+          "complete": true
+        },
+        {
+          "src": "desktop/fitted/shot-0.png",
           "width": 1230,
           "height": 929,
           "complete": true
@@ -260,6 +272,12 @@
           "complete": true
         },
         {
+          "src": "mobile/mug/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
           "src": "mobile/guide/shot-0.png",
           "width": 1024,
           "height": 1166,
@@ -279,6 +297,12 @@
         },
         {
           "src": "mobile/straw/shot-0.png",
+          "width": 1024,
+          "height": 1166,
+          "complete": true
+        },
+        {
+          "src": "mobile/fitted/shot-0.png",
           "width": 1024,
           "height": 1166,
           "complete": true

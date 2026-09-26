@@ -20293,9 +20293,9 @@
   },
   "preview_checkpoint": {
     "status": "Current candidate progress sheets; not release acceptance",
-    "source_revision": "6978264 plus regenerated sheet thirteen integration",
-    "build": "ae95c1f9f47c13473538",
-    "frames_per_device": 25,
+    "source_revision": "b1d0fbd including corrected mug and fitted-sheet panels",
+    "build": "e00d89ac266999dc043b",
+    "frames_per_device": 27,
     "viewports": {
       "desktop": 1440,
       "mobile": 390
@@ -20304,7 +20304,7 @@
       "current-previews/desktop-preview-sheet.png",
       "current-previews/mobile-preview-sheet.png"
     ],
-    "verification": "50 actual game frames are complete across desktop/mobile. Both 25-card sheets rendered without overflow and were visually inspected. Eight selected town panels include four regenerated sheet-thirteen scenes; targeted town tests passed on both viewports.",
+    "verification": "54 actual game frames are complete across desktop/mobile. Both 27-card sheets rendered without overflow. Targeted desktop/mobile captures for the corrected mug and fitted-sheet panels passed; previously captured cards retain their earlier verification.",
     "scope": "Road, night, shared town, eight selected town scenes, ally, selected road satire, barter, completed pantry/cleanup work, crossing with absent crew, ending. Partial frames and wider remaining work explicitly labeled."
   },
   "town_qualitative_checkpoint": {
@@ -21150,15 +21150,15 @@
       "ENC-S18-A"
     ],
     "verification": "Build and targeted desktop/mobile browser checks passed for offer, choice, save, crew and offline reload; all four candidate renders inspected at both sizes before binding only cells 0 and 1.",
-    "remaining": "Held panels require user review; no automatic regeneration. Final combined feature acceptance and deployment are separate."
+    "remaining": "The user-authorized correction attempt remained inaccurate and is retained under review/recovery/held; both lower cells stay unbound. Further art needs user review. Final combined feature acceptance and deployment are separate."
   },
   "sheet8_integration_checkpoint": {
-    "status": "Three regenerated panels integrated for playtesting; one held",
+    "status": "All four panels integrated for playtesting, with corrected cell 2 in a versioned sheet",
     "asset": "dystrail-web/static/img/satire-v2/selected-satire-08.png",
-    "bound_units": ["ENC-S19-B", "ENC-S20-B", "ENC-S22-B"],
-    "held_unit": "ENC-S21-B",
-    "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for choices, crew, saved outcomes, offline reload, atlas cell, and proportions. Six game captures inspected: seams absent, gags and captions readable, no embedded text or religious symbols observed.",
-    "remaining": "Mug cell has duplicate background mugs and is not bound. Final combined feature and playtest acceptance remain separate."
+    "corrected_asset": "dystrail-web/static/img/satire-v2/selected-satire-08-r3.png",
+    "bound_units": ["ENC-S19-B", "ENC-S20-B", "ENC-S21-B", "ENC-S22-B"],
+    "verification": "Release/offline build passed. Targeted desktop and mobile browser checks passed for the corrected mug cell's choices, crew, saved outcome, offline reload, atlas cell and proportions. Both game captures inspected; one mug and its separate sleeve remain visible above the caption.",
+    "remaining": "Final combined feature and playtest acceptance remain separate."
   },
   "sheet9_integration_checkpoint": {
     "status": "Four corrected panels integrated for playtesting",
@@ -21175,12 +21175,13 @@
     "remaining": "Three historical road visual-gag gaps close; the motel panel replaces one shared setting. Full combined feature acceptance remains open."
   },
   "sheet11_integration_checkpoint": {
-    "status": "Two panels integrated; two held after one attempt",
+    "status": "Three panels integrated; bus-shelter cell held after user-authorized correction",
     "asset": "dystrail-web/static/img/satire-v2/selected-satire-11.png",
-    "bound_units": ["ENC-S33-A", "ENC-S33-B"],
-    "held_units": ["ENC-S34-B", "TOWN-01-A"],
-    "verification": "Release/offline build and targeted desktop/mobile browser checks passed for road choices, crew, saved outcomes, offline reload, atlas cells and proportions. Three road mobile captures inspected, including the mismatched fitted-sheet panel that was then unbound.",
-    "remaining": "Fitted-sheet joke and active-crew bus-shelter composition remain open. No repeat generation authorized automatically."
+    "corrected_asset": "dystrail-web/static/img/satire-v2/selected-satire-11-r2.png",
+    "bound_units": ["ENC-S33-A", "ENC-S33-B", "ENC-S34-B"],
+    "held_units": ["TOWN-01-A"],
+    "verification": "Release/offline build and targeted desktop/mobile browser checks passed for the fitted-sheet panel's choices, crew, saved outcome, offline reload, atlas cell and proportions. Both game captures inspected; owner's trapped arm and blank chart remain above the caption.",
+    "remaining": "Bus-shelter shoe-and-scrap action remains in the caption zone and stays unbound. Further art needs user review."
   },
   "sheet12_integration_checkpoint": {
     "status": "Four town panels integrated after one attempt",
@@ -21200,6 +21201,6 @@
       "TOWN-44-A"
     ],
     "verification": "Release/offline build and targeted desktop/mobile town browser checks passed for facts, crew, save, offline reload, atlas cells, 3:2 framing and no overflow. Four mobile game captures and two desktop examples inspected; receipt is blank and panel proportions are acceptable for playtest.",
-    "remaining": "Final combined feature and playtest visual acceptance remain open. Image generation budget is exhausted at 16 of 16 calls; no automatic retry."
+    "remaining": "Final combined feature and playtest visual acceptance remain open. The original 16-call production package was exhausted; three later sheet-specific correction attempts were user-authorized. No automatic retry."
   }
 }

@@ -1,5 +1,5 @@
 {
-  "revision": "ae95c1f9f47c13473538",
+  "revision": "b1d0fbd",
   "frames": [
     {
       "id": "road",
@@ -98,6 +98,12 @@
       "status": "Integrated"
     },
     {
+      "id": "mug",
+      "title": "The second name needs a second mug",
+      "note": "One mug and a separate blank sleeve remain readable above the bottom-left caption.",
+      "status": "Integrated"
+    },
+    {
       "id": "guide",
       "title": "A second name costs six dollars",
       "note": "Two pins point to one generic building; the itinerary stays blank for live copy.",
@@ -119,6 +125,12 @@
       "id": "straw",
       "title": "A nationally protected blockage",
       "note": "The oversized straw obstructs the drinking-water doorway without enlarging people.",
+      "status": "Integrated"
+    },
+    {
+      "id": "fitted",
+      "title": "Ten fewer ways to fold",
+      "note": "The hotel owner is caught in a fitted sheet while holding a blank instruction chart.",
       "status": "Integrated"
     },
     {
