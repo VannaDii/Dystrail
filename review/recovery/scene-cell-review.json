@@ -19192,7 +19192,7 @@
       },
       {
         "asset_id": "selected-satire-13",
-        "decision": "proposed_one_generation_needed",
+        "decision": "held_after_single_approved_attempt",
         "canvas": [
           1536,
           1024
@@ -19269,8 +19269,13 @@
           }
         ],
         "attempt_limit_if_approved": 1,
-        "attempts_in_this_recovery": 0,
-        "production_authorized": true
+        "attempts_in_this_recovery": 1,
+        "production_authorized": true,
+        "output_path": "review/recovery/held/selected-satire-13-attempt1.png",
+        "output_sha256": "f050ab251976a51c766ad3bc5e2d2297c1c70e01f9488629bc2ab2a80b9ab6f8",
+        "actual_canvas": [1536, 1024],
+        "runtime_binding": "none; all four cells held",
+        "review": "Mobile game captures showed realistic fine shading inconsistent with approved pixel-art scale in all four panels. Receipt cell also has printed-looking markings rather than an unambiguously blank receipt. Provisional bindings were removed; no automatic regeneration."
       }
     ]
   },
@@ -19794,7 +19799,7 @@
     "max_new_image_calls": 13,
     "additional_user_authorized_calls": 2,
     "effective_attempt_ceiling": 15,
-    "new_image_attempts_used": 14,
+    "new_image_attempts_used": 15,
     "new_images": [
       "selected-satire-01",
       "selected-satire-02",
@@ -21139,5 +21144,12 @@
     "bound_units": ["TOWN-03-C", "TOWN-14-A", "TOWN-14-B", "TOWN-23-C"],
     "verification": "Release/offline build and targeted desktop/mobile town checks passed for fact text, one-time reward, saved crew, offline reload, atlas cell, 3:2 framing and no viewport overflow. Four mobile captures inspected; no player crew baked into art.",
     "remaining": "Full combined feature and editorial acceptance remain open."
+  },
+  "sheet13_review_checkpoint": {
+    "status": "Four town panels held after one attempt",
+    "asset": "review/recovery/held/selected-satire-13-attempt1.png",
+    "held_units": ["TOWN-29-C", "TOWN-34-C", "TOWN-35-B", "TOWN-44-A"],
+    "verification": "Release/offline build and targeted mobile town checks passed mechanically. All four mobile captures visually inspected; the atlas fails the approved pixel-art style, and receipt markings are not safely blank. No runtime binding remains.",
+    "remaining": "One-attempt image package is exhausted: 15 of 15 calls including two separately user-authorized corrections. User review or a new decision is required before any replacement generation."
   }
 }
