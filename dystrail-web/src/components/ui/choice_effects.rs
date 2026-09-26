@@ -1,5 +1,5 @@
 //! Qualitative previews only; actual results remain numeric.
-fn qualitative_stat(stat_key: &str, direction: &str) -> String {
+pub(crate) fn qualitative_stat(stat_key: &str, direction: &str) -> String {
     let stat = crate::i18n::t(stat_key);
     let args = std::collections::BTreeMap::from([("stat", stat.as_str())]);
     crate::i18n::tr(&format!("qualitative.{direction}"), Some(&args))

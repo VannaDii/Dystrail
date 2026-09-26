@@ -19,6 +19,11 @@ test('all twelve repair stories preserve four costed choices and current saves',
    expect(details).toHaveLength(4);
    expect(details.map(text=>text.split(' · ').at(-1))).toEqual(['1 hour','90 minutes','2 hours','4 hours']);
    for(const detail of details)expect(detail).not.toMatch(/[+−%]|\$\d/);
+   expect(details[0]).toContain('Improves Vehicle');
+   expect(details[1]).toContain('Costs Cash');
+   expect(details[2]).toContain('Costs Supplies');
+   expect(details[3]).toContain('Costs Sanity · Costs Morale');
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
   const before=await saved(page);await page.locator('.roadside-options .action-button').nth(choice).click();
   const after=await saved(page);expect(after.breakdown).toBeNull();expect(after.visual_content.outcomes[key]).toBe(choice);

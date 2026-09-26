@@ -22,11 +22,13 @@ pub fn render(app: &AppState) -> Html {
         <p>{i18n::tr("trail.repair_context",Some(&std::collections::BTreeMap::from([("town",town)])))}</p>
         <div class="action-grid">{for RepairChoice::ALL.into_iter().map(|choice|{
             let label=i18n::tr(choice.key(),Some(&std::collections::BTreeMap::from([("part",part.as_str()),("cost",i18n::fmt_currency(gs.replacement_cost(b.part)).as_str())])));
+            use crate::components::ui::choice_effects::qualitative_stat;
+            let vehicle=qualitative_stat("play.vehicle","gain");
             let detail=match choice {
-                RepairChoice::Onboard=>format!("{part} · {}",i18n::t("trail.one_hour")),
-                RepairChoice::Purchase=>format!("{} · {}",i18n::t("play.cash"),i18n::t("trail.ninety_minutes")),
-                RepairChoice::Barter=>format!("{} · {}",i18n::t("ux.supplies"),i18n::t("trail.two_hours")),
-                RepairChoice::Radio=>format!("{} · {} · {}",i18n::t("ux.sanity"),i18n::t("play.morale"),i18n::t("trail.four_hours")),
+                RepairChoice::Onboard=>format!("{vehicle} · {}",i18n::t("trail.one_hour")),
+                RepairChoice::Purchase=>format!("{} · {vehicle} · {}",qualitative_stat("play.cash","cost"),i18n::t("trail.ninety_minutes")),
+                RepairChoice::Barter=>format!("{} · {vehicle} · {}",qualitative_stat("ux.supplies","cost"),i18n::t("trail.two_hours")),
+                RepairChoice::Radio=>format!("{} · {} · {vehicle} · {}",qualitative_stat("ux.sanity","cost"),qualitative_stat("play.morale","cost"),i18n::t("trail.four_hours")),
             };
             html!{<div class="action-option"><ActionButton disabled={!gs.can_repair(choice)} onclick={choose(app,choice)} {label} {detail} /></div>}
         })}</div>
