@@ -22,14 +22,13 @@ pub fn render(app: &AppState) -> Html {
         <p>{i18n::tr("trail.repair_context",Some(&std::collections::BTreeMap::from([("town",town)])))}</p>
         <div class="action-grid">{for RepairChoice::ALL.into_iter().map(|choice|{
             let label=i18n::tr(choice.key(),Some(&std::collections::BTreeMap::from([("part",part.as_str()),("cost",i18n::fmt_currency(gs.replacement_cost(b.part)).as_str())])));
-            let cost=match choice {
-                RepairChoice::Onboard=>format!("{part} −1 · {}",i18n::t("trail.one_hour")),
-                RepairChoice::Purchase=>format!("{} −{} · {}",i18n::t("play.cash"),i18n::fmt_currency(gs.replacement_cost(b.part)),i18n::t("trail.ninety_minutes")),
-                RepairChoice::Barter=>format!("{} −4 · {}",i18n::t("ux.supplies"),i18n::t("trail.two_hours")),
-                RepairChoice::Radio=>format!("{} −{} · {} −{} · {}",i18n::t("ux.sanity"),gs.stats.sanity.min(2),i18n::t("play.morale"),gs.stats.morale.min(1),i18n::t("trail.four_hours")),
+            let detail=match choice {
+                RepairChoice::Onboard=>format!("{part} · {}",i18n::t("trail.one_hour")),
+                RepairChoice::Purchase=>format!("{} · {}",i18n::t("play.cash"),i18n::t("trail.ninety_minutes")),
+                RepairChoice::Barter=>format!("{} · {}",i18n::t("ux.supplies"),i18n::t("trail.two_hours")),
+                RepairChoice::Radio=>format!("{} · {} · {}",i18n::t("ux.sanity"),i18n::t("play.morale"),i18n::t("trail.four_hours")),
             };
-            let gain = (100.0-gs.vehicle.health).clamp(0.0,if choice==RepairChoice::Radio {3.0}else{8.0});
-            html!{<div class="action-option"><ActionButton disabled={!gs.can_repair(choice)} onclick={choose(app,choice)} {label} detail={format!("{cost} · {} +{}%",i18n::t("play.vehicle"),i18n::fmt_number(f64::from(gain)))} /></div>}
+            html!{<div class="action-option"><ActionButton disabled={!gs.can_repair(choice)} onclick={choose(app,choice)} {label} {detail} /></div>}
         })}</div>
         <crate::components::ui::context_help::ContextHelp title={i18n::t("play.vehicle")} text={i18n::t("trail.repair_help")} />
     </section>}

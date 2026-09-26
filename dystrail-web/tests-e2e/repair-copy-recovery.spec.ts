@@ -14,6 +14,12 @@ test('all twelve repair stories preserve four costed choices and current saves',
   s.visual_content={edition:1,selections:{[key]:unit},outcomes:{},policy_bulletins:[]};
   await importState(page,s);await expect(page.locator('#repair-title')).toHaveText(copy[unit].name);
   await expect(page.locator('.roadside-options')).toContainText(copy[unit].desc);
+  if(part==='Tire'&&v==='A'&&choice===0){
+   const details=await page.locator('.roadside-options .action-detail').allTextContents();
+   expect(details).toHaveLength(4);
+   expect(details.map(text=>text.split(' · ').at(-1))).toEqual(['1 hour','90 minutes','2 hours','4 hours']);
+   for(const detail of details)expect(detail).not.toMatch(/[+−%]|\$\d/);
+  }
   const before=await saved(page);await page.locator('.roadside-options .action-button').nth(choice).click();
   const after=await saved(page);expect(after.breakdown).toBeNull();expect(after.visual_content.outcomes[key]).toBe(choice);
   expect(after.clock_minutes).toBe(480+[60,90,120,240][choice]);expect(after.rng_bundle).toEqual(before.rng_bundle);
