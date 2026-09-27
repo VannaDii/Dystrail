@@ -13,7 +13,7 @@ This is the correction ledger for the current recovery worktree. Counts are **sc
 | Community-offer outcomes | Bind retained outcome compositions where correct; hold mismatches | Map each offer/result to an approved asset |
 | Hotel biscuit scene | Hotel lift bank plus stairs, with a coherent biscuit/jet premise | ENC-C18-B: retained asset search, then review hold if none fits |
 | 51 towns | Show recognizable local geography or landmarks rather than generic town art | Reference publicly available current place imagery, then use approved pixel-art style with attributable source review |
-| Result scene | Keep scorecard and navigation reachable; investigate why “Approved Version of the Journey” appeared and the playtest could not continue | Program-flow/layout correction, not user approval |
+| Result scene | Keep scorecard and navigation reachable; the pending crossing scene must show its Continue action even after the run enters the Result phase | Render decision children without the ordinary journey toolbar in Result; rename the misleading story title |
 
 ## Existing asset gaps confirmed by the scene ledger
 

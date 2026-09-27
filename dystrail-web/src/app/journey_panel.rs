@@ -80,7 +80,9 @@ pub fn journey_panel(p: &Props) -> Html {
     crate::i18n::use_language();
     let context = use_context::<PanelContext>().unwrap_or_default();
     let Some(data) = context.0 else {
-        return Html::default();
+        return html! {<section class="journey-reference" aria-label={i18n::t("journey.report")}>
+            {for p.children.iter()}
+        </section>};
     };
     let detail = &data.detail;
     html! {<section class="journey-reference" aria-label={i18n::t("journey.report")}>
