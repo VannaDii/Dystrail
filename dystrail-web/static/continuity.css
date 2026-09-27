@@ -185,7 +185,7 @@ button:disabled { cursor:not-allowed; }
  top:calc(84cqh - max(3.916667cqw,5.875cqh));
  translate:0 -92%;
 }
-.road-pan-track { position:absolute; inset:0; width:200%; display:flex; animation:road-scroll 32s linear infinite; animation-play-state:paused; }
+.road-pan-track { position:absolute; inset:0; width:200%; display:flex; animation:road-scroll var(--travel-duration,2600ms) linear 1 both; animation-play-state:paused; }
 .scene-road .road-pan-track .scene-background { position:relative; inset:auto; width:50%; flex:0 0 50%; height:100%; object-fit:cover; object-position:center 84%; animation:none; }
 .scene-road .road-pan-track .road-mirrored { transform:scaleX(-1); }
 .scene-moving .road-pan-track { animation-play-state:running; }

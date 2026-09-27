@@ -26,6 +26,10 @@ This is the correction ledger for the current recovery worktree. Counts are **sc
 
 The localization audit found 20 locale files. English has 3,904 leaf keys; the other 19 currently omit between 1,596 and 2,355 of those keys, with additional long strings still identical to English. Existing English fallback is a functional safeguard, not a completed translation. This is a measured content-production gap and must remain open in acceptance reports.
 
+Billboard sizing basis: 106 legs across six routes average 173.2 miles. At one billboard per 60-mile travel step, the average is 3.34 billboards per leg; three times that mean rounds up to 11 distinct messages. The retained pool has 12 messages already translated across the 20 locale files. The longest leg can show ten signs, so the full pool cycles without repetition during a normal leg.
+
+Implemented in the recovery branch: one run-seeded sign per driving step, one viewport crossing per step, unchanged image and copy during that crossing, with the same image/headline/copy on phone. All 12 messages have three nonempty fields in every locale file. Browser fit still needs rechecking after the local browser executable is restored; field presence alone does not validate translation quality or layout.
+
 ### Road location variants
 
 - `ENC-C14-B` — Outdoor repair fair and first-aid chair

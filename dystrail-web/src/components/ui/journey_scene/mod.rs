@@ -51,6 +51,8 @@ pub struct Props {
     #[prop_or_default]
     pub seed: u64,
     #[prop_or_default]
+    pub sign_step: u32,
+    #[prop_or_default]
     pub road_asset: Option<String>,
     #[prop_or(12)]
     pub hour: u8,
@@ -143,9 +145,9 @@ pub fn journey_scene(p: &Props) -> Html {
     html! { <figure style={authored_style} data-weather={weather} data-time={light} data-hour={p.hour.to_string()} data-indoors={indoors.to_string()} data-scene={name.unwrap_or("unillustrated").to_owned()} class={classes!("journey-scene",authored.is_some().then_some("scene-authored"),road.then_some("scene-road"),p.moving.then_some("scene-moving"))}>
         <div class="scene-art" aria-hidden="true">
             if crossing {{crossing_art::render(p).unwrap_or_default()} <van::CrewVan party={p.party.clone()} />} else {
-            if let Some(art)=activity_art::render(&p.stage) {{art}} else if let Some(art)=town_art::render(p) {{art}} else if let Some(art)=barter_art::render(&p.stage) {{art}} else if let Some(art)=ally_art::render(&p.stage) {{art}} else if let Some(art)=care_art::render(p) {{art}} else if let Some(art)=road_art::render(&p.stage) {{art}} else if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}if let SceneStage::Travel(region) = p.stage {{billboard::render_pair(region, p.seed, p.day)}}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
+            if let Some(art)=activity_art::render(&p.stage) {{art}} else if let Some(art)=town_art::render(p) {{art}} else if let Some(art)=barter_art::render(&p.stage) {{art}} else if let Some(art)=ally_art::render(&p.stage) {{art}} else if let Some(art)=care_art::render(p) {{art}} else if let Some(art)=road_art::render(&p.stage) {{art}} else if let Some(art)=name.and_then(|name|composition::setting(p,name)) {{art}} else if road {<div class="road-pan-track" key={format!("billboard-step-{}",p.sign_step)}>{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}if let SceneStage::Travel(region) = p.stage {{billboard::render(region, p.seed, p.sign_step)}}</div>} else if let Some(name)=name {<img class="scene-background" src={crate::paths::asset_path(&format!("static/img/journey/{name}.png"))} alt="" decoding="sync" width="1536" height="1024" />}
             if stopped {{parked::render(p.party.as_ref())}} else if road && !early_ending {<van::CrewVan party={p.party.clone()} />}
-            if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track">{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
+            if road {<div class="road-foreground" aria-hidden="true"><div class="road-pan-track" key={format!("foreground-step-{}",p.sign_step)}>{for (0..2).map(|i|html!{<img class={classes!("scene-background",(i==1).then_some("road-mirrored"))} src={crate::paths::asset_path(&format!("static/img/journey/{}.png",name.unwrap_or("open-heartland-orchard")))} alt="" decoding="sync" width="1536" height="1024" />})}</div></div>}
             }
             <div class="scene-light"></div>
             <div class="weather-atmosphere"></div>

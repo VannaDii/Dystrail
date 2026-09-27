@@ -2,18 +2,17 @@
 use crate::{game::Region, i18n};
 use yew::prelude::*;
 
+const ADS: [&str; 12] = [
+    "clean_air", "public_land", "energy", "weather", "water", "wellness",
+    "tariffs", "farm", "jobs", "repair", "access", "transparency",
+];
+
 #[must_use]
-pub fn selected(region: Region, seed: u64, _day: u32) -> &'static str {
-    let pair = match region {
-        Region::PacificCoast => ["clean_air", "public_land"],
-        Region::MountainWest => ["energy", "weather"],
-        Region::Southwest => ["water", "wellness"],
-        Region::Heartland => ["tariffs", "farm"],
-        Region::RustBelt => ["jobs", "repair"],
-        Region::Beltway => ["access", "transparency"],
-    };
-    // The sign must not swap copy while it remains visible across a day change.
-    pair[usize::from(seed.to_le_bytes()[0] & 1)]
+pub fn selected(_region: Region, seed: u64, step: u32) -> &'static str {
+    // Odd strides coprime with twelve visit the full pool before repeating.
+    let stride = [1, 5, 7, 11][usize::from(seed.to_le_bytes()[1] & 3)];
+    let start = usize::from(seed.to_le_bytes()[0]) % ADS.len();
+    ADS[(start + stride * (step as usize % ADS.len())) % ADS.len()]
 }
 
 #[must_use]
@@ -24,14 +23,6 @@ pub fn description(id: &str) -> String {
         i18n::t(&format!("road_ad.{id}.headline")),
         i18n::t(&format!("road_ad.{id}.copy"))
     )
-}
-
-#[must_use]
-pub fn companion(region: Region, seed: u64, day: u32) -> &'static str {
-    let first = selected(region, seed, day);
-    let other = selected(region, seed ^ 1, day);
-    debug_assert_ne!(first, other);
-    other
 }
 
 fn illustration(id: &str) -> &'static str {
@@ -57,11 +48,11 @@ fn illustration_path(id: &str) -> String {
     crate::paths::asset_path(&format!("static/img/{folder}/{}.png", illustration(id)))
 }
 
-fn sign(id: &str, slot: &str, duplicate: bool) -> Html {
+fn sign(id: &str, slot: &str) -> Html {
     let frame = if id.as_bytes().last().is_some_and(|byte| byte & 1 == 0) {"billboard-steel"} else {"billboard-timber"};
     html! {<div class={classes!("road-billboard",frame)}
         style={format!("--billboard-slot:{slot}%")}
-        data-billboard={id.to_owned()} data-sign-slot={slot.to_owned()} data-repeat={duplicate.to_string()}>
+        data-billboard={id.to_owned()} data-sign-slot={slot.to_owned()}>
         <div class="billboard-panel"><span class="billboard-art" data-art={id.to_owned()}>
             <img src={illustration_path(id)} alt="" decoding="async" />
         </span><span class="billboard-words"><span class="billboard-label">{i18n::t("road_ad.label")}</span>
@@ -72,22 +63,16 @@ fn sign(id: &str, slot: &str, duplicate: bool) -> Html {
     </div>}
 }
 
-pub fn render_pair(region: Region, seed: u64, day: u32) -> Html {
-    let first = selected(region, seed, day);
-    let second = companion(region, seed, day);
-    html! {<>
-        {sign(first, "32.5", false)}
-        {sign(second, "57.5", false)}
-        {sign(first, "82.5", true)}
-        {sign(second, "107.5", true)}
-    </>}
+pub fn render(region: Region, seed: u64, step: u32) -> Html {
+    let first = selected(region, seed, step);
+    sign(first, "35")
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn signs_repeat_exactly_for_replay_and_offer_two_per_region() {
+    fn signs_repeat_exactly_for_replay_and_cycle_all_twelve_before_repeating() {
         let regions = [
             Region::PacificCoast,
             Region::MountainWest,
@@ -96,15 +81,13 @@ mod tests {
             Region::RustBelt,
             Region::Beltway,
         ];
-        let mut all = std::collections::BTreeSet::new();
         for region in regions {
-            let first = selected(region, 42, 1);
-            assert_eq!(first, selected(region, 42, 1));
-            assert_eq!(first, selected(region, 42, 2));
-            assert_ne!(first, companion(region, 42, 1));
-            all.insert(first);
-            all.insert(companion(region, 42, 1));
+            for seed in [0, 42, 81727] {
+                let all = (0..12).map(|step| selected(region, seed, step)).collect::<std::collections::BTreeSet<_>>();
+                assert_eq!(all.len(), 12);
+                assert_eq!(selected(region, seed, 0), selected(region, seed, 12));
+                assert_ne!(selected(region, seed, 0), selected(region, seed, 1));
+            }
         }
-        assert_eq!(all.len(), 12);
     }
 }

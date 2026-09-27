@@ -145,7 +145,7 @@
 @keyframes van-drive { from { left:13.020833%; } to { left:58.59375%; } }
 
 /* The sign occupies its native road-camera position inside the 200%-wide panning track. */
-.road-pan-track > .road-billboard { position:absolute; left:var(--billboard-slot); top:33.59375%; width:14.5833335%; height:30.46875%; z-index:0; container-type:inline-size; color:#18252b; }
+.road-pan-track > .road-billboard { position:absolute; left:var(--billboard-slot); top:40%; width:14.5833335%; height:30.46875%; z-index:0; container-type:inline-size; color:#18252b; }
 .billboard-panel { position:absolute; inset:0 0 auto; height:68%; box-sizing:border-box; border:4px solid #354149; background:#f2dfb1; box-shadow:3px 3px 0 #0c1c29; display:flex; align-items:center; text-align:center; padding:2% 3%; gap:3%; overflow:hidden; }
 .billboard-art { width:30%; height:88%; flex:none; display:grid; place-items:center; background:#dfcb9d; border:2px solid #b5a075; box-sizing:border-box; }
 .billboard-art img { display:block; width:94%; height:94%; object-fit:contain; image-rendering:pixelated; }
@@ -160,7 +160,7 @@
 .billboard-post.post-left { left:8.928571%; }
 .billboard-post.post-right { left:86.607143%; }
 .billboard-timber .billboard-post { background:#876343; border-color:#4b382b; }
-@media(max-width:700px) { .billboard-copy { display:none; } .billboard-panel { border-width:2px; padding:0 2%; gap:2%; } .billboard-art { border-width:1px; } .billboard-panel strong { font-size:12px; } }
+@media(max-width:700px) { .road-pan-track > .road-billboard { left:15%; width:35%; } .billboard-copy { display:block; font-size:clamp(10px,4cqw,12px); } .billboard-panel { border-width:2px; padding:0 2%; gap:2%; } .billboard-art { border-width:1px; } .billboard-panel strong { font-size:12px; } }
 .journey-scene[data-time=afternoon] .scene-light { background:linear-gradient(110deg,#f4bc4b18,transparent 75%); }
 .journey-scene[data-weather=heat] .weather-atmosphere { backdrop-filter:none; }
 
