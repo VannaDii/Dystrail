@@ -83,6 +83,65 @@ Implemented in the recovery branch: one run-seeded sign per driving step, one vi
 - `CROSS-02C-C` — Steel quote, solitary cone and unfinished repair area with actual van safely on approach
 - `CROSS-03-A` — Official looking into actual van; cash tray and travelers case folder visible
 
+
+### Town location source inventory
+
+The current town scene uses a regional setting, not a town-specific landmark. These 51 existing profile subjects and source pages are research leads only; none is an approved image license or a completed visual composition.
+
+| Town | Existing local subject | Source page |
+|---|---|---|
+| Minneapolis | The Stone Arch Bridge opened in 1883 as a railroad bridge and later became a walking and cycling crossing. | [source](https://www.minneapolisparks.org/parks-destinations/historical_sites/stone_arch_bridge/) |
+| La Crosse | Riverside Park looks over the Mississippi River; its International Friendship Gardens include plants from around the world. | [source](https://explorelacrosse.com/things-to-do/sights-attractions/riverside-park/) |
+| Madison | Downtown Madison occupies an isthmus between Lakes Mendota and Monona. | [source](https://em.danecounty.gov/documents/pdf/2022-Hazard-Mitigation-Plan/DCNHMP22---3---Muni-Section---Cities-.pdf) |
+| Chicago | Millennium Park’s Cloud Gate reflects the Chicago skyline in a polished steel sculpture. | [source](https://www.millenniumparkfoundation.org/art-architecture) |
+| South Bend | South Bend’s East Race Waterway is an urban whitewater course. The city announced it would be closed for upgrades in the 2026 season. | [source](https://311.southbendin.gov/knowledgecenter/article/?id=KA-04513) |
+| Toledo | Glass City Center stands in downtown Toledo, a short block from the Maumee River and about six miles from Lake Erie. | [source](https://www.glasscitycenter.com/p/events/location) |
+| Cleveland | The Cuyahoga empties into Lake Erie at Cleveland. Its 1969 fire helped galvanize the national water-pollution response. | [source](https://www.nps.gov/articles/000/cuyahoga-national-heritage-river.htm) |
+| Pittsburgh | Pittsburgh’s Three Rivers Water Trail provides access to the Allegheny, Monongahela and Ohio rivers. | [source](https://www.nps.gov/places/three-rivers-water-trail.htm) |
+| Cumberland | The C&O Canal reached Cumberland in 1850. Today its towpath meets the Great Allegheny Passage here. | [source](https://pubs.nps.gov/eTIC/OLYM-POPO/POHE_866_124321_0001_of_0046.pdf) |
+| Hagerstown | Jonathan Hager founded the settlement in 1762. His house survives as a city museum. | [source](https://www.hagerstownmd.org/309/Jonathan-Hager-House-Museum) |
+| Frederick | Downtown Frederick is known for its clustered church spires. | [source](https://www.visitfrederick.org/plugins/maps/map/downtown-frederick/5be4a7fea62e703dcef330bd/) |
+| D.C. | The C&O Canal connected communities along the Potomac with markets in D.C.; it carried coal, lumber and farm products. | [source](https://www.nps.gov/choh/index.htm?vm=r) |
+| Kansas City | Kansas City’s many public fountains gave it the nickname City of Fountains. | [source](https://www.visitkc.com/articles/first-timers-guide-kansas-city/) |
+| Columbia | The MKT Trail follows an old railroad bed from downtown Columbia to the Katy Trail near McBaine. | [source](https://www.como.gov/trails/mkt-nature-and-fitness-trail/) |
+| St. Louis | The Gateway Arch is 630 feet tall and equally wide at ground level. | [source](https://www.nps.gov/jeff/faqs.htm) |
+| Springfield, IL | Abraham Lincoln bought the Springfield house at Eighth and Jackson Streets in 1844 and left for D.C. in 1861. | [source](https://home.nps.gov/liho/learn/historyculture/alincolnbio.htm) |
+| Denver | Denver’s mile-high elevation is commemorated on the west steps of the Colorado State Capitol. | [source](https://content.leg.colorado.gov/sites/default/files/images/visitor_brochure_for_web_accessible.pdf) |
+| North Platte | Union Pacific’s Bailey Yard in North Platte is a major rail sorting hub, with 315 miles of track. | [source](https://www.visitnorthplatte.com/things-to-do/attractions/trains-railroads/bailey-yard/) |
+| Omaha | The Bob Kerrey Pedestrian Bridge crosses the Missouri River between Nebraska and Iowa. | [source](https://www.visitomaha.com/) |
+| Des Moines | The Pappajohn Sculpture Park opened in downtown Des Moines in 2009, on 4.4 acres. | [source](https://desmoinesartcenter.org/visit/pappajohn-sculpture-park/) |
+| Iowa City | Iowa City became a UNESCO City of Literature in November 2008, the first such city in the United States. | [source](https://www.iowacityofliterature.org/wp-content/uploads/2023/09/2022-2023-Annual-Report.pdf) |
+| Austin | The Congress Avenue Bridge shelters one of North America’s largest urban bat colonies. | [source](https://www.austintexas.gov/page/bats) |
+| Waco | Waco Mammoth National Monument preserves a nursery herd of Columbian mammoths, including females and young. | [source](https://www.nps.gov/places/waco-mammoth-herd.htm) |
+| Dallas | Fair Park preserves a major collection of 1930s Art Deco architecture, with museums and public art. | [source](https://www.fairparkdallas.com/sites-and-attractions) |
+| Oklahoma City | The Bricktown Canal was one of nine projects in the original MAPS initiative approved by voters in 1993. | [source](https://www.okc.gov/News-articles/Bricktown-Canal-celebrates-25-year-milestone) |
+| Tulsa | Tulsa’s 11th Street bridge crossed the Arkansas River in 1917; it was renamed for Route 66 advocate Cyrus Avery in 2004. | [source](https://www.nps.gov/places/11th-street-arkansas-river-bridge.htm) |
+| Joplin | Joplin grew as a lead and zinc mining town. Its history museum preserves that mining heritage. | [source](https://www.joplin-museum.org/faq) |
+| Springfield, MO | The name Route 66 was proposed from Springfield on April 30, 1926. | [source](https://www.springfieldmo.org/about-springfield/history/) |
+| Seattle | Pike Place Market — the waterfront public market. | [source](https://www.pikeplacemarket.org/) |
+| Portland | Washington Park — gardens, museums and wooded trails. | [source](https://www.explorewashingtonpark.org/) |
+| San Francisco | The Presidio — a former military post turned national park site. | [source](https://www.nps.gov/prsf/index.htm) |
+| Los Angeles | Griffith Observatory — astronomy and views across the city. | [source](https://griffithobservatory.lacity.gov/) |
+| Sacramento | California State Railroad Museum — locomotives and the story of western rail. | [source](https://www.californiarailroad.museum/) |
+| San Diego | Balboa Park — museums, gardens and Spanish Colonial Revival architecture. | [source](https://balboapark.org/) |
+| Spokane | Riverfront Park — Spokane Falls and the former world’s fair grounds. | [source](https://my.spokanecity.org/riverfrontspokane/) |
+| Missoula | A Carousel for Missoula — a community-built, hand-carved carousel. | [source](https://missoulacarousel.org/) |
+| Billings | Moss Mansion — a historic house museum. | [source](https://mossmansion.com/) |
+| Rapid City | Nearby Mount Rushmore — the carved granite memorial in the Black Hills. | [source](https://www.nps.gov/moru/index.htm) |
+| Sioux Falls | Falls Park — the waterfalls of the Big Sioux River. | [source](https://www.experiencesiouxfalls.com/falls-park) |
+| Boise | Idaho State Capitol — the state’s historic seat of government. | [source](https://capitolcommission.idaho.gov/) |
+| Salt Lake City | Natural History Museum of Utah — fossils and the landscapes of the Intermountain West. | [source](https://nhmu.utah.edu/) |
+| Reno | National Automobile Museum — historic cars and recreated street scenes. | [source](https://automuseum.org/) |
+| Cheyenne | Cheyenne Depot Museum — railroad history in the restored Union Pacific depot. | [source](https://www.cheyennedepotmuseum.org/) |
+| Las Vegas | The Neon Museum — rescued signs from Las Vegas history. | [source](https://neonmuseum.org/) |
+| Flagstaff | Lowell Observatory — the observatory where Pluto was discovered. | [source](https://lowell.edu/) |
+| Albuquerque | Albuquerque Museum — art and history near Old Town. | [source](https://www.cabq.gov/artsculture/albuquerque-museum) |
+| Amarillo | Nearby Palo Duro Canyon State Park — red-rock canyon trails. | [source](https://tpwd.texas.gov/state-parks/palo-duro-canyon) |
+| Phoenix | Heard Museum — American Indian art and culture. | [source](https://heard.org/) |
+| Tucson | Saguaro National Park — giant cacti on both sides of Tucson. | [source](https://www.nps.gov/sagu/index.htm) |
+| El Paso | Chamizal National Memorial — the peaceful settlement of a U.S.–Mexico boundary dispute. | [source](https://www.nps.gov/cham/index.htm) |
+| San Antonio | San Antonio Missions — historic mission sites along the river. | [source](https://www.nps.gov/saan/index.htm) |
+
 ## Acceptance rules
 
 - No embedded text or religious symbols in generated or retained art. HTML/CSS supplies all readable signage and is localized.
