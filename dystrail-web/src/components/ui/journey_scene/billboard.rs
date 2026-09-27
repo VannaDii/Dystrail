@@ -3,7 +3,7 @@ use crate::{game::Region, i18n};
 use yew::prelude::*;
 
 #[must_use]
-pub fn selected(region: Region, seed: u64, day: u32) -> &'static str {
+pub fn selected(region: Region, seed: u64, _day: u32) -> &'static str {
     let pair = match region {
         Region::PacificCoast => ["clean_air", "public_land"],
         Region::MountainWest => ["energy", "weather"],
@@ -12,9 +12,8 @@ pub fn selected(region: Region, seed: u64, day: u32) -> &'static str {
         Region::RustBelt => ["jobs", "repair"],
         Region::Beltway => ["access", "transparency"],
     };
-    // Keep the regional pair stable through a simulated day and across replay.
-    // The seed and day are already part of the save and bare-code replay contract.
-    pair[usize::from((seed ^ u64::from(day)).to_le_bytes()[0] & 1)]
+    // The sign must not swap copy while it remains visible across a day change.
+    pair[usize::from(seed.to_le_bytes()[0] & 1)]
 }
 
 #[must_use]
@@ -29,7 +28,10 @@ pub fn description(id: &str) -> String {
 
 #[must_use]
 pub fn companion(region: Region, seed: u64, day: u32) -> &'static str {
-    selected(region, seed, day.wrapping_add(1))
+    let first = selected(region, seed, day);
+    let other = selected(region, seed ^ 1, day);
+    debug_assert_ne!(first, other);
+    other
 }
 
 fn illustration(id: &str) -> &'static str {
@@ -55,8 +57,9 @@ fn illustration_path(id: &str) -> String {
     crate::paths::asset_path(&format!("static/img/{folder}/{}.png", illustration(id)))
 }
 
-fn sign(id: &str, day: u32, slot: &str, duplicate: bool) -> Html {
-    html! {<div class={classes!("road-billboard", if day.is_multiple_of(2) {"billboard-steel"} else {"billboard-timber"})}
+fn sign(id: &str, slot: &str, duplicate: bool) -> Html {
+    let frame = if id.as_bytes().last().is_some_and(|byte| byte & 1 == 0) {"billboard-steel"} else {"billboard-timber"};
+    html! {<div class={classes!("road-billboard",frame)}
         style={format!("--billboard-slot:{slot}%")}
         data-billboard={id.to_owned()} data-sign-slot={slot.to_owned()} data-repeat={duplicate.to_string()}>
         <div class="billboard-panel"><span class="billboard-art" data-art={id.to_owned()}>
@@ -73,10 +76,10 @@ pub fn render_pair(region: Region, seed: u64, day: u32) -> Html {
     let first = selected(region, seed, day);
     let second = companion(region, seed, day);
     html! {<>
-        {sign(first, day, "32.5", false)}
-        {sign(second, day, "57.5", false)}
-        {sign(first, day, "82.5", true)}
-        {sign(second, day, "107.5", true)}
+        {sign(first, "32.5", false)}
+        {sign(second, "57.5", false)}
+        {sign(first, "82.5", true)}
+        {sign(second, "107.5", true)}
     </>}
 }
 
@@ -97,9 +100,10 @@ mod tests {
         for region in regions {
             let first = selected(region, 42, 1);
             assert_eq!(first, selected(region, 42, 1));
+            assert_eq!(first, selected(region, 42, 2));
             assert_ne!(first, companion(region, 42, 1));
             all.insert(first);
-            all.insert(selected(region, 42, 2));
+            all.insert(companion(region, 42, 1));
         }
         assert_eq!(all.len(), 12);
     }

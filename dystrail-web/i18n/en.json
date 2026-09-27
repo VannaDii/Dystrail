@@ -2005,7 +2005,7 @@
     },
     "ENC-C18-B": {
       "name": "One biscuit, four flights",
-      "desc": "Hotel workers invite your stopped crew to an upstairs meeting about their employer’s ban on guest gifts. They’re comparing a confiscated biscuit with the Pentagon’s Qatari jet. The lift is reserved for management. The biscuit has been allowed to use it as evidence.",
+      "desc": "At a hotel, workers are barred from accepting a guest’s biscuit. Management sends the confiscated snack upstairs in its private lift as evidence. The workers must climb four flights to their meeting, where they ask your crew to compare that rule with the Pentagon accepting Qatar’s jet.",
       "choice_0": "Climb up; record their complaint",
       "log_0": "You climb and record the gift rule, legs and head aching. The biscuit arrives by lift in a sealed management envelope.",
       "choice_1": "Walk with workers to their picnic",
@@ -3332,7 +3332,7 @@
     },
     "ENC-S32-A": {
       "name": "The wind has not read the order",
-      "desc": "Trump paused new federal wind-project approvals. At a turbine-repair stall, a technician offers $10 to sort spare-part labels. He keeps the order under a paperweight. The breeze removes the paperweight’s supporting documents every time somebody praises the pause.",
+      "desc": "Trump paused new federal wind-project approvals. At a wind-farm maintenance depot, a technician offers $10 to sort spare-part labels. He keeps the order under a paperweight. The breeze removes the paperweight’s supporting documents every time somebody praises the pause.",
       "choice_0": "Sort the labels for $10",
       "log_0": "Ten dollars and a headache. The technician retrieves another page from the hedge; wind continues producing results without waiting for the speech to finish.",
       "choice_1": "Record the technician’s account",
@@ -3855,7 +3855,7 @@
       "terminal_failure": "The crossing ends your expedition. The official describes the silence as a healthy marketplace of ideas."
     },
     "CROSS-03-B": {
-      "name": "Approved Version of the Journey",
+      "name": "A More Flattering History",
       "desc": "The crossing office follows Trump’s demand for a more flattering American history. The officer weighs your case folder. “That’s a lot of country that needs improving.”",
       "passage": "You cross with the case. The country’s flattering biography has acquired an awkward appendix.",
       "diversion": "You detour. The officer starts describing your absence as public satisfaction.",

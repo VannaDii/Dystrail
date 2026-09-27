@@ -34,12 +34,12 @@ pub fn crew_van(p: &Props) -> Html {
             <g clip-path="url(#crew-van-window-mask)">
             {for occupants.iter().map(|(seat, member)| {
                 let (x, width, sprite_x, sprite_y, sprite_size, pose) = match seat {
-                    0 => (352,116,-36,0,200,Pose::PassengerNear),
-                    1 => (468,116,-64,-28,220,Pose::PassengerFar),
-                    2 => (620,116,-36,0,200,Pose::PassengerNear),
-                    3 => (736,116,-64,-28,220,Pose::PassengerFar),
+                    0 => (352,116,-15,0,200,Pose::PassengerNear),
+                    1 => (468,116,-32,-28,220,Pose::PassengerFar),
+                    2 => (620,116,-15,0,200,Pose::PassengerNear),
+                    3 => (736,116,-32,-28,220,Pose::PassengerFar),
                     4 => (1024,244,-40,-4,260,Pose::Driver),
-                    5 => (904,120,-64,-28,220,Pose::PassengerFar),
+                    5 => (904,120,-32,-28,220,Pose::PassengerFar),
                     _ => return Html::default(),
                 };
                 html! {<svg class={classes!("van-occupant",(*seat==4).then_some("driver-seat"))}

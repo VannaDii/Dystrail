@@ -66,6 +66,18 @@ impl<'a> Day<'a> {
         let mut events: Vec<Event<'a>> = Vec::new();
         for entry in &self.entries {
             let routine = routine_travel(entry);
+            // A zero-change tick is still retained in the raw history, but it
+            // should not masquerade as a completed stretch of road in the day.
+            if routine
+                && entry
+                    .resources
+                    .iter()
+                    .all(|change| change.before == change.after)
+                && entry.details.is_empty()
+                && entry.before == entry.after
+            {
+                continue;
+            }
             let previous = events.last();
             let same_settings = previous.is_none_or(|previous| {
                 previous.last.pace == entry.pace && previous.last.diet == entry.diet

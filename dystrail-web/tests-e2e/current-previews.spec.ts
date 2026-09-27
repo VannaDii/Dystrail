@@ -88,6 +88,11 @@ test('capture current integrated visual-world previews',async({page,context},inf
   if(id==='overhead')await expect(page.locator('.scene-atlas[data-atlas="road-c11-a-20260914"]')).toHaveAttribute('data-cell','0');
   const target=page.locator(id==='ending'?'.result-art':'.world-view');
   await expect(target).toBeVisible();
+  const scene=target.locator('.journey-scene');
+  if(await scene.count()){
+   const height=await scene.evaluate(element=>element.getBoundingClientRect().height);
+   expect(height,`${id} scene height on ${device}`).toBeLessThanOrEqual(device==='mobile'?376:431);
+  }
   const out=resolve('../review/recovery/current-previews',device,id);mkdirSync(out,{recursive:true});
   await target.screenshot({path:resolve(out,'shot-0.png'),animations:'disabled'});
  }

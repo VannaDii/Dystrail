@@ -158,6 +158,19 @@ fn routine_travel_combines_without_hiding_crew_settings_or_route_changes() {
 }
 
 #[test]
+fn zero_change_travel_is_raw_history_but_not_a_traveled_event() {
+    i18n::set_lang("en");
+    let mut blank = traveled(8, 600, 600, 60);
+    blank.resources.clear();
+    let entries = vec![traveled(8, 540, 0, 0), blank];
+    let day = day::group(&entries).remove(0);
+    assert_eq!(day.entries.len(), 2);
+    let events = day.events();
+    assert_eq!(events.len(), 1);
+    assert_eq!(events[0].first.minute, 540);
+}
+
+#[test]
 fn a_busy_day_keeps_its_earliest_snapshots_and_all_raw_actions() {
     i18n::set_lang("en");
     let entries: Vec<_> = (0_u16..60)

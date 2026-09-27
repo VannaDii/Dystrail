@@ -22,6 +22,7 @@ test('retained cast follows surviving crew and driver reassignment after import 
   await expect(page.locator('.van-occupant')).toHaveCount(4);
   await expect(page.locator('.van-occupant[data-seat="4"]')).toHaveAttribute('data-member','satirist');
   await expect(page.locator('.van-occupant[data-seat="4"]')).toHaveAttribute('data-pose','7');
+  await page.locator('.scene-art').screenshot({path:info.outputPath('moving-van-seating.png'),animations:'disabled'});
   await page.getByRole('button',{name:'Pause travel',exact:true}).click();
   await context.setOffline(true);
   await page.reload();await waitForLaunch(page);
