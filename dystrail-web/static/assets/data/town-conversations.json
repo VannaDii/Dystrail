@@ -3153,24 +3153,24 @@
     "family_id": "TOWN-37",
     "town": "Spokane",
     "title": {
-      "en": "Free Speech Had a Placement Fee"
+      "en": "The Vanishing Tech Hub"
     },
     "setup": {
-      "en": "On a Spokane downtown bench, a warehouse worker explains the city’s old street-speaking ban."
+      "en": "At a Spokane bus stop, an aerospace worker reads the city’s notice about lost federal funding."
     },
     "text": {
-      "en": "After Spokane workers protested exploitative job-placement practices, employment-agency owners persuaded city officials to prohibit street speaking, helping trigger the city’s free-speech struggle."
+      "en": "In May 2025, the Trump administration rescinded $48 million promised for Spokane’s American Aerospace Materials Manufacturing Center. City leaders asked Congress to restore it, saying the project was meant to grow local jobs."
     },
     "comment": {
-      "en": "“Job agencies sold lousy jobs; workers complained. Spokane restricted street speaking. The city solved the employment problem by regulating the people describing it.”"
+      "en": "“They said the jobs of tomorrow were coming. Then tomorrow lost its funding.”"
     },
     "sources": [
       {
-        "url": "https://historylink.org/File/7357",
-        "title": "IWW formally begins Spokane free-speech fight on November 2, 1909.",
-        "date": "2005-06-22",
-        "checked": "2026-09-13",
-        "qualification": "HistoryLink historical account; agency practices and the city speech ordinance are historical, not present-day allegations."
+        "url": "https://my.spokanecity.org/news/releases/2025/09/23/proposed-resolution-outlines-city-of-spokanes-federal-priorities/",
+        "title": "City of Spokane: Proposed Resolution Outlines City of Spokane's Federal Priorities",
+        "date": "2025-09-23",
+        "checked": "2026-09-27",
+        "qualification": "The city says the Trump administration rescinded $48 million in promised aerospace hub funding and asks Congress to restore it."
       }
     ]
   },
