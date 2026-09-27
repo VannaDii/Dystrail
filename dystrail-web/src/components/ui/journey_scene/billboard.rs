@@ -25,27 +25,27 @@ pub fn description(id: &str) -> String {
     )
 }
 
-fn illustration(id: &str) -> &'static str {
+fn illustration(id: &str) -> (&'static str, &'static str) {
     match id {
-        "clean_air" => "masks-v1",
-        "public_land" => "distance-v1",
-        "energy" => "battery-v1",
-        "weather" => "ponchos-v1",
-        "water" => "water-v1",
-        "wellness" => "rations-v1",
-        "tariffs" => "cash-v1",
-        "farm" => "rations-v1",
-        "jobs" => "coats-v1",
-        "repair" => "alternator-v1",
-        "access" => "distance-v1",
-        "transparency" => "masks-v1",
-        _ => "rations-v1",
+        "clean_air" => ("items", "masks-v1"),
+        "public_land" => ("status", "distance-v1"),
+        "energy" => ("items", "battery-v1"),
+        "weather" => ("items", "ponchos-v1"),
+        "water" => ("items", "water-v1"),
+        "wellness" => ("items", "rations-v1"),
+        "tariffs" => ("status", "cash-v1"),
+        "farm" => ("items", "fuel_pump-v1"),
+        "jobs" => ("items", "coats-v1"),
+        "repair" => ("items", "alternator-v1"),
+        "access" => ("items", "press_pass-v1"),
+        "transparency" => ("items", "legal_fund-v1"),
+        _ => ("items", "rations-v1"),
     }
 }
 
 fn illustration_path(id: &str) -> String {
-    let folder = if matches!(id, "tariffs" | "public_land" | "access") { "status" } else { "items" };
-    crate::paths::asset_path(&format!("static/img/{folder}/{}.png", illustration(id)))
+    let (folder, name) = illustration(id);
+    crate::paths::asset_path(&format!("static/img/{folder}/{name}.png"))
 }
 
 fn sign(id: &str, slot: &str) -> Html {
@@ -89,5 +89,6 @@ mod tests {
                 assert_ne!(selected(region, seed, 0), selected(region, seed, 1));
             }
         }
+        assert_eq!(ADS.iter().map(|id| illustration(id)).collect::<std::collections::BTreeSet<_>>().len(), ADS.len());
     }
 }
