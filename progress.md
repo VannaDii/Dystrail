@@ -634,3 +634,5 @@ September 14 — standing crew transparency repair:
 ## Credits and support — 2026-10-04
 
 Added optional native-dialog credits on title, Menu, and results; linked Vanna’s coffee page and the approved DSA standalone donation page. Kept current published help and visual content. Locale keys have parity; translations remain pending. Release verification and publication are in progress.
+
+Release checks: 404 native tests and all initial CI gates plus 1,000-campaign QA passed. Credits browser checks passed against CI artifact 1aad1b566c4b0b93bda0. Full browser suite has pre-existing live-copy/scene/control expectation mismatches (representative writer-catalog failure reproduced on production). Publication held for a decision on the gate exception or wider regression-suite repair. Evidence: docs/release/credits-support-2026-10-04.md.

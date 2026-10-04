@@ -39,3 +39,7 @@ The new copy uses the existing translation system. English text is included in a
 - The documentation book builds successfully.
 - Chrome checks cover title, menu, and results entry points; desktop and 390-pixel mobile layout without horizontal overflow; opening the modal while offline; keyboard activation, Escape, Close, backdrop dismissal, and focus restoration; and the new-tab attributes on support and license links.
 - Vanna's coffee URL is connected in the source. Translations remain pending. Payment submission has not been tested.
+
+## Publication status
+
+The credits implementation and documentation are committed on `release/complete-game-source-credits-2026-10-04`. Publication is held because the full browser regression suite has existing mismatches with the currently published game. Native tests, native and WebAssembly lint, locale coverage, security checks, the optimized build, and the 1,000-campaign QA sweep passed. Direct credits checks passed against the CI artifact, including hearing pause behavior. See [release verification](https://github.com/VannaDii/Dystrail/blob/release/complete-game-source-credits-2026-10-04/docs/release/credits-support-2026-10-04.md).
