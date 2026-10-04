@@ -114,7 +114,7 @@ fn evidence_choice_click_awards_what_the_button_offers() -> LocalBoxFuture<'stat
             .unwrap()
             .dyn_into::<web_sys::HtmlElement>()
             .unwrap();
-        assert!(button.text_content().unwrap().contains("Receipts +1"));
+        assert!(button.text_content().unwrap().contains("Collect evidence"));
         button.click();
         assert_eq!(state.borrow().receipts, ["west_grant_translation"]);
         button.click();
