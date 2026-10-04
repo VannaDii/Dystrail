@@ -47,6 +47,7 @@ pub fn menu_page(props: &MenuPageProps) -> Html {
                     </p>
                 </header>
                 <crate::components::ui::main_menu::MainMenu seed_text={Some(props.code.to_string())} on_select={Some(on_select)} />
+                <div class="credits-entry"><crate::components::ui::credits_support::CreditsButton id="credits-title-button" /></div>
             </section>
         }
 }

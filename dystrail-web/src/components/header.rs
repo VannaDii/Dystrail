@@ -41,6 +41,7 @@ pub fn header(p: &Props) -> Html {
             <button class="contrast-switch" role="switch" aria-checked={p.high_contrast.to_string()} onclick={contrast}><span class="switch-track" aria-hidden="true"><span></span></span>{t("play2.high_contrast")}</button>
             <button class="contrast-switch help-switch" role="switch" aria-checked={p.help_enabled.to_string()} onclick={{let cb=p.on_toggle_help.clone();let enabled=p.help_enabled;Callback::from(move |_|cb.emit(!enabled))}}><span class="switch-track" aria-hidden="true"><span></span></span>{t("play2.help_tips")}</button>
             <super::language_picker::LanguagePicker on_lang_change={p.on_lang_change.clone()} current_lang={p.current_lang.clone()} />
+            <super::ui::credits_support::CreditsButton id="credits-menu-button" menu={true} />
         if p.can_abandon {<button class="abandon-menu-item" data-menu-close="true" onclick={{let cb=p.on_abandon.clone();Callback::from(move |_|cb.emit(()))}}>{t("journey.abandon")}</button>}
         <super::offline_status::OfflineStatus key={p.current_lang.clone()} /></nav></super::game_menu::GameMenu>
         <super::status_notice::StatusNotice message={p.status.clone()} on_clear={p.on_status_clear.clone()} />

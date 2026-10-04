@@ -1997,5 +1997,24 @@
   "ally_art": {
     "affiliate_link": "ਕਮਿਸ਼ਨ ਵਾਲਾ ਲਿੰਕ",
     "fda_operative": "FDA ਦਾ ਏਜੰਟ?"
+  },
+  "credits": {
+    "title": "Credits & Support",
+    "people": "Created by",
+    "creator": "Vanna DiCatania",
+    "contributors": "Contributors and project history",
+    "art": "Artwork includes AI-generated illustrations.",
+    "licenses": "Acknowledgments & licenses",
+    "code": "Game source · MIT license",
+    "boundaries": "Map boundaries · U.S. Census Bureau",
+    "game_support": "Support the game",
+    "coffee_description": "Optional tips support Vanna’s work on Dystopian Trail.",
+    "coffee_link": "Buy me a coffee",
+    "democracy": "Support democracy",
+    "dsa_description": "Democratic Socialists of America organizes for worker power, economic democracy, and a society that meets human needs.",
+    "dsa_link": "Donate to Democratic Socialists of America",
+    "dsa_direct": "Donations go directly to DSA, separately from support for the game. Membership is a separate choice.",
+    "external_notice": "Links open in a new tab. Donations require an internet connection.",
+    "new_tab": "opens in a new tab"
   }
 }

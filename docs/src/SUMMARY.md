@@ -1,6 +1,7 @@
 # Dystrail Game Guide
 
 - [Game Guide](README.md)
+  - [Credits & Support](credits-and-support.md)
   - [Start a journey](start.md)
   - [On the road](road.md)
   - [Stay in the game](survival.md)

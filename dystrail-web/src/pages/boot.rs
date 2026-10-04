@@ -68,6 +68,7 @@ pub fn boot_page(p: &BootPageProps) -> Html {
             <button class="retro-btn-primary" disabled={!p.ready || !valid} onclick={start}>{i18n::t("ux.begin")}</button>
             </div>
             if !p.ready {<p role="status">{i18n::t("ux.loading")}</p>}
+            <div class="credits-entry"><crate::components::ui::credits_support::CreditsButton id="credits-title-button" /></div>
         </div>
     </section> }
 }

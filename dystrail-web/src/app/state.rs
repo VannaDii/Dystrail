@@ -43,6 +43,8 @@ pub struct AppState {
     pub show_save: UseStateHandle<bool>,
     pub save_focus_target: UseStateHandle<AttrValue>,
     pub show_settings: UseStateHandle<bool>,
+    pub show_credits: UseStateHandle<bool>,
+    pub credits_focus_target: UseStateHandle<AttrValue>,
     pub current_language: UseStateHandle<String>,
 }
 
@@ -81,6 +83,8 @@ pub fn use_app_state() -> AppState {
         show_save: use_state(|| false),
         save_focus_target: use_state(|| AttrValue::from("game-menu-button")),
         show_settings: use_state(|| false),
+        show_credits: use_state(|| false),
+        credits_focus_target: use_state(|| AttrValue::from("game-menu-button")),
         current_language: use_state(crate::i18n::current_lang),
     }
 }

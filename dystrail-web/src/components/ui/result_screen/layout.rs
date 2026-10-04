@@ -68,6 +68,7 @@ pub fn render_body(
 
             </section>
             { render_menu(current_focus, on_menu_action) }
+            <div class="credits-entry"><crate::components::ui::credits_support::CreditsButton id="credits-result-button" /></div>
 
             <crate::components::status_notice::StatusNotice message={announcement} {on_clear} />
         </section>

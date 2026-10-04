@@ -22,3 +22,7 @@ The chapters below explain how to prepare, travel, care for the crew, handle the
 [Start a journey](start.md) · [How It Works](how-it-works/)
 
 This guide describes the game published with this documentation.
+
+## Credits and support
+
+See [Credits & Support](credits-and-support.md) for acknowledgments, licenses, and optional support links.

@@ -630,3 +630,7 @@ September 14 — standing crew transparency repair:
 
 - Moved roadside signs into the panning road layer so they pass the stationary van. Two region-specific illustrated ads alternate and loop through longer travel; rendered text remains localized and is available through the scene information control on narrow screens.
 - Reused retained pixel-art item/status images only; no image generation or embedded text. Native billboard selection and desktop/mobile browser checks pass, including image loading, relative motion, loop continuity, pause/resume, all 12 ads, 20 locales and offline reload. Current preview captures reviewed.
+
+## Credits and support — 2026-10-04
+
+Added optional native-dialog credits on title, Menu, and results; linked Vanna’s coffee page and the approved DSA standalone donation page. Kept current published help and visual content. Locale keys have parity; translations remain pending. Release verification and publication are in progress.

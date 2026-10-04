@@ -54,8 +54,24 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
         Callback::from(move |()| show_settings.set(false))
     };
 
+    let credits_action = {
+        let app = state.clone();
+        crate::components::ui::credits_support::CreditsAction(Callback::from(
+            move |target: AttrValue| {
+                app.travel_running.set(false);
+                app.credits_focus_target.set(target);
+                app.show_credits.set(true);
+            },
+        ))
+    };
+    let on_close_credits = {
+        let open = state.show_credits.clone();
+        Callback::from(move |()| open.set(false))
+    };
+
     html! {
         <ContextProvider<crate::i18n::Language> context={crate::i18n::Language((*state.current_language).clone())}>
+        <ContextProvider<crate::components::ui::credits_support::CreditsAction> context={credits_action}>
         <ContextProvider<crate::app::journey_panel::PanelContext> context={crate::app::journey_panel::context(state,&handlers)}>
         <ContextProvider<crate::app::help::HelpPreference> context={crate::app::help::HelpPreference(*state.help_enabled)}>
         <crate::app::weather_status::WeatherStatus weather={state.session.as_ref().map(|s|s.state().weather_state.today)} policy={state.session.as_ref().and_then(|s|s.state().current_order)}>
@@ -83,10 +99,16 @@ pub fn render_app(state: &AppState, route: Option<&Route>, navigator: Option<Nav
                 if *state.show_abandon {{crate::app::abandon::render(state)}}
                 <crate::components::footer::Footer />
             </main>
+            <crate::components::ui::credits_support::CreditsDialog
+                open={*state.show_credits}
+                on_close={on_close_credits}
+                return_focus_id={(*state.credits_focus_target).clone()}
+            />
         </div>
         </crate::app::weather_status::WeatherStatus>
         </ContextProvider<crate::app::help::HelpPreference>>
         </ContextProvider<crate::app::journey_panel::PanelContext>>
+        </ContextProvider<crate::components::ui::credits_support::CreditsAction>>
         </ContextProvider<crate::i18n::Language>>
     }
 }

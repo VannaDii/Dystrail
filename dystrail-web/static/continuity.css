@@ -984,3 +984,17 @@ html { hyphens:auto; overflow-wrap:anywhere; word-break:normal; }
 button { hyphens:auto; overflow-wrap:anywhere; }
 .journey-actions>button>span:not(.switch-track) { min-width:0; white-space:normal; hyphens:auto; overflow-wrap:anywhere; }
 .journey-actions>button>.journey-icon,.journey-actions>button>.switch-track { flex-shrink:0; }
+
+/* Credits stay optional and use the browser's modal focus and inert behavior. */
+.credits-entry { margin-block:1rem; }
+.credits-dialog { color:var(--text); background:var(--panel); border:1px solid var(--button-border); border-radius:10px; padding:0; width:min(680px,calc(100vw - 32px)); max-width:none; max-height:calc(100dvh - 32px); box-sizing:border-box; overflow:auto; box-shadow:0 24px 72px #0009; }
+.credits-dialog::backdrop { background:var(--modal-backdrop); }
+.credits-content { padding:clamp(16px,4vw,28px); }
+.credits-header { display:flex; gap:1rem; align-items:start; justify-content:space-between; }
+.credits-header h2 { margin:0; }
+.credits-header button { flex-shrink:0; }
+.credits-content section { border-top:1px solid var(--border-subtle); margin-block-start:1.25rem; padding-block-start:1rem; }
+.credits-content h3 { margin-block:0 .6rem; }
+.credits-content p { max-width:60ch; }
+.credits-content a { color:var(--accent); overflow-wrap:anywhere; }
+.credits-content li { margin-block:.5rem; }

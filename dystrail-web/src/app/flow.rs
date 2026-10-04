@@ -38,6 +38,7 @@ pub fn use_travel_flow(app: &AppState) {
         && !super::policy_bulletin::is_pending(app)
         && !super::crossing_presentation::is_pending(app)
         && !*app.show_save
+        && !*app.show_credits
         && !*app.show_abandon
         && !*app.town_open;
     let revision = app

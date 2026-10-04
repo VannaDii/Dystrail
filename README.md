@@ -40,6 +40,7 @@ _What if Oregon Trail took a wrong turn and ended up in D.C.?_
 - **Result System**: deterministic scoring with configurable weights, comprehensive statistics tracking, and social sharing capabilities.
 - **Accessibility**: WCAG AA compliance, keyboard navigation, high-contrast & reduced-motion toggles.
 - **Responsive design**: works on desktop and mobile with touch-friendly controls.
+- **Credits & Support**: an optional modal on the title screen, in-game menu, and results screen, with creator credits, asset licenses, and a direct donation link to Democratic Socialists of America. See [credits and support](docs/src/credits-and-support.md) for creator-support links.
 - **Meta tags**: clean social media unfurls on Discord, Slack, X/Twitter, Facebook.
 
 ## 📦 Assets & Data
