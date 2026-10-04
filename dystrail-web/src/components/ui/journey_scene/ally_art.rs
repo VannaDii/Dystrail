@@ -15,7 +15,9 @@ pub fn coordinates(unit: &str) -> Option<(u32, char)> {
 }
 
 pub fn context(stage: &SceneStage) -> Option<(&str, u32, char)> {
-    let SceneStage::Encounter(unit) = stage else { return None; };
+    let SceneStage::Encounter(unit) = stage else {
+        return None;
+    };
     let (cell, variant) = coordinates(unit)?;
     Some((unit, cell, variant))
 }

@@ -4,8 +4,17 @@ use crate::{components::ui::cast_art, game::party::MemberStatus};
 use yew::prelude::*;
 
 pub fn shared_setting(unit: &str) -> bool {
-    matches!(unit, "TOWN-02-B" | "TOWN-17-C" | "TOWN-16-A" | "TOWN-19-C" |
-        "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C")
+    matches!(
+        unit,
+        "TOWN-02-B"
+            | "TOWN-17-C"
+            | "TOWN-16-A"
+            | "TOWN-19-C"
+            | "TOWN-20-C"
+            | "TOWN-23-B"
+            | "TOWN-25-A"
+            | "TOWN-26-C"
+    )
 }
 
 fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
@@ -23,13 +32,27 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
 }
 
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
-    context(stage).map(|(unit, _)| if shared_setting(unit) { "1.7777778" } else { "1.5" })
+    context(stage).map(|(unit, _)| {
+        if shared_setting(unit) {
+            "1.7777778"
+        } else {
+            "1.5"
+        }
+    })
 }
 
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
-    let SceneStage::Encounter(unit) = stage else { return None; };
+    let SceneStage::Encounter(unit) = stage else {
+        return None;
+    };
     if selected_cell(unit).is_some() {
-        return Some((unit, matches!(unit.as_str(), "TOWN-14-B" | "TOWN-23-C" | "TOWN-34-C" | "TOWN-35-B" | "TOWN-44-A")));
+        return Some((
+            unit,
+            matches!(
+                unit.as_str(),
+                "TOWN-14-B" | "TOWN-23-C" | "TOWN-34-C" | "TOWN-35-B" | "TOWN-44-A"
+            ),
+        ));
     }
     match unit.as_str() {
         "TOWN-41-B" => Some((unit, true)),
@@ -61,8 +84,15 @@ pub fn render(p: &Props) -> Option<Html> {
             </svg>
         });
     }
-    let path = crate::paths::asset_path(&format!("static/img/scenes-v2/{}.png", unit.to_ascii_lowercase()));
-    let (xs, top, width, table) = if indoors { ([325, 690], 410, 350, 728) } else { ([20, 500], 320, 440, 710) };
+    let path = crate::paths::asset_path(&format!(
+        "static/img/scenes-v2/{}.png",
+        unit.to_ascii_lowercase()
+    ));
+    let (xs, top, width, table) = if indoors {
+        ([325, 690], 410, 350, 728)
+    } else {
+        ([20, 500], 320, 440, 710)
+    };
     let foreground = if indoors {
         format!("M0 {table} H1536 V1024 H0 Z")
     } else {
@@ -71,8 +101,13 @@ pub fn render(p: &Props) -> Option<Html> {
         "M0 710 H425 L444 699 L469 687 L506 682 L547 689 L580 699 L600 710 H673 L682 696 L699 683 L723 677 L729 658 L748 662 L758 678 L773 668 L792 664 L811 675 L830 697 L833 710 H1536 V1024 H0 Z".to_owned()
     };
     let clip = format!("town-table-{unit}");
-    let members: Vec<_> = p.party.iter().flat_map(|party| &party.members)
-        .filter(|member| member.status == MemberStatus::Active).take(2).collect();
+    let members: Vec<_> = p
+        .party
+        .iter()
+        .flat_map(|party| &party.members)
+        .filter(|member| member.status == MemberStatus::Active)
+        .take(2)
+        .collect();
     Some(html! {
         <svg class="scene-background town-setting" data-town-unit={unit.to_owned()} viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid meet">
             <image href={path.clone()} width="1536" height="1024"/>

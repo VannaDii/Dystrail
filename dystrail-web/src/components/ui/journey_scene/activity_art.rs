@@ -7,8 +7,12 @@ pub fn supported(stage: &SceneStage) -> bool {
 }
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
-    if !supported(stage) { return None; }
-    let SceneStage::EncounterOutcome { unit, .. } = stage else { return None; };
+    if !supported(stage) {
+        return None;
+    }
+    let SceneStage::EncounterOutcome { unit, .. } = stage else {
+        return None;
+    };
     let pantry = unit == "ACT-FOODWORK-A";
     Some(html! {
         <svg class="scene-background activity-setting" data-activity-unit={unit.clone()}

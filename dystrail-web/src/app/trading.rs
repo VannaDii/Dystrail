@@ -31,13 +31,20 @@ pub fn render(app: &AppState) -> Html {
     </>}
 }
 fn completed_scene(gs: &crate::game::GameState) -> SceneStage {
-    let Some(stop) = gs.continuity.route_services.stop else { return SceneStage::Town; };
-    if gs.continuity.route_services.traded_at != Some(stop) { return SceneStage::Town; }
+    let Some(stop) = gs.continuity.route_services.stop else {
+        return SceneStage::Town;
+    };
+    if gs.continuity.route_services.traded_at != Some(stop) {
+        return SceneStage::Town;
+    }
     for family in ["ACT-BARTERTIRE", "ACT-BARTERBATTERY", "ACT-BARTERSUPPLIES"] {
         let key = format!("{family}/town/{stop}");
         if gs.continuity.visual_content.outcomes.get(&key) == Some(&0) {
             if let Some(unit) = gs.continuity.visual_content.selections.get(&key) {
-                return SceneStage::EncounterOutcome { unit: unit.clone(), choice: 0 };
+                return SceneStage::EncounterOutcome {
+                    unit: unit.clone(),
+                    choice: 0,
+                };
             }
         }
     }

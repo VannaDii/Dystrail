@@ -4,11 +4,23 @@ use super::{Props, Region, SceneStage, reviewed_road};
 use yew::prelude::*;
 
 pub fn supported(unit: &str) -> bool {
-    matches!(unit, "CROSS-01-B" | "CROSS-02C-A" | "CROSS-02C-B" | "CROSS-02D-A" | "CROSS-02D-B" | "CROSS-02D-C" | "CROSS-03-B" | "CROSS-03-C")
+    matches!(
+        unit,
+        "CROSS-01-B"
+            | "CROSS-02C-A"
+            | "CROSS-02C-B"
+            | "CROSS-02D-A"
+            | "CROSS-02D-B"
+            | "CROSS-02D-C"
+            | "CROSS-03-B"
+            | "CROSS-03-C"
+    )
 }
 
 pub fn render(p: &Props) -> Option<Html> {
-    let SceneStage::Crossing { unit, passed } = &p.stage else { return None; };
+    let SceneStage::Crossing { unit, passed } = &p.stage else {
+        return None;
+    };
     let asset = match unit.as_str() {
         "CROSS-01-B" => "crossing-map-v2".to_owned(),
         "CROSS-02C-B" => "crossing-inspection-v2".to_owned(),
@@ -17,10 +29,17 @@ pub fn render(p: &Props) -> Option<Html> {
         "CROSS-03-B" => "crossing-folder-v2".to_owned(),
         "CROSS-03-C" => "crossing-bucket-v2".to_owned(),
         "CROSS-02D-A" => "crossing-privacy-v2".to_owned(),
-        "CROSS-02C-A" => format!("crossing-workers-{}-v2", if *passed { "raised" } else { "lowered" }),
+        "CROSS-02C-A" => format!(
+            "crossing-workers-{}-v2",
+            if *passed { "raised" } else { "lowered" }
+        ),
         _ => return None,
     };
-    let region = reviewed_road(p.region.unwrap_or(Region::Heartland), p.day, p.road_asset.as_deref());
+    let region = reviewed_road(
+        p.region.unwrap_or(Region::Heartland),
+        p.day,
+        p.road_asset.as_deref(),
+    );
     let props_id = format!("crossing-props-{unit}");
     let land_id = format!("crossing-land-{unit}");
     let road_id = format!("crossing-road-{unit}");

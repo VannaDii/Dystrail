@@ -59,8 +59,10 @@ pub fn selected(gs: &GameState) -> Option<Conversation> {
 /// Bind only reviewed compositions to the conversation selected for this town.
 pub fn scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneStage {
     use crate::components::ui::journey_scene::{SceneStage, town_art};
-    selected(gs).map(|story| SceneStage::Encounter(story.id))
-        .filter(|stage| town_art::context(stage).is_some()).unwrap_or(SceneStage::Town)
+    selected(gs)
+        .map(|story| SceneStage::Encounter(story.id))
+        .filter(|stage| town_art::context(stage).is_some())
+        .unwrap_or(SceneStage::Town)
 }
 
 /// Seal before advancing the action clock, including a repeat conversation.
@@ -101,11 +103,39 @@ mod tests {
             let mut gs = state_for(&story.town);
             gs.continuity.visual_content.edition = super::super::visual_content::EDITION;
             gs.continuity.visual_content.selections.insert(
-                format!("{}/town/{}", story.family_id, gs.continuity.route_services.stop.unwrap()), story.id.clone());
+                format!(
+                    "{}/town/{}",
+                    story.family_id,
+                    gs.continuity.route_services.stop.unwrap()
+                ),
+                story.id.clone(),
+            );
             let before = serde_json::to_value(&gs).unwrap();
-            let expected = if matches!(story.id.as_str(), "TOWN-41-B" | "TOWN-41-C" | "TOWN-02-B" | "TOWN-17-C" | "TOWN-16-A" | "TOWN-19-C" | "TOWN-20-C" | "TOWN-23-B" | "TOWN-25-A" | "TOWN-26-C" | "TOWN-03-C" | "TOWN-14-A" | "TOWN-14-B" | "TOWN-23-C" | "TOWN-29-C" | "TOWN-34-C" | "TOWN-35-B" | "TOWN-44-A") {
+            let expected = if matches!(
+                story.id.as_str(),
+                "TOWN-41-B"
+                    | "TOWN-41-C"
+                    | "TOWN-02-B"
+                    | "TOWN-17-C"
+                    | "TOWN-16-A"
+                    | "TOWN-19-C"
+                    | "TOWN-20-C"
+                    | "TOWN-23-B"
+                    | "TOWN-25-A"
+                    | "TOWN-26-C"
+                    | "TOWN-03-C"
+                    | "TOWN-14-A"
+                    | "TOWN-14-B"
+                    | "TOWN-23-C"
+                    | "TOWN-29-C"
+                    | "TOWN-34-C"
+                    | "TOWN-35-B"
+                    | "TOWN-44-A"
+            ) {
                 crate::components::ui::journey_scene::SceneStage::Encounter(story.id)
-            } else { crate::components::ui::journey_scene::SceneStage::Town };
+            } else {
+                crate::components::ui::journey_scene::SceneStage::Town
+            };
             assert_eq!(scene(&gs), expected);
             assert_eq!(serde_json::to_value(&gs).unwrap(), before);
         }

@@ -3,28 +3,31 @@
 pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
     Some(match id {
         "ENC-C09-A" | "ENC-S01-A" => "enc-rest-area",
-        "ENC-S03-A" | "ENC-S03-C" | "ENC-S05-B" | "ENC-S14-C" | "ENC-S23-B" => "enc-service-counter",
+        "ENC-S03-A" | "ENC-S03-C" | "ENC-S05-B" | "ENC-S14-C" | "ENC-S23-B" => {
+            "enc-service-counter"
+        }
         "ENC-S09-B" | "ENC-S15-A" | "ENC-S26-C" | "ENC-S28-C" | "ENC-S30-B" => "enc-community",
         "ENC-S04-A" | "ENC-S17-C" => "enc-convoy",
         "ENC-D13-B" => "enc-checkpoint",
         "ENC-S27-B" | "ENC-S10-C" => "enc-motel",
         "ENC-S04-B" | "ENC-S07-A" => "enc-campground",
         "ENC-D02-A" | "ENC-D12-A" => "enc-civic-exterior",
-        "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" |
-        "ENC-D01-A" | "ENC-D01-B" | "ENC-D05-B" | "ENC-D05-C" |
-        "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A" |
-        "ENC-C13-C" | "ENC-D03-C" | "ENC-S05-C" | "ENC-C12-B" | "ENC-D11-B" |
-        "ENC-C11-C" | "ENC-D01-C" | "ENC-D04-C" | "ENC-C13-B" | "ENC-S31-C" => "enc-cafe",
-        "ENC-C15-C" | "ENC-C17-C" | "ENC-D07-C" | "ENC-S02-B" |
-        "ENC-S06-A" | "ENC-S29-A" | "ENC-S11-B" | "ENC-S18-A" | "ENC-S18-C" => "enc-library",
-        "ENC-C11-B" | "ENC-D07-B" | "ENC-D10-A" | "ENC-S06-B" |
-        "ENC-S11-C" | "ENC-S19-A" | "ENC-S25-A" | "ENC-S27-A" |
-        "ENC-D06-A" | "ENC-D09-B" | "ENC-D11-C" | "ENC-S21-A" | "ENC-S21-C" | "ENC-S34-A" |
-        "ENC-C09-B" | "ENC-C13-A" | "ENC-D03-B" | "ENC-D04-A" | "ENC-D04-B" | "ENC-D05-A" | "ENC-D08-C" | "ENC-D10-C" | "ENC-S21-B" | "ENC-S22-A" | "ENC-S22-C" | "ENC-S25-B" | "ENC-S25-C" | "ENC-S27-C" | "ENC-S28-B" | "ENC-S29-B" | "ENC-S29-C" | "ENC-S31-A" | "ENC-S31-B" | "ENC-S32-C" => "enc-service-counter",
+        "ENC-C10-A" | "ENC-C12-A" | "ENC-C14-C" | "ENC-C16-A" | "ENC-D01-A" | "ENC-D01-B"
+        | "ENC-D05-B" | "ENC-D05-C" | "ENC-D12-B" | "ENC-S08-A" | "ENC-S08-B" | "ENC-S16-A"
+        | "ENC-C13-C" | "ENC-D03-C" | "ENC-S05-C" | "ENC-C12-B" | "ENC-D11-B" | "ENC-C11-C"
+        | "ENC-D01-C" | "ENC-D04-C" | "ENC-C13-B" | "ENC-S31-C" => "enc-cafe",
+        "ENC-C15-C" | "ENC-C17-C" | "ENC-D07-C" | "ENC-S02-B" | "ENC-S06-A" | "ENC-S29-A"
+        | "ENC-S11-B" | "ENC-S18-A" | "ENC-S18-C" => "enc-library",
+        "ENC-C11-B" | "ENC-D07-B" | "ENC-D10-A" | "ENC-S06-B" | "ENC-S11-C" | "ENC-S19-A"
+        | "ENC-S25-A" | "ENC-S27-A" | "ENC-D06-A" | "ENC-D09-B" | "ENC-D11-C" | "ENC-S21-A"
+        | "ENC-S21-C" | "ENC-S34-A" | "ENC-C09-B" | "ENC-C13-A" | "ENC-D03-B" | "ENC-D04-A"
+        | "ENC-D04-B" | "ENC-D05-A" | "ENC-D08-C" | "ENC-D10-C" | "ENC-S21-B" | "ENC-S22-A"
+        | "ENC-S22-C" | "ENC-S25-B" | "ENC-S25-C" | "ENC-S27-C" | "ENC-S28-B" | "ENC-S29-B"
+        | "ENC-S29-C" | "ENC-S31-A" | "ENC-S31-B" | "ENC-S32-C" => "enc-service-counter",
         "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" | "ENC-D13-C" => "enc-service",
         "ENC-D03-A" | "ENC-D06-C" | "ENC-D07-A" | "ENC-D09-C" | "ENC-D11-A" => "enc-rest-area",
-        "ENC-C15-A" | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" |
-        "ENC-S02-A" | "ENC-S02-C" | "ENC-S15-C" | "ENC-S20-A" | "ENC-S20-C" => "enc-community",
+        "ENC-C15-A" | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" | "ENC-S02-A" | "ENC-S02-C"
+        | "ENC-S15-C" | "ENC-S20-A" | "ENC-S20-C" => "enc-community",
         "ENC-C18-A" | "ENC-C18-C" => "enc-civic",
         "ENC-S15-B" | "ENC-S23-C" => "enc-museum",
         _ => return None,
@@ -32,19 +35,31 @@ pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
 }
 
 pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
-    shared_asset(id).or_else(|| {
-        asset(id, false).filter(|name| matches!(*name,
-            "enc-motel" | "enc-cafe" | "enc-library" | "enc-museum" |
-            "enc-farm-office" | "enc-service-counter"))
-    }).map(|name| match name {
-        "enc-service" | "enc-community" | "enc-civic" | "enc-convoy" | "enc-checkpoint" => "2",
-        "enc-rest-area" | "enc-campground" | "enc-civic-exterior" => "2.25",
-        _ => "1.7777778",
-    })
+    shared_asset(id)
+        .or_else(|| {
+            asset(id, false).filter(|name| {
+                matches!(
+                    *name,
+                    "enc-motel"
+                        | "enc-cafe"
+                        | "enc-library"
+                        | "enc-museum"
+                        | "enc-farm-office"
+                        | "enc-service-counter"
+                )
+            })
+        })
+        .map(|name| match name {
+            "enc-service" | "enc-community" | "enc-civic" | "enc-convoy" | "enc-checkpoint" => "2",
+            "enc-rest-area" | "enc-campground" | "enc-civic-exterior" => "2.25",
+            _ => "1.7777778",
+        })
 }
 
 pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
-    if let Some(setting) = shared_asset(id) { return Some(setting); }
+    if let Some(setting) = shared_asset(id) {
+        return Some(setting);
+    }
     Some(match id {
         // The rejected lander illustration stays excluded pending user review.
         "ENC-C04-A" => "enc-rest-area",

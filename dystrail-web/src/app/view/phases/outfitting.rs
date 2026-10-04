@@ -38,8 +38,14 @@ pub fn render_outfitting(state: &AppState) -> Html {
                         crate::app::visual_content::EDITION;
                     let departure = crate::app::visual_content::record_departure(&mut initialized);
                     let mut report = crate::app::aftermath::Aftermath {
-                        title: departure.as_ref().map_or_else(|| crate::i18n::t("play.loadout"), |unit| crate::i18n::t(&format!("encounter_copy.{unit}.name"))),
-                        message: departure.as_ref().map_or_else(|| crate::i18n::t("journey.mission"), |unit| crate::i18n::t(&format!("encounter_copy.{unit}.log_0"))),
+                        title: departure.as_ref().map_or_else(
+                            || crate::i18n::t("play.loadout"),
+                            |unit| crate::i18n::t(&format!("encounter_copy.{unit}.name")),
+                        ),
+                        message: departure.as_ref().map_or_else(
+                            || crate::i18n::t("journey.mission"),
+                            |unit| crate::i18n::t(&format!("encounter_copy.{unit}.log_0")),
+                        ),
                         scene: crate::components::ui::journey_scene::SceneStage::Travel(
                             initialized.region,
                         ),

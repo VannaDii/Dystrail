@@ -72,7 +72,12 @@ pub const fn action_kind(scene: &super::journey_scene::SceneStage) -> &'static s
         SceneStage::Camp => "camp",
         SceneStage::Town => "town",
         SceneStage::Care | SceneStage::CareIncident { .. } => "care",
-        SceneStage::Encounter(_) | SceneStage::EncounterOutcome { .. } | SceneStage::Boss => "encounter",
-        SceneStage::Ending(_) | SceneStage::Setup | SceneStage::Travel(_) | SceneStage::Crossing { .. } => "travel",
+        SceneStage::Encounter(_) | SceneStage::EncounterOutcome { .. } | SceneStage::Boss => {
+            "encounter"
+        }
+        SceneStage::Ending(_)
+        | SceneStage::Setup
+        | SceneStage::Travel(_)
+        | SceneStage::Crossing { .. } => "travel",
     }
 }

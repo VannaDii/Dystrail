@@ -3,7 +3,9 @@ use super::SceneStage;
 use yew::prelude::*;
 
 fn context(stage: &SceneStage) -> Option<(&str, &str, u32, u32)> {
-    let SceneStage::EncounterOutcome { unit, choice: 0 } = stage else { return None; };
+    let SceneStage::EncounterOutcome { unit, choice: 0 } = stage else {
+        return None;
+    };
     let (family, variant) = unit.rsplit_once('-')?;
     let row = match family {
         "ACT-BARTERTIRE" => 0,
@@ -17,7 +19,12 @@ fn context(stage: &SceneStage) -> Option<(&str, &str, u32, u32)> {
         "C" => [0, 341, 684, 1024],
         _ => return None,
     };
-    Some((unit, variant, boundaries[row] + 4, boundaries[row + 1] - boundaries[row] - 8))
+    Some((
+        unit,
+        variant,
+        boundaries[row] + 4,
+        boundaries[row + 1] - boundaries[row] - 8,
+    ))
 }
 
 pub fn aspect(stage: &SceneStage) -> Option<String> {

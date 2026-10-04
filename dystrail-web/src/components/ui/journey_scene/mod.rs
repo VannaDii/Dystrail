@@ -1,13 +1,13 @@
 //! Stage-specific presentation; artwork never participates in the simulation.
 pub mod ally_art;
-pub mod town_art;
 pub mod barter_art;
+pub mod town_art;
 use crate::game::Region;
 use yew::prelude::*;
-pub mod billboard;
-pub mod composition;
 mod activity_art;
+pub mod billboard;
 pub mod care_art;
+pub mod composition;
 pub mod crossing_art;
 mod lighting;
 pub(crate) mod parked;
@@ -69,7 +69,9 @@ pub fn asset_name(deep: bool, stage: &SceneStage) -> Option<&'static str> {
         SceneStage::Encounter(id) => encounters::asset(id, deep),
         SceneStage::EncounterOutcome { unit, .. } => encounters::asset(unit, deep),
         SceneStage::Breakdown => Some("enc-service"),
-        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => Some("recovery-camp"),
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => {
+            Some("recovery-camp")
+        }
         SceneStage::Town => Some("town-arrival"),
         SceneStage::Ending(true) => Some("ending-dc"),
         SceneStage::Ending(false) => Some("ending-rest-area"),
@@ -117,7 +119,11 @@ pub fn journey_scene(p: &Props) -> Html {
     let road = early_ending || matches!(p.stage, SceneStage::Travel(_) | SceneStage::Setup);
     let stopped = !p.moving && matches!(p.stage, SceneStage::Travel(_));
     let name = if early_ending {
-        Some(reviewed_road(p.region.unwrap_or(Region::Heartland), p.day, p.road_asset.as_deref()))
+        Some(reviewed_road(
+            p.region.unwrap_or(Region::Heartland),
+            p.day,
+            p.road_asset.as_deref(),
+        ))
     } else if let SceneStage::Travel(region) = p.stage {
         Some(reviewed_road(region, p.day, p.road_asset.as_deref()))
     } else {
@@ -131,13 +137,33 @@ pub fn journey_scene(p: &Props) -> Html {
         crate::game::weather::Weather::Smoke => "smoke",
     });
     let light = lighting::profile(p.hour);
-    let indoors = activity_art::supported(&p.stage).then_some(true).or_else(|| town_art::context(&p.stage).map(|(_, indoors)| indoors)).or_else(|| ally_art::context(&p.stage).map(|(unit, _, _)| unit != "ALLY-01-A")).or_else(|| care_art::indoors(&p.stage)).unwrap_or_else(|| road_art::context(&p.stage).map_or_else(
-        || name.is_some_and(composition::is_indoors),
-        |(unit, _)| road_art::is_indoors(unit),
-    ));
+    let indoors = activity_art::supported(&p.stage)
+        .then_some(true)
+        .or_else(|| town_art::context(&p.stage).map(|(_, indoors)| indoors))
+        .or_else(|| ally_art::context(&p.stage).map(|(unit, _, _)| unit != "ALLY-01-A"))
+        .or_else(|| care_art::indoors(&p.stage))
+        .unwrap_or_else(|| {
+            road_art::context(&p.stage).map_or_else(
+                || name.is_some_and(composition::is_indoors),
+                |(unit, _)| road_art::is_indoors(unit),
+            )
+        });
     let crossing = matches!(p.stage, SceneStage::Crossing { .. });
     let barter_ratio = barter_art::aspect(&p.stage);
-    let authored = activity_art::supported(&p.stage).then_some("760 / 248").or(barter_ratio.as_deref()).or_else(|| town_art::aspect(&p.stage)).or_else(|| ally_art::context(&p.stage).map(|_| "1.5")).or_else(|| crossing.then_some("1.5")).or_else(|| care_art::context(&p.stage).map(|_| "1.5")).or_else(|| road_art::aspect(&p.stage)).or_else(|| match &p.stage { SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => encounters::shared_aspect(unit), _ => None });
+    let authored = activity_art::supported(&p.stage)
+        .then_some("760 / 248")
+        .or(barter_ratio.as_deref())
+        .or_else(|| town_art::aspect(&p.stage))
+        .or_else(|| ally_art::context(&p.stage).map(|_| "1.5"))
+        .or_else(|| crossing.then_some("1.5"))
+        .or_else(|| care_art::context(&p.stage).map(|_| "1.5"))
+        .or_else(|| road_art::aspect(&p.stage))
+        .or_else(|| match &p.stage {
+            SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => {
+                encounters::shared_aspect(unit)
+            }
+            _ => None,
+        });
     let authored_style =
         authored.map_or(String::new(), |ratio| format!("--authored-ratio:{ratio}"));
     html! { <figure style={authored_style} data-weather={weather} data-time={light} data-hour={p.hour.to_string()} data-indoors={indoors.to_string()} data-scene={name.unwrap_or("unillustrated").to_owned()} class={classes!("journey-scene",authored.is_some().then_some("scene-authored"),road.then_some("scene-road"),p.moving.then_some("scene-moving"))}>

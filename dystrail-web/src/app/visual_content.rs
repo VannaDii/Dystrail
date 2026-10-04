@@ -286,10 +286,18 @@ pub fn rest_unit(gs: &GameState) -> String {
 
 pub fn departure_unit(gs: &GameState) -> Option<String> {
     let persona = gs.persona_id.as_deref()?;
-    if !matches!(persona, "journalist" | "lobbyist" | "organizer" | "satirist" | "staffer" | "whistleblower") {
+    if !matches!(
+        persona,
+        "journalist" | "lobbyist" | "organizer" | "satirist" | "staffer" | "whistleblower"
+    ) {
         return None;
     }
-    Some(service_unit(gs, &format!("OPEN-{}", persona.to_uppercase()), "departure", 0))
+    Some(service_unit(
+        gs,
+        &format!("OPEN-{}", persona.to_uppercase()),
+        "departure",
+        0,
+    ))
 }
 
 /// Describe recorded outcomes; never infer victory from the displayed score.
@@ -309,10 +317,17 @@ pub fn ending_unit(gs: &GameState) -> Option<String> {
             Some(HearingOutcome::Passed | HearingOutcome::Secured) => "END-VICTORY",
             Some(HearingOutcome::Failed) => "END-VOTEFAIL",
             Some(HearingOutcome::Exhausted) => "END-SANITY",
-            None if gs.boss.outcome.attempted => if gs.boss.outcome.victory { "END-VICTORY" } else { "END-VOTEFAIL" },
+            None if gs.boss.outcome.attempted => {
+                if gs.boss.outcome.victory {
+                    "END-VICTORY"
+                } else {
+                    "END-VOTEFAIL"
+                }
+            }
             None if gs.boss.outcome.victory => "END-FALLBACK",
             None => "END-INCOMPLETE",
-        }.to_owned(),
+        }
+        .to_owned(),
     };
     Some(service_unit(gs, &family, "ending", 0))
 }
@@ -321,8 +336,16 @@ pub fn record_departure(gs: &mut GameState) -> Option<String> {
     let unit = departure_unit(gs)?;
     let family = unit.rsplit_once('-')?.0;
     let key = format!("{family}/departure/0");
-    gs.continuity.visual_content.selections.entry(key.clone()).or_insert(unit.clone());
-    gs.continuity.visual_content.outcomes.entry(key).or_insert(0);
+    gs.continuity
+        .visual_content
+        .selections
+        .entry(key.clone())
+        .or_insert(unit.clone());
+    gs.continuity
+        .visual_content
+        .outcomes
+        .entry(key)
+        .or_insert(0);
     Some(unit)
 }
 
@@ -458,28 +481,59 @@ pub fn record_care(before: &GameState, after: &mut GameState, choice: usize) {
 mod tests {
     #[test]
     fn ending_copy_uses_recorded_cause_and_never_the_score() {
-        use crate::game::{Ending, CollapseCause};
+        use crate::game::{CollapseCause, Ending};
         let mut gs = super::GameState::default();
         gs.continuity.visual_content.edition = super::EDITION;
         gs.stats.credibility = 100;
-        assert!(super::ending_unit(&gs).unwrap().starts_with("END-INCOMPLETE-"));
+        assert!(
+            super::ending_unit(&gs)
+                .unwrap()
+                .starts_with("END-INCOMPLETE-")
+        );
         gs.boss.outcome.attempted = true;
-        assert!(super::ending_unit(&gs).unwrap().starts_with("END-VOTEFAIL-"));
+        assert!(
+            super::ending_unit(&gs)
+                .unwrap()
+                .starts_with("END-VOTEFAIL-")
+        );
         gs.boss.outcome.victory = true;
         assert!(super::ending_unit(&gs).unwrap().starts_with("END-VICTORY-"));
-        for cause in [CollapseCause::Hunger, CollapseCause::Vehicle, CollapseCause::Weather, CollapseCause::Breakdown, CollapseCause::Disease, CollapseCause::Crossing, CollapseCause::Panic] {
+        for cause in [
+            CollapseCause::Hunger,
+            CollapseCause::Vehicle,
+            CollapseCause::Weather,
+            CollapseCause::Breakdown,
+            CollapseCause::Disease,
+            CollapseCause::Crossing,
+            CollapseCause::Panic,
+        ] {
             gs.ending = Some(Ending::Collapse { cause });
-            assert!(super::ending_unit(&gs).unwrap().starts_with(&format!("END-COLLAPSE-{}-", cause.key().to_uppercase())));
+            assert!(
+                super::ending_unit(&gs)
+                    .unwrap()
+                    .starts_with(&format!("END-COLLAPSE-{}-", cause.key().to_uppercase()))
+            );
         }
         gs.ending = None;
         gs.boss.outcome.attempted = false;
-        assert!(super::ending_unit(&gs).unwrap().starts_with("END-FALLBACK-"));
+        assert!(
+            super::ending_unit(&gs)
+                .unwrap()
+                .starts_with("END-FALLBACK-")
+        );
         gs.continuity.abandoned = true;
         assert_eq!(super::ending_unit(&gs), None);
     }
     #[test]
     fn departures_are_persona_bound_stable_and_presentation_only() {
-        for persona in ["journalist", "lobbyist", "organizer", "satirist", "staffer", "whistleblower"] {
+        for persona in [
+            "journalist",
+            "lobbyist",
+            "organizer",
+            "satirist",
+            "staffer",
+            "whistleblower",
+        ] {
             let mut variants = std::collections::BTreeSet::new();
             for seed in 0..32 {
                 let mut state = super::GameState::default();
@@ -490,10 +544,14 @@ mod tests {
                 assert!(unit.starts_with(&format!("OPEN-{}-", persona.to_uppercase())));
                 variants.insert(unit.clone());
                 assert_eq!(super::record_departure(&mut state), Some(unit.clone()));
-                let restored: super::GameState = serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
+                let restored: super::GameState =
+                    serde_json::from_str(&serde_json::to_string(&state).unwrap()).unwrap();
                 assert_eq!(super::departure_unit(&restored), Some(unit));
                 state.continuity.visual_content = before.continuity.visual_content.clone();
-                assert_eq!(serde_json::to_value(state).unwrap(), serde_json::to_value(before).unwrap());
+                assert_eq!(
+                    serde_json::to_value(state).unwrap(),
+                    serde_json::to_value(before).unwrap()
+                );
             }
             assert_eq!(variants.len(), 3);
         }

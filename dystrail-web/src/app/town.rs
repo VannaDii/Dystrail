@@ -121,7 +121,10 @@ pub fn talk_button(app: &AppState, gs: &GameState) -> Html {
                 i18n::t("qualitative.evidence")
             } else {
                 let stat = i18n::t(key);
-                i18n::tr("qualitative.gain", Some(&std::collections::BTreeMap::from([("stat", stat.as_str())])))
+                i18n::tr(
+                    "qualitative.gain",
+                    Some(&std::collections::BTreeMap::from([("stat", stat.as_str())])),
+                )
             }
         },
     );

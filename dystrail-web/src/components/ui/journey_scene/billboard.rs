@@ -51,7 +51,11 @@ fn illustration(id: &str) -> &'static str {
 }
 
 fn illustration_path(id: &str) -> String {
-    let folder = if matches!(id, "tariffs" | "public_land" | "access") { "status" } else { "items" };
+    let folder = if matches!(id, "tariffs" | "public_land" | "access") {
+        "status"
+    } else {
+        "items"
+    };
     crate::paths::asset_path(&format!("static/img/{folder}/{}.png", illustration(id)))
 }
 

@@ -61,7 +61,9 @@ pub(super) fn encounter_setting(
     if let Some(cell) = interior {
         return Some(("encounter-settings-v3", 3, 2, cell));
     }
-    if name == "enc-rest-area" || (name == "enc-night-briefing" && super::lighting::profile(hour) != "night") {
+    if name == "enc-rest-area"
+        || (name == "enc-night-briefing" && super::lighting::profile(hour) != "night")
+    {
         return Some(match region {
             Some(Region::Southwest) => ("western-settings-v1", 2, 3, 4),
             Some(Region::MountainWest) => ("western-settings-v1", 2, 3, 5),
@@ -127,10 +129,14 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
                 },
             )
         }
-        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } if p.region == Some(Region::Southwest) => {
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. }
+            if p.region == Some(Region::Southwest) =>
+        {
             ("western-settings-v1", 2, 3, 4)
         }
-        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } if p.region == Some(Region::MountainWest) => {
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. }
+            if p.region == Some(Region::MountainWest) =>
+        {
             ("western-settings-v1", 2, 3, 5)
         }
         SceneStage::Town => (
@@ -143,46 +149,63 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
                 _ => 0,
             },
         ),
-        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => ("journey-settings-v1", 2, 3, 3),
+        SceneStage::Camp | SceneStage::Care | SceneStage::CareIncident { .. } => {
+            ("journey-settings-v1", 2, 3, 3)
+        }
         SceneStage::Ending(true) => ("journey-settings-v1", 2, 3, 4),
         SceneStage::Ending(false) => return None,
         _ => encounter_setting(name, p.hour, p.region)?,
     };
     let width = 1536.0 / f64::from(columns);
     let height = 1024.0 / f64::from(rows);
-    let landscape_shared = match &p.stage { SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => super::encounters::shared_aspect(unit) == Some("1.7777778"), _ => false };
+    let landscape_shared = match &p.stage {
+        SceneStage::Encounter(unit) | SceneStage::EncounterOutcome { unit, .. } => {
+            super::encounters::shared_aspect(unit) == Some("1.7777778")
+        }
+        _ => false,
+    };
     let x = f64::from(cell % columns) * width;
     let y = f64::from(cell / columns) * height;
     // Crop surplus ceiling/floor in shared interiors; keep scale uniform.
-    let (y, height) = if landscape_shared { (y + 64.0, width * 9.0 / 16.0) } else { (y, height) };
+    let (y, height) = if landscape_shared {
+        (y + 64.0, width * 9.0 / 16.0)
+    } else {
+        (y, height)
+    };
     // Blank the retained exhibit-paper marks in the atlas coordinate space.
     // These surfaces inherit the scene's one uniform transform and lighting.
-    let blank_labels = (name == "enc-museum").then(|| html! {
-        <g data-blank-exhibit-labels="true" shape-rendering="crispEdges">
-            <path d="M44 781 L81 779 L94 813 L53 816 Z" fill="#e5dac3"/>
-            <path d="M119 743 L137 740 L144 762 L126 766 Z" fill="#e4d7b7"/>
-            <path d="M25 752 L48 750 L56 774 L32 780 Z" fill="#e4d7b7"/>
-            <path d="M302 653 H322 V667 H302 Z" fill="#e4d6b4"/>
-            <path d="M261 694 L297 693 L301 731 L264 733 Z" fill="#cdbb97"/>
-            <path d="M278 729 H305 V737 H278 Z" fill="#e4d6b4"/>
-            <path d="M355 723 H381 V736 H355 Z" fill="#e4d6b4"/>
-            <path d="M452 700 L470 701 L462 727 L446 725 Z" fill="#e4d6b4"/>
-            <path d="M184 767 L219 765 L230 795 L194 797 Z" fill="#dbc99f"/>
-            <path d="M322 767 H352 V782 H322 Z" fill="#e4d6b4"/>
-        </g>
+    let blank_labels = (name == "enc-museum").then(|| {
+        html! {
+            <g data-blank-exhibit-labels="true" shape-rendering="crispEdges">
+                <path d="M44 781 L81 779 L94 813 L53 816 Z" fill="#e5dac3"/>
+                <path d="M119 743 L137 740 L144 762 L126 766 Z" fill="#e4d7b7"/>
+                <path d="M25 752 L48 750 L56 774 L32 780 Z" fill="#e4d7b7"/>
+                <path d="M302 653 H322 V667 H302 Z" fill="#e4d6b4"/>
+                <path d="M261 694 L297 693 L301 731 L264 733 Z" fill="#cdbb97"/>
+                <path d="M278 729 H305 V737 H278 Z" fill="#e4d6b4"/>
+                <path d="M355 723 H381 V736 H355 Z" fill="#e4d6b4"/>
+                <path d="M452 700 L470 701 L462 727 L446 725 Z" fill="#e4d6b4"/>
+                <path d="M184 767 L219 765 L230 795 L194 797 Z" fill="#dbc99f"/>
+                <path d="M322 767 H352 V782 H322 Z" fill="#e4d6b4"/>
+            </g>
+        }
     });
-    let blank_farm_paper = (name == "enc-farm-office").then(|| html! {
-        <g data-blank-farm-paper="true" shape-rendering="crispEdges">
-            <path d="M672 632 H700 V672 H672 Z" fill="#cdb69d"/>
-        </g>
+    let blank_farm_paper = (name == "enc-farm-office").then(|| {
+        html! {
+            <g data-blank-farm-paper="true" shape-rendering="crispEdges">
+                <path d="M672 632 H700 V672 H672 Z" fill="#cdb69d"/>
+            </g>
+        }
     });
-    let blank_counter_papers = (name == "enc-service-counter").then(|| html! {
-        <g data-blank-counter-papers="true" shape-rendering="crispEdges">
-            <path d="M1032 610 L1047 612 L1047 631 L1032 630 Z" fill="#d6c7ac"/>
-            <path d="M1217 618 H1248 V632 H1217 Z" fill="#cfc0a6"/>
-            <path d="M1217 637 H1248 V662 H1217 Z" fill="#c5bda9"/>
-            <path d="M1278 747 H1310 L1312 758 H1276 Z" fill="#e4dfc9"/>
-        </g>
+    let blank_counter_papers = (name == "enc-service-counter").then(|| {
+        html! {
+            <g data-blank-counter-papers="true" shape-rendering="crispEdges">
+                <path d="M1032 610 L1047 612 L1047 631 L1032 630 Z" fill="#d6c7ac"/>
+                <path d="M1217 618 H1248 V632 H1217 Z" fill="#cfc0a6"/>
+                <path d="M1217 637 H1248 V662 H1217 Z" fill="#c5bda9"/>
+                <path d="M1278 747 H1310 L1312 758 H1276 Z" fill="#e4dfc9"/>
+            </g>
+        }
     });
     // Retained notice/clipboard surfaces stay blank; readable copy belongs in live UI.
     let blank_setting_papers = match name {
@@ -190,14 +213,18 @@ pub fn setting(p: &Props, name: &str) -> Option<Html> {
             <path d="M397 114 H416 V145 H397 Z" fill="#cbbba3"/>
             <path d="M268 179 L292 181 L290 204 L263 202 Z" fill="#e5dbc6"/>
         </g> },
-        "enc-media-workshop" => html! { <g data-blank-setting-papers="media" shape-rendering="crispEdges">
-            <path d="M79 95 H90 V111 H79 Z" fill="#d5c5ad"/>
-            <path d="M74 120 H84 V134 H74 Z" fill="#e3d4bc"/>
-            <path d="M91 111 H104 V127 H91 Z" fill="#d5c5ad"/>
-        </g> },
-        "enc-service" => html! { <g data-blank-setting-papers="service" shape-rendering="crispEdges">
-            <path d="M295 330 H312 V347 H295 Z" fill="#cbbba5"/>
-        </g> },
+        "enc-media-workshop" => {
+            html! { <g data-blank-setting-papers="media" shape-rendering="crispEdges">
+                <path d="M79 95 H90 V111 H79 Z" fill="#d5c5ad"/>
+                <path d="M74 120 H84 V134 H74 Z" fill="#e3d4bc"/>
+                <path d="M91 111 H104 V127 H91 Z" fill="#d5c5ad"/>
+            </g> }
+        }
+        "enc-service" => {
+            html! { <g data-blank-setting-papers="service" shape-rendering="crispEdges">
+                <path d="M295 330 H312 V347 H295 Z" fill="#cbbba5"/>
+            </g> }
+        }
         "enc-radio" => html! { <g data-blank-setting-papers="radio" shape-rendering="crispEdges">
             <path d="M958 555 H975 V583 H958 Z" fill="#d5c4ab"/>
             <path d="M994 533 H1020 V566 H994 Z" fill="#cabb9f"/>

@@ -34,12 +34,22 @@ pub fn explain(before: &GameState, after: &mut GameState, report: &mut Aftermath
     if after.continuity.visual_content.edition == super::visual_content::EDITION {
         let family = format!("ALLY-{:02}", after.day % 6 + 1);
         let unit = super::visual_content::service_unit(after, &family, "departure", after.day);
-        after.continuity.visual_content.selections.entry(format!("{family}/departure/{}", after.day)).or_insert(unit.clone());
+        after
+            .continuity
+            .visual_content
+            .selections
+            .entry(format!("{family}/departure/{}", after.day))
+            .or_insert(unit.clone());
         report.title = i18n::t(&format!("encounter_copy.{unit}.name"));
-        report.message = i18n::tr(&format!("encounter_copy.{unit}.desc"), Some(&BTreeMap::from([("name", contact)])));
+        report.message = i18n::tr(
+            &format!("encounter_copy.{unit}.desc"),
+            Some(&BTreeMap::from([("name", contact)])),
+        );
         if after.stats.allies == 0 {
             report.message.push(' ');
-            report.message.push_str(&i18n::t(&format!("encounter_copy.{unit}.last")));
+            report
+                .message
+                .push_str(&i18n::t(&format!("encounter_copy.{unit}.last")));
         }
         return;
     }
@@ -75,22 +85,35 @@ pub fn render(app: &AppState) -> Html {
 fn notice_scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneStage {
     use crate::components::ui::journey_scene::{SceneStage, ally_art};
     let key = format!("ALLY-{:02}/departure/{}", gs.day % 6 + 1, gs.day);
-    gs.continuity.visual_content.selections.get(&key)
+    gs.continuity
+        .visual_content
+        .selections
+        .get(&key)
         .filter(|unit| ally_art::coordinates(unit).is_some())
-        .map_or(SceneStage::Travel(gs.region), |unit| SceneStage::Encounter(unit.clone()))
+        .map_or(SceneStage::Travel(gs.region), |unit| {
+            SceneStage::Encounter(unit.clone())
+        })
 }
 
 /// Preserved explanations are independent of whether a vignette has dedicated art.
 pub fn source_help(gs: &GameState) -> Html {
     let key = format!("ALLY-{:02}/departure/{}", gs.day % 6 + 1, gs.day);
-    let Some(unit) = gs.continuity.visual_content.selections.get(&key) else { return Html::default(); };
+    let Some(unit) = gs.continuity.visual_content.selections.get(&key) else {
+        return Html::default();
+    };
     let notes: BTreeMap<String, BTreeMap<String, String>> = serde_json::from_str(include_str!(
         "../../static/assets/data/ally-source-notes.json"
-    )).expect("validated retained ally source notes");
+    ))
+    .expect("validated retained ally source notes");
     let language = i18n::current_lang();
-    let Some(translations) = notes.get(unit) else { return Html::default(); };
-    let (lang, note) = translations.get(&language).map(|note| (language.as_str(), note))
-        .or_else(|| translations.get("en").map(|note| ("en", note))).expect("English source note");
+    let Some(translations) = notes.get(unit) else {
+        return Html::default();
+    };
+    let (lang, note) = translations
+        .get(&language)
+        .map(|note| (language.as_str(), note))
+        .or_else(|| translations.get("en").map(|note| ("en", note)))
+        .expect("English source note");
     html! {<crate::components::ui::context_help::ContextHelp informational=true icon={"ⓘ".to_owned()} title={i18n::t("trail.behind_joke")}>
         <div class="source-explanation" data-ally-source={unit.clone()}>
             <p lang={lang.to_owned()} dir="auto">{note}</p>
@@ -110,33 +133,62 @@ mod tests {
     #[test]
     fn all_ally_variants_preserve_crew_and_actual_losses() {
         for locale in i18n::locales() {
-        i18n::set_lang(locale.code);
-        for day in 1..=6 { for suffix in ["A", "B", "C"] { for remaining in [0, 1] {
-            let mut before = GameState::default();
-            before.day = day;
-            before.stats.allies = remaining + 1;
-            before.party.initialize("journalist", 42);
-            before.continuity.visual_content.edition = super::super::visual_content::EDITION;
-            let family = format!("ALLY-{:02}", day % 6 + 1);
-            let unit = format!("{family}-{suffix}");
-            before.continuity.visual_content.selections.insert(format!("{family}/departure/{day}"), unit.clone());
-            let mut after = before.clone();
-            after.stats.allies = remaining;
-            after.logs.push("log.ally.lost".into());
-            let mut report = Aftermath { title: "original".into(), message: "original".into(), scene: crate::components::ui::journey_scene::SceneStage::Travel(after.region), before: before.stats.clone(), after: after.stats.clone(), next: Phase::Travel, details: vec![], resources: vec![] };
-            let snapshot = serde_json::to_value(&after).unwrap();
-            explain(&before, &mut after, &mut report);
-            assert_eq!(report.title, i18n::t(&format!("encounter_copy.{unit}.name")));
-            assert!(!report.message.contains("{name}"));
-            let last = i18n::t(&format!("encounter_copy.{unit}.last"));
-            assert_eq!(report.message.ends_with(&last), remaining == 0);
-            assert_eq!(serde_json::to_value(&after).unwrap(), snapshot);
-            for member in &after.party.members { assert!(!report.message.contains(&format!("contact {} ", member.name))); }
-            after.logs.pop();
-            report.message = "deliberate choice".into();
-            explain(&before, &mut after, &mut report);
-            assert_eq!(report.message, "deliberate choice");
-        }}}
+            i18n::set_lang(locale.code);
+            for day in 1..=6 {
+                for suffix in ["A", "B", "C"] {
+                    for remaining in [0, 1] {
+                        let mut before = GameState::default();
+                        before.day = day;
+                        before.stats.allies = remaining + 1;
+                        before.party.initialize("journalist", 42);
+                        before.continuity.visual_content.edition =
+                            super::super::visual_content::EDITION;
+                        let family = format!("ALLY-{:02}", day % 6 + 1);
+                        let unit = format!("{family}-{suffix}");
+                        before
+                            .continuity
+                            .visual_content
+                            .selections
+                            .insert(format!("{family}/departure/{day}"), unit.clone());
+                        let mut after = before.clone();
+                        after.stats.allies = remaining;
+                        after.logs.push("log.ally.lost".into());
+                        let mut report = Aftermath {
+                            title: "original".into(),
+                            message: "original".into(),
+                            scene: crate::components::ui::journey_scene::SceneStage::Travel(
+                                after.region,
+                            ),
+                            before: before.stats.clone(),
+                            after: after.stats.clone(),
+                            next: Phase::Travel,
+                            details: vec![],
+                            resources: vec![],
+                        };
+                        let snapshot = serde_json::to_value(&after).unwrap();
+                        explain(&before, &mut after, &mut report);
+                        assert_eq!(
+                            report.title,
+                            i18n::t(&format!("encounter_copy.{unit}.name"))
+                        );
+                        assert!(!report.message.contains("{name}"));
+                        let last = i18n::t(&format!("encounter_copy.{unit}.last"));
+                        assert_eq!(report.message.ends_with(&last), remaining == 0);
+                        assert_eq!(serde_json::to_value(&after).unwrap(), snapshot);
+                        for member in &after.party.members {
+                            assert!(
+                                !report
+                                    .message
+                                    .contains(&format!("contact {} ", member.name))
+                            );
+                        }
+                        after.logs.pop();
+                        report.message = "deliberate choice".into();
+                        explain(&before, &mut after, &mut report);
+                        assert_eq!(report.message, "deliberate choice");
+                    }
+                }
+            }
         }
         i18n::set_lang("en");
     }

@@ -52,8 +52,10 @@ pub fn world_view(p: &Props) -> Html {
     };
     let prop_labels = super::journey_scene::road_art::label_description(&stage);
     let road_ad = if matches!(stage, SceneStage::Travel(_)) {
-        Some((super::journey_scene::billboard::selected(gs.region, gs.seed, gs.day),
-            super::journey_scene::billboard::companion(gs.region, gs.seed, gs.day)))
+        Some((
+            super::journey_scene::billboard::selected(gs.region, gs.seed, gs.day),
+            super::journey_scene::billboard::companion(gs.region, gs.seed, gs.day),
+        ))
     } else {
         None
     };

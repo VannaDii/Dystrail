@@ -12,55 +12,64 @@ pub fn context(stage: &SceneStage) -> Option<(&str, Option<usize>)> {
 }
 
 pub fn supported(unit: &str) -> bool {
-    selected_cell(unit).is_some() || matches!(
-        unit,
-        "ENC-C01-A"
-            | "ENC-C01-B"
-            | "ENC-C01-C"
-            | "ENC-C02-B"
-            | "ENC-C02-C"
-            | "ENC-C03-A"
-            | "ENC-C03-B"
-            | "ENC-C03-C"
-            | "ENC-C04-B"
-            | "ENC-C04-C"
-            | "ENC-C05-A"
-            | "ENC-C05-B"
-            | "ENC-C05-C"
-            | "ENC-C06-A"
-            | "ENC-C06-B"
-            | "ENC-C06-C"
-            | "ENC-C07-A"
-            | "ENC-C07-B"
-            | "ENC-C08-B"
-            | "ENC-C08-C"
-            | "ENC-C11-A"
-    )
+    selected_cell(unit).is_some()
+        || matches!(
+            unit,
+            "ENC-C01-A"
+                | "ENC-C01-B"
+                | "ENC-C01-C"
+                | "ENC-C02-B"
+                | "ENC-C02-C"
+                | "ENC-C03-A"
+                | "ENC-C03-B"
+                | "ENC-C03-C"
+                | "ENC-C04-B"
+                | "ENC-C04-C"
+                | "ENC-C05-A"
+                | "ENC-C05-B"
+                | "ENC-C05-C"
+                | "ENC-C06-A"
+                | "ENC-C06-B"
+                | "ENC-C06-C"
+                | "ENC-C07-A"
+                | "ENC-C07-B"
+                | "ENC-C08-B"
+                | "ENC-C08-C"
+                | "ENC-C11-A"
+        )
 }
 
 pub fn is_indoors(unit: &str) -> bool {
     (selected_cell(unit).is_some()
         && !matches!(
             unit,
-            "ENC-C14-A" | "ENC-C16-B" | "ENC-S11-A" | "ENC-S16-C" | "ENC-S23-A" | "ENC-S30-C" | "ENC-S32-B" | "ENC-S33-A" | "ENC-S33-B"
+            "ENC-C14-A"
+                | "ENC-C16-B"
+                | "ENC-S11-A"
+                | "ENC-S16-C"
+                | "ENC-S23-A"
+                | "ENC-S30-C"
+                | "ENC-S32-B"
+                | "ENC-S33-A"
+                | "ENC-S33-B"
         ))
         || matches!(
-        unit,
-        "ENC-C01-B"
-            | "ENC-C02-B"
-            | "ENC-C02-C"
-            | "ENC-C04-B"
-            | "ENC-C03-A"
-            | "ENC-C03-C"
-            | "ENC-C05-A"
-            | "ENC-C05-C"
-            | "ENC-C06-A"
-            | "ENC-C06-C"
-            | "ENC-C07-A"
-            | "ENC-C07-B"
-            | "ENC-C08-B"
-            | "ENC-C11-A"
-    )
+            unit,
+            "ENC-C01-B"
+                | "ENC-C02-B"
+                | "ENC-C02-C"
+                | "ENC-C04-B"
+                | "ENC-C03-A"
+                | "ENC-C03-C"
+                | "ENC-C05-A"
+                | "ENC-C05-C"
+                | "ENC-C06-A"
+                | "ENC-C06-C"
+                | "ENC-C07-A"
+                | "ENC-C07-B"
+                | "ENC-C08-B"
+                | "ENC-C11-A"
+        )
 }
 
 pub fn aftermath(unit: String, choice: usize) -> SceneStage {
@@ -128,16 +137,20 @@ fn labels(unit: &str, worked: bool) -> Html {
 
 pub fn render(stage: &SceneStage) -> Option<Html> {
     let (unit, choice) = context(stage)?;
-    if let Some((sheet, cell)) = selected_cell(unit) { return Some(render_selected(unit,sheet,cell)); }
+    if let Some((sheet, cell)) = selected_cell(unit) {
+        return Some(render_selected(unit, sheet, cell));
+    }
     if unit == "ENC-C11-A" {
         // The retained offer cell shows the demonstration before any action.
         // All outcomes keep that same scene; the committed result is in the narrative.
-        return Some(html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas="road-c11-a-20260914" data-cell="0" viewBox="8 8 752 496" preserveAspectRatio="xMidYMid meet">
-            <image href={crate::paths::asset_path("static/img/scenes-v2/road-c11-a-20260914.png")} width="1536" height="1024"/>
-            <foreignObject class="road-prop-lettering" x="622" y="132" width="126" height="82">
-                <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 17px/1.1 sans-serif;overflow-wrap:anywhere">{crate::i18n::t("encounter_copy.ENC-C11-A.overlay_0")}</div>
-            </foreignObject>
-        </svg>});
+        return Some(
+            html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas="road-c11-a-20260914" data-cell="0" viewBox="8 8 752 496" preserveAspectRatio="xMidYMid meet">
+                <image href={crate::paths::asset_path("static/img/scenes-v2/road-c11-a-20260914.png")} width="1536" height="1024"/>
+                <foreignObject class="road-prop-lettering" x="622" y="132" width="126" height="82">
+                    <div xmlns="http://www.w3.org/1999/xhtml" dir="auto" style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#312a20;font:bold 17px/1.1 sans-serif;overflow-wrap:anywhere">{crate::i18n::t("encounter_copy.ENC-C11-A.overlay_0")}</div>
+                </foreignObject>
+            </svg>},
+        );
     }
     if unit.starts_with("ENC-C07-") || unit.starts_with("ENC-C08-") {
         return Some(render_c07_c08(unit, choice));
@@ -201,7 +214,9 @@ mod tests {
 
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     let (unit, _) = context(stage)?;
-    if selected_cell(unit).is_some() { return Some("1.5"); }
+    if selected_cell(unit).is_some() {
+        return Some("1.5");
+    }
     Some(match unit {
         "ENC-C01-A" => "760 / 333",
         "ENC-C01-B" => "760 / 307",
@@ -349,60 +364,68 @@ fn render_c07_c08(unit: &str, choice: Option<usize>) -> Html {
     </svg>}
 }
 
-
 // Only reviewed candidate cells are bound; failed siblings never enter this map.
 fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
     Some(match unit {
-        "ENC-C09-C" => ("selected-satire-01",0),
-        "ENC-C10-B" => ("selected-satire-01",1),
-        "ENC-C10-C" => ("selected-satire-01",2),
-        "ENC-C12-C" => ("selected-satire-02",0),
-        "ENC-C14-A" => ("selected-satire-02",1),
-        "ENC-C16-B" => ("selected-satire-02",2),
-        "ENC-D12-C" => ("selected-satire-04",1),
-        "ENC-D13-A" => ("selected-satire-04",2),
-        "ENC-S11-A" => ("selected-satire-06",0),
-        "ENC-S13-A" => ("selected-satire-06",1),
-        "ENC-S14-A" => ("selected-satire-06",2),
-        "ENC-S16-B" => ("selected-satire-06",3),
-        "ENC-S16-C" => ("selected-satire-07",0),
-        "ENC-S17-A" => ("selected-satire-07",1),
-        "ENC-S19-B" => ("selected-satire-08",0),
-        "ENC-S20-B" => ("selected-satire-08",1),
-        "ENC-S21-B" => ("selected-satire-08-r3",2),
-        "ENC-S22-B" => ("selected-satire-08",3),
-        "ENC-S23-A" => ("selected-satire-09",0),
-        "ENC-S24-A" => ("selected-satire-09",1),
-        "ENC-S24-B" => ("selected-satire-09",2),
-        "ENC-S24-C" => ("selected-satire-09",3),
-        "ENC-S26-B" => ("selected-satire-10",0),
-        "ENC-S27-B" => ("selected-satire-10",1),
-        "ENC-S30-C" => ("selected-satire-10",2),
-        "ENC-S32-B" => ("selected-satire-10",3),
-        "ENC-S33-A" => ("selected-satire-11",0),
-        "ENC-S33-B" => ("selected-satire-11",1),
-        "ENC-S34-B" => ("selected-satire-11-r2",2),
+        "ENC-C09-C" => ("selected-satire-01", 0),
+        "ENC-C10-B" => ("selected-satire-01", 1),
+        "ENC-C10-C" => ("selected-satire-01", 2),
+        "ENC-C12-C" => ("selected-satire-02", 0),
+        "ENC-C14-A" => ("selected-satire-02", 1),
+        "ENC-C16-B" => ("selected-satire-02", 2),
+        "ENC-D12-C" => ("selected-satire-04", 1),
+        "ENC-D13-A" => ("selected-satire-04", 2),
+        "ENC-S11-A" => ("selected-satire-06", 0),
+        "ENC-S13-A" => ("selected-satire-06", 1),
+        "ENC-S14-A" => ("selected-satire-06", 2),
+        "ENC-S16-B" => ("selected-satire-06", 3),
+        "ENC-S16-C" => ("selected-satire-07", 0),
+        "ENC-S17-A" => ("selected-satire-07", 1),
+        "ENC-S19-B" => ("selected-satire-08", 0),
+        "ENC-S20-B" => ("selected-satire-08", 1),
+        "ENC-S21-B" => ("selected-satire-08-r3", 2),
+        "ENC-S22-B" => ("selected-satire-08", 3),
+        "ENC-S23-A" => ("selected-satire-09", 0),
+        "ENC-S24-A" => ("selected-satire-09", 1),
+        "ENC-S24-B" => ("selected-satire-09", 2),
+        "ENC-S24-C" => ("selected-satire-09", 3),
+        "ENC-S26-B" => ("selected-satire-10", 0),
+        "ENC-S27-B" => ("selected-satire-10", 1),
+        "ENC-S30-C" => ("selected-satire-10", 2),
+        "ENC-S32-B" => ("selected-satire-10", 3),
+        "ENC-S33-A" => ("selected-satire-11", 0),
+        "ENC-S33-B" => ("selected-satire-11", 1),
+        "ENC-S34-B" => ("selected-satire-11-r2", 2),
         _ => return None,
     })
 }
 
 // Panel-local blank surfaces: x, y, width, height, font size.
-fn selected_labels(unit: &str) -> Vec<(u16,u16,u16,u16,u8)> {
+fn selected_labels(unit: &str) -> Vec<(u16, u16, u16, u16, u8)> {
     match unit {
-        "ENC-C09-C" => vec![(354,291,69,31,8)],
-        "ENC-C10-B" => vec![(425,240,42,27,7)],
-        "ENC-C10-C" => vec![(196,258,88,22,9)],
-        "ENC-C12-C" => vec![(84,92,273,175,36),(435,239,145,40,30),(612,258,53,22,6)],
-        "ENC-C14-A" => vec![(198,330,155,52,12)],
-        "ENC-C16-B" => vec![(321,166,247,62,36)],
-        "ENC-D12-C" => vec![(216,77,91,83,13),(609,310,52,65,10)],
-        "ENC-D13-A" => vec![(401,664-512,238,22,14),(493,526-512,79,65,10),(218,697-512,43,24,8)],
+        "ENC-C09-C" => vec![(354, 291, 69, 31, 8)],
+        "ENC-C10-B" => vec![(425, 240, 42, 27, 7)],
+        "ENC-C10-C" => vec![(196, 258, 88, 22, 9)],
+        "ENC-C12-C" => vec![
+            (84, 92, 273, 175, 36),
+            (435, 239, 145, 40, 30),
+            (612, 258, 53, 22, 6),
+        ],
+        "ENC-C14-A" => vec![(198, 330, 155, 52, 12)],
+        "ENC-C16-B" => vec![(321, 166, 247, 62, 36)],
+        "ENC-D12-C" => vec![(216, 77, 91, 83, 13), (609, 310, 52, 65, 10)],
+        "ENC-D13-A" => vec![
+            (401, 664 - 512, 238, 22, 14),
+            (493, 526 - 512, 79, 65, 10),
+            (218, 697 - 512, 43, 24, 8),
+        ],
         _ => vec![],
     }
 }
 
-fn render_selected(unit: &str, sheet: &'static str, cell:u8) -> Html {
-    let x=u16::from(cell%2)*768;let y=u16::from(cell/2)*512;
+fn render_selected(unit: &str, sheet: &'static str, cell: u8) -> Html {
+    let x = u16::from(cell % 2) * 768;
+    let y = u16::from(cell / 2) * 512;
     html! {<svg class="scene-background scene-atlas" aria-hidden="true" data-atlas={sheet} data-selected-unit={unit.to_owned()} data-cell={cell.to_string()} viewBox={format!("{x} {y} 768 512")} preserveAspectRatio="xMidYMid meet">
         <image href={crate::paths::asset_path(&format!("static/img/satire-v2/{sheet}.png"))} width="1536" height="1024"/>
         {for selected_labels(unit).into_iter().enumerate().map(|(i,(lx,ly,w,h,size))|html!{
