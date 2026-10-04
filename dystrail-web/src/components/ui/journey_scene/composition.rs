@@ -105,6 +105,7 @@ pub(super) fn is_indoors(name: &str) -> bool {
     )
 }
 
+#[allow(clippy::too_many_lines)] // Keep the declarative scene composition together.
 pub fn setting(p: &Props, name: &str) -> Option<Html> {
     let (atlas, columns, rows, cell) = match &p.stage {
         SceneStage::Town

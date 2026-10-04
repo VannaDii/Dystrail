@@ -87,6 +87,7 @@ pub const ROAD_FAMILIES: &[(&str, &str)] = &[
 ];
 
 /// Shared settings remain provisional until each variant's authored art is accepted.
+#[must_use]
 pub fn runtime_for_unit(unit: &str) -> Option<&'static str> {
     ROAD_FAMILIES
         .iter()
@@ -121,6 +122,7 @@ fn is_shipped(encounter: &crate::game::data::Encounter) -> bool {
 
 /// Keep imported wording out of both variant and legacy localization namespaces.
 /// This ID is only for rendering; it never replaces the simulation encounter ID.
+#[must_use]
 pub fn copy_id(gs: &GameState) -> String {
     let Some(encounter) = gs.current_encounter.as_ref() else {
         return String::new();
@@ -228,6 +230,7 @@ fn activity_key(
     (format!("{family}/{scope}/{occurrence}"), family, occurrence)
 }
 
+#[must_use]
 pub fn activity_unit(gs: &GameState, action: crate::game::activities::Activity) -> String {
     let (key, family, occurrence) = activity_key(gs, action);
     if let Some(unit) = gs
@@ -280,10 +283,12 @@ pub(crate) fn service_unit(gs: &GameState, family: &str, scope: &str, occurrence
     format!("{family}-{suffix}")
 }
 
+#[must_use]
 pub fn rest_unit(gs: &GameState) -> String {
     service_unit(gs, "ACT-REST", "day", gs.day)
 }
 
+#[must_use]
 pub fn departure_unit(gs: &GameState) -> Option<String> {
     let persona = gs.persona_id.as_deref()?;
     if !matches!(
@@ -301,6 +306,7 @@ pub fn departure_unit(gs: &GameState) -> Option<String> {
 }
 
 /// Describe recorded outcomes; never infer victory from the displayed score.
+#[must_use]
 pub fn ending_unit(gs: &GameState) -> Option<String> {
     use crate::game::{Ending, boss::HearingOutcome};
     if gs.continuity.visual_content.edition != EDITION || gs.continuity.abandoned {
@@ -357,6 +363,7 @@ fn trade_family(kind: u8) -> &'static str {
     }
 }
 
+#[must_use]
 pub fn trade_unit(gs: &GameState, kind: u8) -> String {
     service_unit(
         gs,
@@ -403,6 +410,7 @@ pub fn record_trade(before: &GameState, after: &mut GameState, kind: u8) {
 }
 
 /// An unresolved illness retains its presentation across later care checks.
+#[must_use]
 pub fn care_unit(gs: &GameState) -> Option<String> {
     let persona = gs.continuity.crew_care.pending.as_ref()?;
     if gs.continuity.crew_care.reason >= 8 {
@@ -416,16 +424,15 @@ pub fn care_unit(gs: &GameState) -> Option<String> {
         .get(persona)
         .copied()
         .unwrap_or(1);
-    if strain > 1 {
-        if let Some(unit) = gs
+    if strain > 1
+        && let Some(unit) = gs
             .continuity
             .visual_content
             .selections
             .get(&format!("care-active/{persona}"))
             .filter(|unit| valid(unit, &family))
-        {
-            return Some(unit.clone());
-        }
+    {
+        return Some(unit.clone());
     }
     Some(service_unit(
         gs,
@@ -435,6 +442,8 @@ pub fn care_unit(gs: &GameState) -> Option<String> {
     ))
 }
 
+/// # Panics
+/// Panics if a resolved care unit has no pending crew member.
 pub fn record_care(before: &GameState, after: &mut GameState, choice: usize) {
     let Some(unit) = care_unit(before) else {
         return;
@@ -536,9 +545,11 @@ mod tests {
         ] {
             let mut variants = std::collections::BTreeSet::new();
             for seed in 0..32 {
-                let mut state = super::GameState::default();
-                state.seed = seed;
-                state.persona_id = Some(persona.into());
+                let state = super::GameState {
+                    seed,
+                    persona_id: Some(persona.into()),
+                    ..super::GameState::default()
+                };
                 let before = state.clone();
                 let unit = super::departure_unit(&state).unwrap();
                 assert!(unit.starts_with(&format!("OPEN-{}-", persona.to_uppercase())));

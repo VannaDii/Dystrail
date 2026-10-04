@@ -14,6 +14,7 @@ pub struct Source {
 }
 
 impl Source {
+    #[must_use]
     pub fn note(&self) -> String {
         self.notes
             .get(&crate::i18n::current_lang())
@@ -43,6 +44,7 @@ fn catalog() -> Vec<Conversation> {
 }
 
 /// A forged or obsolete saved reference cannot move another town's story here.
+#[must_use]
 pub fn selected(gs: &GameState) -> Option<Conversation> {
     let name = super::town::name(gs);
     let catalog = catalog();
@@ -57,6 +59,7 @@ pub fn selected(gs: &GameState) -> Option<Conversation> {
 }
 
 /// Bind only reviewed compositions to the conversation selected for this town.
+#[must_use]
 pub fn scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneStage {
     use crate::components::ui::journey_scene::{SceneStage, town_art};
     selected(gs)

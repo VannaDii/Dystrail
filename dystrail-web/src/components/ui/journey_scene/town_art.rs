@@ -3,6 +3,7 @@ use super::{Props, SceneStage};
 use crate::{components::ui::cast_art, game::party::MemberStatus};
 use yew::prelude::*;
 
+#[must_use]
 pub fn shared_setting(unit: &str) -> bool {
     matches!(
         unit,
@@ -31,6 +32,7 @@ fn selected_cell(unit: &str) -> Option<(&'static str, u8)> {
     })
 }
 
+#[must_use]
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     context(stage).map(|(unit, _)| {
         if shared_setting(unit) {
@@ -41,6 +43,7 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     })
 }
 
+#[must_use]
 pub fn context(stage: &SceneStage) -> Option<(&str, bool)> {
     let SceneStage::Encounter(unit) = stage else {
         return None;
@@ -113,7 +116,7 @@ pub fn render(p: &Props) -> Option<Html> {
             <image href={path.clone()} width="1536" height="1024"/>
             {for members.iter().zip(xs).map(|(member,x)| html! {
                 <svg data-seated-traveler={member.persona.clone()} x={x.to_string()} y={top.to_string()}
-                    width={width.to_string()} height={(width as f64 * 470.0 / 512.0).to_string()}
+                    width={width.to_string()} height={(f64::from(width) * 470.0 / 512.0).to_string()}
                     viewBox={cast_art::view_box(cast_art::Pose::Standard)} overflow="hidden">
                     <image href={crate::paths::asset_path(&cast_art::path(&member.persona))} width="2048" height="1024"/>
                 </svg>

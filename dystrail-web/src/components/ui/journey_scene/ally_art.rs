@@ -2,6 +2,7 @@
 use super::SceneStage;
 use yew::prelude::*;
 
+#[must_use]
 pub fn coordinates(unit: &str) -> Option<(u32, char)> {
     match unit {
         "ALLY-01-A" => Some((0, 'a')),
@@ -14,6 +15,7 @@ pub fn coordinates(unit: &str) -> Option<(u32, char)> {
     }
 }
 
+#[must_use]
 pub fn context(stage: &SceneStage) -> Option<(&str, u32, char)> {
     let SceneStage::Encounter(unit) = stage else {
         return None;

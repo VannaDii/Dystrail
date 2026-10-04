@@ -1,6 +1,7 @@
 //! Presentation receipts for committed engine activations; no simulation effects.
 use crate::game::{GameState, exec_orders::ExecOrder, journal::PolicyBulletin};
 
+#[must_use]
 pub fn family(order: ExecOrder) -> &'static str {
     match order {
         ExecOrder::Shutdown => "ORDER-SHUTDOWN",
@@ -12,6 +13,7 @@ pub fn family(order: ExecOrder) -> &'static str {
     }
 }
 
+#[must_use]
 pub fn pending(gs: &GameState) -> Option<&PolicyBulletin> {
     gs.continuity
         .visual_content
@@ -89,8 +91,10 @@ mod tests {
     use super::*;
     #[test]
     fn capture_and_acknowledge_preserve_simulation_and_survive_reload() {
-        let mut before = GameState::default();
-        before.seed = u64::MAX;
+        let mut before = GameState {
+            seed: u64::MAX,
+            ..GameState::default()
+        };
         before.continuity.visual_content.edition = 1;
         let mut after = before.clone();
         after.current_order = Some(ExecOrder::TariffTsunami);
@@ -151,6 +155,7 @@ mod tests {
     }
 }
 
+#[must_use]
 pub fn is_pending(app: &super::state::AppState) -> bool {
     app.session
         .as_ref()
@@ -185,7 +190,11 @@ fn current_activation(gs: &GameState, notice: &PolicyBulletin) -> bool {
 
 pub fn render(app: &super::state::AppState) -> yew::Html {
     use yew::prelude::*;
-    let Some(gs) = app.session.as_ref().map(|s| s.state()) else {
+    let Some(gs) = app
+        .session
+        .as_ref()
+        .map(dystrail_game::JourneySession::state)
+    else {
         return Html::default();
     };
     let Some(notice) = pending(gs).cloned() else {
@@ -297,7 +306,7 @@ fn bulletin(p: &BulletinProps) -> yew::Html {
     };
     let atlas = format!("policy-bulletins-{variant}");
     let x = (cell % 2) * 768 + 4;
-    let y = (cell / 2) as f64 * (1024.0 / 3.0) + 4.0;
+    let y = f64::from(u32::try_from(cell / 2).unwrap_or_default()) * (1024.0 / 3.0) + 4.0;
     let title = i18n::t(&format!("visual_copy.{unit}.title"));
     let clock = format!(
         "{:02}:{:02}",
@@ -321,7 +330,7 @@ fn bulletin(p: &BulletinProps) -> yew::Html {
     html! {<section class="policy-bulletin" data-bulletin={notice.id.clone()} data-unit={unit.clone()} aria-labelledby="bulletin-title">
         <StatsBar part={HudPart::Resources} stats={gs.stats.clone()} receipts={gs.receipts.len()} day={gs.day} region={gs.region}/>
         <StatsBar part={HudPart::Conditions} stats={gs.stats.clone()} receipts={gs.receipts.len()} day={gs.day} region={gs.region}
-            clock_hour={(gs.continuity.clock_minutes/60) as u8} clock_minute={(gs.continuity.clock_minutes%60) as u8}
+            clock_hour={u8::try_from(gs.continuity.clock_minutes/60).unwrap_or(8)} clock_minute={u8::try_from(gs.continuity.clock_minutes%60).unwrap_or_default()}
             trip_resources={crate::components::ui::leg_summary::render_hud_resources(gs)} pace={Some(gs.pace)} diet={Some(gs.diet)} persona_id={gs.persona_id.clone()}
             exec_order={gs.current_order} policy_readout={gs.current_order.map(|o|stats_bar::policy::readout(gs,o))}
             weather={Some(super::phase::build_weather_badge(gs,&cfg))} weather_readout={Some(stats_bar::weather::readout(gs,&cfg))}

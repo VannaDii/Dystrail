@@ -45,6 +45,7 @@ impl TownFact {
             .cloned()
             .unwrap_or_else(|| i18n::t("journey.local_word"))
     }
+    #[must_use]
     pub fn setup(&self) -> String {
         self.setup
             .get(&i18n::current_lang())
@@ -52,6 +53,7 @@ impl TownFact {
             .cloned()
             .unwrap_or_default()
     }
+    #[must_use]
     pub fn message(&self) -> String {
         self.text
             .get(&i18n::current_lang())

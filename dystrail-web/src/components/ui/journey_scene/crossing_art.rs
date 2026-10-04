@@ -3,6 +3,7 @@
 use super::{Props, Region, SceneStage, reviewed_road};
 use yew::prelude::*;
 
+#[must_use]
 pub fn supported(unit: &str) -> bool {
     matches!(
         unit,

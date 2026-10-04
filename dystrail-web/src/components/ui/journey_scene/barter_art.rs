@@ -27,6 +27,7 @@ fn context(stage: &SceneStage) -> Option<(&str, &str, u32, u32)> {
     ))
 }
 
+#[must_use]
 pub fn aspect(stage: &SceneStage) -> Option<String> {
     context(stage).map(|(_, _, _, height)| format!("760 / {height}"))
 }

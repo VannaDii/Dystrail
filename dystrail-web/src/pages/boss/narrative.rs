@@ -64,8 +64,10 @@ mod tests {
     fn mode_and_saved_variant_control_copy_without_mutation() {
         for mode in [crate::game::GameMode::Classic, crate::game::GameMode::Deep] {
             for suffix in ["A", "B", "C"] {
-                let mut state = GameState::default();
-                state.mode = mode;
+                let mut state = GameState {
+                    mode,
+                    ..GameState::default()
+                };
                 state.continuity.visual_content.edition = visual_content::EDITION;
                 let family = if mode.is_deep() {
                     "HEARING-D"

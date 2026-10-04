@@ -1,5 +1,6 @@
 //! Narrative receipts for committed crossing telemetry, with no further simulation.
 use super::{Phase, state::AppState};
+use crate::components::ui::journey_scene::{SceneStage, crossing_art};
 use crate::{
     game::{
         GameState,
@@ -54,6 +55,7 @@ pub fn capture(before: &GameState, after: &mut GameState) {
             });
     }
 }
+#[must_use]
 pub fn pending(gs: &GameState) -> Option<&CrossingPresentation> {
     gs.continuity
         .visual_content
@@ -61,6 +63,7 @@ pub fn pending(gs: &GameState) -> Option<&CrossingPresentation> {
         .iter()
         .find(|n| !n.acknowledged && gs.crossing_events.get(n.event_index).is_some())
 }
+#[must_use]
 pub fn is_pending(app: &AppState) -> bool {
     app.session
         .as_ref()
@@ -102,7 +105,11 @@ fn message(gs: &GameState, n: &CrossingPresentation) -> String {
     lines.join(" ")
 }
 pub fn render(app: &AppState) -> Html {
-    let Some(gs) = app.session.as_ref().map(|s| s.state()) else {
+    let Some(gs) = app
+        .session
+        .as_ref()
+        .map(dystrail_game::JourneySession::state)
+    else {
         return Html::default();
     };
     let Some(n) = pending(gs) else {
@@ -133,7 +140,6 @@ pub fn render(app: &AppState) -> Html {
             app.session.set(Some(session));
         })
     };
-    use crate::components::ui::journey_scene::{SceneStage, crossing_art};
     let event = &gs.crossing_events[n.event_index];
     let stage =
         if crossing_art::supported(&n.unit) && event.outcome != CrossingOutcomeTelemetry::Failed {

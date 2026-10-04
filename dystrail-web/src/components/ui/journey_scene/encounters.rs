@@ -2,11 +2,14 @@
 /// Reviewed current variants override the historical runtime event's location.
 pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
     Some(match id {
-        "ENC-C09-A" | "ENC-S01-A" => "enc-rest-area",
+        "ENC-C09-A" | "ENC-S01-A" | "ENC-D03-A" | "ENC-D06-C" | "ENC-D07-A" | "ENC-D09-C"
+        | "ENC-D11-A" => "enc-rest-area",
         "ENC-S03-A" | "ENC-S03-C" | "ENC-S05-B" | "ENC-S14-C" | "ENC-S23-B" => {
             "enc-service-counter"
         }
-        "ENC-S09-B" | "ENC-S15-A" | "ENC-S26-C" | "ENC-S28-C" | "ENC-S30-B" => "enc-community",
+        "ENC-S09-B" | "ENC-S15-A" | "ENC-S26-C" | "ENC-S28-C" | "ENC-S30-B" | "ENC-C15-A"
+        | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" | "ENC-S02-A" | "ENC-S02-C" | "ENC-S15-C"
+        | "ENC-S20-A" | "ENC-S20-C" => "enc-community",
         "ENC-S04-A" | "ENC-S17-C" => "enc-convoy",
         "ENC-D13-B" => "enc-checkpoint",
         "ENC-S27-B" | "ENC-S10-C" => "enc-motel",
@@ -25,9 +28,7 @@ pub(super) fn shared_asset(id: &str) -> Option<&'static str> {
         | "ENC-S22-C" | "ENC-S25-B" | "ENC-S25-C" | "ENC-S27-C" | "ENC-S28-B" | "ENC-S29-B"
         | "ENC-S29-C" | "ENC-S31-A" | "ENC-S31-B" | "ENC-S32-C" => "enc-service-counter",
         "ENC-S01-B" | "ENC-S07-B" | "ENC-S33-C" | "ENC-D13-C" => "enc-service",
-        "ENC-D03-A" | "ENC-D06-C" | "ENC-D07-A" | "ENC-D09-C" | "ENC-D11-A" => "enc-rest-area",
-        "ENC-C15-A" | "ENC-C15-B" | "ENC-C17-A" | "ENC-C17-B" | "ENC-S02-A" | "ENC-S02-C"
-        | "ENC-S15-C" | "ENC-S20-A" | "ENC-S20-C" => "enc-community",
+
         "ENC-C18-A" | "ENC-C18-C" => "enc-civic",
         "ENC-S15-B" | "ENC-S23-C" => "enc-museum",
         _ => return None,
@@ -56,22 +57,20 @@ pub(super) fn shared_aspect(id: &str) -> Option<&'static str> {
         })
 }
 
-pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
+pub(super) fn asset(id: &str, deep: bool) -> Option<&'static str> {
     if let Some(setting) = shared_asset(id) {
         return Some(setting);
     }
     Some(match id {
         // The rejected lander illustration stays excluded pending user review.
-        "ENC-C04-A" => "enc-rest-area",
-        "ENC-C02-A" | "ENC-C07-C" => "enc-community",
-        "ENC-C08-A" => "enc-rest-area",
-        "west_grant_translation"
-        | "classic_media_training"
-        | "classic_press_briefing"
-        | "deep_media_ambush"
-        | "deep_watch_party"
-        | "sat_factcheck_shift" => "enc-media-workshop",
-        "classic_civic_potluck"
+        "ENC-C04-A"
+        | "ENC-C08-A"
+        | "deep_grassroots_signal"
+        | "sat_parking_gulf"
+        | "sat_shower_force" => "enc-rest-area",
+        "ENC-C02-A"
+        | "ENC-C07-C"
+        | "classic_civic_potluck"
         | "classic_mail_drop"
         | "classic_mutual_aid"
         | "classic_water_drive"
@@ -81,6 +80,14 @@ pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
         | "sat_straw_reserve"
         | "sat_grant_groceries"
         | "sat_food_shelf" => "enc-community",
+
+        "west_grant_translation"
+        | "classic_media_training"
+        | "classic_press_briefing"
+        | "deep_media_ambush"
+        | "deep_watch_party"
+        | "sat_factcheck_shift" => "enc-media-workshop",
+
         "classic_bridge_crews" | "sat_bridge_bullets" => "enc-bridge",
         "west_desert_pressure"
         | "classic_service_station"
@@ -108,7 +115,7 @@ pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
         | "deep_rustbelt_convoy"
         | "sat_tariff_forklift" => "enc-convoy",
         "overnight_briefing" => "enc-night-briefing",
-        "deep_grassroots_signal" | "sat_parking_gulf" | "sat_shower_force" => "enc-rest-area",
+
         // Authored locations take precedence over the encounter's historical ID.
         "deep_secure_line" => "enc-motel",
         "classic_press_pool_qna"
@@ -124,7 +131,7 @@ pub(super) fn asset(id: &str, _deep: bool) -> Option<&'static str> {
         "beltway_briefing" | "sat_name_infrastructure" => "enc-service-counter",
         _ => {
             return crate::app::visual_content::runtime_for_unit(id)
-                .and_then(|runtime| asset(runtime, _deep));
+                .and_then(|runtime| asset(runtime, deep));
         }
     })
 }

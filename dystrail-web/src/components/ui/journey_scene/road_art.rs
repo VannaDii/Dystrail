@@ -2,6 +2,7 @@
 use super::SceneStage;
 use yew::prelude::*;
 
+#[must_use]
 pub fn context(stage: &SceneStage) -> Option<(&str, Option<usize>)> {
     let (unit, choice) = match stage {
         SceneStage::Encounter(unit) => (unit.as_str(), None),
@@ -11,6 +12,7 @@ pub fn context(stage: &SceneStage) -> Option<(&str, Option<usize>)> {
     supported(unit).then_some((unit, choice))
 }
 
+#[must_use]
 pub fn supported(unit: &str) -> bool {
     selected_cell(unit).is_some()
         || matches!(
@@ -39,6 +41,7 @@ pub fn supported(unit: &str) -> bool {
         )
 }
 
+#[must_use]
 pub fn is_indoors(unit: &str) -> bool {
     (selected_cell(unit).is_some()
         && !matches!(
@@ -72,6 +75,7 @@ pub fn is_indoors(unit: &str) -> bool {
         )
 }
 
+#[must_use]
 pub fn aftermath(unit: String, choice: usize) -> SceneStage {
     if supported(&unit) {
         SceneStage::EncounterOutcome { unit, choice }
@@ -80,6 +84,7 @@ pub fn aftermath(unit: String, choice: usize) -> SceneStage {
     }
 }
 
+#[must_use]
 pub fn label_description(stage: &SceneStage) -> Option<String> {
     let (unit, _) = context(stage)?;
     if selected_cell(unit).is_some() {
@@ -189,29 +194,7 @@ pub fn render(stage: &SceneStage) -> Option<Html> {
     )
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn only_committed_reviewed_choices_gain_an_outcome_stage() {
-        for unit in ["ENC-C01-A", "ENC-C01-B", "ENC-C01-C"] {
-            for choice in 0..2 {
-                let stage = aftermath(unit.into(), choice);
-                let restored: SceneStage =
-                    serde_json::from_str(&serde_json::to_string(&stage).unwrap()).unwrap();
-                assert_eq!(context(&restored), Some((unit, Some(choice))));
-            }
-            let old: SceneStage =
-                serde_json::from_str(&format!("{{\"Encounter\":\"{unit}\"}}")).unwrap();
-            assert_eq!(context(&old), Some((unit, None)));
-        }
-        assert_eq!(
-            aftermath("unknown".into(), 0),
-            SceneStage::Encounter("unknown".into())
-        );
-    }
-}
-
+#[must_use]
 pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
     let (unit, _) = context(stage)?;
     if selected_cell(unit).is_some() {
@@ -230,9 +213,10 @@ pub fn aspect(stage: &SceneStage) -> Option<&'static str> {
                 "760 / 484"
             }
         }
-        "ENC-C07-A" | "ENC-C07-B" | "ENC-C08-B" => "760 / 504",
-        "ENC-C04-B" | "ENC-C04-C" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A"
-        | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
+        "ENC-C07-A" | "ENC-C07-B" | "ENC-C08-B" | "ENC-C04-B" | "ENC-C04-C" | "ENC-C03-A"
+        | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B" | "ENC-C05-C" | "ENC-C06-A"
+        | "ENC-C06-B" | "ENC-C06-C" => "760 / 504",
+
         _ => "760 / 360",
     })
 }
@@ -436,4 +420,27 @@ fn render_selected(unit: &str, sheet: &'static str, cell: u8) -> Html {
             </foreignObject>
         })}
     </svg>}
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn only_committed_reviewed_choices_gain_an_outcome_stage() {
+        for unit in ["ENC-C01-A", "ENC-C01-B", "ENC-C01-C"] {
+            for choice in 0..2 {
+                let stage = aftermath(unit.into(), choice);
+                let restored: SceneStage =
+                    serde_json::from_str(&serde_json::to_string(&stage).unwrap()).unwrap();
+                assert_eq!(context(&restored), Some((unit, Some(choice))));
+            }
+            let old: SceneStage =
+                serde_json::from_str(&format!("{{\"Encounter\":\"{unit}\"}}")).unwrap();
+            assert_eq!(context(&old), Some((unit, None)));
+        }
+        assert_eq!(
+            aftermath("unknown".into(), 0),
+            SceneStage::Encounter("unknown".into())
+        );
+    }
 }

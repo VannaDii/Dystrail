@@ -34,18 +34,17 @@ pub fn companion(region: Region, seed: u64, day: u32) -> &'static str {
 
 fn illustration(id: &str) -> &'static str {
     match id {
-        "clean_air" => "masks-v1",
-        "public_land" => "distance-v1",
+        "clean_air" | "transparency" => "masks-v1",
+        "public_land" | "access" => "distance-v1",
         "energy" => "battery-v1",
         "weather" => "ponchos-v1",
         "water" => "water-v1",
-        "wellness" => "rations-v1",
+        "wellness" | "farm" => "rations-v1",
         "tariffs" => "cash-v1",
-        "farm" => "rations-v1",
+
         "jobs" => "coats-v1",
         "repair" => "alternator-v1",
-        "access" => "distance-v1",
-        "transparency" => "masks-v1",
+
         _ => "rations-v1",
     }
 }

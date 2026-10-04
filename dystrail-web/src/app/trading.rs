@@ -39,13 +39,13 @@ fn completed_scene(gs: &crate::game::GameState) -> SceneStage {
     }
     for family in ["ACT-BARTERTIRE", "ACT-BARTERBATTERY", "ACT-BARTERSUPPLIES"] {
         let key = format!("{family}/town/{stop}");
-        if gs.continuity.visual_content.outcomes.get(&key) == Some(&0) {
-            if let Some(unit) = gs.continuity.visual_content.selections.get(&key) {
-                return SceneStage::EncounterOutcome {
-                    unit: unit.clone(),
-                    choice: 0,
-                };
-            }
+        if gs.continuity.visual_content.outcomes.get(&key) == Some(&0)
+            && let Some(unit) = gs.continuity.visual_content.selections.get(&key)
+        {
+            return SceneStage::EncounterOutcome {
+                unit: unit.clone(),
+                choice: 0,
+            };
         }
     }
     SceneStage::Town

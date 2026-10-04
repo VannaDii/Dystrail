@@ -2,6 +2,7 @@
 use super::{Props, SceneStage};
 use yew::prelude::*;
 
+#[must_use]
 pub fn context(stage: &SceneStage) -> Option<(&str, u8, &str)> {
     let SceneStage::CareIncident { unit, .. } = stage else {
         return None;
@@ -19,6 +20,7 @@ pub fn context(stage: &SceneStage) -> Option<(&str, u8, &str)> {
     Some((unit, cell, variant))
 }
 
+#[must_use]
 pub fn indoors(stage: &SceneStage) -> Option<bool> {
     context(stage).map(|(_, cell, _)| cell == 2)
 }

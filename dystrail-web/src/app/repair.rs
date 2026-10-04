@@ -1,9 +1,12 @@
 //! Explicit breakdown choices, including the cashless route through local contacts.
 use super::{aftermath::Aftermath, state::AppState};
 use crate::components::ui::action_button::ActionButton;
+use crate::components::ui::choice_effects::qualitative_stat;
 use crate::{game::repairs::RepairChoice, i18n};
 use yew::prelude::*;
 
+/// # Panics
+/// Panics if a breakdown has no corresponding repair unit.
 pub fn render(app: &AppState) -> Html {
     let Some(gs) = app.session.as_ref().map(crate::game::JourneySession::state) else {
         return Html::default();
@@ -22,7 +25,6 @@ pub fn render(app: &AppState) -> Html {
         <p>{i18n::tr("trail.repair_context",Some(&std::collections::BTreeMap::from([("town",town)])))}</p>
         <div class="action-grid">{for RepairChoice::ALL.into_iter().map(|choice|{
             let label=i18n::tr(choice.key(),Some(&std::collections::BTreeMap::from([("part",part.as_str()),("cost",i18n::fmt_currency(gs.replacement_cost(b.part)).as_str())])));
-            use crate::components::ui::choice_effects::qualitative_stat;
             let vehicle=qualitative_stat("play.vehicle","gain");
             let detail=match choice {
                 RepairChoice::Onboard=>format!("{vehicle} · {}",i18n::t("trail.one_hour")),

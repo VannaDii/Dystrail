@@ -1,6 +1,8 @@
 //! The historical hook remains available offline; the linked source is optional reading.
 use yew::prelude::*;
 
+/// # Panics
+/// Panics if the bundled road source references are invalid.
 pub fn encounter(id: &str) -> Html {
     let references = serde_json::from_str::<std::collections::BTreeMap<String, Vec<String>>>(
         include_str!("../../../static/assets/data/road-source-references.json"),

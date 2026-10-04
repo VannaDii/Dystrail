@@ -91,7 +91,7 @@ pub const fn road_asset(region: Region, day: u32) -> &'static str {
         Region::Southwest => "open-southwest-desert",
         Region::Heartland => "open-heartland-orchard",
         Region::RustBelt => "open-rustbelt-lakeside",
-        Region::Beltway if day % 2 == 0 => "open-beltway-suburbs",
+        Region::Beltway if day.is_multiple_of(2) => "open-beltway-suburbs",
         Region::Beltway => "open-beltway-parkway",
     }
 }

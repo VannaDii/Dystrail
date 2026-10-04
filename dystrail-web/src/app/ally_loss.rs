@@ -96,6 +96,8 @@ fn notice_scene(gs: &GameState) -> crate::components::ui::journey_scene::SceneSt
 }
 
 /// Preserved explanations are independent of whether a vignette has dedicated art.
+/// # Panics
+/// Panics if the bundled source notes are invalid or omit English.
 pub fn source_help(gs: &GameState) -> Html {
     let key = format!("ALLY-{:02}/departure/{}", gs.day % 6 + 1, gs.day);
     let Some(unit) = gs.continuity.visual_content.selections.get(&key) else {
@@ -109,14 +111,14 @@ pub fn source_help(gs: &GameState) -> Html {
     let Some(translations) = notes.get(unit) else {
         return Html::default();
     };
-    let (lang, note) = translations
+    let (source_language, source_text) = translations
         .get(&language)
         .map(|note| (language.as_str(), note))
         .or_else(|| translations.get("en").map(|note| ("en", note)))
         .expect("English source note");
     html! {<crate::components::ui::context_help::ContextHelp informational=true icon={"ⓘ".to_owned()} title={i18n::t("trail.behind_joke")}>
         <div class="source-explanation" data-ally-source={unit.clone()}>
-            <p lang={lang.to_owned()} dir="auto">{note}</p>
+            <p lang={source_language.to_owned()} dir="auto">{source_text}</p>
             <p class="source-note">{i18n::t("trail.satire_note")}</p>
         </div>
     </crate::components::ui::context_help::ContextHelp>}
@@ -137,8 +139,10 @@ mod tests {
             for day in 1..=6 {
                 for suffix in ["A", "B", "C"] {
                     for remaining in [0, 1] {
-                        let mut before = GameState::default();
-                        before.day = day;
+                        let mut before = GameState {
+                            day,
+                            ..GameState::default()
+                        };
                         before.stats.allies = remaining + 1;
                         before.party.initialize("journalist", 42);
                         before.continuity.visual_content.edition =
