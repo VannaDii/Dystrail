@@ -6,7 +6,7 @@ The game provides an optional **Credits & Support** modal from the title/setup s
 
 The modal identifies Vanna DiCatania as the creator, links to the project's contributor history, and acknowledges that the artwork includes AI-generated illustrations. The current game has no audio playback or bundled music requiring audio credits. Update the acknowledgments if that changes.
 
-The source package declares MIT licensing. Geographic data has separate terms: boundaries come from the U.S. Census Bureau, and routes derive from OpenStreetMap under ODbL. The modal preserves those distinctions; the existing map-scene attribution remains in place. See [geographic input provenance](../ux/map-sources/README.md).
+The source package declares MIT licensing. Geographic data has separate terms: boundaries come from the U.S. Census Bureau, and routes derive from OpenStreetMap under ODbL. The modal preserves those distinctions; the existing map-scene attribution remains in place. See [geographic input provenance](https://github.com/VannaDii/Dystrail/blob/release/complete-game-source-credits-2026-10-04/docs/ux/map-sources/README.md).
 
 Atkinson Hyperlegible Next, Courier Prime, and Noto Sans Arabic use SIL Open Font License 1.1. The modal links to the full license notices shipped beside the fonts. See [font provenance](https://github.com/VannaDii/Dystrail/tree/release/complete-game-source-credits-2026-10-04/dystrail-web/static/fonts).
 
@@ -35,6 +35,7 @@ The new copy uses the existing translation system. English text is included in a
 ## Local verification — October 4, 2026
 
 - The WebAssembly build and all 105 web-library tests pass, including locale-key parity.
+- Native and WebAssembly lint checks and workspace tests pass.
 - The documentation book builds successfully.
 - Chrome checks cover title, menu, and results entry points; desktop and 390-pixel mobile layout without horizontal overflow; opening the modal while offline; keyboard activation, Escape, Close, backdrop dismissal, and focus restoration; and the new-tab attributes on support and license links.
 - Vanna's coffee URL is connected in the source. Translations remain pending. Payment submission has not been tested.
