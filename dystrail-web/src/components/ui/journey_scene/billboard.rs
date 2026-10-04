@@ -39,7 +39,6 @@ fn illustration(id: &str) -> &'static str {
         "energy" => "battery-v1",
         "weather" => "ponchos-v1",
         "water" => "water-v1",
-        "wellness" | "farm" => "rations-v1",
         "tariffs" => "cash-v1",
 
         "jobs" => "coats-v1",

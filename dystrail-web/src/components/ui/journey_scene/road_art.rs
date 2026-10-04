@@ -101,8 +101,7 @@ pub fn label_description(stage: &SceneStage) -> Option<String> {
     let count = match unit {
         "ENC-C07-B" | "ENC-C08-B" | "ENC-C08-C" | "ENC-C02-B" | "ENC-C02-C" | "ENC-C04-C"
         | "ENC-C01-B" | "ENC-C03-A" | "ENC-C03-B" | "ENC-C03-C" | "ENC-C05-A" | "ENC-C05-B"
-        | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" => 1,
-        "ENC-C11-A" => 1,
+        | "ENC-C05-C" | "ENC-C06-A" | "ENC-C06-C" | "ENC-C11-A" => 1,
         "ENC-C01-C" => 2,
         _ => return None,
     };

@@ -545,7 +545,7 @@ mod tests {
         ] {
             let mut variants = std::collections::BTreeSet::new();
             for seed in 0..32 {
-                let state = super::GameState {
+                let mut state = super::GameState {
                     seed,
                     persona_id: Some(persona.into()),
                     ..super::GameState::default()
